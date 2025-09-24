@@ -7,7 +7,7 @@ _Security profile_ is the main {{ sws-name }} component. A security profile cons
 You can create security profiles in different ways:
   * _{{ ui-key.yacloud.smart-web-security.title_default-template }}_. A preset profile includes:
     * [Basic default rule](rules.md#base-rules), enabled for all traffic.
-    * [Smart Protection rule](rules.md#smart-protection-rules) enabled for all traffic with the _{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}_ action type.
+    * [Smart protection rule](rules.md#smart-protection-rules) enabled for all traffic with the _{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}_ action type.
   * _{{ ui-key.yacloud.smart-web-security.title_no-template }}_. This profile includes only the basic default rule enabled for all traffic.
 
 {% include [setting-by-expert](../../_includes/smartwebsecurity/setting-by-expert.md) %}
@@ -34,4 +34,5 @@ The diagram below illustrates the relationship between {{ sws-name }} profiles a
 #### See also {#see-also}
 
 * [Managing security profiles](../operations/index.md#profiles)
+* [{#T}](../tutorials/sws-basic-protection.md)
 * [Setting up an Ingress controller and test applications](../../managed-kubernetes/tutorials/alb-ingress-controller.md#create-ingress-and-apps)

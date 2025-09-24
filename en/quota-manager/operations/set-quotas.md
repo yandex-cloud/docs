@@ -4,6 +4,8 @@ title: How to change quotas
 
 # Changing quotas
 
+{% include [preview-quota](../../_includes/quota-manager/preview-quota.md) %}
+
 Potentially, you can change your quotas ​​up to the limit values, i.e., the cloud platform's ceiling.
 
 {% include [request-quota-restriction](../../_includes/quota-manager/request-quota-restriction.md) %}

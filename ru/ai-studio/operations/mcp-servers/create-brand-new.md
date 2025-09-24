@@ -57,15 +57,11 @@ description: Следуя данной инструкции, вы научите
                 * В секции **Query-параметры** задайте имена и значения параметров, которые будут передаваться в запросе.
                 * В секции **Тело запроса** посмотрите пример получившегося запроса и при необходимости скорректируйте его.
 
-                    По умолчанию формируется пустое тело запроса с плоским [JSON](https://ru.wikipedia.org/wiki/JSON)-объектом, состоящим из пар параметров инструмента и их значений. Например:
+                    {% include [empty-request-body](../../../_includes/ai-studio/mcp-hub/empty-request-body.md) %}
 
-                    ```json
-                    {
-                      "parameter-a": <значение_parameter-a>,
-                      "parameter-b": <значение_parameter-b>,
-                      "parameter-c": <значение_parameter-c>
-                    }
-                    ```
+                    Параметры поддерживают шаблонизацию — их значения могут генерироваться динамически. Язык шаблонизации — `jq`. Подробнее см. в [документации jq](https://jqlang.github.io/jq/manual/).
+
+                    Например: значение `\(.city)` параметра HTTPS-запроса будет взято из параметра инструмента `city`. Также при помощи конструкции `Bearer \(lockboxPayload("<идентфикатор_секрета>"; "<идентификатор_ключа>"))` или `Bearer \(.token)` для заголовка `Authorization` вы сможете настроить авторизацию с использованием токена, полученного из секрета {{ lockbox-name }} или переданного в параметре инструмента.
 
           - {{ sf-name }}
 
@@ -93,6 +89,8 @@ description: Следуя данной инструкции, вы научите
                 * `Без авторизации` — чтобы не использовать авторизацию, если вы вызываете публичную функцию.
             1. {% include [create-server-console-tool-params](../../../_includes/ai-studio/mcp-hub/create-server-console-tool-params.md) %}
 
+            {% include [empty-request-body](../../../_includes/ai-studio/mcp-hub/empty-request-body.md) %}
+
           - {{ sw-name }}
 
             1. В поле **Имя инструмента** задайте имя для создаваемого инструмента. Требования к имени:
@@ -118,6 +116,8 @@ description: Следуя данной инструкции, вы научите
 
                 * `Без авторизации` — чтобы не использовать авторизацию при запуске рабочего процесса.
             1. {% include [create-server-console-tool-params](../../../_includes/ai-studio/mcp-hub/create-server-console-tool-params.md) %}
+
+            {% include [empty-request-body](../../../_includes/ai-studio/mcp-hub/empty-request-body.md) %}
 
           {% endlist %}
 

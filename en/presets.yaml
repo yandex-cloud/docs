@@ -11067,7 +11067,6 @@ default:
           action_setup-base-rules: Set up a basic rule set
           field_analyze-request-body: 'Analyze request body (maximum size: 8 KB)'
           field_logging: Write logs
-          label_action-edit-settings: Configure basic rule set
           label_analyze-request-body-action-deny: Block request
           label_analyze-request-body-action-ignore: Do not analyze body
           label_anomaly-medium: 'Moderate: 25 and more'
@@ -11077,7 +11076,6 @@ default:
           label_exclusion-rules: Exclusion rules
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
-          label_paranoia-option-2: 2 or lower
           label_profiles: WAF profiles
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions

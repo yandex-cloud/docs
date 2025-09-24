@@ -45,7 +45,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
+    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
 
         * `logging.writer` for a log group.
 
@@ -53,13 +53,21 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
-- {{ yds-name }} data stream {#data-streams}
+- {{ yds-name }} {#data-streams}
 
     1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream) the audit logs will be uploaded to.
 
+        {% note tip %}
+
+        We recommend enabling [autopartitioning](../../data-streams/concepts/glossary.md#autopartitioning) on the target data stream.
+
+        When overloading individual [shards](../../data-streams/concepts/glossary.md#shard) or the entire [stream](../../data-streams/concepts/glossary.md#stream-concepts), some events may get lost. Autopartitioning automatically adds shards as needed and distributes the workloads to avoid losses. If autopartitioning is disabled, remember to manually check and increase the number of shards.
+
+        {% endnote %}
+
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
+    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
 
         * `yds.writer` for a data stream.
 
@@ -289,7 +297,7 @@ The trail will be created and start uploading audit logs to the selected destina
 
 ## Examples {#examples}
 
-### Creating a trail with management and data event filters{#example-control-data-planes}
+### Creating a trail with management and data event filters {#example-control-data-planes}
 
 Create a trail with the following parameters:
 
@@ -380,11 +388,11 @@ Create a trail with the following parameters:
       yc audit-trails trail create --file sample-trail-all-planes.yaml
       ```
 
-  A trail will be created with the specified parameters.
+  This will create a trail with the specified properties.
 
 - {{ TF }} {#tf}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the trail you want to create:
+  1. In the {{ TF }} configuration file, describe the properties of the trail to create:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -445,7 +453,7 @@ Create a trail with the following parameters:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      A trail will be created with the specified parameters. You can check the new trail using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      This will create a trail with the specified properties. You can check the new trail using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc audit-trails trail get sample-trail-all-planes
@@ -459,7 +467,7 @@ Create a trail with the following parameters:
 
   {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. [Get](../../iam/operations/index.md#authentication) an IAM token for [authentication](../api-ref/authentication.md) with the API.
+  1. [Get](../../iam/operations/index.md#authentication) an IAM token for API [authentication](../api-ref/authentication.md).
 
   1. Save the token to a variable and run this command in the terminal:
 

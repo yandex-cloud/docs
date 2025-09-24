@@ -7,8 +7,6 @@ description: В данном разделе вы узнаете, как в мо�
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-{% include [sd-usage-security-disclaimer](../../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
-
 {% include [cspm-use-in-workspaces](../../../_includes/security-deck/cspm-use-in-workspaces.md) %}
 
 [Исключения](../../concepts/cspm.md#exceptions) из [правил](../../concepts/cspm.md#rules) контроля безопасности модуля {{ cspm-name }} позволяют гибко настраивать, когда и для каких объектов нужно игнорировать результаты проверки на соответствие правилам.

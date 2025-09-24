@@ -9,7 +9,7 @@ description: Follow this guide to view quotas for your services.
 
 {{ quota-manager-name }} allows you to manage quotas of your {{ yandex-cloud }} services using different interfaces. Some services, such as {{ speechkit-name }} and {{ video-full-name }}, are not available in {{ quota-manager-name }}.
 
-**Quotas** are limits on the amount of resources you can use in cloud. These are organizational limits that can be changed as needed.
+**Quotas** are limits on the amount of resources you can use in cloud. These are organizational constraints that can be changed as needed.
 
 The key concepts in quota management are:
 
@@ -26,7 +26,7 @@ Potentially, you can increase your quotas up to the _limits_.
 You can use the following interfaces to manage quotas: 
 
 * [Console]({{ link-console-quotas }}) and [API](api-ref/authentication.md): Getting info and submitting a quota update request.
-* [CLI](cli-ref/): Getting quota info. Quota update request functionality due to be added.
+* [CLI](cli-ref/index.md): Getting quota info. Quota update request functionality due to be added.
 
 To manage quotas via the CLI and API, you need the quota ID. For the list of IDs, see [this section](../overview/concepts/quotas-limits.md).
 
@@ -40,11 +40,11 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
   1. In the [management console]({{ link-console-main }}), select the cloud to view quotas for.
   1. Select the **{{ ui-key.yacloud.iam.cloud.switch_quotas }}** tab.
-     
+
      The page will display a list of services used in your cloud.
-  
+
   1. Expand a service section and view the values in the **{{ ui-key.yacloud.iam.cloud.quotas.column_usage }}** column.
-  
+
      * Two numbers mean `quota usage / quota value`. For example, `2 / 20` or `1.203 / 5,120 GB`.
 
      * A single number is a non-adjustable `limit`.
@@ -62,7 +62,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
   1. **See the list of services with quotas.**
-  
+
       ```bash
       yc quota-manager quota-limit list-services --resource-type=<resource_type>
       ```
@@ -81,7 +81,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       In the output, you will get a list of cloud-level services with quotas available.
 
   1. **View the values and usage of all quotas in a service.**
-  
+
       ```bash
       yc quota-manager quota-limit list \
          --service=<service_name> \
@@ -134,82 +134,227 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       * `limit`: Quota value.
       * `usage`: Quota usage.
 
-- API {#api}
+- REST API {#api}
 
   1. **Configure API operations.**
 
-      {% include [quota-api-start](../_includes/quota-manager/quota-api-start.md) %}
-  
-  1. **View the list of services with quotas.**
-  
-      Use the [listServices](api-ref/QuotaLimit/listServices.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource or the [QuotaLimitService/ListServices](api-ref/grpc/QuotaLimit/listServices.md) gRPC API call.
+      1. To check that you can work with quotas via the [REST API](./api-ref/index.md), install [cURL](https://curl.haxx.se).
+      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.viewer` [role](./security/index.md#quota-manager-viewer).
+      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
 
-      To test the REST API method, send this request:
+  1. **View the list of services with quotas.**
+
+      Use the [ListServices](api-ref/QuotaLimit/listServices.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/index.md) resource:
 
       ```bash
-      curl -X GET \
-      --header "Authorization: Bearer <IAM_token>" \
-      "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/services?resourceType=<resourceType>"
+      curl \
+        --request GET \
+        --header "Authorization: Bearer <IAM_token>" \
+        "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/services?resourceType=<resource_type>"
       ```
 
       Where:
 
-      * `<resourceType>`: [Resource type](concepts/index.md#resources-types), `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
+      * `<resource_type>`: [Resource type](concepts/index.md#resources-types), either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 
       **Request example**
 
       ```bash
-      curl -X GET \
-      --header "Authorization: Bearer ${IAM_TOKEN?}" \
-      'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
+      curl \
+        --request GET \
+        --header "Authorization: Bearer ${IAM_TOKEN?}" \
+        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
+      ```
+
+      **Response example**
+
+      ```json
+      {
+        "services": [
+          {
+            "id": "alb",
+            "name": "Application Load Balancer"
+          },
+          {
+            "id": "audit-trails",
+            "name": "Audit Trails"
+          },
+          ...
+          {
+            "id": "ylb",
+            "name": "Network Load Balancer"
+          },
+          {
+            "id": "yq",
+            "name": "Yandex Query"
+          }
+        ]
+      }
       ```
 
   1. **View the values and usage of all quotas in a service.**
-  
-      Use the [list](api-ref/QuotaLimit/list.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource or the [QuotaLimitService/List](api-ref/grpc/QuotaLimit/list.md) gRPC API call.
 
-      To test the REST API method, send this request:
+      Use the [List](api-ref/QuotaLimit/list.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/index.md) resource:
 
       ```bash
-      curl -X GET \
-      --header "Authorization: Bearer <IAM_token>" \
-      "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits?service=<serviceName>&resource.id=<resourceId>&resource.type=<resourceType>"
+      curl \
+        --request GET \
+        --header "Authorization: Bearer <IAM_token>" \
+        "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits?service=<service_ID>&resource.id=<resource_ID>&resource.type=<resource_type>"
       ```
 
       Where:
 
-      * `<resourceId>`: ID of the resource: organization, cloud, or billing account.
-      * `<resourceType>`: Resource type, `resource-manager.cloud` or `organization-manager.organization`.
-      * `<serviceName>`: Service name you obtained at the previous step.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-         
+      * `<service_ID>`: Service ID obtained in the previous step.
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+
       **Request example**
 
       {% include [get-quota-service](../_includes/quota-manager/get-quota-service.md) %}
 
+      **Response example**
+
+      {% include [get-quota-service-response-curl](../_includes/quota-manager/get-quota-service-response-curl.md) %}
+
   1. **View value and usage info for a particular quota.**
   
-      Use the [get](api-ref/QuotaLimit/get.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource or the [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md) gRPC API call.
-
-      To test the REST API method, send this request:
+      Use the [Get](api-ref/QuotaLimit/get.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/index.md) resource:
 
       ```bash
-      curl -X GET \
-      --header "Authorization: Bearer <IAM_token>" \
-      "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/<quotaId>?resource.id=<resourceId>&resource.type=<resourceType>"
+      curl \
+        --request GET \
+        --header "Authorization: Bearer <IAM_token>" \
+        "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/<quota_ID>?resource.id=<resource_ID>&resource.type=<resource_type>"
       ```
 
       Where:
 
-      * `<quotaId>`: Quota ID. You can look up the ID in [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
-      * `<resourceId>`: ID of the resource (organization, cloud, or billing account).
-      * `<resourceType>`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-         
+      * `<quota_ID>`: Quota ID. You can look up the ID in [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+
       **Request example**
 
       {% include [get-quota-info](../_includes/quota-manager/get-quota-info.md) %}
+
+      **Response example**
+
+      {% include [get-quota-info-response-curl](../_includes/quota-manager/get-quota-info-response-curl.md) %}
+
+- gRPC API {#grpc-api}
+
+  1. **Configure API operations.**
+
+      1. To check that you can work with quotas via the [gRPC API](./api-ref/grpc/index.md), install [gRPCurl](https://github.com/fullstorydev/grpcurl).
+      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.viewer` [role](./security/index.md#quota-manager-viewer).
+      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
+
+  1. **View the list of services with quotas.**
+
+      Use the [QuotaLimitService/ListServices](api-ref/grpc/QuotaLimit/listServices.md) gRPC API call:
+
+      ```bash
+      grpcurl \
+        -H "Authorization: Bearer <IAM_token>" \
+        -d "{\"resource_type\": \"<resource_type>\"}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
+      ```
+
+      Where:
+
+      * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
+      * `<resource_type>`: [Resource type](concepts/index.md#resources-types), either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+
+      **Request example**
+
+      ```bash
+      grpcurl \
+        -H "Authorization: Bearer ${IAM_TOKEN?}" \
+        -d "{\"resource_type\": \"resource-manager.cloud\"}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
+      ```
+
+      **Response example**
+
+      ```json
+      {
+        "services": [
+          {
+            "id": "alb",
+            "name": "Application Load Balancer"
+          },
+          {
+            "id": "audit-trails",
+            "name": "Audit Trails"
+          },
+          ...
+          {
+            "id": "ylb",
+            "name": "Network Load Balancer"
+          },
+          {
+            "id": "yq",
+            "name": "Yandex Query"
+          }
+        ]
+      }
+      ```
+
+  1. **View the values and usage of all quotas in a service.**
+
+      Use the [QuotaLimitService/List](api-ref/grpc/QuotaLimit/list.md) gRPC API call:
+
+      ```bash
+      grpcurl \
+        -H "Authorization: Bearer <IAM_token>" \
+        -d "{ \"resource\": { \"id\": \"<resource_ID>\", \"type\": \"<resource_type>\" }, \"service\": \"<service_ID>\"}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
+      ```
+
+      Where:
+
+      * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+      * `<service_ID>`: Service ID obtained in the previous step.
+
+      **Request example**
+
+      {% include [get-quota-service-grpc](../_includes/quota-manager/get-quota-service-grpc.md) %}
+
+      **Response example**
+
+      {% include [get-quota-service-response-grpc](../_includes/quota-manager/get-quota-service-response-grpc.md) %}
+
+  1. **View value and usage info for a particular quota.**
+
+      Use the [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md) gRPC API call:
+
+      ```bash
+      grpcurl \
+        -H "Authorization: Bearer <IAM_token>" \
+        -d "{ \"resource\": { \"id\": \"<resource_ID>\", \"type\": \"<resource_type>\" }, \"quota_id\": \"<quota_ID>\"}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
+      ```
+
+      Where:
+
+      * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+      * `<quota_ID>`: Quota ID. You can look up the ID in [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+
+      **Request example**
+
+      {% include [get-quota-info-grpc](../_includes/quota-manager/get-quota-info-grpc.md) %}
+
+      **Response example**
+
+      {% include [get-quota-info-response-grpc](../_includes/quota-manager/get-quota-info-response-grpc.md) %}
 
 {% endlist %}
 
@@ -227,141 +372,172 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
 - REST API {#api}
 
+  1. **Configure API operations.**
+
+      1. To check that you can work with quotas via the [REST API](./api-ref/index.md), install [cURL](https://curl.haxx.se).
+      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.requestOperator` [role](./security/index.md#quota-manager-requestoperator).
+      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
+
   1. **Create a quota update request.**
 
-      [View the quota ID](../overview/concepts/quotas-limits.md#quotas-limits-default) and use the [Create](api-ref/QuotaRequest/create.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource:
+      [View the quota ID](../overview/concepts/quotas-limits.md#quotas-limits-default) and use the [Create](api-ref/QuotaRequest/create.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/index.md) resource:
 
       ```bash
-      curl -X POST \
-      --header "Authorization: Bearer <IAM_token>" \
-      --data '{"resource": {"id": "<resourceId>", "type": "<resourceType>"}, "desired_quota_limits": [{"quota_id": "<quotaId>", "desired_limit": "<new_quota_value>"}]}' \
-      'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests'
+      curl \
+        --request POST \
+        --header "Authorization: Bearer <IAM_token>" \
+        --data '{"resource": {"id": "<resource_ID>", "type": "<resource_type>"}, "desired_quota_limits": [{"quota_id": "<quota_ID>", "desired_limit": "<new_quota_value>"}]}' \
+        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests'
       ```
 
       Where:
 
-      * `<quotaId>`: ID of the quota to update.
-      * `<resourceId>`: ID of the resource (organization, cloud, or billing account).
-      * `<resourceType>`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-         
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+      * `<quota_ID>`: ID of the quota to update.
+      * `<new_quota_value>`: New value to assign to the selected quota.
+
       **Request example**
 
       {% include [request-quota-change](../_includes/quota-manager/request-quota-change.md) %}
-   
+
+      **Response example**
+
+      {% include [request-quota-change-response-curl](../_includes/quota-manager/request-quota-change-response-curl.md) %}
+
    1. **View the list of quota update requests.**
 
-      Use the [List](api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource:
+      Use the [List](api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/index.md) resource:
 
       ```bash
-      curl -X GET \
-      --header "Authorization: Bearer <IAM_token>" \
-      "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests?page_size=<page_size>&resource.id=<resourceId>&resource.type=<resourceType>"
+      curl \
+        --request GET \
+        --header "Authorization: Bearer <IAM_token>" \
+        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests?page_size=<page_size>&resource.id=<resource_ID>&resource.type=<resource_type>'
       ```
 
       Where:
 
-      * `<resourceId>`: ID of the resource (organization, cloud, or billing account).
-      * `<resourceType>`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
       * `<page_size>`: Number of items per page.
-         
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+
       **Request example**
 
       {% include [list-quota-requests](../_includes/quota-manager/list-quota-requests.md) %}
 
+      **Response example**
+
+      {% include [list-quota-requests-response-curl](../_includes/quota-manager/list-quota-requests-response-curl.md) %}
+
    1. **View the status of your quota update request.**
 
-      Use the [Get](api-ref/QuotaRequest/get.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource:
+      Use the [Get](api-ref/QuotaRequest/get.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/index.md) resource:
 
       ```bash
-      curl -X GET \
-      --header "Authorization: Bearer <IAM_token>" \
-      "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<requestId>"
+      curl \
+        --request GET \
+        --header "Authorization: Bearer <IAM_token>" \
+        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<request_ID>'
       ```
 
-      Where `<requestId>` is the request ID obtained in the previous step.
+      Where:
+
+      * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
+      * `<request_ID>`: Quota update request ID you got in the previous step.
 
       **Request example**
 
       {% include [list-quota-requests](../_includes/quota-manager/view-request-status.md) %}
 
+      **Response example**
+
+      {% include [view-request-status-response-curl](../_includes/quota-manager/view-request-status-response-curl.md) %}
+
 - gRPC API {#grpc-api}
+
+  1. **Configure API operations.**
+
+      1. To check that you can work with quotas via the [gRPC API](./api-ref/grpc/index.md), install [gRPCurl](https://github.com/fullstorydev/grpcurl).
+      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.requestOperator` [role](./security/index.md#quota-manager-requestoperator).
+      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
 
   1. **Create a quota update request.**
 
-      [View the quota ID](../overview/concepts/quotas-limits.md#quotas-limits-default) and create a request using the [QuotaRequest/create](api-ref/grpc/QuotaRequest/create.md) gRPC API call:
+      [View the quota ID](../overview/concepts/quotas-limits.md#quotas-limits-default) and create a request using the [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md) gRPC API call:
 
       ```bash
       grpcurl \
-      -H "Authorization: Bearer <IAM_token>" \
-      -d '{"resource": {"id": "<resourceId>", "type": "<resourceType>"}, "desired_quota_limits": [{"quota_id": "<quotaId>", "desired_limit": "<new_quota_value>"}]}' \
-      {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
+        -H "Authorization: Bearer <IAM_token>" \
+        -d "{\"resource\": {\"id\": \"<resource_ID>\", \"type\": \"<resource_type>\"}, \"desired_quota_limits\": [{\"quota_id\": \"<quota_ID>\", \"desired_limit\": \"<new_quota_value>\"}]}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
       ```
 
       Where:
 
-      * `<quotaId>`: ID of the quota to update.
-      * `<resourceId>`: ID of the resource (organization, cloud, or billing account).
-      * `<resourceType>`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-         
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+      * `<quota_ID>`: ID of the quota to update.
+      * `<new_quota_value>`: New value to assign to the selected quota.
+
       **Request example**
 
-      ```bash
-      grpcurl \
-      -H "Authorization: Bearer ${IAM_TOKEN?}" \
-      -d '{"resource": {"id": "b1gflhy********", "type": "resource-manager.cloud"}, "desired_quota_limits": [{"quota_id": "iam.accessKeys.count", "desired_limit": "100000"}]}' \
-      {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
-      ```
-   
+      {% include [request-quota-change-grpc](../_includes/quota-manager/request-quota-change-grpc.md) %}
+
+      **Response example**
+
+      {% include [request-quota-change-response-grpc](../_includes/quota-manager/request-quota-change-response-grpc.md) %}
+
   1. **View the list of quota update requests.**
 
-      Use the [QuotaRequest/List](api-ref/grpc/QuotaRequest/list.md) gRPC API call:
+      Use the [QuotaRequestService/List](api-ref/grpc/QuotaRequest/list.md) gRPC API call:
 
       ```bash
-      grpcurl -X GET \
-      -H "Authorization: Bearer <IAM_token>" \
-      -d '{"resource": {"id": "<resourceId>", "type": "<resourceType>"}}'  \
-      {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+      grpcurl \
+        -H "Authorization: Bearer <IAM_token>" \
+        -d "{\"resource\": {\"id\": \"<resource_ID>\", \"type\": \"<resource_type>\"}}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
       ```
 
       Where:
 
-      * `<resourceId>`: ID of the resource (organization, cloud, or billing account).
-      * `<resourceType>`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-      * `<page_size>`: Number of items per page.
-         
+      * `<resource_ID>`: ID of the resource (organization, cloud, or billing account).
+      * `<resource_type>`: Resource type, either `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
+
       **Request example**
 
-      ```bash
-      grpcurl -X GET \
-      -H "Authorization: Bearer ${IAM_TOKEN?}" \
-      -d '{"resource": {"id": "b1gflhy********", "type": "resource-manager.cloud"}}'  \
-      {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
-      ```
+      {% include [list-quota-requests-grpc](../_includes/quota-manager/list-quota-requests-grpc.md) %}
+
+      **Response example**
+
+      {% include [list-quota-requests-response-grpc](../_includes/quota-manager/list-quota-requests-response-grpc.md) %}
 
   1. **View the status of your quota update request.**
 
-      Use the [QuotaRequest/Get](api-ref/grpc/QuotaRequest/get.md) gRPC API call:
+      Use the [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md) gRPC API call:
 
       ```bash
-      grpcurl -X GET \
-      -H "Authorization: Bearer <IAM_token>" \
-      -d '{"quota_request_id":"<requestId>"}' \
-      {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
+      grpcurl \
+        -H "Authorization: Bearer <IAM_token>" \
+        -d "{\"quota_request_id\": \"<request_ID>\"}" \
+        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
       ```
 
-      Where `<requestId>` is the request ID obtained in the previous step.
+      Where:
+
+      * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
+      * `<request_ID>`: Quota update request ID you got in the previous step.
 
       **Request example**
 
-      ```bash
-      grpcurl -X GET \
-      -H "Authorization: Bearer ${IAM_TOKEN?}" \
-      -d '{"quota_request_id":"atd1sftc071****"}' \
-      {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
-      ```
+      {% include [view-request-status-grpc](../_includes/quota-manager/view-request-status-grpc.md) %}
+
+      **Response example**
+
+      {% include [view-request-status-response-grpc](../_includes/quota-manager/view-request-status-response-grpc.md) %}
 
 {% endlist %}

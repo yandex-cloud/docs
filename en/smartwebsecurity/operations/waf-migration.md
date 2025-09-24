@@ -5,7 +5,7 @@ description: Follow this guide to migrate to Web Application Firewall with Yande
 
 # Migrating to WAF with Yandex rule set support
 
-Web Application Firewall analyzes requests to your resources using rule sets. Previously, only one rule set is available: [OWASP Core Ruleset](https://coreruleset.org). Starting September 9, 2025, two new rule sets developed by Yandex will also become available: Yandex Ruleset and ML WAF (Yandex Malicious Score).
+Web Application Firewall analyzes requests to your resources using rule sets. Previously, only one rule set was available: [OWASP Core Ruleset](https://coreruleset.org). Starting September 9, 2025, two new rule sets developed by Yandex are also available: Yandex Ruleset and ML WAF (Yandex Malicious Score).
 
 To support new rule sets, the `coreRuleSet` object in the WAF interfaces will get a mandatory field: `ruleSet`.`type`. The `coreRuleSet` section will be nested into the `ruleSet` section, which sets the `priority` for processing a request by a rule set.
 

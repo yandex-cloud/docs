@@ -1,6 +1,6 @@
 ---
-title: How to get information about a {{ sws-full-name }} WAF profile
-description: Follow this guide to get information about a {{ sws-full-name }} WAF profile.
+title: How to get information about a WAF profile in {{ sws-full-name }}
+description: Follow this guide to get information about a WAF profile in {{ sws-full-name }}.
 ---
 
 # Getting information about a WAF profile
@@ -13,7 +13,10 @@ description: Follow this guide to get information about a {{ sws-full-name }} WA
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Select the profile in question.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details:
+     * Basic profile parameters.
+     * Security profiles the WAF profile is attached to.
+     * Rule sets included in the profile, number of active rules in each set, as well as anomaly threshold and paranoia level for the OWASP set.
 
 - {{ TF }} {#tf}
 
@@ -41,7 +44,7 @@ description: Follow this guide to get information about a {{ sws-full-name }} WA
      * `output "profile-created"`: Output variable that contains information about the WAF profile creation timestamp:
        * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about `yandex_sws_waf_profile` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_waf_profile).
+     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_waf_profile` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_waf_profile).
 
   1. Create the resources:
 

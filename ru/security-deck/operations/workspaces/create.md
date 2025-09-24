@@ -7,8 +7,6 @@ description: Из этой инструкции вы узнаете, как в {
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-{% include [sd-usage-security-disclaimer](../../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
-
 Чтобы создать [окружение](../../concepts/workspace.md) {{ sd-name }}:
 
 {% list tabs group=instructions %}

@@ -5,6 +5,12 @@ description: Follow this guide to create an alert.
 
 # Creating an alert
 
+{% note info %}
+
+To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role or higher for the relevant cloud.
+
+{% endnote %}
+
 
 
 1. On the {{ monitoring-short-name }} home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.

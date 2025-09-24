@@ -1,20 +1,20 @@
 ---
 title: Access management in {{ alb-full-name }}
-description: Access management in {{ alb-full-name }}, a service terminating TLS connections and routing requests to backend applications. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
+description: Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for terminating TLS encryption. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ alb-name }}
 
 In this section, you will learn:
-* [What resources support role assignment](#resources).
-* [What roles are available in this service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporing role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -90,7 +90,13 @@ Removing resources from a backend group | `removeBackend` | `alb.editor`
 Adding resources to a target group | `addTargets` | `alb.editor`
 Removing resources from a target group | `removeTargets` | `alb.editor`
 **Resource access management** | |
-[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the required resource
+[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing roles for a resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+
+{% note info %}
+
+While [creating](../quickstart-wizard.md) a load balancer using the wizard, you may face a bucket access error when creating a group of backends. To avoid this, you need the `storage.viewer` role.
+
+{% endnote %}
 
 #### What's next
 

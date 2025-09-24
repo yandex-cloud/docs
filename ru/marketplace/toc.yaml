@@ -24,6 +24,8 @@ items:
             href: operations/license-manager-integration.md
           - name: Создание конфигурации для продукта {{ cloud-apps-name }}
             href: operations/create-configuration.md
+          - name: Заявки на доступ к продуктам
+            href: operations/access-requests.md
       - name: Практические руководства
         items:
           - name: Создание демонстрационного продукта {{ cloud-apps-name }}
@@ -316,16 +318,20 @@ items:
         href: operations/users/quickstart.md
       - name: Пошаговые инструкции
         items:
-          - name: Покупка подписки
-            href: operations/users/buy-subscription.md
-          - name: Привязка подписки
-            href: operations/users/lock-subscription.md
-          - name: Отвязка подписки
-            href: operations/users/unlock-subscription.md
-          - name: Перемещение подписки
-            href: operations/users/move-subscription.md
-          - name: Отключение автопродления
-            href: operations/users/cancel-subscription.md
+          - name: Управление подпиской
+            items:
+              - name: Покупка подписки
+                href: operations/users/buy-subscription.md
+              - name: Привязка подписки
+                href: operations/users/lock-subscription.md
+              - name: Отвязка подписки
+                href: operations/users/unlock-subscription.md
+              - name: Перемещение подписки
+                href: operations/users/move-subscription.md
+              - name: Отключение автопродления
+                href: operations/users/cancel-subscription.md
+          - name: Запрос доступа к продукту
+            href: operations/users/access-requests.md
       - name: Практические руководства
         items:
           - name: Все руководства
