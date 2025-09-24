@@ -1,6 +1,6 @@
 ### Source data cannot be sharded {#cannot-get-delimiters}
 
-The transfer from a {{ MG }} source fails with the following error message:
+The transfer from a {{ MG }}/{{ SD }} source fails with the following error message:
 
 ```text
 ERROR: Unable to Activate

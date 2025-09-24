@@ -198,7 +198,15 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить настройки хостов {{ ZK }} {#update-zk-settings}
 
-После создания хостов {{ ZK }} вы можете изменить только их класс и размер хранилища. Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
+После создания хостов {{ ZK }} вы можете изменить их [класс](../concepts/instance-types.md), размер хранилища и [тип диска](../concepts/storage.md).
+
+{% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
+
+{% note info %}
+
+Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
 
 Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Репликация](../concepts/replication.md#zk).
 
@@ -209,7 +217,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** задайте размер хранилища {{ ZK }}.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** задайте размер хранилища и тип диска для хостов {{ ZK }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -240,13 +248,16 @@ description: Следуя данной инструкции, вы сможете
      +-----------+--------------------------------+-------+----------+
      ```
 
-  1. В команде на изменение кластера передайте новый класса хоста {{ ZK }} и размер хранилища:
+  1. В команде изменения кластера передайте новый класса хоста {{ ZK }}, тип диска и размер хранилища:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
         --zookepeer-resource-preset=<класс_хостов> \
-        --zookeeper-disk-size=<размер_хранилища_ГБ>
+        --zookeeper-disk-size=<размер_хранилища_ГБ> \
+        --zookeeper-disk-type=<тип_диска>
      ```
+
+     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -258,7 +269,7 @@ description: Следуя данной инструкции, вы сможете
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. В блоке с конфигурацией {{ ZK }} укажите новый класс хоста и размер хранилища.
+  1. В блоке с конфигурацией {{ ZK }} укажите новый класс хоста, тип диска и размер хранилища.
 
      Требования к хостам {{ ZK }}:
      * Минимальный класс хоста — `b1.medium`.
@@ -270,7 +281,7 @@ description: Следуя данной инструкции, вы сможете
        zookeeper {
          resources {
            resource_preset_id = "<класс_хостов>"
-           disk_type_id       = "{{ disk-type-example }}"
+           disk_type_id       = "<тип_диска>"
            disk_size          = <размер_хранилища_ГБ>
          }
        }
@@ -309,7 +320,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/ResourcePreset/list.md#responses).
 
-  1. Измените класс хостов и размер хранилища:
+  1. Измените класс хостов, тип диска и размер хранилища:
 
       1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
@@ -322,11 +333,12 @@ description: Следуя данной инструкции, вы сможете
               --header "Content-Type: application/json" \
               --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
               --data '{
-                        "updateMask": "configSpec.zookeeper.resources.resourcePresetId,configSpec.zookeeper.resources.diskSize",
+                        "updateMask": "configSpec.zookeeper.resources.resourcePresetId,configSpec.zookeeper.resources.diskTypeId,configSpec.zookeeper.resources.diskSize",
                         "configSpec": {
                           "zookeeper": {
                             "resources": {
                               "resourcePresetId": "<класс_хостов>",
+                              "diskTypeId": "<тип_диска>",
                               "diskSize": "<размер_хранилища_ГБ>"
                             }
                           }
@@ -340,9 +352,11 @@ description: Следуя данной инструкции, вы сможете
 
               Укажите нужные параметры:
               * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
+              * `configSpec.zookeeper.resources.diskTypeId` — если нужно изменить тип диска для хостов {{ ZK }}.
               * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища {{ ZK }}.
 
           * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md).
+          * `configSpec.zookeeper.resources.diskTypeId` — [тип диска](../concepts/storage.md).
           * `configSpec.zookeeper.resources.diskSize` — размер хранилища в гигабайтах.
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
@@ -374,7 +388,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse).
 
-  1. Измените класс хостов и размер хранилища:
+  1. Измените класс хостов, тип диска и размер хранилища:
 
       1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
@@ -392,6 +406,7 @@ description: Следуя данной инструкции, вы сможете
                     "update_mask": {
                       "paths": [
                         "config_spec.zookeeper.resources.resource_preset_id",
+                        "config_spec.zookeeper.resources.disk_type_id",
                         "config_spec.zookeeper.resources.disk_size"
                       ]
                     },
@@ -399,6 +414,7 @@ description: Следуя данной инструкции, вы сможете
                       "zookeeper": {
                         "resources": {
                           "resource_preset_id": "<класс_хостов>",
+                          "disk_type_id": "<тип_диска>",
                           "disk_size": "<размер_хранилища_ГБ>"
                         }
                       }
@@ -414,9 +430,11 @@ description: Следуя данной инструкции, вы сможете
 
               Укажите нужные параметры:
               * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов {{ ZK }}.
-              * `config_spec.zookeeper.resources.disk_size` — если нужно изменить размер хранилища.
+              * `config_spec.zookeeper.resources.disk_type_id` — если нужно изменить тип диска для хостов {{ ZK }}.
+              * `config_spec.zookeeper.resources.disk_size` — если нужно изменить размер хранилища {{ ZK }}.
 
           * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md).
+          * `config_spec.zookeeper.resources.disk_type_id` — [тип диска](../concepts/storage.md).
           * `config_spec.zookeeper.resources.disk_size` — размер хранилища в гигабайтах.
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.

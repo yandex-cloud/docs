@@ -18,11 +18,11 @@ noIndex: true
 
 ## Scenarios for transferring data from {{ metrika }} {#scenarios}
 
-With {{ data-transfer-name }}, you can transfer data from a [{{ metrika }}]({{ metrika-link }}) tag to a {{ CH }} cluster. Such a transfer ensures the completeness of the data you transfer from {{ metrika }} and allows:
+{{ data-transfer-name }} enables you to transfer metrics from [{{ metrika }}]({{ metrika-link }}) to a {{ CH }} cluster. This approach guarantees the completeness of the data transferred from {{ metrika }} and allows:
 
 * Processing data with {{ CH }} tools.
 * Streaming data from {{ CH }} to other locations.
-* Visualizing data using [{{ datalens-full-name }}]({{ link-datalens-main }}) or other services.
+* Visualizing data with [{{ datalens-full-name }}]({{ link-datalens-main }}) or other services.
 
 See [this tutorial](../../../tutorials/metrika-to-clickhouse.md) on how to transfer {{ metrika }} tag data to a {{ CH }} cluster.
 
@@ -40,7 +40,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}**: Specify the [numbers of the tags](https://yandex.ru/support/metrica/general/tag-id.html) the data will be coming from.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}**: Specify the token required to access the tags. To obtain it, follow [this link](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
-    * Optionally, specify a time interval to export data for. This option is supported for the {{ dt-type-copy-repl }} transfer type. The interval cannot be more than one year. The end date must be at least 7 days later than the start date.
+    * Optionally, specify a time interval to export data for. This option is supported for the {{ dt-type-copy-repl }} transfer type. The end date must be at least 7 days later than the start date.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.title }}**: Select whether information about hits should be transferred.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.columns.title }}**: Select the hit fields to export. In addition to the fields you select, there are certain mandatory fields that are always exported.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}**: Select whether information about sessions (visits) should be transferred.

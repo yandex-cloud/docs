@@ -20,7 +20,7 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 {% endnote %}
 
-## Roles existing in this service {#roles-list}
+## What roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -72,7 +72,7 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 Primitive roles are aggregator roles that define user permissions to access services. In {{ billing-name }}, these roles match the following `billing.accounts.*` roles:
 
-* `auditor`: Same as `billing.accounts.viewer` with some limitations.
+* `auditor`: Same as `billing.accounts.viewer` (with some limitations).
 * `viewer`: Same as `billing.accounts.viewer`.
 * `editor`: Same as `billing.accounts.editor`.
 * `admin`: Same as `billing.accounts.admin`.

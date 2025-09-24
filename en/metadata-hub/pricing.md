@@ -8,13 +8,13 @@ editable: false
 
 {% note info %}
 
-Starting from September 22, 2025, you will be charged for using {{ metastore-full-name }} clusters according to the [pricing policy below](#metastore).
+Starting September 22, 2025, {{ metastore-full-name }} cluster usage will be charged according to the [below pricing policy](#metastore).
 
 {% endnote %}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, {{ metadata-hub-full-name }} is free of charge.
 
-Other {{ yandex-cloud }} resources you use (e.g., managed database or [{{ lockbox-name }}](../lockbox/pricing.md) services) are subject to their own [pricing plans]({{ link-cloud-calculator }}).
+Other {{ yandex-cloud }} resources you may employ while using {{ metadata-hub-full-name }} (such as managed database services or [{{ lockbox-name }}](../lockbox/pricing.md)) are charged based on their [pricing plans]({{ link-cloud-calculator }}).
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -22,17 +22,17 @@ Other {{ yandex-cloud }} resources you use (e.g., managed database or [{{ lockbo
 
 {% include [vat](../_includes/vat.md) %}
 
-## {{ metastore-full-name }} cluster pricing {#metastore}
+## {{ metastore-full-name }} cluster billing {#metastore}
 
 {% note info %}
 
-This pricing policy will take effect starting from September 22, 2025.
+This pricing policy will apply starting September 22, 2025.
 
 {% endnote %}
 
-When using {{ metastore-full-name }} you pay for cluster computing resources. Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
+When using {{ metastore-full-name }}, you pay for the computing resources of your cluster. Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 1.5 hours.
 
-You don't pay for a stopped cluster.
+A `Stopped` cluster is not charged.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

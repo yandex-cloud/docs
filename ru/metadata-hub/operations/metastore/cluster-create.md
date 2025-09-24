@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать сервер.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. На левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. (Опционально) Введите описание кластера.
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
          --description <описание_кластера> \
          --labels <список_меток> \
          --service-account-id <идентификатор_сервисного_аккаунта> \
-         --version <версия> \
+         --version <версия_Apache_Hive™_Metastore> \
          --subnet-ids <идентификаторы_подсетей> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
@@ -97,6 +97,140 @@ description: Следуя данной инструкции, вы сможете
       * `--subnet-ids` — список идентификаторов подсетей.
 
       {% include [CLI cluster parameters description, part 2](../../../_includes/metadata-hub/metastore-cluster-parameters-cli-part-2.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "description": "<описание_кластера>",
+          "labels": { "<список_меток>" },
+          "deletionProtection": <защита_от_удаления>,
+          "version": "<версия_Apache_Hive™_Metastore>",
+          "configSpec": {
+            "resources": {
+            "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
+            }
+          },
+          "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+          "logging": {
+            "enabled": <использование_логирования>,
+            "folderId": "<идентификатор_каталога>",
+            "minLevel": "<уровень_логирования>"
+          },
+          "network": {
+            "subnetIds": [ "<список_идентификаторов_подсетей>" ],
+            "securityGroupIds": [ "<список_идентификаторов_групп_безопасности>" ]
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+            "day": "<день_недели>",
+            "hour": "<час>"
+            }
+          }
+        }
+        ```
+        Где:
+
+        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../../resource-manager/operations/folder/get-id.md).
+
+        {% include [REST cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-rest.md) %}
+
+        * `network` — сетевые настройки:
+          * `subnetIds` — список идентификаторов подсетей.
+          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+
+        * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters' \
+            --data '@body.json'
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "description": "<описание_кластера>",
+          "labels": "{ <список_меток> }",
+          "deletion_protection": <защита_от_удаления>,
+          "version": "<версия_Apache_Hive™_Metastore>",
+          "config_spec": {
+            "resources": {
+              "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
+            }
+          },
+          "service_account_id": "<идентификатор_сервисного_аккаунта>",
+          "logging": {
+            "enabled": <использование_логирования>,
+            "folder_id": "<идентификатор_каталога>",
+            "min_level": "<уровень_логирования>"
+          },
+          "network": {
+            "subnet_ids": [ "<список_идентификаторов_подсетей>" ],
+            "security_group_ids": [ "<список_идентификаторов_групп_безопасности>" ]
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          }
+        }
+        ```
+
+        Где:
+
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../../resource-manager/operations/folder/get-id.md).
+
+        {% include [gRPC cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-grpc.md) %}
+
+        * `network` — сетевые настройки:
+            * `subnet_ids` — список идентификаторов подсетей.
+            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+
+        * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-metastore }}:{{ port-https }} \
+            yandex.cloud.metastore.v1.ClusterService.Create \
+            < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

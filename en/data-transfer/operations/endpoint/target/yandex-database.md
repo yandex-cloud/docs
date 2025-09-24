@@ -84,20 +84,22 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     Here is an example of the configuration file structure (this may include other parameters):
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "ydb-target" {
     name        = "<target_endpoint_name>"
     settings {
         ydb_target {
-          database       = "<target_database_path>"
-          cleanup_policy = "<data_cleanup_policy>"
-          service_account_id = "<service_account_ID>"          
+          database           = "<target_database_path>"
+          cleanup_policy     = "<data_cleanup_policy>"
+          service_account_id = "<service_account_ID>"
         }
       }
     }
     ```
 
-    For more information, see the [{{ TF }}]({{ tf-provider-dt-endpoint }}) provider documentation.
+
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 

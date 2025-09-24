@@ -102,23 +102,27 @@ items:
         href: quickstart/metastore.md
       - name: Step-by-step guides
         items:
-          - name: Creating a {{ metastore-name }} cluster
+          - name: Getting information about clusters
+            href: operations/metastore/cluster-list.md
+          - name: Creating a cluster
             href: operations/metastore/cluster-create.md
+          - name: Updating a cluster
+            href: operations/metastore/cluster-update.md
+          - name: Stopping and starting a cluster
+            href: operations/metastore/cluster-stop.md
           - name: Configuring security groups
             href: operations/metastore/configure-security-group.md
           - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
             href: operations/metastore/data-processing-connect.md
-          - name: Exporting and importing a {{ metastore-name }} cluster
+          - name: Exporting and importing a cluster
             href: operations/metastore/export-and-import.md
           - name: >-
               Connecting to a {{ objstorage-full-name }} bucket with a bucket
               policy
             href: operations/metastore/s3-policy-connect.md
-          - name: >-
-              Transferring logs from {{ metastore-name }} to {{
-              cloud-logging-name }}
+          - name: Transferring logs to {{ cloud-logging-name }}
             href: operations/metastore/logging.md
-          - name: Deleting a {{ metastore-name }} cluster
+          - name: Deleting a cluster
             href: operations/metastore/cluster-delete.md
       - name: Tutorials
         items:
@@ -140,6 +144,34 @@ items:
         href: security/metastore-roles.md
       - name: Troubleshooting
         href: qa/metastore-qa.md
+      - name: CLI reference
+        items:
+          - name: Overview
+            href: cli-ref/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/cluster/index.md
+              - name: create
+                href: cli-ref/cluster/create.md
+              - name: delete
+                href: cli-ref/cluster/delete.md
+              - name: export-data
+                href: cli-ref/cluster/export-data.md
+              - name: get
+                href: cli-ref/cluster/get.md
+              - name: import-data
+                href: cli-ref/cluster/import-data.md
+              - name: list
+                href: cli-ref/cluster/list.md
+              - name: list-operations
+                href: cli-ref/cluster/list-operations.md
+              - name: start
+                href: cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/cluster/stop.md
+              - name: update
+                href: cli-ref/cluster/update.md
       - name: API reference
         items:
           - name: API authentication
@@ -260,6 +292,8 @@ items:
         items:
           - name: Schema registry
             href: concepts/schema-registry.md
+          - name: JSON schema compatibility
+            href: concepts/schema-compatibility.md
           - name: Content models and JSON schema evolution issues
             href: concepts/schema-registry-content-model.md
           - name: Compatibility policies

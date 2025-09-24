@@ -39,6 +39,7 @@ default:
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-mdb-operation: operation.api.cloud.yandex.net
+  api-host-metastore: metastore.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
   api-host-quota-manager: quota-manager.api.cloud.yandex.net
@@ -9662,6 +9663,9 @@ default:
         label-analyze-timeout: Таймаут ANALYZE
         label-start-time: Время старта (UTC)
         label-vacuum-timeout: Таймаут VACUUM
+        LoggingSection:
+          commandCenter_e9fKV: Логи командного центра
+          greenplum_pN6jU: Логи Greenplum
         section_background-activities: Управление фоновыми процессами
         section_cloud-storage: Гибридное хранилище
         section_resource-master: Master

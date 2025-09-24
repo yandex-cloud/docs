@@ -14,3 +14,5 @@ description: На этой странице приведен справочни�
 ```
 
 {% include [mgp-events](../_includes/audit-trails/events/managed-greenplum-events.md) %}
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

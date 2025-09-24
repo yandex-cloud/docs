@@ -48,6 +48,190 @@ GET foo
 
 Если запрос `GET` возвращает значение `nil`, значит, запись для ключа `foo` была перемещена на другой шард. Подключитесь к нему и повторите запрос — он вернет значение `bar`.
 
+### C# {#csharp}
+
+{% include [Install requirements](./connect/csharp/install-requirements.md) %}
+
+{% list tabs group=connection %}
+
+- Подключение без SSL {#without-ssl}
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<пароль>";
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = {
+                            "<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd }}",
+                            ...
+                            "<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd }}"
+                        },
+                        User = USERNAME,
+                        Password = PASSWORD
+                    };
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    // Send SET command
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    // Send GET command
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}', Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Operation failed: {ex.Message}");
+                return 1;
+            }
+            }
+        }    
+    }
+    ```
+
+- Подключение с SSL {#with-ssl}
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using System.Net.Security;
+    using System.Security.Authentication;
+    using System.Security.Cryptography.X509Certificates;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<пароль>";
+            private const string CERT = "/home/<домашняя_директория>/.redis/{{ crt-local-file }}"            
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = {
+                            "<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd-tls }}",
+                            ...
+                            "<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd-tls  }}"
+                        },
+                        User = USERNAME,
+                        Password = PASSWORD,
+                        Ssl = true
+                    };
+                    masterOptions.CertificateValidation += (
+                        object sender,
+                        X509Certificate? certificate,
+                        X509Chain? chain,
+                        SslPolicyErrors sslPolicyErrors) =>
+                    {
+                        if (certificate == null) {
+                            return false;       
+                        }
+                        var ca = new X509Certificate2(CERT);
+                        bool verdict = (certificate.Issuer == ca.Subject);
+                        if (verdict) {
+                            return true;
+                        }
+                        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+                        return false;
+                    }
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    // Send SET command
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    // Send GET command
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}', Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Operation failed: {ex.Message}");
+                return 1;
+            }
+            }
+        }    
+    }
+    ```
+
+{% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Подключение к кластеру](./connect/csharp/after-connect.md) %}
+
 ### Go {#go}
 
 **Перед подключением установите зависимости**:

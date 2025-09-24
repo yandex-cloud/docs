@@ -128,6 +128,16 @@ During operation with parallel copy enabled, {{ data-transfer-name }} maintains 
 
 With parallel copy disabled, a transfer will move data from these {{ GP }} objects: `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With parallel copy enabled, a transfer will only move tables (`TABLE` objects). However, tables with the `DISTRIBUTED REPLICATED` [allocation policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) will not be transferred.
 
+If a {{ GP }}-to-{{ GP }} transfer does not use direct reads from segments, the number of threads cannot exceed the minimum number of segments in the participating clusters.
+
+You can check the number of segments in the [management console]({{ link-console-main }}) or by running an SQL query:
+
+```pgsql
+SELECT COUNT(*) FROM gp_segment_configuration WHERE role='p' AND content >= 0;
+```
+
+The number of workers participating in the transfer is limited to a specified number of threads. Each worker transfers tables one by one, with each table only transferred by one worker.
+
 ### Snapshot consistency {#snapshot-consistency}
 
 When you start a transfer with parallel copy off (default), the service interacts only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md) when copying data. The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.

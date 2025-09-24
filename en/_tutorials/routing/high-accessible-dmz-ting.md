@@ -32,14 +32,14 @@ An NGFW is used for cloud network protection and segmentation with a dedicated D
 
 [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions. This scenario uses the Smart-Soft Traffic Inspector Next Generation (TING) solution offering this functionality:
 
-* Next generation firewall: Protects the virtual network from unauthorized access from outside, provides NAT, port forwarding, and packet interception.
+* Next generation firewall: protects the virtual network from unauthorized access from outside, provides NAT, port forwarding, and packet interception.
 * Intrusion detection and prevention system: IDS/IPS recognizes sources of attacks and attacked devices based on specific network traffic signatures and effectively _cleans_ traffic.
 * General purpose TCP/UDP proxy server: Nginx-based proxy server provides load balancing, web server header overriding, TCP and UDP traffic handling.
 * Listed in the Russian Software Register, TING is certified by FSTEC of Russia for compliance with requirements for Safety Class 4 Type B firewalls, Safety Class 4 network-level intrusion detection systems, as well as Trust Level 4 information security requirements.
 
 In this tutorial, Smart-Soft TING uses a basic firewall and NAT rule configuration.
 
-Learn more about what Smart-Soft TING can do in this [User manual](https://ting-docs.smart-soft.ru/).
+Learn more about what Smart-Soft TING can do in [this TING user guide](https://ting-docs.smart-soft.ru/).
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -107,7 +107,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Specify the service account name, e.g., `sa-terraform`.
+   1. Name your service account, e.g., `sa-terraform`.
 
        The naming requirements are as follows:
 
@@ -700,7 +700,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 1. Set a password for the user specified in the `vm_admin_username` variable:
 
    ```bash
-   sudo passwd <user_name>
+   sudo passwd <username>
    ```
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:

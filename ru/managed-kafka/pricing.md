@@ -246,12 +246,13 @@ editable: false
 
 
 
-
 ### Вычислительные ресурсы хостов {{ kraft-name }} {#prices-kraft}
 
 #### Стандартные хосты {#prices-kraft-standard}
 
+
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 **Цены в час**
@@ -281,6 +282,8 @@ editable: false
   {% include [kzt-hosts-kraft-standard-month](../_pricing/managed-kafka/kzt-hosts-kraft-standard-month.md) %}
 
 {% endlist %}
+
+
 
 
 

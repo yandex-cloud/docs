@@ -36,12 +36,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * In our example, we will configure Check Point firewall with basic access control and NAT policies.
 
 Yandex Cloud Marketplace offers PAYG and BYOL licensing for Check Point CloudGuard IaaS. We will use BYOL with a 15-day trial:
-* NGFW VM: Check Point CloudGuard IaaS: Firewall & Threat Prevention BYOL.
-* Management server VM: Check Point CloudGuard IaaS: Security Management BYOL for NGFW management tasks.
+* VM for Check Point CloudGuard IaaS NGFW: Firewall & Threat Prevention BYOL.
+* Management server VM for Check Point CloudGuard IaaS: Security Management BYOL, for NGFW management tasks.
 
 For production deployment, we recommend to use the following options:
-* NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m)
-* Separate license for the Check Point CloudGuard IaaS: Security Management server. Alternatively, you can use your on-premise server.
+* NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
+* Separate license for the Check Point CloudGuard IaaS - Security Management server. Alternatively, you can use your on-premise server.
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -136,7 +136,7 @@ We use the Linux terminal to perform the following steps.
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Specify the service account name, e.g., `sa-terraform`.
+   1. Name your service account, e.g., `sa-terraform`.
 
       The naming requirements are as follows:
 
@@ -388,8 +388,8 @@ We use the Linux terminal to perform the following steps.
    | `public_app_port` | - | DMZ application external TCP port | `number` | `80` |
    | `internal_app_port` | - | DMZ application internal TCP port receiving traffic from NGFW. Internal and external `public_app_port` TCP ports may be the same. | `number` | `8080` |
    | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs or subnets trusted to access the jump VM. It is used in the incoming rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | Jump VM username for SSH connections | `string` | `admin` |
-   | `wg_port` | - | Jump VM WireGuard inbound UDP port | `number` | `51820` |
+   | `jump_vm_admin_username` | - | Jump VM username for SSH connections. | `string` | `admin` |
+   | `wg_port` | - | Jump VM WireGuard inbound UDP port. | `number` | `51820` |
 
    {% endcut %}
 

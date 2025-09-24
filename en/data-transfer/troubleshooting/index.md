@@ -16,6 +16,7 @@ This section describes typical problems that may arise during [transfer](../conc
 * [{{ PG }}](#postgresql)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ yds-full-name }}](#yds)
+* [{{ GP }}](#greenplum)
 * [Who to report your problem to](#support)
 
 ## Problems that arise when working with {{ data-transfer-name }} {#overview}
@@ -261,6 +262,14 @@ Error example:
 
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
 
+
+## {{ GP }} {#greenplum}
+
+{% include [threads_limit](../../_includes/data-transfer/troubles/greenplum/threads_limit.md) %}
+
+{% include [external_table_url_limit](../../_includes/data-transfer/troubles/greenplum/external_table_url_limit.md) %}
+
+{% include [gp_segment_configuration](../../_includes/data-transfer/troubles/greenplum/gp_segment_configuration.md) %}
 
 ## Who to report your problem to {#support}
 

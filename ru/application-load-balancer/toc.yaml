@@ -240,31 +240,31 @@ items:
           - name: Конфигурация ресурсов (англ.)
             items:
               - name: Gateway
-                href: gateway.md
+                href: gwin-ref/gateway.md
               - name: GatewayPolicy
-                href: gatewaypolicy.md
+                href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
-                href: grpcroute.md
+                href: gwin-ref/grpcroute.md
               - name: HTTPRoute
-                href: httproute.md
+                href: gwin-ref/httproute.md
               - name: Ingress
-                href: ingress.md
+                href: gwin-ref/ingress.md
               - name: IngressBackendGroup
-                href: ingressbackendgroup.md
+                href: gwin-ref/ingressbackendgroup.md
               - name: IngressPolicy
-                href: ingresspolicy.md
+                href: gwin-ref/ingresspolicy.md
               - name: RoutePolicy
-                href: routepolicy.md
+                href: gwin-ref/routepolicy.md
               - name: Service
-                href: service.md
+                href: gwin-ref/service.md
               - name: ServicePolicy
-                href: servicepolicy.md
+                href: gwin-ref/servicepolicy.md
               - name: TLSRoute
-                href: tlsroute.md
+                href: gwin-ref/tlsroute.md
               - name: YCCertificate
-                href: yccertificate.md
+                href: gwin-ref/yccertificate.md
               - name: YCStorageBucket
-                href: ycstoragebucket.md
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress-контроллер
         items:
           - name: Обзор
