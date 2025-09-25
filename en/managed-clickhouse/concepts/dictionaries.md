@@ -24,7 +24,7 @@ If you are not satisfied with the built-in geobase, you can add [your own geobas
 
 ## External dictionaries {#external-dicts}
 
-For external dictionaries, you can use HTTP(s) resources and other DBMS's, such as {{ MY }}, {{ CH }}, {{ MG }}, and {{ PG }}, as data sources.
+For external dictionaries, you can use HTTP(s) resources and other DBMS's, such as {{ MY }}, {{ CH }}, {{ SD }}, and {{ PG }}, as data sources.
 
 Depending on the dictionary settings, {{ CH }} fully or partially stores dictionaries in RAM, updates them on a regular basis, and dynamically loads the missing values.
 

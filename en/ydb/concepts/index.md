@@ -11,6 +11,7 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 * [{#T}](resources.md).
 * [{#T}](serverless-and-dedicated.md).
+* [{#T}](autoscaling.md).
 * [{#T}](dynamodb-tables.md).
 * [{#T}](limits.md).
 
@@ -36,4 +37,4 @@ To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
 ## Service Level Agreement {#sla}
 
-The service is subject to a [service level agreement](https://yandex.com/legal/cloud_sla). The service level is set out in the document titled [Yandex {{ ydb-name }} Service Level](https://yandex.com/legal/cloud_sla_ydb).
+This service is subject to a [service level agreement](https://yandex.com/legal/cloud_sla). The service level is set out in the document titled [Yandex {{ ydb-name }} Service Level](https://yandex.com/legal/cloud_sla_ydb).

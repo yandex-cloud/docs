@@ -53,6 +53,8 @@ Domain for working with batch tasks
 
 **chat**\: *[BaseChat](#yandex_cloud_ml_sdk._chat.BaseChat)*{#yandex_cloud_ml_sdk._sdk.BaseSDK.chat}
 
+Domain for working with [Yandex Cloud OpenAI Compatible API\_BaseSDK\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility).
+
 **setup\_default\_logging**(*log\_level='INFO'*, *log\_format='[%(levelname)1.1s %(asctime)s %(name)s:%(lineno)d] %(message)s'*, *date\_format='%Y-%m-%d %H:%M:%S'*){#yandex_cloud_ml_sdk._sdk.BaseSDK.setup_default_logging}
 
 Sets up the default logging configuration.
@@ -111,6 +113,38 @@ Creates SearchIndexTool (not to be confused with [**SearchIndex**](../sync/searc
 - **rephraser** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[True] \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.model.Rephraser \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – setting for rephrasing user queries; refer to [**Rephraser**](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser) documentation for details.
 - **call\_strategy** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['always'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.call\_strategy.CallStrategy \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
 || Return type | [*SearchIndexTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool) ||
+|#
+
+**generative\_search**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *description*, *site=Undefined*, *host=Undefined*, *url=Undefined*, *enable\_nrfm\_docs=Undefined*, *search\_filters=Undefined*){#yandex_cloud_ml_sdk._tools.domain.BaseTools.generative_search}
+
+Creates GeberativeSearch tool which provide access to generative search by [Search API](https://yandex.cloud/docs/search-api) for LLMs.
+
+Not to be confused with **sdk.search\_api.generative**. Tools domain is for creating tools for using in LLMs/Assistants and search\_api domain is for using Search API directly.
+
+To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://yandex.cloud/docs/search-api/concepts/generative-response#body)
+
+NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
+
+#|
+|| Parameters | 
+
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of sites.
+- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of hosts.
+- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of URLs.
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
+- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – allows to limit search results with additional filters.
+```python
+>>> date_filter = {'date': '<20250101'}
+>>> format_filter = {'format': 'doc'}
+>>> lang_filter = {'lang': 'ru'}
+>>> tool = sdk.tools.generative_search(
+...     search_filters=[date_filter, format_filter, lang_filter],
+...     description="description when model should call a tool"
+... )
+```
+
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_tools.function.**BaseFunctionTools**{#yandex_cloud_ml_sdk._tools.function.BaseFunctionTools}
@@ -219,10 +253,11 @@ Configures the model with specified parameters.
 - **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
 - **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a maximum number of tokens to generate in the response.
 - **reasoning\_mode** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*ReasoningMode*](../types/other.md#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the mode of reasoning to apply during generation, allowing the model to perform internal reasoning before responding. Read more about possible modes in the [reasoning documentation](https://yandex.cloud/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions).
-- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – a format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
+- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – a format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation\_BaseGPTModel\_URL](https://yandex.cloud/docs/ai-studio/concepts/generation/structured-output).
 - **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)*] \|* [*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tools to use for completion. Can be a sequence or a single tool.
 - **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – whether to allow parallel calls to tools during completion. Defaults to **true**.
-- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['none', 'None', 'NONE', 'auto', 'Auto', 'AUTO', 'required', 'Required', 'REQUIRED'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – the strategy for choosing tools. There are several ways to configure **tool\_choice** for query processing: - no tools to call (tool\_choice=``’none’**); - required to call any tool (tool\_choice=**’required’**); - call a specific tool (tool\_choice=``{'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object). ||
+- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['none', 'None', 'NONE', 'auto', 'Auto', 'AUTO', 'required', 'Required', 'REQUIRED'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – the strategy for choosing tools. There are several ways to configure **tool\_choice** for query processing: - no tools to call (**tool\_choice='none'**); - required to call any tool (**tool\_choice='required'**); - call a specific tool (**tool\_choice={'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object). ||
+|| Returns | new model instance with provided configuration. ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -409,9 +444,11 @@ Generative search function for creating search object which provides methods for
 
 Creates generative search object which provides methods for invoking generative search.
 
+Not to be confused with **sdk.tools.generative\_search**. Tools domain is for creating tools for using in LLMs/Assistants and search\_api domain is for using Search API directly.
+
 To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://yandex.cloud/docs/search-api/concepts/generative-response#body)
 
-NB: All of the **site**, **host**, **url** parameters are mutually exclusive and using one of them is mandatory.
+NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
 #|
 || Parameters | 
@@ -463,6 +500,15 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive and
 ```
  ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+**as\_tool**(*description*){#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.as_tool}
+
+Converts generative search instance to [**GenerativeSearchTool**](../types/tools.md#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool) object which is eligible to use as tools in LLMs/Assistants.
+
+#|
+|| Parameters | **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – description of tool instance which also instructs model when to call it. ||
+|| Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.config}
@@ -608,37 +654,56 @@ Get concatenated string of all text parts in the message by joining all string p
 
 ## *class* yandex\_cloud\_ml\_sdk.\_chat.**BaseChat**{#yandex_cloud_ml_sdk._chat.BaseChat}
 
+A class for Chat API domain operations.
+
+This class provides functionality for working with the [Yandex Cloud OpenAI Compatible API\_BaseChat\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility). It serves as the foundation for chat operations.
+
 **completions**\: *[BaseChatCompletions](#yandex_cloud_ml_sdk._chat.completions.function.BaseChatCompletions)*{#yandex_cloud_ml_sdk._chat.BaseChat.completions}
+
+Chat API subdomain for working with text-generation models
 
 ## *class* yandex\_cloud\_ml\_sdk.\_chat.completions.function.**BaseChatCompletions**{#yandex_cloud_ml_sdk._chat.completions.function.BaseChatCompletions}
 
+A class for working with chat completions models.
+
+This class provides the core functionality for creating chat model instances and managing completions. It handles model URI construction and provides methods for listing available models.
+
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_cloud_ml_sdk._chat.completions.function.BaseChatCompletions.__call__i}
 
-Call self as a function.
+Create a chat model instance for generating completions.
+
+Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model>/<version>’.
 
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The name or URI of the model.
+- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_cloud_ml_sdk._types.model.ModelTypeT) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_chat.completions.model.**BaseChatModel**{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel}
 
-**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *temperature=Undefined*, *max\_tokens=Undefined*, *reasoning\_mode=Undefined*, *response\_format=Undefined*, *tools=Undefined*, *parallel\_tool\_calls=Undefined*, *tool\_choice=Undefined*){#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.configure}
+A class for working with chat models providing inference functionality.
+
+This class provides the foundation for chat model implementations, handling configuration, request building, and response processing.
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *temperature=Undefined*, *max\_tokens=Undefined*, *reasoning\_mode=Undefined*, *response\_format=Undefined*, *tools=Undefined*, *parallel\_tool\_calls=Undefined*, *tool\_choice=Undefined*, *extra\_query=Undefined*){#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.configure}
+
+Configure the model with specified parameters.
 
 #|
 || Parameters | 
 
-- **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*)
-- **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*)
-- **reasoning\_mode** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*ChatReasoningMode*](../types/other.md#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*)
-- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined \| None*)
-- **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)*] \|* [*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['none', 'None', 'NONE', 'auto', 'Auto', 'AUTO', 'required', 'Required', 'REQUIRED'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
-|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+- **temperature** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \| None*) – Sampling temperature (0-1). Higher values produce more random results.
+- **max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*] \| None*) – Maximum number of tokens to generate in the response.
+- **reasoning\_mode** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*ChatReasoningModeType*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType)*] \| None*) – Reasoning mode for internal processing before responding.
+- **response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[ResponseType] \| None*) – Format of the response (JsonSchema, JSON string, or pydantic model). See [structured output documentation\_BaseChatModel\_URL](https://yandex.cloud/docs/ai-studio/concepts/generation/structured-output).
+- **tools** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[Sequence[*[*CompletionTool*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._models.completions.config.CompletionTool)*] \|* [*CompletionTool*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._models.completions.config.CompletionTool)*]*) – Tools available for completion. Can be a sequence or single tool.
+- **parallel\_tool\_calls** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*bool*](https://docs.python.org/3/library/functions.html#bool)*]*) – Whether to allow parallel tool calls. Defaults to ‘true’.
+- **tool\_choice** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*ToolChoiceType*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.tools.tool_choice.ToolChoiceType)*]*) – Strategy for tool selection. There are several ways to configure **tool\_choice** for query processing: - no tools to call (**tool\_choice='none'**); - required to call any tool (**tool\_choice='required'**); - call a specific tool (**tool\_choice={'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object).
+- **extra\_query** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*QueryType*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.QueryType)*]*) – Additional experimental model parameters. ||
+|| Return type | Self ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.config}

@@ -1,6 +1,6 @@
 ---
 title: Updating an {{ dataproc-name }} cluster
-description: After creating a {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
+description: After creating an {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
 ---
 
 # Updating an {{ dataproc-name }} cluster
@@ -9,7 +9,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
 
-You can also move a {{ dataproc-name }} cluster to a different availability zone. The process depends on the cluster type:
+You can also move an {{ dataproc-name }} cluster to a different availability zone. This process depends on the cluster type:
 
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md).
 * [Migrating an HDFS cluster to a different availability zone](../tutorials/hdfs-cluster-migration.md).
@@ -18,11 +18,11 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
 - Management console {#console}
 
-    To change {{ dataproc-name }} cluster settings:
+    To change an {{ dataproc-name }} cluster’s settings:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-    1. Change the name and description of the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** and **{{ ui-key.yacloud.mdb.forms.base_field_description }}** fields.
+    1. Change the cluster name and description in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** and **{{ ui-key.yacloud.mdb.forms.base_field_description }}** fields.
     1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field:
     1. Update cluster settings:
 
@@ -46,21 +46,21 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}**: [Bucket](../../storage/concepts/bucket.md) name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
 
-        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Name of the bucket that will be used by the cluster.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Name of the bucket that the cluster will use.
 
-            Depending on the format you selected, either pick a name from the list or specify it manually. You can request the name of the bucket with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
+            Depending on the format you selected, either pick a name from the list or specify it manually. You can request the bucket name with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
 
-        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: [Security groups](../concepts/network.md#security-groups) that will be used by the cluster.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: [Security groups](../concepts/network.md#security-groups) that the cluster will use.
 
             Select one or more security groups. If the required security group is not in the list, [create it](../../vpc/operations/security-group-create.md).
 
             {% note warning %}
 
-            Incorrect security group settings may cause {{ dataproc-full-name }} cluster performance issues. For more information on setting up security groups, see [Connecting to a cluster](./connect.md#configuring-security-groups).
+            Incorrect security group settings may cause performance issues in an {{ dataproc-full-name }} cluster. For more information on setting up security groups, see [this guide](security-groups.md).
 
             {% endnote %}
 
-        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Option that manages access to [component web interfaces](../concepts/interfaces.md) via [UI Proxy](./connect-interfaces.md#ui-proxy).
+        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Option that manages access to [component web interfaces](../concepts/interfaces.md) via [UI Proxy](connect-interfaces.md#ui-proxy).
 
             {% include [ui-proxy-sg-warning](../../_includes/data-processing/ui-proxy-sg-warning.md) %}
 
@@ -74,7 +74,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         This option manages cluster protection against accidental deletion by a user.
 
-        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete the data.
+        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -84,9 +84,9 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change {{ dataproc-name }} cluster settings:
+    To change an {{ dataproc-name }} cluster’s settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command for updating the cluster:
 
         ```bash
         {{ yc-dp }} cluster update --help
@@ -108,7 +108,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
            --deletion-protection
         ```
 
-        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete the data.
+        Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
 
     1. To update [component properties](../concepts/settings-list.md), provide the required properties in the `--property` parameter:
 
@@ -119,21 +119,21 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         {% note warning %}
 
-        Using the `--property` parameter will reset all component properties that were not explicitly provided in the parameter to their defaults. To save the previously updated properties, list them in your request along with the properties you want to update.
+        Using the `--property` parameter will reset all component properties that were not explicitly provided in the parameter to their defaults. To save the properties you updated, list them in your request along with the ones you want to update.
 
         {% endnote %}
 
-    You can get the cluster ID and name with the [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list).
 
 - {{ TF }} {#tf}
 
-    To change {{ dataproc-name }} cluster settings:
+    To change an {{ dataproc-name }} cluster’s settings:
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. To activate cluster deletion protection and access to {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
+    1. To activate cluster deletion protection and access to the [web interfaces](../concepts/interfaces.md) of the {{ dataproc-name }} components, update the values in the appropriate fields of the {{ dataproc-name }} cluster description:
 
         ```hcl
         resource "yandex_dataproc_cluster" "data_cluster" {

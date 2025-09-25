@@ -9,6 +9,9 @@
 `gcore.OriginGroupUpdate` | Изменение группы источников
 `gcore.OriginUpdate` | Измнение источника
 `gcore.ProviderActivate` | Активация провайдера
+`gcore.RawLogsActivate` | Включение выгрузки логов
+`gcore.RawLogsDeactivate` | Отключение выгрузки логов
+`gcore.RawLogsUpdate` | Изменение параметров выгрузки логов
 `gcore.ResourceCreate` | Создание ресурса
 `gcore.ResourceDelete` | Удаление ресурса
 `gcore.ResourceRuleCreate` | Создание правила Rewrite

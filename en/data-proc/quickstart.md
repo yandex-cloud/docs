@@ -1,6 +1,6 @@
 ---
-title: How to get started with {{ dataproc-full-name }}
-description: In this tutorial, you will learn how to set up and configure a {{ dataproc-name }} cluster.
+title: Getting started with {{ dataproc-full-name }}
+description: Follow this guide to set up and configure an {{ dataproc-name }} cluster.
 ---
 
 # Getting started with {{ dataproc-name }}
@@ -14,7 +14,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -22,9 +22,9 @@ To get started:
 
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
-    * [dataproc.editor](security/index.md#dataproc-editor): Required for cluster creation.
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): Required to access the cluster [network](../vpc/concepts/network.md#network).
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): Required to attach a [service account](../iam/concepts/users/service-accounts.md) to the cluster and create resources using its permissions.
+    * [dataproc.editor](security/index.md#dataproc-editor) to create a cluster.
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) to use the cluster [network](../vpc/concepts/network.md#network).
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) to attach a [service account](../iam/concepts/users/service-accounts.md) to the cluster and use it to create resources.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -53,7 +53,7 @@ To create a cluster:
 
 1. In the management console, navigate to the folder where you want to create your cluster, then select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
-1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. When the cluster is ready for operation, its status will change to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
@@ -61,7 +61,7 @@ To create a cluster:
 To connect to your cluster:
 
 
-1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all required traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure them](operations/security-groups.md) to enable all required traffic between the cluster and the connecting host.
 
 
 1. Copy the SSL key you specified during {{ dataproc-name }} cluster creation to the VM.
@@ -92,5 +92,5 @@ The detailed process for connecting to the {{ dataproc-name }} cluster’s compo
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about [creating clusters](operations/cluster-create.md) and [working with jobs](operations/jobs.md).

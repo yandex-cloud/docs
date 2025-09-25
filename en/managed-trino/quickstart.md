@@ -14,7 +14,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -23,8 +23,8 @@ To get started:
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
     * [managed-trino.admin](security.md#managed-trino-admin): To create a cluster.
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): Required to access the cluster [network](../vpc/concepts/network.md#network).
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) to use the cluster [network](../vpc/concepts/network.md#network).
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

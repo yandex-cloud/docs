@@ -31,10 +31,12 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Snapshot schedule labels as `key:value` pairs.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         schedulePolicy:
           description: |-
-            **[SchedulePolicy](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SchedulePolicy)**
+            **[SchedulePolicy](#yandex.cloud.compute.v1.SchedulePolicy)**
             Frequency settings of the snapshot schedule.
           $ref: '#/definitions/SchedulePolicy'
         retentionPeriod:
@@ -58,7 +60,7 @@ apiPlayground:
           format: int64
         snapshotSpec:
           description: |-
-            **[SnapshotSpec](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSpec)**
+            **[SnapshotSpec](#yandex.cloud.compute.v1.SnapshotSpec)**
             Attributes of snapshots created by the snapshot schedule.
           $ref: '#/definitions/SnapshotSpec'
         diskIds:
@@ -105,7 +107,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Snapshot labels as `key:value` pairs.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/create.md
 ---
 

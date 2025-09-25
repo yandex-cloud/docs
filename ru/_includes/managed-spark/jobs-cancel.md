@@ -14,6 +14,31 @@
     1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.cancel }}**.
     1. В открывшемся окне выберите **{{ ui-key.yacloud.spark.jobs.popup-action_label_cancel-msg }}**.
 
+- CLI {#cli}
+    
+    {% include [cli-install](../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    
+    Чтобы отменить задание:
+
+    1. Посмотрите описание команды CLI для отмены задания:
+
+        ```bash
+        yc managed-spark job cancel --help
+        ```
+    
+    1. Отмените задание, выполнив команду:
+
+        ```bash
+        yc managed-spark job cancel <имя_или_идентификатор_задания> \
+          --cluster-id <идентификатор_кластера>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-spark/operations/cluster-list.md#list-clusters).
+
+        Имя и идентификатор задания можно получить со [списком заданий в кластере](#list).
+
 - gRPC API {#grpc-api}
 
     1. [Получите IAM-токен для аутентификации в API](../../managed-spark/api-ref/authentication.md) и поместите токен в переменную среды окружения:

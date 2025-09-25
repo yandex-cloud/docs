@@ -34,7 +34,7 @@ apiPlayground:
           format: field-mask
         anonymousAccessFlags:
           description: |-
-            **[AnonymousAccessFlags](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.AnonymousAccessFlags)**
+            **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
             Flags for configuring public (anonymous) access to the bucket's content and settings.
             For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
           $ref: '#/definitions/AnonymousAccessFlags'
@@ -54,7 +54,7 @@ apiPlayground:
           format: int64
         cors:
           description: |-
-            **[CorsRule](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.CorsRule)**
+            **[CorsRule](#yandex.cloud.storage.v1.CorsRule)**
             List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
             For details, see [documentation](/docs/storage/concepts/cors).
           type: array
@@ -62,7 +62,7 @@ apiPlayground:
             $ref: '#/definitions/CorsRule'
         websiteSettings:
           description: |-
-            **[WebsiteSettings](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings)**
+            **[WebsiteSettings](#yandex.cloud.storage.v1.WebsiteSettings)**
             Configuration for hosting a static website in the bucket.
             For details, see [documentation](/docs/storage/concepts/hosting).
           $ref: '#/definitions/WebsiteSettings'
@@ -93,7 +93,7 @@ apiPlayground:
             - VERSIONING_SUSPENDED
         lifecycleRules:
           description: |-
-            **[LifecycleRule](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule)**
+            **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
             List of object lifecycle rules for the bucket.
             For details, see [documentation](/docs/storage/concepts/lifecycles).
           type: array
@@ -107,13 +107,13 @@ apiPlayground:
           type: object
         acl:
           description: |-
-            **[ACL](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL)**
+            **[ACL](#yandex.cloud.storage.v1.ACL)**
             Access control list (ACL) of the bucket.
             For details, see [documentation](/docs/storage/concepts/acl).
           $ref: '#/definitions/ACL'
         tags:
           description: |-
-            **[Tag](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Tag)**
+            **[Tag](#yandex.cloud.storage.v1.Tag)**
             List of tags for the bucket.
             For details, see [documentation](/docs/resource-manager/concepts/labels).
           type: array
@@ -121,19 +121,19 @@ apiPlayground:
             $ref: '#/definitions/Tag'
         objectLock:
           description: |-
-            **[ObjectLock](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ObjectLock)**
+            **[ObjectLock](#yandex.cloud.storage.v1.ObjectLock)**
             Configuration for object lock on the bucket.
             For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
           $ref: '#/definitions/ObjectLock'
         encryption:
           description: |-
-            **[Encryption](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Encryption)**
+            **[Encryption](#yandex.cloud.storage.v1.Encryption)**
             Configuration for bucket's encryption.
             For details, see [documentation](/docs/storage/concepts/encryption)
           $ref: '#/definitions/Encryption'
         allowedPrivateEndpoints:
           description: |-
-            **[BucketAllowedPrivateEndpoints](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+            **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
             requires permission s3:PutBucketAllowedPrivateEndpoints
           $ref: '#/definitions/BucketAllowedPrivateEndpoints'
       required:
@@ -275,6 +275,7 @@ apiPlayground:
               **string**
               HTTP status code of the redirect response.
               Default value: `"301"`.
+            default: '`"301"`'
             pattern: 3(0[1-9]|[1-9][0-9])
             type: string
           protocol:
@@ -292,26 +293,26 @@ apiPlayground:
           replaceKeyPrefixWith:
             description: |-
               **string**
-              Substitution for the prefix of the object key specified in [Condition.keyPrefixEquals](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Condition).
-              At most one of [replaceKeyPrefixWith](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Redirect) and [replaceKeyWith](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Redirect) can be specified.
+              Substitution for the prefix of the object key specified in [Condition.keyPrefixEquals](#yandex.cloud.storage.v1.WebsiteSettings.Condition).
+              At most one of [replaceKeyPrefixWith](#yandex.cloud.storage.v1.WebsiteSettings.Redirect) and [replaceKeyWith](#yandex.cloud.storage.v1.WebsiteSettings.Redirect) can be specified.
             type: string
           replaceKeyWith:
             description: |-
               **string**
               New object key.
-              At most one of [replaceKeyWith](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Redirect) and [replaceKeyPrefixWith](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Redirect) can be specified.
+              At most one of [replaceKeyWith](#yandex.cloud.storage.v1.WebsiteSettings.Redirect) and [replaceKeyPrefixWith](#yandex.cloud.storage.v1.WebsiteSettings.Redirect) can be specified.
             type: string
       RoutingRule:
         type: object
         properties:
           condition:
             description: |-
-              **[Condition](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Condition)**
+              **[Condition](#yandex.cloud.storage.v1.WebsiteSettings.Condition)**
               Redirect condition.
             $ref: '#/definitions/Condition'
           redirect:
             description: |-
-              **[Redirect](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Redirect)**
+              **[Redirect](#yandex.cloud.storage.v1.WebsiteSettings.Redirect)**
               Redirect instructions.
             $ref: '#/definitions/Redirect'
       WebsiteSettings:
@@ -321,7 +322,7 @@ apiPlayground:
             description: |-
               **string**
               Key of the index page object that is returned when a response is made to the root of the website.
-              Either [index](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings) or [redirectAllRequests](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings) must be specified in order for the bucket to host a static website.
+              Either [index](#yandex.cloud.storage.v1.WebsiteSettings) or [redirectAllRequests](#yandex.cloud.storage.v1.WebsiteSettings) must be specified in order for the bucket to host a static website.
               If specified, the index page object must be located in the root of the bucket.
             type: string
           error:
@@ -331,14 +332,14 @@ apiPlayground:
             type: string
           redirectAllRequests:
             description: |-
-              **[Scheme](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.Scheme)**
+              **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme)**
               Configuration for redirecting all requests sent to the website.
-              Either [redirectAllRequests](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings) or [index](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings) must be specified in order for the bucket to host a static website.
-              If [redirectAllRequests](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings) is specified, it must be the only field in [Bucket.websiteSettings](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket).
+              Either [redirectAllRequests](#yandex.cloud.storage.v1.WebsiteSettings) or [index](#yandex.cloud.storage.v1.WebsiteSettings) must be specified in order for the bucket to host a static website.
+              If [redirectAllRequests](#yandex.cloud.storage.v1.WebsiteSettings) is specified, it must be the only field in [Bucket.websiteSettings](#yandex.cloud.storage.v1.Bucket).
             $ref: '#/definitions/Scheme'
           routingRules:
             description: |-
-              **[RoutingRule](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule)**
+              **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule)**
               List of redirect rules.
             type: array
             items:
@@ -371,7 +372,7 @@ apiPlayground:
             type: string
             format: int64
           tag:
-            description: '**[Tag](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Tag)**'
+            description: '**[Tag](#yandex.cloud.storage.v1.Tag)**'
             type: array
             items:
               $ref: '#/definitions/Tag'
@@ -397,12 +398,12 @@ apiPlayground:
             format: int64
           tag:
             description: |-
-              **[Tag](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Tag)**
+              **[Tag](#yandex.cloud.storage.v1.Tag)**
               Tags that the object's tag set must have for the rule to apply.
             $ref: '#/definitions/Tag'
           andOperator:
             description: |-
-              **[And](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
+              **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
               Apply a logical AND to all of the predicates configured inside the And operator.
             $ref: '#/definitions/And'
       Expiration:
@@ -414,7 +415,7 @@ apiPlayground:
               Specific date of object expiration.
               The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
               immediately.
-              Exactly one of [date](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition), [days](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition), and [expiredObjectDeleteMarker](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Expiration) fields can be specified.
+              Exactly one of [date](#yandex.cloud.storage.v1.LifecycleRule.Transition), [days](#yandex.cloud.storage.v1.LifecycleRule.Transition), and [expiredObjectDeleteMarker](#yandex.cloud.storage.v1.LifecycleRule.Expiration) fields can be specified.
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
               `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
               To work with values in this field, use the APIs described in the
@@ -426,7 +427,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Time period, in number of days from the creation or modification of the object, after which an object expires.
-              Exactly one of [days](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition), [date](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition), and [expiredObjectDeleteMarker](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Expiration) fields can be specified.
+              Exactly one of [days](#yandex.cloud.storage.v1.LifecycleRule.Transition), [date](#yandex.cloud.storage.v1.LifecycleRule.Transition), and [expiredObjectDeleteMarker](#yandex.cloud.storage.v1.LifecycleRule.Expiration) fields can be specified.
             type: string
             format: int64
           expiredObjectDeleteMarker:
@@ -434,7 +435,7 @@ apiPlayground:
               **boolean**
               Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
               delete marker) is removed at the object's expiration.
-              Exactly one of [expiredObjectDeleteMarker](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Expiration), [date](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition), and [days](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
+              Exactly one of [expiredObjectDeleteMarker](#yandex.cloud.storage.v1.LifecycleRule.Expiration), [date](#yandex.cloud.storage.v1.LifecycleRule.Transition), and [days](#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
             type: boolean
       Transition:
         type: object
@@ -445,7 +446,7 @@ apiPlayground:
               Specific date of object transition.
               The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
               transitioned immediately.
-              At most one of [date](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition) and [days](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
+              At most one of [date](#yandex.cloud.storage.v1.LifecycleRule.Transition) and [days](#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
               `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
               To work with values in this field, use the APIs described in the
@@ -458,7 +459,7 @@ apiPlayground:
               **string** (int64)
               Time period, in number of days from the creation or modification of the object, after which an object is
               transitioned.
-              At most one of [days](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition) and [date](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
+              At most one of [days](#yandex.cloud.storage.v1.LifecycleRule.Transition) and [date](#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
             type: string
             format: int64
           storageClass:
@@ -534,62 +535,62 @@ apiPlayground:
             type: boolean
           filter:
             description: |-
-              **[RuleFilter](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
+              **[RuleFilter](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
               Filter that identifies the objects to which the rule applies.
               If not specified, the rule applies to all objects in the bucket.
             $ref: '#/definitions/RuleFilter'
           expiration:
             description: |-
-              **[Expiration](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
+              **[Expiration](#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
               Expiration rule.
               The expiration of an object is described as follows.
-              For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
+              For the unversioned bucket ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
               recovered.
-              For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
+              For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
               object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
               the current version of the object.
-              For the bucket with versioning suspended ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
+              For the bucket with versioning suspended ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
               the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
               delete marker becomes the current version of the object.
             $ref: '#/definitions/Expiration'
           transitions:
             description: |-
-              **[Transition](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.Transition)**
+              **[Transition](#yandex.cloud.storage.v1.LifecycleRule.Transition)**
               List of transition rules.
               The transition of an object is described as follows.
-              For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+              For the unversioned bucket ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
               specified storage class.
-              For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+              For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
               (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
             type: array
             items:
               $ref: '#/definitions/Transition'
           abortIncompleteMultipartUpload:
             description: |-
-              **[AfterDays](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
+              **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
               Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart).
             $ref: '#/definitions/AfterDays'
           noncurrentExpiration:
             description: |-
-              **[NoncurrentExpiration](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
-              Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is
+              **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
+              Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is
               `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
               At expiration, the non-current version of the object is deleted and cannot be recovered.
             $ref: '#/definitions/NoncurrentExpiration'
           noncurrentTransitions:
             description: |-
-              **[NoncurrentTransition](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
+              **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
               List of transition rules for non-current versions of objects in a bucket with versioning enabled
-              ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+              ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
               At transition, the non-current version of the object is transitioned to the specified storage class.
             type: array
             items:
               $ref: '#/definitions/NoncurrentTransition'
           noncurrentDeleteMarkers:
             description: |-
-              **[NoncurrentDeleteMarkers](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
+              **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
               Expiration rule for non-current delete markers of an objects in a bucket with versioning
-              enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+              enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
               Works in the same way as noncurrent_expiration rule, but only for delete markers.
               At expiration, the non-current delete marker of the object is deleted and cannot be recovered.
             $ref: '#/definitions/NoncurrentDeleteMarkers'
@@ -632,7 +633,7 @@ apiPlayground:
               Required field. The grantee type for the grant.
               - `GRANT_TYPE_UNSPECIFIED`
               - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
-                For this grantee type, you need to specify the user ID in [Bucket.acl.grants.granteeId](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL.Grant) field. To get user ID, see
+                For this grantee type, you need to specify the user ID in [Bucket.acl.grants.granteeId](#yandex.cloud.storage.v1.ACL.Grant) field. To get user ID, see
               [instruction](/docs/iam/operations/users/get).
                 Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
               method of Amazon S3-compatible HTTP API).
@@ -654,7 +655,7 @@ apiPlayground:
           granteeId:
             description: |-
               **string**
-              ID of the account who is a grantee. Required when the [grantType](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL.Grant) is `GRANT_TYPE_ACCOUNT`.
+              ID of the account who is a grantee. Required when the [grantType](#yandex.cloud.storage.v1.ACL.Grant) is `GRANT_TYPE_ACCOUNT`.
             type: string
         required:
           - permission
@@ -664,7 +665,7 @@ apiPlayground:
         properties:
           grants:
             description: |-
-              **[Grant](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL.Grant)**
+              **[Grant](#yandex.cloud.storage.v1.ACL.Grant)**
               List of permissions granted and the grantees.
             type: array
             items:
@@ -684,7 +685,7 @@ apiPlayground:
               - OBJECT_LOCK_STATUS_DISABLED
               - OBJECT_LOCK_STATUS_ENABLED
           defaultRetention:
-            description: '**[DefaultRetention](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)**'
+            description: '**[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)**'
             oneOf:
               - type: object
                 properties:
@@ -715,7 +716,7 @@ apiPlayground:
         type: object
         properties:
           rules:
-            description: '**[EncryptionRule](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Encryption.EncryptionRule)**'
+            description: '**[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)**'
             type: array
             items:
               $ref: '#/definitions/EncryptionRule'

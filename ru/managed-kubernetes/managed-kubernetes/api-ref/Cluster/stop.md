@@ -203,6 +203,11 @@ To get Kubernetes cluster ID use a [ClusterService.List](/docs/managed-kubernete
       "availableFrom": "string",
       "noLaterThan": "string",
       "description": "string"
+    },
+    "workloadIdentityFederation": {
+      "enabled": "boolean",
+      "issuer": "string",
+      "jwksUri": "string"
     }
   }
   // end of the list of possible fields
@@ -397,6 +402,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 
 Includes only one of the fields `cilium`. ||
 || scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -830,4 +836,21 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || description | **string**
 
 Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwksUri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

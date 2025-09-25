@@ -23,7 +23,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListHostGroupHostsResponse.nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
+            the service returns a [ListHostGroupHostsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -31,7 +31,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results,
-            set `pageToken` to the [ListHostGroupHostsResponse.nextPageToken](/docs/compute/api-ref/HostGroup/listHosts#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
+            set `pageToken` to the [ListHostGroupHostsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
             returned by a previous list request.
           type: string
       additionalProperties: false

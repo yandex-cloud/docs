@@ -8,7 +8,7 @@ description: This guide describes how to use Sqoop.
 [Sqoop](https://sqoop.apache.org/) is used to import databases to the {{ dataproc-name }} cluster from external sources. The section includes:
 
 * Details about [creating connect strings](#jdbc-url-getting) and [setting up drivers](#driver-installation) for Sqoop.
-* Scoop commands to import data to:
+* Scoop commands for importing data to:
 
     * [{{ objstorage-full-name }}](#object-storage)
     * [HDFS directory](#hdfs)
@@ -35,7 +35,7 @@ A JDBC connect string has the following format:
     jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>
     ```
 
-    You can get the cluster ID with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
 - {{ MY }} {#mysql}
 
@@ -49,7 +49,7 @@ A JDBC connect string has the following format:
     jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/<DB_name>
     ```
 
-    You can get the cluster ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -61,11 +61,11 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 - {{ PG }} {#postgresql}
 
-    {{ dataproc-name }} has a pre-installed {{ mpg-full-name }} driver, so no additional action is needed.
+    {{ dataproc-name }} has a pre-installed {{ mpg-full-name }} driver, requiring no additional actions.
 
 - {{ MY }} {#mysql}
 
-    [Connect](./connect.md) over SSH to the {{ dataproc-name }} subcluster host that stores the data and run this command:
+    [Connect](connect-ssh.md) to the {{ dataproc-name }} subcluster host that stores the data over SSH and run this command:
 
     ```bash
     MYSQL_VER="8.0.25" && \
@@ -89,12 +89,12 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 This type of import is available if the `Sqoop` component is enabled in the {{ dataproc-name }} cluster.
 
-To import the data to the {{ objstorage-name }} bucket:
+To import data to an {{ objstorage-name }} bucket:
 
-1. When [creating](cluster-create.md) or editing the {{ dataproc-name }} cluster, specify the bucket name to import the data to {{ objstorage-name }}. Make sure that the {{ dataproc-name }} service account has [write permissions](../../storage/operations/buckets/edit-acl.md) for this bucket.
+1. When [creating](cluster-create.md) or editing the {{ dataproc-name }} cluster, specify the bucket name to import the data to {{ objstorage-name }}. Make sure the {{ dataproc-name }} service account has [write permissions](../../storage/operations/buckets/edit-acl.md) for this bucket.
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
+1. [Install drivers](#driver-installation) for Sqoop if required.
 1. Run this command:
 
     ```bash
@@ -125,11 +125,11 @@ This type of import is available if the following services are enabled in the {{
 * `Yarn`
 * `Zookeeper`
 
-To import the data to the HDFS directory:
+To import data to an HDFS directory:
 
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
+1. [Install drivers](#driver-installation) for Sqoop if required.
 1. Run this command:
 
     ```bash
@@ -160,12 +160,12 @@ This type of import is available if the following services are enabled in the {{
 * `Sqoop`
 * `Yarn`
 
-To import the data to the Hive table:
+To import data to a Hive table:
 
 1. When [creating](cluster-create.md) or editing a {{ dataproc-name }} cluster, add to the cluster properties the `hive:hive.execution.engine` key set to `mr`.
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
+1. [Install drivers](#driver-installation) for Sqoop if required.
 1. Create a Hive database:
 
     ```bash
@@ -179,7 +179,7 @@ To import the data to the Hive table:
       --connect <JDBC_connect_string> \
       --username <source_database_username> \
       --P \
-      --table '<table_name_in_the_source_database>' \
+      --table '<table_name_in_source_database>' \
       --hive-import \
       --create-hive-table \
       --hive-database '<Hive_database_name>' \
@@ -208,8 +208,8 @@ This type of import is available if the following services are enabled in the {{
 To import data to Apache HBase:
 
 1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if they are not installed.
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
+1. [Install drivers](#driver-installation) for Sqoop if required.
 1. Run this command:
 
     ```bash
@@ -217,7 +217,7 @@ To import data to Apache HBase:
       --connect <JDBC_connect_string> \
       --username <source_database_username> \
       --P \
-      --table '<table_name_in_the_source_database>' \
+      --table '<table_name_in_source_database>' \
       --hbase-create-table \
       --column-family '<HBase_column_family>' \
       --hbase-table '<HBase_table_name>' \

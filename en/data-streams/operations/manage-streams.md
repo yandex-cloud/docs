@@ -27,12 +27,34 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the stream row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Configure the data stream:
-     1. Select the required number of shards.
+
      1. Set the maximum shard throughput per second.
+     1. Optionally, enable [autopartitioning](../../data-streams/concepts/glossary.md#autopartitioning) and specify the following parameters:
+
+        {% include [autopartitioning-params](../../_includes/data-streams/autopartitioning-params.md) %}
+
+        {% note warning %}
+
+        After saving the changes, you can edit autopartitioning settings but cannot disable autopartitioning.
+
+        You cannot reduce the current number of segments if automatically increased.
+
+        {% endnote %}
+
+     1. Select the required number of shards.
+
+        {% note warning %}
+
+        You cannot reduce the number of segments after saving the changes.
+
+        {% endnote %}
+
      1. Select a [pricing plan](../../data-streams/pricing.md).
      1. Select data storage settings:
+
         * `{{ ui-key.yacloud.data-streams.label_data-storage-size-limit }}`: Specify the maximum data storage size.
         * `{{ ui-key.yacloud.data-streams.label_data-storage-time-limit }}`: Specify the maximum [data retention period](../../data-streams/concepts/glossary.md#retention-time) for the stream.
+
   1. Click **{{ ui-key.yacloud.data-streams.button_update-stream }}**.
 
 {% endlist %}
@@ -45,7 +67,7 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
   1. In the [management console]({{ link-console-main }}), select the folder to delete a stream from.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-  1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the stream row and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the data stream row and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 {% endlist %}

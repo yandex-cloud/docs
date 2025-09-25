@@ -48,8 +48,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         gatewayIpv4Address:
           description: |-
             **string**
@@ -58,7 +67,7 @@ apiPlayground:
           type: string
         masterSpec:
           description: |-
-            **[MasterUpdateSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/update#yandex.cloud.k8s.v1.MasterUpdateSpec)**
+            **[MasterUpdateSpec](#yandex.cloud.k8s.v1.MasterUpdateSpec)**
             Specification of the master update.
           $ref: '#/definitions/MasterUpdateSpec'
         serviceAccountId:
@@ -75,11 +84,14 @@ apiPlayground:
             or to push node logs and metrics.
           type: string
         networkPolicy:
-          description: '**[NetworkPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.NetworkPolicy)**'
+          description: '**[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)**'
           $ref: '#/definitions/NetworkPolicy'
         ipAllocationPolicy:
-          description: '**[IPAllocationPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.IPAllocationPolicy)**'
+          description: '**[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)**'
           $ref: '#/definitions/IPAllocationPolicy'
+        workloadIdentityFederation:
+          description: '**[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)**'
+          $ref: '#/definitions/WorkloadIdentityFederationSpec'
       additionalProperties: false
     definitions:
       AnytimeMaintenanceWindow:
@@ -119,7 +131,7 @@ apiPlayground:
         properties:
           startTime:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Required field. Window start time, in the UTC timezone.
             $ref: '#/definitions/TimeOfDay'
           duration:
@@ -159,7 +171,7 @@ apiPlayground:
                 - SUNDAY
           startTime:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Required field. Window start time, in the UTC timezone.
             $ref: '#/definitions/TimeOfDay'
           duration:
@@ -175,7 +187,7 @@ apiPlayground:
         properties:
           daysOfWeek:
             description: |-
-              **[DaysOfWeekMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
+              **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
               Days of the week and the maintenance window for these days when automatic updates are allowed.
             type: array
             items:
@@ -191,7 +203,7 @@ apiPlayground:
             type: boolean
           maintenanceWindow:
             description: |-
-              **[MaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MaintenanceWindow)**
+              **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
               Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
               The time is set in UTC.
             oneOf:
@@ -206,14 +218,14 @@ apiPlayground:
                     $ref: '#/definitions/AnytimeMaintenanceWindow'
                   dailyMaintenanceWindow:
                     description: |-
-                      **[DailyMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+                      **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
                       Updating the master on any day during the specified time window.
                       Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
                       Maintenance policy.
                     $ref: '#/definitions/DailyMaintenanceWindow'
                   weeklyMaintenanceWindow:
                     description: |-
-                      **[WeeklyMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+                      **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
                       Updating the master on selected days during the specified time window.
                       Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
                       Maintenance policy.
@@ -257,7 +269,7 @@ apiPlayground:
         properties:
           version:
             description: |-
-              **[UpdateVersionSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/update#yandex.cloud.k8s.v1.UpdateVersionSpec)**
+              **[UpdateVersionSpec](#yandex.cloud.k8s.v1.UpdateVersionSpec)**
               Specification of the master update.
             oneOf:
               - type: object
@@ -276,7 +288,7 @@ apiPlayground:
                     type: boolean
           maintenancePolicy:
             description: |-
-              **[MasterMaintenancePolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
+              **[MasterMaintenancePolicy](#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
               Maintenance policy of the master.
             $ref: '#/definitions/MasterMaintenancePolicy'
           securityGroupIds:
@@ -288,7 +300,7 @@ apiPlayground:
               type: string
           masterLogging:
             description: |-
-              **[MasterLogging](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterLogging)**
+              **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
               Cloud Logging for master components.
             oneOf:
               - type: object
@@ -311,26 +323,26 @@ apiPlayground:
                     type: string
           locations:
             description: |-
-              **[LocationSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.LocationSpec)**
+              **[LocationSpec](#yandex.cloud.k8s.v1.LocationSpec)**
               Update master instance locations.
             type: array
             items:
               $ref: '#/definitions/LocationSpec'
           externalV6AddressSpec:
             description: |-
-              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
               Specification of parameters for external IPv6 networking.
             $ref: '#/definitions/ExternalAddressSpec'
           scalePolicy:
             description: |-
-              **[MasterScalePolicySpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
+              **[MasterScalePolicySpec](#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
               Scale policy of the master.
             oneOf:
               - type: object
                 properties:
                   autoScale:
                     description: |-
-                      **[AutoScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+                      **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
                       Includes only one of the fields `autoScale`.
                     $ref: '#/definitions/AutoScale'
       NetworkPolicy:
@@ -378,6 +390,14 @@ apiPlayground:
               **string**
               IPv6 range for allocating Kubernetes service IP addresses
             type: string
+      WorkloadIdentityFederationSpec:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Identifies whether Workload Identity Federation is enabled.
+            type: boolean
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/update.md
 ---
 
@@ -494,6 +514,9 @@ To get the Kubernetes cluster ID use a [ClusterService.List](/docs/managed-kuber
     "serviceIpv4CidrBlock": "string",
     "clusterIpv6CidrBlock": "string",
     "serviceIpv6CidrBlock": "string"
+  },
+  "workloadIdentityFederation": {
+    "enabled": "boolean"
   }
 }
 ```
@@ -541,6 +564,7 @@ Service account to be used by the worker nodes of the Kubernetes cluster to acce
 or to push node logs and metrics. ||
 || networkPolicy | **[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)** ||
 || ipAllocationPolicy | **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)** ||
 |#
 
 ## MasterUpdateSpec {#yandex.cloud.k8s.v1.MasterUpdateSpec}
@@ -811,6 +835,15 @@ IPv6 range for allocating pod IP addresses. ||
 IPv6 range for allocating Kubernetes service IP addresses ||
 |#
 
+## WorkloadIdentityFederationSpec {#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -973,6 +1006,11 @@ IPv6 range for allocating Kubernetes service IP addresses ||
       "availableFrom": "string",
       "noLaterThan": "string",
       "description": "string"
+    },
+    "workloadIdentityFederation": {
+      "enabled": "boolean",
+      "issuer": "string",
+      "jwksUri": "string"
     }
   }
   // end of the list of possible fields
@@ -1167,6 +1205,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 
 Includes only one of the fields `cilium`. ||
 || scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -1600,4 +1639,21 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || description | **string**
 
 Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwksUri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

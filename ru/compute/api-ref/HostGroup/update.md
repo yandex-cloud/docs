@@ -47,8 +47,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             The existing set of `labels` is completely replaced by the provided set.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         maintenancePolicy:
           description: |-
             **enum** (MaintenancePolicy)
@@ -63,14 +72,14 @@ apiPlayground:
             - MIGRATE
         scalePolicy:
           description: |-
-            **[ScalePolicy](/docs/compute/api-ref/HostGroup/get#yandex.cloud.compute.v1.ScalePolicy)**
+            **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
             Scale policy. Only fixed number of hosts are supported at this moment.
           oneOf:
             - type: object
               properties:
                 fixedScale:
                   description: |-
-                    **[FixedScale](/docs/compute/api-ref/HostGroup/get#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+                    **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
                     Includes only one of the fields `fixedScale`.
                   $ref: '#/definitions/FixedScale'
       additionalProperties: false

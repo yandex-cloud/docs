@@ -31,6 +31,24 @@ items:
         href: operations/generation/yandexart-request.md
       - name: Пакетная обработка данных
         href: operations/batch/create.md
+      - name: Работа с выделенными инстансами
+        items:
+          - name: Создать инстанс
+            href: operations/resources/create-instance.md
+          - name: Получить информацию об инстансе
+            href: operations/resources/get-instance.md
+          - name: Изменить инстанс
+            href: operations/resources/edit-instance.md
+          - name: Клонировать инстанс
+            href: operations/resources/clone-instance.md
+          - name: Остановить и запустить инстанс
+            href: operations/resources/start-stop-instance.md
+          - name: Управлять метками инстанса
+            href: operations/resources/labels-instance.md
+          - name: Отправить запрос к инстансу
+            href: operations/resources/request-instance.md
+          - name: Удалить инстанс
+            href: operations/resources/delete-instance.md
       - name: Классификация
         items:
           - name: Использовать классификаторы по промту
@@ -280,6 +298,9 @@ items:
           - name: Assistant types
             href: sdk-ref/types/assistants
             hidden: true
+          - name: Search API
+            href: sdk-ref/types/search_api
+            hidden: true
           - name: Tools
             href: sdk-ref/types/tools
             hidden: true
@@ -294,9 +315,6 @@ items:
             hidden: true
           - name: Operation
             href: sdk-ref/types/operation
-            hidden: true
-          - name: Search API
-            href: sdk-ref/types/search_api
             hidden: true
           - name: Datasets
             href: sdk-ref/types/datasets

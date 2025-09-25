@@ -34,12 +34,12 @@ Before connecting:
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ TR }}**.
      1. Enter a name for the data source.
-     1. Specify the connection parameters on the **General** tab:
+     1. Specify the connection settings on the **General** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
         * **Port**: `443`.
         * **User**: `iam`.
         * **Password**: Previously created IAM token.
-  1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -48,14 +48,14 @@ Before connecting:
      1. In the **Database** menu, select **New connection**.
      1. Select **{{ TR }}** from the list.
      1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
+     1. Specify the connection settings on the **Main** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
         * **Port**: `443`.
         * Under **Authentication**, specify:
             * Username: `iam`.
             * Password: Previously created IAM token.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-  1. Click **Ready** to save the database connection settings.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Done** to save the database connection settings.
 
 {% endlist %}
 
@@ -93,7 +93,7 @@ Before connecting:
 
 {% list tabs group=instruction %}
 
-- Connecting {#connecting}
+- Connection {#connecting}
 
   1. Code example:
 
@@ -121,7 +121,7 @@ Before connecting:
           get_version()
       ```
 
-      You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.title_resource-coordinator }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+      You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
 
   1. Connecting:
 
@@ -141,7 +141,7 @@ Before connecting:
     sudo apt update && sudo apt install --yes openjdk-21-jre maven
     ```
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
     ```bash
     cd ~/ && mkdir -p project/src/main/java/com/example && cd project/
@@ -229,7 +229,7 @@ Before connecting:
 
 {% list tabs group=connection %}
 
-- Connecting {#connecting}
+- Connection {#connecting}
 
   1. Code example:
 
@@ -295,7 +295,7 @@ Before connecting:
 
 {% list tabs group=connection %}
 
-- Connecting {#connecting}
+- Connection {#connecting}
 
     `app.mjs`
 
@@ -316,7 +316,7 @@ Before connecting:
     get_version();
     ```
 
-    You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.title_resource-coordinator }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+    You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

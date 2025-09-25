@@ -29,8 +29,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         zoneId:
           description: |-
             **string**
@@ -46,7 +55,7 @@ apiPlayground:
           $ref: '#/definitions/DiskSpreadPlacementStrategy'
         partitionPlacementStrategy:
           description: |-
-            **[DiskPartitionPlacementStrategy](/docs/compute/api-ref/DiskPlacementGroup/get#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
+            **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
             Distribute disks over partitions.
             Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
             Placement strategy.

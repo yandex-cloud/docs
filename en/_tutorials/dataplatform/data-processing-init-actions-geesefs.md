@@ -26,7 +26,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -86,7 +86,7 @@ Set up your infrastructure:
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
   1. Create the required infrastructure:
 
@@ -164,7 +164,7 @@ Set up your infrastructure:
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
   1. Create the required infrastructure:
 
@@ -176,7 +176,7 @@ Set up your infrastructure:
 
 ## Check bucket availability {#check-availability}
 
-1. After the cluster status changes to **Alive**, [connect](../../data-proc/operations/connect.md#data-proc-ssh) over SSH to any of its hosts as the `ubuntu` user.
+1. After the cluster status changes to **Alive**, [connect](../../data-proc/operations/connect-ssh.md) over SSH to any of its hosts as the `ubuntu` user.
 
 1. To make sure the bucket has been mounted successfully, run this command:
 

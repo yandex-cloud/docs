@@ -4,7 +4,7 @@ You can migrate a database from {{ mpg-full-name }} to {{ objstorage-full-name }
 
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
-1. [Test the copy function upon re-activation](#example-check-copy).
+1. [Verify replication after reactivation](#example-check-copy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -13,23 +13,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mpg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
     1. Create a source {{ mpg-name }} cluster in any applicable [configuration](../../../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
     
@@ -38,7 +38,9 @@ Set up your infrastructure:
 
     1. [Create an {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md).
 
+    
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `storage-sa` with the `storage.uploader` role. The transfer will use it to access the bucket.
+
 
 - {{ TF }} {#tf}
 
@@ -53,7 +55,7 @@ Set up your infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * [Security group](../../../vpc/concepts/security-groups.md) required for cluster connection.
         * Source {{ mpg-name }} cluster.
         * Service account for creating and accessing the bucket.
         * Target {{ objstorage-name }} bucket.
@@ -70,7 +72,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -101,7 +103,11 @@ Set up your infrastructure:
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `storage-sa`
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_PostgreSQL`
@@ -114,10 +120,10 @@ Set up your infrastructure:
 
     1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify these cluster connection settings in it:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<source_{{ PG }}_cluster_name>` from the drop-down list
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<source_{{ PG }}_cluster_name>` from the drop-down list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
     1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
@@ -135,7 +141,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -163,7 +169,7 @@ Set up your infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
 
 * Make sure the transfer status is **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 * [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).

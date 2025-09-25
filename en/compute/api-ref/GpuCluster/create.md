@@ -29,7 +29,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             GPU cluster labels as `key:value` pairs.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         zoneId:
           description: |-
             **string**

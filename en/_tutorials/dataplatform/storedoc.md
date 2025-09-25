@@ -1,38 +1,38 @@
-# Migrating {{ mmg-full-name }} clusters
+# Migrating {{ MG }} clusters
 
 
-To migrate your database to {{ mmg-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
+To migrate your {{ MG }} database to {{ mmg-name }}, you need to transfer the actual data, write-lock the old database, and transfer the load to the {{ yandex-cloud }} DB cluster.
 
 Performing migration with {{ data-transfer-name }} allows you to:
 
 * Migrate the database without interrupting user service.
-* Migrate from older {{ SD }} versions to newer versions.
-* Go without creating an intermediate VM or granting online access to your {{ mmg-name }} target cluster.
+* Migrate from older {{ MG }} versions to newer versions.
+* Eliminate the need for an intermediate VM or public internet access to your {{ mmg-name }} target cluster.
 
-To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
+For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 To use this migration method, allow connecting to the source cluster from the internet.
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ SD }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ SD }} cluster fee: using computational resources allocated to hosts and disk storage (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: computing resource usage and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-[Create a {{ mmg-name }}](../../storedoc/operations/cluster-create.md) target cluster with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
+[Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
 
-The database name in the target cluster must be the same as the source database name.
+The source and target database names must be the same.
 
 ## Transferring data {#data-transfer}
 
-{% include notitle [Data migration MMG](datatransfer/managed-mongodb.md) %}
+{% include notitle [Data migration MMG](datatransfer/storedoc.md) %}
 
 ## See also {#see-also}
 
-For other migration methods, see the [{{ mmg-full-name }}](../../storedoc/tutorials/data-migration.md) documentation.
+For other migration methods, see [this {{ mmg-full-name }} tutorial](../../storedoc/tutorials/data-migration.md).

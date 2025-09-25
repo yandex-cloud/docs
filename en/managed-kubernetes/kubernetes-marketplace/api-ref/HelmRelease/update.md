@@ -25,7 +25,7 @@ apiPlayground:
           type: string
         userValues:
           description: |-
-            **[ValueWithKey](/docs/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/install#yandex.cloud.k8s.marketplace.v1.ValueWithKey)**
+            **[ValueWithKey](#yandex.cloud.k8s.marketplace.v1.ValueWithKey)**
             Custom user values to apply during the update.
           type: array
           items:
@@ -42,7 +42,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[Value](/docs/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/install#yandex.cloud.k8s.marketplace.v1.Value)**
+              **[Value](#yandex.cloud.k8s.marketplace.v1.Value)**
               The value associated with the key.
             oneOf:
               - type: object

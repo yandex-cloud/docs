@@ -36,7 +36,7 @@ The infrastructure support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -154,15 +154,15 @@ Set up your infrastructure:
     1. Specify the following in the `metastore-import.tf` file:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -221,13 +221,13 @@ In the `dataproc-source` cluster, create a test table named `countries`:
 
 To transfer data from one {{ dataproc-name }} cluster to another, back up the data in the `dataproc-source` cluster using `pg_dump`:
 
-1. [Use SSH to connect](../../../data-proc/operations/connect.md#data-proc-ssh) to the `dataproc-source` cluster's master host:
+1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the `dataproc-source` cluster's master host:
 
     ```bash
     ssh ubuntu@<master_host_FQDN>
     ```
 
-    [Learn how to get the FQDN](../../../data-proc/operations/connect.md#fqdn).
+    [Learn how to get the FQDN](../../../data-proc/operations/fqdn.md).
 
 1. Create a backup and save it to the `metastore_dump.sql` file:
 

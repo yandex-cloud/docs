@@ -30,18 +30,18 @@ Backups are created every 24 hours and stored for seven days after being created
 
 {{ mmg-short-name }} uses the standard {{ SD }} replication mechanism: if a cluster has more than one active host, one of them is automatically selected as the primary server to handle write requests.
 
-For more information about how replication works in {{ SD }}, read the [relevant documentation](https://docs.mongodb.com/manual/replication/).
+For more information on how replication works in {{ SD }}, see the [{{ PG }} documentation](https://docs.mongodb.com/manual/replication/).
 
 
-#### What limitations are imposed on {{ SD }} database clusters? {#cluster-limitations}
+#### What limitations are there for {{ SD }} database clusters? {#cluster-limitations}
 
-For more information on limits in {{ mmg-name }}, see [Quotas and limits](../../storedoc/concepts/limits.md).
+For more info on limitations in {{ mmg-name }}, see the [Quotas and limits](../../storedoc/concepts/limits.md) section.
 
-#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
+#### Why is the cluster slow even though the computing resources are not used up? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../storedoc/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when [updating your cluster](../../storedoc/operations/update.md#change-disk-size).
 
 If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../storedoc/operations/cluster-backups.md#restore) from a backup.
 
@@ -62,7 +62,7 @@ To avoid deleting user roles that are already assigned, list both the existing a
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -70,7 +70,7 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 

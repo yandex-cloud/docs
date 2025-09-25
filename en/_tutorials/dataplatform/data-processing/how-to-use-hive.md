@@ -293,7 +293,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
 ### Running jobs using the Hive CLI {#run-job-hive-shell}
 
-1. [Connect to the master host](../../../data-proc/operations/connect.md#data-proc-ssh) over SSH and run the `hive` command.
+1. [Connect to the master host](../../../data-proc/operations/connect-ssh.md) over SSH and run the `hive` command.
 
 1. Test Hive by running the `select 1;` command. The correct result looks like this:
 

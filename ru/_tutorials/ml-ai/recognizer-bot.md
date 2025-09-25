@@ -38,7 +38,7 @@
 ## Подготовьте ресурсы {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `{{ roles-functions-editor }}` на ваш каталог.
-1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linuxarm64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
+1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
 1. Подготовьте ZIP-архив с кодом функции:
 
    1. Создайте файл `index.py` и добавьте в него указанный ниже код.
@@ -55,16 +55,19 @@
       from speechkit import model_repository, configure_credentials, creds
       from speechkit.stt import AudioProcessingType
 
+
+      folder_id = ""
+      iam_token = ''
       
-      # Эндпоинты сервисов и данные для аутентификации
+      # Эндпоинт сервиса распознавания изображений и данные для аутентификации
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
       vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
-      folder_id = ""
-      iam_token = ''
+
+      # Добавление папки с ffmpeg в системный PATH
+
       path = os.environ.get("PATH")
       os.environ["PATH"] = path + ':/function/code'
-
 
       logger = telebot.logger
       telebot.logger.setLevel(logging.INFO)
@@ -73,7 +76,6 @@
       # Получение идентификатора каталога
 
       def get_folder_id(iam_token, version_id):
-
           headers = {'Authorization': f'Bearer {iam_token}'}
           function_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/versions/{version_id}',
                                          headers=headers)
@@ -86,7 +88,6 @@
           return folder_id
 
       def process_event(event):
-
           request_body_dict = json.loads(event['body'])
           update = telebot.types.Update.de_json(request_body_dict)
 
@@ -115,14 +116,14 @@
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
           bot.reply_to(message,
-                       "Бот умеет:\n*распознавать текст с картинок;\n* генерировать голосовые сообщения из текста;\n* переводить голосовые сообщения в текст.")
+                       "Бот умеет:\n* распознавать текст с картинок;\n* генерировать голосовые сообщения из текста;\n* переводить голосовые сообщения в текст.")
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
           export_path = '/tmp/audio.ogg'
           synthesize(message.text, export_path)
-          voice = open(export_path, 'rb')
-          bot.send_voice(message.chat.id, voice)
+          with open(export_path, 'rb') as voice:
+              bot.send_voice(message.chat.id, voice)
 
       @bot.message_handler(func=lambda message: True, content_types=['voice'])
       def echo_audio(message):
@@ -169,16 +170,13 @@
           model.language = 'ru-RU'
           model.audio_processing_type = AudioProcessingType.Full
 
-          try:
-              result = model.transcribe(audio_data)
-              speech_text = [res.normalized_text for res in result]
-              return ' '.join(speech_text)
-          except:
-              return 'Cannot recognize message'
+          result = model.transcribe(audio_data)
+          speech_text = [res.normalized_text for res in result]
+          return ' '.join(speech_text)
       
       # Синтез речи
 
-      def synthesize(folder_id, iam_token, text):
+      def synthesize(text, export_path):
           model = model_repository.synthesis_model()
 
           # Настройки синтеза
@@ -193,11 +191,11 @@
    1. Создайте файл `requirements.txt` и укажите в нем библиотеку для работы с ботом и библиотеку Python SDK.
 
       ```text
-      telebot
-      yandex-speechkit
+      pyTelegramBotAPI==4.27
+      yandex-speechkit==1.5.0
       ```
 
-   1. Добавьте файлы `index.py`, `requirements.txt` и бинарные файлы `ffmpeg`, `ffprobe` из состава утилиты FFMpeg в ZIP-архив `index.zip`.
+   1. Добавьте в ZIP-архив `index.zip` файлы `index.py` и `requirements.txt`, а также бинарные файлы `ffmpeg` и `ffprobe` из скачанного архива с пакетом FFmpeg.
    1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }} и [загрузите в него](../../storage/operations/objects/upload.md) созданный ZIP-архив.
 
 ## Зарегистрируйте Telegram-бота {#bot-register}
@@ -224,7 +222,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -239,7 +237,7 @@
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `30`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `256 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `recognizer-bot-sa`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
@@ -248,6 +246,10 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Создайте функцию `for-recognizer-bot`:
 
@@ -272,7 +274,7 @@
      ```bash
      yc serverless function version create \
        --function-name for-recognizer-bot \
-       --memory=128m \
+       --memory=256m \
        --execution-timeout=30s \
        --runtime=python312 \
        --entrypoint=index.handler \
@@ -304,7 +306,7 @@
      runtime: python312
      entrypoint: index.handler
      resources:
-       memory: "134217728"
+       memory: "268435456"
      execution_timeout: 30s
      service_account_id: aje20nhregkc********
      image_size: "4096"
@@ -320,6 +322,12 @@
 
 - {{ TF }} {#tf}
 
+  
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+
   1. Опишите в конфигурационном файле параметры функции:
 
      ```hcl
@@ -328,7 +336,7 @@
        user_hash          = "first function"
        runtime            = "python312"
        entrypoint         = "index.handler"
-       memory             = "128"
+       memory             = "256"
        execution_timeout  = "30"
        service_account_id = "aje20nhregkcvu******"
        environment = {

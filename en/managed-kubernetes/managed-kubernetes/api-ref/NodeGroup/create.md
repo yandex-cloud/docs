@@ -30,16 +30,25 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         nodeTemplate:
           description: |-
-            **[NodeTemplate](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeTemplate)**
+            **[NodeTemplate](#yandex.cloud.k8s.v1.NodeTemplate)**
             Required field. Node template for creating the node group.
           $ref: '#/definitions/NodeTemplate'
         scalePolicy:
           description: |-
-            **[ScalePolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.ScalePolicy)**
+            **[ScalePolicy](#yandex.cloud.k8s.v1.ScalePolicy)**
             Required field. Scale policy of the node group.
           oneOf:
             - type: object
@@ -58,12 +67,12 @@ apiPlayground:
                   $ref: '#/definitions/AutoScale'
         allocationPolicy:
           description: |-
-            **[NodeGroupAllocationPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy)**
+            **[NodeGroupAllocationPolicy](#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy)**
             Allocation policy of the node group by the zones and regions.
           $ref: '#/definitions/NodeGroupAllocationPolicy'
         deployPolicy:
           description: |-
-            **[DeployPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DeployPolicy)**
+            **[DeployPolicy](#yandex.cloud.k8s.v1.DeployPolicy)**
             Deploy policy according to which the updates are rolled out. If not specified,
             the default is used.
           $ref: '#/definitions/DeployPolicy'
@@ -74,7 +83,7 @@ apiPlayground:
           type: string
         maintenancePolicy:
           description: |-
-            **[NodeGroupMaintenancePolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeGroupMaintenancePolicy)**
+            **[NodeGroupMaintenancePolicy](#yandex.cloud.k8s.v1.NodeGroupMaintenancePolicy)**
             Maintenance policy of the node group.
           $ref: '#/definitions/NodeGroupMaintenancePolicy'
         allowedUnsafeSysctls:
@@ -87,7 +96,7 @@ apiPlayground:
             type: string
         nodeTaints:
           description: |-
-            **[Taint](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.Taint)**
+            **[Taint](#yandex.cloud.k8s.v1.Taint)**
             Taints that are applied to the nodes of the node group at creation time.
           type: array
           items:
@@ -96,7 +105,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels that are assigned to the nodes of the node group at creation time.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       required:
         - clusterId
         - nodeTemplate
@@ -192,12 +203,12 @@ apiPlayground:
         properties:
           oneToOneNatSpec:
             description: |-
-              **[OneToOneNatSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.OneToOneNatSpec)**
+              **[OneToOneNatSpec](#yandex.cloud.k8s.v1.OneToOneNatSpec)**
               One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
             $ref: '#/definitions/OneToOneNatSpec'
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.k8s.v1.DnsRecordSpec)**
               Internal DNS configuration.
             type: array
             items:
@@ -224,12 +235,12 @@ apiPlayground:
               type: string
           primaryV4AddressSpec:
             description: |-
-              **[NodeAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeAddressSpec)**
+              **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)**
               Primary IPv4 address that is assigned to the instance for this network interface.
             $ref: '#/definitions/NodeAddressSpec'
           primaryV6AddressSpec:
             description: |-
-              **[NodeAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeAddressSpec)**
+              **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)**
               Primary IPv6 address that is assigned to the instance for this network interface.
             $ref: '#/definitions/NodeAddressSpec'
           securityGroupIds:
@@ -329,8 +340,16 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               these labels will be assigned to compute nodes (instances), created by the nodegroup
-            pattern: '[a-z][-_./\@0-9a-z]*'
-            type: string
+            type: object
+            additionalProperties:
+              type: string
+              maxLength: 128
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_./\@0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 32
           platformId:
             description: |-
               **string**
@@ -338,12 +357,12 @@ apiPlayground:
             type: string
           resourcesSpec:
             description: |-
-              **[ResourcesSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.ResourcesSpec)**
+              **[ResourcesSpec](#yandex.cloud.k8s.v1.ResourcesSpec)**
               Computing resources of the node such as the amount of memory and number of cores.
             $ref: '#/definitions/ResourcesSpec'
           bootDiskSpec:
             description: |-
-              **[DiskSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DiskSpec)**
+              **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec)**
               Specification for the boot disk that will be attached to the node.
             $ref: '#/definitions/DiskSpec'
           metadata:
@@ -351,45 +370,53 @@ apiPlayground:
               **object** (map<**string**, **string**>)
               The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
               For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
-            pattern: '[a-z][-_0-9a-z]*'
-            type: string
+            type: object
+            additionalProperties:
+              type: string
+              maxLength: 131072
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
           v4AddressSpec:
             description: |-
-              **[NodeAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeAddressSpec)**
+              **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)**
               Specification for the create network interfaces for the node group compute instances.
               Deprecated, please use network_interface_specs.
             deprecated: true
             $ref: '#/definitions/NodeAddressSpec'
           schedulingPolicy:
             description: |-
-              **[SchedulingPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.SchedulingPolicy)**
+              **[SchedulingPolicy](#yandex.cloud.k8s.v1.SchedulingPolicy)**
               Scheduling policy configuration.
             $ref: '#/definitions/SchedulingPolicy'
           networkInterfaceSpecs:
             description: |-
-              **[NetworkInterfaceSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NetworkInterfaceSpec)**
+              **[NetworkInterfaceSpec](#yandex.cloud.k8s.v1.NetworkInterfaceSpec)**
               New api, to specify network interfaces for the node group compute instances.
               Can not be used together with 'v4_address_spec'
             type: array
             items:
               $ref: '#/definitions/NetworkInterfaceSpec'
           placementPolicy:
-            description: '**[PlacementPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.PlacementPolicy)**'
+            description: '**[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)**'
             $ref: '#/definitions/PlacementPolicy'
           networkSettings:
             description: |-
-              **[NetworkSettings](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeTemplate.NetworkSettings)**
+              **[NetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.NetworkSettings)**
               this parameter allows to specify type of network acceleration used on nodes (instances)
             $ref: '#/definitions/NetworkSettings'
           containerRuntimeSettings:
-            description: '**[ContainerRuntimeSettings](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)**'
+            description: '**[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)**'
             $ref: '#/definitions/ContainerRuntimeSettings'
           containerNetworkSettings:
-            description: '**[ContainerNetworkSettings](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)**'
+            description: '**[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)**'
             $ref: '#/definitions/ContainerNetworkSettings'
           gpuSettings:
             description: |-
-              **[GpuSettings](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.GpuSettings)**
+              **[GpuSettings](#yandex.cloud.k8s.v1.GpuSettings)**
               GPU settings
             $ref: '#/definitions/GpuSettings'
       FixedScale:
@@ -430,7 +457,7 @@ apiPlayground:
         properties:
           locations:
             description: |-
-              **[NodeGroupLocation](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.NodeGroupLocation)**
+              **[NodeGroupLocation](#yandex.cloud.k8s.v1.NodeGroupLocation)**
               List of locations where resources for the node group will be allocated.
             type: array
             items:
@@ -443,7 +470,7 @@ apiPlayground:
               **string** (int64)
               The maximum number of running instances that can be taken offline (i.e.,
               stopped or deleted) at the same time during the update process.
-              If [maxExpansion](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DeployPolicy) is not specified or set to zero, [maxUnavailable](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DeployPolicy) must
+              If [maxExpansion](#yandex.cloud.k8s.v1.DeployPolicy) is not specified or set to zero, [maxUnavailable](#yandex.cloud.k8s.v1.DeployPolicy) must
               be set to a non-zero value.
             type: string
             format: int64
@@ -452,7 +479,7 @@ apiPlayground:
               **string** (int64)
               The maximum number of instances that can be temporarily allocated above
               the group's target size during the update process.
-              If [maxUnavailable](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DeployPolicy) is not specified or set to zero, [maxExpansion](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.DeployPolicy) must
+              If [maxUnavailable](#yandex.cloud.k8s.v1.DeployPolicy) is not specified or set to zero, [maxExpansion](#yandex.cloud.k8s.v1.DeployPolicy) must
               be set to a non-zero value.
             type: string
             format: int64
@@ -493,7 +520,7 @@ apiPlayground:
         properties:
           startTime:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Required field. Window start time, in the UTC timezone.
             $ref: '#/definitions/TimeOfDay'
           duration:
@@ -533,7 +560,7 @@ apiPlayground:
                 - SUNDAY
           startTime:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Required field. Window start time, in the UTC timezone.
             $ref: '#/definitions/TimeOfDay'
           duration:
@@ -549,7 +576,7 @@ apiPlayground:
         properties:
           daysOfWeek:
             description: |-
-              **[DaysOfWeekMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
+              **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
               Days of the week and the maintenance window for these days when automatic updates are allowed.
             type: array
             items:
@@ -570,7 +597,7 @@ apiPlayground:
             type: boolean
           maintenanceWindow:
             description: |-
-              **[MaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MaintenanceWindow)**
+              **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
               Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
               The time is set in UTC.
             oneOf:
@@ -585,14 +612,14 @@ apiPlayground:
                     $ref: '#/definitions/AnytimeMaintenanceWindow'
                   dailyMaintenanceWindow:
                     description: |-
-                      **[DailyMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+                      **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
                       Updating the master on any day during the specified time window.
                       Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
                       Maintenance policy.
                     $ref: '#/definitions/DailyMaintenanceWindow'
                   weeklyMaintenanceWindow:
                     description: |-
-                      **[WeeklyMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+                      **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
                       Updating the master on selected days during the specified time window.
                       Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
                       Maintenance policy.

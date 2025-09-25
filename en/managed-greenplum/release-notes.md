@@ -5,6 +5,10 @@ description: This section contains {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+## July 2025 {#jul-2025}
+
+Added the ability to [transfer cluster logs to {{ cloud-logging-full-name }}](operations/mgp-to-cloud-logging.md).
+
 
 ## May 2025 {#may-2025}
 
@@ -62,8 +66,8 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * You can now [expand a cluster](operations/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
-* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see [this {{ PG }} article]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
+* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see [this {{ GP }} article]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard:
     * Cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.

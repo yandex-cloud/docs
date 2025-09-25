@@ -60,3 +60,19 @@ Consumers are applications that get data from {{ yds-name }} and process it. All
 ## Consumer groups {#extended-consumers}
 
 In some cases, the common [quota]({{ link-console-quotas }}) model for all consumers is too restrictive, so each consumer gets a guaranteed read speed. Consumers with a guaranteed read speed are called _consumer groups_.
+
+## Autopartitioning {#autopartitioning}
+
+When overloading individual [shards](#shard) or the entire [stream](#stream-concepts), some data may get lost. [Autopartitioning]({{ ydb.docs }}/concepts/topic#autopartitioning) automatically adds shards as needed and distributes the workloads. This helps you avoid data loss.
+
+You may enable and configure autopartitioning when or after [creating](../operations/manage-streams.md#create-data-stream) a data stream.
+
+{% note warning %}
+
+* You cannot disable autopartitioning.
+* You cannot reduce the current number of stream segments if automatically increased.
+* The {{ KF }} protocol does not support autopartitioning for topics. If autopartitioning is enabled, you will not be able to work with the data stream over the {{ KF }} protocol.
+
+{% endnote %}
+
+There are no separate charges for autopartitioning. If using [retention-based pricing](../pricing.md#time-limit), adding segments increases the cost of allocated resources in proportion to the number of segments.

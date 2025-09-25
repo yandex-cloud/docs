@@ -106,7 +106,7 @@ Set up the infrastructure:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -132,11 +132,11 @@ Create the resources:
 
     1. [Create a DNS record](../../dns/operations/resource-record-create.md) of the CNAME type with the following settings:
        * **{{ ui-key.yacloud.common.name }}**: `data-proc-test-user.org.`.
-       * **{{ ui-key.yacloud.dns.label_records }}**: [FQDN of the {{ dataproc-name }} cluster master host](../../data-proc/operations/connect.md#fqdn).
+       * **{{ ui-key.yacloud.dns.label_records }}**: [FQDN of the {{ dataproc-name }} cluster master host](../../data-proc/operations/fqdn.md).
 
 - {{ TF }} {#tf}
 
-    1. [Get the FQDN](../../data-proc/operations/connect.md#fqdn) of the {{ dataproc-name }} cluster master host.
+    1. [Get the FQDN](../../data-proc/operations/fqdn.md) of the {{ dataproc-name }} cluster master host.
     1. In the `data-proc-dns-connect.tf` file, specify this variable:
 
         * `dataproc_fqdn`: FQDN of the {{ dataproc-name }} cluster master host.
@@ -147,7 +147,7 @@ Create the resources:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -183,7 +183,7 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
     1. Apply the changes:
 
@@ -196,13 +196,13 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-    1. Create a cluster:
+    1. Create your cluster:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    1. [Get the FQDN](../../data-proc/operations/connect.md#fqdn) of the master host of the new {{ dataproc-name }} cluster.
+    1. [Get the FQDN](../../data-proc/operations/fqdn.md) of the master host of the new {{ dataproc-name }} cluster.
     1. In the `data-proc-dns-connect.tf` file, specify this variable:
 
         * `dataproc_fqdn`: FQDN of the cluster master host.
@@ -213,7 +213,7 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
     1. Apply the changes:
 
@@ -233,7 +233,7 @@ rc1a-dataproc-m-8kompl81232cdsu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

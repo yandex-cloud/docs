@@ -48,35 +48,35 @@ apiPlayground:
           type: boolean
         meta:
           description: |-
-            **[OriginMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginMeta)**
+            **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
             Set up type of the origin.
           oneOf:
             - type: object
               properties:
                 common:
                   description: |-
-                    **[OriginNamedMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginNamedMeta)**
+                    **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
                     A server with a domain name linked to it
                     Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
                     Type of the origin.
                   $ref: '#/definitions/OriginNamedMeta'
                 bucket:
                   description: |-
-                    **[OriginNamedMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginNamedMeta)**
+                    **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
                     An Object Storage bucket not configured as a static site hosting.
                     Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
                     Type of the origin.
                   $ref: '#/definitions/OriginNamedMeta'
                 website:
                   description: |-
-                    **[OriginNamedMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginNamedMeta)**
+                    **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
                     An Object Storage bucket configured as a static site hosting.
                     Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
                     Type of the origin.
                   $ref: '#/definitions/OriginNamedMeta'
                 balancer:
                   description: |-
-                    **[OriginBalancerMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginBalancerMeta)**
+                    **[OriginBalancerMeta](#yandex.cloud.cdn.v1.OriginBalancerMeta)**
                     An L7 load balancer from Application Load Balancer.
                     CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
                     Includes only one of the fields `common`, `bucket`, `website`, `balancer`.

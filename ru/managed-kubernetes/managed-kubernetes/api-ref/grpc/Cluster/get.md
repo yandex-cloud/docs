@@ -160,6 +160,11 @@ Required field. ID of the Kubernetes cluster to return. ||
     "available_from": "google.protobuf.Timestamp",
     "no_later_than": "google.protobuf.Timestamp",
     "description": "string"
+  },
+  "workload_identity_federation": {
+    "enabled": "bool",
+    "issuer": "string",
+    "jwks_uri": "string"
   }
 }
 ```
@@ -248,6 +253,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 
 Includes only one of the fields `cilium`. ||
 || scheduled_maintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workload_identity_federation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -643,4 +649,21 @@ The latest possible date by which a mandatory update must be applied. ||
 || description | **string**
 
 Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwks_uri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

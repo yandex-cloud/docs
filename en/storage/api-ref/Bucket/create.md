@@ -37,19 +37,19 @@ apiPlayground:
           format: int64
         anonymousAccessFlags:
           description: |-
-            **[AnonymousAccessFlags](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.AnonymousAccessFlags)**
+            **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
             Flags for configuring public (anonymous) access to the bucket's content and settings.
             For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
           $ref: '#/definitions/AnonymousAccessFlags'
         acl:
           description: |-
-            **[ACL](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL)**
+            **[ACL](#yandex.cloud.storage.v1.ACL)**
             Access control list (ACL) of the bucket.
             For details, see [documentation](/docs/storage/concepts/acl).
           $ref: '#/definitions/ACL'
         tags:
           description: |-
-            **[Tag](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Tag)**
+            **[Tag](#yandex.cloud.storage.v1.Tag)**
             List of tags for the bucket.
             For details, see [documentation](/docs/resource-manager/concepts/labels).
           type: array
@@ -57,7 +57,7 @@ apiPlayground:
             $ref: '#/definitions/Tag'
         encryption:
           description: |-
-            **[Encryption](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Encryption)**
+            **[Encryption](#yandex.cloud.storage.v1.Encryption)**
             Configuration for bucket's encryption.
             For details, see [documentation](/docs/storage/concepts/encryption).
           $ref: '#/definitions/Encryption'
@@ -88,7 +88,7 @@ apiPlayground:
             - VERSIONING_SUSPENDED
         allowedPrivateEndpoints:
           description: |-
-            **[BucketAllowedPrivateEndpoints](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+            **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
             Configuration for bucket's allowed private endpoints.
             requires permission s3:PutBucketAllowedPrivateEndpoints
           $ref: '#/definitions/BucketAllowedPrivateEndpoints'
@@ -156,7 +156,7 @@ apiPlayground:
               Required field. The grantee type for the grant.
               - `GRANT_TYPE_UNSPECIFIED`
               - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
-                For this grantee type, you need to specify the user ID in [Bucket.acl.grants.granteeId](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL.Grant) field. To get user ID, see
+                For this grantee type, you need to specify the user ID in [Bucket.acl.grants.granteeId](#yandex.cloud.storage.v1.ACL.Grant) field. To get user ID, see
               [instruction](/docs/iam/operations/users/get).
                 Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
               method of Amazon S3-compatible HTTP API).
@@ -178,7 +178,7 @@ apiPlayground:
           granteeId:
             description: |-
               **string**
-              ID of the account who is a grantee. Required when the [grantType](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL.Grant) is `GRANT_TYPE_ACCOUNT`.
+              ID of the account who is a grantee. Required when the [grantType](#yandex.cloud.storage.v1.ACL.Grant) is `GRANT_TYPE_ACCOUNT`.
             type: string
         required:
           - permission
@@ -188,7 +188,7 @@ apiPlayground:
         properties:
           grants:
             description: |-
-              **[Grant](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.ACL.Grant)**
+              **[Grant](#yandex.cloud.storage.v1.ACL.Grant)**
               List of permissions granted and the grantees.
             type: array
             items:
@@ -219,7 +219,7 @@ apiPlayground:
         type: object
         properties:
           rules:
-            description: '**[EncryptionRule](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Encryption.EncryptionRule)**'
+            description: '**[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)**'
             type: array
             items:
               $ref: '#/definitions/EncryptionRule'

@@ -5,15 +5,15 @@ You can only upgrade your {{ mmg-name }} cluster to a version that immediately f
 
 {% note alert %}
 
-After upgrading, you cannot roll a cluster back to the previous version.
+After upgrading, you cannot roll your cluster back to the previous version.
 
 {% endnote %}
 
 ## Before a version upgrade {#before-update}
 
-Make sure this does not affect your applications:
+Make sure the upgrade does not disrupt your applications:
 
-1. See {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) for how upgrades may affect your applications.
+1. Learn how the updates may affect your applications in the {{ MG }} [release notes](https://docs.mongodb.com/manual/release-notes/).
 1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
@@ -66,9 +66,9 @@ Make sure this does not affect your applications:
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
   
-       For more information about creating this file, see [Creating clusters](cluster-create.md).
+       For more information about creating this file, see [this guide](cluster-create.md).
   
-    1. To the {{ mmg-name }} cluster description, add the `version` field or change its value if it is already there:
+    1. Add the `version` field to the {{ mmg-name }} cluster description or edit its value if it is already there:
   
        ```hcl
        resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -87,13 +87,13 @@ Make sure this does not affect your applications:
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+   For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -110,7 +110,7 @@ Make sure this does not affect your applications:
          --data '{
                   "updateMask": "configSpec.version",
                   "configSpec": {
-                    "version": "<new_Yandex_StoreDoc_version>"
+                    "version": "<Yandex_StoreDoc_new_version>"
                   }
                 }'
       ```
@@ -123,9 +123,9 @@ Make sure this does not affect your applications:
 
       * `configSpec.version`: New {{ SD }} version.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    1. After the upgrade, all {{ SD }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, send one more request and provide the new {{ SD }} version number in the `configSpec.featureCompatibilityVersion` property.
 
@@ -138,14 +138,14 @@ Make sure this does not affect your applications:
          --data '{
                   "updateMask": "configSpec.featureCompatibilityVersion",
                   "configSpec": {
-                    "featureCompatibilityVersion": "<new_Yandex_StoreDoc_version>"
+                    "featureCompatibilityVersion": "<Yandex_StoreDoc_new_version>"
                   }
                 }'
       ```
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -185,9 +185,9 @@ Make sure this does not affect your applications:
 
         * `version`: New {{ SD }} version.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     1. After the upgrade, all {{ SD }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, send one more request and provide the new {{ SD }} version number in the `config_spec.feature_compatibility_version` property.
 
@@ -206,7 +206,7 @@ Make sure this does not affect your applications:
                     ]
                   },  
                   "config_spec": {
-                    "feature_compatibility_version": "<new_Yandex_StoreDoc_version>"
+                    "feature_compatibility_version": "<Yandex_StoreDoc_new_version>"
                   }
                }' \
             {{ api-host-mdb }}:{{ port-https }} \

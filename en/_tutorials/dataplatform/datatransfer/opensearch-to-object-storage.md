@@ -5,26 +5,26 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 To transfer data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster fee: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -38,7 +38,9 @@ Set up your infrastructure:
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
+    
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role. The transfer will use it to access the bucket.
+
 
 - {{ TF }} {#tf}
 
@@ -70,13 +72,13 @@ Set up your infrastructure:
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -86,7 +88,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Connect to the source {{ mos-name }} cluster](../../../managed-opensearch/operations/connect.md).
 
@@ -145,12 +147,16 @@ Set up your infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`
+
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`
@@ -186,13 +192,13 @@ Set up your infrastructure:
           terraform validate
           ```
 
-          If there are any errors in the configuration files, {{ TF }} will point them out.
+          {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          Once created, your transfer will be activated automatically.
+          The transfer will activate automatically upon creation.
 
     {% endlist %}
 
@@ -202,7 +208,7 @@ Make sure the data has been transferred from the {{ mos-name }} cluster to the {
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Make sure the {{ objstorage-name }} bucket contains the `from_MOS` folder with the test data JSON file.
@@ -213,9 +219,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the `from_MOS` folder from the bucket you created.
+1. [Delete](../../../storage/operations/objects/delete.md) the `from_MOS` folder from the bucket you created.
 
-Delete the other resources depending on how they were created:
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=instructions %}
 
@@ -223,7 +229,10 @@ Delete the other resources depending on how they were created:
 
     1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
     1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
+
+    
     1. [Delete the service account](../../../iam/operations/sa/delete.md).
+
 
 - {{ TF }} {#tf}
 

@@ -11314,7 +11314,6 @@ default:
           field_catalog-type: Connector type
         overview:
           coordinator-url-list: Trino Web UI
-          title_resource-coordinator: Coordinator
         title_catalogs: Catalogs
       tuning:
         addition-params: Advanced settings
@@ -11487,6 +11486,9 @@ default:
               title: Speech synthesis
             stt:
               title: Speech recognition
+        YaGPT:
+          create-instance_3Ltog: Deploy instance
+          instances-title_j9Cpb: Instances
       ydb:
         browse:
           button_create: Create

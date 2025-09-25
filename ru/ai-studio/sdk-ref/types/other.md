@@ -25,11 +25,21 @@ indicates that reasoning is enabled but hidden
 
 ### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningMode**{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode}
 
+Enumeration for reasoning modes in chat completions.
+
+This enumeration defines the various levels of reasoning effort that can be applied during chat completion generation. Higher reasoning modes allow the model to perform more thorough internal reasoning before responding, potentially improving response quality.
+
 **LOW** = *'low'*{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.LOW}
+
+Low reasoning effort mode
 
 **MEDIUM** = *'medium'*{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.MEDIUM}
 
+Medium reasoning effort mode
+
 **HIGH** = *'high'*{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.HIGH}
+
+High reasoning effort mode
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode.__new__i}
 
@@ -492,3 +502,37 @@ Here we are transforming 1) http\_schema <- schema\_from\_response\_format(respo
 |#
 
 ### *class* yandex\_cloud\_ml\_sdk.\_tools.tool\_call\_list.**HttpToolCallList**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._tools.tool_call_list.HttpToolCallList}
+
+## Completions-related types
+
+### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType}
+
+yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType}
+
+type alias for reasoning mode representation
+
+alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘low’, ‘medium’, ‘high’] | [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘LOW’, ‘MEDIUM’, ‘HIGH’] | [**ChatReasoningMode**](#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode)
+
+### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**QueryType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.QueryType}
+
+### *class* yandex\_cloud\_ml\_sdk.\_models.completions.config.**CompletionTool**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._models.completions.config.CompletionTool}
+
+yandex\_cloud\_ml\_sdk.\_models.completions.config.**CompletionTool**\: *[TypeAlias](https://docs.python.org/3/library/typing.html#typing.TypeAlias)* = *<class 'yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool'>*{#yandex_cloud_ml_sdk._models.completions.config.CompletionTool}
+
+type alias for completion tools
+
+#|
+|| Parameters | 
+
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*)
+- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \| JsonObject]]*)
+- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*) ||
+|| Return type | None ||
+|#
+
+### *class* yandex\_cloud\_ml\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.tools.tool_choice.ToolChoiceType}
+
+yandex\_cloud\_ml\_sdk.\_types.tools.tool\_choice.**ToolChoiceType**{#yandex_cloud_ml_sdk._types.tools.tool_choice.ToolChoiceType}
+
+alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘none’, ‘None’, ‘NONE’, ‘auto’, ‘Auto’, ‘AUTO’, ‘required’, ‘Required’, ‘REQUIRED’] | [**FunctionDictType**](message.md#yandex_cloud_ml_sdk._types.tools.function.FunctionDictType) | [**FunctionTool**](tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)

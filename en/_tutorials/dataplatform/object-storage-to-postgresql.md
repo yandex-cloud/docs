@@ -20,12 +20,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mpg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -45,13 +45,15 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
 
     
-    1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
+    1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow inbound connections to your cluster.
 
 
     1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
+    
     1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
     1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
+
 
 - {{ TF }} {#tf}
 
@@ -66,15 +68,15 @@ Set up the infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) required to connect to the cluster.
-        * Service account for creating and accessing the bucket.
-        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
+        * Cluster access [security group](../../vpc/concepts/security-groups.md).
+        * Service account for bucket operations, e.g., creation and access.
+        * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
         * {{ objstorage-name }} source bucket.
-        * {{ mpg-name }} target cluster.
+        * Target {{ mpg-name }} cluster.
         * Target endpoint.
         * Transfer.
 
-    1. Specify the following in the `objstorage-to-postgres.tf` file:
+    1. In the `objstorage-to-postgres.tf` file, specify the following:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -86,7 +88,7 @@ Set up the infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -115,9 +117,13 @@ Set up the infrastructure:
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md) of the `{{ objstorage-name }}` type with these settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
+
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+
+
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
@@ -128,9 +134,9 @@ Set up the infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    For the other properties, leave the default values.
+    Keep the default values for all other settings.
 
-1. Create a target endpoint and transfer:
+1. Create a target endpoint and set up the transfer:
 
     {% list tabs group=resources %}
 
@@ -159,7 +165,7 @@ Set up the infrastructure:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -195,12 +201,12 @@ Data successfully migrated.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 * [Transfer](../../data-transfer/operations/transfer.md#delete).
 * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-* [Objects](../../storage/operations/objects/delete.md) from the bucket.
-* Delete the other resources depending on how they were created:
+* Bucket [objects](../../storage/operations/objects/delete.md).
+* Delete other resources using the method matching their creation method:
 
     {% list tabs group=resources %}
 

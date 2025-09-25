@@ -17,7 +17,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListOriginGroupsResponse.nextPageToken](/docs/cdn/api-ref/OriginGroup/list#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+            the service returns a [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,7 +25,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results,
-            set `pageToken` to the [ListOriginGroupsResponse.nextPageToken](/docs/cdn/api-ref/OriginGroup/list#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+            set `pageToken` to the [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
             returned by a previous list request.
           type: string
       required:

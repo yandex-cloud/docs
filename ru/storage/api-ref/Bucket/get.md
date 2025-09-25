@@ -26,11 +26,11 @@ apiPlayground:
             bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/policy).
             - `VIEW_UNSPECIFIED`
             - `VIEW_BASIC`: Returns basic information about a bucket.
-              The following fields will _not_ be returned: [Bucket.acl](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.cors](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.websiteSettings](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket),
-            [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.tags](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket).
+              The following fields will _not_ be returned: [Bucket.acl](#yandex.cloud.storage.v1.Bucket), [Bucket.cors](#yandex.cloud.storage.v1.Bucket), [Bucket.websiteSettings](#yandex.cloud.storage.v1.Bucket),
+            [Bucket.lifecycleRules](#yandex.cloud.storage.v1.Bucket), [Bucket.tags](#yandex.cloud.storage.v1.Bucket).
             - `VIEW_ACL`: Returns basic information and access control list (ACL) for the bucket.
-              The following fields will _not_ be returned: [Bucket.cors](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.websiteSettings](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket),
-            [Bucket.tags](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket).
+              The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage.v1.Bucket), [Bucket.websiteSettings](#yandex.cloud.storage.v1.Bucket), [Bucket.lifecycleRules](#yandex.cloud.storage.v1.Bucket),
+            [Bucket.tags](#yandex.cloud.storage.v1.Bucket).
             - `VIEW_FULL`: Returns full information about a bucket.
           type: string
           enum:

@@ -25,6 +25,14 @@ items:
             href: operations/jobs-spark.md
           - name: Задания PySpark
             href: operations/jobs-pyspark.md
+          - name: Задания SparkConnect
+            href: operations/jobs-sparkconnect.md
+      - name: Логи и мониторинг
+        items:
+          - name: Мониторинг состояния кластера
+            href: operations/monitoring.md
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства

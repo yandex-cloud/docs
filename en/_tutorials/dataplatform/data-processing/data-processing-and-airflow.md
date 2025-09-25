@@ -91,7 +91,7 @@ The example below illustrates two scenarios. Select the one you find most releva
       This will automatically create three subnets in different availability zones.
 
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
-   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `data-processing-network`. Add the following rules to it:
+   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `data-processing-network`. Add the following rules to the group:
 
       * For incoming client traffic:
 
@@ -368,7 +368,7 @@ To prepare a DAG:
    1. Open the {{ AF }} web interface.
    1. Make sure the **DAGs** section now contains the new DAG named `DATA_INGEST` and tagged as `data-processing-and-airflow`.
 
-      It may take a few minutes to load a DAG file from the bucket.
+      It may take a few minutes to upload a DAG file from the bucket.
 
    1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -464,9 +464,9 @@ To prepare a DAG:
    1. Open the {{ AF }} web interface.
    1. Make sure the **DAGs** section now contains the new DAG named `DATA_INGEST` and tagged as `data-processing-and-airflow`.
 
-      It may take a few minutes to load a DAG file from the bucket.
+      It may take a few minutes to upload a DAG file from the bucket.
 
-   1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+   1. To run a DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 {% endlist %}
 
@@ -484,7 +484,7 @@ To prepare a DAG:
 * Simplified setup
 
    1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
-   1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
+   1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that an {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
    1. Make sure `<bucket_for_jobs_and_data>` now contains the `countries` folder with the `part-00000-...` file. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
    1. Make sure there are PySpark job logs in `<bucket_for_jobs_and_data>`. These logs are written to the `dataproc`, `user`, and `var` folders.
 

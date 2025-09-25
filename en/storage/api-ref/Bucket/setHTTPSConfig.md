@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         selfManaged:
           description: |-
-            **[SelfManagedHTTPSConfigParams](/docs/storage/api-ref/Bucket/setHTTPSConfig#yandex.cloud.storage.v1.SelfManagedHTTPSConfigParams)**
+            **[SelfManagedHTTPSConfigParams](#yandex.cloud.storage.v1.SelfManagedHTTPSConfigParams)**
             Your TLS certificate, uploaded directly.
             Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
             Includes only one of the fields `selfManaged`, `certificateManager`.
@@ -28,7 +28,7 @@ apiPlayground:
           $ref: '#/definitions/SelfManagedHTTPSConfigParams'
         certificateManager:
           description: |-
-            **[CertificateManagerHTTPSConfigParams](/docs/storage/api-ref/Bucket/setHTTPSConfig#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams)**
+            **[CertificateManagerHTTPSConfigParams](#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams)**
             TLS certificate from Certificate Manager.
             To create a certificate in Certificate Manager, make a
             [yandex.cloud.certificatemanager.v1.CertificateService.Create](/docs/certificate-manager/api-ref/Certificate/create#Create) request.

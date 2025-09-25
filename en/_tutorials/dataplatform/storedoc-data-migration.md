@@ -10,12 +10,12 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
     This migration method allows you to:
 
     * Migrate the database without interrupting user service.
-    * Migrate from older {{ SD }} versions to newer versions.
+    * Migrate from older {{ MG }} versions to newer versions.
     * Go without creating an intermediate VM or granting online access to your {{ mmg-name }} target cluster.
 
     To use this migration method, allow connecting to the source cluster from the internet.
 
-    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Migrating a database using a dump](#dump-and-restore).
 
@@ -26,14 +26,14 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
 The cost of transferring data with {{ data-transfer-full-name }} includes:
 
-* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 The cost of transferring data using a database dump includes:
 
-* {{ mmg-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * When creating a VM to download a dump: Fee for using the computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
@@ -45,7 +45,7 @@ The database name in the target cluster must be the same as the source database 
 
 ## Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MongoDB migration with Data Transfer](datatransfer/managed-mongodb.md) %}
+{% include notitle [MongoDB migration with Data Transfer](datatransfer/storedoc.md) %}
 
 ## Migrating a database using a dump {#dump-and-restore}
 
@@ -101,7 +101,7 @@ You can create a database dump using `mongodump`. For more information about thi
     tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-### (Optional) Create a VM to download a dump {#create-vm}
+### Optionally, create a VM to download a dump {#create-vm}
 
 You will need an intermediate VM in {{ compute-full-name }} if:
 
@@ -129,7 +129,7 @@ To prepare the virtual machine to restore the dump:
 1. Move the DB dump from your server to the VM. For example, you can use `scp`:
 
     ```bash
-    scp ~/db_dump.tar.gz <VM_username>@<VM_public_address>:/tmp/db_dump.tar.gz
+    scp ~/db_dump.tar.gz <VM_user_name>@<VM_public_address>:/tmp/db_dump.tar.gz
     ```
 
 1. Unpack the dump on the virtual machine:

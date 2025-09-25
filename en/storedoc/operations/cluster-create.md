@@ -1,16 +1,16 @@
 ---
-title: Creating a {{ SD }} cluster
+title: Creating an {{ SD }} cluster
 description: Follow this guide to create a {{ SD }} cluster.
 ---
 
-# Creating a {{ SD }} cluster
+# Creating an {{ SD }} cluster
 
 A {{ SD }} cluster is one or more database hosts between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host, where the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
 
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ SD }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create along with a {{ SD }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
@@ -40,10 +40,10 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
       * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the cloud.
       * (Optional) Enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
-      * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
+      * Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
 
           * `PRODUCTION`: For stable versions of your apps.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
 
       * Specify the DBMS version.
 
@@ -96,11 +96,11 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      By default, hosts are created in different availability zones. Read more about [host management](hosts.md).
   
-  1. Configure additional cluster settings, if required:
+  1. Specify additional cluster settings, if required:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
-  1. Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
+  1. [Configure the DBMS](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
       {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
@@ -121,7 +121,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. View the description of the CLI command to create a cluster:
@@ -153,7 +153,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         --deletion-protection
       ```
 
-      You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
 
       Where:
@@ -161,9 +161,9 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `--environment`: Environment, `prestable` or `production`.
 
       
-      * `--host`: Host parameters:
+      * `--host`: Host settings:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
          * `secondary-delay-secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
@@ -194,7 +194,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
   To create a {{ mmg-name }} cluster:
 
-  1. In the configuration file, describe the parameters of resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      * Database cluster: Description of the cluster and its hosts.
 
@@ -267,7 +267,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      Where:
 
      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-     * `host`: Host parameters:
+     * `host`: Host settings:
        * `zone_id`: Availability zone.
        * `subnet_id`: ID of a subnet in the selected availability zone.
        * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -285,7 +285,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mmg }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
 
@@ -295,17 +295,17 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         
         ```json
@@ -370,9 +370,9 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                 }
               ]
             },
-            { <similar_configuration_for_user_2> },
+            { <similar_settings_for_user_2> },
             { ... },
-            { <similar_configuration_for_user_N> }
+            { <similar_settings_for_user_N> }
           ],
           "hostSpecs": [
             {
@@ -386,9 +386,9 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               "priority": "<host_priority>",
               "tags": "<host_labels>"
             },
-            { <similar_configuration_for_host_2> },
+            { <similar_settings_for_host_2> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ],
         }
         ```
@@ -425,7 +425,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               * `resources`: Cluster resources:
 
                 * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-                * `diskSize`: Disk size in bytes.
+                * `diskSize`: Disk size, in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
 
             * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
@@ -480,16 +480,16 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           --data "@body.json"
       ```
 
-  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
         
         ```json
@@ -554,9 +554,9 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                 }
               ]
             },
-            { <similar_configuration_for_user_2> },
+            { <similar_settings_for_user_2> },
             { ... },
-            { <similar_configuration_for_user_N> }
+            { <similar_settings_for_user_N> }
           ],
           "host_specs": [
             {
@@ -570,7 +570,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               "priority": "<host_priority>",
               "tags": "<host_labels>"
             },
-            { <similar_configuration_for_host_2> },
+            { <similar_settings_for_host_2> },
             { ... },
             { <similar_configuration_for_host_N> }
           ]
@@ -609,7 +609,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               * `resources`: Cluster resources:
 
                 * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-                * `disk_size`: Disk size in bytes.
+                * `disk_size`: Disk size, in bytes.
                 * `disk_type_id`: [Disk type](../concepts/storage.md).
 
             * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
@@ -668,7 +668,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           < body.json
       ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -682,7 +682,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ SD }} cluster using the settings of another one created earlier. To do so, import the source {{ SD }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ SD }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ SD }} cluster that uses the settings of another one created earlier. To do so, import the {{ SD }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ SD }} source cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ SD }} cluster copy:
 
@@ -701,15 +701,15 @@ To create a {{ SD }} cluster copy:
         resource "yandex_mdb_mongodb_cluster" "old" { }
         ```
 
-    1. Write the initial {{ SD }} cluster’s ID to the environment variable:
+    1. Write the ID of the initial {{ SD }} cluster to the environment variable:
 
         ```bash
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
-    1. Import the initial {{ SD }} cluster’s settings into the {{ TF }} configuration:
+    1. Import the settings of the initial {{ SD }} cluster into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
@@ -723,13 +723,13 @@ To create a {{ SD }} cluster copy:
 
     1. Copy it from the terminal and paste it into the `.tf` file.
     1. Place the file in the new `imported-cluster` directory.
-    1. Modify the copied configuration so that you can create a new cluster from it:
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `id`, `sharded`, and `status`.
         * In the `host` sections, delete `health` and `name`.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_mongodb_user` resource.
+        * Delete all `user` sections (if any). You can add database users with a separate `yandex_mdb_mongodb_user` resource.
         * Optionally, make further changes if you need to customize the configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
@@ -744,7 +744,7 @@ To create a {{ SD }} cluster copy:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

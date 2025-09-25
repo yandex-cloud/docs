@@ -18,23 +18,24 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListClustersResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/list#yandex.cloud.k8s.v1.ListClustersResponse)
+            the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListClustersResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/list#yandex.cloud.k8s.v1.ListClustersResponse) returned by a previous list request.
+            [ListClustersResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClustersResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.Cluster) field.
+            1. The field name. Currently you can use filtering only on [Cluster.name](#yandex.cloud.k8s.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
           type: string
@@ -230,6 +231,11 @@ The expression must specify:
         "availableFrom": "string",
         "noLaterThan": "string",
         "description": "string"
+      },
+      "workloadIdentityFederation": {
+        "enabled": "boolean",
+        "issuer": "string",
+        "jwksUri": "string"
       }
     }
   ],
@@ -345,6 +351,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 
 Includes only one of the fields `cilium`. ||
 || scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -778,4 +785,21 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || description | **string**
 
 Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwksUri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

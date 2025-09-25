@@ -18,3 +18,4 @@
 Роль не может гарантировать доступа к бакету, если к бакету применена [политика доступа](../../storage/security/policy.md) Yandex Object Storage.
 
 {% endnote %}
+

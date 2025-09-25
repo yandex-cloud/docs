@@ -5,10 +5,11 @@ description: This section contains {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
-
 ## July 2025 {#jul-2025}
 
-Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a custom KMS key when creating a cluster and restoring it from a backup.
+
+* Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a custom KMS key when creating a cluster and restoring it from a backup.
+* Added support for persistence [on replicas only](concepts/replication.md#persistence-on-replicas).
 
 
 ## May 2025 {#may-2025}

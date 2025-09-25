@@ -244,6 +244,9 @@ items:
           - name: Assistant types
             href: sdk-ref/types/assistants
             hidden: true
+          - name: Search API
+            href: sdk-ref/types/search_api
+            hidden: true
           - name: Tools
             href: sdk-ref/types/tools
             hidden: true
@@ -258,9 +261,6 @@ items:
             hidden: true
           - name: Operation
             href: sdk-ref/types/operation
-            hidden: true
-          - name: Search API
-            href: sdk-ref/types/search_api
             hidden: true
           - name: Datasets
             href: sdk-ref/types/datasets

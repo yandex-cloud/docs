@@ -1,5 +1,5 @@
 ---
-title: Sharding in Yandex StoreDoc
+title: Sharding in {{ SD }}
 description: '{{ SD }} supports sharding to handle large volumes of data and increase DBMS throughput. Sharding can be of particular use when vertical scaling (server capacity upgrade) is either uneconomical or impossible. {{ mmg-name }} supports the main data sharding strategies: hashed sharding (with a hash-based shard key) and ranged sharding (based on a value range).'
 ---
 
@@ -83,6 +83,6 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/storedoc-migration-with-data-transfer)
-* [{#T}](../tutorials/storedoc-versions)
+* [{#T}](../tutorials/storedoc-migration-with-data-transfer.md)
+* [{#T}](../tutorials/storedoc-versions.md)
 * [{#T}](../tutorials/sharding.md)

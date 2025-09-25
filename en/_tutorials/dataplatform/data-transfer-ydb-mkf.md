@@ -8,7 +8,7 @@ You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mk
 To run data delivery:
 
 1. [Prepare the source](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* Fee for the {{ ydb-name }}. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
 	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
@@ -31,11 +31,12 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-1. Prepare the data transfer infrastructure:
+1. Set up your data pipeline infrastructure:
 
    {% list tabs group=instructions %}
 
    - Manually {#manual}
+
 
        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
@@ -77,9 +78,9 @@ The support cost includes:
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-           * Database: {{ ydb-name }}.
-           * {{ mkf-name }} target cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mkf-name }} cluster.
+           * {{ ydb-name }} database.
+           * Target {{ mkf-name }} cluster.
            * {{ KF }} topic.
            * {{ KF }} user.
            * Transfer.
@@ -100,13 +101,13 @@ The support cost includes:
            * `target_user_password`: User password.
            * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-       1. Make sure the {{ TF }} configuration files are correct using this command:
+       1. Validate your {{ TF }} configuration files using this command:
 
            ```bash
            terraform validate
            ```
 
-           If there are any errors in the configuration files, {{ TF }} will point them out.
+           {{ TF }} will display any configuration errors detected in your files.
 
        1. Create the required infrastructure:
 
@@ -171,7 +172,11 @@ The support cost includes:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+
+           
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `editor` role.
+
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Specify the names of tables and {{ ydb-name }} database directories to transfer.
 
            {% note warning %}
@@ -183,7 +188,7 @@ The support cost includes:
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the details of the [created](#before-you-begin) {{ KF }} user.
 
@@ -202,14 +207,14 @@ The support cost includes:
     - Manually {#manual}
 
         1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-ydb-mkf.tf` file, specify these variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: Target endpoint ID.
+            * `target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -218,19 +223,19 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. In a separate terminal, run the `kafkacat` utility in consumer mode:
 
     ```bash
@@ -420,17 +425,20 @@ The support cost includes:
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you had created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete the other resources depending on how they were created:
+
+1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+
+
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=instructions %}
 

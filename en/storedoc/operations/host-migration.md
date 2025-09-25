@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ SD }} cluster hosts to a different availability zone
-description: Follow this guide to relocate hosts in a {{ SD }} cluster to a different availability zone.
+description: Follow this guide to relocate hosts in an {{ SD }} cluster to a different availability zone.
 ---
 
 # Migrating {{ SD }} cluster hosts to a different availability zone
@@ -19,9 +19,9 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
 
-         * Availability zone to which you want to move the hosts.
+         * Availability zone to move the hosts to.
          * New subnet.
-         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}.
 
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -79,7 +79,7 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -120,13 +120,13 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
             * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `tags`: Host labels.
 
-            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -172,13 +172,13 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
             * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `tags`: Host labels.
 
-            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. To successfully connect to the database after the migration is complete, specify the new host's FQDN in your backend or client (for example, in the code or graphical IDE). Delete the original host's FQDN in the source availability zone.
+1. To successfully connect to the database after the migration is complete, specify the new host's FQDN in your backend or client (e.g., in the code or graphical IDE). Delete the original host's FQDN in the source availability zone.
 
    To find out the FQDN, get a list of hosts in the cluster:
 
@@ -186,7 +186,7 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
    {{ yc-mdb-mg }} host list --cluster-name <cluster_name>
    ```
 
-   The FQDN is specified in the command output under `NAME`.
+   You will see the FQDN in the command output under `NAME`.
 
    To learn how to get host FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
 
@@ -221,7 +221,7 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
 
    - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -242,13 +242,13 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
 
             Where `hostNames` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](hosts.md#list-hosts).
 
-            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+      1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -274,13 +274,13 @@ description: Follow this guide to relocate hosts in a {{ SD }} cluster to a diff
 
             Where `host_names` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](hosts.md#list-hosts).
 
-            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+      1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder dashboard and select **Yandex StoreDoc**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster state changes to **Alive**. In the management console, navigate to the folder dashboard and select **Yandex StoreDoc**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

@@ -23,9 +23,10 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListClusterNodesResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodes#yandex.cloud.k8s.v1.ListClusterNodesResponse)
+            the service returns a [ListClusterNodesResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterNodesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:

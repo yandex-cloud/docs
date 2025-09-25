@@ -6,7 +6,7 @@ With {{ data-transfer-name }}, you can upload data from a {{ ydb-name }} databas
 To upload data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,9 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* Fee for the {{ ydb-name }}. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
 	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
@@ -30,7 +30,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -39,12 +39,14 @@ Set up your infrastructure:
     1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) named `ydb1` in any suitable configuration.
     1. [Create a {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with publicly available hosts and the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
 
     1. If using security groups in your cluster, make sure they are configured correctly and allow connecting to the [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) cluster.
 
+    
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `ydb-account` with the `ydb.editor` role. The transfer will use it to access the database.
+
 
 - Using {{ TF }} {#tf}
 
@@ -60,24 +62,24 @@ Set up your infrastructure:
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mch-name }} cluster from the internet.
-        * Database: {{ ydb-name }}.
-        * {{ mch-name }} target cluster.
+        * {{ ydb-name }} database.
+        * Target {{ mch-name }} cluster.
         * Source endpoint.
         * Target endpoint.
         * Transfer.
 
-    1. In the `ydb-to-clickhouse.tf` file, specify the following parameters:
+    1. In the `ydb-to-clickhouse.tf` file, specify the following settings:
 
         * `mch_version`: {{ CH }} version.
         * `mch_password`: User password of the {{ CH }} database owner.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -87,7 +89,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Connect to the {{ ydb-name }} database](../../../ydb/operations/connection.md).
 1. [Create a row-oriented table](../../../ydb/operations/schema.md#create-table) named `table1` with the following columns:
@@ -125,11 +127,14 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md#endpoint-settings) of the `{{ ydb-short-name }}` type and specify the DB connection parameters in it:
+    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md#endpoint-settings) of the `{{ ydb-short-name }}` type and specify the DB connection settings in it:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `ydb-account` service account.
+
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Specify `table1`.
 
@@ -141,39 +146,39 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
 
-    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+    1. Create the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type [transfer](../../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
 
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 - Using {{ TF }} {#tf}
 
     1. In the `ydb-to-clickhouse.tf` file, set the `transfer_enabled` parameter to `1`.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        Once created, your transfer will be activated automatically.
+        The transfer will activate automatically upon creation.
 
 {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-Check the transfer performance by testing the copy and replication processes.
+To verify that the transfer is operational, check the copy and replication processes.
 
-### Test the copy process {#verify-copy}
+### Test the copy operation {#verify-copy}
 
-1. [Connect](../../../managed-clickhouse/operations/connect/clients.md) to `db1` in the {{ mch-name }} target cluster.
+1. [Connect](../../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in your target {{ mch-name }} cluster.
 
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM db1.table1;
@@ -208,9 +213,9 @@ Check the transfer performance by testing the copy and replication processes.
 
 1. Make sure the new data has been added to the target database:
 
-    1. [Connect](../../../managed-clickhouse/operations/connect/clients.md) to `db1` in the {{ mch-name }} target cluster.
+    1. [Connect](../../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in your target {{ mch-name }} cluster.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM db1.table1;
@@ -236,21 +241,24 @@ Check the transfer performance by testing the copy and replication processes.
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
     * [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
-    * [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    * [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
     * [Delete the {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#delete-db).
     * [Delete the {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-delete.md).
+
+    
     * [Delete the service account](../../../iam/operations/sa/delete.md).
+
 
 - Using {{ TF }} {#tf}
 

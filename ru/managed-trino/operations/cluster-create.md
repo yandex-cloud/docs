@@ -46,6 +46,10 @@ keywords:
 
             Сервисному аккаунту должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`.
 
+        1. Выберите версию {{ TR }}.
+
+            {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
     1. В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         1. Выберите **Тип объекта для перезапроса**:
@@ -102,6 +106,7 @@ keywords:
         ```bash
         {{ yc-mdb-tr }} cluster create \
            --name <имя_кластера> \
+           --version <версия> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --subnet-ids <список_идентификаторов_подсетей> \
            --security-group-ids <список_идентификаторов_групп_безопасности> \
@@ -113,6 +118,10 @@ keywords:
         Где:
 
         * `--name` — имя кластера. Оно должно быть уникальным в рамках каталога.
+        * `--version` — версия {{ TR }}.
+
+          {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+        
         * `--service-account-id` — идентификатор сервисного аккаунта.
         * `--subnet-ids` — список идентификаторов подсетей.
         * `--security-group-ids` — список идентификаторов групп безопасности.
@@ -225,6 +234,14 @@ keywords:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        
     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mtr }}).
 
 - REST API {#api}
@@ -263,17 +280,18 @@ keywords:
                   "maxCount": "<максимальное_количество_экземпляров>"
                 }
               }
-            }
-          },
-          "retryPolicy": {
-            "policy": "<тип_объекта_для_перезапроса>",
-            "exchangeManager": {
-              "storage": {
-                "serviceS3": {}
-              },
-              "additionalProperties": {<дополнительные_параметры_хранилища>}
             },
-            "additionalProperties": {<дополнительные_параметры_перезапросов>}
+            "retryPolicy": {
+              "policy": "<тип_объекта_для_перезапроса>",
+              "exchangeManager": {
+                "storage": {
+                  "serviceS3": {}
+                },
+                "additionalProperties": {<дополнительные_параметры_хранилища>}
+              },
+              "additionalProperties": {<дополнительные_параметры_перезапросов>}
+            },
+            "version": "<версия>"
           },
           "network": {
             "subnetIds": [ <список_идентификаторов_подсетей> ],
@@ -328,6 +346,10 @@ keywords:
                * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+            
+            * `version` — версия {{ TR }}.
+
+               {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
         * `network` — сетевые настройки:
 
@@ -348,7 +370,7 @@ keywords:
 
             Укажите один из двух параметров: `folderId` либо `logGroupId`.
 
-    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -408,7 +430,8 @@ keywords:
                 "additional_properties": {<дополнительные_параметры_хранилища>}
               },
               "additional_properties": {<дополнительные_параметры_перезапросов>}
-            }
+            },
+            "version": "<версия>"
           },
           "network": {
             "subnet_ids": [ <список_идентификаторов_подсетей> ],
@@ -463,6 +486,10 @@ keywords:
                * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+            
+            * `version` — версия {{ TR }}.
+
+               {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
         * `network` — сетевые настройки:
 
@@ -483,7 +510,7 @@ keywords:
 
             Укажите один из двух параметров: `folder_id` либо `log_group_id`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

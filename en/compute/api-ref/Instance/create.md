@@ -29,8 +29,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         zoneId:
           description: |-
             **string**
@@ -48,7 +57,7 @@ apiPlayground:
           type: string
         resourcesSpec:
           description: |-
-            **[ResourcesSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.ResourcesSpec)**
+            **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
             Required field. Computing resources of the instance, such as the amount of memory and number of cores.
             To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
           $ref: '#/definitions/ResourcesSpec'
@@ -61,22 +70,24 @@ apiPlayground:
             The values must be 256 KB or less.
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         metadataOptions:
           description: |-
-            **[MetadataOptions](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.MetadataOptions)**
+            **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
             Options allow user to configure access to instance's metadata
           $ref: '#/definitions/MetadataOptions'
         bootDiskSpec:
           description: |-
-            **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+            **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
             Required field. Boot disk to attach to the instance.
           oneOf:
             - type: object
               properties:
                 diskSpec:
                   description: |-
-                    **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                    **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
                     Disk specification.
                     Includes only one of the fields `diskSpec`, `diskId`.
                   oneOf:
@@ -102,7 +113,7 @@ apiPlayground:
                   type: string
         secondaryDiskSpecs:
           description: |-
-            **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+            **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
             Array of secondary disks to attach to the instance.
           type: array
           items:
@@ -111,7 +122,7 @@ apiPlayground:
                 properties:
                   diskSpec:
                     description: |-
-                      **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                      **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
                       Disk specification.
                       Includes only one of the fields `diskSpec`, `diskId`.
                     oneOf:
@@ -137,14 +148,14 @@ apiPlayground:
                     type: string
         localDiskSpecs:
           description: |-
-            **[AttachedLocalDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedLocalDiskSpec)**
+            **[AttachedLocalDiskSpec](#yandex.cloud.compute.v1.AttachedLocalDiskSpec)**
             Array of local disks to attach to the instance.
           type: array
           items:
             $ref: '#/definitions/AttachedLocalDiskSpec'
         filesystemSpecs:
           description: |-
-            **[AttachedFilesystemSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
+            **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
             Array of filesystems to attach to the instance.
             The filesystems must reside in the same availability zone as the instance.
             To use the instance with an attached filesystem, the latter must be mounted.
@@ -154,7 +165,7 @@ apiPlayground:
             $ref: '#/definitions/AttachedFilesystemSpec'
         networkInterfaceSpecs:
           description: |-
-            **[NetworkInterfaceSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+            **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
             Required field. Network configuration for the instance. Specifies how the network interface is configured
             to interact with other services on the internal network and on the internet.
           type: array
@@ -164,15 +175,15 @@ apiPlayground:
           description: |-
             **string**
             Host name for the instance.
-            This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) value.
+            This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#yandex.cloud.compute.v1.Instance) value.
             The host name must be unique within the network and region.
-            If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) of the instance
+            If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#yandex.cloud.compute.v1.Instance) of the instance
             and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
           pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
           type: string
         schedulingPolicy:
           description: |-
-            **[SchedulingPolicy](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.SchedulingPolicy)**
+            **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy)**
             Scheduling policy configuration.
           $ref: '#/definitions/SchedulingPolicy'
         serviceAccountId:
@@ -183,17 +194,17 @@ apiPlayground:
           type: string
         networkSettings:
           description: |-
-            **[NetworkSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.NetworkSettings)**
+            **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)**
             Network settings.
           $ref: '#/definitions/NetworkSettings'
         placementPolicy:
           description: |-
-            **[PlacementPolicy](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.PlacementPolicy)**
+            **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy)**
             Placement policy configuration.
           $ref: '#/definitions/PlacementPolicy'
         gpuSettings:
           description: |-
-            **[GpuSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.GpuSettings)**
+            **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
             GPU settings.
           $ref: '#/definitions/GpuSettings'
         maintenancePolicy:
@@ -216,7 +227,7 @@ apiPlayground:
           format: duration
         serialPortSettings:
           description: |-
-            **[SerialPortSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.SerialPortSettings)**
+            **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
             Serial port settings
           $ref: '#/definitions/SerialPortSettings'
         reservedInstancePoolId:
@@ -407,7 +418,7 @@ apiPlayground:
             type: string
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               External DNS configuration
             type: array
             items:
@@ -423,13 +434,13 @@ apiPlayground:
             type: string
           oneToOneNatSpec:
             description: |-
-              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
               An external IP address configuration.
               If not specified, then this instance will have no external internet access.
             $ref: '#/definitions/OneToOneNatSpec'
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               Internal DNS configuration
             type: array
             items:
@@ -444,12 +455,12 @@ apiPlayground:
             type: string
           primaryV4AddressSpec:
             description: |-
-              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
               Primary IPv4 address that will be assigned to the instance for this network interface.
             $ref: '#/definitions/PrimaryAddressSpec'
           primaryV6AddressSpec:
             description: |-
-              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
               Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
             $ref: '#/definitions/PrimaryAddressSpec'
           securityGroupIds:
@@ -528,7 +539,7 @@ apiPlayground:
             type: string
           hostAffinityRules:
             description: |-
-              **[HostAffinityRule](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
+              **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
               List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.
             type: array
             items:

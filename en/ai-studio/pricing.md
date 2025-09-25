@@ -138,12 +138,6 @@ _{{ price-per-hour-count-per-second }}_
 
 *Prices are shown for 1 minute of use. Billing occurs per second.*
 
-{% note info %}
-
-The prices are effective until November 24, 2025.
-
-{% endnote %}
-
 
 
 {% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}

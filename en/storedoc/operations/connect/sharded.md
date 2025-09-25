@@ -1,5 +1,5 @@
 ---
-title: Code examples for connecting to a sharded {{ SD }} cluster in {{ mmg-full-name }}
+title: Code examples for connection to a sharded {{ SD }} cluster in {{ mmg-full-name }}
 description: Use these examples to connect to a database in a sharded {{ SD }} cluster from your app code.
 ---
 
