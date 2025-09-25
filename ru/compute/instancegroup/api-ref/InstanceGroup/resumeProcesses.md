@@ -10,7 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the instance group to resume processes in.
-            The instance group must have a `PAUSED` status ([InstanceGroup.status](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup)).
+            The instance group must have a `PAUSED` status ([InstanceGroup.status](#yandex.cloud.compute.v1.instancegroup.InstanceGroup)).
             To get the instance group ID, make a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
           type: string
       additionalProperties: false

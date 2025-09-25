@@ -71,7 +71,7 @@ Key changes in the new version:
 * Added the logical replication setting from a replica.
 * New version 16 clusters use ICU locales instead of libc.
 
-Learn how to update a cluster in [{#T}](operations/cluster-version-update.md).
+For information on how to update a cluster, see [{#T}](operations/cluster-version-update.md).
 
 For more information about the updates in {{ PG }} version 16, see [this {{ PG }} article]({{ pg.docs.org }}/release/16.0/).
 
@@ -95,7 +95,7 @@ For more information about the updates in {{ PG }} version 16, see [this {{ PG }
     * You can now specify [ICU]({{ pg.docs.org }}/15/locale.html#id-1.6.11.3.7) for a database by default.
     * Improved performance, in particular, for in-memory and on-disk sorting.
 
-    Learn how to update a cluster in [{#T}](operations/cluster-version-update.md).
+    For information on how to update a cluster, see [{#T}](operations/cluster-version-update.md).
 
     For more information about the updates in {{ PG }} version 15, see [this {{ PG }} article]({{ pg.docs.org }}/release/15.0/).
 

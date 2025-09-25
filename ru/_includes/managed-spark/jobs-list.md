@@ -5,6 +5,29 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
+- CLI {#cli}
+    
+    {% include [cli-install](../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    
+    Чтобы получить список заданий кластера:
+
+    1. Посмотрите описание команды CLI для получения списка заданий:
+
+        ```bash
+        yc managed-spark job list --help
+        ```
+    
+    1. Получите список заданий, выполнив команду:
+
+        ```bash
+        yc managed-spark job list \
+          --cluster-id <идентификатор_кластера>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-spark/operations/cluster-list.md#list-clusters).
+
 - gRPC API {#grpc-api}
 
     1. [Получите IAM-токен для аутентификации в API](../../managed-spark/api-ref/authentication.md) и поместите токен в переменную среды окружения:

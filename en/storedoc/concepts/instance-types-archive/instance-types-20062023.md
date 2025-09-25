@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-name }} host classes before June 20, 2023'
-description: The host class determines the computing power allocated for each host in a Yandex StoreDoc cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
+description: The host class determines the computing power allocated for each host in a {{ SD }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
 ---
 
 # {{ SD }} host classes before June 20, 2023

@@ -49,7 +49,7 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 

@@ -8,7 +8,7 @@
 
     Maximum number of inbound connections.
 
-    The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. Default value: `1024`.
+    The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. The default value is `1024`.
 
     For more information, see [Connection limits](../../storedoc/operations/connect/index.md#connection-limits).
 
@@ -18,7 +18,7 @@
 
     The `disabled` value disables compression. Default value: `snappy,zstd,zlib`.
 
-    For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors).
+    For more information, see [this {{ MG }} article](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors).
 
 - **Operation profiling**{#setting-operation-profiling} {{ tag-all }}
 
@@ -38,7 +38,7 @@
     - `slowOp` (default): Only collects information about slow operations (that take longer than the threshold value specified in the [Slow op threshold](#setting-slow-op-threshold) setting).
     - `all`: Collects information about all queries in progress.
 
-    For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
+    For more information, see [this {{ MG }} article](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
 
   - **Slow op sample rate**{#setting-slow-sample-rate}
 
@@ -46,7 +46,7 @@
 
     Minimum value: `0`; maximum value: `1`; default: `1`.
 
-    For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate).
+    For more information, see [this {{ MG }} article](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate).
 
   - **Slow op threshold**{#setting-slow-op-threshold}
   
@@ -54,7 +54,7 @@
 
     Minimum value: `0`; maximum value: `36000000` (10 hours); default: `300`.
 
-    For more information, see the [{{ MG }}](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations) documentation.
+    For more information, see [this {{ MG }} article](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
 
 
 - **Set parameter**{#setting-set-parameter}
@@ -65,7 +65,7 @@
 
     Default value: `false` (flow control disabled).
 
-    For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
+    For more information, see [this {{ MG }} article](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
 
   - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-all }}
 
@@ -79,7 +79,7 @@
 
     Possible values: from zero up. Default value: `60`. Increasing this setting value increases disk usage.
 
-    For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds).
+    For more information, see [this {{ MG }} article](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds).
 
 - **Storage**{#setting-storage} {{ tag-all }}
 
@@ -97,9 +97,9 @@
   
     The interval in milliseconds between when {{ SD }} [journal data](https://docs.mongodb.com/manual/core/journaling/) is written to disk.
 
-    Minimum value: `1`; maximum value: `500`; default: `300`.
+    The minimum value is `1`; the maximum value is `500`; default: is `300`.
 
-    For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.journal.commitIntervalMs).
+    For more information, see [this {{ MG }} article](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.journal.commitIntervalMs).
 
   - **Wired tiger**{#setting-wired-tiger}
   
@@ -113,20 +113,20 @@
       - `snappy`: Use the [snappy](https://google.github.io/snappy/) library for data compression. If you select this setting, data compression/decompression will be, in most cases, faster than if using the `zlib` library; however, the resulting file size will be 20% to 100% larger.
       - `zlib`: Use the [zlib](http://www.zlib.net/) library for data compression. This method is slower than `snappy` but, in most cases, it achieves better data compression.
 
-      For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor).
+      For more information, see [this {{ MG }} article](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor).
 
     - **Engine config → Cache size gb**{#setting-engine-cache-size}
 
       Maximum size of the internal cache used for data storage (in GB). This setting does not affect the amount of RAM used to create an index.
 
-      Minimum value: `0.25` (256 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by these formulas:
+      Minimum value: `0.25` (256 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are calculated as follows:
 
       - Maximum value: `0.9 × <host_RAM_amount>`.
       - Default value: `0.5 × <host_RAM_amount>`.
 
       For example, for {{ s1-medium }} class hosts, the maximum value is `28.8` and the default value is `16`.
 
-      For more information, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).
+      For more information, see [this {{ MG }} article](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).
 
     - **Index config → Prefix compression**{#setting-prefix-compression}
 
@@ -134,4 +134,4 @@
 
       Default value: `true` (prefix compression enabled).
 
-      For more information, see the [{{ MG }} documentation](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression).
+      For more information, see [this {{ MG }} article](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression).

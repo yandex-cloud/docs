@@ -60,7 +60,7 @@ Run all your sharding setup commands via the `mongosh` CLI as a user with the [m
 
 ### Sharding heterogeneous data {#brackets}
 
-If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on the `_id` key values of the same type using [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). This will make sharding and document searching faster than with`_id` values of different types.
+If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on the `_id` key values of the same type using [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). This will make sharding and document searching faster than with `_id` values of different types.
 
 ### Useful links {#links}
 

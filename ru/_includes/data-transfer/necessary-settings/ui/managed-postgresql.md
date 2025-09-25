@@ -5,7 +5,7 @@
 
         Выберите тип инсталляции **Кластер Managed Service for PostgreSQL** и задайте настройки:
 
-        * {% include [cluster-id](../../fields/postgresql/ui/cluster-id.md) %}
+        * {% include [cluster-name](../../fields/postgresql/ui/cluster-name.md) %}
         * {% include [database](../../fields/postgresql/ui/database.md) %}
         * {% include [user](../../fields/postgresql/ui/user.md) %}
         * {% include [password](../../fields/postgresql/ui/password.md) %}
@@ -15,7 +15,7 @@
         * Выберите каталог, в котором находится кластер {{ mpg-name }}.
         * Выберите тип инсталляции **Кластер управляемой БД** и задайте настройки:
 
-            * {% include [cluster-id](../../fields/postgresql/ui/cluster-id.md) %}
+            * {% include [cluster-name](../../fields/postgresql/ui/cluster-name.md) %}
             * {% include [connection](../../fields/postgresql/ui/connection.md) %}
             * {% include [database](../../fields/postgresql/ui/database.md) %}
 

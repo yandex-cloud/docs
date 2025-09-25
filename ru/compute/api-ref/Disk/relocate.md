@@ -27,7 +27,7 @@ apiPlayground:
           type: string
         diskPlacementPolicy:
           description: |-
-            **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
             Placement policy configuration in target zone. Must be specified if disk has placement policy.
           $ref: '#/definitions/DiskPlacementPolicy'
       required:

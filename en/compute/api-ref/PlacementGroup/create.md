@@ -28,7 +28,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         spreadPlacementStrategy:
           description: |-
             **object**
@@ -38,7 +40,7 @@ apiPlayground:
           $ref: '#/definitions/SpreadPlacementStrategy'
         partitionPlacementStrategy:
           description: |-
-            **[PartitionPlacementStrategy](/docs/compute/api-ref/PlacementGroup/get#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
+            **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
             Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
             Placement strategy.
           $ref: '#/definitions/PartitionPlacementStrategy'

@@ -28,9 +28,11 @@ To calculate the cost of analytics for [text](https://yandex.cloud/en/prices?sta
 
 ## What goes into the cost of using {{ speechsense-name }} {#rules}
 
-When analyzing audio recordings of dialogs, the cost of using {{ speechsense-name }} depends on the duration of two-channel audio files. The billing unit is a one-second segment of two-channel audio.
+When analyzing audio recordings of dialogs, the cost of using {{ speechsense-name }} depends on the duration of two-channel audio files. Single-channel audio is converted and charged as two-channel. The billing unit is a one-second segment of two-channel audio.
 
-When analyzing text dialogs, the cost of using {{ speechsense-name }} depends on the number of characters in the dialog. Billing unit: 10 characters. The number of characters in each dialog is rounded up to the tens. The count includes all the dialog characters. 
+When analyzing text dialogs, the cost of using {{ speechsense-name }} depends on the number of characters in the dialog. Billing unit: 10 characters. The number of characters in each dialog is rounded up to the tens. The count includes all the dialog characters.
+
+Automatic recalculation of modified and newly created dictionary and semantic [tags](../speechsense/concepts/tags.md) is not charged.
 
 ## Prices for the Russia region {#prices}
 

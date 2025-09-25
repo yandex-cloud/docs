@@ -5,6 +5,12 @@ description: This section contains {{ mch-name }} release notes.
 
 # {{ mch-full-name }} release notes
 
+## July 2025 {#jul-2025}
+
+* New {{ CH }} versions are out: [25.3](https://clickhouse.com/blog/clickhouse-release-25-03), [25.4](https://clickhouse.com/blog/clickhouse-release-25-04), [25.5](https://clickhouse.com/blog/clickhouse-release-25-05), and [25.6](https://clickhouse.com/blog/clickhouse-release-25-06).
+* The backup process is now up to 6 times faster.
+* Added support for extension management via the [{{ yandex-cloud }} CLI](../cli/quickstart.md) and API.
+
 
 ## July 2025 {#jul-2025}
 

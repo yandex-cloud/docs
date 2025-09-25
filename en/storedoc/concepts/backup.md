@@ -1,14 +1,17 @@
 ---
-title: Yandex StoreDoc backups
-description: '{{ mmg-short-name }} performs automatic and manual Yandex StoreDoc database backups. Backups take up space in the storage allocated to the cluster. You can recover the cluster data from a given point in time (Point-in-Time-Recovery, PITR).'
+title: '{{ SD }} backups'
+description: '{{ mmg-short-name }} supports automatic and manual {{ SD }} database backups. Backups take up space in the storage allocated to the cluster. You can recover the cluster data from a given point in time (Point-in-Time-Recovery, PITR).'
 keywords:
   - backup
   - back up
   - backup
   - backups
   - MongoDB backups
+  - Yandex StoreDoc backup
+  - backup Yandex StoreDoc
   - backup MongoDB
   - MongoDB
+  - Yandex StoreDoc
 ---
 
 # Backups in {{ mmg-name }}

@@ -51,28 +51,47 @@ Example:
 - **lang** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
 |#
 
-yandex\_cloud\_ml\_sdk.\_search\_api.generative.config.**format\_to\_proto**(*format\_*){#yandex_cloud_ml_sdk._search_api.generative.config.format_to_proto}
-
-#|
-|| Parameters | **format\_** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
-|| Return type | <google.protobuf.internal.enum\_type\_wrapper.EnumTypeWrapper object at 0x7f1ec7c6bf80> ||
-|#
-
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.config.**GenerativeSearchConfig**{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig}
 
-GenerativeSearchConfig(site: ‘tuple[str, …] | None’ = None, host: ‘tuple[str, …] | None’ = None, url: ‘tuple[str, …] | None’ = None, fix\_misspell: ‘bool | None’ = None, enable\_nrfm\_docs: ‘bool | None’ = None, search\_filters: ‘tuple[FilterType] | None’ = None)
+GenerativeSearchConfig(site: ‘tuple[str, …] | None’ = None, host: ‘tuple[str, …] | None’ = None, url: ‘tuple[str, …] | None’ = None, fix\_misspell: ‘bool | None’ = None, enable\_nrfm\_docs: ‘bool | None’ = None, search\_filters: ‘tuple[FilterType, …] | None’ = None)
 
 **site**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.site}
 
+Parameter for limiting search to specific location or list of sites.
+
 **host**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.host}
+
+Parameter for limiting search to specific location or list of hosts.
 
 **url**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.url}
 
+Parameter for limiting search to specific location or list of urls.
+
 **fix\_misspell**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.fix_misspell}
+
+tells to backend to fix or not to fix misspels in queries.
 
 **enable\_nrfm\_docs**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.enable_nrfm_docs}
 
-**search\_filters**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[DateFilterType](#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) | [FormatFilterType](#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) | [LangFilterType](#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.search_filters}
+tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
+
+**search\_filters**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[DateFilterType](#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) | [FormatFilterType](#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) | [LangFilterType](#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.search_filters}
+
+allows to limit search results with additional filters.
+
+**\_\_init\_\_**(*site=None*, *host=None*, *url=None*, *fix\_misspell=None*, *enable\_nrfm\_docs=None*, *search\_filters=None*){#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig.__init__i}
+
+#|
+|| Parameters | 
+
+- **site** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, ...] \| None*)
+- **host** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, ...] \| None*)
+- **url** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, ...] \| None*)
+- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*)
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*)
+- **search\_filters** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*DateFilterType*](#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)*, ...] \| None*) ||
+|| Return type | None ||
+|#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.result.**SearchSource**{#yandex_cloud_ml_sdk._search_api.generative.result.SearchSource}
 
@@ -141,3 +160,11 @@ List of search queries sent to model
 Alias to **GenerativeSearchResult.text**.
 
 Only to add some compatibility with raw Search API answer which have “content” field in protobufs and REST answers unlike other parts of this SDK.
+
+## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.config.**FilterType**{#yandex_cloud_ml_sdk._search_api.generative.result.yandex_cloud_ml_sdk._search_api.generative.config.FilterType}
+
+yandex\_cloud\_ml\_sdk.\_search\_api.generative.config.**FilterType**{#yandex_cloud_ml_sdk._search_api.generative.config.FilterType}
+
+Generative search filter type which describes dict formats eligible to use with generative search API.
+
+alias of [**DateFilterType**](#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) | [**FormatFilterType**](#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) | [**LangFilterType**](#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)

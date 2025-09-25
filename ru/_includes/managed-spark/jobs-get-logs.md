@@ -13,6 +13,38 @@
     1. Нажмите на имя нужного задания.
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.label_job-logs }}** нажмите на ссылку.
 
+- CLI {#cli}
+    
+    {% include [cli-install](../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    
+    Чтобы получить логи выполнения задания:
+
+    1. Посмотрите описание команды CLI для получения логов задания:
+
+        ```bash
+        yc managed-spark job log --help
+        ```
+    
+    1. Получите логи задания, выполнив команду:
+
+        ```bash
+        yc managed-spark job log <идентификатор_задания> \
+          --cluster-id <идентификатор_кластера>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-spark/operations/cluster-list.md#list-clusters).
+
+        Идентификатор задания можно получить со [списком заданий в кластере](#list).
+
+        Чтобы получить логи нескольких заданий, перечислите их идентификаторы через пробел, например:
+        
+        ```bash
+        yc managed-spark job log c9q9veov4uql******** c9qu8uftedte******** \
+          --cluster-id c9q8ml85r1oh********
+        ```
+
 - gRPC API {#grpc-api}
 
     1. [Получите IAM-токен для аутентификации в API](../../managed-spark/api-ref/authentication.md) и поместите токен в переменную среды окружения:

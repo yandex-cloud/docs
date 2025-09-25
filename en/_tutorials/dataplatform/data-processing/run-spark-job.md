@@ -10,7 +10,7 @@ Below is an example demonstrating the calculation of 2018 US air traffic statist
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=resources %}
 
@@ -98,7 +98,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -110,7 +110,7 @@ Set up your infrastructure:
 
 ## Using Spark Shell {#spark-shell}
 
-1. [Use SSH to connect](../../../data-proc/operations/connect.md#data-proc-ssh) to the {{ dataproc-name }} cluster's master host.
+1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
 1. Run Spark Shell on the master host:
 
    ```bash
@@ -158,7 +158,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
 
 - PySpark Submit
 
-  1. [Use SSH to connect](../../../data-proc/operations/connect.md#data-proc-ssh) to the {{ dataproc-name }} cluster's master host.
+  1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
   1. Create a file named `month_stat.py` with the following code on the master host:
 
      ```python
@@ -199,7 +199,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
 
   To create and launch a Spark application:
 
-  1. [Use SSH to connect](../../../data-proc/operations/connect.md#data-proc-ssh) to the {{ dataproc-name }} cluster's master host.
+  1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
   1. [Install](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) _sbt_. It comes bundled with the Scala programming language.
   1. Create a folder, e.g., `spark-app`.
   1. Add the file with the `./src/main/scala/app.scala` path to the created folder.
@@ -459,7 +459,7 @@ To run a Spark job:
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. [Use SSH to connect](../../../data-proc/operations/connect.md#data-proc-ssh) to the {{ dataproc-name }} cluster's master host.
+1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
 1. [Install](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) `sbt`, the standard build utility for Scala. It comes bundled with the Scala programming language.
 1. [Install and configure](../../../storage/tools/s3cmd.md) the S3cmd console client to work with {{ objstorage-full-name }}.
 
@@ -640,7 +640,7 @@ The file will be uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 {% list tabs group=resources %}
 

@@ -29,8 +29,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         family:
           description: |-
             **string**
@@ -86,7 +95,7 @@ apiPlayground:
           type: string
         os:
           description: |-
-            **[Os](/docs/compute/api-ref/Image/get#yandex.cloud.compute.v1.Os)**
+            **[Os](#yandex.cloud.compute.v1.Os)**
             Operating system that is contained in the image.
             If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource.
           $ref: '#/definitions/Os'
@@ -97,7 +106,7 @@ apiPlayground:
           type: boolean
         hardwareGeneration:
           description: |-
-            **[HardwareGeneration](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.HardwareGeneration)**
+            **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
             Specify the overrides to hardware_generation of a source disk, image or snapshot,
             or to the default values if the source does not define it.
           oneOf:
@@ -105,7 +114,7 @@ apiPlayground:
               properties:
                 legacyFeatures:
                   description: |-
-                    **[LegacyHardwareFeatures](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+                    **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
                     Includes only one of the fields `legacyFeatures`, `generation2Features`.
                   $ref: '#/definitions/LegacyHardwareFeatures'
                 generation2Features:

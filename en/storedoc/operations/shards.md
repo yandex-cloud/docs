@@ -33,7 +33,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Select a sharding type:
      * **{{ ui-key.yacloud.mongodb.cluster.shards.label_standard }}**: Based on `MONGOINFRA` hosts.
@@ -79,13 +79,13 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
     Where:
     * `--cluster-name`: Cluster name you can get with a [list of clusters in the folder](cluster-list.md#list).
-    * `--host`: Host parameters:
+    * `--host`: Host settings:
       * `type`: Type (`MONGOINFRA`).
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
     * `--mongoinfra`: `MONGOINFRA` host parameters:
       * `resource-preset`: [Host class](../concepts/instance-types.md).
-      * `disk-size`: Storage size in GB.
+      * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
 
   * To enable advanced cluster sharding using `MONGOS` and `MONGOCFG` hosts, run this command (the list of supported parameters in the example is not exhaustive):
@@ -118,17 +118,17 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
     Where:
     * `--cluster-name`: Cluster name you can get with a [list of clusters in the folder](cluster-list.md#list).
-    * `--host`: Host parameters:
+    * `--host`: Host settings:
       * `type`: Type (`MONGOS` or `MONGOCFG`).
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
     * `--mongos`: `MONGOS` host parameters:
       * `resource-preset`: [Host class](../concepts/instance-types.md).
-      * `disk-size`: Storage size in GB.
+      * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
     * `--mongocfg`: `MONGOCFG` host parameters:
       * `resource-preset`: [Host class](../concepts/instance-types.md).
-      * `disk-size`: Storage size in GB.
+      * `disk-size`: Storage size, in GB.
       * `disk-type`: [Disk type](../concepts/storage.md).
 
 - {{ TF }} {#tf}
@@ -227,11 +227,11 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -263,7 +263,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                           "priority": "<host_priority_for_assignment_as_master>",
                           "tags": "<host_labels>"
                         },
-                        { <similar_configuration_for_host_2> },
+                        { <similar_settings_for_host_2> },
                         { ... },
                         { <similar_configuration_for_host_N> }
                       ]
@@ -286,13 +286,13 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -327,7 +327,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                     "priority": "<host_priority_for_assignment_as_master>",
                     "tags": "<host_labels>"
                   },
-                  { <similar_configuration_for_host_2> },
+                  { <similar_settings_for_host_2> },
                   { ... },
                   { <similar_configuration_for_host_N> }
                 ]
@@ -352,20 +352,20 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
         * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
         * `tags`: Host labels.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Listing shards in a cluster {#list-shards}
+## Getting a list of shards in a cluster {#list-shards}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
 
@@ -390,11 +390,11 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
   +------+
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -407,13 +407,13 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/shards'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -435,9 +435,9 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
             yandex.cloud.mdb.mongodb.v1.ClusterService.ListShards
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -450,7 +450,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Enter a name for the shard and add the number of hosts you need.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
@@ -461,7 +461,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a shard, run the command below (not all the supported parameters are listed):
+  To create a shard, run the command below (our example does not use all available parameters):
 
   ```bash
   {{ yc-mdb-mg }} shards add <new_shard_name> \
@@ -472,7 +472,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
   Where:
   * `--cluster-name`: Cluster name you can get with a [list of clusters in the folder](cluster-list.md#list-clusters).
-  * `--host`: Host parameters:
+  * `--host`: Host settings:
     * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
     * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet).
 
@@ -506,11 +506,11 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -536,7 +536,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
                           "priority": "<host_priority_for_assignment_as_master>",
                           "tags": "<labels>"
                         },
-                        { <similar_configuration_for_host_2> },
+                        { <similar_settings_for_host_2> },
                         { ... },
                         { <similar_configuration_for_host_N> }
                       ]
@@ -547,7 +547,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
         Where:
 
         * `shardName`: Name of the shard being created.
-        * `hostSpecs`: Host parameters:
+        * `hostSpecs`: Host settings:
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
@@ -559,13 +559,13 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -595,7 +595,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
                       "priority": "<host_priority_for_assignment_as_master>",
                       "tags": "<labels>"
                     },
-                    { <similar_configuration_for_host_2> },
+                    { <similar_settings_for_host_2> },
                     { ... },
                     { <similar_configuration_for_host_N> }
                   ]
@@ -607,7 +607,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
         Where:
 
         * `shard_name`: Name of the shard being created.
-        * `host_specs`: Host parameters:
+        * `host_specs`: Host settings:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
@@ -619,9 +619,9 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -640,7 +640,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the shard row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
@@ -650,14 +650,14 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a shard from the cluster, run:
+  To delete a shard from a cluster, run this command:
 
   ```bash
   {{ yc-mdb-mg }} shards delete <shard_name> \
     --cluster-name=<cluster_name>
   ```
 
-  You can request the shard name with the [list of shards in the cluster](#list-shards) and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the shard name with the [list of shards in the cluster](#list-shards), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -678,7 +678,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -693,11 +693,11 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name, with the [list of shards in the cluster](#list-shards).
 
-    1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -722,6 +722,6 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name, with the [list of shards in the cluster](#list-shards).
 
-    1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

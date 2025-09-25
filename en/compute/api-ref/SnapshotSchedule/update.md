@@ -49,10 +49,12 @@ apiPlayground:
             1. Get the current set of labels with a [SnapshotScheduleService.Get](/docs/compute/api-ref/SnapshotSchedule/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         schedulePolicy:
           description: |-
-            **[SchedulePolicy](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SchedulePolicy)**
+            **[SchedulePolicy](#yandex.cloud.compute.v1.SchedulePolicy)**
             New frequency settings of the snapshot schedule.
           $ref: '#/definitions/SchedulePolicy'
         retentionPeriod:
@@ -76,7 +78,7 @@ apiPlayground:
           format: int64
         snapshotSpec:
           description: |-
-            **[SnapshotSpec](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSpec)**
+            **[SnapshotSpec](#yandex.cloud.compute.v1.SnapshotSpec)**
             New attributes of snapshots created by the snapshot schedule.
           $ref: '#/definitions/SnapshotSpec'
       additionalProperties: false
@@ -115,7 +117,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Snapshot labels as `key:value` pairs.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/update.md
 ---
 

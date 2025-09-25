@@ -62,7 +62,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    1. Copy it from the terminal and paste it into the `.tf` file.
    1. Place the file in the new `imported-cluster` directory.
-   1. Modify the copied configuration so that you can create a new cluster from it:
+   1. Edit the copied configuration so that you can create a new cluster from it:
 
       * Specify the new cluster name in the `resource` string and the `name` parameter.
       * Delete the `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id` parameters.
@@ -95,7 +95,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -120,7 +120,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    {% endnote %}
 
-1. [Connect via SSH](../../../data-proc/operations/connect.md#data-proc-ssh) to the master host of the initial cluster.
+1. [Connect via SSH](../../../data-proc/operations/connect-ssh.md) to the master host of the initial cluster.
 1. Get a list of directories and files to copy to the new cluster:
 
    ```bash
@@ -152,7 +152,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    hdfs://<initial_cluster_FQDN>:8020/user/test
    ```
 
-   In the command, specify the FQDN of the master host of the initial cluster. Learn how to get an FQDN in [this tutorial](../../../data-proc/operations/connect.md#fqdn).
+   In the command, specify the FQDN of the master host of the initial cluster. Learn how to get an FQDN in [this tutorial](../../../data-proc/operations/fqdn.md).
 
 1. Place the `srclist` file to the `/user` HDFS directory:
 

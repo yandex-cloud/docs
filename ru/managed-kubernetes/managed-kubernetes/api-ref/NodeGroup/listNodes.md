@@ -21,13 +21,14 @@ apiPlayground:
             the service returns a [ListNodeGroupsResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/list#yandex.cloud.k8s.v1.ListNodeGroupsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListNodeGroupNodesResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/listNodes#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request.
+            [ListNodeGroupNodesResponse.nextPageToken](#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request.
           type: string
       required:
         - nodeGroupId

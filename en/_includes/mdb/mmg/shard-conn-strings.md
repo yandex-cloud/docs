@@ -1,6 +1,6 @@
 ## Go {#go}
 
-**Before connecting, install the dependencies:**
+**Before connecting, install the following dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -9,90 +9,90 @@ go get go.mongodb.org/mongo-driver/mongo
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-   `connect.go`
+    `connect.go`
 
-   ```go
-   package main
+    ```go
+    package main
 
-   import (
-         "fmt"
-         "strings"
-         "context"
-         "go.mongodb.org/mongo-driver/mongo"
-         "go.mongodb.org/mongo-driver/mongo/options"
-   )
+    import (
+          "fmt"
+          "strings"
+          "context"
+          "go.mongodb.org/mongo-driver/mongo"
+          "go.mongodb.org/mongo-driver/mongo/options"
+    )
 
-   func main() {
+    func main() {
 
-         const DB_NAME = "<DB_name>"
-         DB_HOSTS := []string {"<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017",
-                               ...,
-                               "<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017"}
-         const DB_USER = "<DB_username>"
-         const DB_PASS = "<DB_user_password>"
+          const DB_NAME = "<DB_name>"
+          DB_HOSTS := []string {"<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017",
+                                ...,
+                                "<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017"}
+          const DB_USER = "<DB_username>"
+          const DB_PASS = "<DB_user_password>"
 
-         const CACERT = "/home/<home_directory>/.mongodb/root.crt"
+          const CACERT = "/home/<home_directory>/.mongodb/root.crt"
 
-         url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=true&tlsCaFile=%s",
-                 DB_USER,
-                 DB_PASS,
-                 strings.Join(DB_HOSTS, ","),
-                 DB_NAME,
-                 CACERT)
+          url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=true&tlsCaFile=%s",
+                  DB_USER,
+                  DB_PASS,
+                  strings.Join(DB_HOSTS, ","),
+                  DB_NAME,
+                  CACERT)
 
-         conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
-         if err != nil {
-                 panic(err)
-         }
+          conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
+          if err != nil {
+                  panic(err)
+          }
 
-         defer conn.Disconnect(context.Background())
+          defer conn.Disconnect(context.Background())
 
-         fmt.Println(conn.Database(DB_NAME).Name())
-   }
-   ```
+          fmt.Println(conn.Database(DB_NAME).Name())
+    }
+    ```
 
 - Connecting without SSL {#without-ssl}
 
-   `connect.go`
+    `connect.go`
 
-   ```go
-   package main
+    ```go
+    package main
 
-   import (
-         "fmt"
-         "strings"
-         "context"
-         "go.mongodb.org/mongo-driver/mongo"
-         "go.mongodb.org/mongo-driver/mongo/options"
-   )
+    import (
+          "fmt"
+          "strings"
+          "context"
+          "go.mongodb.org/mongo-driver/mongo"
+          "go.mongodb.org/mongo-driver/mongo/options"
+    )
 
-   func main() {
+    func main() {
 
-         const DB_NAME = "<DB_name>"
-         DB_HOSTS := []string {"<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017",
-                               ...,
-                               "<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017"}
-         const DB_USER = "<DB_username>"
-         const DB_PASS = "<DB_user_password>"
+          const DB_NAME = "<DB_name>"
+          DB_HOSTS := []string {"<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017",
+                                ...,
+                                "<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017"}
+          const DB_USER = "<DB_username>"
+          const DB_PASS = "<DB_user_password>"
 
-         url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=false",
-                 DB_USER,
-                 DB_PASS,
-                 strings.Join(DB_HOSTS, ","),
-                 DB_NAME)
+          url := fmt.Sprintf("mongodb://%s:%s@%s/%s?tls=false",
+                  DB_USER,
+                  DB_PASS,
+                  strings.Join(DB_HOSTS, ","),
+                  DB_NAME)
 
-         conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
-         if err != nil {
-                 panic(err)
-         }
+          conn, err := mongo.Connect(context.Background(), options.Client().ApplyURI(url))
+          if err != nil {
+                  panic(err)
+          }
 
-         defer conn.Disconnect(context.Background())
+          defer conn.Disconnect(context.Background())
 
-         fmt.Println(conn.Database(DB_NAME).Name())
-   }
-   ```
+          fmt.Println(conn.Database(DB_NAME).Name())
+    }
+    ```
 
 {% endlist %}
 
@@ -110,198 +110,198 @@ go run connect.go
 
 1. Install the dependencies:
 
-   ```bash
-   sudo apt update && sudo apt install --yes default-jdk maven
-   ```
+    ```bash
+    sudo apt update && sudo apt install --yes default-jdk maven
+    ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ SD }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ SD }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `-storepass` parameter for additional storage protection:
 
-   ```bash
-   cd ~/.mongodb && \
-   sudo keytool -importcert \
-                -alias {{ crt-alias }} -file root.crt \
-                -keystore ssl -storepass <password> \
-                --noprompt
-   ```
+    ```bash
+    cd ~/.mongodb && \
+    sudo keytool -importcert \
+                 -alias {{ crt-alias }} -file root.crt \
+                 -keystore ssl -storepass <password> \
+                 --noprompt
+    ```
 
-   Where `storepass` is the certificate store password, at least 6 characters long.
+    Where `storepass` is your certificate store password, a minimum of 6 characters.
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
-   ```bash
-   cd ~/ && \
-   mkdir --parents project/src/java/com/example && \
-   cd ~/project
-   ```
+    ```bash
+    cd ~/ && \
+    mkdir --parents project/src/java/com/example && \
+    cd ~/project
+    ```
 
 1. Create a configuration file for Maven:
 
-   {% cut "pom.xml" %}
+    {% cut "pom.xml" %}
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <project xmlns="http://maven.apache.org/POM/4.0.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-     <modelVersion>4.0.0</modelVersion>
-     <groupId>com.example</groupId>
-     <artifactId>app</artifactId>
-     <packaging>jar</packaging>
-     <version>0.1.0</version>
-     <properties>
-       <maven.compiler.source>1.8</maven.compiler.source>
-       <maven.compiler.target>1.8</maven.compiler.target>
-     </properties>
-     <dependencies>
-       <dependency>
-         <groupId>org.mongodb</groupId>
-         <artifactId>mongodb-driver-sync</artifactId>
-         <version>4.1.0</version>
-       </dependency>
-       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-simple</artifactId>
-         <version>1.7.30</version>
-       </dependency>
-     </dependencies>
-     <build>
-       <finalName>${project.artifactId}-${project.version}</finalName>
-       <sourceDirectory>src</sourceDirectory>
-       <resources>
-         <resource>
-           <directory>src</directory>
-         </resource>
-       </resources>
-       <plugins>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-assembly-plugin</artifactId>
-           <executions>
-             <execution>
-               <goals>
-                 <goal>attached</goal>
-               </goals>
-               <phase>package</phase>
-               <configuration>
-                 <descriptorRefs>
-                   <descriptorRef>
-                   jar-with-dependencies</descriptorRef>
-                 </descriptorRefs>
-                 <archive>
-                   <manifest>
-                     <mainClass>com.example.App</mainClass>
-                   </manifest>
-                 </archive>
-               </configuration>
-             </execution>
-           </executions>
-         </plugin>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-jar-plugin</artifactId>
-           <version>3.1.0</version>
-           <configuration>
-             <archive>
-               <manifest>
-                 <mainClass>com.example.App</mainClass>
-               </manifest>
-             </archive>
-           </configuration>
-         </plugin>
-       </plugins>
-     </build>
-   </project>
-   ```
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.example</groupId>
+      <artifactId>app</artifactId>
+      <packaging>jar</packaging>
+      <version>0.1.0</version>
+      <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.mongodb</groupId>
+          <artifactId>mongodb-driver-sync</artifactId>
+          <version>4.1.0</version>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>1.7.30</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+          <resource>
+            <directory>src</directory>
+          </resource>
+        </resources>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>attached</goal>
+                </goals>
+                <phase>package</phase>
+                <configuration>
+                  <descriptorRefs>
+                    <descriptorRef>
+                    jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+                  <archive>
+                    <manifest>
+                      <mainClass>com.example.App</mainClass>
+                    </manifest>
+                  </archive>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>com.example.App</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </project>
+    ```
 
-   {% endcut %}
+    {% endcut %}
 
-   Up-to-date versions of dependencies for Maven:
+    Current versions of Maven dependencies:
 
-   * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync)
-   * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
+    * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync)
+    * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-   `src/java/com/example/App.java`
+    `src/java/com/example/App.java`
 
-   ```java
-   package com.example;
+    ```java
+    package com.example;
 
-   import java.util.*;
-   import com.mongodb.*;
-   import com.mongodb.client.*;
+    import java.util.*;
+    import com.mongodb.*;
+    import com.mongodb.client.*;
 
-   public class App {
-     public static void main(String[] args) {
+    public class App {
+      public static void main(String[] args) {
 
-       System.setProperty("javax.net.ssl.trustStore", "/home/<home_directory>/.mongodb/YATrustStore");
-       System.setProperty("javax.net.ssl.trustStorePassword", "<certificate_store_password>");
+        System.setProperty("javax.net.ssl.trustStore", "/home/<home_directory>/.mongodb/YATrustStore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "<certificate_store_password>");
 
-       final Integer DB_PORT = 27017;
+        final Integer DB_PORT = 27017;
 
-       List DB_HOSTS = new ArrayList<ServerAddress>();
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_MONGOINFRA_or_MONGOS_host_1>", DB_PORT));
-       ...
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_MONGOINFRA_or_MONGOS_host_N>", DB_PORT));
+        List DB_HOSTS = new ArrayList<ServerAddress>();
+        DB_HOSTS.add(new ServerAddress("<MONGOINFRA_or_MONGOS_host_1_FQDN>", DB_PORT));
+        ...
+        DB_HOSTS.add(new ServerAddress("<MONGOINFRA_or_MONGOS_host_N_FQDN>", DB_PORT));
 
-       final String DB_NAME = "<DB_name>";
-       final String DB_USER = "<DB_username>";
-       final String DB_PASS = "<DB_user_password>";
+        final String DB_NAME = "<DB_name>";
+        final String DB_USER = "<DB_username>";
+        final String DB_PASS = "<DB_user_password>";
 
-       MongoClient conn = MongoClients.create(
-           MongoClientSettings.builder()
-                 .applyToClusterSettings(builder -> builder.hosts(DB_HOSTS))
-                 .applyToSslSettings(builder -> builder.enabled(true))
-                 .credential(MongoCredential.createCredential(DB_USER, DB_NAME, DB_PASS.toCharArray()))
-                 .build());
+        MongoClient conn = MongoClients.create(
+            MongoClientSettings.builder()
+                  .applyToClusterSettings(builder -> builder.hosts(DB_HOSTS))
+                  .applyToSslSettings(builder -> builder.enabled(true))
+                  .credential(MongoCredential.createCredential(DB_USER, DB_NAME, DB_PASS.toCharArray()))
+                  .build());
 
-       System.out.println(conn.getDatabase(DB_NAME).getName());
+        System.out.println(conn.getDatabase(DB_NAME).getName());
 
-       conn.close();
-     }
-   }
-   ```
+        conn.close();
+      }
+    }
+    ```
 
 - Connecting without SSL {#without-ssl}
 
-   `src/java/com/example/App.java`
+    `src/java/com/example/App.java`
 
-   ```java
-   package com.example;
+    ```java
+    package com.example;
 
-   import java.util.*;
-   import com.mongodb.*;
-   import com.mongodb.client.*;
+    import java.util.*;
+    import com.mongodb.*;
+    import com.mongodb.client.*;
 
-   public class App {
-     public static void main(String[] args) {
+    public class App {
+      public static void main(String[] args) {
 
-       final Integer DB_PORT = 27017;
+        final Integer DB_PORT = 27017;
 
-       List DB_HOSTS = new ArrayList<ServerAddress>();
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_MONGOINFRA_or_MONGOS_host_1>", DB_PORT));
-       ...
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_MONGOINFRA_or_MONGOS_host_N>", DB_PORT));
+        List DB_HOSTS = new ArrayList<ServerAddress>();
+        DB_HOSTS.add(new ServerAddress("<MONGOINFRA_or_MONGOS_host_1_FQDN>", DB_PORT));
+        ...
+        DB_HOSTS.add(new ServerAddress("<MONGOINFRA_or_MONGOS_host_N_FQDN>", DB_PORT));
 
-       final String DB_NAME = "<DB_name>";
-       final String DB_USER = "<DB_username>";
-       final String DB_PASS = "<DB_user_password>";
+        final String DB_NAME = "<DB_name>";
+        final String DB_USER = "<DB_username>";
+        final String DB_PASS = "<DB_user_password>";
 
-       MongoClient conn = MongoClients.create(
-           MongoClientSettings.builder()
-                 .applyToClusterSettings(builder -> builder.hosts(DB_HOSTS))
-                 .credential(MongoCredential.createCredential(DB_USER, DB_NAME, DB_PASS.toCharArray()))
-                 .build());
+        MongoClient conn = MongoClients.create(
+            MongoClientSettings.builder()
+                  .applyToClusterSettings(builder -> builder.hosts(DB_HOSTS))
+                  .credential(MongoCredential.createCredential(DB_USER, DB_NAME, DB_PASS.toCharArray()))
+                  .build());
 
-       System.out.println(conn.getDatabase(DB_NAME).getName());
+        System.out.println(conn.getDatabase(DB_NAME).getName());
 
-       conn.close();
-     }
-   }
-   ```
+        conn.close();
+      }
+    }
+    ```
 
 {% endlist %}
 
@@ -316,7 +316,7 @@ mvn clean package && \
 
 ## Node.js {#nodejs}
 
-**Before connecting, install the dependencies**:
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -325,74 +325,74 @@ npm install mongodb
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-   `app.js`
+    `app.js`
 
-   ```js
-   const util = require('util');
-   const MongoClient = require('mongodb').MongoClient;
+    ```js
+    const util = require('util');
+    const MongoClient = require('mongodb').MongoClient;
 
-   const DB_NAME = '<DB_name>'
-   const DB_HOSTS = ['<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017',
-                     ...,
-                     '<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017']
-   const DB_USER  = '<DB_username>'
-   const DB_PASS  = '<DB_user_password>'
-   const CACERT   = '/home/<home_directory>/.mongodb/root.crt'
+    const DB_NAME = '<DB_name>'
+    const DB_HOSTS = ['<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017',
+                      ...,
+                      '<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017']
+    const DB_USER  = '<DB_username>'
+    const DB_PASS  = '<DB_user_password>'
+    const CACERT   = '/home/<home_directory>/.mongodb/root.crt'
 
-   const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
+    const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
 
-   const options = {
-     useNewUrlParser: true,
-     useUnifiedTopology: true,
-     tls: true,
-     tlsCAFile: CACERT,
-     authSource: DB_NAME
-   }
+    const options = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      tls: true,
+      tlsCAFile: CACERT,
+      authSource: DB_NAME
+    }
 
-   MongoClient.connect(url, options, function(err, conn) {
-     if (conn.isConnected()) {
-       const db = conn.db(DB_NAME)
-       console.log(db.databaseName)
-     }
+    MongoClient.connect(url, options, function(err, conn) {
+      if (conn.isConnected()) {
+        const db = conn.db(DB_NAME)
+        console.log(db.databaseName)
+      }
 
-     conn.close()
-   })
-   ```
+      conn.close()
+    })
+    ```
 
 - Connecting without SSL {#without-ssl}
 
-   `app.js`
+    `app.js`
 
-   ```js
-   const util = require('util');
-   const MongoClient = require('mongodb').MongoClient;
+    ```js
+    const util = require('util');
+    const MongoClient = require('mongodb').MongoClient;
 
-   const DB_NAME = '<DB_name>'
-   const DB_HOSTS = ['<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27018',
-                     ...,
-                     '<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27018']
-   const DB_USER  = '<DB_username>'
-   const DB_PASS  = '<DB_user_password>'
+    const DB_NAME = '<DB_name>'
+    const DB_HOSTS = ['<MONGOINFRA_or_MONGOS_host_1_FQDN>:27018',
+                      ...,
+                      '<MONGOINFRA_or_MONGOS_host_N_FQDN>:27018']
+    const DB_USER  = '<DB_username>'
+    const DB_PASS  = '<DB_user_password>'
 
-   const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
+    const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
 
-   const options = {
-     useNewUrlParser: true,
-     useUnifiedTopology: true,
-     authSource: DB_NAME
-   }
+    const options = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      authSource: DB_NAME
+    }
 
-   MongoClient.connect(url, options, function(err, conn) {
-     if (conn.isConnected()) {
-       const db = conn.db(DB_NAME)
-       console.log(db.databaseName)
-     }
+    MongoClient.connect(url, options, function(err, conn) {
+      if (conn.isConnected()) {
+        const db = conn.db(DB_NAME)
+        console.log(db.databaseName)
+      }
 
-     conn.close()
-   })
-   ```
+      conn.close()
+    })
+    ```
 
 {% endlist %}
 
@@ -406,7 +406,7 @@ node app.js
 
 ## PHP {#php}
 
-**Before connecting, install the dependencies:**
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes php php-mongodb
@@ -414,74 +414,74 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-   `connect.php`
+    `connect.php`
 
-   ```php
-   <?php
-     $DB_NAME  = '<DB_name>';
-     $DB_HOSTS = '<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017,...,<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017';
-     $DB_USER  = '<DB_username>';
-     $DB_PASS  = '<DB_user_password>';
-     $CACERT   = '/home/<home_directory>/.mongodb/root.crt';
+    ```php
+    <?php
+      $DB_NAME  = '<DB_name>';
+      $DB_HOSTS = '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017';
+      $DB_USER  = '<DB_username>';
+      $DB_PASS  = '<DB_user_password>';
+      $CACERT   = '/home/<home_directory>/.mongodb/root.crt';
 
-     $uri = sprintf(
-         'mongodb://%s:%s@%s/%s',
-         $DB_USER,
-         $DB_PASS,
-         $DB_HOSTS,
-         $DB_NAME
-     );
+      $uri = sprintf(
+          'mongodb://%s:%s@%s/%s',
+          $DB_USER,
+          $DB_PASS,
+          $DB_HOSTS,
+          $DB_NAME
+      );
 
-     $conn = new \MongoDB\Driver\Manager($uri, ["tls" => "true", "tlsCAFile" => $CACERT], []);
-     $command = new MongoDB\Driver\Command(array("ping" => 1));
+      $conn = new \MongoDB\Driver\Manager($uri, ["tls" => "true", "tlsCAFile" => $CACERT], []);
+      $command = new MongoDB\Driver\Command(array("ping" => 1));
 
-     try {
-         $cursor = $conn->executeCommand($DB_NAME, $command);
-           $response = $cursor->toArray()[0];
-     } catch(MongoDB\Driver\Exception $ex) {
-         echo "$ex->getMessage()";
-         exit;
-     }
+      try {
+          $cursor = $conn->executeCommand($DB_NAME, $command);
+            $response = $cursor->toArray()[0];
+      } catch(MongoDB\Driver\Exception $ex) {
+          echo "$ex->getMessage()";
+          exit;
+      }
 
-     var_dump($response);
-   ?>
-   ```
+      var_dump($response);
+    ?>
+    ```
 
 - Connecting without SSL {#without-ssl}
 
-   `connect.php`
+    `connect.php`
 
-   ```php
-   <?php
-     $DB_NAME  = '<DB_name>';
-     $DB_HOSTS = '<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017,...,<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017';
-     $DB_USER  = '<DB_username>';
-     $DB_PASS  = '<DB_user_password>';
+    ```php
+    <?php
+      $DB_NAME  = '<DB_name>';
+      $DB_HOSTS = '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017';
+      $DB_USER  = '<DB_username>';
+      $DB_PASS  = '<DB_user_password>';
 
-     $uri = sprintf(
-         'mongodb://%s:%s@%s/%s',
-         $DB_USER,
-         $DB_PASS,
-         $DB_HOSTS,
-         $DB_NAME
-     );
+      $uri = sprintf(
+          'mongodb://%s:%s@%s/%s',
+          $DB_USER,
+          $DB_PASS,
+          $DB_HOSTS,
+          $DB_NAME
+      );
 
-     $conn = new \MongoDB\Driver\Manager($uri);
-     $command = new MongoDB\Driver\Command(array("ping" => 1));
+      $conn = new \MongoDB\Driver\Manager($uri);
+      $command = new MongoDB\Driver\Command(array("ping" => 1));
 
-     try {
-         $cursor = $conn->executeCommand($DB_NAME, $command);
-         $response = $cursor->toArray()[0];
-     } catch(MongoDB\Driver\Exception $ex) {
-         echo "$ex->getMessage()";
-         exit;
-     }
+      try {
+          $cursor = $conn->executeCommand($DB_NAME, $command);
+          $response = $cursor->toArray()[0];
+      } catch(MongoDB\Driver\Exception $ex) {
+          echo "$ex->getMessage()";
+          exit;
+      }
 
-     var_dump($response);
-   ?>
-   ```
+      var_dump($response);
+    ?>
+    ```
 
 {% endlist %}
 
@@ -495,7 +495,7 @@ php connect.php
 
 ## Python {#python}
 
-**Before connecting, install the dependencies:**
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip && \
@@ -504,79 +504,79 @@ pip3 install pyMongo
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-   `connect.py`
+    `connect.py`
 
-   ```python
-   import ssl
-   import pymongo
-   from urllib.parse import quote_plus as quote
+    ```python
+    import ssl
+    import pymongo
+    from urllib.parse import quote_plus as quote
 
-   CACERT = '/home/<home_directory>/.mongodb/root.crt'
-   DB_NAME = '<DB_name>'
-   DB_HOSTS =','.join([
-         '<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017',
-         ...,
-         '<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017'
-       ])
-   DB_USER = '<DB_username>'
-   DB_PASS = '<DB_user_password>'
+    CACERT = '/home/<home_directory>/.mongodb/root.crt'
+    DB_NAME = '<DB_name>'
+    DB_HOSTS =','.join([
+          '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017',
+          ...,
+          '<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017'
+        ])
+    DB_USER = '<DB_username>'
+    DB_PASS = '<DB_user_password>'
 
-   url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
-             user=quote(DB_USER),
-             pw=quote(DB_PASS),
-             hosts=DB_HOSTS,
-             auth_src=DB_NAME)
+    url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
+              user=quote(DB_USER),
+              pw=quote(DB_PASS),
+              hosts=DB_HOSTS,
+              auth_src=DB_NAME)
 
-   conn = pymongo.MongoClient(
-       url,
-       tls=True,
-       tlsCAFile=CACERT)
+    conn = pymongo.MongoClient(
+        url,
+        tls=True,
+        tlsCAFile=CACERT)
 
-   db = conn[DB_NAME]
-   print(db.name)
+    db = conn[DB_NAME]
+    print(db.name)
 
-   conn.close()
-   ```
+    conn.close()
+    ```
 
 - Connecting without SSL {#without-ssl}
 
-   `connect.py`
+    `connect.py`
 
-   ```python
-   import ssl
-   import pymongo
-   from urllib.parse import quote_plus as quote
+    ```python
+    import ssl
+    import pymongo
+    from urllib.parse import quote_plus as quote
 
-   DB_NAME = '<DB_name>'
-   DB_HOSTS =','.join([
-         '<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:27017',
-         ...,
-         '<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:27017'
-       ])
-   DB_USER = '<DB_username>'
-   DB_PASS = '<DB_user_password>'
+    DB_NAME = '<DB_name>'
+    DB_HOSTS =','.join([
+          '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017',
+          ...,
+          '<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017'
+        ])
+    DB_USER = '<DB_username>'
+    DB_PASS = '<DB_user_password>'
 
-   url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
-             user=quote(DB_USER),
-             pw=quote(DB_PASS),
-             hosts=DB_HOSTS,
-             auth_src=DB_NAME)
+    url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
+              user=quote(DB_USER),
+              pw=quote(DB_PASS),
+              hosts=DB_HOSTS,
+              auth_src=DB_NAME)
 
-   conn = pymongo.MongoClient(url)
+    conn = pymongo.MongoClient(url)
 
-   db = conn[DB_NAME]
-   print(db.name)
+    db = conn[DB_NAME]
+    print(db.name)
 
-   conn.close()
-   ```
+    conn.close()
+    ```
 
 {% endlist %}
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connecting:**
+**Connecting**:
 
 ```bash
 python3 connect.py

@@ -1,4 +1,4 @@
-The `managed-metastore.integrationProvider` role allows the Hive Metastore cluster to work with user resources required for its operation on behalf of the service account. You can assign this role to a service account linked to a Hive Metastore cluster.
+The `managed-metastore.integrationProvider` role allows the Apache Hive™ Metastore cluster to work with user resources required for its operation on behalf of the service account. You can assign this role to a service account linked to a Apache Hive™ Metastore cluster.
 
 Users with this role can:
 * Add entries to [log groups](../../logging/concepts/log-group.md).

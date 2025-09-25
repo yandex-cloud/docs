@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-name }}. FAQ'
-description: What is {{ mmg-name }}? Which tasks are best addressed using {{ mmg-name }}, and which using VMs with databases? What part of database management and maintenance is {{ mmg-name }} responsible for? Find the answers to these and other questions in this article.
+description: What is {{ mmg-name }}? Not sure when to use {{ mmg-name }} or VMs with databases? What is {{ mmg-name }}'s share of database management and maintenance work? Find answers to these and other questions in this article.
 ---
 
 # General questions about {{ mmg-name }}

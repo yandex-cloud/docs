@@ -56,7 +56,7 @@ String that describes a display filter. ||
       "name": "string",
       "created_by": "string",
       "status": "Status",
-      // Includes only one of the fields `spark_job`, `pyspark_job`
+      // Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`
       "spark_job": {
         "args": [
           "string"
@@ -111,8 +111,31 @@ String that describes a display filter. ||
           "string"
         ]
       },
+      "spark_connect_job": {
+        "jar_file_uris": [
+          "string"
+        ],
+        "file_uris": [
+          "string"
+        ],
+        "archive_uris": [
+          "string"
+        ],
+        "properties": "map<string, string>",
+        "packages": [
+          "string"
+        ],
+        "repositories": [
+          "string"
+        ],
+        "exclude_packages": [
+          "string"
+        ]
+      },
       // end of the list of possible fields
-      "ui_url": "string"
+      "ui_url": "string",
+      "service_account_id": "string",
+      "connect_url": "string"
     }
   ],
   "next_page_token": "string"
@@ -175,17 +198,28 @@ Status.
 - `CANCELLING`: Job is waiting for cancellation. ||
 || spark_job | **[SparkJob](#yandex.cloud.spark.v1.SparkJob)**
 
-Includes only one of the fields `spark_job`, `pyspark_job`.
+Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
 
 Job specification. ||
 || pyspark_job | **[PysparkJob](#yandex.cloud.spark.v1.PysparkJob)**
 
-Includes only one of the fields `spark_job`, `pyspark_job`.
+Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
+
+Job specification. ||
+|| spark_connect_job | **[SparkConnectJob](#yandex.cloud.spark.v1.SparkConnectJob)**
+
+Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
 
 Job specification. ||
 || ui_url | **string**
 
 Spark UI Url. ||
+|| service_account_id | **string**
+
+Service account used to access Cloud resources. ||
+|| connect_url | **string**
+
+Spark Connect Url. ||
 |#
 
 ## SparkJob {#yandex.cloud.spark.v1.SparkJob}
@@ -249,6 +283,33 @@ URI of the main Python file to use as the driver. Must be a .py file. ||
 || python_file_uris[] | **string**
 
 URIs of Python files to pass to the PySpark framework. ||
+|| packages[] | **string**
+
+List of maven coordinates of jars to include on the driver and executor classpaths. ||
+|| repositories[] | **string**
+
+List of additional remote repositories to search for the maven coordinates given with --packages. ||
+|| exclude_packages[] | **string**
+
+List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
+|#
+
+## SparkConnectJob {#yandex.cloud.spark.v1.SparkConnectJob}
+
+#|
+||Field | Description ||
+|| jar_file_uris[] | **string**
+
+Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks. ||
+|| file_uris[] | **string**
+
+URIs of files to be copied to the working directory of Spark drivers and distributed tasks. ||
+|| archive_uris[] | **string**
+
+URIs of archives to be extracted in the working directory of Spark drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
+
+A mapping of property names to values, used to configure Spark. ||
 || packages[] | **string**
 
 List of maven coordinates of jars to include on the driver and executor classpaths. ||

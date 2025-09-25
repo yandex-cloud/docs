@@ -21,11 +21,11 @@ In multi-host clusters, upgrades follow the procedure below:
 
 1. The master returns to a running state.
 
-To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+Learn more about updates within a single version and host maintenance in [Maintenance](../concepts/maintenance.md).
 
 ## Before a version upgrade {#before-update}
 
-Make sure this does not affect your applications:
+Make sure the upgrade does not disrupt your applications:
 
 1. See {{ PG }} [changelog](https://www.postgresql.org/docs/release/) for how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
 1. Try a version upgrade on a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
@@ -39,8 +39,6 @@ Make sure this does not affect your applications:
 * The success of a {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
 
 {% endnote %}
-
-### Upgrading a cluster to {{ PG }} 17 or lower {#update-to-v16-or-lower}
 
 {% list tabs group=instructions %}
 
@@ -82,7 +80,7 @@ Make sure this does not affect your applications:
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-       For more information about creating this file, see [Creating clusters](cluster-create.md).
+       For more information about creating this file, see [this guide](cluster-create.md).
 
        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -109,7 +107,7 @@ Make sure this does not affect your applications:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -139,13 +137,13 @@ Make sure this does not affect your applications:
 
      * `configSpec.version`: New {{ PG }} version.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -184,9 +182,9 @@ Make sure this does not affect your applications:
 
      * `config_spec.version`: New {{ PG }} version.
 
-     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

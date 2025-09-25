@@ -7,6 +7,44 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.167.0 (25.09.25) {#version0.167.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ connection-manager-name }}
+
+* Добавлены команды connection-manager внутри группы команд `metadata-hub`:
+  * `yc metadata-hub connection-manager connection create`;
+  * `yc metadata-hub connection-manager connection update`;
+  * `yc metadata-hub connection-manager connection delete`;
+  * `yc metadata-hub connection-manager connection get`;
+  * `yc metadata-hub connection-manager connection resolve-cluster`;
+  * `yc metadata-hub connection-manager connection list`;
+  * `yc metadata-hub connection-manager connection list-operations`.
+
+* Добавлена поддержка {{ KF }}, групп шардов в {{ CH }} и поля `auth_source` MG (SD) в команде `yc metadata-hub connection-manager connection create kafka`.
+
+##### {{ at-name }}
+
+* Добавлен параметр `--destination-eventrouter-connector-id` для назначения {{ er-name }} в командах создания и изменения трейла:
+  * `yc audit-trails trail create`;
+  * `yc audit-trails trail update`.
+
+##### {{ mpg-short-name }}
+
+* Добавлена поддержка {{ PG}} 18 для команд:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster restore`.
+
+* Исправлена ошибка `ERROR: Unsupported PostgreSQL version` при обновлении кластера 17 и 18 версий {{ PG }} в команде `yc managed-postgresql cluster update`.
+
+##### {{ org-name }}
+
+* Исправлены команды `yc organization-manager idp`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.166.0 (18.09.25) {#version0.166.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -50,8 +88,6 @@ description: На странице представлены релизы CLI, а
 * `yc managed-trino cluster get-access-control`;
 * `yc managed-trino cluster set-access-control`;
 * `yc managed-trino cluster remove-access-control`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.165.0 (15.09.25) {#version0.165.0}
 

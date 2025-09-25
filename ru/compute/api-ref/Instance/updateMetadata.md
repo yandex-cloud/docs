@@ -27,7 +27,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             The metadata `key:value` pairs that will be added or updated to this instance.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/updateMetadata.md

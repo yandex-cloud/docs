@@ -1,5 +1,5 @@
 {% note info %}
 
-You can add additional rules to a security group to [connect to cluster hosts](../../data-proc/operations/connect.md).
+You can configure [additional security group rules](../../data-proc/operations/security-groups.md) to connect to cluster hosts.
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ mmg-full-name }}
-description: Follow this guide to create and set up an {{ SD }} cluster.
+description: Follow this guide to set up and configure an {{ SD }} cluster.
 ---
 
 # Getting started with {{ mmg-name }}
@@ -12,7 +12,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -30,11 +30,11 @@ To get started:
 
    {% note info %}
 
-   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   The next step requires connecting to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to your VM over SSH.
 
 1. Install {{ MG }} Shell:
 
@@ -50,7 +50,7 @@ To get started:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 1. Select **Yandex StoreDoc**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
@@ -72,6 +72,6 @@ To get started:
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect/index.md).
-* Read [questions and answers](qa/general.md).
+* Read about the [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
+* Check [questions and answers](qa/general.md).

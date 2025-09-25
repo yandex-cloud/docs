@@ -4,6 +4,6 @@
 * просматривать информацию об [AI-ассистентах](../../../ai-studio/concepts/assistant/index.md);
 * просматривать информацию о пользователях AI-ассистентов и их тредах;
 * просматривать информацию о загруженных файлах и их поисковых индексах;
-* просматривать информацию о [квотах](../../../ai-studio/concepts/limits.md#yandexgpt-quotas) сервиса Yandex Foundation Models;
+* просматривать информацию о [квотах](../../../ai-studio/concepts/limits.md#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder).

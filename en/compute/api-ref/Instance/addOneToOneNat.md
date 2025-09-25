@@ -28,7 +28,7 @@ apiPlayground:
           type: string
         oneToOneNatSpec:
           description: |-
-            **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+            **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
             An external IP address configuration.
             If not specified, then this instance will have no external internet access.
           $ref: '#/definitions/OneToOneNatSpec'
@@ -82,7 +82,7 @@ apiPlayground:
             type: string
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               External DNS configuration
             type: array
             items:

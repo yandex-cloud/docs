@@ -1,25 +1,25 @@
 # Migrating data with change of storage from {{ MY }} to {{ ydb-short-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} source cluster to {{ ydb-name }}.
+{{ data-transfer-name }} enables you to transfer data from a {{ mmy-name }} source cluster to {{ ydb-name }}.
 
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate your transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* {{ mmy-name }} cluster fee: Covers the use of computational resources allocated to hosts and disk storage (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ ydb-name }} database fee. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
 	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
@@ -27,7 +27,7 @@ The support cost includes:
     Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
 
 
-## Prepare the infrastructure {#deploy-infrastructure}
+## Set up the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -38,7 +38,8 @@ The support cost includes:
     1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
     
-    1. If you are using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) so that you can connect to the cluster from the internet.
+    1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow internet access to your cluster.
+
 
 
 - {{ TF }} {#tf}
@@ -54,29 +55,29 @@ The support cost includes:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mmy-name }} cluster.
         * {{ mmy-name }} source cluster.
-        * Database: {{ ydb-name }}.
+        * {{ ydb-name }} database.
         * Source endpoint.
         * Transfer.
 
-    1. Specify the following in the `data-transfer-mmy-ydb.tf` file:
+    1. In the `data-transfer-mmy-ydb.tf` file, specify the following:
 
         * The {{ mmy-name }} source cluster parameters that will be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
             * `source_mysql_version`: {{ MY }} version.
             * `source_db_name`: Database name.
-            * `source_user` and `source_password`: Name and user password of the database owner.
+            * `source_user` and `source_password`: Database owner username and password.
 
         * `target_db_name`: {{ ydb-name }} database name.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -119,15 +120,18 @@ The support cost includes:
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
+
 
 1. Create a source endpoint and transfer:
 
@@ -140,10 +144,10 @@ The support cost includes:
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
-                Select a source cluster from the list and specify its connection settings.
+                Select your source cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. Create the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type [transfer](../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
@@ -152,27 +156,27 @@ The support cost includes:
             * `target_endpoint_id` variable. Also, set it to the value of the endpoint ID for the target created in the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ ydb-name }} database:
+1. Verify that the data has been transferred from the source {{ mmy-name }} cluster to the {{ ydb-name }} database:
 
     {% list tabs group=instructions %}
 
@@ -231,17 +235,20 @@ The support cost includes:
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-Delete the other resources depending on how they were created:
+
+1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+
+
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=instructions %}
 

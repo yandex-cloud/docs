@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         attachedFilesystemSpec:
           description: |-
-            **[AttachedFilesystemSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
+            **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
             Required field. Filesystem to attach to the instance.
           $ref: '#/definitions/AttachedFilesystemSpec'
       required:

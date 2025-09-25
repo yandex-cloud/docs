@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/dataplatform/mongodb-sharding'
+canonical: '{{ link-docs }}/tutorials/dataplatform/storedoc-sharding'
 ---
 
-{% include [sharding](../../_tutorials/dataplatform/mongodb-sharding.md) %}
+{% include [sharding](../../_tutorials/dataplatform/storedoc-sharding.md) %}

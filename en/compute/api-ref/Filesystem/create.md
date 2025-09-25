@@ -30,8 +30,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Filesystem labels as `key:value` pairs.
             For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         typeId:
           description: |-
             **string**
@@ -60,6 +69,7 @@ apiPlayground:
             Block size used for the filesystem, specified in bytes.
             The block size cannot be updated after the filesystem creation.
             Default value: 4096.
+          default: '4096'
           type: string
           format: int64
       required:

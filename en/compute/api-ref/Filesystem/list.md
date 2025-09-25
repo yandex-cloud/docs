@@ -18,7 +18,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `page_size`,
-            the service returns a [ListFilesystemsResponse.nextPageToken](/docs/compute/api-ref/Filesystem/list#yandex.cloud.compute.v1.ListFilesystemsResponse)
+            the service returns a [ListFilesystemsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -26,7 +26,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListFilesystemsResponse.nextPageToken](/docs/compute/api-ref/Filesystem/list#yandex.cloud.compute.v1.ListFilesystemsResponse) returned by a previous list request.
+            [ListFilesystemsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

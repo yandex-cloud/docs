@@ -6,7 +6,7 @@ A {{ ydb-name }} cluster can get data from {{ PG }} databases in real time. This
 To run data delivery:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
@@ -28,15 +28,16 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Prepare the data transfer infrastructure:
+Set up your data pipeline infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a source {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+    1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) with any applicable configuration, ensuring its hosts are publicly accessible.
     1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
     1. [In the source cluster, create a user](../../managed-postgresql/operations/cluster-users.md#adduser) and [assign them](../../managed-postgresql/operations/grant.md) the `mdb_replication` role.
+
 
 - {{ TF }} {#tf}
 
@@ -51,15 +52,15 @@ Prepare the data transfer infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mpg-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule permitting access to the {{ mpg-name }} cluster.
         * {{ mpg-name }} source cluster.
-        * Database: {{ PG }}.
+        * {{ PG }} database.
         * {{ mpg-name }} user.
-        * Database: {{ ydb-name }}.
+        * {{ ydb-name }} database.
         * Source endpoint.
         * Transfer.
 
-    1. In the `data-transfer-mpg-ydb.tf` file, specify the following parameters:
+    1. In the `data-transfer-mpg-ydb.tf` file, specify the following settings:
 
         * `source_pg_version`: {{ PG }} version in the source cluster.
         * `source_db_name`: DB name in the source cluster.
@@ -68,13 +69,13 @@ Prepare the data transfer infrastructure:
         * `target_db_name`: {{ ydb-name }} database name.
         * `transfer_enabled`: Set `0` to ensure that no transfer and source endpoint is created before you [manually create a target endpoint](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -125,7 +126,11 @@ Prepare the data transfer infrastructure:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+
+            
+
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
+
 
 1. Create a source endpoint and transfer:
 
@@ -144,36 +149,36 @@ Prepare the data transfer infrastructure:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: User password.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: `<DB_name>.sensors`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}** type that will use the created endpoints.
+        1. Create a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**-type [transfer](../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mpg-ydb.tf` file, specify the following parameters:
+        1. In the `data-transfer-mpg-ydb.tf` file, specify the following settings:
 
-            * `target_endpoint_id`: Target endpoint ID.
+            * `target_endpoint_id`: ID of the target endpoint.
             * `transfer_enabled`: `1` to create a source endpoint and a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Make sure the data from the source {{ mpg-name }} cluster has been moved to the {{ ydb-name }} database:
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Verify that the data has been transferred from the source {{ mpg-name }} cluster to the {{ ydb-name }} database:
 
     {% list tabs group=instructions %}
 
@@ -183,7 +188,7 @@ Prepare the data transfer infrastructure:
         1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-        1. Check that the {{ ydb-name }} database contains a table named `public_sensors` with the test data.
+        1. Make sure the {{ ydb-name }} database contains a table named `public_sensors` with the test data.
 
     * {{ ydb-short-name }} CLI
 
@@ -215,7 +220,7 @@ Prepare the data transfer infrastructure:
         1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-        1. Check that `public_sensors` now contains the new data.
+        1. Make sure `public_sensors` now contains the new data.
 
     - {{ ydb-short-name }} CLI {#cli}
 
@@ -232,7 +237,7 @@ Prepare the data transfer infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 
@@ -240,7 +245,11 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
     1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
-    1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+
+    
+    1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+
+
     1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
     1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 

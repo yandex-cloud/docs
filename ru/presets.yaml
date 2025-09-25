@@ -11332,7 +11332,6 @@ default:
           field_catalog-type: Тип коннектора
         overview:
           coordinator-url-list: Веб-интерфейс Trino
-          title_resource-coordinator: Координатор
         title_catalogs: Каталоги
       tuning:
         addition-params: Дополнительные параметры
@@ -11505,6 +11504,9 @@ default:
               title: Синтез речи
             stt:
               title: Распознавание речи
+        YaGPT:
+          create-instance_3Ltog: Развернуть инстанс
+          instances-title_j9Cpb: Инстансы
       ydb:
         browse:
           button_create: Создать

@@ -72,3 +72,41 @@ FunctionTool(name: ‘str’, description: ‘str | None’, parameters: ‘Json
 **parameters**\: *JsonSchemaType*{#yandex_cloud_ml_sdk._tools.tool.FunctionTool.parameters}
 
 **strict**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._tools.tool.FunctionTool.strict}
+
+## Generative search tool
+
+### *class* yandex\_cloud\_ml\_sdk.\_tools.generative\_search.**GenerativeSearchTool**{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool}
+
+A generative search tool that can be called by LLMs/Assistants models.
+
+To learn more about generative search itself, refer to [generative search documentation](https://yandex.cloud/docs/search-api/concepts/generative-response#body)
+
+Objects of this class could be used in any place which requires [**BaseTool**](../internals/bases.md#yandex_cloud_ml_sdk._tools.tool.BaseTool) instance, but not every place/feature supports all of the tool types.
+
+**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)* = *''*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.description}
+
+Description of tool instance which also instructs model when to call it.
+
+**enable\_nrfm\_docs**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.enable_nrfm_docs}
+
+tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
+
+**fix\_misspell**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.fix_misspell}
+
+tells to backend to fix or not to fix misspels in queries.
+
+**host**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.host}
+
+Parameter for limiting search to specific location or list of hosts.
+
+**search\_filters**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[FilterType](search_api.md#yandex_cloud_ml_sdk._search_api.generative.result.yandex_cloud_ml_sdk._search_api.generative.config.FilterType), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.search_filters}
+
+allows to limit search results with additional filters.
+
+**site**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.site}
+
+Parameter for limiting search to specific location or list of sites.
+
+**url**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._tools.generative_search.GenerativeSearchTool.url}
+
+Parameter for limiting search to specific location or list of urls.

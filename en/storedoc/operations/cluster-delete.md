@@ -1,6 +1,6 @@
 ---
-title: Deleting a {{ SD }} cluster
-description: After you delete a {{ SD }} database cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
+title: Deleting an {{ SD }} cluster
+description: After you delete a {{ SD }} database cluster, its backups will be kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
 ---
 
 # Deleting a {{ SD }} cluster
@@ -28,13 +28,13 @@ description: After you delete a {{ SD }} database cluster, its backups are kept 
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To delete a cluster, run the command:
+  To delete a cluster, run this command:
   
   ```bash
   {{ yc-mdb-mg }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -44,7 +44,7 @@ description: After you delete a {{ SD }} database cluster, its backups are kept 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -57,13 +57,13 @@ description: After you delete a {{ SD }} database cluster, its backups are kept 
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -84,8 +84,8 @@ description: After you delete a {{ SD }} database cluster, its backups are kept 
           yandex.cloud.mdb.mongodb.v1.ClusterService.Delete
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.  
+  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.  
 
 {% endlist %}

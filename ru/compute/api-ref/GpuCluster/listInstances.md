@@ -20,22 +20,23 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListGpuClusterInstancesResponse.nextPageToken](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.ListGpuClusterInstancesResponse)
+            results is larger than `pageSize`, the service returns a [ListGpuClusterInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClusterInstancesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListGpuClusterInstancesResponse.nextPageToken](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.ListGpuClusterInstancesResponse) returned by a previous list request.
+            [ListGpuClusterInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClusterInstancesResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
-            Currently you can use filtering only on the [Instance.name](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) field.
+            Currently you can use filtering only on the [Instance.name](#yandex.cloud.compute.v1.Instance) field.
           type: string
       additionalProperties: false
     body: null

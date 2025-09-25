@@ -1,8 +1,8 @@
 * [What is {{ mmg-short-name }}?](#what-is)
 
-* [What part of database management and maintenance is {{ mmg-short-name }} responsible for?](#services)
+* [What is {{ mmg-short-name }}'s share of database management and maintenance work?](#services)
 
-* [Which tasks are best addressed using {{ mmg-short-name }}, and which using VMs with databases?](#mdb-advantage)
+* [Not sure when to use {{ mmg-short-name }} or VMs with databases?](#mdb-advantage)
 
 * [What is a database host and database cluster?](#what-is-cluster)
 

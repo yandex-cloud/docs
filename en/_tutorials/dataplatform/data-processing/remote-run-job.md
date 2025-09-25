@@ -17,7 +17,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 - Image version 1.4
 
   1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 16.04 LTS.
-  1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/connect.md#configuring-security-groups) for the cluster.
+  1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/security-groups.md) for the cluster.
   1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
       ```bash
@@ -83,7 +83,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 - Image version 2.0
 
   1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) running Ubuntu 20.04 LTS.
-  1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/connect.md#configuring-security-groups) for the cluster.
+  1. To provide network access to the {{ dataproc-name }} cluster hosting this VM, [set up security groups](../../../data-proc/operations/security-groups.md) for the cluster.
   1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
      ```bash

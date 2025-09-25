@@ -49,7 +49,9 @@ apiPlayground:
             1. Get the current set of labels with a [GpuClusterService.Get](/docs/compute/api-ref/GpuCluster/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/update.md

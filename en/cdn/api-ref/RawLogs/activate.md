@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         settings:
           description: |-
-            **[RawLogsSettings](/docs/cdn/api-ref/RawLogs/activate#yandex.cloud.cdn.v1.RawLogsSettings)**
+            **[RawLogsSettings](#yandex.cloud.cdn.v1.RawLogsSettings)**
             Raw logs settings.
           $ref: '#/definitions/RawLogsSettings'
       required:

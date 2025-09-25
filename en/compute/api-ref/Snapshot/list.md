@@ -18,7 +18,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListSnapshotsResponse.nextPageToken](/docs/compute/api-ref/Snapshot/list#yandex.cloud.compute.v1.ListSnapshotsResponse)
+            the service returns a [ListSnapshotsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -26,7 +26,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListSnapshotsResponse.nextPageToken](/docs/compute/api-ref/Snapshot/list#yandex.cloud.compute.v1.ListSnapshotsResponse) returned by a previous list request.
+            [ListSnapshotsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

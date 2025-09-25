@@ -23,7 +23,7 @@ Here are some tips for diagnosing and fixing these issues.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
-If some of the CPU and disk I/O resources "hit a plateau", that is, the curve of the [graph](../../storedoc/operations/monitoring.md) that was previously steadily ascending has leveled off, it's probably due to a resource shortage, which led to reduced performance. This usually happens when the resource usage reaches its [limit](../../storedoc/concepts/limits.md).
+If any of the CPU and disk I/O resources "hits a plateau", i.e., the [graph](../../storedoc/operations/monitoring.md) that had been steadily ascending levels off, it is probably because the resource is in short supply, resulting in reduced performance. This usually happens when the resource usage reaches its [limit](../../storedoc/concepts/limits.md).
 
 In most cases, high CPU utilization and high Disk IO are due to suboptimal indexes or a large load on the hosts.
 
@@ -40,7 +40,7 @@ As soon as performance drops, you can diagnose the problem in real time using a 
 
 - Queries from all users
 
-    To run these queries, users needs the [`mdbMonitor` role](../../storedoc/concepts/users-and-roles.md#mdbMonitor).
+    To run these queries, users needs the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role.
 
     * Long queries, such as those taking more than one second to execute:
 
@@ -128,7 +128,7 @@ Poor query performance can be caused by locks.
 
     - Queries from all users
 
-        To run these queries, the user needs the [`mdbMonitor` role](../../storedoc/concepts/users-and-roles.md#mdbMonitor).
+        To run these queries, the user needs the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role.
 
         * Find queries that hold exclusive locks, such as:
 
@@ -172,7 +172,7 @@ Detected locks indicate unoptimized queries. Try [optimizing problematic queries
 
 ## Diagnosing insufficient disk space {#disk-deficit}
 
-If a cluster shows poor performance combined with a small amount of free disk space, this is probably because one or more hosts in the cluster [switched to "read-only"](../../storedoc/concepts/storage.md#manage-storage-space).
+If a cluster shows poor performance combined with a small amount of free disk space, one or more hosts in the cluster may have [switched to the "read-only" mode](../../storedoc/concepts/storage.md#manage-storage-space).
 
 The amount of used disk space is displayed on the **Disk space usage per host, top 5 hosts** graphs on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page.
 

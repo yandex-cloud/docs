@@ -12,7 +12,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListDiskTypesResponse.nextPageToken](/docs/compute/api-ref/DiskType/list#yandex.cloud.compute.v1.ListDiskTypesResponse)
+            the service returns a [ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -20,7 +20,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListDiskTypesResponse.nextPageToken](/docs/compute/api-ref/DiskType/list#yandex.cloud.compute.v1.ListDiskTypesResponse) returned by a previous list request.
+            [ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

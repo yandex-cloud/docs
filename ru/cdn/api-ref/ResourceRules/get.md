@@ -216,7 +216,8 @@ Required field. ID of resource. ||
         "string"
       ]
     }
-  }
+  },
+  "weight": "string"
 }
 ```
 
@@ -235,6 +236,10 @@ Required field. Rule name. ||
 Required field. Rule pattern.
 Must be a valid regular expression. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| weight | **string** (int64)
+
+Rules are ordered by weight in ascending order (lower weights execute first)
+Weight must be between 0 and 9999 inclusive ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
