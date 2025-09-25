@@ -5,7 +5,7 @@
 
         Выберите тип инсталляции **Кластер Managed Service for MySQL** и задайте настройки:
 
-        * {% include [cluster-id](../../fields/mysql/ui/cluster-id.md) %}
+        * {% include [cluster-name](../../fields/mysql/ui/cluster-name.md) %}
         * {% include [database](../../fields/mysql/ui/database.md) %}
         * {% include [user](../../fields/mysql/ui/user.md) %}
         * {% include [password](../../fields/mysql/ui/password.md) %}
@@ -15,7 +15,7 @@
         * Выберите каталог, в котором находится кластер {{ mmy-name }}.
         * Выберите тип инсталляции **Кластер управляемой БД** и задайте настройки:
 
-            * {% include [cluster-id](../../fields/mysql/ui/cluster-id.md) %}
+            * {% include [cluster-name](../../fields/mysql/ui/cluster-name.md) %}
             * {% include [connection](../../fields/mysql/ui/connection.md) %}
             * {% include [database](../../fields/mysql/ui/database.md) %}
 

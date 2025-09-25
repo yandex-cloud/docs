@@ -6,8 +6,8 @@ A {{ mmg-name }} cluster can get data from {{ KF }} topics in real time.
 To run data delivery:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -16,15 +16,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mkf-name }} cluster fee: covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Prepare the data transfer infrastructure:
+1. Set up your data transfer infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -86,7 +86,7 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -96,17 +96,17 @@ The support cost includes:
 
     {% endlist %}
 
-1. Install the utilities:
+1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat) to read and write data to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat) to read and write data from and to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -158,7 +158,7 @@ Create a local `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -271,7 +271,7 @@ Create a local `sample.json` file with the following test data:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -281,11 +281,11 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mmg-name }} cluster:
 
-1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
+1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
@@ -299,7 +299,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+    To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 1. Make sure that the {{ mmg-name }} cluster's `sensors` collection contains the data that was sent:
 
@@ -319,12 +319,12 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 
-Delete the other resources depending on how they were created:
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=instructions %}
 

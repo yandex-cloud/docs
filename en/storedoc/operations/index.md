@@ -9,8 +9,8 @@ description: This page provides a list of step-by-step guides for {{ mmg-name }}
 
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
-* [Changing cluster settings](update.md)
-* [Updating the {{ SD }} version](cluster-version-update.md)
+* [Updating cluster settings](update.md)
+* [{{ SD }} version upgrade](cluster-version-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)

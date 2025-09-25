@@ -47,8 +47,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         platformId:
           description: |-
             **string**
@@ -60,7 +69,7 @@ apiPlayground:
           type: string
         resourcesSpec:
           description: |-
-            **[ResourcesSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.ResourcesSpec)**
+            **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
             Computing resources of the instance, such as the amount of memory and number of cores.
             To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
           $ref: '#/definitions/ResourcesSpec'
@@ -74,10 +83,12 @@ apiPlayground:
             The values must be 256 KB or less.
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         metadataOptions:
           description: |-
-            **[MetadataOptions](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.MetadataOptions)**
+            **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
             Options allow user to configure access to instance's metadata
           $ref: '#/definitions/MetadataOptions'
         serviceAccountId:
@@ -88,17 +99,17 @@ apiPlayground:
           type: string
         networkSettings:
           description: |-
-            **[NetworkSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.NetworkSettings)**
+            **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)**
             Network settings.
           $ref: '#/definitions/NetworkSettings'
         placementPolicy:
           description: |-
-            **[PlacementPolicy](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.PlacementPolicy)**
+            **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy)**
             Placement policy configuration.
           $ref: '#/definitions/PlacementPolicy'
         schedulingPolicy:
           description: |-
-            **[SchedulingPolicy](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.SchedulingPolicy)**
+            **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy)**
             Scheduling policy configuration.
           $ref: '#/definitions/SchedulingPolicy'
         maintenancePolicy:
@@ -121,7 +132,7 @@ apiPlayground:
           format: duration
         serialPortSettings:
           description: |-
-            **[SerialPortSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.SerialPortSettings)**
+            **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
             Serial port settings
           $ref: '#/definitions/SerialPortSettings'
         reservedInstancePoolId:
@@ -272,7 +283,7 @@ apiPlayground:
             type: string
           hostAffinityRules:
             description: |-
-              **[HostAffinityRule](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
+              **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
               List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.
             type: array
             items:

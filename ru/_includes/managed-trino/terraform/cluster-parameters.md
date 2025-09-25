@@ -7,6 +7,7 @@ resource "yandex_trino_cluster" "<имя_кластера>" {
   subnet_ids          = [yandex_vpc_subnet.<имя_подсети>.id]
   security_group_ids  = [<список_идентификаторов_групп_безопасности>]
   deletion_protection = <защитить_кластер_от_удаления>
+  version             = "<версия>"
 
   coordinator = {
     resource_preset_id = "<класс_вычислительных_ресурсов>"
@@ -41,6 +42,10 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
     Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+
+* `version` — версия {{ TR }}.
+    
+    {% include [change-version-note](../change-version-note.md) %}
 
 * `coordinator` — конфигурация [координатора](../../../managed-trino/concepts/index.md#coordinator):
 

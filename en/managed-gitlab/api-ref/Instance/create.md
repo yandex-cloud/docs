@@ -27,7 +27,10 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod".
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+          maxProperties: 64
         resourcePresetId:
           description: |-
             **string**

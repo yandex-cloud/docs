@@ -1,13 +1,35 @@
-The `storage.admin` role is intended for managing Object Storage.
+The `storage.admin` role allows you to manage Object Storage.
 
-Users with this role can:
-* Create [buckets](../../storage/concepts/bucket.md) (including publicly accessible ones).
-* Delete buckets.
+{% cut "Users with this role can:" %}
+
+* View the list of [buckets](../../storage/concepts/bucket.md).
+* Create buckets, including public ones, and delete buckets.
+* View the lists of [objects](../../storage/concepts/object.md) in buckets, object info and content.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for buckets and objects inside them, modify access permissions for buckets and objects.
+* View bucket [access policy](../../storage/concepts/policy.md) info, create, modify, and delete bucket access policies.
 * Assign an [access control list](../../storage/concepts/acl.md) (ACL).
-* Manage any bucket [object](../../storage/concepts/object.md).
-* Manage any bucket [website](../../storage/concepts/hosting.md).
-* Configure other bucket parameters and objects in the bucket.
+* Set up access to a bucket via a [service connection](../../vpc/concepts/private-endpoint.md) from a Virtual Private Cloud.
+* Upload objects into a bucket, delete objects and object versions.
+* View bucket [CORS](../../storage/concepts/cors.md) configuration info and modify the CORS configuration.
+* View bucket [static website hosting](../../storage/concepts/hosting.md) configuration info and modify the static website hosting configuration.
+* View bucket access [protocol](../../storage/concepts/bucket.md#bucket-https) info and change the access protocol.
+* View bucket action [logging](../../storage/concepts/server-logs.md) settings and change the logging settings.
+* View bucket [versioning](../../storage/concepts/versioning.md) settings and change the versioning settings.
+* View bucket [encryption](../../storage/concepts/encryption.md) settings and change the encryption settings.
+* View bucket default [storage class](../../storage/concepts/storage-class.md#default-storage-class) info, change the default storage class.
+* View and modify bucket [labels](../../storage/concepts/tags.md).
+* View bucket region info.
+* View object [lifecycle](../../storage/concepts/lifecycles.md) configuration info and change the lifecycle configuration.
+* View lists of object versions and version info.
+* Restore object versions in versioning-enabled buckets.
+* View info on [object version locks](../../storage/concepts/object-lock.md) and set up such locks.
+* Bypass [governance-mode retention](../../storage/concepts/object-lock.md#types).
+* View object and object version [labels](../../storage/concepts/tags.md#object-tags), modify and delete such labels.
+* View info on current [multipart uploads](../../storage/concepts/multipart.md) of objects and their parts, delete partially uploaded objects.
+* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and Object Storage statistics.
+* View info on Object Storage [quotas](../../storage/concepts/limits.md#storage-quotas).
+* View folder info.
 
-This role enables the user to grant other users access to a bucket or a specific object in it.
+{% endcut %}
 
-This role can be assigned by the administrator of the cloud (the `admin` role).
+This role includes the `storage.editor`, `storage.configViewer`, and `storage.configurer` permissions.

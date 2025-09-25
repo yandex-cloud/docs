@@ -4,23 +4,23 @@
 1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-mg).
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
 
-      Specify the parameters for connecting to the source cluster.
+        Specify the parameters for connecting to the source cluster.
 
-   {% note info %}
+    {% note info %}
 
-   The service does not support transferring [Time Series collections]({{ mg.docs.comd }}/core/timeseries-collections/), so you should [exclude](../../../data-transfer/operations/endpoint/source/mongodb.md#additional-settings) these collections in the endpoint settings.
+    The service does not support transferring [time series collections]({{ mg.docs.comd }}/core/timeseries-collections/), so you should [exclude](../../../data-transfer/operations/endpoint/source/mongodb.md#additional-settings) these collections in the endpoint settings.
 
-   {% endnote %}
+    {% endnote %}
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
-      Specify the ID of the target cluster.
+        Specify the ID of the target cluster.
 
 1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
@@ -30,17 +30,17 @@
 
    {% note info %}
 
-   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-enabled, the transfer will not be able to partition a collection because the `_id` field's type requirement will not be met for some of the documents in the collection.
+   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-activated, the transfer will not be able to partition a collection because the `_id` field type requirement will not be met for some of the documents in the collection.
 
    {% endnote %}
 
 1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to read-only and transfer the load to the target cluster.
+1. Switch the source cluster to "read-only" mode and transfer the load to the target cluster.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
-   For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
+    For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete](../../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.

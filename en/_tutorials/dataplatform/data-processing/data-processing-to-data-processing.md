@@ -29,7 +29,7 @@ The infrastructure support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -74,7 +74,7 @@ Set up your infrastructure:
         * [NAT gateway](../../../vpc/concepts/gateways.md) and route table required for {{ dataproc-name }}.
         * [Security groups](../../../vpc/concepts/security-groups.md) for the {{ dataproc-name }} clusters.
         * Service account for the {{ dataproc-name }} cluster.
-        * Service account to create buckets in {{ objstorage-name }}.
+        * Service account required to create buckets in {{ objstorage-name }}.
         * Buckets for input and output data.
         * Two {{ dataproc-name }} clusters.
 
@@ -83,15 +83,15 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `input-bucket`: Name of the input data bucket.
         * `output-bucket`: Name of the output data bucket.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

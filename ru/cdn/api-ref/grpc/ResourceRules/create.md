@@ -168,7 +168,8 @@ Create new resource rule with specified unique name and rule patter.
         "string"
       ]
     }
-  }
+  },
+  "weight": "int64"
 }
 ```
 
@@ -184,6 +185,10 @@ Required field. Name of created resource rule. ||
 
 Required field. Resource rule pattern. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| weight | **int64**
+
+Rules are ordered by weight in ascending order (lower weights execute first)
+Weight must be between 0 and 9999 inclusive ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
@@ -733,7 +738,8 @@ The list of IP addresses to be allowed or denied. ||
           "string"
         ]
       }
-    }
+    },
+    "weight": "int64"
   }
   // end of the list of possible fields
 }
@@ -823,6 +829,10 @@ Required field. Rule name. ||
 Required field. Rule pattern.
 Must be a valid regular expression. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions2)** ||
+|| weight | **int64**
+
+Rules are ordered by weight in ascending order (lower weights execute first)
+Weight must be between 0 and 9999 inclusive ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions2}

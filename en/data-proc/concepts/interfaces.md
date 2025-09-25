@@ -19,7 +19,7 @@ UI Proxy is disabled by default. To use it, enable it when [creating](../operati
 
 {% note warning %}
 
-You may need to additionally [set up security groups](../operations/connect.md#configuring-security-groups) to use UI Proxy.
+You may need to additionally [set up security groups](../operations/security-groups.md) to use UI Proxy.
 
 {% endnote %}
 

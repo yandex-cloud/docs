@@ -42,9 +42,22 @@ description: Страница содержит все инструкции дл�
 
 ## Пошаговые инструкции для управления ресурсами {{ foundation-models-name }} {#resources}
 
+### Управление датасетами {#datasets}
+
 * [{#T}](./resources/create-dataset.md)
 * [{#T}](./resources/create-dataset-gpt.md)
 * [{#T}](./resources/create-dataset-classifier.md)
+
+### Управление инстансами {#instances}
+
+* [{#T}](./resources/create-instance.md)
+* [{#T}](./resources/get-instance.md)
+* [{#T}](./resources/edit-instance.md)
+* [{#T}](./resources/clone-instance.md)
+* [{#T}](./resources/start-stop-instance.md)
+* [{#T}](./resources/labels-instance.md)
+* [{#T}](./resources/request-instance.md)
+* [{#T}](./resources/delete-instance.md)
 
 ## Дообучение моделей {{ foundation-models-name }} {#tuning}
 

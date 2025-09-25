@@ -30,8 +30,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         networkId:
           description: |-
             **string**
@@ -39,26 +48,26 @@ apiPlayground:
           type: string
         masterSpec:
           description: |-
-            **[MasterSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterSpec)**
+            **[MasterSpec](#yandex.cloud.k8s.v1.MasterSpec)**
             Required field. Master specification of the Kubernetes cluster.
           oneOf:
             - type: object
               properties:
                 zonalMasterSpec:
                   description: |-
-                    **[ZonalMasterSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ZonalMasterSpec)**
+                    **[ZonalMasterSpec](#yandex.cloud.k8s.v1.ZonalMasterSpec)**
                     Specification of the zonal master.
                     Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
                   $ref: '#/definitions/ZonalMasterSpec'
                 regionalMasterSpec:
                   description: |-
-                    **[RegionalMasterSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.RegionalMasterSpec)**
+                    **[RegionalMasterSpec](#yandex.cloud.k8s.v1.RegionalMasterSpec)**
                     Specification of the regional master.
                     Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
                   $ref: '#/definitions/RegionalMasterSpec'
         ipAllocationPolicy:
           description: |-
-            **[IPAllocationPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.IPAllocationPolicy)**
+            **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)**
             IP allocation policy of the Kubernetes cluster.
           $ref: '#/definitions/IPAllocationPolicy'
         gatewayIpv4Address:
@@ -95,18 +104,21 @@ apiPlayground:
             - REGULAR
             - STABLE
         networkPolicy:
-          description: '**[NetworkPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.NetworkPolicy)**'
+          description: '**[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)**'
           $ref: '#/definitions/NetworkPolicy'
         kmsProvider:
           description: |-
-            **[KMSProvider](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.KMSProvider)**
+            **[KMSProvider](#yandex.cloud.k8s.v1.KMSProvider)**
             KMS provider configuration.
           $ref: '#/definitions/KMSProvider'
         cilium:
           description: |-
-            **[Cilium](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.Cilium)**
+            **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
             Includes only one of the fields `cilium`.
           $ref: '#/definitions/Cilium'
+        workloadIdentityFederation:
+          description: '**[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)**'
+          $ref: '#/definitions/WorkloadIdentityFederationSpec'
       required:
         - folderId
         - networkId
@@ -141,12 +153,12 @@ apiPlayground:
             type: string
           internalV4AddressSpec:
             description: |-
-              **[InternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.InternalAddressSpec)**
+              **[InternalAddressSpec](#yandex.cloud.k8s.v1.InternalAddressSpec)**
               Specification of parameters for internal IPv4 networking.
             $ref: '#/definitions/InternalAddressSpec'
           externalV4AddressSpec:
             description: |-
-              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
               Specification of parameters for external IPv4 networking.
             $ref: '#/definitions/ExternalAddressSpec'
         required:
@@ -161,7 +173,7 @@ apiPlayground:
             type: string
           internalV4AddressSpec:
             description: |-
-              **[InternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.InternalAddressSpec)**
+              **[InternalAddressSpec](#yandex.cloud.k8s.v1.InternalAddressSpec)**
               If not specified and there is a single subnet in specified zone, address
               in this subnet will be allocated.
             $ref: '#/definitions/InternalAddressSpec'
@@ -177,19 +189,19 @@ apiPlayground:
             type: string
           locations:
             description: |-
-              **[MasterLocation](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterLocation)**
+              **[MasterLocation](#yandex.cloud.k8s.v1.MasterLocation)**
               List of locations where the master will be allocated.
             type: array
             items:
               $ref: '#/definitions/MasterLocation'
           externalV4AddressSpec:
             description: |-
-              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
               Specify to allocate a static public IP for the master.
             $ref: '#/definitions/ExternalAddressSpec'
           externalV6AddressSpec:
             description: |-
-              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
               Specification of parameters for external IPv6 networking.
             $ref: '#/definitions/ExternalAddressSpec'
         required:
@@ -260,6 +272,14 @@ apiPlayground:
             enum:
               - ROUTING_MODE_UNSPECIFIED
               - TUNNEL
+      WorkloadIdentityFederationSpec:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Identifies whether Workload Identity Federation is enabled.
+            type: boolean
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/create.md
 ---
 
@@ -402,8 +422,11 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
   // Includes only one of the fields `cilium`
   "cilium": {
     "routingMode": "string"
-  }
+  },
   // end of the list of possible fields
+  "workloadIdentityFederation": {
+    "enabled": "boolean"
+  }
 }
 ```
 
@@ -461,6 +484,7 @@ KMS provider configuration. ||
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
 
 Includes only one of the fields `cilium`. ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)** ||
 |#
 
 ## MasterSpec {#yandex.cloud.k8s.v1.MasterSpec}
@@ -813,6 +837,15 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 - `TUNNEL` ||
 |#
 
+## WorkloadIdentityFederationSpec {#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -975,6 +1008,11 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
       "availableFrom": "string",
       "noLaterThan": "string",
       "description": "string"
+    },
+    "workloadIdentityFederation": {
+      "enabled": "boolean",
+      "issuer": "string",
+      "jwksUri": "string"
     }
   }
   // end of the list of possible fields
@@ -1169,6 +1207,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 
 Includes only one of the fields `cilium`. ||
 || scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -1602,4 +1641,21 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || description | **string**
 
 Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwksUri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

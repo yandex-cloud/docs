@@ -1,5 +1,5 @@
 ---
-title: Setting up access to {{ objstorage-full-name }} from a {{ CH }} cluster in {{ mch-full-name }}
+title: How to configure access to {{ objstorage-full-name }} from a {{ CH }} cluster in {{ mch-full-name }}
 description: Follow this guide to set up access to {{ objstorage-full-name }} from a {{ CH }} cluster.
 ---
 
@@ -34,7 +34,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 * To create or modify a cluster and link it to a service account.
 * To restore a cluster linked to a service account from its backup.
 
-## Connect the service account to the cluster {#connect-service-account}
+## Attach the service account to the cluster {#connect-service-account}
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing service account or create a new one.
 
@@ -60,7 +60,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using ded
 
       1. In the list of buckets or objects, select the required element and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.storage.buckets.button_permissions }}** or **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
-      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
+      1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [attached to the cluster](#connect-service-account).
       1. Set the required permissions for the service account from the drop-down list.
       1. Click **{{ ui-key.yacloud.common.add }}** and **{{ ui-key.yacloud.common.save }}**.
 
@@ -113,7 +113,7 @@ For example, if the {{ objstorage-name }} bucket contains a file named `table.ts
      INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/<bucket_name>/table.tsv', 'TSV', 'n Int32') VALUES (1);
      ```
 
-  1. Run a test query:
+  1. Run this test query:
   
      ```sql
      SELECT * FROM s3('https://{{ s3-storage-host }}/<bucket_name>/table.tsv', 'TSV', 'n Int32');

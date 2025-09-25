@@ -8,11 +8,11 @@
 
 The support cost includes:
 
-* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../../managed-mysql/pricing.md)).
-* NAT gateway fee (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* VM fee: Using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ mmy-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../../managed-mysql/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 * Fee for public IP addresses if public access is enabled for VMs or cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -28,7 +28,7 @@ You can create other resources manually or using {{ TF }}.
 
 ### Manually {#create-manual}
 
-1. [Create a {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md)of any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with the following settings:
+1. [Create a {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable [configuration](../../../managed-mysql/concepts/instance-types.md) with the following settings:
 
     * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
     * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
@@ -54,7 +54,7 @@ You can create other resources manually or using {{ TF }}.
 
 1. If you are using security groups for your clusters and VM instance, configure them to allow connecting:
 
-    * [To the VM instance and {{ dataproc-name }} cluster](../../../data-proc/operations/connect.md).
+    * [To the VM instance and {{ dataproc-name }} cluster](../../../data-proc/operations/security-groups.md).
     * [To the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md#configure-security-groups).
 
 ### Using {{ TF }} {#create-terraform}
@@ -64,7 +64,7 @@ You can create other resources manually or using {{ TF }}.
 1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
 1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-1. Download the [clusters-mysql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-mysql-data-import/blob/main/clusters-mysql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
+1. Download the [clusters-mysql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-mysql-data-import/blob/main/clusters-mysql-data-proc-and-vm.tf) configuration file to the same working directory.
 
     This file describes:
 
@@ -87,7 +87,7 @@ You can create other resources manually or using {{ TF }}.
     * `vm_image_id`: ID of the public [image](../../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
     * `vm_username` and `vm_public_key`: Username and absolute path to the [public SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
     * `bucket_name`: Bucket name in {{ objstorage-name }}. The name must be unique within the entire {{ objstorage-name }}.
-    * `dp_public_key`: Absolute path to the [public SSH key](../../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
+    * `dp_public_key`: Absolute path to the [public SSH key](../../../data-proc/operations/connect-ssh.md) for the {{ dataproc-name }} cluster.
 
         For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
@@ -97,7 +97,7 @@ You can create other resources manually or using {{ TF }}.
     terraform validate
     ```
 
-    If there are any errors in the configuration files, {{ TF }} will point them out.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -151,7 +151,7 @@ Let's assume that:
 
 - {{ objstorage-name }} {#storage}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
     1. Run this command:
 
         ```bash
@@ -166,7 +166,7 @@ Let's assume that:
 
 - HDFS directory {#hdfs}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
     1. Run this command:
 
         ```bash
@@ -181,7 +181,7 @@ Let's assume that:
 
 - Apache Hive {#hive}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
     1. Run this command:
 
         ```bash
@@ -199,7 +199,7 @@ Let's assume that:
 
 - Apache HBase {#hbase}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
     1. Run this command:
 
         ```bash
@@ -216,13 +216,13 @@ Let's assume that:
 
 {% endlist %}
 
-## Verify the import {#check}
+## Verifying the import {#check}
 
 {% include [Check import](./check-import.md) %}
 
 ## Deleting the created resources {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary expenses, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 
@@ -235,7 +235,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
         * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
         * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
 
-    1. If you created a {{ objstorage-full-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
+    1. If you created an {{ objstorage-full-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
     1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).
     1. [Delete the route table](../../../vpc/operations/delete-route-table.md).
     1. [Delete the NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
@@ -244,7 +244,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-    To delete an infrastructure created with {{ TF }}:
+    To delete the infrastructure created with {{ TF }}:
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 

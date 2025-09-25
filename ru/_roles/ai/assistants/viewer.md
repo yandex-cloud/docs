@@ -6,7 +6,7 @@
 * просматривать информацию о тредах пользователей AI-ассистентов, а также читать такие треды;
 * просматривать информацию о загруженных файлах и просматривать такие файлы;
 * просматривать информацию о поисковых индексах файлов, а также выполнять поиск файлов в каталоге по таким индексам;
-* просматривать информацию о [квотах](../../../ai-studio/concepts/limits.md#yandexgpt-quotas) сервиса Yandex Foundation Models;
+* просматривать информацию о [квотах](../../../ai-studio/concepts/limits.md#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 

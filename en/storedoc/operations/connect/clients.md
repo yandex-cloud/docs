@@ -145,7 +145,7 @@ Before connecting, install the [MongoDB Shell utility](index.md#install-mongosh)
 
     ```powershell
     mongosh.exe --norc `
-               --host '<FQDN_of_Yandex_StoreDoc_host_1>:{{ port-mmg }},...,<FQDN_of_Yandex_StoreDoc_host_N>:{{ port-mmg }}' `
+                --host '<Yandex_StoreDoc_host_1_FQDN>:{{ port-mmg }},...,<Yandex_StoreDoc_host_N_FQDN>:{{ port-mmg }}' `
                 --username <DB_username> `
                 --password <DB_user_password> `
                 <DB_name>
@@ -180,7 +180,7 @@ You can only use graphical IDEs to connect to public cluster hosts with an [SSL 
 1. Create a data source:
    1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
    1. On the **General** tab:
-      1. Specify the connection settings:
+      1. Configure the connection as follows:
          * **User**, **Password**: DB user's name and password.
          * **URL**: Connection string.
 
@@ -202,14 +202,14 @@ You can only use graphical IDEs to connect to public cluster hosts with an [SSL 
    1. On the **SSH/SSL** tab:
       1. Enable the **Use SSL** setting.
       1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](./index.md#get-ssl-cert).
-1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
 
 Connections to {{ SD }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
 
-To connect to a cluster:
+To connect to your cluster:
 
 1. Create a new DB connection:
    1. In the **Database** menu, select **New connection**.
@@ -238,7 +238,7 @@ To connect to a cluster:
       1. Enable **Use SSL**.
       1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
       1. Under **Settings**, select **Skip hostname validation**.
-1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **Ready** to save the database connection settings.
 
 ## Before you connect from a Docker container {#connection-docker}

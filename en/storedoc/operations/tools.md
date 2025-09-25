@@ -27,7 +27,7 @@ For more information about the `monostat` and `mongotop` utilities, see the [{{ 
 
 {{ SD }} has a [built-in profiler](https://docs.mongodb.com/manual/reference/database-profiler/). It collects query data and then uses it to determine a query optimization strategy. The profiler runs based on the [{{ SD }} settings](../concepts/settings-list.md) that you can set when [creating a cluster](./cluster-create.md) or [updating the DBMS settings](./update.md#change-mongod-config):
 
-* [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling);
+* [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling).
 * [operationProfiling.slowOpThreshold](../concepts/settings-list.md#setting-slow-op-threshold).
 
 {% note warning %}
@@ -62,8 +62,8 @@ You can find the most detailed information about {{ SD }} performance in the log
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **Yandex StoreDoc**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
 
 - CLI {#cli}
 
@@ -71,7 +71,7 @@ You can find the most detailed information about {{ SD }} performance in the log
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view the **Yandex StoreDoc** logs:
+    To view **Yandex StoreDoc** logs:
 
     1. See the description of the CLI command to view the logs:
 
@@ -89,7 +89,7 @@ You can find the most detailed information about {{ SD }} performance in the log
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -123,13 +123,13 @@ You can find the most detailed information about {{ SD }} performance in the log
 
             * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -173,8 +173,8 @@ You can find the most detailed information about {{ SD }} performance in the log
 
             * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 {% endlist %}

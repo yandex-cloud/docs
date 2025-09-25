@@ -17,7 +17,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListResourcesResponse.nextPageToken](/docs/cdn/api-ref/Resource/list#yandex.cloud.cdn.v1.ListResourcesResponse)
+            the service returns a [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,7 +25,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results,
-            set `pageToken` to the [ListResourcesResponse.nextPageToken](/docs/cdn/api-ref/Resource/list#yandex.cloud.cdn.v1.ListResourcesResponse)
+            set `pageToken` to the [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
             returned by a previous list request.
           type: string
       required:

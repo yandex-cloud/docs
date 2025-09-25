@@ -3,6 +3,20 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
+* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Fee for a VM public IP address (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 {% include [Same Network](../../_tutorials_includes/note-same-network.md) %}
@@ -41,7 +55,7 @@ You can create other resources manually or using {{ TF }}.
 
 1. If you are using security groups for your clusters and VM instance, configure them to allow connecting:
 
-    * [To the VM instance and {{ dataproc-name }} cluster](../../../data-proc/operations/connect.md).
+    * [To the VM instance and {{ dataproc-name }} cluster](../../../data-proc/operations/security-groups.md).
     * [To the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 ### Using {{ TF }} {#create-terraform}
@@ -51,7 +65,7 @@ You can create other resources manually or using {{ TF }}.
 1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
 1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-1. Download the [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
+1. Download the [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf) configuration file to the same working directory.
 
     This file describes:
 
@@ -74,7 +88,7 @@ You can create other resources manually or using {{ TF }}.
     * `vm_image_id`: ID of the public [image](../../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
     * `vm_username` and `vm_public_key`: Username and absolute path to the [public SSH key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for accessing the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
     * `bucket_name`: Bucket name in {{ objstorage-name }}. The name must be unique within the entire {{ objstorage-name }}.
-    * `dp_public_key`: Absolute path to the [public SSH key](../../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
+    * `dp_public_key`: Absolute path to the [public SSH key](../../../data-proc/operations/connect-ssh.md) for the {{ dataproc-name }} cluster.
 
         For an SSH connection to the hosts of a {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
@@ -84,7 +98,7 @@ You can create other resources manually or using {{ TF }}.
     terraform validate
     ```
 
-    If there are any errors in the configuration files, {{ TF }} will point them out.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -96,7 +110,7 @@ You can create other resources manually or using {{ TF }}.
 
 ## Preparing the source cluster {#prepare}
 
-1. [Connect to the {{ mpg-name }} cluster's database](../../../managed-postgresql/operations/connect.md) named `db1` as `user1`.
+1. [Connect](../../../managed-postgresql/operations/connect.md) to the `db1` database in the {{ mpg-name }} cluster as `user1`.
 1. Add test data to the database. The example uses a simple table with people's names and ages:
 
     1. Create a table:
@@ -138,7 +152,7 @@ Let's assume that:
 
 - {{ objstorage-name }} {#storage}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#object-storage).
     1. Run this command:
 
         ```bash
@@ -153,7 +167,7 @@ Let's assume that:
 
 - HDFS directory {#hdfs}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#hdfs).
     1. Run this command:
 
         ```bash
@@ -168,7 +182,7 @@ Let's assume that:
 
 - Apache Hive {#hive}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hive).
     1. Run this command:
 
         ```bash
@@ -186,7 +200,7 @@ Let's assume that:
 
 - Apache HBase {#hbase}
 
-    1. [Complete all prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
+    1. [Complete all the prerequisite steps](../../../data-proc/operations/sqoop-usage.md#apache-hbase).
     1. Run this command:
 
         ```bash
@@ -203,13 +217,13 @@ Let's assume that:
 
 {% endlist %}
 
-## Verify the import {#check}
+## Verifying the import {#check}
 
 {% include [Check import](./check-import.md) %}
 
 ## Deleting the created resources {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary expenses, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 
@@ -231,7 +245,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-    To delete an infrastructure created with {{ TF }}:
+    To delete the infrastructure created with {{ TF }}:
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 

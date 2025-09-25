@@ -1,4 +1,4 @@
-# Migrating a {{ mmg-full-name }} cluster from version 4.4 to 6.0 using {{ data-transfer-full-name }}
+# Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster from 4.4 to 6.0 using {{ data-transfer-full-name }}
 
 
 You can migrate a production loaded sharded database deployed in a {{ mmg-name }} version 4.4 cluster to version 6.0.
@@ -16,11 +16,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ SD }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee per transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ SD }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
+* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -40,7 +40,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         To connect to the cluster from the internet, enable public access to its hosts.
 
     
-    1. If using security groups in your cluster, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
+    1. If using security groups, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow inbound connections to your cluster.
 
 
     1. [Grant](../../../storedoc/operations/cluster-users.md#updateuser) the `readWrite` role for the `db1` database to `user1`.
@@ -82,14 +82,14 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
     1. Copy it from the terminal and paste it into the `.tf` file.
     1. Place the file in the new `imported-cluster` directory.
-    1. Modify the copied configuration so that you can create a new cluster from it:
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Set the `version` parameter to `6.0`.
         * Delete `created_at`, `health`, `id`, `sharded`, and `status`.
         * In the `host` sections, delete `health` and `name`.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_mongodb_user` resource.
+        * Delete all `user` sections (if any). You can add database users with a separate `yandex_mdb_mongodb_user` resource.
         * Delete all `database` sections (if any). You can add databases using the separate `yandex_mdb_mongodb_database` resource.
         * Optionally, make further changes if you need to customize the configuration.
 
@@ -135,7 +135,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -235,9 +235,9 @@ If the source database has sharded collections, [prepare the target database](..
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to reach zero for each transfer. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfers and wait for their status to change to {{ dt-status-stopped }}.
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-1. [Connect](../../../storedoc/operations/connect/index.md) to `db1` in the {{ mmg-name }} target cluster.
+1. [Connect](../../../storedoc/operations/connect/index.md) to the `db1` database in your target {{ mmg-name }} cluster.
 
 1. Make sure the data collections have appeared in the `db1` database:
 
@@ -248,7 +248,7 @@ If the source database has sharded collections, [prepare the target database](..
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
 
 * [Transfer](../../../data-transfer/operations/transfer.md#delete)
 * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)

@@ -53,6 +53,8 @@ Domain for working with batch tasks
 
 **chat**\: *[AsyncChat](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat)*{#yandex_cloud_ml_sdk.AsyncYCloudML.chat}
 
+Domain for working with [Yandex Cloud OpenAI Compatible API\_BaseSDK\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility).
+
 **\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_cloud_ml_sdk.AsyncYCloudML.__init__i}
 
 Construct a new asynchronous sdk instance.
@@ -123,6 +125,7 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 - [Tools domain](tools.md)
   - [**AsyncTools**](tools.md#yandex_cloud_ml_sdk._tools.domain.AsyncTools)
     - [**AsyncTools.function**](tools.md#yandex_cloud_ml_sdk._tools.domain.AsyncTools.function)
+    - [**AsyncTools.generative\_search()**](tools.md#yandex_cloud_ml_sdk._tools.domain.AsyncTools.generative_search)
     - [**AsyncTools.rephraser**](tools.md#yandex_cloud_ml_sdk._tools.domain.AsyncTools.rephraser)
     - [**AsyncTools.search\_index()**](tools.md#yandex_cloud_ml_sdk._tools.domain.AsyncTools.search_index)
   - [Types](tools.md#types)
@@ -228,6 +231,7 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
     - [**AsyncGenerativeSearchFunction.available\_formats**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction.available_formats)
   - [**AsyncGenerativeSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch)
     - [**AsyncGenerativeSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.run)
+    - [**AsyncGenerativeSearch.as\_tool()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.as_tool)
     - [**AsyncGenerativeSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.config)
     - [**AsyncGenerativeSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.configure)
     - [**AsyncGenerativeSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.uri)

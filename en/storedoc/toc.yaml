@@ -73,7 +73,7 @@ items:
         href: tutorials/data-migration.md
       - name: Migrating {{ mmg-name }} cluster from 4.4 to 6.0
         href: tutorials/storedoc-versions.md
-      - name: Migrating collections from a third-party {{ MG }} cluster
+      - name: Migrating collections from a third-party {{ SD }} cluster
         href: tutorials/storedoc-migration-with-data-transfer.md
       - name: '{{ SD }} performance analysis and tuning'
         href: tutorials/profiling.md
@@ -97,7 +97,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in {{ mmg-name }}
+      - name: Networking in {{ mmg-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -499,5 +499,5 @@ items:
         href: qa/general.md
       - name: Questions about {{ SD }}
         href: qa/storedoc.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

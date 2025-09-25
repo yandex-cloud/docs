@@ -23,8 +23,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         zoneId:
           description: |-
             **string**
@@ -46,18 +55,18 @@ apiPlayground:
           type: string
         resourcesSpec:
           description: |-
-            **[ResourcesSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.ResourcesSpec)**
+            **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
             Required field. Computing resources of the reserved instance pool instances, such as the amount of memory and number of cores.
             To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
           $ref: '#/definitions/ResourcesSpec'
         gpuSettings:
           description: |-
-            **[GpuSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.GpuSettings)**
+            **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
             GPU settings.
           $ref: '#/definitions/GpuSettings'
         bootDiskSpec:
           description: |-
-            **[BootDiskSpec](/docs/compute/api-ref/ReservedInstancePool/create#yandex.cloud.compute.v1.BootDiskSpec)**
+            **[BootDiskSpec](#yandex.cloud.compute.v1.BootDiskSpec)**
             Spec is used to determine which License IDs should be allowed for instances created in the pool.
           oneOf:
             - type: object
@@ -82,13 +91,13 @@ apiPlayground:
                   type: string
                 productIds:
                   description: |-
-                    **[ProductIDs](/docs/compute/api-ref/ReservedInstancePool/create#yandex.cloud.compute.v1.ProductIDs)**
+                    **[ProductIDs](#yandex.cloud.compute.v1.ProductIDs)**
                     Product IDs.
                     Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
                   $ref: '#/definitions/ProductIDs'
         networkSettings:
           description: |-
-            **[NetworkSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.NetworkSettings)**
+            **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)**
             Network settings.
           $ref: '#/definitions/NetworkSettings'
         size:

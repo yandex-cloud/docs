@@ -33,7 +33,7 @@ items:
             href: operations/connect.md
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-          - name: Managing databases
+          - name: Database management
             href: operations/databases.md
       - name: '{{ MY }} users'
         items:
@@ -67,7 +67,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: High availability cluster
+      - name: High availability clusters
         href: concepts/high-availability.md
       - name: Network in Managed Service for MySQL
         href: concepts/network.md
@@ -106,13 +106,19 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          "Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}"
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
       - name: WordPress website on a {{ MY }} database
-        href: tutorials/wordpress-mysql.md
+        items:
+          - name: Overview
+            href: tutorials/wordpress-mysql.md
+          - name: Management console
+            href: tutorials/console.md
+          - name: '{{ TF }}'
+            href: tutorials/terraform.md
       - name: Creating a 1C-Bitrix website
         items:
           - name: Overview
@@ -515,5 +521,5 @@ items:
         href: qa/migration.md
       - name: Configuring MySQL
         href: qa/configuring.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

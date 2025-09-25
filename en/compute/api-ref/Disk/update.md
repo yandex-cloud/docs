@@ -47,8 +47,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         size:
           description: |-
             **string** (int64)
@@ -57,7 +66,7 @@ apiPlayground:
           format: int64
         diskPlacementPolicy:
           description: |-
-            **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
             Placement policy configuration.
           $ref: '#/definitions/DiskPlacementPolicy'
       additionalProperties: false

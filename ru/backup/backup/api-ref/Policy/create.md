@@ -20,7 +20,7 @@ apiPlayground:
           type: string
         settings:
           description: |-
-            **[PolicySettings](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings)**
+            **[PolicySettings](#yandex.cloud.backup.v1.PolicySettings)**
             Required field. 
           $ref: '#/definitions/PolicySettings'
       required:
@@ -37,19 +37,13 @@ apiPlayground:
               **enum** (Type)
               Required field. A type of the interval.
               - `TYPE_UNSPECIFIED`
-              - `BACKUP`
-              - `RETENTION`
-              - `RECOVERY`
-              - `APPLY_POLICY`
-              - `REVOKE_POLICY`
+              - `FULL`
+              - `INCREMENTAL`
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - BACKUP
-              - RETENTION
-              - RECOVERY
-              - APPLY_POLICY
-              - REVOKE_POLICY
+              - FULL
+              - INCREMENTAL
           count:
             description: |-
               **string** (int64)
@@ -68,7 +62,7 @@ apiPlayground:
             type: boolean
           interval:
             description: |-
-              **[Interval](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Interval)**
+              **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
               Required field. An interval between retry attempts.
             $ref: '#/definitions/Interval'
           maxAttempts:
@@ -133,7 +127,7 @@ apiPlayground:
         properties:
           rules:
             description: |-
-              **[RetentionRule](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Retention.RetentionRule)**
+              **[RetentionRule](#yandex.cloud.backup.v1.PolicySettings.Retention.RetentionRule)**
               A list of retention rules.
             type: array
             items:
@@ -142,7 +136,7 @@ apiPlayground:
                   properties:
                     maxAge:
                       description: |-
-                        **[Interval](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Interval)**
+                        **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
                         Includes only one of the fields `maxAge`, `maxCount`.
                       $ref: '#/definitions/Interval'
                     maxCount:
@@ -201,24 +195,24 @@ apiPlayground:
                 - SUNDAY
           repeatAt:
             description: |-
-              **[TimeOfDay](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+              **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
               Time to repeat the backup.
             type: array
             items:
               $ref: '#/definitions/TimeOfDay'
           repeatEvery:
             description: |-
-              **[Interval](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Interval)**
+              **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
               Frequency of backup repetition.
             $ref: '#/definitions/Interval'
           timeFrom:
             description: |-
-              **[TimeOfDay](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+              **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
               The start time of the backup time interval.
             $ref: '#/definitions/TimeOfDay'
           timeTo:
             description: |-
-              **[TimeOfDay](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+              **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
               The end time of the backup time interval.
             $ref: '#/definitions/TimeOfDay'
           monthdays:
@@ -274,7 +268,7 @@ apiPlayground:
         properties:
           delay:
             description: |-
-              **[Interval](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Interval)**
+              **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
               Required field. The interval between backups.
             $ref: '#/definitions/Interval'
         required:
@@ -284,7 +278,7 @@ apiPlayground:
         properties:
           backupSets:
             description: |-
-              **[BackupSet](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
+              **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
               A list of schedules with backup sets that compose the whole scheme.
             type: array
             items:
@@ -293,12 +287,12 @@ apiPlayground:
                   properties:
                     time:
                       description: |-
-                        **[Time](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time)**
+                        **[Time](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time)**
                         Includes only one of the fields `time`, `sinceLastExecTime`.
                       $ref: '#/definitions/Time'
                     sinceLastExecTime:
                       description: |-
-                        **[SinceLastExecTime](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
+                        **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
                         Includes only one of the fields `time`, `sinceLastExecTime`.
                       $ref: '#/definitions/SinceLastExecTime'
           enabled:
@@ -314,7 +308,7 @@ apiPlayground:
             format: int64
           randMaxDelay:
             description: |-
-              **[Interval](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Interval)**
+              **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
               Required field. Configuration of the random delay between the execution of parallel tasks.
             $ref: '#/definitions/Interval'
           scheme:
@@ -364,7 +358,7 @@ apiPlayground:
               - SUNDAY
           taskFailure:
             description: |-
-              **[RetriesConfiguration](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+              **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
               Task failure settings in case of failure of scheduled task, not applicable to  manually launched tasks
             $ref: '#/definitions/RetriesConfiguration'
         required:
@@ -482,7 +476,7 @@ apiPlayground:
             type: boolean
           reattempts:
             description: |-
-              **[RetriesConfiguration](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+              **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
               Required field. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set.
             $ref: '#/definitions/RetriesConfiguration'
           silentModeEnabled:
@@ -492,37 +486,37 @@ apiPlayground:
             type: boolean
           splitting:
             description: |-
-              **[Splitting](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Splitting)**
+              **[Splitting](#yandex.cloud.backup.v1.PolicySettings.Splitting)**
               Required field. Determines the size to split backups on. Splitting is not performed if value is not specified.
             $ref: '#/definitions/Splitting'
           vmSnapshotReattempts:
             description: |-
-              **[RetriesConfiguration](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+              **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
               Required field. Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set.
             $ref: '#/definitions/RetriesConfiguration'
           vss:
             description: |-
-              **[VolumeShadowCopyServiceSettings](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.VolumeShadowCopyServiceSettings)**
+              **[VolumeShadowCopyServiceSettings](#yandex.cloud.backup.v1.PolicySettings.VolumeShadowCopyServiceSettings)**
               Required field. Settings for the Volume Shadow Copy Service (VSS) provider. If not set, no VSS provider is used.
             $ref: '#/definitions/VolumeShadowCopyServiceSettings'
           archive:
             description: |-
-              **[ArchiveProperties](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.ArchiveProperties)**
+              **[ArchiveProperties](#yandex.cloud.backup.v1.PolicySettings.ArchiveProperties)**
               The archive properties.
             $ref: '#/definitions/ArchiveProperties'
           performanceWindow:
             description: |-
-              **[PerformanceWindow](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow)**
+              **[PerformanceWindow](#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow)**
               Required field. Time windows for performance limitations of backup and storage maintenance operations.
             $ref: '#/definitions/PerformanceWindow'
           retention:
             description: |-
-              **[Retention](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Retention)**
+              **[Retention](#yandex.cloud.backup.v1.PolicySettings.Retention)**
               Required field. Configuration of backup retention rules.
             $ref: '#/definitions/Retention'
           scheduling:
             description: |-
-              **[Scheduling](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.Scheduling)**
+              **[Scheduling](#yandex.cloud.backup.v1.PolicySettings.Scheduling)**
               Required field. Configuration of the backup schedule.
             $ref: '#/definitions/Scheduling'
           cbt:
@@ -553,7 +547,7 @@ apiPlayground:
             type: boolean
           fileFilters:
             description: |-
-              **[FileFilters](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.FileFilters)**
+              **[FileFilters](#yandex.cloud.backup.v1.PolicySettings.FileFilters)**
               File filters to specify masks of files to backup or to exclude of backuping
             $ref: '#/definitions/FileFilters'
           sectorBySector:
@@ -581,7 +575,7 @@ apiPlayground:
             type: boolean
           prePostCommands:
             description: |-
-              **[PrePostCommand](/docs/backup/backup/api-ref/Policy/list#yandex.cloud.backup.v1.PolicySettings.PrePostCommand)**
+              **[PrePostCommand](#yandex.cloud.backup.v1.PolicySettings.PrePostCommand)**
               Commands to launch before or after backup execution
             type: array
             items:

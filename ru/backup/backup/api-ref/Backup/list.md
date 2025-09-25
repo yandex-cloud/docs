@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         archive:
           description: |-
-            **[ArchiveParameters](/docs/backup/backup/api-ref/Backup/list#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
+            **[ArchiveParameters](#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
             List backups that belongs to specific archive of specific folder.
             Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
           $ref: '#/definitions/ArchiveParameters'
@@ -27,7 +27,7 @@ apiPlayground:
           type: string
         instancePolicy:
           description: |-
-            **[InstancePolicy](/docs/backup/backup/api-ref/Backup/list#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
+            **[InstancePolicy](#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
             List backups that belongs to specific instance and policy at the same time.
             Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
           $ref: '#/definitions/InstancePolicy'
@@ -45,7 +45,7 @@ apiPlayground:
           type: string
         backup:
           description: |-
-            **[BackupParameters](/docs/backup/backup/api-ref/Backup/list#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters)**
+            **[BackupParameters](#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters)**
             List backups by specific backup ID.
             Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
           $ref: '#/definitions/BackupParameters'

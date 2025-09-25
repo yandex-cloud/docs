@@ -21,7 +21,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListPlacementGroupInstancesResponse.nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#yandex.cloud.compute.v1.ListPlacementGroupInstancesResponse)
+            the service returns a [ListPlacementGroupInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListPlacementGroupInstancesResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -29,7 +29,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results,
-            set `pageToken` to the [ListPlacementGroupInstancesResponse.nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#yandex.cloud.compute.v1.ListPlacementGroupInstancesResponse)
+            set `pageToken` to the [ListPlacementGroupInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListPlacementGroupInstancesResponse)
             returned by a previous list request.
           type: string
       additionalProperties: false

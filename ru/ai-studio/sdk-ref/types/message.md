@@ -220,14 +220,65 @@ the textual representation of the token
 
 *typeddict* yandex\_cloud\_ml\_sdk.\_chat.completions.message.**ChatFunctionResultMessageDict**{#yandex_cloud_ml_sdk._chat.completions.message.ChatFunctionResultMessageDict}
 
-[**typing.TypedDict**](https://docs.python.org/3/library/typing.html#typing.TypedDict).
+Function call result message in chat domain format.
+
+Used to represent the result of a function/tool call in chat conversations.
 
 #|
 || Required Keys | 
 
-- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **tool\_call\_id** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **content** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Role of the message (optional)
+- **tool\_call\_id** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – ID of the tool call this result corresponds to
+- **content** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Mixed content including text and/or images ||
+|#
+
+*typeddict* yandex\_cloud\_ml\_sdk.\_chat.completions.message.**MultimodalMessageDict**{#yandex_cloud_ml_sdk._chat.completions.message.MultimodalMessageDict}
+
+Multimodal message supporting both text and image content.
+
+Allows passing multiple content types (text and images) in a single message.
+
+#|
+|| Required Keys | 
+
+- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Role of the message (optional)
+- **content** ([**Sequence**](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageUrlDict**](#yandex_cloud_ml_sdk._chat.completions.message.ImageUrlDict), [**TextContent**](#yandex_cloud_ml_sdk._chat.completions.message.TextContent)]]) – Mixed content including text and/or images ||
+|#
+
+*typeddict* yandex\_cloud\_ml\_sdk.\_chat.completions.message.**TextContent**{#yandex_cloud_ml_sdk._chat.completions.message.TextContent}
+
+Text content type for multimodal messages.
+
+Used to include text data in multimodal chat messages.
+
+#|
+|| Required Keys | 
+
+- **type** (**Literal**[**'text'**]) – Content type identifier for text
+- **text** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Text content ||
+|#
+
+*typeddict* yandex\_cloud\_ml\_sdk.\_chat.completions.message.**ImageUrlContent**{#yandex_cloud_ml_sdk._chat.completions.message.ImageUrlContent}
+
+Image content type for multimodal messages.
+
+Used to include image data in multimodal chat messages.
+
+#|
+|| Required Keys | 
+
+- **type** (**Literal**[**'image\_url'**]) – Content type identifier for text
+- **image\_url** ([**ImageUrlDict**](#yandex_cloud_ml_sdk._chat.completions.message.ImageUrlDict)) – Image URL information ||
+|#
+
+*typeddict* yandex\_cloud\_ml\_sdk.\_chat.completions.message.**ImageUrlDict**{#yandex_cloud_ml_sdk._chat.completions.message.ImageUrlDict}
+
+Dictionary for passing image URL in multimodal messages.
+
+#|
+|| Required Keys | 
+
+- **url** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – URL of the image ||
 |#
 
 ## Image generation messages

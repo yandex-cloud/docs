@@ -15,8 +15,20 @@ items:
             href: operations/cluster-create.md
           - name: Creating an autoscaling cluster in another folder's network
             href: operations/cluster-create-autoscale.md
-          - name: Connecting to a cluster
-            href: operations/connect.md
+          - name: Connection
+            items:
+              - name: Connecting to a cluster
+                href: operations/connect.md
+              - name: Configuring security groups
+                href: operations/security-groups.md
+              - name: Getting an FQDN of a host
+                href: operations/fqdn.md
+              - name: Connecting to a host over SSH
+                href: operations/connect-ssh.md
+              - name: Connecting to a host via {{ oslogin }}
+                href: operations/connect-oslogin.md
+              - name: Connecting to a host from graphical IDEs
+                href: operations/connect-ide.md
           - name: Updating a cluster
             href: operations/cluster-update.md
           - name: Migrating a lightweight cluster to a different availability zone
@@ -63,7 +75,7 @@ items:
         items:
           - name: Working with logs
             href: operations/logging.md
-          - name: Cluster and host status monitoring
+          - name: Monitoring the state of clusters and hosts
             href: operations/monitoring.md
           - name: Spark application status monitoring
             href: operations/spark-monitoring.md
@@ -139,7 +151,7 @@ items:
             href: tutorials/airflow-automation.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:
@@ -161,15 +173,15 @@ items:
         href: concepts/autoscaling.md
       - name: Decommissioning of subclusters and hosts
         href: concepts/decommission.md
-      - name: '{{ dataproc-name }} network'
+      - name: Networking in {{ dataproc-name }}
         href: concepts/network.md
       - name: Maintenance
         href: concepts/maintenance.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: '{{ dataproc-name }} storage'
+      - name: Storage in {{ dataproc-name }}
         href: concepts/storage.md
-      - name: Component settings
+      - name: Component properties
         href: concepts/settings-list.md
       - name: '{{ IBRG }} in {{ dataproc-name }}'
         href: concepts/apache-iceberg.md

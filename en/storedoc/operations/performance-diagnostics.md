@@ -5,7 +5,7 @@
 {% note warning %}
 
 
-This feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
 {% endnote %}
@@ -23,7 +23,7 @@ For read/write and some other DB queries (such as `aggregate`), you can view the
 
 To get data:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **Yandex StoreDoc**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}** tab.
 1. Specify the time interval and, if necessary, set filters.
 1. Select:
@@ -44,14 +44,14 @@ To get data:
    * Aggregation function of the selected parameter:
        * `AVG`: Average value
        * `SUM`: Sum
-
+   
 For more information about what statistics you can get, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/database-profiler/#output-reference).
 
 ## Getting information about indexes {#get-indexes}
 
 You can get collection access statistics for queries and recommendations for creating indexes of certain fields to speed up query processing.
 
-1. Go to the [folder page]({{ link-console-main }}) and select **Yandex StoreDoc**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}** tab.
 1. Specify the time interval and, if necessary, set filters.
 

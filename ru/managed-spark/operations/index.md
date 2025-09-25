@@ -17,3 +17,9 @@ description: Из статьи вы узнаете, как работать с {
 
 * [Задания Spark](jobs-spark.md)
 * [Задания PySpark](jobs-pyspark.md)
+* [Задания SparkConnect](jobs-sparkconnect.md)
+
+## Логи и мониторинг {#monitoring-and-logs}
+
+* [Мониторинг состояния кластера](monitoring.md)
+* [Просмотр логов кластера](cluster-logs.md)

@@ -17,7 +17,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListGpuClustersResponse.nextPageToken](/docs/compute/api-ref/GpuCluster/list#yandex.cloud.compute.v1.ListGpuClustersResponse)
+            results is larger than `page_size`, the service returns a [ListGpuClustersResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,14 +25,14 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListGpuClustersResponse.nextPageToken](/docs/compute/api-ref/GpuCluster/list#yandex.cloud.compute.v1.ListGpuClustersResponse) returned by a previous list request.
+            [ListGpuClustersResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClustersResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters GPU clusters listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [GpuCluster.name](/docs/compute/api-ref/GpuCluster/get#yandex.cloud.compute.v1.GpuCluster) field.
+            1. The field name. Currently you can use filtering only on [GpuCluster.name](#yandex.cloud.compute.v1.GpuCluster) field.
             2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
             3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `name=my-schedule`.
@@ -41,7 +41,7 @@ apiPlayground:
           description: |-
             **string**
             A sorting expression that sorts GPU clusters listed in the response.
-            The expression must specify the field name from [GpuCluster](/docs/compute/api-ref/GpuCluster/get#yandex.cloud.compute.v1.GpuCluster) and `asc`ending or `desc`ending order,
+            The expression must specify the field name from [GpuCluster](#yandex.cloud.compute.v1.GpuCluster) and `asc`ending or `desc`ending order,
             e.g. `createdAt desc`.
             Default value: `id asc`.
           type: string

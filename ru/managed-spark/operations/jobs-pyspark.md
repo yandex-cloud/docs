@@ -109,7 +109,7 @@ description: Из статьи вы узнаете, как управлять з
             * `properties` — свойства компонентов в виде пар `"ключ":"значение"`.
             * `main_python_file_uri` — путь к основному PY-файлу приложения в формате:
 
-                {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
+                {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
             * `python_file_uris` — пути к используемым PY-файлам.
             * `packages` — Maven-координаты JAR-файлов в формате `groupId:artifactId:version`.

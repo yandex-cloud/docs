@@ -23,6 +23,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListSnapshotScheduleOperationsResponse.nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:

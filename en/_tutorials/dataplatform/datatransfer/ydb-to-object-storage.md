@@ -4,7 +4,7 @@
 You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -12,12 +12,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for the {{ ydb-name }}. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
 	
     Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
 
@@ -29,7 +29,7 @@ The support cost includes:
 ## Getting started {#before-you-begin}
 
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -39,7 +39,9 @@ Set up your infrastructure:
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
+    
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) with the `storage.editor` and `ydb.editor` roles. The transfer will use it to access the database and bucket.
+
 
 - Using {{ TF }} {#tf}
 
@@ -70,7 +72,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -80,7 +82,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Create](../../../ydb/operations/crud.md#web-sql) a table named `seasons` in the {{ ydb-name }} database:
 
@@ -124,7 +126,11 @@ Set up your infrastructure:
     1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`
+
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_YDB`
@@ -132,7 +138,10 @@ Set up your infrastructure:
     1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md) of the `{{ ydb-short-name }}` type and specify the DB connection settings in it:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-short-name }} database from the list.
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the service account you created earlier.
+
 
     1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
 
@@ -152,7 +161,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -187,7 +196,10 @@ Delete the other resources depending on how they were created:
 
     1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
     1. [Delete the {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#delete-db).
-    1. If you created a service account, [delete it](../../../iam/operations/sa/delete.md).
+
+    
+    1. If you created any service account, [delete it](../../../iam/operations/sa/delete.md).
+
 
 - {{ TF }} {#tf}
 

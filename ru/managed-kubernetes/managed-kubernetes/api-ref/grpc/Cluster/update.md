@@ -95,6 +95,9 @@ Updates the specified Kubernetes cluster.
     "service_ipv4_cidr_block": "string",
     "cluster_ipv6_cidr_block": "string",
     "service_ipv6_cidr_block": "string"
+  },
+  "workload_identity_federation": {
+    "enabled": "bool"
   }
 }
 ```
@@ -137,6 +140,7 @@ Service account to be used by the worker nodes of the Kubernetes cluster to acce
 or to push node logs and metrics. ||
 || network_policy | **[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)** ||
 || ip_allocation_policy | **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)** ||
+|| workload_identity_federation | **[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)** ||
 |#
 
 ## MasterUpdateSpec {#yandex.cloud.k8s.v1.MasterUpdateSpec}
@@ -390,6 +394,15 @@ IPv6 range for allocating pod IP addresses. ||
 IPv6 range for allocating Kubernetes service IP addresses ||
 |#
 
+## WorkloadIdentityFederationSpec {#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -534,6 +547,11 @@ IPv6 range for allocating Kubernetes service IP addresses ||
       "available_from": "google.protobuf.Timestamp",
       "no_later_than": "google.protobuf.Timestamp",
       "description": "string"
+    },
+    "workload_identity_federation": {
+      "enabled": "bool",
+      "issuer": "string",
+      "jwks_uri": "string"
     }
   }
   // end of the list of possible fields
@@ -690,6 +708,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 
 Includes only one of the fields `cilium`. ||
 || scheduled_maintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workload_identity_federation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -1085,4 +1104,21 @@ The latest possible date by which a mandatory update must be applied. ||
 || description | **string**
 
 Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwks_uri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

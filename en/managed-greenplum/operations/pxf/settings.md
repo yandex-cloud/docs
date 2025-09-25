@@ -23,8 +23,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * **Pool Core Size**: Number of core streaming threads per pool. The value range is from `1` to `1024`.
         * **Pool Queue Capacity**: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
         * **Pool Max Size**: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
-        * **Xmx**: Initial size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify the values in various units.
-        * **Xms**: Maximum size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify the values in various units.
+        * **Xmx**: Maximum size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify the values in various units.
+        * **Xms**: Initial size of the JVM heap for the PXF daemon. The value range is from `64` to `16384` MB. You can specify the values in various units.
 
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -53,8 +53,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
            --pxf-poll-core-size=<number_of_streaming_threads> \
            --pxf-pool-queue-capacity=<pool_queue_capacity_for_streaming_threads> \
            --pxf-pool-max-size=<maximum_number_of_streaming_threads> \
-           --pxf-xmx=<initial_size_of_the_JVM_heap> \
-           --pxf-xms=<maximum_size_of_the_JVM_heap>
+           --pxf-xmx=<maximum_size_of_the_JVM_heap> \
+           --pxf-xms=<initial_size_of_the_JVM_heap>
         ```
 
         Where:
@@ -69,8 +69,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `pxf-poll-core-size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
         * `pxf-pool-queue-capacity`: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
         * `pxf-pool-max-size`: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
-        * `pxf-xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
-        * `pxf-xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `pxf-xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `pxf-xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
         You can [get the cluster name with the list of clusters in the folder](../cluster-list.md#list-clusters).
 
@@ -97,8 +97,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
             pool_core_size                 = <number_of_streaming_threads>
             pool_queue_capacity            = <pool_queue_capacity_for_streaming_threads>
             pool_max_size                  = <maximum_number_of_streaming_threads>
-            xmx                            = <initial_size_of_the_JVM_heap>
-            xms                            = <maximum_size_of_the_JVM_heap>
+            xmx                            = <maximum_size_of_the_JVM_heap>
+            xms                            = <initial_size_of_the_JVM_heap>
           }
         }
         ```
@@ -115,8 +115,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
         * `pool_queue_capacity`: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
         * `pool_max_size`: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
-        * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
-        * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
     1. Make sure the settings are correct.
 
@@ -128,7 +128,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -153,8 +153,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
                           "poolCoreSize": "<number_of_streaming_threads>",
                           "poolQueueCapacity": "<pool_queue_capacity_for_streaming_threads>",
                           "poolMaxSize": "<maximum_number_of_streaming_threads>",
-                          "xmx": "<initial_size_of_the_JVM_heap>",
-                          "xms": "<maximum_size_of_the_JVM_heap>"
+                          "xmx": "<maximum_size_of_the_JVM_heap>",
+                          "xms": "<initial_size_of_the_JVM_heap>"
                         }
                       }
                     }'
@@ -173,16 +173,16 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `poolCoreSize`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
         * `poolQueueCapacity`: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
         * `poolMaxSize`: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
-        * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
-        * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -223,8 +223,8 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
                       "pool_core_size": "<number_of_streaming_threads>",
                       "pool_queue_capacity": "<pool_queue_capacity_for_streaming_threads>",
                       "pool_max_size": "<maximum_number_of_streaming_threads>",
-                      "xmx": "<initial_size_of_the_JVM_heap>",
-                      "xms": "<maximum_size_of_the_JVM_heap>"
+                      "xmx": "<maximum_size_of_the_JVM_heap>",
+                      "xms": "<initial_size_of_the_JVM_heap>"
                     }
                   }
                 }' \
@@ -245,12 +245,12 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
         * `pool_queue_capacity`: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
         * `pool_max_size`: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
-        * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
-        * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

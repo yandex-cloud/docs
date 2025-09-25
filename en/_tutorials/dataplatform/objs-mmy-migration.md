@@ -6,25 +6,25 @@ With {{ data-transfer-name }}, you can transfer data from an {{ objstorage-name 
 To transfer data:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=resources %}
 
@@ -32,10 +32,12 @@ Set up your infrastructure:
 
     1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
+    
     1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
     1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
-    1. [Create a target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration with the following settings:
+
+    1. [Create a target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration, using the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
@@ -58,13 +60,13 @@ Set up your infrastructure:
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
         * Service account for creating and accessing the bucket
-        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
         * Source {{ objstorage-name }} bucket.
         * Target {{ mmy-name }} cluster.
         * Target endpoint.
         * Transfer.
 
-    1. Specify the following in the `data-transfer-objs-mmy.tf` file:
+    1. Specify the following in `data-transfer-objs-mmy.tf`:
 
         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -76,7 +78,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -104,9 +106,13 @@ Set up your infrastructure:
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account’s static key. If you created your infrastructure with {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
+
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+
+
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `ru-central1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
@@ -133,7 +139,7 @@ Set up your infrastructure:
         * `cabin_temperature`: `DOUBLE`
         * `fuel_level`: `DOUBLE`
 
-    Leave the default values for the other properties.
+    Keep the default values for all other settings.
 
 1. Create an endpoint for the target and transfer:
 
@@ -151,8 +157,8 @@ Set up your infrastructure:
 
                    Select a source cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. Create the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type [transfer](../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
@@ -167,7 +173,7 @@ Set up your infrastructure:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure for the transfer:
 
@@ -216,16 +222,16 @@ Set up your infrastructure:
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete the other resources depending on how they were created:
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=resources %}
 
@@ -234,7 +240,10 @@ Delete the other resources depending on how they were created:
     1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
     1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
     1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+
+    
     1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+
 
 - {{ TF }} {#tf}
 

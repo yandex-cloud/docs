@@ -20,16 +20,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListGpuClusterOperationsResponse.nextPageToken](/docs/compute/api-ref/GpuCluster/listOperations#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListGpuClusterOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListGpuClusterOperationsResponse.nextPageToken](/docs/compute/api-ref/GpuCluster/listOperations#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse) returned by a previous list request.
+            [ListGpuClusterOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Connecting to a database using the {{ ydb-short-name }} CLI
         href: operations/connection.md
-      - name: Database management
+      - name: Managing databases
         href: operations/manage-databases.md
       - name: Migrating a database to a different availability zone
         href: operations/migration-to-an-availability-zone.md
@@ -73,7 +73,7 @@ items:
         href: tutorials/mpg-ydb-replication.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
           Delivering data from {{ mkf-full-name }} to {{ yds-name }} using {{
@@ -83,15 +83,15 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
-      - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
+      - name: Saving a data stream from {{ yds-name }} to {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
       - name: >-
-          Delivering data from an {{ yds-name }} queue to {{ mkf-name }} using
-          {{ data-transfer-name }}
+          Delivering data from a {{ yds-name }} queue to {{ mkf-name }} using {{
+          data-transfer-name }}
         href: tutorials/yds-to-kafka.md
       - name: >-
-          Delivering data from an {{ yds-name }} queue to {{ ydb-name }} using
-          {{ data-transfer-name }}
+          Delivering data from a {{ yds-name }} queue to {{ ydb-name }} using {{
+          data-transfer-name }}
         href: tutorials/yds-to-ydb.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
@@ -105,11 +105,11 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
-      - name: Exporting audit logs to MaxPatrol SIEM
+      - name: Uploading audit logs to MaxPatrol SIEM
         href: tutorials/maxpatrol.md
   - name: Concepts
     items:
@@ -119,6 +119,8 @@ items:
         href: concepts/resources.md
       - name: Serverless and dedicated operation modes
         href: concepts/serverless-and-dedicated.md
+      - name: Autoscaling
+        href: concepts/autoscaling.md
       - name: OLTP or OLAP operating modes
         href: concepts/oltp-and-olap.md
       - name: DynamoDB tables

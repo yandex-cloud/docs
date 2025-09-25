@@ -27,7 +27,7 @@ apiPlayground:
           type: string
         networkInterfaceSpecs:
           description: |-
-            **[NetworkInterfaceSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+            **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
             Required field. Network configuration for the instance. Specifies how the network interface is configured
             to interact with other services on the internal network and on the internet.
             Currently only one network interface is supported per instance.
@@ -36,12 +36,12 @@ apiPlayground:
             $ref: '#/definitions/NetworkInterfaceSpec'
         bootDiskPlacement:
           description: |-
-            **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
             Boot disk placement policy configuration in target zone. Must be specified if disk has placement policy.
           $ref: '#/definitions/DiskPlacementPolicy'
         secondaryDiskPlacements:
           description: |-
-            **[DiskPlacementPolicyChange](/docs/compute/api-ref/Instance/relocate#yandex.cloud.compute.v1.DiskPlacementPolicyChange)**
+            **[DiskPlacementPolicyChange](#yandex.cloud.compute.v1.DiskPlacementPolicyChange)**
             Secondary disk placement policy configurations in target zone. Must be specified for each disk that has placement policy.
           type: array
           items:
@@ -99,7 +99,7 @@ apiPlayground:
             type: string
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               External DNS configuration
             type: array
             items:
@@ -115,13 +115,13 @@ apiPlayground:
             type: string
           oneToOneNatSpec:
             description: |-
-              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
               An external IP address configuration.
               If not specified, then this instance will have no external internet access.
             $ref: '#/definitions/OneToOneNatSpec'
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               Internal DNS configuration
             type: array
             items:
@@ -136,12 +136,12 @@ apiPlayground:
             type: string
           primaryV4AddressSpec:
             description: |-
-              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
               Primary IPv4 address that will be assigned to the instance for this network interface.
             $ref: '#/definitions/PrimaryAddressSpec'
           primaryV6AddressSpec:
             description: |-
-              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
               Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
             $ref: '#/definitions/PrimaryAddressSpec'
           securityGroupIds:
@@ -180,7 +180,7 @@ apiPlayground:
             type: string
           diskPlacementPolicy:
             description: |-
-              **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+              **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
               Placement policy configuration for given disk.
             $ref: '#/definitions/DiskPlacementPolicy'
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/relocate.md

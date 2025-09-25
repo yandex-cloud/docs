@@ -22,7 +22,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is more than `pageSize`, the service returns a [ListInstanceGroupOperationsResponse.nextPageToken](/docs/compute/instancegroup/api-ref/InstanceGroup/listOperations#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
+            results is more than `pageSize`, the service returns a [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -30,7 +30,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListInstanceGroupOperationsResponse.nextPageToken](/docs/compute/instancegroup/api-ref/InstanceGroup/listOperations#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request.
+            [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

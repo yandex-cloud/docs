@@ -3,7 +3,7 @@ title: Storage in {{ mmg-full-name }}
 description: In this article, you will learn what storage is in {{ mmg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
 ---
 
-# {{ mmg-name }} storage
+# Storage in {{ mmg-name }}
 
 
 {{ mmg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
@@ -66,6 +66,6 @@ To keep your cluster up and running as the host is switching over to read-only:
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/data-migration.md)
-* [{#T}](../tutorials/storedoc-migration-with-data-transfer)
-* [{#T}](../tutorials/storedoc-versions)
+* [{#T}](../tutorials/storedoc-migration-with-data-transfer.md)
+* [{#T}](../tutorials/storedoc-versions.md)
 * [{#T}](../tutorials/profiling.md)

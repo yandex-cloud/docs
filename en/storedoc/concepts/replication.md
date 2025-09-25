@@ -1,10 +1,10 @@
-# Replication and fault tolerance in {{ SD }}
+# Replication and fault tolerance {{ SD }}
 
 {{ mmg-name }} supports replication by default: if a cluster has multiple active hosts, they automatically select a primary replica to process write queries.
 
 When [changing the primary replica](../operations/stepdown.md) manually, {{ SD }} will automatically select a new primary replica from the available hosts.
 
-For more information about how replication works in {{ SD }}, read the [relevant documentation](https://docs.mongodb.com/manual/replication/).
+For more information on how replication works in {{ SD }}, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/replication/).
 
 ## Fault tolerance {#Fault-tolerance}
 
@@ -27,4 +27,4 @@ Minimum value (lowest priority): `0`. A host with such priority value can become
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/storedoc-versions)
+* [{#T}](../tutorials/storedoc-versions.md)

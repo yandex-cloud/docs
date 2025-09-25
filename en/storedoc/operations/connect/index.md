@@ -3,7 +3,7 @@ title: Pre-configuring {{ SD }} cluster connection in {{ mmg-full-name }}
 description: Follow this guide to pre-configure a connection to a database in a {{ SD }} cluster.
 ---
 
-# Pre-configuring a connection to a {{ MG }} cluster
+# Pre-configuring a connection to a {{ SD }} cluster
 
 You can connect to {{ mmg-short-name }} cluster hosts:
 
@@ -36,7 +36,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-    [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP address on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
+    [Configure all the cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic from any IP address on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for inbound traffic:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**:
         * `{{ port-mmg }}` for a non-sharded cluster
@@ -82,26 +82,26 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
 You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster if the [primary replica fails over automatically](../../concepts/replication.md).
 
 {% endnote %}
 
-To learn more, see [{#T}](../../concepts/network.md#security-groups).
+For more information, see [{#T}](../../concepts/network.md#security-groups).
 
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-To connect to public {{ MG }} hosts, get an SSL certificate:
+To connect to public {{ SD }} hosts, get an SSL certificate:
 
 {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-## Getting FQDNs of {{ MG }} hosts {#get-fqdn}
+## Getting FQDNs of {{ SD }} hosts {#get-fqdn}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). Example of a {{ MG }} host FQDN:
+To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). Example of a {{ SD }} host FQDN:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
@@ -111,7 +111,7 @@ You can get the FQDN by doing one of the following:
 
 * Look up the FQDN in the management console:
 
-    1. Go to the cluster page.
+    1. Navigate to the cluster page.
     1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 

@@ -19,7 +19,6 @@ Users with the `readWrite` role have the write and read access to all non-system
 
 Database administrator role. Grants the user the [readWrite](#readWrite) role permissions, as well as the permissions required for database administration:
 
-
   * [collMod](https://docs.mongodb.com/manual/reference/privilege-actions/#collMod)
   * [planCacheWrite](https://docs.mongodb.com/manual/reference/privilege-actions/#planCacheWrite)
   * [planCacheRead](https://docs.mongodb.com/manual/reference/privilege-actions/#planCacheRead)

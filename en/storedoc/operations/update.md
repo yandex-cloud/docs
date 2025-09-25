@@ -11,7 +11,7 @@ After creating a cluster, you can:
 * [Change the disk type and increase the storage size](#change-disk-size).
 * [Configure](#change-mongod-config) {{ SD }} servers as described in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 * [Change additional cluster settings](#change-additional-settings).
-* [Move a cluster](#move-cluster) to another folder.
+* [Move the cluster](#move-cluster) to another folder.
 * [Edit security groups](#change-sg-set).
 
 To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
@@ -25,7 +25,7 @@ When changing the host class:
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
 * A multi-host cluster will get a new [primary replica](../concepts/replication.md). Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
 
-We recommend changing the host class only when the cluster has no active workload.
+We recommend changing the host class only when your cluster has no active workload.
 
 {% list tabs group=instructions %}
 
@@ -45,7 +45,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [host class](../concepts/instance-types.md) for the cluster:
+  To change the [host class](../concepts/instance-types.md) for a cluster:
 
   1. View the description of the CLI command to update a cluster:
 
@@ -106,7 +106,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
   
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about creating this file, see [this guide](cluster-create.md).
   
   1. In the {{ mmg-name }} cluster description, change the `resource_preset_id` parameter value for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -130,13 +130,13 @@ We recommend changing the host class only when the cluster has no active workloa
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -176,11 +176,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -223,13 +223,13 @@ We recommend changing the host class only when the cluster has no active workloa
 
           Only one parameter is provided in this case.
 
-      * `config_spec.mongodb.<{{ MG }}_host_type>.resources.resourcepresetid`: New host class.
+      * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.resource_preset_id`: New host class.
       
-        {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+        {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -241,7 +241,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  To change the disk type and  increase the storage size for a cluster:
+  To change the disk type and increase the storage size for a cluster:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
@@ -310,7 +310,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about creating this file, see [this guide](cluster-create.md).
 
   1. In the {{ mmg-name }} cluster description, change the values of the `disk_type_id` and `disk_size` parameters for the following resources: `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -335,13 +335,13 @@ We recommend changing the host class only when the cluster has no active workloa
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -356,10 +356,10 @@ We recommend changing the host class only when the cluster has no active workloa
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<{{ MG }}_host_type>.resources.diskTypeId,configSpec.mongodb.<{{ MG }}_host_type>.resources.diskSize",
+                    "updateMask": "configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources.diskTypeId,configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources.diskSize",
                     "configSpec": {
                       "mongodb": { 
-                        "<{{ MG }}_host_type>": {
+                        "<Yandex_StoreDoc_host_type>": {
                           "resources": {
                             "diskTypeId": "<disk_type>",
                             "diskSize": "<storage_size_in_bytes>"
@@ -374,20 +374,20 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
       
-      * `configSpec.mongodb.<{{ MG }}_host_type>.resources`: Storage parameters:
+      * `configSpec.mongodb.<Yandex_StoreDoc_host_type`.resources`: Storage parameters:
 
           * `diskTypeId`: [Disk type](../concepts/storage.md).
           * `diskSize`: New storage size in bytes.
 
-        {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+        {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -407,13 +407,13 @@ We recommend changing the host class only when the cluster has no active workloa
                 "cluster_id": "<cluster_ID>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<{{ MG }}_host_type>.resources.disk_type_id",
-                    "config_spec.mongodb.<{{ MG }}_host_type>.resources.disk_size"
+                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_type_id",
+                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_size"
                   ]
                 },
                 "config_spec": {
                   "mongodb": {
-                    "<{{ MG }}_host_type>": {
+                    "<Yandex_StoreDoc_host_type>": {
                       "resources": {
                         "disk_type_id": "<disk_type>",
                         "disk_size": "<storage_size_in_bytes>"
@@ -430,22 +430,22 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-      * `config_spec.mongodb.<{{ MG }}_host_type>.resources.disk_size`: Storage parameters:
+      * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_size`: Storage parameters:
 
           * `disk_type_id`: [Disk type](../concepts/storage.md).
           * `disk_size`: New storage size in bytes.
 
-        The {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+        The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing {{ MG }} settings {#change-mongod-config}
+## Changing {{ SD }} settings {#change-mongod-config}
 
-You can change the DBMS settings of the hosts in your cluster.
+You can change the DBMS settings for the hosts in your cluster.
 
 {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
@@ -454,8 +454,8 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. To change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. To change the [{{ SD }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -464,7 +464,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To update the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster, run the command:
+  To update the [{{ SD }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster, run the command:
 
   ```bash
   {{ yc-mdb-mg }} cluster update-config
@@ -481,7 +481,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -496,10 +496,10 @@ You can change the DBMS settings of the hosts in your cluster.
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
           --data '{
-                    "updateMask": "configSpec.mongodb.<{{ MG }}_host_type>.config.<setting_1>,configSpec.mongodb.<{{ MG }}_host_type>.config.<setting_2>,...,configSpec.mongodb.<{{ MG }}_host_type>.config.<setting_N>",
+                    "updateMask": "configSpec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_1>,configSpec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_2>,...,configSpec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_N>",
                     "configSpec": {
                       "mongodb": {    
-                        "<{{ MG }}_host_type>": {
+                        "<Yandex_StoreDoc_host_type>": {
                           "config": {
                             "<setting_1>": "<value_1>",
                             "<setting_2>": "<value_2>",
@@ -516,17 +516,17 @@ You can change the DBMS settings of the hosts in your cluster.
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-      * `configSpec.mongodb.<{{ MG }}_host_type>.config`: List of {{ MG }} settings. Use a separate line for each setting; separate them by commas. All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
+      * `configSpec.mongodb.<Yandex_StoreDoc_host_type>.config`: List of {{ SD }} settings. Use a separate line for each setting; separate them by commas. All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
-        {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+        {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -546,15 +546,15 @@ You can change the DBMS settings of the hosts in your cluster.
                 "cluster_id": "<cluster_ID>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mongodb.<{{ MG }}_host_type>.config.<setting_1>",
-                    "config_spec.mongodb.<{{ MG }}_host_type>.config.<setting_2>",
+                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_1>",
+                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_2>",
                     ...
-                    "config_spec.mongodb.<{{ MG }}_host_type>.config.<setting_N>"
+                    "config_spec.mongodb.<Yandex_StoreDoc_host_type>.config.<setting_N>"
                   ]
                 },
                 "config_spec": {
-                  "mongodb": {
-                    "<{{ MG }}_host_type>": {
+                  "mongodb": {    
+                    "<Yandex_StoreDoc_host_type>": {
                       "config": {
                         "<setting_1>": "<value_1>",
                         "<setting_2>": "<value_2>",
@@ -573,13 +573,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-      * `config_spec.mongodb.<{{ MG }}_host_type>.config`: List of {{ MG }} settings. Use a separate line for each setting; separate them by commas. All supported settings are described in the [API reference](../api-ref/grpc/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
+      * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.config`: List of {{ SD }} settings. Use a separate line for each setting; separate them by commas. All supported settings are described in the [API reference](../api-ref/grpc/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
-        {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+        {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -624,7 +624,7 @@ You can change the DBMS settings of the hosts in your cluster.
           --deletion-protection
         ```
 
-    You can change the following settings:
+    You can update the following settings:
 
     * `--backup-retain-period`: Automatic backup retention period, in days.
       
@@ -653,7 +653,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
       
-       For more information about creating this file, see [Creating clusters](cluster-create.md).
+       For more information about creating this file, see [this guide](cluster-create.md).
 
     1. To change the backup start time, add a `backup_window_start` section to the {{ mmg-name }} cluster description under `cluster_config`:
   
@@ -696,17 +696,17 @@ You can change the DBMS settings of the hosts in your cluster.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -781,16 +781,16 @@ You can change the DBMS settings of the hosts in your cluster.
 
        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -877,7 +877,7 @@ You can change the DBMS settings of the hosts in your cluster.
           < body.json
       ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -887,10 +887,10 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **Yandex StoreDoc**.
+    1. Navigate to the folder page and select **Yandex StoreDoc**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
-    1. Select a folder you want to move the cluster to.
+    1. Select the folder you want to move your cluster to.
     1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI {#cli}
@@ -901,13 +901,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
     To move a cluster:
 
-    1. View the description of the CLI move cluster command:
+    1. See the description of the CLI command for moving a cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster move --help
         ```
 
-    1. Specify the destination folder in the move cluster command:
+    1. Specify the destination folder in that command:
 
         ```bash
         {{ yc-mdb-mg }} cluster move <cluster_name_or_ID> \
@@ -920,9 +920,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+        For more information about creating this file, see [this guide](./cluster-create.md).
 
-    1. In the {{ mmg-name }} cluster description, edit or add the `folder_id` parameter value:
+    1. In the {{ mmg-name }} cluster description, edit or add the `folder_id` value:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -939,13 +939,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -966,11 +966,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -994,14 +994,14 @@ You can change the DBMS settings of the hosts in your cluster.
 
       Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 
-## Editing security groups {#change-sg-set}
+## Changing security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
@@ -1026,7 +1026,7 @@ You can change the DBMS settings of the hosts in your cluster.
         {{ yc-mdb-mg }} cluster update --help
         ```
 
-    1. Specify the security groups in the update cluster command:
+    1. Specify the security groups in that command:
 
         ```bash
         {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
@@ -1037,7 +1037,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
       
-       For more information about creating this file, see [Creating clusters](cluster-create.md).
+       For more information about creating this file, see [this guide](cluster-create.md).
 
     1. In the {{ mmg-name }} cluster description, change the `security_group_ids` parameter value:
   
@@ -1057,13 +1057,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmg }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1096,13 +1096,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
       * `securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1144,9 +1144,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
       * `security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

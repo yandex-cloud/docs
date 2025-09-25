@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ mmg-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ mmg-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
@@ -13,10 +13,10 @@ The general format of the `event_type` field value is as follows:
 {{ at-event-prefix }}.audit.mdb.mongodb.<event_name>
 ```
 
-## Management event reference {#control-plane-events}
+## Control plane event reference {#control-plane-events}
 
 {% include [mongodb-events](../_includes/audit-trails/events/mongodb-events.md) %}
 
-## Data event reference {#data-plane-events}
+## Data plane event reference {#data-plane-events}
 
 {% include [mmg-events-dp](../_includes/audit-trails/events/mmg-events-dp.md) %}

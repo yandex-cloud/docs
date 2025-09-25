@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mmg-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mmg-name }}.
+description: This page provides information about the {{ TF }} provider resources and data sources that {{ mmg-name }} supports.
 ---
 
 # {{ TF }} reference for {{ mmg-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mmg-name }}:
+{{ mmg-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -21,6 +21,6 @@ The following {{ TF }} provider resources are supported for {{ mmg-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_mongodb_cluster]({{ tf-provider-datasources-link }}/mdb_mongodb_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_mongodb_cluster]({{ tf-provider-datasources-link }}/mdb_mongodb_cluster) | [Cluster](./concepts/index.md) details |
 | [yandex_mdb_mongodb_database]({{ tf-provider-datasources-link }}/mdb_mongodb_database) | Database information |
 | [yandex_mdb_mongodb_user]({{ tf-provider-datasources-link }}/mdb_mongodb_user) | Database user information |

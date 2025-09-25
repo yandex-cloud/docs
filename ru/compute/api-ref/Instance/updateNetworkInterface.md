@@ -42,12 +42,12 @@ apiPlayground:
           type: string
         primaryV4AddressSpec:
           description: |-
-            **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+            **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
             Primary IPv4 address that will be assigned to the instance for this network interface.
           $ref: '#/definitions/PrimaryAddressSpec'
         primaryV6AddressSpec:
           description: |-
-            **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+            **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
             Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
           $ref: '#/definitions/PrimaryAddressSpec'
         securityGroupIds:
@@ -109,7 +109,7 @@ apiPlayground:
             type: string
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               External DNS configuration
             type: array
             items:
@@ -125,13 +125,13 @@ apiPlayground:
             type: string
           oneToOneNatSpec:
             description: |-
-              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
               An external IP address configuration.
               If not specified, then this instance will have no external internet access.
             $ref: '#/definitions/OneToOneNatSpec'
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               Internal DNS configuration
             type: array
             items:

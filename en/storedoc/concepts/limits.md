@@ -7,7 +7,7 @@ editable: false
 
 # {{ mmg-name }} quotas and limits
 
-{{ mmg-name }} has the following limits:
+{{ mmg-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

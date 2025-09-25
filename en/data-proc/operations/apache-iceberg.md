@@ -15,9 +15,9 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
 ## Set up component properties to work with {{ IBRG }} {#settings}
 
-1. [Set the `spark:spark.sql.extensions` property](../concepts/settings-list.md#change-properties) to `org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions`. You can do this either at cluster or individual job level.
+1. [Set the `spark:spark.sql.extensions` property](../concepts/settings-list.md#change-properties) to `org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions`. You can do this either at the cluster or individual job level.
 
-1. Add the {{ IBRG }} libraries to the dependencies of your cluster or individual job. Versions of libraries must be [compatible with the {{ dataproc-name }} version](../concepts/apache-iceberg.md#compatibility).
+1. Add the {{ IBRG }} libraries to the dependencies of your cluster or individual job. Library versions must be [compatible with the {{ dataproc-name }} version](../concepts/apache-iceberg.md#compatibility).
 
     {% list tabs %}
 
@@ -29,7 +29,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
-        * Download the [{{ dp-libs.iceberg.dp20.jar }}]({{ dp-libs.iceberg.dp20.repo }}) library file and grant access to it by one of the following methods:
+        * Download the [{{ dp-libs.iceberg.dp20.jar }}]({{ dp-libs.iceberg.dp20.repo }}) library file and grant access to it using one of the following methods:
 
             {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
@@ -41,7 +41,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
-        * Download the [{{ dp-libs.iceberg.dp21.spark32.jar }}]({{ dp-libs.iceberg.dp21.spark32.repo }}) library file and grant access to it by one of the following methods:
+        * Download the [{{ dp-libs.iceberg.dp21.spark32.jar }}]({{ dp-libs.iceberg.dp21.spark32.repo }}) library file and grant access to it using one of the following methods:
 
             {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
@@ -53,7 +53,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
-        * Download the [{{ dp-libs.iceberg.dp21.spark33.jar }}]({{ dp-libs.iceberg.dp21.spark33.repo }}) library file and grant access to it by one of the following methods:
+        * Download the [{{ dp-libs.iceberg.dp21.spark33.jar }}]({{ dp-libs.iceberg.dp21.spark33.repo }}) library file and grant access to it using one of the following methods:
 
             {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
@@ -65,7 +65,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
-        * Download the [{{ dp-libs.iceberg.dp22.jar }}]({{ dp-libs.iceberg.dp22.repo }}) library file and grant access to it by one of the following methods:
+        * Download the [{{ dp-libs.iceberg.dp22.jar }}]({{ dp-libs.iceberg.dp22.repo }}) library file and grant access to it using one of the following methods:
 
             {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
@@ -73,22 +73,22 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
 You can now use {{ IBRG }} in your {{ dataproc-name }} cluster.
 
-## {{ IBRG }} usage example {#example}
+## {{ IBRG }} use case example {#example}
 
-The use case was tested on a {{ dataproc-name }} cluster version 2.0 with:
+This use case was tested on a {{ dataproc-name }} cluster version 2.0 with:
 
 * Spark and Hadoop components installed.
 * {{ objstorage-name }} bucket connected, and the cluster's service account having read and write permissions for this bucket.
 * Access to the Maven Central repository configured.
 * Component properties [configured](#settings) to enable downloading {{ IBRG }} libraries from Maven Central.
 
-To create a {{ IBRG }} table and start working with it:
+To create an {{ IBRG }} table and start working with it:
 
 1. Specify the [settings for the folder](https://iceberg.apache.org/docs/latest/spark-configuration/#catalogs) to contain the table.
 
-    {{ IBRG }} operates with tables at individual folder level. Folder settings are specified at individual folder level; you cannot specify settings for all folders at the same time.
+    {{ IBRG }} operates with tables at the individual folder level. Folder settings are specified at the individual folder level; you cannot specify settings for all folders at the same time.
 
-    To configure the `sample` [Hadoop](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration) folder, [set up these properties](../concepts/settings-list.md#change-properties) at cluster or individual job level as follows:
+    To configure the `sample` [Hadoop](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration) folder, [set up these properties](../concepts/settings-list.md#change-properties) at the cluster or individual job level as follows:
 
     * `spark:spark.sql.catalog.sample` property to `org.apache.iceberg.spark.SparkCatalog`
     * `spark:spark.sql.catalog.sample.type` property to `hadoop`
@@ -96,9 +96,9 @@ To create a {{ IBRG }} table and start working with it:
 
         Table data will be stored in the bucket at the `warehouse/` path.
 
-    For more information about the properties that have an effect on folder settings, see the [{{ IBRG }} documentatioin](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
+    For more information about the properties that have an effect on folder settings, see [this {{ IBRG }} article](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
 
-1. [Use SSH to connect](./connect.md#data-proc-ssh) to the {{ dataproc-name }} cluster's master host.
+1. [Use SSH to connect](connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
 
 1. Run a Spark SQL session:
 
@@ -120,13 +120,13 @@ To create a {{ IBRG }} table and start working with it:
     CREATE TABLE mytable (id bigint, data string) USING iceberg;
     ```
 
-1. View table information:
+1. View table details:
 
     ```sql
     DESC FORMATTED mytable;
     ```
 
-    Result example:
+    Sample result:
 
     ```sql
     id      bigint
@@ -155,7 +155,7 @@ To create a {{ IBRG }} table and start working with it:
     SELECT count(1), data FROM mytable GROUP BY data;
     ```
 
-    Result example:
+    Sample result:
 
     ```sql
     1       a

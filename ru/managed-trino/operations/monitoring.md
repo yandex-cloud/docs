@@ -89,4 +89,4 @@ description: Из статьи вы узнаете, как осуществля�
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-kafka-ref.md).
+Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-trino-ref.md).

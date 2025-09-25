@@ -21,14 +21,14 @@ apiPlayground:
       properties:
         attachedDiskSpec:
           description: |-
-            **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+            **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
             Required field. Disk that should be attached.
           oneOf:
             - type: object
               properties:
                 diskSpec:
                   description: |-
-                    **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                    **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
                     Disk specification.
                     Includes only one of the fields `diskSpec`, `diskId`.
                   oneOf:

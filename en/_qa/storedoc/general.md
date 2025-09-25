@@ -16,7 +16,7 @@ With {{ mmg-short-name }}, you can:
 You interact with database clusters in {{ mmg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
 
-#### What part of database management and maintenance is {{ mmg-short-name }} responsible for? {#services}
+#### What is {{ mmg-short-name }}'s share of database management and maintenance work? {#services}
 
 When you create clusters, {{ mmg-short-name }} allocates resources, installs the DBMS, and creates databases.
 
@@ -36,7 +36,7 @@ For the created and running databases, {{ mmg-short-name }} automatically create
 
 A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-A _database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ is one or more database hosts between which you can configure replication.
 
 
 #### How do I get started with {{ mmg-short-name }}? {#quickstart}
@@ -88,7 +88,7 @@ For more information, see [Maintenance](../../storedoc/concepts/maintenance.md).
 
 #### Which {{ SD }} version does {{ mmg-short-name }} use? {#dbms-version}
 
-{{ mmg-short-name }} supports {{ SD }} versions 5.0 and 6.0 Community Edition.
+{{ mmg-short-name }} supports {{ SD }} versions {{ versions.console.str }}.
 
 
 #### What happens when a new DBMS version is released? {#new-version}
@@ -98,7 +98,7 @@ When new minor versions are released, the cluster software is updated after a sh
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after the database version becomes deprecated, automatically sends email notifications to the owners of DB clusters created with this version.
+One month after the database version becomes deprecated, {{ mmg-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
 New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
@@ -110,7 +110,7 @@ In {{ mmg-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../storedoc/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../storedoc/pricing.md) section.
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../storedoc/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -145,8 +145,8 @@ For all DBMS types, you can track:
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ SD }}, you can track:
 - Number of queries per second.
-- Amount of disk space used.
-- Number of connections, and so on.
+- Disk space used.
+- Number of connections, etc.
 
 Monitoring can be performed with a minimum granularity of five seconds.
 
