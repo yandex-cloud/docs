@@ -26,8 +26,8 @@ description: Следуя данной инструкции, вы сможете
 
 Для создания кластера {{ mpg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mpg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
-
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 
 {% list tabs group=instructions %}
 
@@ -101,9 +101,10 @@ description: Следуя данной инструкции, вы сможете
        {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
      * Имя пользователя — владельца БД. По умолчанию новому пользователю выделяется 50 подключений к каждому хосту кластера. Изменить допустимое количество подключений можно с помощью настройки [Conn limit](../concepts/settings-list.md#setting-conn-limit).
-       
+
        {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
+     
      * Пароль:
 
        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
@@ -111,7 +112,8 @@ description: Следуя данной инструкции, вы сможете
        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
        Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
-     
+
+
      * Локаль сортировки и локаль набора символов. Эти настройки определяют правила, по которым производится сортировка строк (`LC_COLLATE`) и классификация символов (`LC_CTYPE`). В {{ mpg-name }} настройки локали действуют на уровне отдельно взятой БД.
 
        {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
@@ -131,7 +133,18 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
-     При настройке параметров хостов обратите внимание, что если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер.
+     Минимальное количество хостов в кластере зависит от выбранного [типа диска](../concepts/storage.md). Конфигурация кластера по умолчанию, предлагаемая в консоли управления, включает:
+
+      * два хоста, если выбран тип диска `network-ssd`, `network-hdd` или `network-ssd-io-m3`.
+      * три хоста, если выбран тип диска `local-ssd` или `network-ssd-nonreplicated`.
+
+     {% note warning %}
+
+     Не рекомендуется создавать кластер из одного хоста. Такой кластер обходится дешевле, но не обеспечивает [высокую доступность](../concepts/high-availability.md#host-configuration).
+
+     {% endnote %}
+
+     После создания кластера {{ mpg-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
 
      
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
@@ -225,10 +238,11 @@ description: Следуя данной инструкции, вы сможете
 
      Длина пароля — от 8 до 128 символов.
 
+     
      {% note info %}
 
      Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените команду и задайте параметры пользователя таким образом:
-     
+
      ```bash
        --user name=<имя_пользователя>,generate-password=true
      ```
@@ -236,6 +250,7 @@ description: Следуя данной инструкции, вы сможете
      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
      {% endnote %}
+
 
      Доступные [режимы работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
@@ -360,6 +375,7 @@ description: Следуя данной инструкции, вы сможете
 
      Длина пароля — от 8 до 128 символов.
 
+     
      {% note info %}
 
      Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
@@ -367,6 +383,7 @@ description: Следуя данной инструкции, вы сможете
      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
      {% endnote %}
+
 
      Чтобы настроить автоматическое увеличение размера хранилища, добавьте в блок `config` блок `disk_size_autoscaling`:
 
@@ -545,10 +562,12 @@ description: Следуя данной инструкции, вы сможете
 
        * `name` — имя пользователя.
        * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
-       
+
+          
           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
 
           Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
        * `permissions.databaseName` — имя базы данных, к которой пользователь получает доступ.
        * `login` — разрешение для пользователя на подключение к БД: `true` или `false`.
@@ -728,10 +747,12 @@ description: Следуя данной инструкции, вы сможете
 
        * `name` — имя пользователя.
        * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
-       
+
+          
           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
 
           Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
        * `permissions.database_name` — имя базы данных, к которой пользователь получает доступ.
        * `login` — разрешение для пользователя на подключение к БД: `true` или `false`.

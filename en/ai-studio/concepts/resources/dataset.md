@@ -49,7 +49,7 @@ When fine-tuning models, use the same instruction for each tuning example and us
 
 {% endnote %}
 
-The training dataset must include at least ten prompts and reference responses. The maximum prompt length is 8,000 [tokens](../generation/tokens.md); the maximum reference response length is 2,000 tokens. The maximum length of a prompt and response must not exceed 8,000 tokens.
+The tuning dataset must include at least ten prompts and reference responses. The maximum prompt length is 8,000 [tokens](../generation/tokens.md); the maximum reference response length is 2,000 tokens. The maximum length of a prompt and response must not exceed 8,000 tokens.
 
 Example of the contents of a text generation model tuning dataset:
 

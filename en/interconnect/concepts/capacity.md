@@ -4,7 +4,7 @@ Data size is a {{ interconnect-name }} billing unit equal to the amount of traff
 
 Currently, the following options for data size are available:
 
-Data size, TB | Connection capacity | Label
+Data amount, TB | Connection capacity | Label
 ---------------- | ------------------- | -------
 15	             | 50 Mbps           | 50-mbps
 30	             | 100 Mbps          | 100-mbps

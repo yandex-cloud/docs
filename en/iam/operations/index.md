@@ -47,6 +47,7 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
+- [{#T}](iam-token/create-for-local.md)
 - [Reissue an IAM token](compromised-credentials.md#iam-reissue)
 - [{#T}](refresh-token/list.md)
 - [{#T}](refresh-token/revoke.md)

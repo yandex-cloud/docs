@@ -4,22 +4,7 @@
     yc storage s3api get-object --help
     ```
 
-1. Get a list of buckets in the default folder:
-
-    ```bash
-    yc storage bucket list
-    ```
-
-    Result:
-
-    ```text
-    +------------------+----------------------+-------------+-----------------------+---------------------+
-    |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-    +------------------+----------------------+-------------+-----------------------+---------------------+
-    | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-    +------------------+----------------------+-------------+-----------------------+---------------------+
-    ```
-
+1. {% include [bucket-list-cli](./bucket-list-cli.md) %}
 1. Run this command:
 
     ```bash

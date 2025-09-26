@@ -80,6 +80,10 @@ resource "yandex_kubernetes_cluster" "zonal_cluster" {
   kms_provider {
     key_id = yandex_kms_symmetric_key.kms_key_resource_name.id
   }
+
+  workload_identity_federation {
+    enabled = true
+  }
 }
 ```
 
@@ -157,6 +161,10 @@ resource "yandex_kubernetes_cluster" "regional_cluster" {
   }
 
   release_channel = "STABLE"
+
+  workload_identity_federation {
+    enabled = true
+  }
 }
 ```
 
@@ -193,6 +201,7 @@ depends_on = [
 - `service_ipv4_range` (String) CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. It should not overlap with any subnet in the network the Kubernetes cluster located in.
 - `service_ipv6_range` (String) Identical to service_ipv4_range but for IPv6 protocol.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `workload_identity_federation` (Block List, Max: 1) Workload Identity Federation configuration. (see [below for nested schema](#nestedblock--workload_identity_federation))
 
 ### Read-Only
 
@@ -373,6 +382,19 @@ Optional:
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 - `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+
+
+<a id="nestedblock--workload_identity_federation"></a>
+### Nested Schema for `workload_identity_federation`
+
+Required:
+
+- `enabled` (Boolean) Identifies whether Workload Identity Federation is enabled.
+
+Read-Only:
+
+- `issuer` (String) Issuer URI for Kubernetes service account tokens.
+- `jwks_uri` (String) JSON Web Key Set URI used to verify token signatures.
 
 ## Import
 

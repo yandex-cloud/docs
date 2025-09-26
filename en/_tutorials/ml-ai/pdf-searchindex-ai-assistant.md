@@ -20,19 +20,10 @@ It may take up to one hour to set up your environment.
 {% endnote %}
 
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../ai-studio/security/index.md#service-roles) to it.
-1. [Get](../../iam/operations/authentication/manage-api-keys.md#create-api-key) the service account API key and save it.
-
-    {% include [sdk-auth-details-paragraph](../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
-
-1. Install Python [3.10](https://www.python.org/downloads/release/python-3100/) or [3.11](https://www.python.org/downloads/release/python-3110/).
-1. Install Python [venv](https://docs.python.org/3/library/venv.html) to create isolated virtual environments in Python.
-1. Create a new Python virtual environment and activate it:
-
-    ```bash
-    python3 -m venv new-env
-    source new-env/bin/activate
-    ```
-
+1. {% include [sdk-before-begin-step2](../../_includes/ai-studio/sdk-before-begin-step2.md) %}
+1. {% include [sdk-before-begin-step3](../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+1. {% include [sdk-before-begin-step4](../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+1. {% include [sdk-before-begin-step5](../../_includes/ai-studio/sdk-before-begin-step5.md) %}
 1. Using [pip](https://pypi.org/project/pip/), install the [docling](https://github.com/DS4SD/docling) library to convert documents from PDF to Markdown format:
 
     ```bash

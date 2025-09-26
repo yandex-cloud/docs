@@ -360,7 +360,7 @@ To control access more selectively and implement the principle of least privileg
 
 - Performing a check in the management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. Click the **Access permissions** tab.
   1. Click **Assign roles**.
   1. In the **Configure access bindings** window, click **Select user**.
@@ -1231,7 +1231,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
 * `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud
 * `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder
 
-The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account.
+When creating your billing account, you get the `billing.accounts.owner` role automatically. Any user with the `billing.accounts.owner` role can remove this role from the billing account creator and change the owner. The role allows you to perform any action with the billing account.
 
 The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 

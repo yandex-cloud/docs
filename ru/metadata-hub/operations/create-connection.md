@@ -63,13 +63,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create postgresql --help
+      yc metadata-hub connection-manager connection create postgresql --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create postgresql \
+      yc metadata-hub connection-manager connection create postgresql \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -138,13 +138,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create clickhouse --help
+      yc metadata-hub connection-manager connection create clickhouse --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create clickhouse \
+      yc metadata-hub connection-manager connection create clickhouse \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -213,13 +213,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create mysql --help
+      yc metadata-hub connection-manager connection create mysql --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create mysql \
+      yc metadata-hub connection-manager connection create mysql \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -286,13 +286,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create valkey --help
+      yc metadata-hub connection-manager connection create valkey --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create valkey \
+      yc metadata-hub connection-manager connection create valkey \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -361,13 +361,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create opensearch --help
+      yc metadata-hub connection-manager connection create opensearch --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create opensearch \
+      yc metadata-hub connection-manager connection create opensearch \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -433,13 +433,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create mongodb --help
+      yc metadata-hub connection-manager connection create mongodb --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create mongodb \
+      yc metadata-hub connection-manager connection create mongodb \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -545,13 +545,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create greenplum --help
+      yc metadata-hub connection-manager connection create greenplum --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create greenplum \
+      yc metadata-hub connection-manager connection create greenplum \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -630,13 +630,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create postgresql --help
+      yc metadata-hub connection-manager connection create postgresql --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create postgresql \
+      yc metadata-hub connection-manager connection create postgresql \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -699,13 +699,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create clickhouse --help
+      yc metadata-hub connection-manager connection create clickhouse --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create clickhouse \
+      yc metadata-hub connection-manager connection create clickhouse \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -787,13 +787,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create mysql --help
+      yc metadata-hub connection-manager connection create mysql --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create mysql \
+      yc metadata-hub connection-manager connection create mysql \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -850,13 +850,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create redis --help
+      yc metadata-hub connection-manager connection create redis --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create redis \
+      yc metadata-hub connection-manager connection create redis \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -934,13 +934,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create valkey --help
+      yc metadata-hub connection-manager connection create valkey --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create valkey \
+      yc metadata-hub connection-manager connection create valkey \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -998,13 +998,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create trino --help
+      yc metadata-hub connection-manager connection create trino --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create trino \
+      yc metadata-hub connection-manager connection create trino \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -1077,13 +1077,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create opensearch --help
+      yc metadata-hub connection-manager connection create opensearch --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create opensearch \
+      yc metadata-hub connection-manager connection create opensearch \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -1156,13 +1156,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create mongodb --help
+      yc metadata-hub connection-manager connection create mongodb --help
       ```
       
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create mongodb \
+      yc metadata-hub connection-manager connection create mongodb \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \
@@ -1270,13 +1270,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для создания подключения:
 
       ```bash
-      yc connection-manager connection create greenplum --help
+      yc metadata-hub connection-manager connection create greenplum --help
       ```
 
   1. Создайте подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection create greenplum \
+      yc metadata-hub connection-manager connection create greenplum \
         --name <имя_подключения> \
         --description "<описание_подключения>" \
         --labels <список_меток> \

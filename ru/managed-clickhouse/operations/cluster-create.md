@@ -36,7 +36,9 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
+
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 
 {% list tabs group=instructions %}
 
@@ -106,6 +108,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
+      
       * Укажите пароль пользователя:
 
         * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
@@ -113,6 +116,7 @@ description: Следуя данной инструкции, вы сможете
         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
         Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
       * Укажите имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
 
@@ -218,6 +222,7 @@ description: Следуя данной инструкции, вы сможете
 
         Длина пароля — от 8 до 128 символов.
 
+        
         {% note info %}
 
         Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените команду и задайте параметры пользователя таким образом:
@@ -229,6 +234,7 @@ description: Следуя данной инструкции, вы сможете
         Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
         {% endnote %}
+
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
@@ -461,6 +467,7 @@ description: Следуя данной инструкции, вы сможете
 
           Длина пароля — от 8 до 128 символов.
 
+          
           {% note info %}
 
           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
@@ -469,9 +476,6 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-       * `permission` — список БД, к которым пользователь должен иметь доступ.
-
-       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
        1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, добавьте блок `access` с нужными вам настройками:
 

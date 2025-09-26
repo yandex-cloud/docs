@@ -11,14 +11,13 @@ Set a password hash for the specified user
 
 Syntax: 
 
-`yc organization-manager idp user set-password-hash <USER-ID> [Flags...] [Global Flags...]`
+`yc organization-manager idp user set-password-hash [<USER-ID>] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>User ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--password-hash`|<b>`string`</b><br/>Password hash string|
 |`--password-hash-type`|<b>`string`</b><br/>Type of the password hash (AD_MD4)|

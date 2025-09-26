@@ -24,7 +24,7 @@ Now you can use a service agent to work with {{ yandex-cloud }} services from {{
 
 ## Release as of 02/09/24 {#020924}
 
-* Added examples of operations with [{{ yandexart-name }}](../ai-studio/concepts/generation/index.md) and open-source foundational models to initial notebooks.
+* Added examples of operations with {{ yandexart-name }} and open-source foundational models to initial notebooks.
 * When working with [{{ dataproc-full-name }}](../data-proc/) using a [Spark connector](concepts/data-processing-operations.md#synchronization), you can now [synchronize the environment](concepts/spark-connector.md)
 * Fixed some bugs and added minor performance improvements.
 

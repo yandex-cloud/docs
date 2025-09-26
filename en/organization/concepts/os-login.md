@@ -111,7 +111,7 @@ The certificate is valid for one hour. After this time has elapsed, you will nee
 
 You can connect to a VM with enabled {{ oslogin }} access using the {{ yandex-cloud }} CLI with either an SSH key [saved](../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of a user or service account or an SSH certificate of that user or service account.
 
-For more information about connecting to VMs via {{ oslogin }}, see [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Connecting to a {{ k8s }} node via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli), and [Connecting to a {{ dataproc-name }} cluster](../../data-proc/operations/connect.md#os-login-cli).
+For more information about connecting to VMs via {{ oslogin }}, see [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Connecting to a {{ k8s }} node via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli), and [Connecting to a {{ dataproc-name }} cluster](../../data-proc/operations/connect-oslogin.md#os-login-cli).
 
 ### Roles required to connect to a VM via {{ oslogin }} {#necessary-roles}
 

@@ -44,5 +44,6 @@ Minimum duration of a pattern for synthesis | 1 second
 Maximum request size for the API v1 | 5,000 characters
 Maximum request size for the API v3 | {{ tts-v3-count }} and {{ tts-v3-time }}
 Maximum request size for the API v3 in unsafe mode | 5,000 characters
+Maximum request size for the API v3 in [streaming mode](../speechkit/tts/index.md#streaming) | 5,000 characters
 [**Queries accessing an LLM**](../speechkit/stt/llm-results.md) |
 Number of instructions for the generative text model per session | 16

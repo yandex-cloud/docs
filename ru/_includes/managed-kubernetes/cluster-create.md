@@ -15,13 +15,11 @@
 1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте [облачные метки](../../managed-kubernetes/concepts/index.md#cluster-labels).
 
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
-   * (опционально) Раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../managed-kubernetes/concepts/index.md#master-resources) для мастера.
+   * (Опционально) Раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../managed-kubernetes/concepts/index.md#master-resources) для мастера.
 
-     {% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
+     {% include [master-autoscale](master-autoscale.md) %}
 
-     Чтобы разрешить в дальнейшем изменять конфигурацию ресурсов мастера, выберите опцию **Разрешить увеличивать объём ресурсов под нагрузку**.
-
-     {% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+     {% include [master-default-config](master-default-config.md) %}
 
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите версию {{ k8s }}, которая будет установлена на [мастере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master).
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** выберите способ назначения [IP-адреса](../../vpc/concepts/address.md):

@@ -49,6 +49,8 @@ items:
         href: concepts/limits.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Автоматическое масштабирование
+        href: concepts/autoscaling.md
   - name: Управление доступом
     href: security.md
   - name: Правила тарификации

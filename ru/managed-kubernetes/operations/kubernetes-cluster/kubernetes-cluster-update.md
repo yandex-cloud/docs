@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
+  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом [Update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
 
   Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging`.
 
@@ -259,6 +259,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить конфигурацию ресурсов мастера {#manage-resources}
 
+{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -268,10 +270,80 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 
+      {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
       {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
 
-      {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
-
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Укажите нужную конфигурацию ресурсов мастера в команде изменения кластера:
+
+  ```bash
+  {{ yc-k8s }} cluster update <имя_кластера_Managed_Service_for_Kubernetes> \
+    --master-scale-policy policy=auto,min-resource-preset-id=<класс_хостов_мастера>
+  ```
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  Результат:
+
+  ```text
+  done (1s)
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
+  ...
+  description: My test {{ k8s }} cluster
+  master:
+    scale_policy:
+      auto_scale:
+        min_resource_preset_id: <класс_хостов_мастера>
+  ...
+  ```
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
+
+     О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
+
+  1. Добавьте или измените в описании кластера {{ managed-k8s-name }} конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources) в блоке `scale_policy`:
+
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<имя_кластера>" {
+     >  ...
+     >  master {
+     >    ...
+     >    scale_policy {
+     >      auto_scale  {
+     >        min_resource_preset_id = "<класс_хостов_мастера>"
+     >      }
+     >    }
+     >  }
+     >}
+     >```
+
+     {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+
+- API {#api}
+
+  Чтобы изменить конфигурацию ресурсов мастера, воспользуйтесь методом [Update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) и передайте в запросе параметр `masterSpec.scalePolicy.autoScale.minResourcePresetId`.
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 
 {% endlist %}

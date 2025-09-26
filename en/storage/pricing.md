@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ objstorage-full-name }}, use the [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check out the pricing in this section.
 
 
 {% endnote %}
@@ -43,7 +43,7 @@ The {{ objstorage-name }} usage cost includes:
 
 ### Using the storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
+Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
 
 ### Performing operations with data {#rules-operations}
@@ -72,7 +72,7 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 {% include [usd.md](../_pricing/storage/usd-used_space.md) %}
 
 
-^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it is lower.
+^1^ The daily cost of data storage service is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
@@ -138,3 +138,45 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are fre
 
 
 {% include [usd-egress](../_pricing_examples/storage/usd-egress.md) %}
+
+
+
+## Examples of storage class cost comparison {#comparison-examples}
+
+**Example 1**
+
+Let's compare storage and access costs for a 3 GB website with an average of 200 users per day. One user uploads approximately 20 objects (HTML, CSS, JS, and images). This is 4,000 requests per day or about 120,000 per month.
+
+For standard storage, the first gigabyte of data (1 GB) and 10,000 PUT operations per month are free of charge.
+
+
+
+
+{% include [usd-comparison-1](../_pricing_examples/storage/usd-comparison-1.md) %}
+
+
+
+**Example 2**
+
+Let's compare the cost of storage and access for a 20 GB repository. The repository receives about 150,000 data read requests per month.
+
+For standard storage, the first gigabyte of data (1 GB) and 100,000 GET operations per month are free of charge.
+
+
+
+
+{% include [usd-comparison-2](../_pricing_examples/storage/usd-comparison-2.md) %}
+
+
+
+**Example 3**
+
+Let's compare the cost of storage and access for a 100 GB data archive you can add data to. The archive receives 10,000 read requests and 1,000 write requests per month.
+
+For standard storage, the first gigabyte of data (1 GB), 10,000 PUT operations, and 100,000 GET operations per month are free of charge.
+
+
+
+
+{% include [usd-comparison-3](../_pricing_examples/storage/usd-comparison-3.md) %}
+

@@ -19,7 +19,6 @@ Syntax:
 |----|----|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--id`|<b>`string`</b><br/>User ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--username`|<b>`string`</b><br/>New username for the user|
 |`--full-name`|<b>`string`</b><br/>New full name for the user|
 |`--given-name`|<b>`string`</b><br/>New first name for the user|

@@ -11,14 +11,13 @@ Convert a user to use external authentication
 
 Syntax: 
 
-`yc organization-manager idp user convert-to-external <USER-ID> [Flags...] [Global Flags...]`
+`yc organization-manager idp user convert-to-external [<USER-ID>] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>User ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--external-id`|<b>`string`</b><br/>External identifier to associate with the user|
 

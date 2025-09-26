@@ -105,6 +105,13 @@
 
 ## Создать словарь {#add-dictionary}
 
+{% note info %}
+
+* Словари, создаваемые через интерфейсы {{ yandex-cloud }}, располагаются в глобальном пространстве имен кластера {{ CH }}. При использовании SQL словарь создается в указанной базе данных и находится в пространстве имен этой базы данных.
+* При создании внешнего словаря через SQL доступно больше источников и настроек. Например, словари с источником Redis или Cassandra можно создать только через SQL.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -371,7 +378,7 @@
           * `complex_key_hashed`,
           * `complex_key_cache`.
 
-    Подробное описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict/).
+    Подробное описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/#dbms).
 
 {% endlist %}
 
@@ -385,6 +392,29 @@
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
     1. Измените [настройки словаря](#settings).
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы обновить внешний словарь в кластере {{ CH }}:
+
+    1. Посмотрите описание команды CLI для обновления словаря:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update-external-dictionary --help
+        ```
+
+    1. Выполните команду добавления словаря и укажите [его настройки](#settings):
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update-external-dictionary \
+           --name <имя_кластера_{{ CH }}> \
+           --dict-name <имя_словаря> \
+           ...
+        ```
 
 - REST API {#api}
 
@@ -1259,7 +1289,7 @@
             "fixedLifetime": "300",
             "postgresqlSource": {
               "db": "db1",
-              "table": "table",
+              "table": "table1",
               "port": "5432",
               "user": "user1",
               "password": "user1user1",
@@ -1318,7 +1348,7 @@
             "fixed_lifetime": "300",
             "postgresql_source": {
               "db": "db1",
-              "table": "table",
+              "table": "table1",
               "port": "5432",
               "user": "user1",
               "password": "user1user1",
@@ -1342,6 +1372,29 @@
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.CreateExternalDictionary \
             < body.json
+        ```
+
+- SQL {#sql}
+
+    1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/):
+
+        ```sql
+        CREATE DICTIONARY mychdict(
+          `id` UInt64,
+          `field1` String
+        )
+        PRIMARY KEY id
+        SOURCE(POSTGRESQL(
+           port 5432
+           host 'c-c9qash3nb1v9********.rw.{{ dns-zone }}'
+           user 'user1'
+           password 'user1user1'
+           db 'db1'
+           table 'table1'
+        ))
+        LIFETIME(300)
+        LAYOUT(CASHE(SIZE_IN_CELLS 1024));
         ```
 
 {% endlist %}

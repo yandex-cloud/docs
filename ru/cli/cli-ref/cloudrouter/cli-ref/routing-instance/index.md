@@ -33,6 +33,7 @@ Aliases:
 - [yc cloudrouter routing-instance remove-prefixes](remove-prefixes.md) — Remove announced VPC network prefixes from the routingInstance.
 - [yc cloudrouter routing-instance remove-private-connection](remove-private-connection.md) — Remove CIC private connection from the routingInstance.
 - [yc cloudrouter routing-instance update](update.md) — Modify configuration or attributes of a routingInstance.
+- [yc cloudrouter routing-instance update-networks](update-networks.md) — Update announced VPC network prefixes in the routingInstance.
 - [yc cloudrouter routing-instance update-prefix-mask](update-prefix-mask.md) — Update mask of a VPC network prefix of the routingInstance.
 - [yc cloudrouter routing-instance upsert-prefixes](upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
 

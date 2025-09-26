@@ -1,6 +1,6 @@
 #### Quotas {#yandexgpt-quotas}
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 **[Text vectorization](../ai-studio/concepts/embeddings.md)** |
 Number of text vectorization requests per second | 10
@@ -33,7 +33,7 @@ Total size of datasets | 300 GB
 
 #### Limits {#yandexgpt-limits}
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 Period to store results of asynchronous requests on the server | 3 days
 **[Text vectorization](../ai-studio/concepts/embeddings.md)** |

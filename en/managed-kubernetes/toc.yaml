@@ -119,8 +119,6 @@ items:
             href: operations/volumes/encrypted-disks.md
           - name: Expanding a pod volume
             href: operations/volumes/volume-expansion.md
-          - name: Increasing volume size for the StatefulSet controller
-            href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in block mode
             href: operations/volumes/mode-block.md
           - name: Integration with {{ objstorage-name }}

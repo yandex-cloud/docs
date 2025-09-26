@@ -18,7 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
-|`--id`|<b>`string`</b><br/>Userpool ID.<br/>--name string|
+|`--id`|<b>`string`</b><br/>Userpool ID.|
 
 #### Global Flags
 

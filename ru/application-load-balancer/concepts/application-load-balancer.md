@@ -265,6 +265,7 @@
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/index.md)
 * [{#T}](../tutorials/balancer-with-sws-profile/index.md)
+* [{#T}](../tools/gwin/ingress-gwin-migration.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
 * [{#T}](../tutorials/application-load-balancer-website/console.md)

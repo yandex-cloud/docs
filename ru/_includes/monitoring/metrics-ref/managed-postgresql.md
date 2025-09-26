@@ -111,7 +111,7 @@ subcluster_name | Имя подкластера
 | `postgres-log_fatals`<br/>`DGAUGE`, сообщений/с| Количество фатальных логированных ошибок в секунду. |
 | `postgres-log_slow_queries`<br/>`DGAUGE`, запросов/с| Количество логированных медленных запросов в секунду. |
 | `postgres-log_warnings`<br/>`DGAUGE`, сообщений/с| Количество логированных предупреждений в секунду. |
-| `postgres-replication_lag`<br/>`DGAUGE`, секунды | Время задержки репликации. |
+| `postgres-replication_lag`<br/>`DGAUGE`, секунды | Время задержки репликации.<br/>Рассчитывается с точностью до одной секунды. Если задержка меньше одной секунды, ее невозможно отследить с помощью этой метрики. |
 | `postgres_max_connections`<br/>`DGAUGE`, штуки | Максимальное количество подключений.  |
 | `postgres-oldest_inactive_replication_slot_duration`<br/>`DGAUGE`, секунды | Длительность самого старого неактивного слота репликации. |
 | `postgres_oldest_prepared_xact_duration`<br/>`DGAUGE`, секунды | Длительность самой старой подготовленной транзакции. |

@@ -117,7 +117,7 @@ If a child resource is also assigned some roles, a list of permissions for this 
 
 _Impersonation_ occurs when a user performs certain actions with cloud resources on behalf of a service account with the appropriate permissions. Impersonation is mostly used to temporarily expand user permissions without generating static credentials for the user.
 
-For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` role to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account. 
+For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` [role](../../security/index.md#iam-serviceAccounts-tokenCreator) to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account. 
 
 The administrator can revoke the role whenever needed.
 

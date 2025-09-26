@@ -10,12 +10,12 @@
 SELECT
     *
 FROM
-    `monitoring`.ydb
+    monitoring.ydb
 WITH (
     program = @@max{method="DescribeTable"}@@,
 
     from = "2025-03-12T14:00:00Z",
-    to = "2025-03-12T15:00:00Z",
+    to = "2025-03-12T15:00:00Z"
 );
 ```
 
@@ -25,7 +25,7 @@ WITH (
 1. Перейти в интерфейс {{ yq-full-name }} в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
 1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_monitoring }}`.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения метрик, или создать новый, выдав ему права [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer).
+1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения метрик, или создать новый, выдав ему роль [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) на облако.
 
    {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
@@ -37,7 +37,7 @@ WITH (
 
 ```sql
 SELECT
-    <выражение>
+    *
 FROM
     <соединение>.<сервис>
 WITH (
@@ -46,7 +46,7 @@ WITH (
     from = "<время_от>",
     to = "<время_до>",
     <параметры прореживания>
-);
+)
 ```
 
 Где:
@@ -54,15 +54,42 @@ WITH (
 - `<соединение>` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
 - `<сервис>` — сервис {{ monitoring-name }}.
 - `<запрос>` — запрос на [языке запросов](../../monitoring/concepts/querying.md) {{ monitoring-name }}.
-- `<метки>` — список имен меток, которые нужно вернуть в отдельных столбцах. Параметр `labels` можно опустить, тогда все метки будут возвращены в формате `yql dict` в колонке `labels`.
+- `<метки>` — список имен меток, значения которых нужно получить в отдельных столбцах.
 - `<время_от>` — левая граница искомого временного интервала в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
 - `<время_до>` — правая граница искомого временного интервала в формате ISO 8601.
 
+Такой запрос вернет все точки всех метрик сервиса `<сервис>`, удовлетворяющих `<запросу>` и находящихся во временном интервале `[<время_от>, <время_до>)`. Результат запроса будет содержать колонки:
+
+| Имя | Тип данных | Описание |
+| --- | --- | --- |
+| `ts` | `Datetime` | Время точки метрики |
+| `value` | `Double?` | Значение точки метрики, соответствующее времени в столбце `ts` |
+| `type` | `String` | Тип метрики, содержащей точку |
+| `labels` | `YQL Dict` | Метки метрики, содержащей точку. Если в запросе указан параметр `labels`, данный столбец будет отсутствовать |
+| `<label>` | `String` | Значение метки `<label>` метрики, содержащей точку |
+
 {% note info %}
 
-Параметр `selectors` работает без ограничений на количество метрик, но принимает на вход только набор селекторов. Метки `folderId`, `cloudId` и `service` в наборе селекторов указывать не нужно. Если вам нужно использовать [функции](../../monitoring/concepts/querying.md#functions) языка запросов — используйте параметр `program`.
+Запрос с параметром `selectors` работает без ограничений на количество метрик, но принимает на вход только набор селекторов. Если вам нужно использовать [функции](../../monitoring/concepts/querying.md#functions) языка запросов — используйте параметр `program`.
 
 {% endnote %}
+
+{% note info %}
+
+Метки `folderId` и `service` в наборе селекторов можно не указывать. 
+
+{% endnote %}
+
+### Формат параметров запроса {#parameters_format}
+
+| Имя параметра | Формат | Пример |
+| --- | --- | --- |
+| `selectors` | `["sensor_name"]{[label_name1 = "label_value1", label_name2 = "label_value2", ...]}` | `{name = "api.grpc.request.bytes", method="DescribeTable"}` |
+| `program` | Запрос на [языке запросов](../../monitoring/concepts/querying.md) {{ monitoring-name }} | `series_sum{method="DescribeTable"}` |
+| `labels` | `"label1 [as alias1], label2 [as alias2], ..."` | `"database.dedicated as db, database_path, api_service as api"` |
+| `from / to` | Время в формате ISO 8601 | `"2025-05-20T12:00:00Z"` |
+
+### Параметры прореживания {#downsampling_parameters}
 
 В {{ yq-full-name }} поддерживаются следующие [параметры прореживания](../../monitoring/concepts/decimation.md#decimation-methods):
 
@@ -73,7 +100,7 @@ WITH (
 | `downsampling.fill` | Параметры заполнения пропусков в данных. | `NULL`, `NONE`, `PREVIOUS` | `PREVIOUS` |
 | `downsampling.grid_interval` | Ширина временного окна (сетки) в секундах, используемая для прореживания. | Целое число | `15` |
 
-## Пример записи метрик {#example}
+## Пример чтения метрик {#example}
 
 Пример запроса для чтения метрик из {{ monitoring-name }}:
 
@@ -81,11 +108,11 @@ WITH (
 SELECT
     *
 FROM
-    `monitoring`.ydb
+    monitoring.compute
 WITH (
-    selectors = @@{name = "api.grpc.request.bytes"}@@,
+    selectors = @@"cpu_utilization"{resource_type="vm"}@@,
 
-    labels = "database.dedicated, database_path, api_service",
+    labels = "cpu_name as cpu, resource_id",
 
     from = "2025-03-12T14:00:00Z",
     to = "2025-03-12T15:00:00Z",
@@ -99,4 +126,6 @@ WITH (
 Где:
 
 * `monitoring` — название соединения с {{ monitoring-name }}.
-* `ydb` — искомый сервис {{ monitoring-name }}.
+* `compute` — сервис, по которому проводится поиск.
+* `cpu_name as cpu, resource_id` — список меток, значения которых вернутся в отдельных столбцах. Значение метки `cpu_name` будет возвращено в столбце `cpu`, `resource_id` — в столбце `resource_id`.
+* `[2025-03-12T14:00:00Z – 2025-03-12T15:00:00Z)` — временной интервал, по которому проводится поиск.
