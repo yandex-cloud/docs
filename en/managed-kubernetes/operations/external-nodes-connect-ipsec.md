@@ -7,11 +7,13 @@ description: Follow this guide to configure IPSec gateways to connect external n
 
 With {{ managed-k8s-full-name }}, you can connect servers from outside {{ yandex-cloud }} as [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes. To connect one, first, set up network connectivity between the remote network hosting the external server and the [cloud network](../../vpc/concepts/network.md#network) hosting your {{ managed-k8s-name }} cluster. You can do this using a VPN.
 
-Below is an example of establishing network connectivity over the IPSec protocol. Here, the external server is a VM residing in another {{ yandex-cloud }} cloud network.
+Below is an example of establishing network connectivity over the IPSec protocol.
 
 You can see the solution architecture in the diagram below:
 
 ![external-nodes-connect](../../_assets/tutorials/external-nodes-connect/external-nodes-connect.svg)
+
+{% include [external-nodes-connect-image-description](../../_includes/managed-kubernetes/external-nodes-connect-image-description.md) %}
 
 ## Getting started {#before-you-begin}
 
@@ -44,7 +46,7 @@ You can see the solution architecture in the diagram below:
     - Incoming traffic {#incoming}
       
       {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
-      --- | --- | --- | --- | ---    
+      --- | --- | --- | --- | ---
       `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ssh` | `22` | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_2_public_address>/32`
@@ -155,7 +157,7 @@ You can see the solution architecture in the diagram below:
           aggressive=no
           keyingtries=%forever
           ikelifetime=86400s
-        ```  
+        ```
 
         For more information about parameters, see the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 

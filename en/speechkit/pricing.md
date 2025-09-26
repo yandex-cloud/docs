@@ -42,7 +42,7 @@ For the [API v1](tts/request.md), the cost is calculated based on the total numb
 
 The cost of using the [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. The cost is calculated for a calendar month ([Reporting period](../billing/concepts/glossary.md)).
 
-By default, speech synthesis requests have these limitations: {{ tts-v3-count }} and {{ tts-v3-time }}. To synthesize longer phrases, you can use `unsafe_mode`. In this case, you will be charged per 250 characters, e.g.:
+By default, speech synthesis requests have these limitations: {{ tts-v3-count }} and {{ tts-v3-time }}. To synthesize longer phrases, you can use `unsafe_mode` or [streaming mode](tts/index.md#streaming). In this case, you will be charged per 250 characters, e.g.:
 
 * A request that is shorter than 250 characters is charged for as a single billing unit.
 * A request that is from 250 to 500 characters long is charged for as two billing units.
@@ -155,7 +155,7 @@ Prices for hosting {{ brand-voice-lite-name }} models will come into effect on J
 
 
 
-## Examples of cost calculation {#price-example}
+## Cost calculation examples {#price-example}
 
 
 ### Speech synthesis using API v1 {#price-example-tts-v1}

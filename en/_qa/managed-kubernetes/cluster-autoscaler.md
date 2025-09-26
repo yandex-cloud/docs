@@ -51,6 +51,23 @@ Other possible causes include:
   ```bash
   kubectl annotate node <node_name> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
+  
+#### In an autoscaling group, the number of nodes never scales down to one, even when there is no load {#autoscaler-one-node}
+
+In a {{ managed-k8s-name }} cluster, the `kube-dns-autoscaler` app decides on the number of CoreDNS replicas. If the `preventSinglePointFailure` parameter in the `kube-dns-autoscaler` configuration is set to `true` and there is more than one node in the group, the minimum number of CoreDNS replicas is two. In this case, the Cluster Autoscaler cannot scale down the number of nodes in the cluster below that of CoreDNS pods.
+
+Learn more about DNS scaling based on the cluster size [here](../../tutorials/container-infrastructure/dns-autoscaler.md).
+
+**Solution**:
+
+1. Disable the protection setting that limits the minimum number of CoreDNS replicas to two. To do this, set the `preventSinglePointFailure` parameter to `false` in the `kube-dns-autoscaler` [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/).
+1. Enable the `kube-dns-autoscaler` pod eviction by adding the `save-to-evict` annotation to [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+
+    ```bash
+    kubectl patch deployment kube-dns-autoscaler -n kube-system \
+      --type merge \
+      -p '{"spec":{"template":{"metadata":{"annotations":{"cluster-autoscaler.kubernetes.io/safe-to-evict":"true"}}}}}'
+    ```
 
 #### Why does the node group fail to scale down after a pod deletion? {#not-scaling-pod}
 

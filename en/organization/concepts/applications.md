@@ -25,6 +25,8 @@ The external applications can only be accessed by {{ yandex-cloud }} organizatio
 
 The basic concept of user authentication via SAML-based single sign-on is as described below:
 
+{% include [SAML authentication diagram](../../_mermaid/other/identity-hub/saml-authentication.md) %}
+
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
 1. The service provider sends a SAML request to {{ org-name }} (identity provider) and redirects the user to the {{ org-name }}'s login URL.
 1. The user authenticates in {{ org-name }} with their credentials.
@@ -125,6 +127,8 @@ Every OIDC application requires an OAuth client, which is created in a user-spec
 ### OIDC collaboration diagram {#oidc-scheme}
 
 The basic concept of user authentication via OIDC-based single sign-on is as described below:
+
+{% include [OIDC authentication diagram](../../_mermaid/other/identity-hub/oidc-authentication.md) %}
 
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
 1. The service provider sends an authentication request to {{ org-name }} (identity provider) and redirects the user to the {{ org-name }}'s login URL specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` field.

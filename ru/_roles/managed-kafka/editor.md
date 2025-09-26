@@ -6,6 +6,6 @@
 * просматривать информацию о [квотах](../../managed-kafka/concepts/limits.md#mkf-quotas) сервиса Managed Service for Apache Kafka®;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for Apache Kafka®.
 
-Включает разрешения, предоставляемые ролью `managed-kafka.viewer`.
+Включает разрешения, предоставляемые ролями `managed-kafka.viewer` и `managed-kafka.interfaceUser`.
 
 Для создания кластеров Apache Kafka® дополнительно необходима роль `vpc.user`.

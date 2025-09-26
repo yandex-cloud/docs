@@ -39,11 +39,7 @@ For more information, see [{#T}](../../../organization/concepts/add-federation.m
 
 _Local users_ are linked only to the [domain](../../../organization/concepts/domains.md), their credentials are stored only in {{ yandex-cloud }} as part of a [user pool](../../../organization/concepts/user-pools.md). Local users are created in a user pool, exist within a single organization, and cannot create a new one.
 
-{% note info %}
-
-User pools are currently at the [Preview](../../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
+{% include [userpools-preview-stage](../../../_includes/iam/userpools-preview-stage.md) %}
 
 Local users get authenticated in {{ yandex-cloud }} with the help of [Login Discovery](../../../organization/concepts/domains.md#login-discovery) without using any external authentication providers.
 

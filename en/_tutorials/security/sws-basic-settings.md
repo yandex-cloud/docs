@@ -525,13 +525,9 @@ After disabling the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-r
 
 A web application firewall (WAF) protects your web apps from various vulnerability exploits and requires fine tuning depending on the specific features of your service.
 
-When creating a WAF profile, the pre-installed [OWASP Core Ruleset](https://coreruleset.org/) is added to it, and you need to tailor it to your service. You may need to disable certain rules to prevent false positives and create exclusion rules. Since every service is unique, configuring these might take a while.
+When creating a WAF protifle, multiple rule sets are available. For better protection, we recommend using multiple rule sets. For a quick setup, use ML WAF (Yandex Malicious Score) and Yandex Ruleset. These rule sets deliver minimum false positives and may be used for initial protection. To enhance protection, use the pre-installed [OWASP Core Ruleset](https://coreruleset.org/) but make sure to tailor it to your service.
 
-To optimize {{ sws-name }} performance, you can set up WAF checks only for certain routes instead of all traffic.
-
-A WAF profile is connected to the security profile as a rule along with basic and Smart Protection rules. WAF rules must have a higher priority than that of the Smart Protection rules. In case incoming traffic conditions for a WAF rule and a Smart Protection rule match, you can disable Smart Protection since the {{ sws-name }} architecture is designed to always apply a Smart Protection rule before a WAF rule.
-
-In the WAF rule, you must configure two parameters:
+You need to set two parameters in the OWASP set:
 
 * **Paranoia level**: Determines the number of active rules. The higher the paranoia level, the more checks will be made. The first paranoia level is for the most precise rules that produce the lowest number of false positives. In test mode, start from the first level and gradually move up.
 
@@ -539,7 +535,7 @@ In the WAF rule, you must configure two parameters:
 
   You can set any rule you deem critical for the serivce as a blocking rule. In this case, requests that trigger this rule get blocked regardless of the total score.
 
-To avoid false positives for your service, you can create exclusions for all or specific rules.
+You may need to disable certain rules to prevent false positives and create exclusion rules. Since every service is unique, configuring this rule set may take a while.
 
 ### Create a WAF profile {#waf-create}
 
@@ -551,18 +547,18 @@ To avoid false positives for your service, you can create exclusions for all or 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `waf-site-protection`.
-  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the row with its description.
+  1. Enable rule sets, e.g., ML WAF and Yandex Ruleset. To view the rules it includes, click the row with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-### Configure a basic rule set {#waf-configure-rules}
+### Configure the OWASP basic rule set {#waf-configure-rules}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the WAF profile page, click **{{ ui-key.yacloud.smart-web-security.waf.action_setup-base-rules }}**.
+  1. On the WAF profile page, click ![image](../../_assets/console-icons/gear.svg) **Configure** next to the rule set.
   1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the total [anomaly](../../smartwebsecurity/concepts/waf.md#anomaly) score of triggered rules that results in blocking the request, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
 
       We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure exclusion rules.
@@ -583,7 +579,7 @@ To avoid false positives for your service, you can create exclusions for all or 
 
   1. Go to the ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_exclusion-rules }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Enter a name for the [exclusion rule](../../smartwebsecurity/concepts/waf.md#exclusion-rules), e.g., `exception-rule-1`.
-  1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, specify rules from the basic set for which the exclusion will apply. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules.
+  1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, specify rules from the active sets for which the exclusion will apply. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules from particular sets.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select the triggering [conditions](../../smartwebsecurity/concepts/conditions.md) for the exclusion rule.
 
       If you leave the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field empty, the exclusion rule will apply to all traffic.
@@ -630,9 +626,11 @@ To avoid false positives for your service, you can create exclusions for all or 
         json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
         ```
 
+You can also view extended logs in the {{ sws-name }} interface.
+
 {% endlist %}
 
-Since WAF is configured for each web service individually, test WAF in logging mode for no less than a week. During this stage, you will get a lot of false positives, so you should track them in logs and adjust the rule parameters. For example, if the rule with `id920280` gets triggered incorrectly when using HTTP/2, you can disable it immediately. This rule will work correctly with HTTP/1.1.
+Since WAF is configured for each web service individually, test WAF in logging mode for no less than a week. For ML WAF and Yandex Ruleset, the setup may take less time. During this stage, you may get false positives, so you should track them in logs and adjust the rule parameters. For example, if the rule with `id920280` gets triggered incorrectly when using HTTP/2, you can disable it immediately. This rule will work correctly with HTTP/1.1.
 
 Once WAF is configured and switched to the real mode, use logs and monitoring charts to regularly check the performance of its rules. This will allow you to track anomalies and adjust the protection specifically for your web app.
 

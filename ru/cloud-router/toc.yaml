@@ -122,6 +122,8 @@ items:
             href: cli-ref/routing-instance/remove-private-connection.md
           - name: update
             href: cli-ref/routing-instance/update.md
+          - name: update-networks
+            href: cli-ref/routing-instance/update-networks.md
           - name: update-prefix-mask
             href: cli-ref/routing-instance/update-prefix-mask.md
           - name: upsert-prefixes

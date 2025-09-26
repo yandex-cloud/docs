@@ -29,7 +29,7 @@ Syntax:
 |`--organization-users`|<b>`string`</b><br/>Update access for users of organization with specified ID|
 |`--federation-users`|<b>`string`</b><br/>Update access for users of federation with specified ID|
 |`--subject`|<b>`string`</b><br/>Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:\<ID\>, serviceAccount:\<ID\>, system:\<ID\>.|
-|`--id`|<b>`string`</b><br/>Userpool ID.<br/>--name string|
+|`--id`|<b>`string`</b><br/>Userpool ID.|
 
 #### Global Flags
 

@@ -1,0 +1,3 @@
+As you see in the diagram, the external {{ k8s }} cluster node and VPN client reside in a remote network outside {{ yandex-cloud }}.
+
+To facilitate testing, the solution below uses a separate {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network) as the remote site, and a {{ compute-full-name }} [VM instance](../../compute/concepts/vm.md) located in that cloud network, as the VPN client. 

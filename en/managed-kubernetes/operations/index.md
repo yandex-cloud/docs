@@ -11,7 +11,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](autoscale.md)
 * [{#T}](apply-tf-provider.md)
 
-## Connecting to an cluster {#cluster-connect}
+## Connecting to a cluster {#cluster-connect}
 
 * [{#T}](connect/index.md)
 * [{#T}](connect/security-groups.md)
@@ -65,7 +65,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
 * [{#T}](volumes/volume-expansion.md)
-* [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
 * [{#T}](volumes/s3-csi-integration.md)
 

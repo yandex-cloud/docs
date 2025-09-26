@@ -53,9 +53,9 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `model`: Model version value. To learn more, see [{#T}](../../concepts/generation/models.md#addressing-models).
+      * `model`: Model version value. For more information, see [{#T}](../../concepts/generation/models.md#addressing-models).
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 token.py
@@ -99,7 +99,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
      Where:
   
      * `<IAM_token>`: Value of the [IAM token](../../../iam/concepts/authorization/iam-token.md) you got for your account.
-     * `tbody.json`: JSON file with request parameters.
+     * `tbody.json`: JSON file with the request parameters.
   
      The request will return a list of all received tokens. 
 

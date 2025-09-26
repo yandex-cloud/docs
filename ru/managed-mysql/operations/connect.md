@@ -232,5 +232,3 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 Подключиться к {{ MY }}-хостам в публичном доступе можно только с использованием SSL-сертификата.
 
 {% include [mmy-connection-strings](../../_includes/mdb/mmy/code-examples.md) %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

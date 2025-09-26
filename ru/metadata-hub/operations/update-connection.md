@@ -33,7 +33,7 @@ description: Пошаговые инструкции по работе с {{ con
       1. Посмотрите описание команды CLI для изменения подключения:
 
           ```bash
-          yc connection-manager connection update <тип_базы_данных> --help
+          yc metadata-hub connection-manager connection update <тип_базы_данных> --help
           ```
 
           Возможные типы баз данных: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `opensearch`, `valkey`, `greenplum`.
@@ -41,7 +41,7 @@ description: Пошаговые инструкции по работе с {{ con
       1. Измените подключение, выполнив команду:
       
           ```bash
-          yc connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
+          yc metadata-hub connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
             --name <имя_подключения> \
             --user <имя_пользователя> \
             --password <пароль> \
@@ -63,7 +63,7 @@ description: Пошаговые инструкции по работе с {{ con
       1. Вы можете изменить список баз данных для всех подключений, кроме подключений к {{ mos-name }}, выполнив команду:
 
           ```bash
-          yc connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
+          yc metadata-hub connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
             --databases <список_БД>
           ```
 
@@ -76,7 +76,7 @@ description: Пошаговые инструкции по работе с {{ con
       1. Посмотрите описание команды CLI для изменения подключения:
 
           ```bash
-          yc connection-manager connection update <тип_базы_данных> --help
+          yc metadata-hub connection-manager connection update <тип_базы_данных> --help
           ```
 
           Возможные типы баз данных: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
@@ -84,7 +84,7 @@ description: Пошаговые инструкции по работе с {{ con
       1. Измените подключение, выполнив команду:
       
           ```bash
-          yc connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
+          yc metadata-hub connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
             --name <имя_подключения> \
             --user <имя_пользователя> \
             --password <пароль> \
@@ -112,7 +112,7 @@ description: Пошаговые инструкции по работе с {{ con
           * Список хостов для всех подключений, кроме подключения к {{ TR }}, выполнив команду:
 
             ```bash
-            yc connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
+            yc metadata-hub connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
               --hosts <список_хостов>
             ```
 
@@ -120,14 +120,14 @@ description: Пошаговые инструкции по работе с {{ con
 
             {% note warning %}
 
-            Формат записи хостов зависит от типа базы данных. Подробнее см. в [справочнике CLI](../../cli/cli-ref/connection-manager/cli-ref/connection/update/index.md).
+            Формат записи хостов зависит от типа базы данных. Подробнее см. в [справочнике CLI](../../cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/update/index.md).
 
             {% endnote %}
 
           * Параметры координатора для подключения к {{ TR }}, выполнив команду:
 
             ```bash
-            yc connection-manager connection update trino <идентификатор_подключения> \
+            yc metadata-hub connection-manager connection update trino <идентификатор_подключения> \
               --coordinator <параметры_координатора>
             ```
 
@@ -136,7 +136,7 @@ description: Пошаговые инструкции по работе с {{ con
           * Список баз данных для всех подключений, кроме подключений к {{ TR }} и {{ OS }}, выполнив команду:
 
             ```bash
-            yc connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
+            yc metadata-hub connection-manager connection update <тип_базы_данных> <идентификатор_подключения> \
               --databases <список_БД>
             ```
 

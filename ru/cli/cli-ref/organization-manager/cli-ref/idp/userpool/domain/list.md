@@ -11,7 +11,7 @@ List domains for the specified user pool
 
 Syntax: 
 
-`yc organization-manager idp userpool domain list <USERPOOL-ID> [Flags...] [Global Flags...]`
+`yc organization-manager idp userpool domain list [<USERPOOL-ID>] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -19,7 +19,6 @@ Syntax:
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--id`|<b>`string`</b><br/>Userpool ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--filter`|<b>`string`</b><br/>Filter expression for domains|
 
 #### Global Flags

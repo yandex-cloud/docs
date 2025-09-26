@@ -44,7 +44,7 @@ Create a tuning dataset:
 
      {% include [sdk-dataset](../../../_includes/ai-studio/examples/dataset-sdk.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 dataset-create.py
@@ -151,7 +151,7 @@ Create a tuning dataset:
          {% include [sdk-auth-details-paragraph](../../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
      * `<dataset_ID>`: The new dataset's ID you saved in the previous step.
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 start-tuning.py

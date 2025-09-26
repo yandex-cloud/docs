@@ -1,0 +1,70 @@
+name: metadata-hub
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: connection-manager
+    items:
+      - name: Overview
+        href: cli-ref/connection-manager/index.md
+      - name: connection
+        items:
+          - name: Overview
+            href: cli-ref/connection-manager/connection/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/connection-manager/connection/create/index.md
+              - name: clickhouse
+                href: cli-ref/connection-manager/connection/create/clickhouse.md
+              - name: greenplum
+                href: cli-ref/connection-manager/connection/create/greenplum.md
+              - name: kafka
+                href: cli-ref/connection-manager/connection/create/kafka.md
+              - name: mongodb
+                href: cli-ref/connection-manager/connection/create/mongodb.md
+              - name: mysql
+                href: cli-ref/connection-manager/connection/create/mysql.md
+              - name: opensearch
+                href: cli-ref/connection-manager/connection/create/opensearch.md
+              - name: postgresql
+                href: cli-ref/connection-manager/connection/create/postgresql.md
+              - name: redis
+                href: cli-ref/connection-manager/connection/create/redis.md
+              - name: trino
+                href: cli-ref/connection-manager/connection/create/trino.md
+              - name: valkey
+                href: cli-ref/connection-manager/connection/create/valkey.md
+          - name: delete
+            href: cli-ref/connection-manager/connection/delete.md
+          - name: get
+            href: cli-ref/connection-manager/connection/get.md
+          - name: list
+            href: cli-ref/connection-manager/connection/list.md
+          - name: list-operations
+            href: cli-ref/connection-manager/connection/list-operations.md
+          - name: resolve-cluster
+            href: cli-ref/connection-manager/connection/resolve-cluster.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/connection-manager/connection/update/index.md
+              - name: clickhouse
+                href: cli-ref/connection-manager/connection/update/clickhouse.md
+              - name: greenplum
+                href: cli-ref/connection-manager/connection/update/greenplum.md
+              - name: kafka
+                href: cli-ref/connection-manager/connection/update/kafka.md
+              - name: mongodb
+                href: cli-ref/connection-manager/connection/update/mongodb.md
+              - name: mysql
+                href: cli-ref/connection-manager/connection/update/mysql.md
+              - name: opensearch
+                href: cli-ref/connection-manager/connection/update/opensearch.md
+              - name: postgresql
+                href: cli-ref/connection-manager/connection/update/postgresql.md
+              - name: redis
+                href: cli-ref/connection-manager/connection/update/redis.md
+              - name: trino
+                href: cli-ref/connection-manager/connection/update/trino.md
+              - name: valkey
+                href: cli-ref/connection-manager/connection/update/valkey.md

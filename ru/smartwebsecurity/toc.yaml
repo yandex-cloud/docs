@@ -39,6 +39,8 @@ items:
             href: operations/waf-profile-delete.md
           - name: Настроить наборы правил
             href: operations/configure-set-rules.md
+          - name: Получить информацию о наборе правил
+            href: operations/get-set-rules.md
           - name: Добавить правило-исключение
             href: operations/exclusion-rule-add.md
           - name: Изменить правило-исключение

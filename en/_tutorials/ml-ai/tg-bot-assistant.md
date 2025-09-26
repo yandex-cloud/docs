@@ -26,7 +26,7 @@ The infrastructure support cost for creating an AI assistant includes:
 * Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
 * Fee for [text generation](../../ai-studio/pricing.md) by the model.
 
-## Set up your infrastructure {#infra}
+## Set up the infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -56,7 +56,7 @@ You need to create a [service account](../../iam/concepts/users/service-accounts
   1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `gpt-user`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to this service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -115,7 +115,7 @@ To use the API key, folder ID, and bot access token from the notebook, create [s
 ## Clone the repository {#clone-repo}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Click **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** and wait until loading is complete.
+1. Click **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** and wait for the loading to complete.
 1. On the left-hand panel, under ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**, create or select the folder to store the repository clone and navigate to it.
 1. In the top menu, click **Git** and select **Clone a Repository**.
 1. In the window that opens, enter the repository URI, `https://github.com/yandex-cloud-examples/yc-ai-wine-assistant`.

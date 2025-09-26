@@ -347,6 +347,23 @@ All types of analysis will be returned if not set. ||
           }
         ]
       },
+      "assistants": {
+        "assistant_results": [
+          {
+            "assistant_id": "string",
+            "results": [
+              {
+                "field_id": "string",
+                // Includes only one of the fields `string_result`, `int_result`, `float_result`
+                "string_result": "string",
+                "int_result": "int64",
+                "float_result": "double"
+                // end of the list of possible fields
+              }
+            ]
+          }
+        ]
+      },
       "talk_state": {
         "processing_state": "ProcessingState",
         "algorithm_processing_infos": [
@@ -396,6 +413,7 @@ various ml analysis results ||
 || points | **[Points](#yandex.cloud.speechsense.v1.analysis.Points)** ||
 || text_classifiers | **[TextClassifiers](#yandex.cloud.speechsense.v1.analysis.TextClassifiers)** ||
 || summarization | **[Summarization](#yandex.cloud.speechsense.v1.analysis.Summarization)** ||
+|| assistants | **[Assistants](#yandex.cloud.speechsense.v1.analysis.Assistants)** ||
 || talk_state | **[TalkState](#yandex.cloud.speechsense.v1.TalkState)** ||
 |#
 
@@ -809,6 +827,60 @@ if len(count_values) = 3 - [0] value represents first third, [1] - second third,
 - `TEXT_ARRAY` ||
 |#
 
+## Assistants {#yandex.cloud.speechsense.v1.analysis.Assistants}
+
+#|
+||Field | Description ||
+|| assistant_results[] | **[AssistantResult](#yandex.cloud.speechsense.v1.analysis.AssistantResult)**
+
+List of assistants results ||
+|#
+
+## AssistantResult {#yandex.cloud.speechsense.v1.analysis.AssistantResult}
+
+#|
+||Field | Description ||
+|| assistant_id | **string**
+
+Assistant id ||
+|| results[] | **[AssistantFieldResult](#yandex.cloud.speechsense.v1.analysis.AssistantFieldResult)**
+
+Per-field assistant results ||
+|#
+
+## AssistantFieldResult {#yandex.cloud.speechsense.v1.analysis.AssistantFieldResult}
+
+#|
+||Field | Description ||
+|| field_id | **string**
+
+Assistant result field id ||
+|| string_result | **string**
+
+Result as a string
+
+Includes only one of the fields `string_result`, `int_result`, `float_result`.
+
+Parsed model answer for the field.
+If the model answer could not be parsed, no result fields will be set. ||
+|| int_result | **int64**
+
+Result as an integer
+
+Includes only one of the fields `string_result`, `int_result`, `float_result`.
+
+Parsed model answer for the field.
+If the model answer could not be parsed, no result fields will be set. ||
+|| float_result | **double**
+
+Result as a floating-point number
+
+Includes only one of the fields `string_result`, `int_result`, `float_result`.
+
+Parsed model answer for the field.
+If the model answer could not be parsed, no result fields will be set. ||
+|#
+
 ## TalkState {#yandex.cloud.speechsense.v1.TalkState}
 
 #|
@@ -835,7 +907,8 @@ if len(count_values) = 3 - [0] value represents first third, [1] - second third,
 - `ALGORITHM_CLASSIFIER`
 - `ALGORITHM_SUMMARIZATION`
 - `ALGORITHM_EMBEDDING`
-- `ALGORITHM_STATISTICS` ||
+- `ALGORITHM_STATISTICS`
+- `ALGORITHM_ASSISTANT` ||
 || processing_state | enum **ProcessingState**
 
 - `PROCESSING_STATE_UNSPECIFIED`

@@ -50,8 +50,8 @@ To use a {{ foundation-models-full-name }} tokenizer, you need the `ai.languageM
 
    Where:
 
-   * `<IAM_token>`: Value of the IAM token you got for your account.
-   * `tbody.json`: JSON file with request parameters.
+   * `<IAM_token>`: Value of the [IAM token](../../../iam/concepts/authorization/iam-token.md) you got for your account.
+   * `tbody.json`: JSON file with the request parameters.
 
 
 

@@ -24,6 +24,7 @@ description: На странице представлен список поша�
 * [{#T}](waf-profile-get.md)
 * [{#T}](waf-profile-delete.md)
 * [{#T}](configure-set-rules.md)
+* [{#T}](get-set-rules.md)
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](exclusion-rule-update.md)
 * [{#T}](exclusion-rule-delete.md)

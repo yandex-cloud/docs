@@ -14,7 +14,7 @@ To manually delete a partially uploaded object:
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket that contains a partially uploaded object.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
@@ -40,22 +40,7 @@ To manually delete a partially uploaded object:
           yc storage s3api list-multipart-uploads --help
           ```
 
-      1. Get a list of buckets in the default folder:
-
-          ```bash
-          yc storage bucket list
-          ```
-
-          Result:
-
-          ```text
-          +------------------+----------------------+-------------+-----------------------+---------------------+
-          |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-          +------------------+----------------------+-------------+-----------------------+---------------------+
-          | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-          +------------------+----------------------+-------------+-----------------------+---------------------+
-          ```
-
+      1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
       1. Run the command below by specifying the bucket name:
 
           ```bash

@@ -31,22 +31,7 @@ To view full information about a [bucket](../../concepts/bucket.md):
      yc storage bucket get --help
      ```
 
-  1. Get a list of buckets in the default folder:
-
-     ```bash
-     yc storage bucket list
-     ```
-
-     Result:
-
-       ```text
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Save the name (from the `NAME` column) of the bucket you want to get information about.
 
   1. Get bucket info:
@@ -108,22 +93,7 @@ To view bucket statistics:
      yc storage bucket stats --help
      ```
 
-  1. Get a list of buckets in the default folder:
-
-     ```bash
-     yc storage bucket list
-     ```
-
-     Result:
-
-       ```text
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Save the name (from the `NAME` column) of the bucket you want to get statistics on.
 
   1. Get bucket statistics:

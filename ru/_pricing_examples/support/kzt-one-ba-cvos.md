@@ -1,6 +1,6 @@
-Если клиент потребляет в месяц ресурсов на 500 000,00 ₸, а также у него [зарезервировано потребление ресурсов](../../billing/concepts/cvos.md) на 50 000,00 ₸ в месяц на платежном аккаунте, с которого оплачивается техническая поддержка его организации, то стоимость поддержки для него составит:
+Если клиент потребляет в месяц ресурсов на 600 000,00 ₸ (из них 100 000,00 ₸ тратится на ресурсы {{ marketplace-name }}), а также у него [зарезервировано потребление ресурсов](../../billing/concepts/cvos.md) на 50 000,00 ₸ в месяц на платежном аккаунте, с которого оплачивается техническая поддержка его организации, то стоимость поддержки для него составит:
 
-> {{ sku|KZT|support.organization.business.fixed_consumption.v1|string }} + (500 000,00 ₸ + 50 000,00 ₸) × 0,05 = {% calc [currency=KZT] {{ sku|KZT|support.organization.business.fixed_consumption.v1|number }} + (500 000,00 + 50 000,00)× 0,05 %}
+> {{ sku|KZT|support.organization.business.fixed_consumption.v1|string }} + (600 000,00 ₸ - 100 000,00 ₸ + 50 000,00 ₸) × 0,05 = {% calc [currency=KZT] {{ sku|KZT|support.organization.business.fixed_consumption.v1|number }} + (500 000,00 + 50 000,00)× 0,05 %}
 >
 > Итого: {% calc [currency=KZT] {{ sku|KZT|support.organization.business.fixed_consumption.v1|number }} + (500 000,00 + 50 000,00) × 0,05 %}
 

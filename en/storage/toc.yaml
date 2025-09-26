@@ -71,7 +71,7 @@ items:
             href: operations/objects/rename-move.md
           - name: Copying objects
             href: operations/objects/copy.md
-          - name: Getting a public link to an object
+          - name: Getting a pre-signed URL to download an object
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock
             href: operations/objects/edit-object-lock.md

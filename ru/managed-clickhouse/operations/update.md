@@ -1085,6 +1085,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
 ### {{ connection-manager-name }} {#conn-man}
 
 Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
@@ -1104,6 +1105,7 @@ description: Следуя данной инструкции, вы сможете
   Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
 
   {% endnote %}
+
 
 ## Переместить кластер {#move-cluster}
 

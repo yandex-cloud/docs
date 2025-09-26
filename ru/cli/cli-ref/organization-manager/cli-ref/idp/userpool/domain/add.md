@@ -18,7 +18,6 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Userpool ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

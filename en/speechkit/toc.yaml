@@ -47,6 +47,8 @@ items:
             href: tts/api/tts-examples-v3.md
           - name: Speech synthesis in REST API v3
             href: tts/api/tts-v3-rest.md
+          - name: Streaming synthesis
+            href: tts/api/tts-streaming.md
           - name: Pattern-based speech synthesis
             href: tts/api/tts-templates.md
           - name: Brand Voice Call Center pattern-based speech synthesis
@@ -276,5 +278,5 @@ items:
         href: qa/stt.md
       - name: Speech synthesis
         href: qa/tts.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

@@ -25,7 +25,6 @@ Syntax:
 - [yc components](components/cli-ref/index.md) — Manage installed components
 - [yc compute](compute/cli-ref/index.md) — Manage Yandex Compute Cloud resources
 - [yc config](config/cli-ref/index.md) — The 'yc config' command group lets you set, view and unset properties used by Yandex Cloud CLI.
-- [yc connection-manager](connection-manager/cli-ref/index.md) — Manage Connection Manager connections.
 - [yc container](container/cli-ref/index.md) — Manage Container resources.
 - [yc dataproc](dataproc/cli-ref/index.md) — Manage data processing clusters.
 - [yc datatransfer](datatransfer/cli-ref/index.md) — Manage Data Transfer endpoints and transfers
@@ -52,9 +51,11 @@ Syntax:
 - [yc managed-opensearch](managed-opensearch/cli-ref/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.
 - [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
 - [yc managed-redis](managed-redis/cli-ref/index.md) — Manage Redis clusters, hosts, databases, backups and users.
+- [yc managed-spark](managed-spark/cli-ref/index.md) — Manage Spark clusters.
 - [yc managed-sqlserver](managed-sqlserver/cli-ref/index.md) — Manage SQLServer clusters, databases, backups and users.
 - [yc managed-trino](managed-trino/cli-ref/index.md) — Manage Trino clusters.
 - [yc marketplace](marketplace/cli-ref/index.md) — Manage Yandex Marketplace resources
+- [yc metadata-hub](metadata-hub/cli-ref/index.md) — Manage Metadata Hub resources.
 - [yc operation](operation/cli-ref/index.md) — Manage operations
 - [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Organization Manager resources
 - [yc quota-manager](quota-manager/cli-ref/index.md) — Manage Yandex Quota Manager resources

@@ -39,6 +39,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
+{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -68,6 +70,7 @@ description: Следуя данной инструкции, вы сможете
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --master-location zone={{ region-id }}-a,subnet-id=mysubnet \
+       --master-scale-policy policy=auto,min-resource-preset-id=<класс_хостов_мастера> \
        --daily-maintenance-window start=22:00,duration=10h
        --labels <имя_облачной_метки=значение_облачной_метки>
      ```
@@ -105,6 +108,18 @@ description: Следуя данной инструкции, вы сможете
         * Для базового мастера передайте один параметр `--master-location`.
         * Для высокодоступного мастера, который размещается в трех зонах доступности, передайте три параметра `--master-location`. В каждом из них укажите разные зоны доступности и подсети.
         * Для высокодоступного мастера, который размещается в одной зоне доступности, передайте три параметра `--master-location`. В каждом из них укажите одинаковую зону доступности и подсеть.
+
+     * `--master-scale-policy` — конфигурация [вычислительных ресурсов мастера](../../concepts/index.md#master-resources).
+
+        {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+        {% note info %}
+
+        Если не передать параметр `--master-scale-policy`, то будет применена минимально доступная конфигурация мастера.
+
+        {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+        {% endnote %}
 
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
      * `--labels` — [облачные метки](../../concepts/index.md#cluster-labels) для кластера.
@@ -246,8 +261,34 @@ description: Следуя данной инструкции, вы сможете
      >```
 
      {% note info %}
-     
+
       Облачные метки для кластера {{ k8s }} составляются по определенным [правилам](../../concepts/index.md#cluster-labels).
+
+     {% endnote %}
+
+     Чтобы задать конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources), добавьте к описанию кластера {{ managed-k8s-name }} блок:
+
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<имя_кластера>" {
+     >  ...
+     >  master {
+     >    ...
+     >    scale_policy {
+     >      auto_scale  {
+     >        min_resource_preset_id = "<класс_хостов_мастера>"
+     >      }
+     >    }
+     >  }
+     >}
+     >```
+
+     {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+     {% note info %}
+
+     Если не передать параметр `scale_policy`, то будет применена минимально доступная конфигурация мастера.
+
+     {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
 
      {% endnote %}
 
@@ -298,9 +339,21 @@ description: Следуя данной инструкции, вы сможете
   * Для высокодоступного мастера, который размещается в трех зонах доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите разные зоны доступности и подсети.
   * Для высокодоступного мастера, который размещается в одной зоне доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите одинаковую зону доступности и подсеть.
 
+  {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+
   При передаче параметра `masterSpec.locations` не нужно указывать параметры `masterSpec.zonalMasterSpec` или `masterSpec.regionalMasterSpec`.
 
-  {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+  Чтобы задать конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources), передайте ее значение в параметре `masterSpec.scalePolicy.autoScale.minResourcePresetId`.
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  {% note info %}
+
+  Если не передать параметр `masterSpec.scalePolicy`, то будет применена минимально доступная конфигурация мастера.
+
+  {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+  {% endnote %}
 
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 

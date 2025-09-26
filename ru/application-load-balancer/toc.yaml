@@ -237,6 +237,8 @@ items:
             href: tools/gwin/quickstart.md
           - name: Политики Gwin
             href: tools/gwin/policies.md
+          - name: Миграция приложений с ALB Ingress-контроллера на Gwin
+            href: tools/gwin/ingress-gwin-migration.md
           - name: Конфигурация ресурсов (англ.)
             items:
               - name: Gateway

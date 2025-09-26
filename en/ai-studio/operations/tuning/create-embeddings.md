@@ -28,7 +28,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
   1. Click **{{ ui-key.yacloud.tuning.train-model }}**.
-  1. Enter a name and description for the tuned model. The naming requirements are as follows:
+  1. Enter a name and description for the tuned model. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 

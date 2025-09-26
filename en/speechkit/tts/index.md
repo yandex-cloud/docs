@@ -38,6 +38,12 @@ Multiple responses with audio fragments can be returned to a single request to t
 
 {% endnote %}
 
+## Streaming synthesis {#streaming}
+
+{{ speechkit-name }} allows you to [send texts](api/tts-streaming.md) for synthesis one by one within a single session using the API v3. This is convenient if you do not have access to the text in advance but need to generate the speech fast, e.g., when synthesizing real-time LLM responses.
+
+Streaming synthesis does not suport [{{ brand-voice-lite-name }}](./brand-voice/index.md#lite) voices yet.
+
 ## Languages and voices {#langs}
 
 You can select a voice to convert your text to speech. Each voice corresponds to a model trained on the speaker's speech pattern. Voices differ by tone, gender, and language. For a list of voices and their specifications, see [{#T}](voices.md).
@@ -104,6 +110,7 @@ For a full list of available formats and their specifications, see [{#T}](../for
 * [{#T}](api/tts-ogg.md)
 * [{#T}](api/tts-wav.md)
 * [{#T}](api/tts-ssml.md)
+* [{#T}](api/tts-streaming.md)
 
 #### See also {#see-also}
 

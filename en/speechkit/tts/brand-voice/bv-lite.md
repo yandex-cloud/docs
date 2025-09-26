@@ -159,3 +159,67 @@ If you like the voice you created, you can activate it without waiting for the t
    Once activated, the voice will switch its status to `Active` and become available via the API and in {{ speechkit-name }} Playground without limitations. The hosting will become chargeable. 
 
 If you no longer need the voice, you can archive it.
+
+## How to access a voice in a fine-tuned model {#request-voice}
+
+The voice you created will be available in {{ speechkit-name }} Playground and via [API v3](../../tts/api/tts-v3-rest.md). To use the voice via the API, specify the obtained model ID in synthesis settings:
+
+{% list tabs group=instructions %}
+
+- API {#api}
+
+  ```json
+  {
+  ...
+  "model": "tts://<folder_ID>/bvss-v1/latest@<voice_ID>/?<model_ID>"
+  ...
+  }
+  ```
+
+{% endlist %}
+
+**Example**
+
+Use the [IAM token](../../../iam/concepts/authorization/iam-token.md) to authenticate as a [Yandex account](../../../iam/operations/iam-token/create.md) or [federated account](../../../iam/operations/iam-token/create-for-federation.md). The account must have the `{{ roles-speechkit-tts }}` [role](../../security/index.md#ai-speechkit-tts-user). For other authentication methods, see [{#T}](../../concepts/auth.md).
+
+{% list tabs group=programming_language %}
+
+- cURL {#curl}
+
+  To reproduce this example, you will need the [jq](https://github.com/jqlang/jq) utility to work with JSON files.
+
+  1. Create the `tts_rest.json` file with the following request parameters:
+
+      ```json
+      {
+        "text": "Hi! I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!",
+        "model": "tts://<folder_ID>/bvss-v1/latest@<voice_ID>/?<model_ID>" 
+      }
+      ```
+
+      Where:
+
+      * `text`: Text to synthesize.
+      * `model`: Fine-tuned model you are accessing.
+
+  1. Run the request in the terminal by specifying the IAM token and the ID of the folder you will use to work with {{ speechkit-name }}:
+
+      ```bash
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
+
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "x-folder-id: $FOLDER_ID" \
+        --data @tts_rest.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
+        jq -r  '.result.audioChunk.data' | \
+        while read chunk; do base64 -d <<< "$chunk" >> audio_my.wav; done
+      ```
+
+     Where:
+
+     * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-speechkit-tts }}` role or higher. If using a service account, you do not need to include the folder ID in the request.
+     * `IAM_TOKEN`: IAM token of your Yandex account or federated account.
+
+     The synthesized speech will be Base64 encoded and saved to a file named `audio_my.wav`.
+
+{% endlist %}

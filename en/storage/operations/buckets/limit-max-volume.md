@@ -1,6 +1,6 @@
 ---
 title: Limiting the maximum size of a bucket in {{ objstorage-full-name }}
-description: Follow this guide to set the maximum size of a bucket in {{ objstorage-full-name }}.
+description: Follow this guide to set the maximum size of a bucket in {{ objstorage-name }}.
 ---
 
 # Limiting the maximum size of a bucket
@@ -34,22 +34,7 @@ For example, if your service enables users to upload objects to {{ objstorage-na
       yc storage bucket update --help
       ```
 
-  1. Get a list of buckets in the default folder:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Result:
-
-      ```text
-      +------------------+----------------------+----------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+----------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Save the name (from the `NAME` column) of the bucket whose size you want to limit.
   1. Limit the maximum size of the bucket:
 
@@ -108,7 +93,7 @@ For example, if your service enables users to upload objects to {{ objstorage-na
      * `secret_key`: Secret access key value.
      * `max_size`: Maximum bucket size, in bytes.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
+     For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
   1. Check the configuration using this command:
 
@@ -128,9 +113,9 @@ For example, if your service enables users to upload objects to {{ objstorage-na
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```
      terraform apply

@@ -57,7 +57,7 @@ items:
             href: operations/tuning/tune-classifiers.md
           - name: Tuning an embedding model
             href: operations/tuning/create-embeddings.md
-      - name: AI assistants
+      - name: Developing AI assistants
         items:
           - name: Creating a simple assistant
             href: operations/assistant/create.md
@@ -77,21 +77,21 @@ items:
         href: concepts/index.md
       - name: Model Gallery
         items:
-          - name: Overview
+          - name: Generative model features
             href: concepts/generation/index.md
-          - name: Available models
+          - name: Available generative models
             href: concepts/generation/models.md
           - name: Function calling
             href: concepts/generation/function-call.md
           - name: Reasoning mode
             href: concepts/generation/chain-of-thought.md
-          - name: Formatting of model responses
+          - name: Formatting model responses
             href: concepts/generation/structured-output.md
-          - name: Classification
+          - name: Classifiers
             items:
-              - name: Supported classification
+              - name: Supported classification types
                 href: concepts/classifier/index.md
-              - name: Available classification models
+              - name: Available classifier models
                 href: concepts/classifier/models.md
           - name: Embeddings
             href: concepts/embeddings.md
@@ -101,11 +101,11 @@ items:
             href: concepts/tuning/index.md
           - name: Tokens
             href: concepts/generation/tokens.md
-          - name: Units
+          - name: TBD units
             hidden: true
-      - name: Agents Atelier
+      - name: Agent Atelier
         items:
-          - name: Overview
+          - name: What an AI assistant is
             href: concepts/assistant/index.md
           - name: Tools
             items:
@@ -123,6 +123,8 @@ items:
             href: concepts/assistant/files.md
           - name: Search indexes
             href: concepts/assistant/search-index.md
+          - name: TBD connectors
+            hidden: true
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Compatibility with {{ openai }}

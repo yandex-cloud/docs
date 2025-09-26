@@ -6341,7 +6341,9 @@ default:
   sku|USD|storage:
     api:
       get:
+        cold|number: 0.00873
         cold|string: "0,008730\_$"
+        ice|number: 0.01746
         ice|string: "0,017460\_$"
         standard|pricingRate:
           10|number: 0.00351
@@ -6387,9 +6389,12 @@ default:
           10|string: "0,004320\_$"
         standard|string: Не тарифицируется
       put:
+        cold|number: 0.01062
         cold|string: "0,010620\_$"
+        ice|number: 0.02124
         ice|string: "0,021240\_$"
         standard|pricingRate:
+          10|number: 0.00432
           10|string: "0,004320\_$"
         standard|string: Не тарифицируется
     bucket:
@@ -6397,6 +6402,7 @@ default:
         cold|string: "0,010620\_$"
         ice|string: "0,021240\_$"
       used_space:
+        cold|month|number: 0.00963
         cold|month|string: "0,009630\_$"
         ice|month|number: 0.004815
         ice|month|string: "0,004815\_$"
@@ -10984,6 +10990,9 @@ default:
         workflow-viewer_node-settings-label: Настройки
       smart-web-security:
         action_empty: Создать профиль
+        advanced_waf:
+          sets_priority_section:
+            section_title: Наборы правил в порядке приоритета
         arl:
           column_rule-conditions: Условия на трафик
           column_rule-priority: Приоритет
@@ -11086,7 +11095,6 @@ default:
         title_profiles: Профили безопасности
         waf:
           action_exclusion-rule-add-rules: Добавить правила
-          action_setup-base-rules: Настроить набор базовых правил
           field_analyze-request-body: "Анализировать тело запроса (макс. 8\_КБ)"
           field_logging: Запись логов
           label_analyze-request-body-action-deny: Блокировать запрос

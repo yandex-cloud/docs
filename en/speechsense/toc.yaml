@@ -146,6 +146,14 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: Assistants
+            items:
+              - name: Overview
+                href: api-ref/grpc/Assistants/index.md
+              - name: List
+                href: api-ref/grpc/Assistants/list.md
+              - name: ListModels
+                href: api-ref/grpc/Assistants/listModels.md
           - name: Classifiers
             items:
               - name: Overview
@@ -186,6 +194,14 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Assistants
+            items:
+              - name: Overview
+                href: api-ref/Assistants/index.md
+              - name: List
+                href: api-ref/Assistants/list.md
+              - name: ListModels
+                href: api-ref/Assistants/listModels.md
           - name: Classifiers
             items:
               - name: Overview

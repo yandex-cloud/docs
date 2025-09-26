@@ -17,7 +17,7 @@ To use the examples:
   1. Get API authentication credentials as described here: [{#T}](../../api-ref/authentication.md).
 
       To access the {{ yandexart-name }} API, first assign the `ai.imageGeneration.user` [role](../../security/index.md#imageGeneration-user) to the user or service account you will use to authenticate with the API.
-  1. Install the utilities:
+  1. Install the following tools:
 
       * [cURL](https://curl.haxx.se) to send API requests.
       * [jq](https://github.com/jqlang/jq) to handle JSON files.
@@ -63,7 +63,7 @@ To use the examples:
 
       For more information about accessing the image generation model, see [{#T}](../../../ai-studio/concepts/classifier/models.md#addressing-models).
       
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 generate-image.py
@@ -96,8 +96,7 @@ To use the examples:
      },
      "messages": [
        {
-         "weight": "1",
-         "text": "a pattern of pastel colored succulents of multiple varieties, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
+         "text": "a pattern of pastel-colored succulents of multiple varieties, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
        }
      ]
      }
@@ -118,7 +117,7 @@ To use the examples:
      Where:
 
      * `<IAM_token_value>`: Your account's IAM token.
-     * `prompt.json`: JSON file with request parameters.
+     * `prompt.json`: JSON file with the request parameters.
 
      The service will return the `operation` object in response:
 

@@ -7,6 +7,20 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.163.0 (08/09/25) {#version0.163.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ compute-name }}
+
+* Fixed the tooltip for the `--order` parameter of the `yc compute maintenance list` command: replaced the `planned_at` field with `start_scheduled_at`.
+
+##### {{ mes-name }}
+
+* Deleted the `managed-elasticsearch` support.
+
+## Previous releases {#previous-release}
+
 ### Version 0.162.0 (04/09/25) {#version0.162.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -39,8 +53,6 @@ Added the `--async-service-account-id` parameter to the `yc serverless container
 ##### {{ objstorage-name }}
 
 Increased the maximum lifetime of signed links to 30 days in the `yc storage s3 presign` command.
-
-## Previous releases {#previous-release}
 
 ### Version 0.161.0 (28/08/25) {#version0.161.0}
 
