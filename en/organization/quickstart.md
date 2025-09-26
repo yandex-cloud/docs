@@ -162,11 +162,18 @@ To assign a role to a user:
 
 ## Additional features {#additional-functionality}
 
-### Create an identity federation {#create-federation}
+### Create an identity federation or user pool {#create-federation}
 
 If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. This way, employees will access {{ yandex-cloud }} services using their corporate accounts.
 
-For more information, see [Identity federation](./concepts/add-federation.md).
+You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-name }} [organization](./concepts/organization.md).
+
+Moreover, {{ org-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
+
+For more information, see these sections:
+* [{#T}](./concepts/add-federation.md)
+* [{#T}](./concepts/user-pools.md)
+* [{#T}](./concepts/applications.md)
 
 ### Enable access via {{ oslogin }} {#os-login-access}
 

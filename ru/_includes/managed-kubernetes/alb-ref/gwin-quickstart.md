@@ -62,7 +62,7 @@ Gwin — инструмент для управления балансировщ
 
     ```bash
     helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-      --version v1.0.0 \
+      --version v1.0.1 \
       --untar \
     helm install \
       --namespace <пространство_имен> \

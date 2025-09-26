@@ -25,6 +25,8 @@ Alternatively, you can provide [static access keys](https://yandex.cloud/docs/ia
 
 This resource should be used for managing [Primitive roles](https://yandex.cloud/docs/storage/security/#primitive-roles) only.
 
+Declaring multiple yandex_storage_bucket_grant resources to the same bucket will cause a perpetual difference in configuration.
+
 ## Example usage
 
 ```terraform

@@ -37,24 +37,9 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
       yc storage bucket update --help
       ```
 
-  1. Get a list of buckets in the default folder:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Result:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
-   1. Save the name (from the `NAME` column) of the bucket to which you want to enable public access.
-   1. Enable public access to bucket operations:
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Save the name (from the `NAME` column) of the bucket to which you want to enable public access.
+  1. Enable public access to bucket operations:
 
       ```bash
       yc storage bucket update \
@@ -132,14 +117,14 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -189,24 +174,9 @@ You will not be able to open public access if a restrictive [access policy](../.
       yc storage bucket update --help
       ```
 
-  1. Get a list of buckets in the default folder:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Result:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
-   1. Save the name (from the `NAME` column) of the bucket to which you want to disable public access.
-   1. Disable public access to bucket operations:
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Save the name (from the `NAME` column) of the bucket to which you want to disable public access.
+  1. Disable public access to bucket operations:
 
       ```bash
       yc storage bucket update \
@@ -279,14 +249,14 @@ You will not be able to open public access if a restrictive [access policy](../.
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 

@@ -61,10 +61,10 @@ description: Follow this guide to process large amounts of data by running a mod
 
    	  {% include [sdk-auth-details-paragraph](../../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
         
-     * `<model_URI>`: ID of the model to run. [Text generation](../../concepts/generation/models.md#batch) and vision language models are supported.
+     * `<model_URI>`: ID of the model to run. Text generation and vision language [models](../../concepts/generation/models.md#batch) are supported.
      * `<dataset_ID>`: ID of the dataset with requests to the model.
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 batch-run.py

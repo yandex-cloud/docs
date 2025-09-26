@@ -1,0 +1,42 @@
+name: managed-spark
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: cluster
+    items:
+      - name: Overview
+        href: cli-ref/cluster/index.md
+      - name: create
+        href: cli-ref/cluster/create.md
+      - name: delete
+        href: cli-ref/cluster/delete.md
+      - name: get
+        href: cli-ref/cluster/get.md
+      - name: list
+        href: cli-ref/cluster/list.md
+      - name: list-operations
+        href: cli-ref/cluster/list-operations.md
+      - name: start
+        href: cli-ref/cluster/start.md
+      - name: stop
+        href: cli-ref/cluster/stop.md
+      - name: update
+        href: cli-ref/cluster/update.md
+  - name: job
+    items:
+      - name: Overview
+        href: cli-ref/job/index.md
+      - name: cancel
+        href: cli-ref/job/cancel.md
+      - name: create-pyspark
+        href: cli-ref/job/create-pyspark.md
+      - name: create-spark
+        href: cli-ref/job/create-spark.md
+      - name: create-spark-connect
+        href: cli-ref/job/create-spark-connect.md
+      - name: get
+        href: cli-ref/job/get.md
+      - name: list
+        href: cli-ref/job/list.md
+      - name: log
+        href: cli-ref/job/log.md

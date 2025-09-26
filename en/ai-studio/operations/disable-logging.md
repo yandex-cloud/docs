@@ -63,8 +63,8 @@ To disable request logging:
     * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync`: For [asynchronous](generation/async-request.md) requests to {{ yagpt-name }}.
     * `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`: For [fine-tuned](../concepts/classifier/index.md#trainable) classifiers.
     * `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`: For [zero-shot](../concepts/classifier/index.md#zero-shot) and [few-shot](../concepts/classifier/index.md#few-shot) classifiers.
-    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync`: For [{{ yandexart-name }}](../concepts/generation/index.md).
-    
+    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync`: For {{ yandexart-name }}.
+
     For a full list of available endpoints, see the relevant [{{ foundation-models-full-name }}](../concepts/api.md) API references.
 
 - {{ openai }} API

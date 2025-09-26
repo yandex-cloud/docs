@@ -73,7 +73,7 @@ When creating a VM, specify the number of vCPUs and [GPUs](concepts/gpus.md), as
 
 The basic level of vCPU performance depends on the [platform](concepts/vm-platforms.md) you select.
 
-{{ price-per-hour-count-per-second }}
+_{{ price-per-hour-count-per-second }}_
 
 
 #### Example of calculating the cost of computing resources {#instance-resources-example}
@@ -109,7 +109,7 @@ As you can see, the cost of the VM using 20% vCPU is almost half as much as that
 
 VM OS usage also comes at a charge. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
-{{ price-per-hour-count-per-second }}
+_{{ price-per-hour-count-per-second }}_
 
 
 #### Using a Microsoft license {#license-microsoft}
@@ -127,7 +127,7 @@ If you created an image or snapshot, you pay for its storage separately dependin
 
 After deleting a VM instance, you will still be charged for disks, snapshots, and images. If you no longer need these resources, delete them.
 
-The price covers one month of use. You are charged per second of usage.
+_The price covers one month of use. You are charged per second of usage._
 
 {% note warning %}
 
@@ -154,7 +154,7 @@ vCPUs and RAM of VMs running on a dedicated host are not charged.
 
 Use of additional resources, such as images from {{ marketplace-name }} or network drives, is billed as usual.
 
-{{ price-per-hour-count-per-second }}
+_{{ price-per-hour-count-per-second }}_
 
 {% cut "Example of calculating the cost of a dedicated host" %}
 
@@ -180,6 +180,7 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 {% endnote %}
 
+_{{ price-per-hour-count-per-second }}_
 
 ## Prices for the Russia region {#prices}
 
@@ -194,6 +195,8 @@ CVoS adjusted price is only available for regular VMs.
 
 ### VM computing resources {#prices-instance-resources}
 
+_{{ price-per-hour-count-per-second }}_
+
 
 
 
@@ -203,6 +206,8 @@ CVoS adjusted price is only available for regular VMs.
 
 
 ### GPU clusters {#prices-gpu-clusters}
+
+_{{ price-per-hour-count-per-second }}_
 
 
 
@@ -233,6 +238,8 @@ CVoS adjusted price is only available for regular VMs.
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
 The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. See the example of cost calculation [above](#dedicated-hosts).
+
+_{{ price-per-hour-count-per-second }}_
 
 
 

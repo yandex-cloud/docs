@@ -121,7 +121,7 @@ x-amz-date:20190801T000000Z
 
 This is a list of lowercase request header names, sorted alphabetically and separated by semicolons.
 
-For example:
+Here is an example:
 
 ```
 host;x-amz-date
@@ -349,9 +349,13 @@ This subsection provides examples of generating pre-signed URLs with the help of
   
   {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [storage-get-link-for-download-cli](../../../storage/_includes_service/storage-get-link-for-download-cli.md) %}
+
 - AWS CLI
 
-    You can use the AWS CLI to generate a link for downloading an object. To do this, run this command:
+    You can use the AWS CLI to generate a pre-signed URL for downloading an object. To do this, run this command:
 
     ```bash
     aws s3 presign s3://<bucket_name>/<object_key> \
@@ -553,7 +557,7 @@ In this example, the size of the uploaded object is limited and cannot exceed th
 
   Where:
   * `Bucket`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to upload the file to.
-  * `Key`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket. For example, `new-prefix/sample-object.txt`.
+  * `Key`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
   * `max_size`: Maximum allowed size of the uploaded file in bytes.
 
   Result:
@@ -631,7 +635,7 @@ In this example, the size of the uploaded object is limited and cannot exceed th
 
   Where:
   * `bucket`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to upload the file to.
-  * `key`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket. For example, `new-prefix/sample-object.txt`.
+  * `key`: [Key](../../../storage/concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
   * `max_size`: Maximum allowed size of the uploaded file in bytes.
 
   Result:

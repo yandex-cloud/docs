@@ -27,6 +27,7 @@ Syntax:
 |`--destination-log-group-id`|<b>`string`</b><br/>Specifies the ID of the destination log group.|
 |`--destination-yds-database-id`|<b>`string`</b><br/>Specifies the ID of the YDB hosting a destination YDS stream. Requires specifying 'destination-yds-stream'.|
 |`--destination-yds-stream`|<b>`string`</b><br/>Specifies the name of the destination YDS stream. Requires specifying 'destination-yds-database-id'.|
+|`--destination-eventrouter-connector-id`|<b>`string`</b><br/>Specifies the ID of the destination EventRouter Connector.|
 |`--filter-all-folder-id`|<b>`string`</b><br/>Specifies the ID of the folder from which all management events will be collected.|
 |`--filter-all-cloud-id`|<b>`string`</b><br/>Specifies the ID of the cloud from which all management events will be collected.|
 |`--filter-all-organisation-id`|<b>`string`</b><br/>Specifies the ID of the organisation from which all management events will be collected.|

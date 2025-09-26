@@ -28,24 +28,31 @@
     * С помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md):
 
       ```bash
+      export FOLDER_ID=<идентификатор_каталога>
       export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
       curl \
         --insecure \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --header "x-folder-id: ${FOLDER_ID}" \
         --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
-      Где `IAM_TOKEN` — IAM-токен сервисного аккаунта.
+      Где:
+      
+      * `FOLDER_ID`— идентификатор каталога, в котором создан ваш сервисный аккаунт.
+      * `IAM_TOKEN` — IAM-токен сервисного аккаунта.
 
     * С помощью [API-ключа](../../iam/concepts/authorization/api-key).
 
       {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 
       ```bash
+      export FOLDER_ID=<идентификатор_каталога>
       export API_KEY=<API-ключ_сервисного_аккаунта> && \
       curl \
         --insecure \
         --header "Authorization: Api-Key ${API_KEY}" \
+        --header "x-folder-id: ${FOLDER_ID}" \
         --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
@@ -77,6 +84,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://operation.{{ api-host-sk }}/operations/<идентификатор_операции_распознавания>
         ```
 
@@ -87,6 +95,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://operation.{{ api-host-sk }}/operations/<идентификатор_операции_распознавания>
         ```
 
@@ -113,6 +122,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
         ```
 
@@ -123,6 +133,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
         ```
 

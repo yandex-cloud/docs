@@ -33,22 +33,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
       yc storage bucket update --help
       ```
 
-  1. Get a list of buckets in the default folder:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Result:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Save the name (from the `NAME` column) of the bucket to configure CORS for.
   1. Run this command:
 
@@ -65,7 +50,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
         * `allowed-origins`: List of websites allowed to send CORS requests to the bucket. This is a required parameter.
         * `allowed-headers`: List of allowed headers. This is an optional parameter.
         * `expose-headers`: List of headers that can be exposed to browser JavaScript apps. This is an optional parameter.
-        * `max-age-seconds`: Time for which the browser caches object request results, in seconds. This is an optional parameter.
+        * `max-age-seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional parameter.
 
         Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces, e.g., `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
 
@@ -131,7 +116,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -187,20 +172,20 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
      * `allowed_methods`: Allowed methods. The possible values are `GET`, `PUT`, `POST`, `DELETE` or `HEAD`. This is a required parameter.
      * `allowed_origins`: Website allowed to send CORS requests to the bucket. This is a required parameter.
      * `expose_headers`: Header that can be exposed to browser JavaScript apps. This is an optional parameter. 
-     * `max_age_seconds`: Time for which the browser caches object request results, in seconds. This is an optional parameter.
+     * `max_age_seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional parameter.
      * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional parameter.
 
      For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:

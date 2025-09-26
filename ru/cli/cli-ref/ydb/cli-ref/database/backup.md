@@ -7,15 +7,9 @@ sourcePath: en/_cli-ref/cli-ref/ydb/cli-ref/database/backup.md
 
 Backup YDB database.
 
-{% note warning %}
-
-This command currently does not process column-oriented tables. To export data from column-oriented tables, use [external data sources]({{ ydb.docs }}/concepts/datamodel/external_data_source). For more information, see [the documentation]({{ ydb.docs }}/concepts/federated_query/s3/write_data).
-
-{% endnote %}
-
 #### Command Usage
 
-Syntax:
+Syntax: 
 
 `yc ydb database backup  <DATABASE-NAME>|<DATABASE-ID> [Flags...] [Global Flags...]`
 

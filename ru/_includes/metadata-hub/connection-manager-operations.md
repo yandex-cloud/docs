@@ -33,13 +33,13 @@
   1. Посмотрите описание команды CLI для получения информации о выполненных операциях:
 
       ```bash
-      yc connection-manager connection list-operations --help
+      yc metadata-hub connection-manager connection list-operations --help
       ```
 
   1. Получите информацию о выполненных операциях, выполнив команду:
       
       ```bash
-      yc connection-manager connection list-operations <идентификатор_подключения>
+      yc metadata-hub connection-manager connection list-operations <идентификатор_подключения>
       ```
 
       Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.

@@ -88,6 +88,7 @@
 
      {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
+  
   1. Выберите, как задать пароль:
 
       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
@@ -95,6 +96,7 @@
       * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
       Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
@@ -130,9 +132,11 @@
 
   * `password` — пароль для пользователя. Длина пароля — от 8 до 128 символов.
 
+    
     Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<пароль>` укажите `--generate-password`.
 
     Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   * `permissions` — список БД, к которым пользователь должен иметь доступ.
 
@@ -170,9 +174,11 @@
 
       Длина пароля — от 8 до 128 символов.
 
+      
       Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль>"` укажите `generate_password = true`.
 
       Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   1. Проверьте корректность настроек.
 
@@ -217,9 +223,11 @@
 
       * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
 
+          
           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
 
           Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
       * `permissions` — настройки разрешений пользователя:
 
@@ -278,9 +286,11 @@
 
       * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
 
+        
         Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
 
         Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
       * `permissions` — настройки разрешений пользователя:
 
@@ -319,17 +329,22 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+
+  
   1. Выберите, как задать новый пароль:
 
       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
       * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
+  
   Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
 - CLI {#cli}
 
@@ -347,11 +362,13 @@
 
   Длина пароля — от 8 до 128 символов.
 
+  
   Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
 
   Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -376,6 +393,7 @@
 
       Длина пароля — от 8 до 128 символов.
 
+      
       Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
 
       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
@@ -385,6 +403,7 @@
       Если старый пароль был сгенерирован, его нельзя перегенерировать с помощью {{ TF }} из-за ограничений провайдера.
 
       {% endnote %}
+
 
   1. Проверьте корректность настроек.
 
@@ -426,6 +445,7 @@
 
       * `password` — новый пароль. Длина пароля от 8 до 128 символов.
 
+        
         Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените содержимое поля `data`:
 
         ```bash
@@ -438,6 +458,7 @@
         Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
         Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
@@ -483,6 +504,7 @@
 
       * `password` — новый пароль. Длина пароля от 8 до 128 символов.
 
+        
         Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените содержимое параметра `d`:
 
         ```bash
@@ -501,6 +523,7 @@
         Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
         Для просмотра паролей требуется роль `lockbox.payloadViewer`
+
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 

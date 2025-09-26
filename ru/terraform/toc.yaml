@@ -399,6 +399,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Connection Manager
+            items:
+              - name: Data Sources
+                items:
+                  - name: connectionmanager_connection
+                    href: data-sources/connectionmanager_connection.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: connectionmanager_connection
+                    href: resources/connectionmanager_connection.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Container Registry
             items:
               - name: Data Sources
@@ -1022,6 +1037,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: trino_access_control
+                    href: data-sources/trino_access_control.md
+                    title: ''
                   - name: trino_catalog
                     href: data-sources/trino_catalog.md
                     title: ''
@@ -1031,6 +1049,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: trino_access_control
+                    href: resources/trino_access_control.md
+                    title: ''
                   - name: trino_catalog
                     href: resources/trino_catalog.md
                     title: ''

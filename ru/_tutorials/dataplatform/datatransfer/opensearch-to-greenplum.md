@@ -59,7 +59,8 @@
     1. Укажите в файле `opensearch-to-greenplum.tf` значения параметров:
 
         * `mos_cluster_name` — имя кластера {{ mos-name }};
-        * `source_admin_password` — пароль пользователя `admin` в кластере {{ mos-name }};
+        * `mos_version` — версия {{ OS }};
+        * `mos_admin_password` — пароль пользователя `admin` в кластере {{ mos-name }};
         * `mgp_cluster_name` — имя кластера {{ mgp-name }};
         * `mgp_username` — имя пользователя в кластере {{ mgp-name }};
         * `mgp_user_password` — пароль пользователя в кластере {{ mgp-name }};

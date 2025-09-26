@@ -10,9 +10,8 @@ To expand a [volume](../../concepts/volume.md):
 1. [Enable volume expansion](#enabling-expansion).
 1. [Create a PersistentVolumeClaim](#create-pvc).
 1. [Create a pod with a dynamically provisioned volume](#create-pod).
-1. [Delete the pod with the volume](#restart-pod).
 1. [Request volume expansion](#volume-expansion).
-1. [Delete the pod with the volume](#delete-pod).
+1. [Check the pod with the volume](#checking-pod).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
@@ -104,105 +103,21 @@ reclaimPolicy: Delete
    pod/pod created
    ```
 
-## Delete the pod with the volume {#delete-pod}
-
-To request volume expansion, you need to delete the pod.
-1. Delete the pod:
-
-   ```bash
-   kubectl delete pod pod
-   ```
-
-   Result:
-
-   ```bash
-   pod "pod" deleted
-   ```
-
 ## Request volume expansion {#volume-expansion}
 
-Edit the `spec.resources.requests.storage` field of the `PersistentVolumeClaim` object.
-1. Open the YAML file named `pvc-expansion.yaml`:
+1. Edit the `spec.resources.requests.storage` field of the `PersistentVolumeClaim` object:
 
    ```bash
-   kubectl edit pvc pvc-expansion
+   kubectl patch pvc pvc-expansion -p '{"spec":{"resources":{"requests":{"storage":"2Gi"}}}}'
    ```
 
-   In the text editor, change the disk size value and save it:
-
-   ```text
-   # Please edit the object below. Lines beginning with a '#' will be ignored,
-   # and an empty file will abort the edit. If an error occurs while saving this file will be
-   # reopened with the relevant failures.
-   #
-   apiVersion: v1
-   kind: PersistentVolumeClaim
-   metadata:
-   ...
-   spec:
-     accessModes:
-     - ReadWriteOnce
-     resources:
-       requests:
-        storage: 1Gi # Change to 2Gi.
-   ...
-   status:
-     accessModes:
-     - ReadWriteOnce
-     capacity:
-       storage: 1Gi
-   phase: Bound
-   ```
-
-1. Wait for the volume to expand. Check the change results:
+1. Wait a few minutes for the volume to expand. Check the change results:
 
    ```bash
    kubectl get pvc pvc-expansion -o yaml
    ```
 
-   The `spec.resources.requests.storage` field shows the requested volume size:
-
-   ```yaml
-   apiVersion: v1
-   kind: PersistentVolumeClaim
-   metadata:
-   ...
-   spec:
-     accessModes:
-     - ReadWriteOnce
-     resources:
-       requests:
-         storage: 2Gi
-   ...
-   status:
-     accessModes:
-     - ReadWriteOnce
-     capacity:
-       storage: 1Gi
-   ...
-   ```
-
-## Create a pod with a volume {#restart-pod}
-
-1. To resize the volume, create a pod:
-
-   ```bash
-   kubectl create -f pod.yaml
-   ```
-
-   Result:
-
-   ```bash
-   pod/pod created
-   ```
-
-1. Check the change results:
-
-   ```bash
-   kubectl get pvc pvc-expansion -o yaml
-   ```
-
-   The volume size increased. The `status.capacity.storage` field now shows the expanded size:
+   The `status.capacity.storage` field shows the requested volume size:
 
    ```yaml
    apiVersion: v1
@@ -223,3 +138,13 @@ Edit the `spec.resources.requests.storage` field of the `PersistentVolumeClaim` 
        storage: 2Gi
    ...
    ```
+
+## Check the pod with the volume {#checking-pod}
+
+Check the pod status:
+
+   ```bash
+   kubectl get pod pod -o yaml
+   ```
+
+The pod is running. The `status` section shows no container restarts.

@@ -38,7 +38,6 @@ For UI customization:
        * **Lines and outlines**: Color of the active card or tab, as well as the color of the loading indicator.
        * **Link**: Link text color.
        * **Link on hover**: Link text color when the cursor hovers over it.
-       * **Logo background**: Background color for the logo on the left panel.
 
      - Generate
 

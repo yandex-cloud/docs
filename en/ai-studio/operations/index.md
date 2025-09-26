@@ -5,7 +5,7 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 
 # Step-by-step guides for {{ foundation-models-full-name }}
 
-## Step-by-step guides for generation models {#yandexgpt-api}
+## Step-by-step guides for using generation models {#generation}
 
 * [{#T}](generation/evaluate-request.md)
 * [{#T}](generation/create-prompt.md)
@@ -13,7 +13,7 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 * [{#T}](generation/async-request.md)
 * [{#T}](generation/function-call.md)
 * [{#T}](./batch/create.md)
-* [{#T}](generation/yandexart-request.md)
+* [{#T}](./generation/yandexart-request.md)
 
 ## Step-by-step guides for classifiers based on {{ yagpt-name }} {#classifiers}
 

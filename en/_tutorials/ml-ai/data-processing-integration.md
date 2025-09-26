@@ -233,7 +233,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
 {% endlist %}
 
-{{ dataproc-name }} will run the cluster create operation. After the cluster status changes to **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, you can [connect](../../data-proc/operations/connect.md) to any active subcluster using the specified SSH key.
+{{ dataproc-name }} will run the cluster create operation. After the cluster status changes to **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, you can [connect](../../data-proc/operations/connect-ssh.md) to any active subcluster using the specified SSH key.
 
 The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform-name }} project under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** ⟶ **{{ ui-key.yc-ui-datasphere.data-proc.available-clusters }}**.
 

@@ -89,16 +89,9 @@ To learn more about static volume provisioning using cloud disks, see [{#T}](../
 
 ## Expanding volumes {#volume-expansion}
 
-You can expand a {{ k8s }} volume after creating it. You can only resize a volume when the pod with this volume is no longer running.
+{{ managed-k8s-name }} supports online volume expansion with `PersistentVolumeClaim` which does not require restarting the pods that are using the volumes.
 
-To expand a volume:
-1. Make sure the `StorageClass` description contains `allowVolumeExpansion: true`.
-1. Delete the pod with the volume to be resized.
-1. Edit the `PersistentVolumeClaim` object to request more space.
-1. Wait for the volume to expand.
-1. Create a pod to mount the volume to.
-
-To learn how to expand a volume, see [{#T}](../operations/volumes/volume-expansion.md).
+For more information, see [{#T}](../operations/volumes/volume-expansion.md).
 
 ## Deleting volumes {#deleting-volumes}
 
@@ -127,4 +120,3 @@ For more information on using encrypted disks, see [{#T}](../operations/volumes/
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/kubernetes-backup.md)
-* [{#T}](../operations/volumes/statefulset-pvc-expansion.md)

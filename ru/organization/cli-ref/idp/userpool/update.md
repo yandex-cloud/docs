@@ -19,7 +19,6 @@ Syntax:
 |----|----|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--id`|<b>`string`</b><br/>Userpool ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--userpool-name`|<b>`string`</b><br/>New name of the userpool|
 |`--description`|<b>`string`</b><br/>New description of the userpool|
 |`--labels`|<b>`stringToString`</b><br/>New labels of the userpool as key=value pairs|

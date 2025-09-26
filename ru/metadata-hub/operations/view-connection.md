@@ -35,13 +35,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для получения списка подключений:
 
       ```bash
-      yc connection-manager connection list --help
+      yc metadata-hub connection-manager connection list --help
       ```
 
   1. Получите список подключений, выполнив команду:
       
       ```bash
-      yc connection-manager connection list
+      yc metadata-hub connection-manager connection list
       ```
 
       Чтобы получить только нужные подключения, передайте в команде один или несколько флагов:
@@ -57,7 +57,7 @@ description: Пошаговые инструкции по работе с {{ con
       Например, чтобы получить подключения к пользовательским инсталляциям базы данных `mysql`, выполните команду:
       
       ```bash
-      yc connection-manager connection list \
+      yc metadata-hub connection-manager connection list \
         --db-type mysql \
         --is-on-premise
       ```
@@ -92,13 +92,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для получения информации о подключении:
 
       ```bash
-      yc connection-manager connection get --help
+      yc metadata-hub connection-manager connection get --help
       ```
 
   1. Получите информацию о подключении, выполнив команду:
       
       ```bash
-      yc connection-manager connection get <идентификатор_подключения>
+      yc metadata-hub connection-manager connection get <идентификатор_подключения>
       ```
 
       Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.
@@ -135,13 +135,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для получения информации о зависимостях подключения:
 
       ```bash
-      yc connection-manager connection resolve-cluster --help
+      yc metadata-hub connection-manager connection resolve-cluster --help
       ```
 
   1. Получите информацию о зависимостях подключения, выполнив команду:
       
       ```bash
-      yc connection-manager connection resolve-cluster <идентификатор_подключения>
+      yc metadata-hub connection-manager connection resolve-cluster <идентификатор_подключения>
       ```
 
       Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.

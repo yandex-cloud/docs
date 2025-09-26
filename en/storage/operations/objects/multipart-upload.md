@@ -56,22 +56,7 @@ The `split` command has split `video.mp4` into three parts: `part.aa`, `part.ab`
       yc storage s3api create-multipart-upload --help
       ```
 
-  1. Get a list of buckets in the default folder:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Result:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Create a multipart upload:
 
       ```bash
@@ -190,7 +175,7 @@ Upload the first part of the object:
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: Object [key](../../concepts/object.md#key) you will use to store the object in the bucket.
+      * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
       * `--part-number`: Sequential number of the object part uploaded to the bucket.
 
@@ -227,7 +212,7 @@ Upload the first part of the object:
   Where:
 
   * `--bucket`: Name of your bucket.
-  * `--key`: Object [key](../../concepts/object.md#key) you will use to store the object in the bucket.
+  * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
   * `--upload-id`: Multipart upload ID obtained in the previous step.
   * `--part-number`: Sequential number of the object part uploaded to the bucket.
 
@@ -284,7 +269,7 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--key`: Object [key](../../concepts/object.md#key) you will use to store the object in the bucket.
+      * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
       * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
 
@@ -320,7 +305,7 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
   Where:
 
   * `--bucket`: Name of your bucket.
-  * `--key`: Object [key](../../concepts/object.md#key) you will use to store the object in the bucket.
+  * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
   * `--upload-id`: Multipart upload ID obtained in the previous step.
   * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
 

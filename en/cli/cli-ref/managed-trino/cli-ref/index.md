@@ -27,8 +27,11 @@ Aliases:
 	- [yc managed-trino cluster create](cluster/create.md) — Create Trino cluster
 	- [yc managed-trino cluster delete](cluster/delete.md) — Delete the specified Trino cluster
 	- [yc managed-trino cluster get](cluster/get.md) — Show information about the specified Trino cluster
+	- [yc managed-trino cluster get-access-control](cluster/get-access-control.md) — Get Trino cluster access control configuration
 	- [yc managed-trino cluster list](cluster/list.md) — List Trino clusters
 	- [yc managed-trino cluster list-operations](cluster/list-operations.md) — List operations for the specified Trino cluster
+	- [yc managed-trino cluster remove-access-control](cluster/remove-access-control.md) — Remove access control from Trino cluster configuration
+	- [yc managed-trino cluster set-access-control](cluster/set-access-control.md) — Set Trino cluster access control configuration
 	- [yc managed-trino cluster start](cluster/start.md) — Start the specified Trino cluster
 	- [yc managed-trino cluster stop](cluster/stop.md) — Stop the specified Trino cluster
 	- [yc managed-trino cluster update](cluster/update.md) — Update the specified Trino cluster

@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как создать под
 
 {% note info %}
 
-Создать и использовать подключение может только пользователь с [ролью](../../security/roles.md#service-roles) `{{ roles-datalens-instances-admin }}` или `{{ roles-datalens-admin }}`.
+Создать подключение может только пользователь с [ролью](../../security/roles.md#service-roles) `{{ roles-datalens-instances-admin }}` или `{{ roles-datalens-admin }}`. Чтобы другие пользователи могли просматривать подключение и выполнять запросы к нему, администратор подключения может настроить [права доступа к объекту](../../security/manage-access.md).
 
 {% endnote %}
 

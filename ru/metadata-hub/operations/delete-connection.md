@@ -27,13 +27,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Посмотрите описание команды CLI для удаления подключения:
 
       ```bash
-      yc connection-manager connection delete --help
+      yc metadata-hub connection-manager connection delete --help
       ```
 
   1. Удалите подключение, выполнив команду:
       
       ```bash
-      yc connection-manager connection delete <идентификатор_подключения>
+      yc metadata-hub connection-manager connection delete <идентификатор_подключения>
       ```
 
       Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.

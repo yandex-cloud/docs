@@ -6329,7 +6329,9 @@ default:
   sku|USD|storage:
     api:
       get:
+        cold|number: 0.00873
         cold|string: $0.008730
+        ice|number: 0.01746
         ice|string: $0.017460
         standard|pricingRate:
           10|number: 0.00351
@@ -6375,9 +6377,12 @@ default:
           10|string: $0.004320
         standard|string: Free
       put:
+        cold|number: 0.01062
         cold|string: $0.010620
+        ice|number: 0.02124
         ice|string: $0.021240
         standard|pricingRate:
+          10|number: 0.00432
           10|string: $0.004320
         standard|string: Free
     bucket:
@@ -6385,6 +6390,7 @@ default:
         cold|string: $0.010620
         ice|string: $0.021240
       used_space:
+        cold|month|number: 0.00963
         cold|month|string: $0.009630
         ice|month|number: 0.004815
         ice|month|string: $0.004815
@@ -10966,6 +10972,9 @@ default:
         workflow-viewer_node-settings-label: Settings
       smart-web-security:
         action_empty: Create profile
+        advanced_waf:
+          sets_priority_section:
+            section_title: Rule sets in order of priority
         arl:
           column_rule-conditions: Conditions for traffic
           column_rule-priority: Priority
@@ -11068,7 +11077,6 @@ default:
         title_profiles: Security profiles
         waf:
           action_exclusion-rule-add-rules: Add rules
-          action_setup-base-rules: Set up a basic rule set
           field_analyze-request-body: 'Analyze request body (maximum size: 8 KB)'
           field_logging: Write logs
           label_analyze-request-body-action-deny: Block request

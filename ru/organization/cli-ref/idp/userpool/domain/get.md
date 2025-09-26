@@ -22,7 +22,7 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Userpool ID.<br/>--name string|
+|`--id`|<b>`string`</b><br/>Userpool ID.|
 
 #### Global Flags
 

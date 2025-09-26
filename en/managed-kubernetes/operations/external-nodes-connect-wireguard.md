@@ -7,11 +7,13 @@ description: Follow this guide to configure WireGuard gateways to connect extern
 
 With {{ managed-k8s-full-name }}, you can connect servers from outside {{ yandex-cloud }} as [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes. To connect one, first, set up network connectivity between the remote network hosting the external server and the [cloud network](../../vpc/concepts/network.md#network) hosting your {{ managed-k8s-name }} cluster. You can do this using a VPN.
 
-Below is an example of establishing network connectivity over the [WireGuard](https://www.wireguard.com) protocol. Here, the external server is a VM residing in another {{ yandex-cloud }} cloud network.
+Below is an example of establishing network connectivity over the [WireGuard](https://www.wireguard.com) protocol.
 
 You can see the solution architecture in the diagram below:
 
 ![external-nodes-connect](../../_assets/tutorials/external-nodes-connect/external-nodes-connect.svg)
+
+{% include [external-nodes-connect-image-description](../../_includes/managed-kubernetes/external-nodes-connect-image-description.md) %}
 
 ## Getting started {#before-you-begin}
 
@@ -84,7 +86,7 @@ You can see the solution architecture in the diagram below:
       --- | --- | --- | --- | ---
       `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_2_subnet_CIDR>`
 
-    {% endlist %}    
+    {% endlist %}
 
 ## Configuring routing {#rt}
 
@@ -160,13 +162,13 @@ You can see the solution architecture in the diagram below:
   
        [Learn more about the configuration parameters](https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config).
 
-       Save the changes and close the file.    
+       Save the changes and close the file.
 
     1. Apply the configuration:
 
         ```bash
         sudo systemctl restart wg-quick@wg0
-        ```        
+        ```
 
 1. Set up the additional WireGuard gateway:
 
@@ -203,7 +205,7 @@ You can see the solution architecture in the diagram below:
 
        [Learn more about the configuration parameters](https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config).
 
-       Save the changes and close the file.        
+       Save the changes and close the file.
 
     1. Apply the configuration:
 

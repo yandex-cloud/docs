@@ -1,8 +1,8 @@
-# Formatting of model responses
+# Formatting model responses
 
 By default, the model returns a response formatted using [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with [emoji](https://en.wikipedia.org/wiki/Emoji), or in a different format, e.g., [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
 
-Example:
+Here is an example:
 
 ```json
 {
@@ -242,4 +242,4 @@ Some text generation models support additional control over the response format 
 
    {% endlist %}
 
-A strict response structure is required when working with external tools using [function calls](./function-call.md). Response structuring is supported in the {{ gpt-pro }} 5th generation model (RC branch).
+A strict response structure is required when working with external tools using [function calls](./function-call.md).

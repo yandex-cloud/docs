@@ -63,7 +63,7 @@ The price is calculated based on the amount of resources consumed over the curre
 
 {% note warning %}
 
-Starting October 1, 2025, calculating the support fee (5% of the cost of consumed resources) will include your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. See [this example of cost calculation](#business-example-one-ba-cvos).
+Starting October 1, 2025, calculating the support fee (5% of the cost of consumed resources) will include your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. Calculating the support fee (5% of the cost of consumed resources) will not include the cost of {{ marketplace-name }} products. See [this example of cost calculation](#business-example-one-ba-cvos).
 
 {% endnote %}
 

@@ -23,6 +23,13 @@ Alternatively, you can provide [static access keys](https://yandex.cloud/docs/ia
 {% endnote %}
 
 
+{% note warning %}
+
+"Version" element is required and must be set to `2012-10-17`.
+
+{% endnote %}
+
+
 ## Example usage
 
 ```terraform

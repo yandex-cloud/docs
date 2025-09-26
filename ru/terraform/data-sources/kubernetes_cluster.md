@@ -62,6 +62,7 @@ output "cluster_external_v4_endpoint" {
 - `service_ipv4_range` (String) CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. It should not overlap with any subnet in the network the Kubernetes cluster located in.
 - `service_ipv6_range` (String) Identical to service_ipv4_range but for IPv6 protocol.
 - `status` (String) Status of the Kubernetes cluster.
+- `workload_identity_federation` (List of Object) Workload Identity Federation configuration. (see [below for nested schema](#nestedatt--workload_identity_federation))
 
 <a id="nestedatt--kms_provider"></a>
 ### Nested Schema for `kms_provider`
@@ -232,3 +233,17 @@ Read-Only:
 Read-Only:
 
 - `routing_mode` (String)
+
+
+
+<a id="nestedatt--workload_identity_federation"></a>
+### Nested Schema for `workload_identity_federation`
+
+Read-Only:
+
+- `enabled` (Boolean) Identifies whether Workload Identity Federation is enabled.
+
+- `issuer` (String) Issuer URI for Kubernetes service account tokens.
+
+- `jwks_uri` (String) JSON Web Key Set URI used to verify token signatures.
+

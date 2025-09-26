@@ -1,13 +1,13 @@
 ---
-title: Text generation models
-description: In this tutorial, you will learn about the text generation models available in {{ foundation-models-name }}.
+title: Available generative models
+description: In this article, you will learn about the generative models available in {{ foundation-models-name }}.
 ---
 
-# Text generation models
+# Available generative models
 
 {{ foundation-models-full-name }} provides access to large text models from different vendors. If an out-of-the-box model is not enough, you can [fine-tune](../tuning/index.md) some models to respond to your requests more accurately.
 
-## Models available in common instance {#generation}
+## Models available in the basic instance {#generation}
 
 All basic models are subject to the update rules described in [Model lifecycle](#model-lifecycle). When updating models, generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change. Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 
@@ -29,7 +29,7 @@ All basic models are subject to the update rules described in [Model lifecycle](
 
 ^1^ {{ meta-disclaimer }}
 
-The Gemma 3 27B model is designed to process Base64-encoded images of any aspect ratio. An adaptive algorithm scales images up to 896 pixels on the largest side, ensuring that important visual details are preserved. Each image requires 256 [tokens](./tokens.md) for processing.
+Gemma 3 27B processes Base64-encoded images. The model can handle images of any aspect ratio thanks to an adaptive algorithm that scales the longer side of the image to 896 pixels while preserving important visual details. Each image uses 256 context [tokens](./tokens.md).
 
 {% include [release-cycle](../../../_includes/ai-studio/release-cycle.md) %}
 
@@ -109,16 +109,17 @@ Based on Llama-3.3-70B-Instruct. [Llama-3.3-70B-Instruct Terms of Use](https://h
 
 ### Multimodal models {#multimodels-batch}
 
-| **Model** | **URI** | **Context** |
-|---|---|---|
-| **Qwen2 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2-vl-7b-instruct/` | 4096 |
-| **Qwen2.5 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license  | `gpt://<folder_ID>/qwen2.5-vl-7b-instruct/` | 4096 |
-| **Qwen 2.5 VL 32B Instruct**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2.5-vl-32b-instruct/` | 4096 |
-| **DeepSeek 2 VL**</br>[Model card](https://huggingface.co/deepseek-ai/deepseek-vl2)</br>[DeepSeek license](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<folder_ID>/deepseek-vl2/` | 4096 |
-| **DeepSeek 2 VL Tiny**</br>[Model card](https://huggingface.co/deepseek-ai/deepseek-vl2-tiny)</br>[DeepSeek license](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<folder_ID>/deepseek-vl2-tiny/` | 4096 |
-| **Gemma3 4B it**</br>[Model card](https://huggingface.co/google/gemma-3-4b-it)</br>[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-4b-it/` | 4096 |
-| **Gemma3 12B it**</br>[Model card](https://huggingface.co/google/gemma-3-12b-it)</br>[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-12b-it/` | 4096 |
-| **Gemma3 27B it**</br>[Model card](https://huggingface.co/google/gemma-3-27b-it)</br>[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it/` | 4096 |
+#|
+|| **Model** | **URI** | **Context** ||
+|| **Qwen2 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2-vl-7b-instruct/` | 4096 ||
+|| **Qwen2.5 VL 7B**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license  | `gpt://<folder_ID>/qwen2.5-vl-7b-instruct/` | 4096 ||
+|| **Qwen 2.5 VL 32B Instruct**</br>[Model card](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct)</br>[Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen2.5-vl-32b-instruct/` | 4096 ||
+|| **DeepSeek VL2**</br>[Model card](https://huggingface.co/deepseek-ai/deepseek-vl2)</br>[DeepSeek license](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<folder_ID>/deepseek-vl2/` | 4096 ||
+|| **DeepSeek VL2 Tiny**</br>[Model card](https://huggingface.co/deepseek-ai/deepseek-vl2-tiny)</br>[DeepSeek license](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL) | `gpt://<folder_ID>/deepseek-vl2-tiny/` | 4096 ||
+|| **Gemma3 4B it**</br>[Model card](https://huggingface.co/google/gemma-3-4b-it)</br>[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-4b-it/` | 4096 ||
+|| **Gemma3 12B it**</br>[Model card](https://huggingface.co/google/gemma-3-12b-it)</br>[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-12b-it/` | 4096 ||
+|| **Gemma3 27B it**</br>[Model card](https://huggingface.co/google/gemma-3-27b-it)</br>[Gemma Terms of Use]({{ license-gemma }}) | `gpt://<folder_ID>/gemma-3-27b-it/` | 4096 ||
+|# 
 
 ## Accessing models {#addressing-models}
 
@@ -158,7 +159,7 @@ You can access text generation models of different versions in a number of ways.
     )
     ```
 
-    The above example explicitly specifies the `Release Candidate` of the `{{ gpt-lite }}` model and the `Latest` of the `{{ yandexart-name }}` model.
+    This example explicitly specifies the `{{ gpt-lite }}` model of the `Release Candidate` version and the `{{ yandexart-name }}` model of the `Latest` version.
 
   * **Model URI**, provided as a string containing the full [URI](#generation) of the required model version. You can also use this method to access fine-tuned models.
 
@@ -174,18 +175,19 @@ You can access text generation models of different versions in a number of ways.
     )
     ```
 
-    The above example explicitly specifies the `Deprecated` version of the `{{ llama }} 70B` model and the `Latest` of the `{{ yandexart-name }}` model. 
+      This example explicitly specifies the `{{ llama }} 70B` model of the `Deprecated` version and the `{{ yandexart-name }}` model of the `Latest` version. 
 
 - API {#curl}
 
-  To [access](../../operations/generation/create-prompt.md) a model via the [REST API](../../text-generation/api-ref/index.md) or [gRPC API](../../text-generation/api-ref/grpc/index.md), specify the [model's URI](#generation) containing the [folder ID](../../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest`, `/rc`, and `/deprecated` segments indicate the model [version](#model-lifecycle). `/latest` is used by default.
+  To [access](../../operations/generation/create-prompt.md) {{ yagpt-name }} models via the [REST API](../../text-generation/api-ref/index.md) or [gRPC API](../../text-generation/api-ref/grpc/index.md), specify the [model URI](#generation) containing the [folder ID](../../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest`, `/rc`, and `/deprecated` segments indicate the model [version](#model-lifecycle). `/latest` is used by default.
 
-  **Examples:**
+  To [access](../../operations/generation/yandexart-request.md) a {{ yandexart-name }} model via the [REST API](../../image-generation/api-ref/index.md) or [gRPC API](../../image-generation/api-ref/grpc/index.md), specify the model URI containing the [folder ID](../../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest` segment indicates the model version and is optional.
 
-  * Accessing the `Latest` versions of the `{{ gpt-lite }}` and `{{ yandexart-name }}` models:
+  * Accessing the `Latest` versions:
 
     ```json
     {
+
       "modelUri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest"
       ...
 
@@ -193,13 +195,12 @@ You can access text generation models of different versions in a number of ways.
     }
     ```
 
-    To access the `Latest` versions, you do not need to specify the model version explicitly because `Latest` is used by default.
-
-  * Accessing the `RC` version of the `{{ llama }} 70B` model:
+  * Accessing the `RC` version (if available):
 
     ```json
     {
-      "modelUri": "gpt://b1gt6g8ht345********/llama/rc"
+
+      "modelUri": "gpt://b1gt6g8ht345********/yandexgpt-lite/rc"
       ...
     }
     ```

@@ -128,7 +128,7 @@ Now you can send asynchronous requests to {{ yagpt-name }} models fine-tuned in 
 
 ## Release as of 09/04/24 {#090424}
 
-1. Added the [generation of images](../concepts/generation/index.md) based on a text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md). 
+1. Added the generation of images based on a text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md). 
 1. Added examples of requests to {{ yandexart-name }} in the documentation.
 
 ## Release as of 25/03/24 {#250324}

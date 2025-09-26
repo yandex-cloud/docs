@@ -11,14 +11,13 @@ Reactivate a previously suspended user
 
 Syntax: 
 
-`yc organization-manager idp user reactivate <USER-ID> [Flags...] [Global Flags...]`
+`yc organization-manager idp user reactivate [<USER-ID>] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>User ID.|
-|`--name`|<b>`string`</b><br/>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

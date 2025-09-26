@@ -860,6 +860,7 @@ description: Из статьи вы узнаете, как изменить на
 
 {% endlist %}
 
+
 ### {{ connection-manager-name }} {#conn-man}
 
 Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
@@ -879,6 +880,7 @@ description: Из статьи вы узнаете, как изменить на
 Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
 
 {% endnote %}
+
 
 ## Вручную переключить хост-мастер {#start-manual-failover}
 

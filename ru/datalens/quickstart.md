@@ -200,7 +200,7 @@ description: Следуя данной инструкции, вы сможете
 
 Добавьте на дашборде [фильтрацию](./dashboard/chart-chart-filtration.md) чартом `Карта продаж` других чартов:
 
-1. В правом верхнем углу чарта `Карта продаж` нажмите значок ![image](../_assets/console-icons/gear.svg).
+1. Наведите курсор на чарт `Карта продаж` и в правом верхнем углу нажмите значок ![image](../_assets/console-icons/gear.svg).
 
    ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)
 
