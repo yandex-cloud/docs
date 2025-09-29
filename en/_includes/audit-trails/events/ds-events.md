@@ -5,6 +5,7 @@ Event name | Description
 `CancelJob` | Canceling a job
 `CloneJob` | Cloning a job
 `CloseProject` | Closing a project
+`CreateCluster` | Creating an Apache Spark™ cluster
 `CreateCommunity` | Creating a community
 `CreateDataset` | Creating a dataset
 `CreateDocker` | Creating a Docker image
@@ -13,12 +14,13 @@ Event name | Description
 `CreateModel` | Creating a [model](../../../datasphere/concepts/models/index.md)
 `CreateNode` | Creating a node
 `CreateProject` | Creating a project
-`CreateS3Connector` | Creating an [S3 connector](https://yandex.ru/support/metrica/pro/cloud.html)
+`CreateS3Connector` | Creating an [S3 connector](../../../datasphere/concepts/s3-connector.md)
 `CreateSecret` | Creating a [secret](../../../datasphere/concepts/secrets.md)
 `CreateSparkConnector` | Creating a [Spark connector](../../../datasphere/concepts/spark-connector.md)
 `CreateYandexDataProcessing` | Creating a [{{ dataproc-name }} template](../../../datasphere/concepts/data-processing-template.md)
 `DeactivateDataset` | Deactivating a dataset
 `DeleteAllJobData` | Deleting all job data
+`DeleteCluster` | Deleting an Apache Spark™ cluster
 `DeleteCommunity` | Deleting a community
 `DeleteDataset` | Deleting a dataset
 `DeleteDocker` | Deleting a Docker image
@@ -29,14 +31,17 @@ Event name | Description
 `DeleteProject` | Deleting a project
 `DeleteS3Connector` | Deleting an S3 connector
 `DeleteSecret` | Destroying a secret
-`DeleteSparkConnector` | Deleting a Spark connector
+`DeleteSparkConnector` | Deleting an Apache Spark™ connector
 `DeleteYandexDataProcessing` | Deleting a {{ dataproc-name }} template
 `ExecuteJob` | Running a job
 `OpenProject` | Opening a project
 `ResumeNode` | Resuming a node
 `SetCommunityAccessBindings` | Assigning access permissions for a community
 `SetProjectAccessBindings` | Assigning access permissions for a project
+`StartCluster` | Starting an Apache Spark™ cluster
+`StopCluster` | Stopping an Apache Spark™ cluster
 `SuspendNode` | Suspending a node
+`UpdateCluster` | Updating an Apache Spark™ cluster
 `UpdateCommunity` | Updating a community
 `UpdateCommunityAccessBindings` | Updating access permissions for a community
 `UpdateFilestore` | Updating a file storage

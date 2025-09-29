@@ -10,7 +10,7 @@ description: Follow this guide to add an integration with {{ foundation-models-f
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![foundation-models-icon](../../../../_assets/foundation-models-icon.svg) **{{ foundation-models-name }}** element to the relevant workflow location in the constructor window.
+  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![foundation-models-icon](../../../../_assets/foundation-models-icon.svg) **{{ foundation-models-name }}** element to relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the new **{{ foundation-models-name }}** section to select it.
@@ -22,7 +22,7 @@ description: Follow this guide to add an integration with {{ foundation-models-f
           * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_base_model }}` to use the `{{ gpt-pro }}` model and, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title }}** field, select the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) the model will be invoked in.
           * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_custom }}` to use a fine-tuned model, and specify the fine-tuned model's ID ([URI](../../../../ai-studio/concepts/tuning/index.md#requests)) in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** field.
 
-      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title }}** field, set the model's response variability: the higher the temperature value, the less predictable the result. The range of possible values ​​is from `0` to `1`.
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title }}** field, set the model's response variability: the higher the temperature value, the less predictable the result. The possible values range from `0` to `1`.
       1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title }}** field, limit the maximum allowed number of [tokens](../../../../ai-studio/concepts/generation/tokens.md) in the model's response.
       1. Under **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title }}**, select:
 
@@ -33,6 +33,7 @@ description: Follow this guide to add an integration with {{ foundation-models-f
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
+  1. {% include [integrations-step-add-catch-rule](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-add-catch-rule.md) %}
 
 {% endlist %}
 

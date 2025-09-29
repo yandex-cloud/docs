@@ -23,6 +23,8 @@ description: This page provides reference information on the {{ TF }} provider r
 ||
 || [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) | [Configuring](operations/buckets/edit-acl.md) access permissions for a bucket using the [{{ objstorage-name }} ACL](./concepts/acl.md).
 
+{% include [tf-iam-binding-warning](../_includes/storage/resource-matching.md) %}
+
 {% include [tf-iam-binding-warning](../_includes/storage/tf-bucket-grant-warning.md) %}
 
 ||

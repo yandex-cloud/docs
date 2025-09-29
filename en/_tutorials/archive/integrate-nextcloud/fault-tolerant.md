@@ -52,9 +52,9 @@ The cost of the proposed solution includes:
 * Fee for using [public IP addresses](../../../vpc/concepts/address.md#public-addresses) and [NAT gateways](../../../vpc/concepts/gateways.md#nat-gateway) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * Fee for [data storage](../../../storage/concepts/bucket.md) in {{ objstorage-name }} and data [operations](../../../storage/operations/index.md) (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
 * Fee for using a {{ MY }} managed DB (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
-* If using {{ dns-full-name }}, the fee for [DNS zones](../../../dns/concepts/dns-zone.md#public-zones) and public DNS queries (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
-* If using a load balancer, the fee for the amount of [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) resource units (see [{{ alb-full-name }} pricing](../../../application-load-balancer/pricing.md)).
-* If using a [log group](../../../logging/concepts/log-group.md) for load balancer logging, the fee for writing and storing data (see [{{ cloud-logging-full-name }} pricing](../../../logging/pricing.md)).
+* If using {{ dns-full-name }}, fee for [DNS zones](../../../dns/concepts/dns-zone.md#public-zones) and public DNS queries (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
+* If using a load balancer, fee for the number of [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) resource units (see [{{ alb-full-name }} pricing](../../../application-load-balancer/pricing.md)).
+* If using a [log group](../../../logging/concepts/log-group.md) for load balancer logging, fee for data logging and storage (see [{{ cloud-logging-full-name }} pricing](../../../logging/pricing.md)).
 
 ## Deploy Nextcloud in a basic configuration {#the-basic-variant}
 
@@ -679,7 +679,7 @@ To route your domain's incoming requests to an L7 load balancer, in your DNS zon
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
       1. In the **{{ ui-key.yacloud.common.type }}** field, select `A`.
       1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the load balancer IP address you saved in the previous step.
-      1. Keep the other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
+      1. Leave other parameters as they are and click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

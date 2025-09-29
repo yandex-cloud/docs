@@ -23,12 +23,56 @@ Potentially, you can increase your quotas up to the _limits_.
 
 ![image](../_assets/quota-manager/quotas-limits.svg)
 
-You can use the following interfaces to manage quotas: 
+You can use the following interfaces to manage quotas: the [management console]({{ link-console-quotas }}), [API](api-ref/authentication.md), and [CLI](cli-ref/index.md).
 
-* [Console]({{ link-console-quotas }}) and [API](api-ref/authentication.md): Getting info and submitting a quota update request.
-* [CLI](cli-ref/index.md): Getting quota info. Quota update request functionality due to be added.
+To manage quotas via the CLI and API, you need the quota ID. For the list of IDs, see [{#T}](../overview/concepts/quotas-limits.md).
 
-To manage quotas via the CLI and API, you need the quota ID. For the list of IDs, see [this section](../overview/concepts/quotas-limits.md).
+## Getting started {#before-you-begin}
+
+To get started in {{ yandex-cloud }}:
+
+1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
+1. Depending on the interface you are going to use, follow these additional steps:
+
+    {% list tabs group=instructions %}
+
+    - Management console {#console}
+
+      Make sure the user has the following [roles](../iam/concepts/access-control/roles.md):
+
+      {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+    - CLI {#cli}
+
+      1. {% include [cli-install](../_includes/cli-install.md) %}
+
+          {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+      1. Make sure the user or service account authenticated in the CLI profile has the following [roles](../iam/concepts/access-control/roles.md):
+
+          {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+    - REST API {#api}
+
+      1. Install [cURL](https://curl.haxx.se).
+      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following [roles](../iam/concepts/access-control/roles.md):
+
+          {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+      1. {% include [before-begin-api-get-iam-token](../_includes/quota-manager/before-begin-api-get-iam-token.md) %}
+
+    - gRPC API {#grpc-api}
+
+      1. Install the [gRPCurl](https://github.com/fullstorydev/grpcurl) utility.
+      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following [roles](../iam/concepts/access-control/roles.md):
+
+          {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+      1. {% include [before-begin-api-get-iam-token](../_includes/quota-manager/before-begin-api-get-iam-token.md) %}
+
+    {% endlist %}
 
 ## Getting quota info {#get-quota-info}
 
@@ -55,27 +99,23 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
 - CLI {#cli}
 
-  1. **Configure operations via the CLI.**
-
-      {% include [cli-install](../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
   1. **See the list of services with quotas.**
 
       ```bash
-      yc quota-manager quota-limit list-services --resource-type=<resource_type>
+      yc quota-manager quota-limit list-services \
+        --resource-type <resource_type>
       ```
 
       Where `--resource-type` is the [resource type](concepts/index.md#resources-types): 
-      * `resource-manager.cloud`: Cloud.
-      * `organization-manager.organization`: Organization.
-      * `billing.account`: Billing account.
+      * `resource-manager.cloud`: [Cloud](../resource-manager/concepts/resources-hierarchy.md#cloud). 
+      * `organization-manager.organization`: [Organization](../organization/concepts/organization.md). 
+      * `billing.account`: [Billing account](../billing/concepts/billing-account.md).
 
       **Example command**
 
       ```bash
-      yc quota-manager quota-limit list-services --resource-type=resource-manager.cloud
+      yc quota-manager quota-limit list-services \
+        --resource-type resource-manager.cloud
       ```
 
       In the output, you will get a list of cloud-level services with quotas available.
@@ -84,9 +124,9 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
       ```bash
       yc quota-manager quota-limit list \
-         --service=<service_name> \
-         --resource-type=<resource_type> \
-         --resource-id=<resource_ID>
+         --service <service_name> \
+         --resource-type <resource_type> \
+         --resource-id <resource_ID>
       ```
 
       Where:
@@ -96,17 +136,15 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
       **Example command**
 
-      ```bash
-      yc quota-manager quota-limit list --service=iam --resource-type=resource-manager.cloud --resource-id=b1gflhy********
-      ``` 
+      {% include [get-quota-service-cli](../_includes/quota-manager/get-quota-service-cli.md) %}
 
-      In the output, you will get the IDs of the quotas in place in {{ iam-short-name }} within the `b1gflhy********` cloud, their values ​and usage figures.
+      {% include [get-quota-service-cli-output](../_includes/quota-manager/get-quota-service-cli-output.md) %}
 
   1. **View value and usage info for a particular quota.**
-  
+
       ```bash
       yc quota-manager quota-limit get \
-         --quota-id=<quota_ID> \
+         --quota-id <quota_ID> \
          --resource-id <resource_ID> \
          --resource-type <resource_type>
       ```
@@ -118,29 +156,11 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
       **Example command**
 
-      ```bash
-      yc quota-manager quota-limit get --quota-id=iam.apiKeys.count --resource-id=b1gflhy********  --resource-type=resource-manager.cloud
-      ```
+      {% include [get-quota-info-cli](../_includes/quota-manager/get-quota-info-cli.md) %}
 
-      In the output, you will get quota value and usage info for the number of API keys in the `b1gflhy********` cloud.
-
-      ```bash
-      quota_id: iam.apiKeys.count
-      limit: 1000
-      usage: 27
-      ```
-
-      Where:
-      * `limit`: Quota value.
-      * `usage`: Quota usage.
+      {% include [get-quota-info-cli-output](../_includes/quota-manager/get-quota-info-cli-output.md) %}
 
 - REST API {#api}
-
-  1. **Configure API operations.**
-
-      1. To check that you can work with quotas via the [REST API](./api-ref/index.md), install [cURL](https://curl.haxx.se).
-      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.viewer` [role](./security/index.md#quota-manager-viewer).
-      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
 
   1. **View the list of services with quotas.**
 
@@ -246,12 +266,6 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       {% include [get-quota-info-response-curl](../_includes/quota-manager/get-quota-info-response-curl.md) %}
 
 - gRPC API {#grpc-api}
-
-  1. **Configure API operations.**
-
-      1. To check that you can work with quotas via the [gRPC API](./api-ref/grpc/index.md), install [gRPCurl](https://github.com/fullstorydev/grpcurl).
-      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.viewer` [role](./security/index.md#quota-manager-viewer).
-      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
 
   1. **View the list of services with quotas.**
 
@@ -360,23 +374,49 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
 ## Requesting quota changes {#request-quota-change}
 
-{% include [request-quota-restriction](../_includes/quota-manager/request-quota-restriction.md) %}
-
-{% include [request-quota-roles](../_includes/quota-manager/request-quota-roles.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   {% include [request-quota](../_includes/quota-manager/request-quota.md) %}
 
+- CLI {#cli}
+
+  1. **Create a quota update request.**
+
+      {% include [request-quota-cli](../_includes/quota-manager/request-quota-cli.md) %}
+
+      **Example command**
+
+      {% include [request-quota-change-cli](../_includes/quota-manager/request-quota-change-cli.md) %}
+
+      {% include [request-quota-change-legend2](../_includes/quota-manager/request-quota-change-legend2.md) %}
+
+      **Response example**
+
+      {% include [request-quota-change-cli-response](../_includes/quota-manager/request-quota-change-cli-response.md) %}
+
+  1. **View the list of quota update requests.**
+
+      {% include [list-quota-requests-cli](../_includes/quota-manager/list-quota-requests-cli.md) %}
+      
+      **Example command**
+
+      {% include [list-quota-requests-cli-example](../_includes/quota-manager/list-quota-requests-cli-example.md) %}
+
+      **Response example**
+
+      {% include [list-quota-requests-cli-response](../_includes/quota-manager/list-quota-requests-cli-response.md) %}
+
+  1. **View the status of your quota update request.**
+
+      {% include [get-quota-request-cli](../_includes/quota-manager/get-quota-request-cli.md) %}
+
+      **Response example**
+
+      {% include [get-quota-request-cli-response](../_includes/quota-manager/get-quota-request-cli-response.md) %}
+
 - REST API {#api}
-
-  1. **Configure API operations.**
-
-      1. To check that you can work with quotas via the [REST API](./api-ref/index.md), install [cURL](https://curl.haxx.se).
-      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.requestOperator` [role](./security/index.md#quota-manager-requestoperator).
-      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
 
   1. **Create a quota update request.**
 
@@ -446,7 +486,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       Where:
 
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-      * `<request_ID>`: Quota update request ID you got in the previous step.
+      * `<request_ID>`: Quota update request ID.
 
       **Request example**
 
@@ -457,12 +497,6 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       {% include [view-request-status-response-curl](../_includes/quota-manager/view-request-status-response-curl.md) %}
 
 - gRPC API {#grpc-api}
-
-  1. **Configure API operations.**
-
-      1. To check that you can work with quotas via the [gRPC API](./api-ref/grpc/index.md), install [gRPCurl](https://github.com/fullstorydev/grpcurl).
-      1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `quota-manager.requestOperator` [role](./security/index.md#quota-manager-requestoperator).
-      1. [Get an IAM token](../iam/operations/iam-token/create-for-sa.md) for the created service account.
 
   1. **Create a quota update request.**
 
@@ -530,7 +564,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       Where:
 
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-      * `<request_ID>`: Quota update request ID you got in the previous step.
+      * `<request_ID>`: Quota update request ID.
 
       **Request example**
 

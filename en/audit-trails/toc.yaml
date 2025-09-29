@@ -13,7 +13,7 @@ items:
         href: operations/manage-trail.md
       - name: Managing permissions to access a trail
         items:
-          - name: Viewing roles assigned for a trail
+          - name: Viewing roles assigned to a trail
             href: operations/role-list.md
           - name: Assigning roles for a trail
             href: operations/role-add.md
@@ -41,9 +41,9 @@ items:
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
-          - name: Tools for working with audit logs
+          - name: Audit log management tools
             href: tutorials/search-events-audit-logs/tools.md
-          - name: Sample requests for searching events
+          - name: Sample queries for event search
             href: tutorials/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
@@ -55,16 +55,16 @@ items:
         href: tutorials/audit-trails.md
       - name: Exporting audit logs to SIEM systems
         items:
-          - name: Exporting audit logs to {{ mos-full-name }}
+          - name: Uploading audit logs to {{ mos-full-name }}
             hidden: true
             href: tutorials/trails-logs-opensearch.md
-          - name: Exporting audit logs to MaxPatrol SIEM
+          - name: Uploading audit logs to MaxPatrol SIEM
             href: tutorials/maxpatrol.md
-          - name: Exporting audit logs to SIEM Splunk systems
+          - name: Uploading audit logs to Splunk SIEM
             href: tutorials/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM
             href: tutorials/export-logs-to-arcsight.md
-          - name: Uploading audit logs to KUMA SIEM
+          - name: Uploading audit logs to SIEM KUMA
             items:
               - name: Overview
                 href: tutorials/audit-trails-events-to-kuma/index.md

@@ -7,7 +7,7 @@ description: This page describes some aspects related to long-lived containers i
 
 A _long-lived container_ is one with a timeout of over ten minutes in its [revision](./container.md#revision) settings. For the maximum possible timeout value, see [{#T}](./limits.md#serverless-containers-limits).
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+The longer the container runs, the higher is the probability of related network failures. We recommend using [asynchronous invocation](./invoke-async.md) for long-lived containers.
 
 ### Forced termination of a long-lived container instance {#possible-termination}
 

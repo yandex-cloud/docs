@@ -7,6 +7,57 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.165.0 (15/09/25) {#version0.165.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ iam-name }} {#iam}
+
+Added the `yc iam oauth-client-service` command group for managing OAuth client secrets:
+* `yc iam oauth-client-secret get`
+* `yc iam oauth-client-secret list`
+* `yc iam oauth-client-secret create`
+* `yc iam oauth-client-secret delete`
+
+## Previous releases {#previous-release}
+
+### Version 0.164.0 (11/09/25) {#version0.164.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ managed-k8s-name }}
+
+Added the `--enable-workload-identity-federation` parameter that allows you to enable a [workload identity federation](../iam/concepts/workload-identity.md).
+
+The parameter is available in these commands:
+* `yc managed-kubernetes cluster create`
+* `yc managed-kubernetes cluster update`
+
+##### {{ org-name }}
+
+Added new command groups:
+
+* `yc organization-manager idp userpool` to manage [user pools](../organization/concepts/user-pools.md). 
+* `yc organization-manager idp user` to manage [local uesrs](../iam/concepts/users/accounts.md#local).
+
+##### {{ iam-short-name }}
+
+To manage OAuth clients, added the `yc iam oauth-client` command group:
+* `yc iam oauth-client get`
+* `yc iam oauth-client list`
+* `yc iam oauth-client create`
+* `yc iam oauth-client update`
+* `yc iam oauth-client delete`
+
+##### {{ mmy-name }}
+
+Added the `maintenance-window` and `performance-diagnostics` parameters to the cluster create and restore commands. For the `disk-size-autoscaler.disk-size-limit` parameter, updated the measurement unit from bytes to gigabytes.
+
+Updated these commands:
+* `yc managed-mysql cluster create`
+* `yc managed-mysql cluster update`
+* `yc managed-mysql cluster restore`
+
 ### Version 0.163.0 (08/09/25) {#version0.163.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -18,8 +69,6 @@ description: This page presents a list of CLI releases and the updates of each.
 ##### {{ mes-name }}
 
 * Deleted the `managed-elasticsearch` support.
-
-## Previous releases {#previous-release}
 
 ### Version 0.162.0 (04/09/25) {#version0.162.0}
 

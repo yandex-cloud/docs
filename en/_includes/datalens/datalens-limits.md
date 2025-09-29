@@ -7,6 +7,17 @@ There are no quotas for {{ datalens-short-name }}.
 
 #### General limits {#datalens-common-limits}
 
+
+
+
+{% note warning %}
+
+The maximum number of {{ datalens-short-name }} instances per [organization](../../organization/quickstart.md) or [cloud {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) is one.
+
+{% endnote %}
+
+
+
 {% note info %}
 
 {{ datalens-short-name }} has no limitation on the amount of data on the source you are connecting to.

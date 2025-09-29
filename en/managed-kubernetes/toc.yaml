@@ -39,7 +39,7 @@ items:
               Installing cert-manager with the {{ dns-name }} ACME webhook
               plugin
             href: operations/applications/cert-manager-cloud-dns.md
-          - name: Installing Container Storage Interface for S3
+          - name: Installing the Container Storage Interface for S3
             href: operations/applications/csi-s3.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
@@ -97,7 +97,7 @@ items:
             href: operations/applications/victoria-logs.md
       - name: Network scenarios
         items:
-          - name: Granting access to an app running in a {{ k8s }} cluster
+          - name: Granting access to an application running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -318,7 +318,7 @@ items:
             href: concepts/service.md
       - name: Node group
         items:
-          - name: Cluster autoscaler
+          - name: Node group autoscaling
             href: concepts/node-group/cluster-autoscaler.md
           - name: Evicting pods from nodes
             href: concepts/node-group/node-drain.md

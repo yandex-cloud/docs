@@ -11,7 +11,11 @@ A backend group defines the settings based on which the L7 load balancer sends t
 * Settings for the endpoint health checks.
 * Rules for traffic distribution between endpoints.
 
-The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
+The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. 
+
+Weighted routing follows these steps: first, the system selects a backend based on its weight, ignoring the state of endpoints within backends. Then, within the selected backend, it selects a specific endpoint based on its load balancing policy. If the backend has no healthy endpoints, the load balancer will return the `503` error or close the connection. The exact behavior depends on your scenario and load balancer type. The system will not retry to select another backend.
+
+Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
 
 {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
@@ -77,7 +81,7 @@ For backends consisting of target groups, you can configure:
 
 The load balancer can establish unencrypted backend connections and backend connections with TLS encryption. When using TLS, the load balancer does not validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
 
-If the backend group type is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or 2 to exchange data between the load balancer and backend endpoints. Backend groups of the **{{ ui-key.yacloud.alb.label_proto-grpc }}** type only support HTTP/2 connections.
+If the backend group type is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or 2 to exchange data between the load balancer and backend endpoints. **{{ ui-key.yacloud.alb.label_proto-grpc }}** backend groups only support the HTTP/2 protocol.
 
 ### Balancing mode {#balancing-mode}
 
@@ -103,7 +107,7 @@ In the backend settings, you can specify the mode for distributing traffic betwe
 ### Panic mode {#panic-mode}
 
 Panic mode safeguards you against failure of all app instances in case the data load increases drastically.
-In this mode, the load balancer will distribute requests across all endpoints, ignoring health check results. You can set the percentage of healthy endpoints. If it goes below the specified value, panic mode will be activated. If set to `0`, panic mode will never be activated, and traffic will only be routed to healthy endpoints.
+In this mode, the load balancer will distribute requests across all endpoints, ignoring health check results. You can set the percentage of healthy endpoints. Values below this threshold will trigger the panic mode. If set to `0`, panic mode will never be activated, and traffic will only be routed to healthy endpoints.
 
 If you do not use the panic mode, failure of some backends will further increase the load on backends that are still running. If an application is running at its maximum capacity, all backends will fail, which will render your service completely unavailable. If you enable the panic mode, traffic is again distributed across all your endpoints. Although some requests might fail, the service stays operable. This provides time to increase the application's computing resources [automatically](../../compute/concepts/instance-groups/scale.md#auto-scale) or manually.
 
@@ -142,7 +146,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 

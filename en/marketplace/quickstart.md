@@ -10,6 +10,8 @@ description: Follow this guide to place your product on {{ marketplace-full-name
 * Applications for {{ managed-k8s-name }}
 * Solutions for {{ datalens-full-name }}
 
+![image](../_assets/marketplace/scheme-en.svg)
+
 ## Submit an application {#send-application}
 
 To become a {{ marketplace-short-name }} partner, fill out the form on the [Marketplace page](/marketplace) and describe your product. A detailed description of useful product functions and features will help us review your application faster. By submitting the request, you accept the Offer for Software Product Access on {{ marketplace-short-name }}:

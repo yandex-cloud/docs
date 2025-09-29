@@ -283,9 +283,11 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   {% include [tf-iam-binding-warning](../../../_includes/storage/tf-bucket-grant-warning.md) %}
 
+  {% include [tf-iam-binding-warning](../../../_includes/storage/resource-matching.md) %}
+
   **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
 
-  1. In the configuration file, describe the parameters of resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket_grant" "my_bucket_grant" {
@@ -360,7 +362,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket (obsolete)** {#tf-yandex_storage_bucket}
 
-  1. In the configuration file, describe the parameters of resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {

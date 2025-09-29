@@ -1,1 +1,0 @@
-Currently, you can request quota updates via the [management console]({{ link-console-main }}) or API. Going forward, quotas will be updatable via the CLI.

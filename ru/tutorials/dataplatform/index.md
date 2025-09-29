@@ -39,7 +39,7 @@ description: На странице представлен список прак�
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
 * [{#T}](airflow-test-smtp-notification.md)
-
+* [{#T}](airflow-spark-min.md)
 
 ## {{ CH }} {#clickhouse}
 
@@ -216,6 +216,8 @@ description: На странице представлен список прак�
 ## {{ msp-full-name }} {#spark}
 
 * [{#T}](airflow-and-spark.md)
+* [{#T}](metastore-and-spark.md)
+* [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

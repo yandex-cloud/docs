@@ -308,7 +308,8 @@ Parameters added at the dataset level are available in all charts created based 
    * **Type**: Parameter [data type](./data-types.md).
    * **Default value**. This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
 
-      * **Allow use in source settings**. Enable this option if you plan to use the parameter when accessing the [dataset source](./parametrization.md).
+   
+   * **Allow use in source settings**. Enable this option if you plan to use the parameter when accessing the [dataset source](./parametrization.md).
    * **Value validation**. This setting will be available if you enable the **Allow use in source settings** option. The default value vallidation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
 
 

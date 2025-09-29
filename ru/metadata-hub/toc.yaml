@@ -136,6 +136,8 @@ items:
               Перенос метаданных между кластерами {{ dataproc-name }} с помощью
               {{ metastore-name }}
             href: tutorials/metastore-import.md
+          - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+            href: tutorials/metastore-and-spark.md
       - name: Концепции
         items:
           - name: Кластеры {{ metastore-name }}

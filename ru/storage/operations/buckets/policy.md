@@ -326,7 +326,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Просмотреть политику {#view-policy}
 
-Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/#storage-config-viewer).
+Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/index.md#storage-config-viewer).
 
 Чтобы просмотреть примененную к бакету политику доступа:
 

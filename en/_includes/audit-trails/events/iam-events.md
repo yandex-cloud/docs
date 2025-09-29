@@ -17,6 +17,9 @@ Event name | Description
 `DetectLeakedCredential` | Detecting a secret in a public source
 `DisableService` | Revoking service access to resources of other cloud services
 `EnableService` | Granting service access to resources of other cloud services
+`mfa.CreateUserCredential` | Creating user credentials during verification of additional [MFA factors](../../../organization/concepts/mfa.md)
+`mfa.DeleteUserCredential` | Deleting user credentials during verification of additional [MFA factors](../../../organization/concepts/mfa.md)
+`mfa.UpdateUserCredential` | Updating user credentials during verification of additional [MFA factors](../../../organization/concepts/mfa.md)
 `oauthclient.CreateOAuthClient` | Creating an OAuth client
 `oauthclient.CreateOAuthClientSecret` | Creating a secret for an OAuth client
 `oauthclient.DeleteOAuthClient` | Deleting an OAuth client
@@ -31,8 +34,8 @@ Event name | Description
 `UpdateKey` | Updating a key pair
 `UpdateServiceAccount` | Updating a service account
 `UpdateServiceAccountAccessBindings` | Updating access permissions for a service account
-`workload.CreateFederatedCredential` | Creating [a link](../../../iam/concepts/workload-identity.md#federated-credentials) in a service account federation
-`workload.DeleteFederatedCredential` | Deleting a link from a service account federation
+`workload.CreateFederatedCredential` | Creating [federated credentials](../../../iam/concepts/workload-identity.md#federated-credentials) in a workload identity federation
+`workload.DeleteFederatedCredential` | Deleting federated credentials from a workload identity federation
 `workload.oidc.CreateFederation` | Creating a [workload identity federation](../../../iam/concepts/workload-identity.md)
 `workload.oidc.DeleteFederation` | Deleting a workload identity federation
 `workload.oidc.SetFederationAccessBindings` | Assigning access permissions to a workload identity federation

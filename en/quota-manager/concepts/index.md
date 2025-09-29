@@ -16,14 +16,9 @@ The diagram below illustrates the relationship between quotas and limits.
 
 Quotas are allocated and applied at the {{ yandex-cloud}} cloud level; they are distributed between all the folders and services.
 
-{{ quota-manager-name }} helps you monitor your quota values and usage automatically. Employ the API methods to get notified as soon as your consumption hits the threshold values. It means you will never be late to increase your quota or prevent an abnormal situation and overconsumption of resources.
+{{ quota-manager-name }} helps you monitor your quota values and usage automatically. Use the API methods to get notified as soon as your consumption hits the threshold values. It means you will never be late to increase your quota, prevent an abnormality or excessive consumption.
 
-Currently, you can use the following quota management interfaces: 
-
-* [Console]({{ link-console-quotas }}) and [API](../../quota-manager/api-ref/authentication.md): Getting info and submitting a quota update request.
-* [CLI](../cli-ref/index.md): Getting quota info.
-
-Going forward, quotas will be updatable via the CLI.
+You can choose between the following interfaces for quotas: the [console]({{ link-console-quotas }}), the [API](../../quota-manager/api-ref/authentication.md), and the [CLI](../cli-ref/index.md).
 
 ## Quota allocation {#quotas-allocation}
 
