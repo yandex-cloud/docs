@@ -1,12 +1,15 @@
 #### Quotas {#resmgr-quotas}
 
+
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Maximum number of clouds per organization 
-`resource-manager.clouds.count` | 1,000 ||
+`resource-manager.clouds.count` | 5 ||
 || Maximum number of folders per cloud 
 `resource-manager.folders.count` | 50 ||
 |#
+
+
 
 
 #### Limits {#resmgr-limits}

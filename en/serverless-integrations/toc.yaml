@@ -60,6 +60,10 @@ items:
                 href: operations/workflows/constructor/index.md
               - name: Integration steps
                 items:
+                  - name: '{{ foundation-models-name }}'
+                    href: operations/workflows/constructor/foundationmodelscall.md
+                  - name: AI agent
+                    href: operations/workflows/constructor/aiagent.md
                   - name: '{{ sf-short-name }}'
                     href: operations/workflows/constructor/functioncall.md
                   - name: '{{ serverless-containers-name }}'
@@ -74,8 +78,6 @@ items:
                     href: operations/workflows/constructor/grpccall.md
                   - name: '{{ objstorage-name }}'
                     href: operations/workflows/constructor/objectstorage.md
-                  - name: '{{ foundation-models-name }}'
-                    href: operations/workflows/constructor/foundationmodelscall.md
                   - name: '{{ ydb-name }}'
                     href: operations/workflows/constructor/ydbdocument.md
                   - name: '{{ yds-name }}'
@@ -86,8 +88,6 @@ items:
                     href: operations/workflows/constructor/yadisk.md
                   - name: '{{ sw-name }}'
                     href: operations/workflows/constructor/workflow.md
-                  - name: AI agent
-                    href: operations/workflows/constructor/aiagent.md
                   - name: Telegram bot
                     href: operations/workflows/constructor/telegrambot.md
               - name: Control steps
@@ -110,6 +110,8 @@ items:
                     href: operations/workflows/constructor/wait.md
               - name: Configuring a retry policy for a workflow
                 href: operations/workflows/constructor/setup-restart-policy.md
+              - name: Configuring an error transition rule
+                href: operations/workflows/constructor/setup-catch-rule.md
           - name: Getting workflow execution info
             items:
               - name: Getting a list of workflow executions
@@ -263,7 +265,7 @@ items:
           Setting up {{ sw-name }} integration with {{ tracker-full-name }}, {{
           foundation-models-full-name }}, and {{ postbox-full-name }}
         href: tutorials/tracker-yandexgpt-postbox-integrations.md
-      - name: Developing a Telegram bot with AI agent support
+      - name: Developing an AI agent-supported Telegram bot
         href: tutorials/telegram-ai-bot-workflows.md
       - name: >-
           AI-powered review of GitHub pull requests with {{ sw-name }} and

@@ -70,6 +70,7 @@ By default, the minimum number of resource units per availability zone is 2. You
 
 The number of resource units affects the cost of using the load balancer. For more information, see [{#T}](../pricing.md).
 
+{% include [alb-ig-zonal-inc](../../_includes/application-load-balancer/alb-ig-zonal-inc.md) %}
 
 ### Autoscaling settings {#lcu-scaling-settings}
 

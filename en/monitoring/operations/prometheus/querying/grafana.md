@@ -33,6 +33,8 @@ description: Follow this guide to read and visualize metrics with Grafana.
 
 ## Current limitations {#restrictions}
 
+{{ managed-prometheus-name }} works on TCP port 443. Its public IP address is 158.160.59.216. This address may change over time. To avoid losing access to the service, we recommend using additional addresses [from the list of available ones](../../../../overview/concepts/public-ips.md).
+
 The {{ prometheus-name }} [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) only supports the following endpoints:
 
 * `/api/v1/query`

@@ -419,7 +419,7 @@ will be displayed as:
 
 The Markdown syntax for an embedded link consists of the `[link text] and `(URL)` :
 
-`[DataLens](https://datalens.yandex.cloud)`
+`[DataLens](https://datalens.ru)`
 
 [{{ datalens-short-name }}]({{ link-datalens-main }})
 

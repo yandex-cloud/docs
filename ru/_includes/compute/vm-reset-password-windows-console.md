@@ -1,4 +1,4 @@
-1. В [консоли управления]({{link-console-main}}) выберите каталог, которому принадлежит виртуальная машина.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит виртуальная машина.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Выберите нужную ВМ.
 1. Справа вверху нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.compute.instances.button_action-password-reset }}**.

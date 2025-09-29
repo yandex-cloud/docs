@@ -7062,8 +7062,10 @@ default:
             label_type-balance: Balance
             label_type-cost: Cost
             label_type-expense: Due and payable
+            reset-period_value_annually: Annually
             reset-period_value_custom: Custom
             reset-period_value_monthly: Monthly
+            reset-period_value_quarter: Quarterly
             section_scope: Scope
           button_billing-payment-action: Switch to the paid version
           button_download-action: Download
@@ -7535,7 +7537,7 @@ default:
           copy-as-csv: Copy as CSV
         select:
           charts-count:
-            label: 'Graphs in row:'
+            label: Graphs in row
         settings-select:
           show-legend: Show legend
         tab:
@@ -7579,7 +7581,7 @@ default:
         save-changes: Save
       app:
         security:
-          control_rules_rWmUV: Control ruls
+          control_rules_rWmUV: Control rules
           label_workspace_12Kax: Workspace
       application:
         overview:
@@ -7832,7 +7834,7 @@ default:
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
           MfaPolicyPageLayout:
-            tab_groups: Target groups
+            tab_groups: Target user and groups
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Authentication settings
             required_mfa_6P4xN: >-
@@ -7921,7 +7923,7 @@ default:
           ControlsPage:
             exceptions_kw1u7: Exceptions
             kubernetes_jRCmt: Kubernetes®
-            security_control_r4yn7: Security control
+            security_control_r4yn7: Security control rules
           ControlsPageLayout:
             configuration_w7Kw7: Configuration
           ExceptionDrawer:
@@ -7968,7 +7970,7 @@ default:
             tabGeneralParams_xc2v2: Основные параметры
             tabKubernetes_rC2uU: KSPM
             tabResources_vJuSN: Ресурсы
-            tabStandards_wSeaW: Standards
+            tabStandards_wSeaW: Security compliance
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Alert sink
             billing_account_title_sU1Tj: Payment for resources
@@ -7983,12 +7985,12 @@ default:
             participantsTitle_1WfGq: Participants
             resourcesTitle_fE6qp: Resources
             saveAndContinue_9xKZY: Save and continue
-            standartsTitle_cxvJ8: Rule sets
+            standartsTitle_cxvJ8: Security compliance
           WorkspaceOnboardingPageLayout:
             pageTitle_ehdBw: Creating and configuring workspace
           WorkspacePageLayout:
             acl_tab: Access bindings
-            edit_action: Environment parameters
+            edit_action: Workspace parameters
             operations_tab: Operations
             overview_tab: Dashboard
           WorkspaceParticipantsForm:
@@ -8000,12 +8002,12 @@ default:
             actionDelete: Delete
             actionEditConnector: Edit connector
             buttonSelectCloudCatalog: Select cloud/catalog
-            title: Environment resources
+            title: Workspace resources
           WorkspaceSelect:
             create_action: Create workspace
           WorkspaceStandardsForm:
-            modules_title_s8LDi: Module activation
-            standards_title_dBBXP: Security standards
+            modules_title_s8LDi: Control modules
+            standards_title_dBBXP: Rule sets
       shared:
         components:
           severity_high_cahHH: High severity
@@ -8497,7 +8499,6 @@ default:
         field_secure-key-enabled: Access via secure token
         field_secure-key-type: Limit access by IP address
         label_access: Enable access to content
-        label_activate-provider-empty-container_action-text: Connect to provider
         label_additional: Additional settings
         label_balancer: L7 load balancer
         label_bucket: Bucket
@@ -8564,7 +8565,6 @@ default:
         value_backup: Backup
         value_certificate-custom: Use from Certificate Manager
         value_certificate-no: Don't use
-        value_certificate-status-ready: Issued
         value_do-not-use: Don't use
         value_host-header-custom: Custom
         value_host-header-default: Primary domain name

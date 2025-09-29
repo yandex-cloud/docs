@@ -264,7 +264,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a chart {#chart}
 
         ```bash
-        {{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>
+        https://datalens.yandex.cloud/embeds/chart#dl_embed_token=<token>
         ```
 
         Where `<token>` is the JWT.
@@ -272,7 +272,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a dashboard {#dashboard}
 
         ```bash
-        {{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>
+        https://datalens.yandex.cloud/embeds/dash#dl_embed_token=<token>
         ```
 
         Where `<token>` is the JWT.
@@ -286,7 +286,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a chart {#chart}
 
         ```html
-        <iframe src="{{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="https://datalens.yandex.cloud/embeds/chart#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
         ```
 
         Where:
@@ -300,7 +300,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a dashboard {#dashboard}
 
         ```html
-        <iframe src="{{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="https://datalens.yandex.cloud/embeds/dash#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
         ```
 
         Where:
@@ -312,6 +312,12 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         * `frameborder`: Dashboard border (yes or no).
 
       {% endlist %}
+
+      {% note info %}
+
+      If the website and app your chart or dashboard will be embedded into have a whitelist access policy, add the `https://datalens.ru` domain to the allowed list.
+
+      {% endnote %}
 
 ## Updating a token without losing your filter states {#token-update}
 
@@ -340,7 +346,7 @@ const iframe = document.getElementById('ID_IFRAME');
 iframe.contentWindow.postMessage({
     type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
     token: 'NEW_TOKEN'
-}, 'https://datalens.yandex.cloud/');
+}, 'https://datalens.ru/');
 ```
 
 When updating a token, keep in mind its expiration time.
@@ -356,7 +362,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
 - For a chart {#chart}
 
   ```html
-  <iframe src="{{ link-datalens-main }}/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="https://datalens.yandex.cloud/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
   ```
 
   Where:
@@ -368,7 +374,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
 - For a dashboard {#dashboard}
 
   ```html
-  <iframe src="{{ link-datalens-main }}/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="https://datalens.yandex.cloud/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
   ```
 
   Where:

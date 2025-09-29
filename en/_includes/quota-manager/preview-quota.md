@@ -1,7 +1,7 @@
 {% note info %}
 
-The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+This service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
-To manage quota update requests via the API, contact [support]({{ link-console-support }}).
+To manage quota update requests via the CLI and API, contact [support]({{ link-console-support }}).
 
 {% endnote %}

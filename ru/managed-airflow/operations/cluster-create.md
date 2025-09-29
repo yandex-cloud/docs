@@ -69,7 +69,7 @@ keywords:
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
-      * [Зоны доступности](../../overview/concepts/geo-scope) для размещения кластера.
+      * [Зоны доступности](../../overview/concepts/geo-scope.md) для размещения кластера.
       * Облачную сеть.
       * Подсеть в каждой из выбранных зон доступности.
 

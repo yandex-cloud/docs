@@ -3,6 +3,12 @@
 
 The [{{ cloud-logging-full-name }} plugin for {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) is an extension for {{ grafana-name }} that allows you to add [{{ cloud-logging-name }}](https://yandex.cloud/en/services/logging) as a data source.
 
+{% note info %}
+
+The {{ cloud-logging-name }} plugin works with {{ grafana-name }} versions 11.2.0 or earlier. Menu titles and UI elements may vary depending on the version.
+
+{% endnote %}
+
 To visualize logs:
 
 1. [Install the plugin](#install-plugin).

@@ -7,7 +7,6 @@ editable: false
 # {{ backup-full-name }} pricing policy
 
 
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -51,7 +50,11 @@ To optimize your costs, consider removing the backups of the deleted VMs or the 
 
 The size of resource backups may be less than the resource disk size, e.g., if the disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
 
+
+
 ## Prices for the Russia region {#prices}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -61,10 +64,12 @@ The monthly prices are based on 720 hours per month.
 
 
 
+
 {% include [usd-vm-backups](../_pricing/backup/usd-vm-backups.md) %}
 
 
 ### Backup storage {#prices-backups}
+
 
 
 
@@ -79,6 +84,6 @@ Let’s calculate the cost of {{ backup-name }} for one month for the following 
 
 
 
-{% include [usd-backup](../_pricing_examples/backup/usd.md) %}
 
+{% include [usd-backup](../_pricing_examples/backup/usd.md) %}
 

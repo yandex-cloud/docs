@@ -9,7 +9,7 @@ description: Access management in {{ websql-name }}, a service for working with 
 In this section, you will learn:
 
 * [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
+* [What roles this service has](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -24,7 +24,7 @@ To assign a role for a resource, you need the `websql.admin` role or one of the 
 
 You can also assign roles in the [{{ websql-name }} interface]({{ websql-link }}) for [saved](../concepts/index.md#saved-queries) and [historical queries](../concepts/index.md#query-log) you published.
 
-## What roles exist in this service {#roles-list}
+## What roles this service has {#roles-list}
 
 You can use {{ websql-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage query access permissions.
 

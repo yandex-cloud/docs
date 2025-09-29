@@ -39,6 +39,10 @@ items:
         href: tutorials/index.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: tutorials/airflow-automation.md
+      - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+        href: tutorials/metastore-and-spark.md
+      - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
+        href: tutorials/airflow-spark-min.md
       - name: Использование {{ objstorage-full-name }} в {{ msp-name }}
         href: tutorials/spark-objstorage-integration.md
   - name: Концепции

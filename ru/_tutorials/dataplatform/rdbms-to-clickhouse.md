@@ -45,7 +45,7 @@
      * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 
-  1. [Выдайте роль](../../managed-postgresql/operations/grant#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
+  1. [Выдайте роль](../../managed-postgresql/operations/grant.md#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
 
 - {{ TF }} {#tf}
 

@@ -53,7 +53,7 @@ When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sen
 {% include notitle [usd.md](../_pricing/security-deck/dspm/usd.md) %}
 
 
-#### Scanning by the number of files {#scan-by-amount}
+#### File scan (by number) {#scan-by-amount}
 
 Image scanning is charged separately.
 
@@ -66,7 +66,7 @@ Image scanning is charged separately.
 
 
 
-{% include notitle [usd-scan-by-amount.md](../_pricing/security-deck/dspm/usd-scan-by-image-amount.md) %}
+{% include notitle [usd.md](../_pricing/security-deck/dspm/usd-scan-by-image-amount.md) %}
 
 
 #### Cost calculation example {#amount-example}

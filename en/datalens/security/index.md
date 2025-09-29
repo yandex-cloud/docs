@@ -22,6 +22,7 @@ When using a firewall, allow access to external resources required to run {{ dat
 * `avatars.mds.yandex.net/*`
 * `mc.yandex.ru/*`
 * `*.yandex.ru/*`
+* `datalens.ru/*`
 
 
 

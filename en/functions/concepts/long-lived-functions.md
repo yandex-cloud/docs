@@ -7,8 +7,6 @@ description: This page describes some aspects related to long-lived functions in
 
 A _long-lived function_ is one with a timeout of over ten minutes in its [version](./function.md#version) settings. For the maximum possible timeout value, see [{#T}](./limits.md#functions-limits).
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 The longer the function runs, the higher is the probability of related network failures. When invoking long-lived functions, we recommend using [asynchronous invocation](./function-invoke-async.md).
 
 ### Forced termination of a long-lived function instance {#possible-termination}

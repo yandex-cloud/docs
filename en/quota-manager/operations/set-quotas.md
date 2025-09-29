@@ -8,8 +8,6 @@ title: How to change quotas
 
 Potentially, you can change your quotas ​​up to the limit values, i.e., the cloud platform's ceiling.
 
-{% include [request-quota-restriction](../../_includes/quota-manager/request-quota-restriction.md) %}
-
 {% include [request-quota-roles](../../_includes/quota-manager/request-quota-roles.md) %}
 
 ## Requesting quota updates {#request-quota-change}
@@ -19,6 +17,10 @@ Potentially, you can change your quotas ​​up to the limit values, i.e., the 
 - Management console {#console}
 
   {% include [request-quota](../../_includes/quota-manager/request-quota.md) %}
+
+- CLI {#cli}
+
+  {% include [request-quota-cli](../../_includes/quota-manager/request-quota-cli.md) %}
 
 - API {#api}
 
@@ -44,6 +46,16 @@ There is no reset to default values in {{ quota-manager-name }}.
   1. Expand **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
   1. Select the request of interest and view the responses from support and related operations.
 
+- CLI {#cli}
+
+  1. View the status of your quota update request:
+      
+      {% include [list-quota-requests-cli](../../_includes/quota-manager/list-quota-requests-cli.md) %}
+
+  1. See the list of operations with the request:
+
+      {% include [list-oper-quota-request-cli](../../_includes/quota-manager/list-oper-quota-request-cli.md) %}
+
 - API {#api}
 
   To view the quota update request status, use the [get](../api-ref/QuotaRequest/get.md) REST API method for the [QuotaRequest](../api-ref/QuotaRequest/) resource or the [QuotaRequest/Get](../api-ref/grpc/QuotaRequest/get.md) gRPC API call.
@@ -61,6 +73,10 @@ There is no reset to default values in {{ quota-manager-name }}.
   1. In the [support]({{ link-console-support }}) section, select **{{ ui-key.yacloud_org.support.switch_tickets }}**.
   1. In the **{{ ui-key.yacloud_org.support.tickets.table.label_column_ticket_type }}** filter list, select **{{ ui-key.support-center.search.common.title_suggestion-quotas }}**.
 
+- CLI {#cli}
+
+  {% include [list-quota-requests-cli](../../_includes/quota-manager/list-quota-requests-cli.md) %}
+
 - API {#api}
 
   To view a list of quota update requests, use the [List](../api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](../api-ref/QuotaRequest/) resource or the [QuotaRequest/list](../api-ref/grpc/QuotaRequest/list.md) gRPC API call.
@@ -77,6 +93,10 @@ There is no reset to default values in {{ quota-manager-name }}.
   1. In the right-hand panel, select **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
   1. Expand **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
   1. Select the request of interest and click **{{ ui-key.yacloud_components.helpfeedbackdialog.button_close }}**
+
+- CLI {#cli}
+      
+  {% include [cancel-quota-requests-cli](../../_includes/quota-manager/cancel-quota-requests-cli.md) %}
 
 - API {#api}
 

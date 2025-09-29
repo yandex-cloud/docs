@@ -778,6 +778,8 @@ items:
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md
+      - name: Добавление описания к чарту
+        href: operations/chart/add-description.md
       - name: Версионирование
         href: concepts/chart/versioning.md
       - name: Экспорт данных из чартов

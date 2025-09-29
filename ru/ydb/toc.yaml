@@ -499,8 +499,8 @@ items:
         href: ./terraform/serverless-database.md
       - name: Создание и изменение параметров выделенной базы данных
         href: ./terraform/dedicated-database.md
-      - name: Создание строковых таблиц в базе данных
-        href: ./terraform/row-tables.md
+      - name: Создание строковых и колоночных таблиц в базе данных
+        href: ./terraform/tables.md
       - name: Создание документных таблиц в базе данных
         href: ./terraform/dynamodb-tables.md
       - name: Создание потока изменений таблицы

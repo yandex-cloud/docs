@@ -24,6 +24,8 @@
 1. При определении датасета используйте кнопку **Вставить параметр**.
 
 
+
 Пример использования параметров в источнике см. в практическом руководстве [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
+
    
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

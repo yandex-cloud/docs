@@ -41,6 +41,15 @@ The support cost includes:
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+## Component version requirements {#version-requirements}
+
+Starting with {{ k8s }} version 1.30, for a group of nodes with GPUs to work correctly without pre-installed drivers, you will need the following:
+
+* GPU Operator `24.9.0` or higher.
+* NVIDIA driver `550.144.03` or higher.
+
+Older version components may cause driver compilation errors.
+
 ## Install the GPU Operator {#install-gpu-operator}
 
 1. {% include [helm-install](../../_includes/managed-kubernetes/helm-install.md) %}
@@ -61,7 +70,11 @@ The support cost includes:
 
     {% note info %}
 
-    For the {{ managed-k8s-name }} `{{ a100-epyc }}` (`gpu-standard-v3`) node group platform, use [driver version `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+    Recommended driver versions:
+
+    * For node groups {{ k8s }} 1.30 or higher: [`550.144.03`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) or higher.
+
+    * For node groups on {{ a100-epyc }} (`gpu-standard-v3`): [`515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
 
     {% endnote %}
 
@@ -87,9 +100,9 @@ They should contain a message saying that the driver has been installed successf
 ```text
 Defaulted container "nvidia-driver-ctr" out of: nvidia-driver-ctr, k8s-driver-manager (init)
 DRIVER_ARCH is x86_64
-Creating directory NVIDIA-Linux-x86_64-535.54.03
+Creating directory NVIDIA-Linux-x86_64-<driver_version>
 Verifying archive integrity... OK
-Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 535.54.03
+Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 <driver_version>
 
 ...
 
@@ -104,6 +117,27 @@ Done, now waiting for signal
 ```
 
 Now, you can run GPU-based workloads by following the [Running workloads with GPUs](../../managed-kubernetes/tutorials/running-pod-gpu.md) guide.
+
+## Troubleshooting {#troubleshooting}
+
+### Driver compilation errors {#compilation-error}
+
+If you get compilation errors when installing drivers:
+
+1. Make sure you are running GPU Operator 24.9.0 or higher:
+
+    ```bash
+    helm list -n gpu-operator
+    ```
+
+1. Use precompiled drivers:
+
+    ```bash
+    helm upgrade gpu-operator nvidia/gpu-operator \
+      --namespace gpu-operator \
+      --set driver.usePrecompiled=true \
+      --set driver.version=550.144.03
+    ```
 
 ## Delete the resources you created {#clear-out}
 

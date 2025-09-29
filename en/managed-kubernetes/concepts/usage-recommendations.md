@@ -34,6 +34,13 @@ Test the proposed strategies in a test environment before migrating them to `PRO
 * Minimize or eliminate resubscription of resources on the nodes, especially of RAM.
 * Configure correct [health checks](../../network-load-balancer/concepts/health-check.md) for load balancers.
 * To make your cluster more robust, [create node groups](../operations/node-group/node-group-create.md) with [automatic scaling](autoscale.md) in multiple availability zones.
+
+  {% note tip %}
+
+  {{ managed-k8s-name }} uses {{ compute-full-name }} [VM groups](../../compute/concepts/instance-groups/index.md) as cluster node groups. See the [description of instance groups during a zonal incident and our mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
+
+  {% endnote %}
+
 * Deploy your `Deployment` and `StatefulSet` type services in multiple instances in different availability zones. Use the [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) and [the AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) strategies to ensure high service availability and efficient usage of {{ k8s }} cluster resources.
 
   Use the label combinations below for all strategies:

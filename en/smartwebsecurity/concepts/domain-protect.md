@@ -42,11 +42,11 @@ You can connect multiple domains to a proxy server. For details on the number of
 
 When setting up the domain, you need to specify:
 
-* _Domain address_, which is your website or web application address purchased from your DNS or hosting provider. You must be authorized to manage DNS A records.
+* _Domain address_, which is your website or web application address purchased from your DNS or hosting provider. You must be authorized to manage DNS A records. You can use any domain name in [ASCII](https://wikipedia.org/wiki/ASCII) or [Punycode](https://wikipedia.org/wiki/Punycode) format.
 
 * _Connection type_ used by your website, HTTPS or HTTP. The recommended option is HTTPS as it establishes an encrypted connection between a user and your application.
 
-    When selecting the HTTPS protocol, you need to add a TLS certificate and private key in PEM format. {{ sws-name }} checks the validity period and whether the added certificate matches the key. An invalid certificate will not be uploaded.
+    When selecting the HTTPS protocol, you need to add a TLS certificate and a private key in [PEM](https://wikipedia.org/wiki/Privacy-Enhanced_Mail) format. {{ sws-name }} will check the certificate's validity period and match with the key. An invalid certificate will not be uploaded.
 
     The certificate and key are used for terminating a TLS connection from a user to your web app. To verify traffic security, {{ sws-name }} will encrypt and analyze traffic.
 
@@ -58,7 +58,13 @@ When setting up the domain, you need to specify:
   
 * _Target resources_, which are web servers or backends to receive verified and secure traffic. For target resources, you must specify the IP address and port used by your web application.
 
-    To send encrypted traffic from {{ sws-name }} to your application, enable HTTPS and add a TLS certificate. The certificate’s validity is not checked, so you need to control it yourself.
+    To send encrypted traffic from {{ sws-name }} to your application:
+    
+    * Enable HTTPS.
+
+    * Specify an [SNI](https://wikipedia.org/wiki/Server_Name_Indication), a host domain name domain for the TLS Server Name Indication extension. You can use any domain name in ASCII or Punycode format. 
+    
+    * Add a trusted root CA for the certificate chain installed on backend endpoints. X.509 certificates in PEM format are supported. The certificate’s validity is not checked, so you need to control it yourself.
 
 After setting up the domain, you can connect a [security profile](profiles.md) to it. A security profile contains rules for checking and filtering requests to your web application.
 

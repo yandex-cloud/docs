@@ -20,7 +20,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 ## Deploy a demo workbook {#create-template}
 
 
-1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.ru/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
 
 
 

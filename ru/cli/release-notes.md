@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.168.0 (29.09.25) {#version0.168.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ container-registry-name }} {#cr-0.168.0}
+
+В команду `yc container image list` добавлен параметр `--page-token` для постраничного вывода списка образов.
+
+##### {{ baremetal-name }} {#baremetal-0.168.0}
+
+В выводе команды `yc baremetal configuration list` исправлено отображение количества ядер и добавлено значение частоты процессора.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.167.0 (25.09.25) {#version0.167.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -42,8 +56,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ org-name }}
 
 * Исправлены команды `yc organization-manager idp`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.166.0 (18.09.25) {#version0.166.0}
 

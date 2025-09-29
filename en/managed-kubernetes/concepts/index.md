@@ -8,7 +8,7 @@ description: The main entity {{ k8s }} operates is a {{ k8s }} cluster. {{ k8s }
 
 [{{ k8s }}](https://kubernetes.io/) is a containerized application management system. {{ k8s }} provides tools for working with clusters to automate deployment, scaling, and management of applications in containers.
 
-The main entity {{ k8s }} operates is a _{{ k8s }}_ cluster.
+The main entity {{ k8s }} operates is a _{{ k8s }} cluster_.
 
 ## {{ k8s }} cluster {#kubernetes-cluster}
 
@@ -121,11 +121,13 @@ You can also prohibit master configuration updates.
 
 ## Node group {#node-group}
 
-A _node group_ is a group of VMs in a {{ k8s }} cluster that have the same configuration and run the user's containers.
+A _node group_ is a {{ compute-full-name }} [instance group](../../compute/concepts/instance-groups/index.md) in a {{ k8s }} cluster, where VM instances share the same configuration and are used to run the user's containers.
 
 {% include [node-vm-explained-short](../../_includes/managed-kubernetes/node-vm-explained-short.md) %}
 
 {% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
+
+See also the [description of instance groups during a zonal incident and our mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
 
 ### Configuration {#config}
 

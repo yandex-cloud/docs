@@ -41,7 +41,7 @@
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
-    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}`. В [параметрах](../../data-transfer/operations/endpoint/target/clickhouse#additional-settings) эндпоинта укажите политику очистки `Drop` или `Truncate`, чтобы данные на приемнике не дублировались при копировании.
+    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}`. В [параметрах](../../data-transfer/operations/endpoint/target/clickhouse.md#additional-settings) эндпоинта укажите политику очистки `Drop` или `Truncate`, чтобы данные на приемнике не дублировались при копировании.
 
 
 - {{ TF }} {#tf}

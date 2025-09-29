@@ -3,18 +3,18 @@ href: index.yaml
 items:
   - name: Физическим лицам
     items:
-      - name: Шаг 1. Регистрация
+      - name: Начало работы
+        href: individuals/index.md
+      - name: Шаг 1. Создание платежного аккаунта
         href: individuals/registration.md
-      - name: Шаг 2. Оплата
+      - name: Шаг 2. Пополнение счета и контроль расходов
         href: individuals/payments.md
-      - name: Шаг 3. Иерархия ресурсов
-        href: individuals/resources-hierarchy.md
-      - name: Шаг 4. Выбор тарифного плана
+      - name: Шаг 3. Выбор тарифного плана поддержки
         href: individuals/service-plan.md
-      - name: Шаг 5. Настройка безопасной сетевой конфигурации
-        href: individuals/configure-network.md
-      - name: Шаг 6. Логирование
-        href: individuals/logs.md
+      - name: Шаг 4. Создание виртуальной машины и подключение к ней
+        href: individuals/create-vm.md
+      - name: Что дальше?
+        href: individuals/what-is-next.md
   - name: Юридическим лицам
     items:
       - name: Шаг 1. Регистрация

@@ -16,15 +16,13 @@ The most important difference between these types of notifications is the amount
 
 ## Notifying the Docker image code in an active instance of a long-lived container {#notify-when-active}
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 This type of notification is sent to the Docker image code if the following conditions are met:
 
 * The container is a [long-lived](./long-lived-containers.md) one.
 * More than ten minutes are left before expiry of the timeout specified in the container revision settings.
 * The container instance is currently active, i.e., it is processing at least one call.
 
-The Docker image code receives a notification about the upcoming forced termination of the container instance ten minutes before the forced termination. The `Termination signal` — [SIGTERM](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGTERM) [POSIX signal](https://man7.org/linux/man-pages/man7/signal.7.html) is sent as the notification.
+The Docker image code receives a notification about the upcoming forced termination of the container instance ten minutes before the forced termination. The [SIGTERM](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGTERM) [POSIX signal](https://man7.org/linux/man-pages/man7/signal.7.html) (`Termination signal`) is sent as the notification.
 
 Add to the application code in the Docker image a listener that will respond to the incoming `SIGTERM` POSIX signal from the operating system. This will allow you to prevent data loss in case of abnormal abort of call processing due to forced termination of the container instance.
 

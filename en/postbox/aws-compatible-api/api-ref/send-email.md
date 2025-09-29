@@ -169,6 +169,7 @@ Possible errors:
 #|
 || **Error code** | **Description** ||
 || `400 BadRequestException` | The request contains invalid headers or parameters. ||
+|| `400 BadRequestException: sender is not allowed` | The [sender](../../concepts/glossary.md#sender) is not listed among the allowed senders in the address settings. ||
 || `400 AccountSuspendedException` | For this service account, sending email is disabled permanently. ||
 || `400 SendingPausedException` | For this service account, sending email is disabled temporarily. ||
 || `400 MessageRejected` | The email contains invalid data. ||

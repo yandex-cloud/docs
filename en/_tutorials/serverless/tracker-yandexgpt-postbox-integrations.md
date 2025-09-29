@@ -237,6 +237,10 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
     - Option 1
 
+      {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+      ![tracker-yandexgpt-postbox-integrations-first-workflow](../../_assets/tutorials/tracker-yandexgpt-postbox-integrations-first-workflow.png)
+
       The suggested workflow will analyze the {{ tracker-name }} issues in the specified queue, generate and publish a progress report for these issues:
 
       1. Analyzing issues with specified tag in a given {{ tracker-name }} queue:
@@ -363,12 +367,16 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
       * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue you created the test issues in.
       * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain. Example: `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address the workflow will send an email to with a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.
 
     - Option 2
+
+      {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+      ![tracker-yandexgpt-postbox-integrations-second-workflow](../../_assets/tutorials/tracker-yandexgpt-postbox-integrations-second-workflow.png)
 
       The suggested workflow will analyze closed {{ tracker-name }} issues for the last week, generate and publish a progress report for these issues:
       1. Analysis of issues closed over the past week:
@@ -495,7 +503,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
       * `<secret_ID>`: Previously saved [secret](../../lockbox/concepts/secret.md) ID with the application's OAuth token.
       * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain. Example: `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `fetch_comments`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.

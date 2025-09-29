@@ -43,6 +43,10 @@ When creating a group, you need to describe the following:
 
 An instance group created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../../vpc/).
 
+## See also {#see-also}
+
+* [{#T}](zonal-inc/overview.md)
+
 ## Use cases {#examples}
 
 * [{#T}](../../tutorials/vm-autoscale/index.md)
