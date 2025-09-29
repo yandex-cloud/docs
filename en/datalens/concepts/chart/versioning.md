@@ -111,11 +111,11 @@ A new version is automatically created:
 * In the draft edit mode or non-current chart version edit mode, after you click **Save as draft** (which creates a new draft version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** (which creates a new current version).
 * In draft or non-current chart version view mode, after you click **Make current**.
 
-Below are chart configuration changes that create a new version once they are saved:
+Chart configuration changes that, after saving, create a new version:
 
-* Editing the chart settings accessible by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
+* Editing the chart settings you can access by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
 * Adding, renaming, or deleting chart fields.
-* Adding or deleting fields in chart sections.
+* Adding or deleting chart section fields.
 
 ## Editing versions {#version-edit}
 
@@ -150,6 +150,7 @@ To edit an outdated version, select it from the list of versions. To save edits 
 
 ## Limitations {#restrictions}
 
+* You can only get change history for the last three months.
 * The change history only contains a list of chart versions and includes the version type, save date and time, and the author of the edits.
 * Chart versions do not include changes to access permissions; this operation is performed separately from chart edits.
 * Versions do not display a list of changes. You can only view the saved status of the chart configuration.

@@ -23,11 +23,7 @@ To create a color palette:
 
    - Gradient color palette
 
-     {% note info %}
-
-     Use a gradient color palette in charts for numeric values.
-
-     {% endnote %}
+     The gradient color palette is used in charts for numerical indicators.
 
      1. Go to **Gradient color palettes** and click **+ Add palette**.
      1. In the window that opens, enter the following parameters:
@@ -41,11 +37,7 @@ To create a color palette:
 
    - Color palette
 
-     {% note info %}
-
-     Use a color palette in charts for discrete values, such as measure names and dimension values.
-
-     {% endnote %}
+     The color palette is used in charts for discrete values: indicator names, measurement values. 
 
      1. Go to **Color palettes** and click**+ Add palette**.
      1. In the window that opens, enter the following parameters:

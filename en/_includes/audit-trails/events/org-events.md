@@ -18,11 +18,12 @@ Event name | Description
 `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
 `DeleteUserSshKey` | Deleting an SSH user key
 `idp.AddUserpoolDomain` | Associating a domain with a user pool
+`idp.ChangeOneTimePassword` | Updating a one-time password
 `idp.CreateUser` | Creating a local user
 `idp.CreateUserpool` | Creating a user pool
 `idp.DeleteUser` | Deleting a local user
 `idp.DeleteUserpool` | Deleting a user pool
-`idp.DeleteUserpoolDomain` | Deleting a domain association with a user pool
+`idp.DeleteUserpoolDomain` | Deleting domain's association with a user pool
 `idp.ReactivateUser` | Activating a local user
 `idp.SetUserPassword` | Setting a password for a local user
 `idp.SetUserpoolAccessBindings` | Assigning access permissions for a user pool
@@ -46,10 +47,10 @@ Event name | Description
 `SetOrganizationAccessBindings` | Assigning access permissions for an organization
 `saml.AddFederationDomain` | Associating a [domain](../../../organization/concepts/domains.md) with a federation
 `saml.CreateApplication` | Creating a [SAML](../../../organization/concepts/add-federation.md) app
-`saml.CreateSignatureCertificate` | Creating a certificate to use for signing authentication requests
+`saml.CreateSignatureCertificate` | Creating a signature certificate
 `saml.DeleteApplication` | Deleting a SAML app
 `saml.DeleteFederationDomain` | Deleting a domain
-`saml.DeleteSignatureCertificate` | Deleting a certificate to use for signing authentication requests
+`saml.DeleteSignatureCertificate` | Deleting a signature certificate
 `saml.ReactivateApplication` | Activating a SAML app
 `saml.ReactivateFederatedUserAccounts` | Activating a federated user
 `saml.SetApplicationAccessBindings` | Assigning access permissions for a SAML app
@@ -58,7 +59,7 @@ Event name | Description
 `saml.UpdateApplication` | Updating a SAML app
 `saml.UpdateApplicationAccessBindings` | Updating access permissions for a SAML app
 `saml.UpdateApplicationAssignments` | Updating a list of SAML app users
-`saml.UpdateSignatureCertificate` | Updating a certificate to use for signing authentication requests
+`saml.UpdateSignatureCertificate` | Updating a signing certificate
 `saml.ValidateFederationDomain` | Validating a domain to associate with a federation 
 `UpdateGroup` | Updating a user group
 `UpdateGroupAccessBindings` | Updating access permissions for a user group

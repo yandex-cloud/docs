@@ -55,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endlist %}
 
-1. В дополнительной сети [создайте](../../vpc/operations/security-group-create) группу безопасности и назначьте ее `VM-2`. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу правила:
+1. В дополнительной сети [создайте](../../vpc/operations/security-group-create.md) группу безопасности и назначьте ее `VM-2`. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу правила:
 
     {% list tabs group=traffic %}
 

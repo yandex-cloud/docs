@@ -139,6 +139,8 @@ items:
             href: operations/connection/create-prometheus.md
           - name: Creating a Snowflake connection
             href: operations/connection/create-snowflake.md
+          - name: Creating a {{ TR }} connection
+            href: operations/connection/create-trino.md
       - name: Files and services
         items:
           - name: Creating a connection to files

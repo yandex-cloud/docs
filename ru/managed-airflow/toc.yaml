@@ -67,6 +67,8 @@ items:
             href: tutorials/airflow-auto-tasks.md
           - name: '{{ msp-name }}: автоматизация работы'
             href: tutorials/spark-automation.md
+          - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
+            href: tutorials/airflow-spark-min.md
       - name: Другие руководства
         items:
           - name: >-

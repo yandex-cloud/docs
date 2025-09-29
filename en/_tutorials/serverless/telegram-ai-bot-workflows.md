@@ -345,6 +345,10 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 
 Set up a workflow to enable the bot to read and save the chat history, call the AI agent, and send responses to Telegram.
 
+{% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+![telegram-ai-bot-workflows-workflow](../../_assets/tutorials/telegram-ai-bot-workflows-workflow.png)
+
 
 ### Prepare a YaWL specification {#prepare-spec-wf}
 

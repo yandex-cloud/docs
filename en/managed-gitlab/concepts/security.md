@@ -34,7 +34,7 @@ You can integrate a pipeline into your projects in the following ways:
 * Use the [`Compliance framework and pipeline` mechanism](https://docs.gitlab.com/ee/user/project/settings/index.html#compliance-frameworks). You can apply it to any of the group's projects. It is available for the `Ultimate` license.
 * Copy the pipeline sections to the `.gitlab-ci.yml` files in your projects.
 
-## Extra materials {#additional-content}
+## Additional resources {#additional-content}
 
 See the pipeline security examples prepared as part of [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library):
 * [Detecting vulnerabilities in CI/CD (`Ultimate` license)](https://github.com/yandex-cloud-examples/yc-webinar-secure-cicd-with-gitlab/tree/main/ultimate_secure_ci_cd).

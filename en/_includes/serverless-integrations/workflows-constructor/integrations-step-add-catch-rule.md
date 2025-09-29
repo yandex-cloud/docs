@@ -1,0 +1,1 @@
+Optionally, [add](../../../serverless-integrations/operations/workflows/constructor/setup-catch-rule.md) an [error transition rule](../../../serverless-integrations/concepts/workflows/yawl/index.md#catchrule) for the step you are creating to handle errors you may get during this step.

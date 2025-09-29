@@ -14,6 +14,7 @@ description: Различные сценарии использования {{ s
 
 * [{#T}](./metastore-import.md)
 * [{#T}](./sharing-tables.md)
+* [{#T}](./metastore-and-spark.md)
 
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

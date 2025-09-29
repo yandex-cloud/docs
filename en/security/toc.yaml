@@ -65,7 +65,7 @@ items:
         href: standard-360/monitoring.md
       - name: Data encryption and protection
         href: standard-360/encryption-data-protection.md
-      - name: Integrations and third-party services
+      - name: Integrations and third-party solutions
         href: standard-360/integrations.md
   - name: Tutorials
     items:
@@ -270,7 +270,7 @@ items:
             href: tutorials/app-security/nginx-ingress-certificate-manager.md
           - name: Building a CI/CD pipeline in {{ GL }} with serverless products
             href: tutorials/app-security/ci-cd-serverless.md
-          - name: Creating an interactive serverless application using WebSocket
+          - name: Building an interactive serverless application using WebSocket
             href: tutorials/app-security/websocket-app.md
           - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
             items:

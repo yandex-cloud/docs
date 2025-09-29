@@ -16,8 +16,6 @@ The most important difference between these types of notifications is the amount
 
 ## Notifying the custom code in an active instance of a long-lived function {#possible-termination}
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 This type of notification is sent to the custom code of the function if the following conditions are met:
 
 * The function is a [long-lived](./long-lived-functions.md) one.
@@ -28,7 +26,7 @@ The function custom code receives a notification about the upcoming forced termi
 
 The default notification signal is [`SIGTERM` (Termination signal)](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGTERM). 
 
-Instead of `SIGTERM`, the custom code of the function may get the [`SIGINT` (Interrupt from keyboard)](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGINT) signal. To do this, you need to add the `X_YCF_GRACEFUL_SHUTDOWN_SIGNAL_SIGINT` environment variable set to `1` to the function version.
+Instead of `SIGTERM`, the function's custom code may get the [`SIGINT` (Interrupt from keyboard)](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGINT) signal. To do this, you need to add the `X_YCF_GRACEFUL_SHUTDOWN_SIGNAL_SIGINT` environment variable set to `1` to the function version.
 
 If the [runtime environment](./runtime/index.md#runtimes) supports this, add to the function a listener that will respond to the incoming POSIX signal from the operating system (`SIGTERM` or `SIGINT`). This will allow you to prevent data loss in case of abnormal abort of call processing due to forced termination of the function instance.
 

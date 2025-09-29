@@ -1,1 +1,1 @@
-{% include [mikrotik](../../_tutorials/routing/mikrotik.md) %}
+{% include [mikrotik](../../_tutorials/infrastructure/mikrotik.md) %}

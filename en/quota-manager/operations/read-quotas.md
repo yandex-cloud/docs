@@ -46,10 +46,10 @@ title: How to view quotas
     Here is an example:
 
     ```bash
-    yc quota-manager quota-limit get --quota-id=compute.disks.count --resource-id=b1gflhy********  --resource-type=resource-manager.cloud
+    yc quota-manager quota-limit get --quota-id=compute.disks.count --resource-id=b1gia87mbaom********  --resource-type=resource-manager.cloud
     ```
 
-    In the output, you will get the quota value and usage info for the number of {{ compute-name }} disks in the `b1gflhy********` cloud:
+    In the output, you will get the quota value and usage info for the number of {{ compute-name }} disks in the `b1gia87mbaom********` cloud:
 
     ```bash
     quota_id: compute.disks.count

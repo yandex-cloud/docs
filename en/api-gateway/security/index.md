@@ -5,7 +5,7 @@ description: Access management in {{ api-gw-full-name }}, an API gateway service
 
 # Access management in {{ api-gw-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. With no roles assigned, a user cannot perform most operations.
+{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. With no roles assigned, a user cannot perform most operations.
 
 To allow access to {{ api-gw-name }} resources (API gateways), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
 
@@ -23,7 +23,7 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 ## Assigning roles {#grant-roles}
 
-To assign a user a role for the cloud:
+To assign a role for the cloud:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
@@ -37,9 +37,11 @@ You can assign a role for an [API gateway](../concepts/index.md) via the {{ yand
 
 ## Roles existing in this service {#roles-list}
 
-The list below shows {{ api-gw-name }} roles.
+The list below shows all roles used for access control in {{ api-gw-name }}.
 
 ### Service roles {#service-roles}
+
+{% include [api-gateway](../../_mermaid/roles/api-gateway.md) %}
 
 #### api-gateway.auditor {#api-gateway-auditor}
 

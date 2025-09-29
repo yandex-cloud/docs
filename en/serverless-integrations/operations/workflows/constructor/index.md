@@ -11,6 +11,8 @@ You can configure the following workflow steps using the constructor:
 
 ## Integration steps {#integration-steps}
 
+* [{{ foundation-models-name }}](./foundationmodelscall.md)
+* [AI agent](./aiagent.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
 * [{{ postbox-short-name }}](./postbox.md)
@@ -18,7 +20,6 @@ You can configure the following workflow steps using the constructor:
 * [HTTP](./httpcall.md)
 * [gRPC](./grpccall.md)
 * [{{ objstorage-name }}](./objectstorage.md)
-* [{{ foundation-models-name }}](./foundationmodelscall.md)
 * [{{ ydb-name }}](./ydbdocument.md)
 * [{{ yds-name }}](./yds.md)
 * [{{ message-queue-name }}](./ymq.md)
@@ -41,3 +42,4 @@ You can configure the following workflow steps using the constructor:
 ## General settings {#general-settings}
 
 * [{#T}](./setup-restart-policy.md)
+* [{#T}](./setup-catch-rule.md)

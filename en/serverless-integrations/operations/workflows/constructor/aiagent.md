@@ -10,7 +10,7 @@ description: Follow this guide to add integration with an AI agent to a {{ sw-fu
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![foundation-models-icon](../../../../_assets/foundation-models-icon.svg) **AI agent** element to the appropriate workflow location in the constructor window.
+  1. From the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_integration-group-label }}** section on the left side of the screen, drag the ![foundation-models-icon](../../../../_assets/foundation-models-icon.svg) **AI agent** element to the relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
   1. In the workflow schema window, click the added **AI agent** section to select it.
@@ -25,7 +25,7 @@ description: Follow this guide to add integration with an AI agent to a {{ sw-fu
           1. Optionally, in the **Backstory** field, specify a backstory defining the AI agent's personality and enriching the context, e.g., `you find the best value for money car parts and briefly explain your choice`.
           1. Optionally, under **Knowledge sources**, click ![plus](../../../../_assets/console-icons/plus.svg) to specify knowledge sources for the AI agent. Select:
               * `Text`: For a text-based knowledge source.
-              * `File `: For a file-based knowledge source:
+              * `File`: For a file-based knowledge source:
 
                   1. Select the type of the knowledge source file.
                   1. Select a data source:
@@ -55,6 +55,7 @@ description: Follow this guide to add integration with an AI agent to a {{ sw-fu
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}
   1. {% include [integrations-step-output-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-output-tab.md) %}
+  1. {% include [integrations-step-add-catch-rule](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-add-catch-rule.md) %}
 
 {% endlist %}
 

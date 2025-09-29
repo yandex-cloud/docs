@@ -1,6 +1,6 @@
 # Creating a configuration
 
-Create a [configuration](../concepts/glossary.md#configuration) to get [email delivery notifications](../concepts/notification.md).
+Create a [configuration](../concepts/glossary.md#configuration) to receive [email operation notifications](../concepts/notification.md).
 
 {% list tabs group=instructions %}
 
@@ -13,10 +13,18 @@ Create a [configuration](../concepts/glossary.md#configuration) to get [email de
     1. Enter a name and (optionally) a description of the configuration.
     1. Under **{{ ui-key.yacloud.postbox.label_event-destinations }}**, click **{{ ui-key.yacloud.common.add }}**:
         1. Enter a name for the [subscription](../concepts/glossary.md#subscription).
-        1. Select the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to send email delivery notifications to. If you do not have a data stream, [create one](../../data-streams/operations/manage-streams.md#create-data-stream).
+        1. Select the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to send email operation notifications to. If you do not have a data stream, [create one](../../data-streams/operations/manage-streams.md#create-data-stream).
+        1. Select the types of notifications you want to receive.
         1. Select the **{{ ui-key.yacloud.common.enabled }}** option to activate the subscription.
 
         You can add multiple subscriptions.
+    1. Under **{{ ui-key.yacloud.postbox.label_delivery-options }}**, enable **{{ ui-key.yacloud.postbox.field_secure-connection }}** and specify the minimum TLS version to send TLS-only encrypted emails from {{ postbox-name }} to the recipient's servers.
+
+        {% note warning %}
+
+        If the recipient's server does not support the specified TLS version, the email will not be delivered.
+
+        {% endnote %}
 
     1. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
 
@@ -24,7 +32,7 @@ Create a [configuration](../concepts/glossary.md#configuration) to get [email de
 
     If you do not have the AWS CLI yet, [install and configure it](../tools/aws-cli.md).
 
-    To create a configuration, assign the [postbox.editor](../security/index.md#postbox-editor) `role` to the service account enabling the AWS CLI.
+    To create a configuration, assign the `postbox.editor` [role](../security/index.md#postbox-editor) to the service account used for the AWS CLI.
 
     1. In the terminal, define these variables:
 
@@ -33,7 +41,7 @@ Create a [configuration](../concepts/glossary.md#configuration) to get [email de
         PROFILE=<profile_name>
         CONFIGSET_NAME=<configuration_name>
         IDENTITY=<domain>
-        KINESIS_ENDPOINT=https://yds.serverless.yandexcloud.net/{{ region-id }}/<directory_ID>/<{{ ydb-short-name }}_database_ID>
+        KINESIS_ENDPOINT=https://yds.serverless.yandexcloud.net/{{ region-id }}/<folder_ID>/<{{ ydb-short-name }}_database_ID>
         TOPIC=<data_stream_name>
         ```
 

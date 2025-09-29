@@ -1,6 +1,6 @@
 ---
 title: '{{ at-full-name }} use cases'
-description: Various {{ at-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ at-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ at-name }} tutorials

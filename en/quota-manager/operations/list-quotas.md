@@ -12,7 +12,7 @@ title: How to view the list of services and quotas
 
   1. In the [management console]({{ link-console-main }}), on the left, select a cloud.
   1. Select the **{{ ui-key.yacloud.iam.cloud.switch_quotas }}** tab.
-
+     
      The page will display the list of services that have available quotas.
 
 - CLI {#cli}
@@ -66,20 +66,20 @@ title: How to view the list of services and quotas
   * `--resource-type`: Resource type, `resource-manager.cloud`, `organization-manager.organization`, or `billing.account`.
 
 
-  For example:
+  Here is an example:
 
   ```bash
   yc quota-manager quota-limit list \
     --service=compute \
     --resource-type=resource-manager.cloud \
-    --resource-id=b1gflhy********
+    --resource-id=b1gia87mbaom********
   ```
 
-  The output will return the list of {{ compute-name }} quotas for the cloud with the `b1gflhy********` ID.
+  The output will return the list of {{ compute-name }} quotas for the cloud with the `b1gia87mbaom********` ID.
 
   ```bash
   resource:
-    id: b1gflhy********
+    id: b1gia87mbaom********
     type: resource-manager.cloud
   quota_limits:
     - quota_id: compute.dedicatedHosts.count

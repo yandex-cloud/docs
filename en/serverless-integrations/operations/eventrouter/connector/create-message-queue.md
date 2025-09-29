@@ -23,9 +23,9 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
   1. Optionally, click ![image](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_title }}** and specify:
 
-      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_visibility_timeout_title }}**: [Time period](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) in hours during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values range from 0 to 12 hours. The default value is 0.
-      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_batch_size_title }}**: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10.
-      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_polling_timeout_title }}**: Maximum time in milliseconds {{ er-name }} takes to group messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_visibility_timeout_title }}**: [Time period](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) in seconds during which messages are hidden from the queue after one of the recipients has received a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_batch_size_title }}**: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_polling_timeout_title }}**: Maximum time in milliseconds {{ er-name }} takes to group messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -65,9 +65,9 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
       * `--bus-id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
       * `--queue-arn`: {{ message-queue-full-name }} [queue](../../../../message-queue/concepts/queue.md) ARN.
       * `--service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
-      * `--visibility-timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 12 hours. The default value is 0. This is an optional parameter.
-      * `--batch-size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10. This is an optional parameter.
-      * `--polling-timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds. This is an optional parameter.
+      * `--visibility-timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds. This is an optional parameter.
+      * `--batch-size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10. This is an optional parameter.
+      * `--polling-timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds. This is an optional parameter.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -114,7 +114,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ message-queue-name }}:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -152,9 +152,9 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
       * `labels`: List of labels. Provide labels in `<key> = "<value>"` format. This is an optional parameter.
       * `queue_arn`: [Queue](../../../../message-queue/concepts/queue.md) ARN of {{ message-queue-full-name }}.
       * `service-account-id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
-      * `visibility_timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 12 hours. The default value is 0. This is an optional parameter.
-      * `batch_size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10. This is an optional parameter.
-      * `polling_timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds. This is an optional parameter.
+      * `visibility_timeout`: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 43,200 seconds. The default value is 43,200 seconds. This is an optional parameter.
+      * `batch_size`: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 10. The default value is 10. This is an optional parameter.
+      * `polling_timeout`: Maximum time during which {{ er-name }} is grouping messages before sending them from the source to the rule. Valid values ​​range from 0 to 20,000 milliseconds. The default value is 10,000 milliseconds. This is an optional parameter.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 

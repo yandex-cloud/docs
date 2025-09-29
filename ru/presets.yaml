@@ -7074,8 +7074,10 @@ default:
             label_type-balance: Остаток средств
             label_type-cost: Стоимость потребления
             label_type-expense: К оплате
+            reset-period_value_annually: Ежегодный
             reset-period_value_custom: Настраиваемый
             reset-period_value_monthly: Месячный
+            reset-period_value_quarter: Квартальный
             section_scope: Область действия
           button_billing-payment-action: Перейти на платную версию
           button_download-action: Скачать
@@ -7547,7 +7549,7 @@ default:
           copy-as-csv: Копировать CSV
         select:
           charts-count:
-            label: 'Графиков в ряд:'
+            label: Графиков в ряд
         settings-select:
           show-legend: Показать легенду
         tab:
@@ -7844,7 +7846,7 @@ default:
           mfa-overview-action-suspend: Деактивировать
           mfa-policies-create-policy-action: Создать политику
           MfaPolicyPageLayout:
-            tab_groups: Целевые группы
+            tab_groups: Целевые пользователи и группы
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Настройки аутентификации
             required_mfa_6P4xN: >-
@@ -7933,7 +7935,7 @@ default:
           ControlsPage:
             exceptions_kw1u7: Исключения
             kubernetes_jRCmt: Kubernetes®
-            security_control_r4yn7: Контроль безопасности
+            security_control_r4yn7: Правила контроля безопасности
           ControlsPageLayout:
             configuration_w7Kw7: Конфигурация
           ExceptionDrawer:
@@ -7980,7 +7982,7 @@ default:
             tabGeneralParams_xc2v2: Основные параметры
             tabKubernetes_rC2uU: Контроль Kubernetes®
             tabResources_vJuSN: Ресурсы
-            tabStandards_wSeaW: Стандарты
+            tabStandards_wSeaW: Соответствие требованиям
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Приёмник алертов
             billing_account_title_sU1Tj: Оплата ресурсов
@@ -7995,7 +7997,7 @@ default:
             participantsTitle_1WfGq: Участники
             resourcesTitle_fE6qp: Ресурсы
             saveAndContinue_9xKZY: Сохранить и продолжить
-            standartsTitle_cxvJ8: Наборы требований
+            standartsTitle_cxvJ8: Соответствие требованиям
           WorkspaceOnboardingPageLayout:
             pageTitle_ehdBw: Создание и настройка окружения
           WorkspacePageLayout:
@@ -8016,8 +8018,8 @@ default:
           WorkspaceSelect:
             create_action: Создать окружение
           WorkspaceStandardsForm:
-            modules_title_s8LDi: Активация модулей
-            standards_title_dBBXP: Стандарты безопасности
+            modules_title_s8LDi: Модули контроля
+            standards_title_dBBXP: Наборы требований
       shared:
         components:
           severity_high_cahHH: Высокая критичность
@@ -8159,7 +8161,7 @@ default:
         title_videos: Видео
     yacloud:
       ai-assistant:
-        label_ai-assistant-open: AI Assistant
+        label_ai-assistant-open: AI-ассистент
       airflow:
         button_create-cluster: Создать кластер
         field_lockbox: Использовать Lockbox Secret Backend
@@ -8513,7 +8515,6 @@ default:
         field_secure-key-enabled: Доступ по защищённому токену
         field_secure-key-type: Ограничение доступа по IP-адресу
         label_access: Доступ к контенту
-        label_activate-provider-empty-container_action-text: Подключиться к провайдеру
         label_additional: Дополнительно
         label_balancer: L7-балансировщик
         label_bucket: Бакет
@@ -8580,7 +8581,6 @@ default:
         value_backup: Резервный
         value_certificate-custom: Сертификат из Certificate Manager
         value_certificate-no: Не использовать
-        value_certificate-status-ready: Выпущен
         value_do-not-use: Не использовать
         value_host-header-custom: Свое значение
         value_host-header-default: Основное доменное имя

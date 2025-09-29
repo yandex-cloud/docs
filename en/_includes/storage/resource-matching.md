@@ -1,0 +1,1 @@
+One `yandex_storage_bucket` bucket can only be mapped to one `yandex_storage_bucket_grant` resource. Using multiple resources for a single bucket may lead to configuration errors.

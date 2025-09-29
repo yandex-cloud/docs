@@ -1,2 +1,2 @@
-* `Allowed Origins`: `https://*.yandex.cloud`
+* `Allowed Origins`: `https://datalens.ru`
 * `Allowed Methods`: `GET`, `HEAD`

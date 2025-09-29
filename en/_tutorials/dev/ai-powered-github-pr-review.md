@@ -1,6 +1,5 @@
 
 
-
 In this tutorial, you will use {{ foundation-models-full-name }} [text generation capabilities](../../ai-studio/concepts/generation/models.md) to implement the scenario of automatic [review](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) of proposed code changes on [GitHub](https://github.com/).
 
 This solution uses a [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) script to request {{ yandex-cloud }} for an AI review of changes in the [pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). The steps of pulling the changes, requesting a review from the generative model, and publishing the review to GitHub are performed by a {{ sw-full-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
@@ -221,6 +220,10 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `git
 ## Create a {{ sw-name }} workflow {#create-si-workflow}
 
 Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md) on the {{ yandex-cloud }} side.
+
+{% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+![ai-powered-github-pr-review-workflow](../../_assets/tutorials/ai-powered-github-pr-review-workflow.png)
 
 1. Create a file named `yawl-spec.yaml` with the following [YaWL specification](../../serverless-integrations/concepts/workflows/yawl/index.md) of the workflow:
 

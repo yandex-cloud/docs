@@ -690,6 +690,12 @@ items:
         items:
           - name: Overview
             href: concepts/instance-groups/index.md
+          - name: Instance groups during a zonal incident
+            items:
+              - name: Overview
+                href: concepts/instance-groups/zonal-inc/overview.md
+              - name: Multi-zonal group with instances in the incident zone
+                href: concepts/instance-groups/zonal-inc/multi-zonal.md
           - name: Access
             href: concepts/instance-groups/access.md
           - name: YAML specification

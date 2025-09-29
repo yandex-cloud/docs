@@ -1,13 +1,13 @@
 ---
 title: How to work with {{ si-full-name }}
-description: In this tutorial, you will learn how to work with {{ si-full-name }} in {{ yandex-cloud }}.
+description: In this article, you will learn how to work with {{ si-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ si-name }}
 
 ## {{ sw-name }} {#workflows}
 
-### Getting information about a workflow {#workflow-get-info}
+### Getting workflow info {#workflow-get-info}
 
 * [{#T}](workflows/workflow/get-list.md)
 * [{#T}](workflows/workflow/get-info.md)
@@ -28,6 +28,8 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 
 ### Workflow step constructor {#constructor}
 
+* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
+* [AI agent](workflows/constructor/aiagent.md)
 * [{{ sf-short-name }}](workflows/constructor/functioncall.md)
 * [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
 * [{{ postbox-short-name }}](workflows/constructor/postbox.md)
@@ -35,7 +37,6 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 * [HTTP](workflows/constructor/httpcall.md)
 * [gRPC](workflows/constructor/grpccall.md)
 * [{{ objstorage-name }}](workflows/constructor/objectstorage.md)
-* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
 * [{{ ydb-name }}](workflows/constructor/ydbdocument.md)
 * [{{ yds-name }}](workflows/constructor/yds.md)
 * [{{ message-queue-name }}](workflows/constructor/ymq.md)
@@ -52,8 +53,9 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 * [Success](workflows/constructor/success.md)
 * [Wait](workflows/constructor/wait.md)
 * [{#T}](workflows/constructor/setup-restart-policy.md)
+* [{#T}](workflows/constructor/setup-catch-rule.md)
 
-### Getting workflow execution information {#execution-get-info}
+### Getting the workflow execution information {#execution-get-info}
 
 * [{#T}](workflows/execution/get-list.md)
 * [{#T}](workflows/execution/get-info.md)
@@ -71,7 +73,7 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 
 ## {{ er-name }} {#event-router}
 
-### Getting information about a bus {#bus-get-info}
+### Getting bus info {#bus-get-info}
 
 * [{#T}](eventrouter/bus/get-list.md)
 * [{#T}](eventrouter/bus/get-info.md)
@@ -91,7 +93,7 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 * [{#T}](eventrouter/bus/data-put.md)
 * [{#T}](eventrouter/bus/data-send.md)
 
-### Getting information about a connector {#connector-get-info}
+### Getting connector info {#connector-get-info}
 
 * [{#T}](eventrouter/connector/get-list.md)
 * [{#T}](eventrouter/connector/get-info.md)
@@ -110,7 +112,7 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 * [{#T}](eventrouter/connector/stop.md)
 * [{#T}](eventrouter/connector/delete.md)
 
-### Getting information about a rule {#rule-get-info}
+### Getting rule info {#rule-get-info}
 
 * [{#T}](eventrouter/rule/get-list.md)
 * [{#T}](eventrouter/rule/get-info.md)
