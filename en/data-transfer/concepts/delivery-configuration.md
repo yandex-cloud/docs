@@ -22,7 +22,7 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
     |-------------------------------------------------------------------------------|:-----------------------------------------------------------------:|
     | {{ KF }} topic: Your own or as part of [{{ mkf-short-name }}](../../managed-kafka/)             | ![no](../../_assets/common/no.svg)   |
     | {{ CH }} database: Your own or as part of [{{ mch-short-name }}](../../managed-clickhouse/)  | ![no](../../_assets/common/no.svg)   |
-    | Your own {{ ES }} database                                                                                                                                                      | ![yes](../../_assets/common/yes.svg)  |
+    | Your own {{ ES }} database                                                                            | ![yes](../../_assets/common/yes.svg)  |
     | {{ GP }} database: Your own or as part of [{{ mgp-short-name }}](../../managed-greenplum/)   | ![yes](../../_assets/common/yes.svg) |
     | {{ MG }} database: Your own or as part of [{{ mmg-short-name }}](../../storedoc/)     | ![yes](../../_assets/common/yes.svg) |
     | {{ MY }} database: Your own or as part of [{{ mmy-short-name }}](../../managed-mysql/)       | ![yes](../../_assets/common/yes.svg) |

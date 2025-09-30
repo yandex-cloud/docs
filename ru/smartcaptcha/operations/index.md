@@ -5,10 +5,10 @@ description: На странице представлен список поша�
 
 # Пошаговые инструкции для {{ captcha-full-name }}
 
-- [{#T}](create-captcha.md)
-- [{#T}](delete-captcha.md)
-- [{#T}](get-keys.md)
-- [{#T}](advanced-method.md)
+* [{#T}](create-captcha.md)
+* [{#T}](delete-captcha.md)
+* [{#T}](get-keys.md)
+* [{#T}](advanced-method.md)
 
 
 ## Получение информации о капче {#get-info}

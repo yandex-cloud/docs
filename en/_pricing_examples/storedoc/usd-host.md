@@ -1,6 +1,6 @@
 > 3 × (2 × {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|string }} + 8 × {{ sku|USD|mdb.cluster.mongodb.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.mongodb.v3.ram|number }}) %}
 >
-> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.mongodb.v3.ram|number }}) %}, cost of operation of {{ SD }} hosts per hour.
+> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.mongodb.v3.ram|number }}) %}: Cost of operation of {{ SD }} hosts per hour.
 
 Where:
 * 3: Number of {{ SD }} hosts.

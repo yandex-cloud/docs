@@ -1,6 +1,6 @@
 * Sources:
  
-   * {{ AB }}:
+    * {{ AB }}:
         * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
         * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
         * [MS SQL Server](../../data-transfer/operations/endpoint/source/mssql.md)

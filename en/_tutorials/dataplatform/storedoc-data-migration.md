@@ -28,7 +28,7 @@ The cost of transferring data with {{ data-transfer-full-name }} includes:
 
 * {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 The cost of transferring data using a database dump includes:
 
@@ -41,7 +41,7 @@ The cost of transferring data using a database dump includes:
 
 [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
 
-The database name in the target cluster must be the same as the source database name.
+The source and target database names must be the same.
 
 ## Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 

@@ -179,6 +179,7 @@ default:
   ds-inf: DataSphere Inference
   ds-jobs: DataSphere Jobs
   ds-nb: DataSphere Notebook
+  ds-node-endpoint: node-api.datasphere.yandexcloud.net
   dspm-name: DSPM
   dt-copy-regular: Regular
   dt-copy-regular-incremental: Regular incremental

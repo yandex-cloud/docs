@@ -9,7 +9,7 @@ To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name
 The support cost for this solution includes:
 
 * {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
-* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -216,7 +216,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 

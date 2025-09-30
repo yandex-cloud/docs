@@ -63,9 +63,9 @@ items:
             href: operations/application-load-balancer-relocate.md
           - name: Управление зоной доступности
             items:
-              - name: Разрешить и запретить перенос трафика
+              - name: Разрешить и запретить отключение зоны доступности
                 href: operations/manage-zone/allow-and-deny-shift.md
-              - name: Включить и отключить зоны доступности
+              - name: Отключить и включить зону доступности
                 href: operations/manage-zone/start-and-cancel-shift.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md

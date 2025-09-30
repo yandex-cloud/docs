@@ -59,11 +59,16 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-    1. (Optional) [Create an external JDBC data source](create-jdbc-source.md) with the following parameters:
+    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following parameters:
 
         * **Name**: `chserver`
         * **Driver**: `com.clickhouse.jdbc.ClickHouseDriver`
-        * **Url**: `jdbc:clickhouse:http://c-<cluster_ID>.rw.{{ dns-zone }}:8123/db1`
+        * **Url**: `jdbc:clickhouse:http://c-<cluster_ID>.rw.{{ dns-zone }}:8123/db1`, where:
+
+            * `c-<cluster_id>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) always pointing to an available {{ mch-name }} cluster host.
+            * `8123`: Port for [connection](../../../managed-clickhouse/operations/connect/index.md) to the {{ mch-name }} cluster.
+            * `db1`: DB name in the {{ mch-name }} cluster.
+
         * **User**: `chuser`
 
         You can get the cluster ID with the [list of clusters](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
@@ -145,11 +150,16 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-    1. (Optional) [Create an external JDBC data source](create-jdbc-source.md) with the following parameters:
+    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following parameters:
 
         * **Name**: `mysqlserver`
         * **Driver**: `com.mysql.jdbc.Driver`
-        * **Url**: `jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`
+        * **Url**: `jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`, where:
+
+            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-mysql/operations/connect.md#fqdn-master) always pointing to the current master host in the {{ mmy-name }} cluster.
+            * `{{ port-mmy }}`: Port for [connection](../../../managed-mysql/operations/connect.md) to the {{ mmy-name }} cluster.
+            * `db1`: DB name in the {{ mmy-name }} cluster.
+
         * **User**: `mysqluser`
 
         You can get the cluster ID with the [list of clusters](../../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
@@ -214,11 +224,16 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
-    1. (Optional) [Create an external JDBC data source](create-jdbc-source.md) with the following parameters:
+    1. Optionally, [create an external JDBC data source](create-jdbc-source.md) with the following parameters:
 
         * **Name**: `pgserver`
         * **Driver**: `org.postgresql.Driver`
-        * **Url**: `jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`
+        * **Url**: `jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`, where:
+
+            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master) always pointing to the current master host in the {{ mpg-name }} cluster.
+            * `{{ port-mpg }}`: Port for [connection](../../../managed-postgresql/operations/connect.md) to the {{ mpg-name }} cluster.
+            * `db1`: DB name in the {{ mpg-name }} cluster.
+
         * **User**: `pguser`
 
         You can get the cluster ID with the [list of clusters](../../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.

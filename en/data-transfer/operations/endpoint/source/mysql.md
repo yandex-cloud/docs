@@ -79,7 +79,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-source.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -103,7 +103,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -133,7 +133,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -160,7 +160,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -181,7 +181,7 @@ For OnPremise, all fields are filled in manually.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
-        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
+        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
 
         {% note warning %}
 
@@ -266,7 +266,7 @@ During a transfer, the database schema is transferred from the source to the tar
 If setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, consider these aspects of transferring [date and time data types]({{ my.docs }}/refman/8.0/en/date-and-time-types.html):
 
 * `TIME` type data is transferred as strings with the source and target time zones ignored.
-* When transferring `TIMESTAMP` type data, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/datetime.html).
+* When transferring `TIMESTAMP` type data, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/datetime.html).
 * The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.
 
 Transfers from {{ MY }} to a database of a different type do not support fields of the `DECIMAL` type to prevent loss of data accuracy. There is no such limitation for {{ MY }}-to-{{ MY }} transfers.

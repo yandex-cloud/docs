@@ -4,7 +4,7 @@
 
 Where:
 * 720: Number of hours in 30 days.
-* {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.mongodb.v3.ram|number }}) %}, cost of operation of {{ SD }} hosts per hour.
+* {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.mongodb.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.mongodb.v3.ram|number }}) %}: Cost of operation of {{ SD }} hosts per hour.
 * 3: Number of {{ SD }} hosts.
 * 100: Amount of network HDD storage (in GB).
 * {{ sku|USD|mdb.cluster.network-hdd.ch|month|string }}: Cost of using 1 GB of network HDD storage per month.

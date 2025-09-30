@@ -1,6 +1,6 @@
 ---
 title: How to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up an {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to set up a {{ yds-full-name }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ yds-full-name }} target endpoint
 
@@ -87,7 +87,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [Transfer failure](#overloaded)
+* [Transfer interrupted with an error message](#overloaded)
 * [{{ sf-short-name }} redirects](#redirects)
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).

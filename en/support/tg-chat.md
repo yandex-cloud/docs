@@ -28,7 +28,7 @@ To start a chat with our technical support in Telegram:
 
 1. To get started, enter the `/start` command.
 1. A chat message will prompt you to link your Telegram account in {{ support-center-name }}. Support will receive information about your name, public link to your Telegram account, and photo. Click **Link**.
-1. Type your message describing your issue or question. The maximum message size is 1,024 characters. You can also send a file (video, photo, or text) under 20 MB.
+1. Type your message describing your issue or question. The maximum message size is 1,024 characters. You can also send a file (video, photo, or text) under 20 MB. You can edit your message within 5 minutes after sending and before the session closes.
 
     {% note info %}
 

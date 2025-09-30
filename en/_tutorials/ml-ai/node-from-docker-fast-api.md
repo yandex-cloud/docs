@@ -117,7 +117,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. Create a folder to store the Docker image configuration and all the required files, e.g., `/home/docker-images`.
 1. Clone the [repository on GitHub](https://github.com/yandex-cloud-examples/yc-datasphere-fastapi-service-deploy) and place the files in the folder you created.
 1. Run [Docker Desktop](https://docs.docker.com/desktop/).
-1. In the command shell, navigate to the folder with `Dockerfile` you created.
+1. In the command shell, navigate to the folder the cloned repository is stored in:
 
    ```bash
    cd docker-images

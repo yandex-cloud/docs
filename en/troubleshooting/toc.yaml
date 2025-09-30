@@ -466,8 +466,6 @@ items:
         href: datasphere/known-issues/servant-not-allocated-issue.md
       - name: Resolving the "TestsFailure" error
         href: datasphere/known-issues/tests-failure-error.md
-      - name: Resolving the project opening error
-        href: datasphere/known-issues/project-not-starting.md
       - name: Resolving the "Token authentication is enabled" error
         href: datasphere/known-issues/error-token-authentication-is-enabled.md
       - name: Resolving errors with project access or login

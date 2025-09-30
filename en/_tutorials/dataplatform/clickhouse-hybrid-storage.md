@@ -1,13 +1,13 @@
 # Using hybrid storage in {{ mch-name }}
 
 
-Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+Hybrid storage enables you to store frequently used data on the {{ mch-name }} cluster’s network drives while keeping rarely used data in {{ objstorage-full-name }}. Your hybrid storage will automatically create a bucket and connect it to {{ CH }}. Automatic data movement between these storage tiers is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
 
 1. [Create a table](#create-table).
 1. [Populate the table with data](#fill-table-with-data).
-1. [Check data placement in a cluster](#check-table-tiering).
+1. [Check data placement within a cluster](#check-table-tiering).
 1. [Run a test query](#submit-test-query).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -15,15 +15,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-### Set up your infrastructure {#deploy-infrastructure}
+### Set up the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -40,7 +40,7 @@ The support cost includes:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
         * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: Enabled.
 
-    1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
+    1. [Configure access permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) to allow read and write queries to your database.
 
 - Using {{ TF }} {#tf}
 
@@ -49,24 +49,24 @@ The support cost includes:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [clickhouse-hybrid-storage.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-hybrid-storage/blob/main/clickhouse-hybrid-storage.tf) configuration file to the same working directory.
+    1. Download the [clickhouse-hybrid-storage.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-hybrid-storage/blob/main/clickhouse-hybrid-storage.tf) configuration file to your current working directory.
 
         This file describes:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Default security group](../../vpc/concepts/security-groups.md) and rules required to connect to the cluster from the internet.
+        * [Default security group](../../vpc/concepts/security-groups.md) and rules enabling inbound cluster connections.
         * {{ mch-name }} cluster with hybrid storage enabled.
 
-    1. In the `clickhouse-hybrid-storage.tf` file, specify the username and password to access the {{ mch-name }} cluster.
+    1. In the `clickhouse-hybrid-storage.tf` file, specify the {{ mch-name }} cluster access username and password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -78,7 +78,7 @@ The support cost includes:
 
 ### Set up the command line tools {#set-instruments}
 
-1. Install the `curl` and `unxz` tools:
+1. Install `curl` and `unxz`:
 
     ```bash
     apt-get update && apt-get install curl xz-utils
@@ -88,13 +88,13 @@ The support cost includes:
 
 ### Optionally, explore the test dataset {#explore-dataset}
 
-To demonstrate how hybrid storage works, we are going to use the Yandex Metrica anonymized hit data (`hits_v1`). This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains information about almost 9 million hits over the week from March 17, 2014, to March 23, 2014.
+To demonstrate the hybrid storage operation, we will use anonymized hit data (`hits_v1`) from Yandex Metrica. This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains nearly 9 million hits recorded between March 17, 2014, to March 23, 2014.
 
-When creating the `tutorial.hits_v1` table, you are going to [configure it](#create-table) so that all more recent table data, starting from March 21, 2014, is in network storage, and older data, from March 17, 2014, to March 20, 2014, is in object storage.
+Upon creation, the `tutorial.hits_v1` table will be [configured](#create-table) to place all recent data (starting from March 21, 2014) in network storage, while moving older data (from March 17, 2014 to March 20, 2014) to object storage.
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an SQL query by substituting `<schema>` with a table schema from the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables):
+Create the `tutorial.hits_v1` table configured for hybrid storage by running the following SQL query. Replace the `<schema>` placeholder with a list of column definitions from this [{{ CH }} article]({{ ch.docs }}/getting-started/tutorial/#create-tables):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -113,29 +113,29 @@ SETTINGS index_granularity = 8192
 
 {% note info %}
 
-This table uses the `default` [storage policy](../../managed-clickhouse/concepts/storage.md#storage-policies).
+This table will use the `default` [storage policy](../../managed-clickhouse/concepts/storage.md#storage-policies).
 
 {% endnote %}
 
 {#ttl}
 
-The `TTL ...` expression sets a policy for handling expiring data:
-1. TTL sets the lifetime of a table row. In our case, it is the number of days from the current date to March 20, 2014. 
-1. For the table data, the system checks the `EventDate` value:
-   * If the number of days from the current date to `EventDate` is less than the TTL value (i.e., the lifetime has not expired yet), this data is kept in network disk storage.
-   * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data will be placed in object storage under the `TO DISK 'object_storage'` policy.
+The `TTL ...` expression defines a policy for managing aging data:
+1. TTL sets the lifetime of a table row. In our example, it is the number of days from the current date to March 20, 2014. 
+1. The system manages table data based on the `EventDate` value:
+   * Records where the elapsed time (in days) since `EventDate` is less than the TTL value are retained on the network disk storage.
+   * Records where the elapsed time since `EventDate` meets or exceeds the TTL value are moved to the object storage, as per the `TO DISK 'object_storage'` policy.
 
-You do not need to specify TTL for hybrid storage, but this allows you to explicitly manage which data will be in {{ objstorage-name }}. If you do not specify TTL, data will only be placed in object storage when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+While specifying TTL for hybrid storage is optional, doing so gives you explicit control over what data is moved to {{ objstorage-name }}. Without a defined TTL, data is only moved to object storage when network disk space is full. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
-The expression for TTL in the example above is complex due to the selected test dataset. You must split fixed data collected long ago into parts for placing it at various storage levels. For most tables constantly updated with new data, you can use a simpler TTL expression, such as`EventDate + INTERVAL 5 DAY`, which moves data older than 5 days to object storage.
+The TTL expression in our example is complex because the test dataset we use requires splitting historical, static data across various storage tiers. For frequently updated tables, you can use a simple TTL expression, such as `EventDate + INTERVAL 5 DAY`, which moves data to object storage after a five-day period.
 
 {% endnote %}
 
-Data is moved between storage on network disks and object storage in [parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes), not line by line. Make sure to choose the TTL expression and [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that the TTL matches for all rows in the data part. Otherwise, you may have problems moving data into object storage as TTL expires if one data part contains data intended for various storage levels. At the most basic level, the TTL expression should use the same columns as in the partitioning key, like in the example above featuring the `EventDate` column.
+Data is moved between network disk storage and object storage in [parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes), rather than per row. For optimal performance, align your TTL expression with your [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) to ensure that all rows within a part share the same expiration time. This prevents situations where a data part contains a mix of rows destined for different storage tiers, which can block expired data from moving to object storage. At a minimum, the TTL expression should use the same columns as the partitioning key, e.g., `EventDate` in the example above.
 
-For more information on setting up TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
+For more details on configuring TTL, see the [{{ CH }} guides]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
 ## Populate the table with data {#fill-table-with-data}
 
@@ -148,9 +148,9 @@ For more information on setting up TTL, see the [{{ CH }} documentation]({{ ch.d
    ```
 
 
-   The downloaded dataset is about 10 GB large.
+   The downloaded dataset size is about 10 GB.
 
-1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
+1. Load this dataset into {{ CH }} using `clickhouse-client`:
 
    ```bash
    clickhouse-client \
@@ -164,16 +164,16 @@ For more information on setting up TTL, see the [{{ CH }} documentation]({{ ch.d
        --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
-   You can get the host FQDN with a [list of hosts in the cluster](../../managed-clickhouse/operations/hosts.md#list-hosts).
+   You can get the host FQDN from the [cluster’s host list](../../managed-clickhouse/operations/hosts.md#list-hosts).
 
-1. Wait for the operation to complete, as data insertion may take some time.
+1. Wait for the operation to complete, as importing the data may take some time.
 
-For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
+For more information, see this [{{ CH }} article]({{ ch.docs }}/getting-started/tutorial/#import-data).
 
-## Check data placement in a cluster {#check-table-tiering}
+## Check data placement within a cluster {#check-table-tiering}
 
 1. [Connect to the database](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
-1. Check where the table rows are placed:
+1. Check the storage location of the table’s data:
 
    ```sql
    SELECT
@@ -186,7 +186,7 @@ For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/ge
    WHERE active AND (table = 'hits_v1') AND (database = 'tutorial')
    ```
 
-   Table partitions for which the `EventDate` value is outside the [given TTL](#ttl) should reside on the disk named `object_storage`, i.e., in object storage. All other partitions should reside on the `default` disk:
+   Table partitions with `EventDate` older than the [TTL](#ttl) allows should reside on the `object_storage` disk. All other partitions should reside on the `default` disk:
 
    ```text
    ┌─table───┬─partition──┬─name───────────────┬───rows─┬─disk_name──────┐
@@ -203,7 +203,7 @@ For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/ge
    └─────────┴────────────┴────────────────────┴────────┴────────────────┘
    ```
 
-1. Check the number of rows at each of the storage levels:
+1. Check the number of rows stored on each storage tier:
 
    ```sql
    SELECT
@@ -214,7 +214,7 @@ For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/ge
    GROUP BY disk_name
    ```
    
-   As a result, you will see the distribution of table rows for the storage levels:
+   The result will show the distribution of table rows across storage tiers:
    
    ```text
    ┌─sum(rows)─┬─disk_name──────┐
@@ -223,11 +223,11 @@ For more information, see the relevant [{{ CH }} documentation]({{ ch.docs }}/ge
    └───────────┴────────────────┘
    ```
    
-As you can see from the SQL command results, the data in the table was successfully distributed in hybrid storage between different storage levels.
+As you can see, the SQL results confirm the successful disrtibution of data across hybrid storage tiers.
 
 ## Run a test query {#submit-test-query}
 
-Run a test query to the `tutorial.hits_v1` table that engages with data at multiple storage levels at once:
+Run a test query against the `tutorial.hits_v1` table, accessing data from multiple storage tiers simultaneously:
 
 ```sql
 SELECT
@@ -257,15 +257,15 @@ Result:
 └─────────────────────────────────────┴────────────────────┘
 ```
 
-As you can see from the SQL request result, the user sees the table as a single entity: {{ CH }} successfully queries this table regardless of where the data is actually located in it.
+As the result shows, the user interacts with a single logical table. {{ CH }} handles the complexity of querying data across different storage tiers automatically.
 
-## Optionally, monitor the amount of space data in {{ objstorage-name }} takes up {#metrics}
+## Monitor volume of data in {{ objstorage-name }} (optional step) {#metrics}
 
-To monitor the amount of space [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-name }} take up, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
+To monitor the amount of space [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Navigate to **Metric Explorer**.
-1. Run this request:
+1. Navigate to the **Metric Explorer** section.
+1. Run this query:
 
     ```text
     "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}

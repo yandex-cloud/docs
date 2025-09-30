@@ -24,6 +24,8 @@ items:
         href: concepts/public-ips.md
       - name: Взаимодействие пользователей и ресурсов
         href: roles-and-resources.md
+      - name: Разграничение зон контроля в MDB
+        href: concepts/mdb-responsibilities.md
       - name: Удаление данных пользователей
         href: concepts/data-deletion.md
   - name: Сервисы {{ yandex-cloud }}

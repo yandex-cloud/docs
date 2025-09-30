@@ -1,5 +1,5 @@
 * {% include [Field Shards](../../fields/clickhouse/ui/shards.md) %}
-* **Cluster**: Specify the name of the cluster to transfer the data from. If this parameter is not set, the default cluster's data will be transferred (the `{cluster}` macro).
+* **Cluster**: Specify the name of the cluster to transfer the data to. If this parameter is not set, the data will go to the default cluster (the `{cluster}` macro).
 * {% include [Field HTTP-port](../../fields/clickhouse/ui/http-port.md) %}
 * {% include [Field Native Port](../../fields/clickhouse/ui/native-port.md) %}
 * {% include [Field SSL connect](../../fields/clickhouse/ui/ssl-connect.md) %}

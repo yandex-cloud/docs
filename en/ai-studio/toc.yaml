@@ -75,12 +75,16 @@ items:
     items:
       - name: About {{ foundation-models-full-name }}
         href: concepts/index.md
-      - name: Model Gallery
+      - name: AI models
         items:
-          - name: Generative model features
+          - name: Overview
             href: concepts/generation/index.md
-          - name: Available generative models
+          - name: Common instance models
             href: concepts/generation/models.md
+          - name: Dedicated instance models
+            href: concepts/generation/dedicated-instance.md
+          - name: Batch processing
+            href: concepts/generation/batch-processing.md
           - name: Function calling
             href: concepts/generation/function-call.md
           - name: Reasoning mode
@@ -103,7 +107,7 @@ items:
             href: concepts/generation/tokens.md
           - name: TBD units
             hidden: true
-      - name: Agent Atelier
+      - name: Developing AI assistants
         items:
           - name: What an AI assistant is
             href: concepts/assistant/index.md
@@ -117,7 +121,9 @@ items:
                 href: concepts/assistant/tools/web-search.md
               - name: Rephrasing queries
                 href: concepts/assistant/rephraser.md
-      - name: AI Search
+              - name: MCP TBD
+                hidden: true
+      - name: AI search
         items:
           - name: Source files
             href: concepts/assistant/files.md
