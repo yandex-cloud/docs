@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to configure a {{ PG }} source
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating a {{ PG }}](../../../tutorials/managed-postgresql.md) cluster.
+    * [Migrating a {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
     * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
     * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
     * [Migration with change of storage from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
@@ -107,7 +107,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -164,7 +164,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -184,7 +184,7 @@ For OnPremise, all fields are filled in manually.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
-      The lists include the name of the [schema]({{pg-docs}}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
+      The lists include the name of the [schema]({{ pg-docs }}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
         * `<schema_name>.<table_name>`: Full table name.
         * `<schema_name>.*`: All tables in the specified schema.
@@ -293,7 +293,7 @@ For OnPremise, all fields are filled in manually.
         * `AFTER_DATA`: Transferring when deactivating the transfer.
         * `NEVER`: No tansfer.
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

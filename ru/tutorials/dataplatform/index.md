@@ -216,6 +216,7 @@ description: На странице представлен список прак�
 ## {{ msp-full-name }} {#spark}
 
 * [{#T}](airflow-and-spark.md)
+* [{#T}](spark-simple-rw-job.md)
 * [{#T}](metastore-and-spark.md)
 * [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)

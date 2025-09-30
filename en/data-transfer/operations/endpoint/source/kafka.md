@@ -21,7 +21,7 @@ description: In this tutorial, you will learn how to configure a {{ KF }} source
 
    Mirroring data across queues is a separate migration task.
 
-   * [{{ KF }} mirroring](../../../tutorials/mkf-to-mkf.md).
+    * [{{ KF }} mirroring](../../../tutorials/mkf-to-mkf.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 

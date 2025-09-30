@@ -12,7 +12,7 @@
 `DeletePrivateCloudConnection` | Удаление приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `DeletePrivateSubnet` | Удаление приватной подсети
 `DeletePublicSubnet` | Удаление публичной подсети
-`DeleteServer` | Полное удаление сервера {{ baremetal-name }} вместе со всеми пользовательскими данными
+`DeleteServer` | Полное удаление сервера {{ baremetal-name }}, очистка дисков и всех пользовательских данных
 `DeleteVRF` | Удаление виртуального сегмента сети (VRF)
 `PowerOffServer` | Выключение питания сервера {{ baremetal-name }}
 `PowerOnServer` | Включение питания сервера {{ baremetal-name }}

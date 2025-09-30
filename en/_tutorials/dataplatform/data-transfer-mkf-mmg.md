@@ -1,12 +1,12 @@
-# Delivering data from an {{ KF }} queue to {{ SD }} using {{ data-transfer-full-name }}
+# Delivering data from a {{ KF }} queue to {{ SD }} using {{ data-transfer-full-name }}
 
 
-A {{ mmg-name }} cluster can get data from {{ KF }} topics in real time.
+A {{ mmg-name }} cluster can ingest data from {{ KF }} topics in real time.
 
 To run data delivery:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -16,27 +16,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
+* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. Set up your data transfer infrastructure:
+1. Set up your data pipeline infrastructure:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) of any suitable configuration with the following settings:
+        1. [Create a target {{ mmg-name }}](../../storedoc/operations/cluster-create.md) cluster with any suitable configuration, using the following settings:
 
             * Database name: `db1`.
             * Username: `mmg-user`.
@@ -63,7 +63,7 @@ The support cost includes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mmg-name }} clusters.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ mkf-name }} and {{ mmg-name }} clusters.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
@@ -96,9 +96,9 @@ The support cost includes:
 
     {% endlist %}
 
-1. Install these tools:
+1. Install the following tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat) to read and write data from and to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
@@ -277,7 +277,7 @@ Create a local `sample.json` file with the following test data:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
@@ -315,16 +315,16 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete other resources using the method matching their creation method:
+Delete other resources using the same method used for their creation:
 
 {% list tabs group=instructions %}
 

@@ -3,7 +3,7 @@ title: How to create a {{ VLK }} cluster
 description: Follow this guide to create a {{ VLK }} cluster with a single or multiple DB hosts.
 ---
 
-# Creating a {{ VLK }} cluster
+# Creating an {{ VLK }} cluster
 
 
 A {{ VLK }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
@@ -50,9 +50,9 @@ There are no restrictions for non-sharded clusters.
 
      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
      * (Optional) Add a cluster description.
-     * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
+     * Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
        * `PRODUCTION`: For stable versions of your apps.
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
      * Select the DBMS version.
      * Optionally, you can add labels.
      * If necessary, enable [cluster sharding](../concepts/sharding.md).
@@ -123,7 +123,7 @@ There are no restrictions for non-sharded clusters.
           * **{{ ui-key.yacloud.mdb.forms.host_column_replica-priority }}**: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}**: Enables you to change the shard name for the host. The field is available only if the cluster is created with **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** enabled.
 
-      * To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+      * To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
       If you enabled sharding in the cluster and chose the **local-ssd** disk type, add at least two hosts per shard.
 
@@ -156,7 +156,7 @@ There are no restrictions for non-sharded clusters.
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. View the description of the CLI command to create a cluster:
@@ -202,9 +202,9 @@ There are no restrictions for non-sharded clusters.
       * `--redis-version`: {{ VLK }} version, {{ versions.cli.str }}.
 
       
-      * `--host`: Host parameters:
+      * `--host`: Host settings:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `replica-priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
@@ -225,7 +225,7 @@ There are no restrictions for non-sharded clusters.
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
-      You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -245,13 +245,13 @@ There are no restrictions for non-sharded clusters.
 
   To create a {{ mrd-name }} cluster:
 
-    1. In the configuration file, describe the parameters of resources you want to create:
+    1. In the configuration file, describe the properties of resources you want to create:
 
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
        
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a suitable network, you do not need to describe it again.
-       * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
+       * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
        Sample configuration file structure for creating a non-sharded cluster with SSL support:
@@ -313,7 +313,7 @@ There are no restrictions for non-sharded clusters.
             {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
 
        * `version`: {{ VLK }} version, {{ versions.tf.str }}.
-       * `host`: Host parameters:
+       * `host`: Host settings:
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
          * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -325,9 +325,9 @@ There are no restrictions for non-sharded clusters.
 
        {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-       For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mrd }}).
+       For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mrd }}).
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -335,17 +335,17 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+       After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
        {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         
         ```json
@@ -375,9 +375,9 @@ There are no restrictions for non-sharded clusters.
               "replicaPriority": "<host_priority>",
               "assignPublicIp": <public_access_to_cluster_host>
             },
-            { <similar_configuration_for_host_2> },
+            { <similar_settings_for_host_2> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ],
           "networkId": "<network_ID>",
           "sharded": <cluster_sharding>,
@@ -417,10 +417,10 @@ There are no restrictions for non-sharded clusters.
 
             * `redis.password`: User password.
 
-        * `hostSpecs`: Host parameters:
+        * `hostSpecs`: Host settings:
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
             * `shardName`: Shard name for the host. Only used if the `sharded` parameter is set to `true`.
             * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tlsEnabled` parameter is set to `true`.
@@ -472,17 +472,17 @@ There are no restrictions for non-sharded clusters.
             --data "@body.json"
         ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         
         ```json
@@ -512,9 +512,9 @@ There are no restrictions for non-sharded clusters.
               "replica_priority": "<host_priority>",
               "assign_public_ip": <public_access_to_cluster_host>
             },
-            { <similar_configuration_for_host_2> },
+            { <similar_settings_for_host_2> },
             { ... },
-            { <similar_configuration_for_host_N> }
+            { <similar_settings_for_host_N> }
           ],
           "network_id": "<network_ID>",
           "sharded": <cluster_sharding>,
@@ -554,10 +554,10 @@ There are no restrictions for non-sharded clusters.
 
             * `redis.password`: User password.
 
-        * `host_specs`: Host parameters:
+        * `host_specs`: Host settings:
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+            * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
             * `shard_name`: Shard name for the host. Only used if the `sharded` parameter is set to `true`.
             * `replica_priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tls_enabled` parameter is set to `true`.
@@ -613,7 +613,7 @@ There are no restrictions for non-sharded clusters.
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -627,7 +627,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ VLK }} cluster using the settings of another one created earlier. To do so, import the source {{ VLK }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ VLK }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ VLK }} cluster using the settings of another one created earlier. To do so, import the {{ VLK }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ VLK }} source cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ VLK }} cluster copy:
 
@@ -646,7 +646,7 @@ To create a {{ VLK }} cluster copy:
         resource "yandex_mdb_redis_cluster" "old" { }
         ```
 
-    1. Write the initial {{ VLK }} cluster’s ID to the environment variable:
+    1. Write the ID of the initial {{ VLK }} cluster to the environment variable:
 
         ```bash
         export REDIS_CLUSTER_ID=<cluster_ID>
@@ -654,7 +654,7 @@ To create a {{ VLK }} cluster copy:
 
         You can request the ID with the [list of clusters in the folder](../../managed-redis/operations/cluster-list.md#list-clusters).
 
-    1. Import the initial {{ VLK }} cluster’s settings into the {{ TF }} configuration:
+    1. Import the settings of the initial {{ VLK }} cluster into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_redis_cluster.old ${REDIS_CLUSTER_ID}
@@ -668,7 +668,7 @@ To create a {{ VLK }} cluster copy:
 
     1. Copy it from the terminal and paste it into the `.tf` file.
     1. Place the file in the new `imported-cluster` directory.
-    1. Modify the copied configuration so that you can create a new cluster from it:
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
@@ -690,7 +690,7 @@ To create a {{ VLK }} cluster copy:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

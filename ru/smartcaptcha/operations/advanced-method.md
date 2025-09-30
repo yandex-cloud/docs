@@ -3,9 +3,9 @@ title: Как добавить виджет {{ captcha-full-name }}
 description: Следуя данной инструкции, вы сможете добавить виджет {{ captcha-name }} расширенным методом или по необходимости.
 ---
 
-# Добавьте виджет {{ captcha-name }}
+# Добавить виджет {{ captcha-name }}
 
-## Добавьте виджет {{ captcha-name }} расширенным методом {#advanced}
+## Добавить виджет {{ captcha-name }} расширенным методом {#advanced}
 
 Вы управляете загрузкой виджета через [объект](../concepts/widget-methods.md#methods) `window.smartCaptcha`. В инструкции для этого используется callback-функция `onloadFunction`:
 
@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [info-container-height](../../_includes/smartcaptcha/info-container-height.md) %}
 
-## Добавьте виджет {{ captcha-name }} при необходимости {#dynamic}
+## Добавить виджет {{ captcha-name }} с загрузкой при необходимости {#dynamic}
 
 Чтобы добавить виджет и загружать капчу при необходимости, используйте следующий подход:
 

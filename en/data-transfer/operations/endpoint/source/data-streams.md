@@ -127,7 +127,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [Transfer failure](#overloaded)
+* [Transfer interrupted with an error message](#overloaded)
 * [{{ sf-short-name }} redirects](#redirects)
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).

@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить логирование через {{ alb-name }}
 
-Доступно два варианта сбора логов: через {{ sws-name }} и через L7-балансировщик {{ alb-name }}, к которому подключен профиль безопасности.
+Записывать логи можно с помощью двух сервисов: [{{ cloud-logging-full-name }}](../../logging/) и [{{ at-full-name }}](../../audit-trails/). Для {{ cloud-logging-name }} доступно два варианта сбора логов: через {{ sws-name }} и через L7-балансировщик {{ alb-name }}, к которому подключен профиль безопасности.
 
 Информация в этом разделе относится к сбору логов через {{ alb-name }}. О логировании через {{ sws-name }} см. в разделе [{#T}](configure-logging.md).
 
@@ -19,13 +19,13 @@ description: Следуя данной инструкции, вы сможете
 * Посмотреть подробную информацию о запросе, выявить ложноположительные срабатывания.
 * Расследовать инциденты безопасности.
 
-Вы можете настроить логирование {{ sws-full-name }} с помощью двух сервисов: [{{ cloud-logging-full-name }}](../../logging/) и [{{ at-full-name }}](../../audit-trails/).
+Особенности сервисов для сбора логов:
 
 * {{ cloud-logging-short-name }} — позволяет собирать базовые логи по трафику и сработавшим правилам профилей безопасности, WAF и ARL.
 
    Логи {{ sws-name }} передаются через [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md), к которому подключен профиль безопасности, и записываются в [лог-группу](../../logging/concepts/log-group.md).
 
-* {{ at-name }} — позволяет собирать более детальные аудитные логи (события) по правилам WAF и ARL.
+* {{ at-name }} — специализируется на записи событий безопасности и позволяет собирать более детальные аудитные логи по правилам WAF и ARL.
 
    В {{ at-name }} события передаются не через L7-балансировщик, а напрямую от сервиса {{ sws-name }}. В {{ at-name }} есть два типа событий:
 
@@ -125,19 +125,41 @@ description: Следуя данной инструкции, вы сможете
     json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
     ```
 
-  ### Фильтры для правил в режиме логирования {#dry-run-filters}
-
-  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-    ```
-    json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-    ```
-
   * Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
     ```
     json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
     ```
 
   Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
+
+  ### Фильтры для правил в режиме логирования {#dry-run-filters}
+
+  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
+    
+    ```
+    json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
+    ```
+
+  * Посмотреть запросы, для которых сработали правила ARL (лимиты на запросы).
+    
+    Для режима **Только логирование** не подойдет запрос с фильтрацией по вердикту `DENY`, поскольку в этом режиме запросы не блокируются. Вердикт правил будет `ALLOW` даже после превышения лимита. Для отладки правил используйте параметр `dry_run_exceeded_quota_names`. Параметр показывает, какие правила ARL сработали на запросе. Если в этом параметре нет правил — лимиты не превышались.
+
+    Пример фрагмента лога с параметром `dry_run_exceeded_quota_names`:
+
+    ```text
+    "smartwebsecurity": {
+      "advanced_rate_limiter": {
+        "applied_quota_name": "",
+        "dry_run_exceeded_quota_names": [
+          "<rule_name_1>",
+          "<rule_name_2>"
+        ],
+        "profile_id": "<profile_id>",
+        "verdict": "ALLOW"
+      },
+    ```
+
+  В этом фрагменте лимиты превышены для правил `<rule_name_1>` и `<rule_name_2>` в профиле `<profile_id>`.
 
 - {{ at-name }} {#at}
 

@@ -23,6 +23,7 @@ description: В этой статье сопоставляются сервис�
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-redis/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
+| Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
 | Amazon EventBridge | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Amazon Interactive Video Service | [{{ video-full-name }}](../../video/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
@@ -50,6 +51,7 @@ description: В этой статье сопоставляются сервис�
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS CloudTrail | [{{ at-full-name }}](../../audit-trails/) |
 | AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| AWS Databricks | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | AWS DataZone | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
 | AWS Direct Connect | [{{ interconnect-full-name }}](../../interconnect/) |
 | AWS Distributed Load Testing | [{{ load-testing-full-name }}](../../load-testing/) |

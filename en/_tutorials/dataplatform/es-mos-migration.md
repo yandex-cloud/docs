@@ -18,20 +18,20 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
     This method is good for {{ ES }} cluster versions 7.11 or lower.
 
-    For more information about snapshots, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/index/).
+    For more information about snapshots, see the [relevant {{ OS }} article]({{ os.docs }}/opensearch/snapshots/index/).
 
-* Remote [reindexing]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
+* Remote [reindexing]({{ os.docs }}/opensearch/reindex-data/).
 
     You can use this method to move your existing indexes, aliases, or data streams. This method is good for all version 7 {{ ES }} clusters.
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
+* Fee for a {{ mos-name }} cluster: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Migration using snapshots {#snapshot}
@@ -55,7 +55,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will serve as a snapshot repository.
     1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
 
-    1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for this service account.
+    1. If you are migrating data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for this service account.
 
         {% note warning %}
 
@@ -97,7 +97,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -111,8 +111,8 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. [Set up the bucket ACL](../../storage/operations/buckets/edit-acl.md):
 
-    1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the created service account.
-    1. Select the `READ and WRITE` permissions for the selected service account.
+    1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account you created.
+    1. Set the `READ and WRITE` permissions for this service account.
     1. Click **{{ ui-key.yacloud.common.add }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -156,7 +156,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. [Configure access to the bucket with snapshots](../../managed-opensearch/operations/s3-access.md#configure-acl) for the target cluster. Use the service account you [created earlier](#before-you-begin).
 
-1. [Attach an {{ objstorage-name }} bucket to the target cluster](../../managed-opensearch/operations/s3-access.md#register-snapshot-repository). This bucket will serve as a read-only snapshot storage:
+1. [Attach an {{ objstorage-name }}](../../managed-opensearch/operations/s3-access.md#register-snapshot-repository) bucket to the target cluster. This bucket will serve as a read-only snapshot storage:
 
     ```bash
     curl --request PUT \
@@ -175,11 +175,11 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Select the index restoration method on the target cluster.
 
-    With the default settings, an attempt to restore an index will fail in a cluster where a same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indexes (such as `.apm-custom-link` or `.kibana_*`, etc.), which may interfere with the restore operation. To avoid this, use one of the following methods:
+    With the default settings, an attempt to restore an index will fail in a cluster where a same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indexes (such as `.apm-custom-link` or `.kibana_*`), which may interfere with the restore operation. To avoid this, use one of the following methods:
 
     * Migrate only your custom indexes. The existing system indexes are not migrated. The import process only affects the user-created indexes on the source cluster.
 
-    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. For more information, see the relevant [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
+    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. For more information, see the [relevant {{ OS }} article]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
     Example of restoring the entire snapshot:
 
@@ -215,7 +215,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 ### Complete your migration {#finish-migration-snapshot}
 
-1. Make sure all indexes have been transferred to the target {{ mos-name }} cluster and the number of documents in them is the same as in the source cluster:
+1. Make sure all indexes have been migrated to the target {{ mos-name }} cluster and the number of documents in them is the same as in the source cluster:
 
     {% list tabs group=programming_language %}
 
@@ -230,7 +230,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
           --request GET 'https://<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
       ```
 
-      The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
+      The list should contain the indexes migrated from {{ ES }} with the number of documents specified in the `docs.count` column.
 
     - {{ OS }} Dashboards {#opensearch}
     
@@ -238,13 +238,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
       1. Select the `Global` tenant.
       1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. Under **{{ OS }} Plugins**, select **Index Management**.
-      1. Go to **Indexes**.
+      1. Navigate to **Indexes**.
 
-      The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+      The list should contain the indexes migrated from {{ ES }} with the number of documents specified in the **Total documents** column.
 
     {% endlist %}
 
-1. If required, [disable the snapshot repository]({{ links.es.docs }}/elasticsearch/reference/current/delete-snapshot-repo-api.html) on the source and target cluster end.
+1. If required, [disable the snapshot repository]({{ links.es.docs }}/elasticsearch/reference/current/delete-snapshot-repo-api.html) on the source and target clusters' end.
 
 ### Delete the resources you created {#clear-out-snapshot}
 
@@ -314,7 +314,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -331,7 +331,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect.md) using the {{ OS }} API and Dashboards.
 
 
-1. Make sure the {{ ES }} source cluster can access the internet.
+1. Make sure the source {{ ES }} cluster can access the internet.
 
 
 1. Create a [user]({{ links.es.docs }}/kibana/current/xpack-security.html#_users_2) with the `monitoring_user` and `viewer` [roles]({{ links.es.docs }}/kibana/current/xpack-security.html#_roles_2) in the target cluster.
@@ -346,7 +346,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
     {% note tip %}
 
-    In {{ mos-name }} clusters, you can run re-indexing as the `admin` user with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
+    In {{ mos-name }} clusters, you can run re-indexing as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
     {% endnote %}
 
@@ -383,14 +383,14 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
     ```text
     {
-      "task" : "<ID_of_reindexing_job>"
+      "task" : "<reindexing_job_ID>"
     }
     ```
 
-    To transfer several indexes, use a `for` loop:
+    To migrate several indexes, use a `for` loop:
 
     ```bash
-    for index in <names_of_indexes_of_aliases_or_data_streams_separated_by_spaces>; do
+    for index in <names_of_alias_indexes_or_data_streams_separated_by_spaces>; do
       curl --user <username_in_target_cluster>:<user_password_in_target_cluster> \
            --cacert ~/.opensearch/root.crt \
            --request POST \
@@ -424,7 +424,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
     ...
     ```
 
-    To learn more about reindexing parameters, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/reindex-data/#source-index-options).
+    To learn more about reindexing parameters, see the [relevant {{ OS }} article]({{ os.docs }}/opensearch/reindex-data/#source-index-options).
 
     Reindexing may take a while. To check the operation status, run this command:
 
@@ -432,7 +432,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
     curl --user <username_in_target_cluster>:<user_password_in_target_cluster> \
          --cacert ~/.opensearch/root.crt \
          --request GET \
-         "https://<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_tasks/<ID_of_reindexing_job>"
+         "https://<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_tasks/<reindexing_job_ID>"
     ```
 
 1. To cancel reindexing, run this command:
@@ -448,7 +448,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 ### Check the result {#check-result-reindex}
 
 
-Make sure all indexes have been transferred to the target {{ mos-name }} cluster and the number of documents in them is the same as in the source cluster:
+Make sure all indexes have been migrated to the target {{ mos-name }} cluster and the number of documents in them is the same as in the source cluster:
 
 {% list tabs group=programming_language %}
 
@@ -463,7 +463,7 @@ Make sure all indexes have been transferred to the target {{ mos-name }} cluster
       --request GET 'https://<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
   ```
 
-  The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
+  The list should contain the indexes migrated from {{ ES }} with the number of documents specified in the `docs.count` column.
 
 - {{ OS }} Dashboards {#opensearch}
 
@@ -471,9 +471,9 @@ Make sure all indexes have been transferred to the target {{ mos-name }} cluster
   1. Select the `Global` tenant.
   1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
   1. Under **{{ OS }} Plugins**, select **Index Management**.
-  1. Go to **Indexes**.
+  1. Navigate to **Indexes**.
 
-  The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+  The list should contain the indexes migrated from {{ ES }} with the number of documents specified in the **Total documents** column.
 
 {% endlist %}
 

@@ -127,6 +127,7 @@ You can give {{ alb-name }} extra resilience to faults related to malicious acti
 
 Here is an [example](../tutorials/web/application-load-balancer-website/index.md) of creating a fault-tolerant website with load balancing using {{ alb-name }} between three availability zones with fault protection in one zone.
 
+{% include [alb-ig-zonal-inc](../_includes/application-load-balancer/alb-ig-zonal-inc.md) %}
 
 ## Fault tolerance of platform services {#platform-services-ha}
 
@@ -188,8 +189,8 @@ Here is an [example](../tutorials/infrastructure-management/vm-autoscale/) of de
 For autoscaling, you can use any {{ yandex-cloud }} {{ monitoring-name }} parameter in addition to the basic parameter (CPU load).
 
 Recommendations on ensuring tolerance against zone faults:
-   1. Use a separate instance group for each availability zone. Avoid using the same instance group to create instances in different availability zones: it may complicate their management if one of the zones fails.
-   1. {{ k8s }} cluster node group autoscaling is also based on the instance group mechanics.
+   1. Use a separate instance group for each availability zone. Avoid using the same instance group to create instances in different availability zones: this may complicate their management if one of the zones fails.
+   1. {{ managed-k8s-name }} uses zonal instance groups as autoscalable node groups. To place nodes of such a cluster in different zones, use a separate node group for each zone.
 
 {% note warning %}
 
@@ -202,6 +203,8 @@ Recommendations on ensuring tolerance against zone faults:
 When designing a fault-tolerant cloud infrastructure, keep in mind that if one of the availability zones fails, vacant resources in other zones will be depleted much faster.
 
 {% endnote %}
+
+See also the [description of instance groups during a zonal incident and our mitigation guidelines](../compute/concepts/instance-groups/zonal-inc/overview.md).
 
 ## Fault tolerance of client services {#client-service-ha}
 

@@ -5,14 +5,14 @@ description: Follow this guide to create a {{ VLK }} cluster and connect to it.
 
 # Getting started with {{ mrd-name }}
 
-To get started with the service:
+To get started:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the cluster](#connect).
 
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -24,7 +24,7 @@ To get started with the service:
 
 1. [Create a Linux VM](../compute/operations/vm-create/create-linux-vm.md#console_1).
 
-    Specify the following parameters:
+    Specify the following settings:
 
     * **{{ ui-key.yacloud.compute.instances.create.section_image }}**: `Ubuntu 24.04` from {{ marketplace-short-name }}.
     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
@@ -71,7 +71,7 @@ To create a cluster:
         {% include [requirements-to-password](../_includes/mdb/mrd/requirements-to-password.md) %}
 
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
-1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will switch to **Running** and its state, to **Alive**. This may take some time.
 
 For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
 
@@ -79,7 +79,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
 1. [Use](../compute/operations/vm-connect/ssh.md) SSH to [connect to the previously created VM](#before-you-begin).
 
-1. Install the `redis-cli` utility:
+1. Install `redis-cli`:
 
     ```bash
     sudo apt update && sudo apt install --yes redis-tools
@@ -97,7 +97,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
           -a <{{ VLK }}_password>
         ```
 
-    - Connecting via SSL {#with-ssl}
+    - Connecting with SSL {#with-ssl}
 
         1. Get an SSL certificate:
 
@@ -115,7 +115,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
     {% endlist %}
 
-    You can request  the cluster ID with the [list of clusters in the folder](./operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](./operations/cluster-list.md#list-clusters).
 
     {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
@@ -123,6 +123,6 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).
-* Read [questions and answers](qa/general.md).
+* Check [questions and answers](qa/general.md).
