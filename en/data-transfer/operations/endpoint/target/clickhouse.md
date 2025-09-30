@@ -132,7 +132,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -148,7 +148,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse-target.md) %}
 
 - CLI {#cli}
 
@@ -180,7 +180,7 @@ Connecting to the database with explicitly specified network addresses and ports
                 native_port = "<port_for_native_interface_connection>"
                 shards {
                   name  = "<shard_name>"
-                  hosts = [ “list of IP addresses and FQDNs of shard hosts" ]
+                  hosts = [ "list of IP addresses and FQDNs of shard hosts" ]
                 }
                 tls_mode {
                   enabled {
@@ -202,7 +202,7 @@ Connecting to the database with explicitly specified network addresses and ports
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

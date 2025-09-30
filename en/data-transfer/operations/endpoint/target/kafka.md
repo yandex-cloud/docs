@@ -77,7 +77,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -100,7 +100,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -124,7 +124,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
     {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -150,7 +150,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

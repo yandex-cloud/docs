@@ -1224,6 +1224,8 @@ items:
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
+      - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
+        href: dataplatform/spark-simple-rw-job.md
       - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
         href: dataplatform/metastore-and-spark.md
       - name: Запуск PySpark-задания с помощью {{ maf-full-name }}

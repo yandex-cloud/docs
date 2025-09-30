@@ -492,8 +492,6 @@ items:
         href: datasphere/known-issues/servant-not-allocated-issue.md
       - name: Устранение ошибки `TestsFailure`
         href: datasphere/known-issues/tests-failure-error.md
-      - name: Устранение ошибки открытия проекта
-        href: datasphere/known-issues/project-not-starting.md
       - name: Устранение ошибки `Token authentication is enabled`
         href: datasphere/known-issues/error-token-authentication-is-enabled.md
       - name: Устранение ошибок с доступом или входом в проект
@@ -505,11 +503,6 @@ items:
           pip
         href: >-
           datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md
-      - name: >-
-          Устранение ошибки `A value is trying to be set on a copy of a slice
-          from a DataFrame`
-        href: >-
-          datasphere/known-issues/error-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe.md
       - name: Устранение ошибки `Device or resource busy`
         href: datasphere/known-issues/error-device-or-resource-busy.md
       - name: Примеры конфигураций и сценариев {{ ml-platform-name }}
@@ -606,11 +599,6 @@ items:
           iam/known-issues/resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md
       - name: Устранение ошибок при работе с приглашениями в облачную организацию
         href: iam/known-issues/error-when-users-accepts-invite-to-organisation.md
-      - name: >-
-          Устранение ошибки `Permission Denied` при добавлении нового
-          пользователя в облачную организацию
-        href: >-
-          iam/known-issues/permission-denied-error-when-adding-new-user-to-organisation.md
       - name: >-
           Устранение ошибки `The signature of response or assertion was invalid`
           при авторизации федеративным аккаунтом

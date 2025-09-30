@@ -12,7 +12,7 @@ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-To use the diagnostics tool, enable statistics collection when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings). By default, statistics are only collected for queries longer than 300 ms. If required, in [DBMS settings](update.md#change-mongod-config), change the time threshold for collecting slow query statistics in the `slowOpThreshold` [parameter](../concepts/settings-list.md#setting-slow-op-threshold).
+To use the diagnostics tool, enable statistics collection when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings). By default, statistics are only collected for queries longer than 300 ms. If required, [in DBMS settings](update.md#change-mongod-config), change the time threshold for collecting slow query statistics in the `slowOpThreshold` [parameter](../concepts/settings-list.md#setting-slow-op-threshold).
 
 ## Getting profiling data {#get-profiling}
 

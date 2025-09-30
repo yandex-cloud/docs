@@ -18,12 +18,14 @@ description: В этой статье сопоставляются сервис�
 | Azure Database for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| Azure Data Lake | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | Azure DDoS Protection | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Azure Dedicated Hosts | [{{ baremetal-full-name }}](../../baremetal/) |
 | Azure DNS | [{{ dns-full-name }}](../../dns/) |
 | Azure Event Grid | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Azure Event Hubs | [{{ yds-full-name }}](../../data-streams/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
+| Azure HDInsight | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
@@ -50,6 +52,7 @@ description: В этой статье сопоставляются сервис�
 | Key Vault | [{{ kms-full-name }}](../../kms/) |
 | Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | {{ microsoft-idp.entra-id-full }} | [{{ iam-full-name }}](../../iam/) |
+| Microsoft Fabric | [{{ mtr-full-name }}](../../managed-trino/) |
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
 | Microsoft Purview (Data Catalog) | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
 | Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../ydb/) |

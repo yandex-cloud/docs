@@ -18,7 +18,7 @@ editable: false
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
-[In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for text [generation](concepts/generation/index.md) and [vectorization](./concepts/embeddings.md).
+[In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for [generation](concepts/generation/index.md), [vectorization](./concepts/embeddings.md), and [dedicated instances](concepts/generation/dedicated-instance.md).
 
 ### Text generation {#rules-generating}
 
@@ -46,9 +46,9 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 ^1^ {{ meta-disclaimer }}
 
-### Dedicated inctsnces {#rules-dedicated}
+### Dedicated instances {#rules-dedicated}
 
-The cost of running a dedicated instance depends on the model and the chosen configuration. The work of a dedicated instance is charged per second, rounded up to the billing unit. At the same time, the time of hardware maintenance and model deployment is not charged.
+The cost of operation of a dedicated instance depends on the model and selected configuration. Dedicated instances are charged per second of operation, rounded up to the billing unit. At the same time, there is no charge for the period of hardware maintenance and model deployment.
 
 _{{ price-per-hour-count-per-second }}_
 
@@ -71,10 +71,6 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 ### Assistants {#rules-assistant}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, you can use {{ assistant-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
-
-### Using Voice Agents {#rules-voice-assistant}
-
-The cost of using voice agents consists of the cost of speech recognition (incoming audio), the cost of speech synthesis (outgoing audio), and the cost of text generation using the speech-realtime-250923 model.
 
 ### Image generation {#rules-image-generation}
 
@@ -132,15 +128,6 @@ _{{ price-per-hour-count-per-second }}_
 
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
-
-
-### Using Voice Agents {#voice-assistant}
-
-*Prices are shown for 1 minute of use. Billing occurs per second.*
-
-
-
-{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
 
 
 ### Image generation {#pricing-image-generation}
@@ -204,18 +191,5 @@ Cost of using {{ foundation-models-full-name }} for text vectorization with the 
 
 {% include [usd-embedding-k1](../_pricing_examples/ai-studio/usd-embedding-k1.md) %}
 
-
-
-## Example of the Voice Agents usage cost calculation {#price-example-voice-assistant}
-
-Cost of using voice agent the speech-realtime-250923 model with the following parameters:
-
-* Incoming audio: 30 seconds.
-* Outgoing audio: 1 minute.
-* Number of tokens in the request: 2000.
-
-
-
-{% include [usd-voice-assistant-pro](../_pricing_examples/ai-studio/usd-voice-assistant-pro.md) %}
 
 

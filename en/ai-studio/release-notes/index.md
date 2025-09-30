@@ -5,9 +5,13 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 16/09/2025 {#160925}
+
+Added the ability to deploy some models on [dedicated instances](../concepts/generation/dedicated-instance.md).
+
 ## Release as of 03/09/2025 {#030925}
 
-The [basic instance](../concepts/generation/models.md#generation) now features the Gemma 3 27B visual-linguistic model. For text-to-text, access the model in AI Playground; for images, use the {{ openai }} API or ML SDK.
+The [common instance](../concepts/generation/models.md#generation) now features the Gemma 3 27B visual-linguistic model. For text-to-text, access the model in AI Playground; for images, use the {{ openai }} API or ML SDK.
 
 ## Release as of 28/08/2025 {#280825}
 

@@ -13,14 +13,14 @@ description: В этой статье сопоставляются сервис�
 | Artifact Registry | [{{ cloud-registry-full-name }}](../../cloud-registry/)<br/>[{{ container-registry-full-name }}](../../container-registry/)  |
 | Backup and DR Service | [{{ backup-full-name }}](../../backup/) |
 | Bare Metal Solution | [{{ baremetal-full-name }}](../../baremetal/) |
-| BigQuery | [{{ yq-full-name }}](../../query/) |
+| BigQuery | [{{ yq-full-name }}](../../query/)<br/>[{{ myt-full-name }}](../../managed-ytsaurus/) |
 | Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Cloud Armor,<br/>Cloud Identity | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | Cloud Audit Logs | [{{ at-full-name }}](../../audit-trails/) |
 | Cloud Billing | [{{ billing-name }}](../../billing/) |
 | Cloud CDN | [{{ cdn-full-name }}](../../cdn/) |
 | Cloud Console | [{{ console-full-name }}](../../console/) |
-| Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/)<br/>[{{ mch-full-name }}](../../managed-clickhouse/) |
+| Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/)<br/>[{{ mch-full-name }}](../../managed-clickhouse/)<br/>[{{ mtr-full-name }}](../../managed-trino/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
 | Cloud Interconnect | [{{ interconnect-full-name }}](../../interconnect/) |

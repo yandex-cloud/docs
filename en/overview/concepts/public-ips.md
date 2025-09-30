@@ -38,6 +38,11 @@ For example, the resources assigned such IP address ranges are:
 These IP addresses cannot be assigned to user resources. They serve to ensure an API request sent to `/validate` works correctly.
 
 
+### {{ sws-name }} {#sws-ips}
+
+{% include [sws-ip-list](../../_includes/sws-ips.md) %}
+
+
 
 ## IP addresses used by {{ yandex-cloud }} for its services {#yandex-cloud-ips}
 
