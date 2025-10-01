@@ -117,7 +117,7 @@
 
 - Вручную {#manual}
 
-  1. Установите [актуальную версию](https://github.com/cert-manager/cert-manager/releases) cert-manager. Например, для версии 1.21.1 выполните команду:
+  1. Установите [актуальную версию](https://github.com/cert-manager/cert-manager/releases) cert-manager. Например, для версии 1.12.1 выполните команду:
 
      ```bash
      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
