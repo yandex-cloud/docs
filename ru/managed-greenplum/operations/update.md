@@ -1631,7 +1631,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         Где:
 
-        * `--log-enabled` — включает передачу логов.
+        * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например, `--log-greenplum-enabled`.
         * `--log-command-center-enabled` — передача логов [командного центра](../concepts/command-center.md).
         * `--log-greenplum-enabled` — передача логов {{ GP }}.
         * `--log-pooler-enabled` — передача логов [менеджера подключений](../concepts/pooling.md).
@@ -1665,7 +1665,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         Где:
 
-        * `enabled` — включение передачи логов: `true` или `false`.
+        * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
         * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
         * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
         * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
@@ -1718,7 +1718,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         * `logging` — настройки логирования:
 
-            * `enabled` — включение передачи логов: `true` или `false`.
+            * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
             * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
@@ -1778,7 +1778,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         * `logging` — настройки логирования:
 
-            * `enabled` — включение передачи логов: `true` или `false`.
+            * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
             * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.

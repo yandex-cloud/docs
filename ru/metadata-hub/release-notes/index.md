@@ -11,7 +11,7 @@ description: В разделе представлена история изме�
 
 #### Новые возможности {#new-features-sep25}
 
-* [{{ connection-manager-name }}](../concepts/connection-manager.md) перешел в стадию [стадию General Availability](../../overview/concepts/launch-stages.md); поддержана работа с YC CLI.
+* [{{ connection-manager-name }}](../concepts/connection-manager.md) перешел в стадию [стадию General Availability](../../overview/concepts/launch-stages.md); поддержана работа с YC CLI и Terraform.
 
 
 * [{{ metastore-full-name }}](../concepts/metastore.md) перешел в стадию [стадию General Availability](../../overview/concepts/launch-stages.md); использование кластеров стало [платным](../pricing.md).

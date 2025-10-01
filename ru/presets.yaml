@@ -2297,14 +2297,16 @@ default:
         v3|number: 25
     requests:
       async:
-        v3|number: 125
-        v3|string: "125,00\_₸"
-      day:
-        v1|string: "2\_400,00\_₸"
+        v3|number: 150
+        v3|string: "150,00\_₸"
+      image:
+        sync:
+          v3|string: "4\_500,00\_₸"
       night:
-        v1|pricingRate:
-          1|string: "1\_800,00\_₸"
-        v1|string: Не тарифицируется
+        async:
+          v3|string: "125,00\_₸"
+        sync:
+          v3|string: "1\_800,00\_₸"
       sync:
         v3|number: 2400
         v3|string: "2\_400,00\_₸"
@@ -4286,14 +4288,16 @@ default:
         v3|number: 5
     requests:
       async:
-        v3|number: 25
-        v3|string: "25,00\_₽"
-      day:
-        v1|string: "480,00\_₽"
+        v3|number: 30
+        v3|string: "30,00\_₽"
+      image:
+        sync:
+          v3|string: "900,00\_₽"
       night:
-        v1|pricingRate:
-          1|string: "360,00\_₽"
-        v1|string: Не тарифицируется
+        async:
+          v3|string: "25,00\_₽"
+        sync:
+          v3|string: "360,00\_₽"
       sync:
         v3|number: 480
         v3|string: "480,00\_₽"
@@ -6212,14 +6216,16 @@ default:
         v3|number: 0.041667
     requests:
       async:
-        v3|number: 0.208333
-        v3|string: "0,208333\_$"
-      day:
-        v1|string: "3,999998\_$"
+        v3|number: 0.25
+        v3|string: "0,250000\_$"
+      image:
+        sync:
+          v3|string: "7,499997\_$"
       night:
-        v1|int|string: Не тарифицируется
-        v1|pricingRate:
-          1|string: "2,999999\_$"
+        async:
+          v3|string: "0,208333\_$"
+        sync:
+          v3|string: "2,999999\_$"
       sync:
         v3|number: 3.999998
         v3|string: "3,999998\_$"
@@ -7390,6 +7396,8 @@ default:
             add: Добавить
             add-and-go: Добавить и перейти к дашборду
             copy-and-go: Копировать и перейти к дашборду
+        entities-list:
+          common-filter-placeholder: Поиск по вхождению
         juggler-modal:
           form:
             juggler-links:
@@ -7416,10 +7424,15 @@ default:
           create-alert: Создать алерт
           edit: Редактировать
           open-in-monitoring: Открыть в Мониторинге
+          save: Сохранить
           setup: Настроить виджет
         settings:
           dashboard-settings: Настройки дашборда
+          general:
+            labels:
+              title: Лейблы
           tab:
+            general: Основные
             json: JSON
         tab:
           service-dashboards: Сервисные дашборды
@@ -7484,6 +7497,9 @@ default:
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
+      navigation:
+        dialogs:
+          button_save: Сохранить
       prometheus:
         action_create: Создать воркспейс
         alert-manager:
@@ -7556,6 +7572,7 @@ default:
           axes: Оси
           downsampling: Прореживание
           general: Основные
+          links-key-value: Ссылки
           pivot-table: Сводная таблица
           table: Исходные данные
           thresholds: Пороги
@@ -7628,7 +7645,11 @@ default:
             label_type: Тип
           exports:
             field_bucket: Бакет
+            field_detail-type: Детализация
+            field_locale: Язык
             field_prefix: Путь внутри бакета
+            locale_value_en-lang: English
+            locale_value_ru-lang: Русский
           proposals_page:
             type_Error: Ошибка применения
           proposals:
@@ -9336,6 +9357,8 @@ default:
           title_scan-on-push: Сканирование Docker-образов при загрузке
           title_scheduled-scan: Сканирование Docker-образов по расписанию
         switch_registry: Реестры
+      dashboard:
+        label_permissions_gAtoT: Разрешения
       data-catalog:
         action_create-catalog: Cоздать каталог
         action_edit-domain: Редактировать домен
@@ -9857,6 +9880,10 @@ default:
         label_create-wli-federation: Создать федерацию
         label_federations: Федерации сервисных аккаунтов
         label_service-accounts: Сервисные аккаунты
+        ssa:
+          action_disable-access: Отключить  доступ
+          action_enable-access: Включить доступ
+          label_filter-by-service-placeholder: Фильтр по сервису
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -10037,7 +10064,10 @@ default:
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Реестр схем данных
         FormSections:
+          field_coordination-service-type_sdoRj: Сервис координации
           value_coordination-service-type-kraft-combined-mode_c1zke: KRaft (комбинированный режим)
+          value_coordination-service-type-kraft-split-mode_sbrDd: KRaft (на отдельных хостах)
+          value_coordination-service-type-zookeeper_pN7ub: ZooKeeper (на отдельных хостах)
         label_brokers-per-az: Количество брокеров в зоне
         label_connector-this-cluster: Использовать этот кластер
         label_connectors: Коннекторы
@@ -10057,6 +10087,7 @@ default:
         label_topic-retention-bytes: Максимальный размер раздела, байт
         label_topic-retention-ms: Время жизни сегмента лога, мс
         label_topics: Топики
+        section_kraft-resources: Класс хоста KRaft
         section_properties: Дополнительные свойства
         section_topic-config: Настройки топика
         section_zookeeper-resources: Класс хоста ZooKeeper

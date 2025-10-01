@@ -72,6 +72,8 @@
 
       * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
+      * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например, `--log-greenplum-enabled`.
+
       * `--log-greenplum-enabled` — передача логов {{ GP }}.
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
@@ -138,15 +140,17 @@
 
           * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
-          * `greenplum-enabled` — передача логов {{ GP }}.
+          * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
+
+          * `greenplum_enabled` — передача логов {{ GP }}.
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
+          * `command_center_enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
-          * `folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
+          * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
 
       1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -181,6 +185,8 @@
       Где:
 
       * `serviceAccountId` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
+
+      * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
 
       * `greenplumEnabled` — передача логов {{ GP }}.
 
@@ -314,6 +320,8 @@
 
       * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
+      * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например, `--log-greenplum-enabled`.
+
       * `--log-greenplum-enabled` — передача логов {{ GP }}.
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
@@ -380,11 +388,13 @@
 
           * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
-          * `greenplum-enabled` — передача логов {{ GP }}.
+          * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
+
+          * `greenplum_enabled` — передача логов {{ GP }}.
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
+          * `command_center_enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -423,6 +433,8 @@
       Где:
 
       * `serviceAccountId` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
+
+      * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
 
       * `greenplumEnabled` — передача логов {{ GP }}.
 

@@ -25,6 +25,8 @@
 
 ## {{ sf-full-name }} {#cloud-functions}
 
+  * Как настроить CI/CD для {{ sf-name }} из {{ src-full-name }}, 2025 — [Статья](https://yandex.cloud/ru/blog/ci-cd-for-cloud-functions-sourcecraft).
+  * Как настроить CI/CD для {{ sf-name }} из GitHub, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2023/04/telegram-chat-analytics).
   * Конвейер обработки запросов в платформе Serverless, 2024 — Видео на [YouTube](https://youtu.be/KOxfeiK6kJI) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplvw5f3pnscc2kcxng2).
   * Путь от FaaS к платформе для EDA‑приложений, 2024 — Видео на [YouTube](https://youtu.be/xUK5IIxkHGI) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplvc7mkuxy7tnqgrebc).
   * <code><b><small>Внешний ресурс</small></b></code> Работа с {{ RD }} из функций {{ sf-name }}, 2024 — [Статья](https://nikolaymatrosov.ru/2024-11-17-Call-Redis-from-Serverless-functions).

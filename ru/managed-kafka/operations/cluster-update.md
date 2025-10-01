@@ -11,6 +11,7 @@ description: Следуя данной инструкции, вы сможете
 * [изменить имя и описание кластера](#change-name-and-description);
 * [изменить класс и количество хостов-брокеров](#change-brokers);
 * [изменить класс хостов {{ ZK }}](#change-zookeeper);
+* [изменить класс хостов {{ kraft-short-name }}](#change-kraft);
 * [изменить настройки групп безопасности и публичного доступа](#change-sg-set);
 * [изменить дополнительные настройки кластера](#change-additional-settings);
 * [изменить настройки {{ KF }}](#change-kafka-settings);
@@ -185,7 +186,7 @@ description: Следуя данной инструкции, вы сможете
 
 Увеличить количество [хостов-брокеров](../concepts/brokers.md) можно, если выполняются условия:
 
-* В кластере используется версия {{ KF }} 3.5. В кластерах с версией {{ KF }} 3.6 или выше используется [протокол {{ kraft-name }}](../concepts/kraft.md), из-за чего в таких кластерах всегда ровно три хоста {{ KF }}.
+* В кластере используется {{ KF }} с {{ ZK }}. В кластерах с {{ KF }} и [протоколом {{ kraft-short-name }}](../concepts/kraft.md) нельзя изменить количество хостов-брокеров.
 * Кластер содержит не менее двух хостов-брокеров в разных зонах доступности.
 
 Уменьшить количество хостов-брокеров нельзя. Для выполнения [условий высокой доступности](../concepts/ha-cluster.md) кластера необходимо минимум три хоста-брокера.
@@ -423,12 +424,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить класс хостов {{ ZK }} {#change-zookeeper}
 
-{% note info %}
-
-Класс хостов {{ ZK }} используется только в кластерах с версией {{ KF }} 3.5 и ниже.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -548,7 +543,7 @@ description: Следуя данной инструкции, вы сможете
             * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
                 Укажите нужные параметры:
-                * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
+                * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 
@@ -617,6 +612,209 @@ description: Следуя данной инструкции, вы сможете
 
                 Укажите нужные параметры:
                 * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов {{ ZK }}.
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить класс хостов {{ kraft-short-name }} {#change-kraft}
+
+{% note info %}
+
+Класс хостов {{ kraft-short-name }} используется только в кластерах с версией {{ KF }} 3.6 и выше.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Выберите новый [**{{ ui-key.yacloud.kafka.section_kraft-resources }}**](../concepts/instance-types.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить класс хостов {{ kraft-short-name }}:
+
+  1. Получите информацию о кластере:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster list
+     {{ yc-mdb-kf }} cluster get <имя_или_идентификатор_кластера>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster update --help
+     ```
+
+  1. Чтобы изменить [класс хостов](../concepts/instance-types.md) {{ kraft-short-name }}, выполните команду:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+       --controller-resource-preset <класс_хоста>
+     ```
+
+  Чтобы узнать имя или идентификатор кластера, [получите список кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `kraft.resources`, чтобы задать новый [класс хостов](../concepts/instance-types.md) {{ kraft-short-name }}:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
+          ...
+          kraft {
+            resources {
+              resource_preset_id = "<класс_хостов_{{ kraft-short-name }}>"
+              ...
+            }
+          }
+         }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Запросите список доступных классов хостов:
+
+        1. Воспользуйтесь методом [ResourcePreset.list](../api-ref/ResourcePreset/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/resourcePresets'
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse).
+
+    1. Измените класс хостов на нужный:
+
+        1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+            ```bash
+            curl \
+                --request PATCH \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+                --data '{
+                          "updateMask": "configSpec.kraft.resources.resourcePresetId",
+                          "configSpec": {
+                            "kraft": {
+                              "resources": {
+                                "resourcePresetId": "<идентификатор_класса_хостов_{{ kraft-short-name }}>"
+                              }
+                            }
+                          }
+                        }'
+            ```
+
+            Где:
+
+            * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+                Укажите нужные параметры:
+                * `configSpec.kraft.resources.resourcePresetId` — если нужно изменить класс хостов {{ kraft-short-name }}.
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Запросите список доступных классов хостов:
+
+        1. Воспользуйтесь вызовом [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/resource_preset_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ResourcePresetService.List
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse).
+
+    1. Измените класс хостов на нужный:
+
+        1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>",
+                      "update_mask": {
+                        "paths": [
+                          "config_spec.kraft.resources.resource_preset_id"
+                        ]
+                      },
+                      "config_spec": {
+                        "kraft": {
+                          "resources": {
+                            "resource_preset_id": "<идентификатор_класса_хостов_{{ kraft-short-name }}>"
+                          }
+                        }
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ClusterService.Update
+            ```
+
+            Где:
+
+            * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+                Укажите нужные параметры:
+                * `config_spec.kraft.resources.resource_preset_id` — если нужно изменить класс хостов {{ kraft-short-name }}.
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 

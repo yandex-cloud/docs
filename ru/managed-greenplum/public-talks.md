@@ -7,6 +7,12 @@ description: Видеозаписи конференций и вебинаров
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+### 2025: Статьи {#article-2025}
+
+* Как Data Warehouse помогает бизнесу экономить деньги и принимать решения.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/data-warehouse-guide).
+
 ### 2023: Data Open Source Day {#data-open-source-day-2023}
 
 * Невероятные идеи по развитию {{ GP }} от инженеров {{ yandex-cloud }}.

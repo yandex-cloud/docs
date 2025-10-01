@@ -2286,14 +2286,16 @@ default:
         v3|number: 25
     requests:
       async:
-        v3|number: 125
-        v3|string: ₸125.00
-      day:
-        v1|string: ₸2400.00
+        v3|number: 150
+        v3|string: ₸150.00
+      image:
+        sync:
+          v3|string: ₸4500.00
       night:
-        v1|pricingRate:
-          1|string: ₸1800.00
-        v1|string: Free
+        async:
+          v3|string: ₸125.00
+        sync:
+          v3|string: ₸1800.00
       sync:
         v3|number: 2400
         v3|string: ₸2400.00
@@ -4275,14 +4277,16 @@ default:
         v3|number: 5
     requests:
       async:
-        v3|number: 25
-        v3|string: ₽25.00
-      day:
-        v1|string: ₽480.00
+        v3|number: 30
+        v3|string: ₽30.00
+      image:
+        sync:
+          v3|string: ₽900.00
       night:
-        v1|pricingRate:
-          1|string: ₽360.00
-        v1|string: Free
+        async:
+          v3|string: ₽25.00
+        sync:
+          v3|string: ₽360.00
       sync:
         v3|number: 480
         v3|string: ₽480.00
@@ -6201,14 +6205,16 @@ default:
         v3|number: 0.041667
     requests:
       async:
-        v3|number: 0.208333
-        v3|string: $0.208333
-      day:
-        v1|string: $3.999998
+        v3|number: 0.25
+        v3|string: $0.250000
+      image:
+        sync:
+          v3|string: $7.499997
       night:
-        v1|int|string: Free
-        v1|pricingRate:
-          1|string: $2.999999
+        async:
+          v3|string: $0.208333
+        sync:
+          v3|string: $2.999999
       sync:
         v3|number: 3.999998
         v3|string: $3.999998
@@ -7379,6 +7385,8 @@ default:
             add: Add
             add-and-go: Add and edit
             copy-and-go: Copy and edit
+        entities-list:
+          common-filter-placeholder: Search by entry
         juggler-modal:
           form:
             juggler-links:
@@ -7405,10 +7413,15 @@ default:
           create-alert: Create alert
           edit: Edit
           open-in-monitoring: Open in Monitoring
+          save: Save
           setup: Setup widget
         settings:
           dashboard-settings: Dashboard settings
+          general:
+            labels:
+              title: Labels
           tab:
+            general: General
             json: JSON
         tab:
           service-dashboards: Service dashboards
@@ -7473,6 +7486,9 @@ default:
           no-data: No data policy
           notification-channels: Notifications
           time-shift: Evaluation delay
+      navigation:
+        dialogs:
+          button_save: Save
       prometheus:
         action_create: Create workspace
         alert-manager:
@@ -7545,6 +7561,7 @@ default:
           axes: Axes
           downsampling: Downsampling
           general: General
+          links-key-value: Links
           pivot-table: Pivot table
           table: Raw data
           thresholds: Thresholds
@@ -7617,7 +7634,11 @@ default:
             label_type: Type
           exports:
             field_bucket: Bucket
+            field_detail-type: Usage details
+            field_locale: Language
             field_prefix: Path within the bucket
+            locale_value_en-lang: English
+            locale_value_ru-lang: Русский
           proposals_page:
             type_Error: Application error
           proposals:
@@ -9319,6 +9340,8 @@ default:
           title_scan-on-push: Scan Docker images when uploading
           title_scheduled-scan: Scheduled Docker image scans
         switch_registry: Registries
+      dashboard:
+        label_permissions_gAtoT: Permissions
       data-catalog:
         action_create-catalog: Create catalog
         action_edit-domain: Edit domain
@@ -9840,6 +9863,10 @@ default:
         label_create-wli-federation: Create federation
         label_federations: Workload identity federations
         label_service-accounts: Service accounts
+        ssa:
+          action_disable-access: Disable access
+          action_enable-access: Enable access
+          label_filter-by-service-placeholder: Filter by service
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -10020,7 +10047,10 @@ default:
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
         FormSections:
+          field_coordination-service-type_sdoRj: Coordination service
           value_coordination-service-type-kraft-combined-mode_c1zke: KRaft (combined mode)
+          value_coordination-service-type-kraft-split-mode_sbrDd: KRaft (on separate hosts)
+          value_coordination-service-type-zookeeper_pN7ub: ZooKeeper (on separate hosts)
         label_brokers-per-az: Number of brokers in zone
         label_connector-this-cluster: Use this cluster
         label_connectors: Connectors
@@ -10040,6 +10070,7 @@ default:
         label_topic-retention-bytes: Retention, bytes
         label_topic-retention-ms: Retention, ms
         label_topics: Topics
+        section_kraft-resources: KRaft host class
         section_properties: Additional properties
         section_topic-config: Topic settings
         section_zookeeper-resources: ZooKeeper host class

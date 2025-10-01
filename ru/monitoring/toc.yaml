@@ -29,7 +29,7 @@ items:
             href: operations/metric/prometheusExport.md
       - name: Работа с дашбордами
         items:
-          - name: Создание дашборда
+          - name: Создание и управление дашбордом
             href: operations/dashboard/create.md
           - name: Копирование дашборда
             href: operations/dashboard/copy.md

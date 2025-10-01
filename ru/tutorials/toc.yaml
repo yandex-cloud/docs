@@ -29,7 +29,7 @@ items:
         href: security/sws-protection-ongoing-ddos.md
       - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
-          защиты от DDoS-атак с помощью {{ sws-name }}
+          подключения защиты {{ sws-name }}
         items:
           - name: Обзор
             href: security/migration-from-nlb-to-alb/index.md

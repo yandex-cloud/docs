@@ -3,15 +3,55 @@ description:
   - >-
     Архитектурные решения и рекомендации для реализации пользовательских
     сценариев в Yandex Cloud.
-links:
-  - title: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
-    href: fault-tolerance
-  - title: >-
-      Развертывание веб-приложения в отказоустойчивой конфигурации в {{
-      yandex-cloud }}
-    href: app-in-k8s
-  - title: Тестирование отказоустойчивости в {{ yandex-cloud }}
-    href: testing-zone-failure
+blocks:
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    indent:
+      bottom: xs
+    title: Архитектурные решения
+    description: >-
+      Архитектурные решения и рекомендации для реализации пользовательских
+      сценариев в Yandex Cloud.
+    children:
+      - type: basic-card
+        title: Рекомендации по отказоустойчивости в Yandex Cloud
+        text: >-
+          Практические рекомендации по созданию инфраструктуры облачных
+          сервисов, способной продолжать работать при отказе одного или
+          нескольких компонентов.
+        urlTitle: Рекомендации по отказоустойчивости в Yandex Cloud
+        url: fault-tolerance
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Развертывание веб-приложения в отказоустойчивой конфигурации
+        text: >-
+          Пример решения задачи по развертыванию веб-приложения в
+          отказоустойчивой конфигурации на базе масштабируемых управляемых
+          сервисов экосистемы Yandex Cloud.
+        urlTitle: >-
+          Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex
+          Cloud
+        url: app-in-k8s
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Тестирование отказоустойчивости в Yandex Cloud
+        text: >-
+          Практические рекомендации по тестированию отказоустойчивости при
+          полном отказе одной из зон доступности инфраструктуры.
+        urlTitle: Тестирование отказоустойчивости в Yandex Cloud
+        url: testing-zone-failure
+        border: shadow
+        controlPosition: content
+        animated: false
 meta:
   title: Архитектурные решения
   description: >-
@@ -23,3 +63,4 @@ meta:
     - Рекомендации {{ yandex-cloud }}
     - Архитектурные решения
     - Пользовательские сценарии
+links: []

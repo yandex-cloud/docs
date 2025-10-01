@@ -90,3 +90,4 @@ _Правила-исключения_ предназначены для пред
 
 * [{#T}](../quickstart.md#waf)
 * [{#T}](../tutorials/sws-basic-protection.md)
+* [Как безопасно разрабатывать ИИ‑агентов и мультиагентные системы: наши рекомендации](https://yandex.cloud/ru/blog/ai-safe-framework)
