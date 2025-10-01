@@ -10,8 +10,8 @@
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Справа вверху нажмите **Еще** и выберите **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
   1. Выберите промежуток времени, за который хотите получить детализацию.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.popup-csv_button_download }}**.
 
@@ -47,15 +47,15 @@
   1. Выберите аккаунт, для которого хотите получить детализацию.
   1. На панели слева выберите **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** укажите:
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** название папки для файла. Последний символ должен быть `/`.
-     * Выберите язык, на котором будут отображаться названия продуктов – английский или русский.
-     * Выберите тип детализации – **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** или **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}**:
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** укажите имя бакета, где будет храниться CSV-файл с детализацией.
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_locale }}** выберите язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_detail-type }}** выберите тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 
-         Выбирая тип **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
+         Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
 
          {% endnote %}
 
@@ -95,7 +95,7 @@
    * {{ container-registry-short-name }} — идентификатор контейнера.
    * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
-     * {{ message-queue-name }} — идентификатор запроса.
+   * {{ message-queue-name }} — идентификатор запроса.
    * {{ sf-name }} — идентификатор функции.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
    * Техническая поддержка — идентификатор подписки.

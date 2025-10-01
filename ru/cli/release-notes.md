@@ -7,6 +7,47 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.169.0 (01.10.25) {#version0.169.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ container-registry-name }} {#container-registry-name-0.169.0}
+
+В следующие команды добавлен параметр `--page-token` для постраничного вывода списка ресурсов:
+* `yc container registry list`;
+* `yc container registry list-access-bindings`;
+* `yc container repository list`;
+* `yc container repository lifecycle-policy list`;
+* `yc container repository lifecycle-policy list-dry-run-results`;
+* `yc container image list-scan-results`;
+* `yc container image list-vulnerabilities`.
+
+##### {{ cloud-registry-name }} {#cloud-registry-name-0.169.0}
+
+В следующие команды добавлен параметр `--page-token` для постраничного вывода списка ресурсов:
+* `yc cloud-registry registry list-access-binding`;
+* `yc cloud-registry registry list`;
+* `yc cloud-registry registry list-artifact`.
+
+##### {{ org-name }} {#org-name-0.169.0}
+
+В следующие команды добавлена возможность указывать домен не только в самой команде, например `yc organization-manager idp userpool domain get <идентификатор_пула_пользователей> <домен>`, но и с помощью параметра `--domain`:
+* `yc organization-manager idp userpool domain get`;
+* `yc organization-manager idp userpool domain list`;
+* `yc organization-manager idp userpool domain add`;
+* `yc organization-manager idp userpool domain validate`;
+* `yc organization-manager idp userpool domain delete`.
+
+##### {{ mrd-name }} {#mrd-name-0.169.0}
+
+В команду `yc managed-redis cluster update` добавлен параметр `--valkey-modules` для управления модулями Valkey™.
+
+##### {{ baremetal-name }} {#baremetal-name-0.169.0}
+
+В выводе команды `yc baremetal configuration list` исправлено отображение информации о процессоре.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.168.0 (29.09.25) {#version0.168.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -18,8 +59,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ baremetal-name }} {#baremetal-0.168.0}
 
 В выводе команды `yc baremetal configuration list` исправлено отображение количества ядер и добавлено значение частоты процессора.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.167.0 (25.09.25) {#version0.167.0}
 

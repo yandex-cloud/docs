@@ -75,7 +75,11 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Поддерживаемые типы данных для пушдауна фильтров:
 
 |Тип данных {{ yq-full-name }}|
 |----|
@@ -90,6 +94,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 |`Uint64`|
 |`Float`|
 |`Double`|
+|`String`|
 
 ## Поддерживаемые типы данных {#supported_types}
 

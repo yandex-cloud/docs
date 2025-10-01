@@ -91,7 +91,7 @@ items:
         href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
-          защиты от DDoS-атак с помощью {{ sws-name }}
+          подключения защиты {{ sws-name }}
         items:
           - name: Обзор
             href: tutorials/migration-from-nlb-to-alb/index.md

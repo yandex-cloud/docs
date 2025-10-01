@@ -32,6 +32,8 @@ description: Управление доступом в сервисе для ра
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ websql-name }}.
 
+{% include [mermaid websql roles](../../_mermaid/roles/websql.md) %}
+
 #### websql.executedQueries.auditor {#websql-executedQueries-auditor}
 
 {% include [websql.executedQueries.auditor](../../_roles/websql/executedQueries/auditor.md) %}
