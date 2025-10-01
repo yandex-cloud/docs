@@ -44,7 +44,4 @@ description: Из статьи вы узнаете, как работать с �
 ## Анализ использования сервисов {{ yandex-cloud }} {#details}
 
 * [{#T}](check-bill-history.md)
-* [{#T}](check-charges.md)
-* [{#T}](get-folder-report.md)
-* [{#T}](dashboard.md)
-* [{#T}](query-integration.md)
+* [{#T}](charges-index.md)

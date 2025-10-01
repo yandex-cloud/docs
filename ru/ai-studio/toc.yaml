@@ -79,6 +79,10 @@ items:
         items:
           - name: Создать голосового агента
             href: operations/agents/create-voice-agent.md
+          - name: Создать простого текстового агента
+            href: operations/agents/create-simple-text-agent.md
+          - name: Создать текстового агента с вызовом функции
+            href: operations/agents/create-function-text-agent.md
           - name: '{{ assistant-api }}'
             items:
               - name: Создать простого ассистента

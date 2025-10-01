@@ -26,7 +26,9 @@ description: Следуя данной инструкции, вы сможете
 
 Для создания кластера {{ mpg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mpg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
+
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 
 
 {% list tabs group=instructions %}

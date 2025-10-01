@@ -18,6 +18,11 @@ description: С помощью этой инструкции вы научите
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -64,6 +69,12 @@ description: С помощью этой инструкции вы научите
 Чтобы получить информацию о [статусе](../../concepts/service-control.md#access-status) сервиса в облаке:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
+  1. В поле **{{ ui-key.yacloud.iam.ssa.label_filter-by-service-placeholder }}** введите название нужного сервиса.
 
 - CLI {#cli}
 

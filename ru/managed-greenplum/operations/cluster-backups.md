@@ -523,7 +523,7 @@
         * `serviceAccountId` — идентификатор сервисного аккаунта.
         * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
-            * `enabled` — включение передачи логов: `true` или `false`.
+            * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
             * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
@@ -639,6 +639,16 @@
 
         * `service_account_id` — идентификатор сервисного аккаунта.
 
+        * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+
+            * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
+            * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
+            * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
+            * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
+            * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
+
+                Укажите только одну из настроек: `folder_id` либо `log_group_id`.
 
 
     1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:

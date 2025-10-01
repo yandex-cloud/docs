@@ -19,6 +19,7 @@
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.ChangeOneTimePassword` | Изменение одноразового пароля
+`idp.ConvertUserToExternal` | Назначение пользователю признака синхронизации из внешнего каталога
 `idp.CreateUser` | Создание локального пользователя
 `idp.CreateUserpool` | Создание пула пользователей
 `idp.DeleteUser` | Удаление локального пользователя

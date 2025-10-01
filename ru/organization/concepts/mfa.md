@@ -55,3 +55,4 @@ MFA дает возможность повысить степень защище
 * [{#T}](../operations/mfa/deactivate-reactivate-policy.md)
 * [{#T}](../operations/mfa/delete-policy.md)
 * [{#T}](../operations/mfa/manage-verification.md)
+* [Двухфакторная аутентификация: защита от взлома в эпоху цифровых угроз](https://yandex.cloud/ru/blog/2fa)

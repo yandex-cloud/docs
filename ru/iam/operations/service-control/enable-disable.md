@@ -20,6 +20,12 @@ description: С помощью этой инструкции вы научите
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
+  1. В строке с нужным сервисом нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите ![image](../../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.iam.ssa.action_enable-access }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -67,6 +73,12 @@ description: С помощью этой инструкции вы научите
 Чтобы отозвать у сервиса доступ к ресурсам пользователя в облаке, выключите сервис:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужное облако.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
+  1. В строке с нужным сервисом нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **{{ ui-key.yacloud.iam.ssa.action_disable-access }}**.
 
 - CLI {#cli}
 
