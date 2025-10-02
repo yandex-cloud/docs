@@ -1,0 +1,2 @@
+* `name` — имя маршрута.
+* `disable_security_profile` — (опционально) опция отключения [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml). Возможные значения: `true` (профиль отключен) или `false` (профиль включен). По умолчанию профиль безопасности включен (значение `false`).

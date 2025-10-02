@@ -7,7 +7,8 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group
 
 # yandex_organizationmanager_group (Resource)
 
-Allows management of a single Group within an existing Yandex Cloud Organization. For more information, see [the official documentation](https://yandex.cloud/docs/organization/manage-groups).
+A Group resource.
+ For more information, see [Groups](/docs/organization/operations/manage-groups).
 
 ## Example usage
 
@@ -27,25 +28,28 @@ resource "yandex_organizationmanager_group" "my_group" {
 
 ### Required
 
-- `name` (String) The resource name.
-- `organization_id` (String) The organization to attach this Group to.
+- `name` (String) Name of the group.
+- `organization_id` (String) ID of the organization that the group belongs to.
 
 ### Optional
 
-- `description` (String) The resource description.
+- `description` (String) Description of the group.
+- `group_id` (String) ID of the Group resource to return.
+ To get the group ID, use a [GroupService.List] request.
+- `id` (String) ID of the Group resource to return.
+ To get the group ID, use a [GroupService.List] request.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
+- `created_at` (String) Creation timestamp.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 - `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

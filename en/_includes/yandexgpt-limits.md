@@ -5,11 +5,7 @@ Type of limit | Value
 **[Text vectorization](../ai-studio/concepts/embeddings.md)** |
 Number of text vectorization requests per second | 10
 **[Text generation](../ai-studio/concepts/generation/index.md)** |
-Number of concurrent generations in [synchronous mode](../ai-studio/concepts/index.md#working-mode), {{ gpt-lite }} model | 10
-Number of concurrent generations in synchronous mode, {{ gpt-pro }} model | 10
-Number of concurrent generations, [{{ gpt-pro }} 32k](../ai-studio/concepts/generation/models.md#generation) | 1
-Number of concurrent generations in synchronous mode, {{ llama }} 8b^1^ model | 10
-Number of concurrent generations, {{ llama }} 70b model | 1
+Number of concurrent generations in [synchronous mode](../ai-studio/concepts/index.md#working-mode) | 10
 Number of requests per second, [asynchronous mode](../ai-studio/concepts/index.md#working-mode) (request) | 10
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5,000

@@ -75,6 +75,7 @@
   client = OpenAI(
         api_key="<API-ключ>",
         base_url="https://llm.api.cloud.yandex.net/v1",
+        project="<идентификатор_каталога>",
         default_headers={
             "x-data-logging-enabled": "false"
         }
@@ -89,6 +90,7 @@
   Где:
 
   * `<API-ключ>` — [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта, необходимый для [аутентификации в {{ openai }} API](../concepts/openai-compatibility.md). Вы также можете использовать для аутентификации [IAM-токен](../../iam/operations/iam-token/create.md).
+  * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
   * `<URI_модели>` — уникальный идентификатор модели из [списка моделей](../concepts/generation/models.md), доступных для работы в синхронном режиме. Содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
 {% endlist %}

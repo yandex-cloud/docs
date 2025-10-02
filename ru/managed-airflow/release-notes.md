@@ -7,7 +7,7 @@ description: В разделе представлена история изме�
 
 ## Май 2025 {#may-2025}
 
-В консоли управления добавлен раздел **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+В консоли управления добавлен раздел [**{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**](operations/cluster-maintenance.md).
 
 ## Ноябрь 2024 {#nov-2024}
 

@@ -470,6 +470,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Сентябрь 2025
+        href: release-notes/2509.md
       - name: Август 2025
         href: release-notes/2508.md
       - name: Июль 2025

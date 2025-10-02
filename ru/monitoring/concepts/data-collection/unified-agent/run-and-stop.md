@@ -65,24 +65,7 @@ description: Из статьи вы узнаете, как запустить и
   Отредактируйте файл конфигурации `/etc/yandex/unified_agent/config.yml`, например, настроив агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](configuration.md).
 
 
-  Чтобы убедиться, что {{ unified-agent-short-name }} успешно установлен и запущен, выполните команду:
-
-  ```bash
-  systemctl status unified-agent
-  ```
-
-  Результат:
-
-  ```bash
-  ● unified-agent.service - Yandex Unified Agent service
-     Loaded: loaded (/lib/systemd/system/unified-agent.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2021-02-09 15:57:08 UTC; 2 weeks 2 days ago
-   Main PID: 141403 (unified_agent)
-      Tasks: 8 (limit: 507)
-     Memory: 9.4M
-     CGroup: /system.slice/unified-agent.service
-             └─141403 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml --log-priority NOTICE
-  ```
+  {% include [agent-is-run](../../../../_includes/monitoring/agent-is-run.md) %}
 
 - Бинарный файл {#binary}
 

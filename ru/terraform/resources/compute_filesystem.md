@@ -7,17 +7,8 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_filesystem.md
 
 # yandex_compute_filesystem (Resource)
 
-File storage is a virtual file system that can be attached to multiple Compute Cloud VMs in the same availability zone.
-
-Users can share files in storage and use them from different VMs.
-
-Storage is attached to a VM through the [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) (FUSE) interface as a [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html) device that is not linked to the host file system directly.
-
-For more information about filesystems in Yandex Cloud, see:
-* [Documentation](https://yandex.cloud/docs/compute/concepts/filesystem)
-* How-to Guides
-  * [Attach filesystem to a VM](https://yandex.cloud/docs/compute/operations/filesystem/attach-to-vm)
-  * [Detach filesystem from VM](https://yandex.cloud/docs/compute/operations/filesystem/detach-from-vm)
+A filesystem resource.
+ For details about the concept, see [documentation](/docs/compute/concepts/filesystem).
 
 ## Example usage
 
@@ -42,29 +33,40 @@ resource "yandex_compute_filesystem" "default" {
 
 ### Optional
 
-- `block_size` (Number) Block size of the filesystem, specified in bytes.
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
-- `size` (Number) Size of the filesystem, specified in GB.
+- `block_size` (Number) Block size used for the filesystem, specified in bytes.
+- `description` (String) Description of the filesystem.
+- `filesystem_id` (String) ID of the filesystem to return.
+
+ To get the filesystem ID, make a [FilesystemService.List] request.
+- `folder_id` (String) ID of the folder that the filesystem belongs to.
+- `id` (String) ID of the filesystem to return.
+
+ To get the filesystem ID, make a [FilesystemService.List] request.
+- `labels` (Map of String) Filesystem labels as `key:value` pairs.
+ For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+- `name` (String) Name of the filesystem. The name is unique within the folder.
+- `size` (Number) Size of the filesystem, specified in bytes.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-- `type` (String) Type of filesystem to create. Type `network-hdd` is set by default.
-- `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
+- `type` (String) ID of the filesystem type.
+
+ To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List] request.
+- `zone` (String) ID of the availability zone where the filesystem resides.
+
+ A filesystem can be attached only to instances residing in the same availability zone.
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
-- `status` (String) The status of the filesystem.
+- `created_at` (String) Creation timestamp.
+- `status` (String) Current status of the filesystem.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import

@@ -1,19 +1,23 @@
 Имя события | Описание
 --- | ---
 `AcceptInvitation` | Принятие приглашения
+`ActivateMfaEnforcement` | Активация политики [MFA](../../../organization/concepts/mfa.md)
 `AttachRegion` | Подключение региона
 `CreateGroup` | Создание группы пользователей
 `CreateGroupMapping` | Настройка сопоставления групп федеративных пользователей
 `CreateInvitations` | Создание приглашения
 `CreateMembership` | Добавление пользователя в организацию
+`CreateMfaEnforcement` | Создание политики MFA
 `CreateOrganization` | Создание организации
 `CreateOsLoginProfile` | Создание профиля {{ oslogin }}
 `CreateUserSshKey` | Создание SSH-ключа пользователя
+`DeactivateMfaEnforcement` | Деактивация политики MFA
 `DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `DeleteGroup` | Удаление группы пользователей
 `DeleteGroupMapping` | Удаление сопоставления групп федеративных пользователей
 `DeleteInvitation` | Удаление приглашения
 `DeleteMembership` | Удаление пользователя из организации
+`DeleteMfaEnforcement` | Удаление политики MFA
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
@@ -66,6 +70,8 @@
 `UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
 `UpdateGroupMapping` | Изменение сопоставления групп федеративных пользователей
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
+`UpdateMfaEnforcement` | Изменение политики MFA
+`UpdateMfaEnforcementAudience` | Изменение целевых пользователей политики MFA
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
 `UpdateOsLoginProfile` | Изменение профиля {{ oslogin }}

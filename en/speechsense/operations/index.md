@@ -45,6 +45,7 @@ description: This page presents all the guides on how to use {{ speechsense-name
 * [{#T}](project/add-user-to-project.md)
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
+* [{#T}](project/yandexgpt-training.md)
 
 ## Tags {#tag}
 

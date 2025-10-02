@@ -65,6 +65,7 @@ Syntax:
 |`--zset-max-listpack-entries`|<b>`int`</b><br/>Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.|
 |`--aof-max-size-percent`|<b>`int`</b><br/>AOF maximum size as a percentage of disk available. Values: 1-99|
 |`--activedefrag`|Enable active (online) memory defragmentation.|
+|`--valkey-modules`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Valkey modules settings<br/><br/>Possible property names:<br/><ul> <li><code>enable-valkey-search</code>:     Enable valkey-search module</li> <li><code>valkey-search-reader-threads</code>:     Controls the amount of threads executing valkey-search queries</li> <li><code>valkey-search-writer-threads</code>:     Controls the amount of threads processing valkey-search index mutations</li> <li><code>enable-valkey-json</code>:     Enable valkey-json module</li> <li><code>enable-valkey-bloom</code>:     Enable valkey-bloom module</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

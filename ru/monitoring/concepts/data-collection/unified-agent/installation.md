@@ -64,12 +64,14 @@ description: Из статьи вы узнаете, как установить 
 
 - deb-пакет {#deb}
 
-  {{ unified-agent-short-name }} распространяется в виде deb-пакета для операционных систем Ubuntu 16.04 и выше. Пакет содержит бинарный файл с агентом и пустой конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
+  {{ unified-agent-short-name }} распространяется в виде deb-пакета для операционных систем Ubuntu 16.04 и выше, Debian 9 и выше. Пакет содержит бинарный файл с агентом и конфигурационный файл, расположенный в `/etc/yandex/unified_agent/config.yml`.
 
   Чтобы установить {{ unified-agent-short-name }}:
 
   {% include [agent-setup-deb](../../../../_includes/monitoring/agent-setup-deb.md) %}
 
+
+  {% include [agent-setup-actions](../../../../_includes/monitoring/agent-setup-actions.md) %}
 
 - Бинарный файл {#binary}
 
@@ -100,11 +102,7 @@ description: Из статьи вы узнаете, как установить 
 
   Для установки агента и отправки метрик у виртуальной машины должен быть доступ в интернет.
 
-  Агент устанавливается с файлом конфигурации по умолчанию, который находится в `/etc/yc/unified_agent/config.yml`.
-
-  В файле конфигурации настроена отправка [базовых метрик виртуальной машины](./inputs.md#linux_metrics_input) и [метрик здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
-
-  Дополнительно можно [настроить](./configuration.md) поставку собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+  {% include [agent-setup-actions](../../../../_includes/monitoring/agent-setup-actions.md) %}
 
 
   После разворачивания ВМ {{ unified-agent-short-name }} запустится автоматически и начнет передавать базовые метрики ВМ в сервис {{ monitoring-full-name }}.
@@ -138,9 +136,7 @@ description: Из статьи вы узнаете, как установить 
 
 - deb-пакет {#deb}
 
-  Заново скачайте и установите deb-пакет:
-
-  {% include [agent-setup-deb](../../../../_includes/monitoring/agent-setup-deb.md) %}
+  Заново скачайте и [установите](#setup) deb-пакет последней версии.
 
 - Бинарный файл {#binary}
 

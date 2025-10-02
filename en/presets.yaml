@@ -993,6 +993,9 @@ default:
       v1|month|number: 22.68
       v1|month|string: ₸22.68
   sku|KZT|baremetal:
+    data:
+      data-100tb:
+        1sec|string: ₸50000.00
     public_network:
       subnet_24|number: 851
       subnet_24|string: ₸851.00
@@ -2980,6 +2983,9 @@ default:
       v1|month|number: 4.536
       v1|month|string: ₽4.5360
   sku|RUB|baremetal:
+    data:
+      data-100tb:
+        1sec|string: ₽10000.00
     public_network:
       subnet_24|number: 170.2
       subnet_24|string: ₽170.20
@@ -7045,6 +7051,8 @@ default:
         label_step-payment_title: Payment details
     yacloud_billing:
       alb:
+        button_add-modification: Change header
+        button_add-upgrade-type: Add upgrade type
         label_backends: Backends
         label_max-timeout: Maximum timeout, sec.
       backup:
@@ -8186,6 +8194,7 @@ default:
         button_add-backend: Create backend
         button_add-discard-rule: Add discard rule
         button_add-healthcheck: Add health check
+        button_add-host-id: Add host
         button_add-listener: Add listener
         button_add-modification: Change header
         button_add-route: Add route
@@ -8199,6 +8208,7 @@ default:
         button_select: Select
         button_target-group-create: Create target group
         button_virtual-host-add: Add virtual host
+        button_virtual-host-create: Create virtual host
         button_wizard-create-tg: Create and continue
         column_addresses: IP addresses
         column_target: IP address
@@ -8245,6 +8255,8 @@ default:
         label_idle-timeout: Idle timeout, seconds
         label_interval: Interval
         label_lb-settings: Load balancing settings
+        label_limit-all-requests: Limit on all requests
+        label_limit-requests-per-ip: Limit on requests from one IP
         label_listener-type: Listener type
         label_listener-type-http: HTTP
         label_listener-type-stream: Stream
@@ -8258,6 +8270,7 @@ default:
         label_match-exact: Matches
         label_match-prefix: Starts with
         label_match-regex: Regular expression
+        label_max-timeout: Maximum timeout, sec.
         label_modification-header: Header name
         label_modification-operation: Operation
         label_modification-type: Type
@@ -8284,6 +8297,7 @@ default:
         label_receive: Receive
         label_redirect-to-https: Redirect to HTTPS
         label_replace: Rewrite path or start
+        label_replace-exact: Entire path
         label_replace-host: Replace host
         label_replace-port: Replace port
         label_replace-prefix: Start
@@ -10351,6 +10365,7 @@ default:
           field_diskSizeLimit: Maximum storage size
           field_emergencyUsageThreshold: Immediately when full at more than
           field_plannedUsageThreshold: In the maintenance window when full at more than
+          field_threshold-value: of the current size is full
           field_thresholds: Increase size
           hosts:
             action_add-host: Create host

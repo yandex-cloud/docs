@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_disk_placement_gr
 
 # yandex_compute_disk_placement_group (Resource)
 
-A Disk Placement Group resource. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/disk#nr-disks).
+
 
 ## Example usage
 
@@ -27,26 +27,31 @@ resource "yandex_compute_disk_placement_group" "group1" {
 
 ### Optional
 
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
+- `description` (String) Description of the placement group.
+- `disk_placement_group_id` (String) ID of the placement group to return.
+ To get the placement group ID, use [DiskPlacementGroupService.List] request.
+- `folder_id` (String) ID of the folder that the placement group belongs to.
+- `id` (String) ID of the placement group to return.
+ To get the placement group ID, use [DiskPlacementGroupService.List] request.
+- `labels` (Map of String) Resource labels as `key:value` pairs.
+- `name` (String) Name of the placement group.
+ The name is unique within the folder.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-- `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
+- `zone` (String) ID of the availability zone where the placement group resides.
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
-- `status` (String) Status of the Disk Placement Group.
+- `created_at` (String) Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `status` (String) Current status of the placement group
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import

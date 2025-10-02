@@ -59,6 +59,8 @@ On the dialog page, you can see the **{{ ui-key.yc-ui-talkanalytics.projects.sum
 * **{{ ui-key.yc-ui-talkanalytics.statements.operator_keywords }}**: Keywords in the agent's messages.
 * **{{ ui-key.yc-ui-talkanalytics.statements.theme }}**: What the customer and agent discussed.
 
+For more thorough data analysis, you can make your project available for [{{ yagpt-name }} training](../operations/project/yandexgpt-training.md).
+
 ## Dialog filtering {#filters}
 
 Filters define the conditions for [filtering dialogs](../operations/data/manage-dialogs.md#filters-dialogs).

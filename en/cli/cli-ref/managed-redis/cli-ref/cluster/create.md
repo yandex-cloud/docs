@@ -34,6 +34,7 @@ Syntax:
 |`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
 |`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption.|
 |`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit in GB</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
+|`--valkey-modules`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Valkey modules settings<br/><br/>Possible property names:<br/><ul> <li><code>enable-valkey-search</code>:     Enable valkey-search module</li> <li><code>valkey-search-reader-threads</code>:     Controls the amount of threads executing valkey-search queries</li> <li><code>valkey-search-writer-threads</code>:     Controls the amount of threads processing valkey-search index mutations</li> <li><code>enable-valkey-json</code>:     Enable valkey-json module</li> <li><code>enable-valkey-bloom</code>:     Enable valkey-bloom module</li> </ul>|
 |`--redis-version`|<b>`string`</b><br/>Version of Redis used in the cluster. Values: 7.2|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|

@@ -77,7 +77,7 @@ Optional:
 
 Read-Only:
 
-- `origin_group_id` (Number)
+- `origin_group_id` (Number) The ID of a specific origin group.
 
 
 <a id="nestedblock--timeouts"></a>

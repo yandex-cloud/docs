@@ -99,7 +99,9 @@
     * `TRANSACTION` — транзакционный режим.
     * `STATEMENT` — режим запроса.
 
+    
     Значение по умолчанию — `SESSION`.
+
 
 - **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
 

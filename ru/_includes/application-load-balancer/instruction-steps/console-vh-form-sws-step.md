@@ -1,0 +1,2 @@
+(Опционально) В поле **{{ ui-key.yacloud.alb.label_security-profile-id }}** выберите [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml). Профиль безопасности позволяет настроить фильтрацию входящих запросов и подключить [WAF](../../../smartwebsecurity/concepts/waf.md) для защиты от вредоносной активности. Подробнее см. в разделе [{#T}](../../../smartwebsecurity/concepts/profiles.md).
+

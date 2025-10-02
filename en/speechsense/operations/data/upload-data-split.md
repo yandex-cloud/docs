@@ -3,7 +3,7 @@ title: Uploading audio data with splitting via API
 description: Follow this guide to upload audio data to {{ speechsense-name }} via the gRPC API.
 ---
 
-# Uploading audio data with splitting via the gRPC API
+# Uploading audio data with splitting via gRPC API
 
 Use this guide to upload data to {{ speechsense-name }} for speech recognition and analysis via API. This example uses the following parameters:
 
@@ -43,6 +43,8 @@ To prepare for uploading audio recordings:
 {% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
 
 {% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
+
+{% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
 
 {% endnote %}
 

@@ -1,1 +1,1 @@
-A [public network](../../baremetal/concepts/network.md#public-network) has a 1 Gbps bandwidth limit for all servers, including servers with over 1 Gbps NICs and servers with [MC-LAG](../../baremetal/concepts/mc-lag.md) aggregation groups.
+By default, a [public network](../../baremetal/concepts/network.md#public-network) has a 1 Gbps bandwidth limit for all servers, including servers with 10 Gbps NICs and servers with [MC-LAG](../../baremetal/concepts/mc-lag.md) aggregation groups. To request a higher bandwidth, contact [support]({{ link-console-support }}).

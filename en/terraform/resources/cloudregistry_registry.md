@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cloudregistry_registry.md
 
 # yandex_cloudregistry_registry (Resource)
 
-A Registry resource.
+A Registry resource. For more information, see the [Registry](/docs/cloud-registry/concepts/registry) section of the documentation.
 
 ## Example usage
 

@@ -39,6 +39,10 @@ items:
             href: operations/http-router-get.md
           - name: Изменить HTTP-роутер
             href: operations/http-router-update.md
+          - name: Управлять виртуальными хостами
+            href: operations/manage-virtual-hosts.md
+          - name: Управлять маршрутами
+            href: operations/manage-routes.md
           - name: Удалить HTTP-роутер
             href: operations/http-router-delete.md
       - name: L7-балансировщики
