@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/container_registry.md
 
 # yandex_container_registry (Resource)
 
-Creates a new container registry. For more information, see [the official documentation](https://yandex.cloud/docs/container-registry/concepts/registry)
+A Registry resource. For more information, see the [Registry](/docs/container-registry/concepts/registry) section of the documentation.
 
 ## Example usage
 
@@ -30,24 +30,30 @@ resource "yandex_container_registry" "default" {
 
 ### Optional
 
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
+- `folder_id` (String) ID of the folder that the registry belongs to.
+- `id` (String) ID of the Registry resource to return.
+
+ To get the registry ID use a [RegistryService.List] request.
+- `labels` (Map of String) Resource labels as `key:value` pairs. Maximum of 64 per resource.
+- `name` (String) Name of the registry.
+- `registry_id` (String) ID of the Registry resource to return.
+
+ To get the registry ID use a [RegistryService.List] request.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
-- `status` (String) Status of the registry.
+- `created_at` (String) Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `status` (String) Output only. Status of the registry.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import

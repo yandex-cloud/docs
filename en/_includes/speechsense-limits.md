@@ -7,6 +7,7 @@ Maximum number of [projects](../speechsense/concepts/resources-hierarchy.md#proj
 Maximum number of [tags](../speechsense/concepts/tags.md) per project | 1,000
 Maximum number of [metadata](../speechsense/concepts/resources-hierarchy.md#connection) entries per connection | 200
 Maximum number of [dictionaries](../speechsense/concepts/dictionaries) per space | 100
+Maximum line size in dialog metadata, bytes | 1,024
 **Quotas for a project** |
 Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per second | 20
 Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per minute | 200

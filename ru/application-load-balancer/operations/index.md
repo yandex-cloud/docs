@@ -29,6 +29,8 @@ description: Пошаговые инструкции по работе с {{ alb
 * [{#T}](http-router-create-grpc.md)
 * [{#T}](http-router-get.md)
 * [{#T}](http-router-update.md)
+* [{#T}](manage-virtual-hosts.md)
+* [{#T}](manage-routes.md)
 * [{#T}](http-router-delete.md)
 
 ## L7-балансировщики {#application-load-balancer-operations}

@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_service_account.md
 
 # yandex_iam_service_account (Resource)
 
-Allows management of a Yandex Cloud IAM [service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts). To assign roles and permissions, use the [yandex_iam_service_account_iam_binding](iam_service_account_iam_binding.html), [yandex_iam_service_account_iam_member](iam_service_account_iam_member.html) and [yandex_iam_service_account_iam_policy](iam_service_account_iam_policy.html) resources.
+A ServiceAccount resource. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
 
 ## Example usage
 
@@ -26,26 +26,31 @@ resource "yandex_iam_service_account" "builder" {
 
 ### Required
 
-- `name` (String) The resource name.
+- `name` (String) Name of the service account.
+ The name is unique within the cloud. 3-63 characters long.
 
 ### Optional
 
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `description` (String) Description of the service account. 0-256 characters long.
+- `folder_id` (String) ID of the folder that the service account belongs to.
+- `id` (String) ID of the ServiceAccount resource to return.
+ To get the service account ID, use a [ServiceAccountService.List] request.
+- `service_account_id` (String) ID of the ServiceAccount resource to return.
+ To get the service account ID, use a [ServiceAccountService.List] request.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
+- `created_at` (String) Creation timestamp.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import

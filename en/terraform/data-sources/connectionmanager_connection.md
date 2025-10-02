@@ -1,19 +1,22 @@
 ---
-subcategory: Connection Manager
-page_title: 'Yandex: yandex_connectionmanager_connectiony'
+subcategory: Metadata Hub Connection Manager
+page_title: 'Yandex: yandex_connectionmanager_connection'
 description: Get information about a Connection.
 sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/connectionmanager_connection.md
 ---
 
 # yandex_connectionmanager_connection (Data Source)
 
+Can be used to get information about a Connection from Connection Manager service.
+
 ## Example usage
+
 ```terraform
 //
 // Get information about existing Connection.
 //
 data "yandex_connectionmanager_connection" "my_connection" {
-	connection_id = "some_connection_id"
+  connection_id = "some_connection_id"
 }
 ```
 
@@ -542,6 +545,8 @@ filename: yandex/cloud/connectionmanager/v1/mongodb.proto
 
 Read-Only:
 
+- `auth_source` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/mongodb.proto
 - `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
 filename: yandex/cloud/connectionmanager/v1/mongodb.proto (see [below for nested schema](#nestedatt--params--mongodb--auth--user_password))
 

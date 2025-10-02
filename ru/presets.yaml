@@ -1004,6 +1004,9 @@ default:
       v1|month|number: 22.68
       v1|month|string: "22,68\_₸"
   sku|KZT|baremetal:
+    data:
+      data-100tb:
+        1sec|string: "50\_000,00\_₸"
     public_network:
       subnet_24|number: 851
       subnet_24|string: "851,00\_₸"
@@ -2991,6 +2994,9 @@ default:
       v1|month|number: 4.536
       v1|month|string: "4,5360\_₽"
   sku|RUB|baremetal:
+    data:
+      data-100tb:
+        1sec|string: "10\_000,00\_₽"
     public_network:
       subnet_24|number: 170.2
       subnet_24|string: "170,20\_₽"
@@ -7056,6 +7062,8 @@ default:
         label_step-payment_title: Платёжные данные
     yacloud_billing:
       alb:
+        button_add-modification: Изменить заголовок
+        button_add-upgrade-type: Добавить тип модификации
         label_backends: Бэкенды
         label_max-timeout: Максимальный таймаут, с
       backup:
@@ -8197,6 +8205,7 @@ default:
         button_add-backend: Создать бэкенд
         button_add-discard-rule: Добавить правило отбрасывания логов
         button_add-healthcheck: Добавить проверку состояния
+        button_add-host-id: Добавить хост
         button_add-listener: Добавить обработчик
         button_add-modification: Изменить заголовок
         button_add-route: Добавить маршрут
@@ -8210,6 +8219,7 @@ default:
         button_select: Выбрать
         button_target-group-create: Создать целевую группу
         button_virtual-host-add: Добавить виртуальный хост
+        button_virtual-host-create: Создать виртуальный хост
         button_wizard-create-tg: Создать и продолжить
         column_addresses: IP-адреса
         column_target: IP-адрес
@@ -8256,6 +8266,8 @@ default:
         label_idle-timeout: Таймаут простоя, с
         label_interval: Интервал
         label_lb-settings: Настройки балансировки
+        label_limit-all-requests: Ограничивать все запросы
+        label_limit-requests-per-ip: Ограничивать запросы с одного IP
         label_listener-type: Тип обработчика
         label_listener-type-http: HTTP
         label_listener-type-stream: Stream
@@ -8269,6 +8281,7 @@ default:
         label_match-exact: Совпадает с
         label_match-prefix: Начинается с
         label_match-regex: Регулярное выражение
+        label_max-timeout: Максимальный таймаут, с
         label_modification-header: Имя заголовка
         label_modification-operation: Операция
         label_modification-type: Тип
@@ -8295,6 +8308,7 @@ default:
         label_receive: Получение
         label_redirect-to-https: Перенаправлять на HTTPS
         label_replace: Замена пути или начала
+        label_replace-exact: Весь путь
         label_replace-host: Изменить хост
         label_replace-port: Изменить порт
         label_replace-prefix: Начало
@@ -10368,6 +10382,7 @@ default:
           field_diskSizeLimit: Максимальный размер хранилища
           field_emergencyUsageThreshold: Незамедлительно при заполненности более
           field_plannedUsageThreshold: В окно обслуживания при заполненности более
+          field_threshold-value: от текущего размера хранилища
           field_thresholds: Увеличивать размер
           hosts:
             action_add-host: Создать хост

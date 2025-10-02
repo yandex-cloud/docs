@@ -348,7 +348,7 @@ Read-Only:
 
 - `version` (String) Version of the rule set.
 
-- `waf_profile_id` (String)
+- `id` (String) Id of the rule set.
 
 
 
@@ -388,7 +388,7 @@ Read-Only:
 
 - `version` (String) Version of the rule set.
 
-- `waf_profile_id` (String)
+- `id` (String) Id of the rule set.
 
 
 
@@ -428,4 +428,4 @@ Read-Only:
 
 - `version` (String) Version of the rule set.
 
-- `waf_profile_id` (String)
+- `id` (String) Id of the rule set.

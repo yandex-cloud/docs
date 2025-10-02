@@ -126,7 +126,9 @@ Editing dialog metadata can be of use in some situations. For example, you can a
 
 You can update metadata values for keys that were added [when creating the connection](../connection/create.md). You cannot add metadata if there is none in the connection settings.
 
-You can edit dialog metadata via the {{ yandex-cloud }} gRPC API. Proceed as follows:
+{% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
+
+You can edit dialog metadata via the {{ yandex-cloud }} gRPC API. To do this:
 
 1. [Get the dialog ID](#get-dialog-id).
 1. [Get your infrastructure ready for the {{ yandex-cloud }} gRPC API](#prepare-grpc-api).

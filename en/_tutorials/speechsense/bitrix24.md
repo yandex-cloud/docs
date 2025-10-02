@@ -13,7 +13,7 @@ To set up integration with Bitrix24 in {{ speechsense-name }}:
 
 ## Get your cloud ready {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../getting-started/).
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account). If your billing account has the `TRIAL_ACTIVE` status, [activate its paid version](../../billing/operations/activate-commercial.md).
 1. [Assign](../../iam/operations/roles/grant.md) the `speech-sense.spaces.creator` role to your {{ yandex-cloud }} account.
@@ -22,7 +22,7 @@ To set up integration with Bitrix24 in {{ speechsense-name }}:
 
 ### Create a service account {#create-sa}
 
-Create a service account named `speechsense`.
+Create a service account named `speechsense`:
 
 {% list tabs group=instructions %}
 
@@ -56,9 +56,9 @@ Create an API key for the `speechsense` service account.
 
   {% note alert %}
 
-  After you close this dialog, the key value will not be shown again.
+   After you close this dialog, the key value will no longer be available.
 
-  {% endnote %}
+   {% endnote %}
 
 {% endlist %}  
 
@@ -210,6 +210,5 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
    
    Click **Start download**. In a few seconds' time, downloaded calls with transcripts will appear in your project in the [{{ speechsense-name }} interface]({{ link-speechsense-main }}) enabling you to proceed [configuring the reports](../../speechsense/operations/data/manage-reports.md).
      
-     
-   
 
+If you have any problems, [contact](#contact-form) {{ yandex-cloud }}.

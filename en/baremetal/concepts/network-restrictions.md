@@ -29,11 +29,19 @@ MSS in private network | 8870
 
 ## Bandwidth {#bandwidth}
 
+### Public network bandwidth {#bandwidth-for-pubic-network}
+
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
 
 Type of limit | Value, Gbps
 --- | ---
 Bandwidth in public network | 1 
+
+### Bandwidth between Baremetal and VPC {#bandwidth-bm-vpc}
+
+You can [set up a connection between {{ baremetal-name }} and {{ vpc-name }}](../tutorials/bm-vrf-and-vpc-interconnect.md) within the same region.
+
+This connection has a default bandwidth limit of 10 Gbps for each user, regardless of the number of servers and their network card types. To request a higher bandwidth, contact [support]({{ link-console-support }}).
 
 ## Storm Control {#storm-control}
 

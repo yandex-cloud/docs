@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/container_repository.md
 
 # yandex_container_repository (Resource)
 
-Creates a new container repository. For more information, see [the official documentation](https://yandex.cloud/docs/container-registry/concepts/repository).
+A Repository resource. For more information, see [Repository](/docs/container-registry/concepts/repository).
 
 ## Example usage
 
@@ -29,23 +29,28 @@ resource "yandex_container_repository" "my-repository" {
 
 ### Required
 
-- `name` (String) A name of the repository. The name of the repository should start with id of a container registry and match the name of the images that will be pushed in the repository.
+- `name` (String) Name of the repository.
+ The name is unique within the registry.
 
 ### Optional
 
+- `id` (String) ID of the Repository resource to return.
+
+ To get the repository ID use a [RepositoryService.List] request.
+- `repository_id` (String) ID of the Repository resource to return.
+
+ To get the repository ID use a [RepositoryService.List] request.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-
-### Read-Only
-
-- `id` (String) The ID of this resource.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

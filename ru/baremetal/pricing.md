@@ -96,6 +96,35 @@ editable: false
 ^1^ Цена за месяц приводится только для справки. Из расчета 720 часов (30 дней) в месяце. Сервис {{ billing-name }} при расчетах использует цену за час.
 
 
+
+### Подключение пакета трафика для публичной сети {#bandwidth-package}
+
+{% note info %}
+
+Чтобы запросить пакет данных на 100 ТБ, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
+
+_Объем данных_ — это единица тарификации услуги, которая равна объему трафика, передаваемого в течение суток. Цены за сутки использования формируются из расчета 24 часов.
+
+Доступно для подключения:
+
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-bandwidth-rub}
+  
+  {% include [rub-badwidth-restrictions](../_pricing/baremetal/rub-bandwidth.md) %}
+
+- Цены в тенге {#prices-bandwidth-kzt}
+
+  {% include [kzt-badwidth-restrictions](../_pricing/baremetal/kzt-bandwidth.md) %}
+
+{% endlist %}
+
+
+
 ### Особенности тарификации сетевого трафика в {{ baremetal-full-name }} при взаимодействии с другими сервисами {{ yandex-cloud }} {#traffic-pricing-pecs}
 
 #### {{ vpc-full-name }} {#vpc-traffic}

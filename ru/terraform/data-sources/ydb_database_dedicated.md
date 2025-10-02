@@ -49,14 +49,14 @@ output "ydb_api_endpoint" {
 - `description` (String) The resource description.
 - `id` (String) The ID of this resource.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `location` (List of Object) (see [below for nested schema](#nestedatt--location))
+- `location` (List of Object) Location for the Yandex Database cluster. (see [below for nested schema](#nestedatt--location))
 - `location_id` (String) Location ID for the Yandex Database cluster.
 - `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 - `resource_preset_id` (String) The Yandex Database cluster preset. Available presets can be obtained via `yc ydb resource-preset list` command.
-- `scale_policy` (List of Object) (see [below for nested schema](#nestedatt--scale_policy))
+- `scale_policy` (List of Object) Scaling policy for the Yandex Database cluster. (see [below for nested schema](#nestedatt--scale_policy))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `status` (String) Status of the Yandex Database cluster.
-- `storage_config` (List of Object) (see [below for nested schema](#nestedatt--storage_config))
+- `storage_config` (List of Object) A list of storage configuration options for the Yandex Database cluster. (see [below for nested schema](#nestedatt--storage_config))
 - `subnet_ids` (Set of String) The list of VPC subnets identifiers which resource is attached.
 - `tls_enabled` (Boolean) Whether TLS is enabled for the Yandex Database cluster. Useful for SDK configuration.
 - `ydb_api_endpoint` (String) API endpoint of the Yandex Database cluster. Useful for SDK configuration.
@@ -69,7 +69,6 @@ Read-Only:
 
 - `region` (Block List, Max: 1) Region for the Yandex Database cluster. (see [below for nested schema](#nestedobjatt--location--region))
 
-- `zone` (List of Object) (see [below for nested schema](#nestedobjatt--location--zone))
 
 <a id="nestedobjatt--location--region"></a>
 ### Nested Schema for `location.region`
@@ -80,21 +79,37 @@ Read-Only:
 
 
 
-<a id="nestedobjatt--location--zone"></a>
-### Nested Schema for `location.zone`
-
-Read-Only:
-
-- `id` (String)
-
-
 
 <a id="nestedatt--scale_policy"></a>
 ### Nested Schema for `scale_policy`
 
 Read-Only:
 
+- `auto_scale` (Block List, Max: 1) Auto scaling policy for the Yandex Database cluster. This is a preview feature, and you need to enable it using the label `enable_autoscaling=1`. (see [below for nested schema](#nestedobjatt--scale_policy--auto_scale))
+
 - `fixed_scale` (Block List, Max: 1) Fixed scaling policy for the Yandex Database cluster. (see [below for nested schema](#nestedobjatt--scale_policy--fixed_scale))
+
+
+<a id="nestedobjatt--scale_policy--auto_scale"></a>
+### Nested Schema for `scale_policy.auto_scale`
+
+Read-Only:
+
+- `max_size` (Number) Maximum number of nodes to which autoscaling can scale the database.
+
+- `min_size` (Number) Minimum number of nodes to which autoscaling can scale the database.
+
+- `target_tracking` (Block List, Min: 1, Max: 1) A target tracking scaling policy automatically scales the capacity of your Yandex Database cluster based on a target metric value. (see [below for nested schema](#nestedobjatt--scale_policy--auto_scale--target_tracking))
+
+
+<a id="nestedobjatt--scale_policy--auto_scale--target_tracking"></a>
+### Nested Schema for `scale_policy.auto_scale.target_tracking`
+
+Read-Only:
+
+- `cpu_utilization_percent` (Number) A percentage of database nodes average CPU utilization.
+
+
 
 
 <a id="nestedobjatt--scale_policy--fixed_scale"></a>

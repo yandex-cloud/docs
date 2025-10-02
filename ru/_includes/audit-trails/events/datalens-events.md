@@ -28,6 +28,7 @@
 `MoveEntry`                      | Перемещение объекта
 `MoveWorkbooks`                | Перемещение воркбуков
 `RenameEntry`                    | Переименование объекта
+`SetDefaultColorPalette` | Настройка цветовой палитры по умолчанию
 `SwitchAiAssistantProhibition`  | Изменение запрета на использование Нейроаналитика
 `SwitchDataExportProhibition`   | Изменение запрета на экспорт данных
 `SwitchEntriesPublicationStatus` | Изменение статуса публикации объекта

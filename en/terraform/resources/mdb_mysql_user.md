@@ -82,7 +82,7 @@ resource "yandex_vpc_subnet" "foo" {
 
 ### Optional
 
-- `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`)
+- `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH`).
 - `connection_limits` (Block List, Max: 1) User's connection limits. If the attribute is not specified there will be no changes. Default value is `-1`. When these parameters are set to `-1`, backend default values will be actually used. (see [below for nested schema](#nestedblock--connection_limits))
 - `generate_password` (Boolean) Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 

@@ -36,21 +36,28 @@ output "instance_external_ip" {
 
 ### Optional
 
-- `filesystem` (Block Set) (see [below for nested schema](#nestedblock--filesystem))
+- `filesystem` (Block Set) List of filesystems that are attached to the instance. (see [below for nested schema](#nestedblock--filesystem))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `gpu_cluster_id` (String) ID of the GPU cluster to attach this instance to.
 - `instance_id` (String) The ID of a specific instance.
-- `local_disk` (Block List) (see [below for nested schema](#nestedblock--local_disk))
+- `local_disk` (Block List) List of local disks that are attached to the instance.
+
+{% note warning %}
+
+Local disks are not available for all users by default. (see [below for nested schema](#nestedblock--local_disk))
+
+{% endnote %}
+
 - `maintenance_grace_period` (String) Time between notification via metadata service and maintenance. E.g., `60s`.
 - `maintenance_policy` (String) Behavior on maintenance events. Can be: `unspecified`, `migrate`, `restart`. The default is `unspecified`.
-- `metadata_options` (Block List, Max: 1) (see [below for nested schema](#nestedblock--metadata_options))
+- `metadata_options` (Block List, Max: 1) Options allow user to configure access to instance's metadata. (see [below for nested schema](#nestedblock--metadata_options))
 - `name` (String) The resource name.
-- `placement_policy` (Block List, Max: 1) (see [below for nested schema](#nestedblock--placement_policy))
+- `placement_policy` (Block List, Max: 1) The placement policy configuration. (see [below for nested schema](#nestedblock--placement_policy))
 - `service_account_id` (String) [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 
 ### Read-Only
 
-- `boot_disk` (List of Object) (see [below for nested schema](#nestedatt--boot_disk))
+- `boot_disk` (List of Object) The boot disk for the instance. Either `initialize_params` or `disk_id` must be specified. (see [below for nested schema](#nestedatt--boot_disk))
 - `created_at` (String) The creation timestamp of the resource.
 - `description` (String) The resource description.
 - `fqdn` (String) The fully qualified DNS name of this instance.
@@ -59,11 +66,18 @@ output "instance_external_ip" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `metadata` (Map of String) Metadata key/value pairs to make available from within the instance.
 - `network_acceleration_type` (String) Type of network acceleration. Can be `standard` or `software_accelerated`. The default is `standard`.
-- `network_interface` (List of Object) (see [below for nested schema](#nestedatt--network_interface))
+- `network_interface` (List of Object) Networks to attach to the instance. This can be specified multiple times. (see [below for nested schema](#nestedatt--network_interface))
 - `platform_id` (String) The type of virtual machine to create.
-- `resources` (List of Object) (see [below for nested schema](#nestedatt--resources))
-- `scheduling_policy` (List of Object) (see [below for nested schema](#nestedatt--scheduling_policy))
-- `secondary_disk` (Set of Object) (see [below for nested schema](#nestedatt--secondary_disk))
+- `resources` (List of Object) Compute resources that are allocated for the instance. (see [below for nested schema](#nestedatt--resources))
+- `scheduling_policy` (List of Object) Scheduling policy configuration. (see [below for nested schema](#nestedatt--scheduling_policy))
+- `secondary_disk` (Set of Object) A set of disks to attach to the instance. The structure is documented below.
+
+{% note warning %}
+
+The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be set to `true` in order to update this structure. (see [below for nested schema](#nestedatt--secondary_disk))
+
+{% endnote %}
+
 - `status` (String) The status of this instance.
 - `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 

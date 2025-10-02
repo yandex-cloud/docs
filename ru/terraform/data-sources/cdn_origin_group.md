@@ -55,6 +55,7 @@ Read-Only:
 
 - `enabled` (Boolean) The origin is enabled and used as a source for the CDN. Default `enabled`.
 
-- `origin_group_id` (Number)
+- `origin_group_id` (Number) The ID of a specific origin group.
+
 - `source` (String) IP address or Domain name of your origin and the port.
 

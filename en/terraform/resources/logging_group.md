@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/logging_group.md
 
 # yandex_logging_group (Resource)
 
-Yandex Cloud Logging group resource. For more information, see [the official documentation](https://yandex.cloud/docs/logging/concepts/log-group).
+
 
 ## Example usage
 
@@ -26,27 +26,37 @@ resource "yandex_logging_group" "group1" {
 
 ### Optional
 
-- `data_stream` (String) Data Stream.
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
-- `retention_period` (String) Log entries retention period for the Yandex Cloud Logging group.
+- `cloud_id` (String) Log group cloud ID.
+- `data_stream` (String) Data stream name
+- `description` (String) Log group description.
+- `folder_id` (String) Log group folder ID.
+- `id` (String) ID of the log group to return.
+
+ To get a log group ID make a [LogGroupService.List] request.
+- `labels` (Map of String) Log group labels.
+- `log_group_id` (String) ID of the log group to return.
+
+ To get a log group ID make a [LogGroupService.List] request.
+- `name` (String) Log group name.
+- `retention_period` (String) Log group entry retention period.
+
+ Entries will be present in group during this period.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
-- `cloud_id` (String) The `Cloud ID` which resource belongs to. If it is not provided, the default provider `cloud-id` is used.
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
-- `status` (String) The Yandex Cloud Logging group status.
+- `created_at` (String) Log group creation time.
+- `status` (String) Status of the log group.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `default` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

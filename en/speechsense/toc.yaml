@@ -67,6 +67,8 @@ items:
             href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
+          - name: '{{ yagpt-name }} training'
+            href: operations/project/yandexgpt-training
       - name: Tags
         items:
           - name: Creating a dictionary tag

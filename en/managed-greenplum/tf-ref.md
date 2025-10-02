@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mgp-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mgp-name }}.
+description: This page provides information about the {{ TF }} provider's resources and data sources that {{ mgp-name }} supports.
 ---
 
 # {{ TF }} reference for {{ mgp-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mgp-name }}:
+{{ mgp-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ mgp-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/mdb_greenplum_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/mdb_greenplum_cluster) | [Cluster](./concepts/index.md) details |

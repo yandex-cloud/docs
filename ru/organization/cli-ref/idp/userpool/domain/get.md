@@ -11,7 +11,7 @@ Show information about the specified domain
 
 Syntax: 
 
-`yc organization-manager idp userpool domain get <USERPOOL-ID> <DOMAIN> [Global Flags...]`
+`yc organization-manager idp userpool domain get [<USERPOOL-ID> [<DOMAIN>]] [Global Flags...]`
 
 Aliases: 
 
@@ -23,6 +23,7 @@ Aliases:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Userpool ID.|
+|`--domain`|<b>`string`</b><br/>Domain name to get|
 
 #### Global Flags
 

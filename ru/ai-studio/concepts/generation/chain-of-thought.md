@@ -81,7 +81,8 @@ description: Из статьи вы узнаете об особенностях
   def run():
       client = OpenAI(
           api_key=YANDEX_CLOUD_API_KEY,
-          base_url="https://{{ api-host-llm }}/v1"
+          base_url="https://{{ api-host-llm }}/v1",
+          project=YANDEX_CLOUD_FOLDER
       )
 
       response = client.chat.completions.create(

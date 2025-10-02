@@ -65,6 +65,7 @@ resource "yandex_cdn_resource" "my_resource" {
 - `created_at` (String) The creation timestamp of the resource.
 - `id` (String) The ID of this resource.
 - `provider_cname` (String) Provider CNAME of CDN resource, computed value for read and update operations.
+- `provider_type` (String) Type of the CDN provider for this resource.
 
 <a id="nestedblock--options"></a>
 ### Nested Schema for `options`

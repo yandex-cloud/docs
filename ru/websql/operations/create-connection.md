@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание подключения
 
-В сервисе {{ websql-full-name }} вы можете создать подключение:
+В сервисе {{ websql-full-name }} вы можете создать [подключение](../concepts/index.md#connection):
 
 * [к кластерам управляемых БД](#connect-cluster) в {{ yandex-cloud }};
 * [к пользовательской инсталляции БД](#connect-db).
@@ -34,3 +34,5 @@ description: Следуя данной инструкции, вы сможете
 {% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
 
 Если подключение прошло успешно, то в дереве подключений отобразится структура БД.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

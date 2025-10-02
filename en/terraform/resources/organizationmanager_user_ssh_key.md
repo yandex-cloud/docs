@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_user_
 
 # yandex_organizationmanager_user_ssh_key (Resource)
 
-Allows management of User SSH Keys within an existing Yandex Cloud Organization and Subject.
+
 
 ## Example usage
 
@@ -27,28 +27,37 @@ resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {
 
 ### Required
 
-- `data` (String) Data of the user ssh key.
-- `organization_id` (String) Organization that the user ssh key belongs to.
-- `subject_id` (String) Subject that the user ssh key belongs to.
+- `data` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+- `organization_id` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+- `subject_id` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
 ### Optional
 
-- `expires_at` (String) User ssh key will be no longer valid after expiration timestamp.
-- `name` (String) The resource name.
+- `expires_at` (String) Used for temporary keys, if empty the key doesn't expire
+- `id` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
+- `name` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `user_ssh_key_id` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key_service.proto
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `fingerprint` (String) SSH Key Fingerprint.
-- `id` (String) Resource ID.
+- `created_at` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
+- `fingerprint` (String) package: yandex.cloud.organizationmanager.v1
+filename: yandex/cloud/organizationmanager/v1/user_ssh_key.proto
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 - `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

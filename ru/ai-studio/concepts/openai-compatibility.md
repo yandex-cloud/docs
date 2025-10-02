@@ -6,7 +6,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
 ## Настройка {{ openai }} для работы с {{ foundation-models-name }} {#before-begin}
 
-Чтобы использовать [модели генерации текста](generation/models.md) {{ foundation-models-name }} в библиотеках {{ openai }}, измените базовый эндпоинт и укажите [API-ключ](../operations/get-api-key.md).
+Чтобы использовать [модели генерации текста](generation/models.md) {{ foundation-models-name }} в библиотеках {{ openai }}, измените базовый эндпоинт, а также укажите [API-ключ](../operations/get-api-key.md) сервисного аккаунта и [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан этот [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
 {% list tabs group=programming_language %}
 
@@ -17,7 +17,8 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
   client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project="<идентификатор_каталога>"
   )
   ```
 
@@ -28,6 +29,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
   const openai = new OpenAI({
     apiKey:"<значение_API-ключа>",
+    project:"<идентификатор_каталога>",
     baseURL:"https://{{ api-host-llm }}/v1"});
   ```
 
@@ -59,7 +61,8 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
     client = openai.OpenAI(
         api_key=YANDEX_CLOUD_API_KEY,
-        base_url="https://{{ api-host-llm }}/v1"
+        base_url="https://{{ api-host-llm }}/v1",
+        project=YANDEX_CLOUD_FOLDER
     )
 
     response = client.chat.completions.create(
@@ -88,7 +91,8 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
     client = openai.OpenAI(
         api_key=YANDEX_CLOUD_API_KEY,
-        base_url="https://{{ api-host-llm }}/v1"
+        base_url="https://{{ api-host-llm }}/v1",
+        project=YANDEX_CLOUD_FOLDER
     )
 
     json_schema = {
@@ -120,6 +124,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
   const openai = new OpenAI({
     apiKey:"<значение_API-ключа>",
+    project:"<идентификатор_каталога>",
     baseURL:"https://{{ api-host-llm }}/v1"});
 
   async function main() {
@@ -138,9 +143,10 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
   ```bash
   curl https://{{ api-host-llm }}/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer <API-ключ>" \
-    -d '{
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer <API-ключ>" \
+    --header "OpenAI-Project: <идентификатор_каталога>" \
+    --data '{
       "model": "gpt://<идентификатор_каталога>/yandexgpt/latest",
       "messages": [
         {
@@ -174,7 +180,8 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
   client = openai.OpenAI(
       api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project=YANDEX_CLOUD_FOLDER
   )
 
   # Функция Погода
@@ -312,7 +319,8 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
   client = openai.OpenAI(
       api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project=YANDEX_CLOUD_FOLDER
   )
 
   # Метод для получения произвольного эмбеддинга
@@ -397,11 +405,13 @@ API сервиса {{ foundation-models-name }} частично совмест�
   ```python
   import openai
 
+  YANDEX_CLOUD_FOLDER = "<идентификатор_каталога>"
   YANDEX_CLOUD_API_KEY = "<значение_API-ключа>"
 
   client = openai.OpenAI(
       api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project=YANDEX_CLOUD_FOLDER
   )
   models = client.models.list()
   print(models.data)
