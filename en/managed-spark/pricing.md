@@ -6,7 +6,7 @@ editable: false
 
 # {{ msp-full-name }} pricing policy
 
-In this section, you can find the {{ msp-full-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
+In this section, you can find the {{ msp-full-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ msp-full-name }} are charged based on their pricing plans.
 
 
 
@@ -26,23 +26,23 @@ The prices apply differently depending on the cluster status:
 When using {{ msp-full-name }}, you pay for:
 
 * Computing resources of cluster components.
-* Egress traffic from {{ yandex-cloud }}.
+* Outgoing traffic from {{ yandex-cloud }}.
 
-Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
+Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 1.5 hours.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **Driver**: Two `standard` configuration instances, [host class](concepts/instance-types.md) `c4-m16`, fixed number: 4 vCPU, 16 GB RAM.
-* **Executor**: Four `standard` configuration instances, host class `c4-m16`, fixed number: 4 vCPU, 16 GB RAM.
-
-
+* **Driver**: Two `standard` configuration instances, `c4-m16` [host class](concepts/instance-types.md), fixed quantity: 4 vCPUs, 16 GB RAM.
+* **Executor**: Four `standard` configuration instances, `c4-m16` host class, fixed quantity: 4 vCPUs, 16 GB RAM.
 
 
-{% include [usd-host-spark](../_pricing_examples/managed-spark/usd-host.md) %}
+
+
+{% include [usd-host](../_pricing_examples/managed-spark/usd-host.md) %}
 
 
 

@@ -420,7 +420,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. **Создайте запрос на изменение квоты.**
 
-      [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits#quotas-limits-default) и воспользуйтесь методом REST API [Create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
+      [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits.md#quotas-limits-default) и воспользуйтесь методом REST API [Create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
 
       ```bash
       curl \

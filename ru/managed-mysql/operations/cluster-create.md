@@ -74,6 +74,10 @@ description: Следуя данной инструкции, вы сможете
        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
+  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
+      
+     {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
      * Имя БД. Это имя должно быть уникальным в рамках каталога.
 
@@ -213,6 +217,10 @@ description: Следуя данной инструкции, вы сможете
        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
        {% endnote %}
+    
+     * `--database name` — имя базы данных.
+     
+       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
 
      При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
@@ -231,6 +239,12 @@ description: Следуя данной инструкции, вы сможете
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                 `statements-sampling-interval=<интервал_сбора_запросов>
+       --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                              `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                              `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
+       --maintenance-window type=<тип_технического_обслуживания>,`
+                           `day=<день_недели>,`
+                           `hour=<час_дня>
      ```
 
 
@@ -258,15 +272,13 @@ description: Следуя данной инструкции, вы сможете
 
      * `--performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
 
-     {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+     {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
+
+     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
-
-     {% note info %}
-
-     По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
-
-     {% endnote %}
 
 - {{ TF }} {#tf}
 
@@ -367,6 +379,8 @@ description: Следуя данной инструкции, вы сможете
        {% endnote %}
 
 
+     * {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
+  
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
@@ -468,6 +482,11 @@ description: Следуя данной инструкции, вы сможете
                   "enabled": <активировать_сбор_статистики>,
                   "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                   "statementsSamplingInterval": "<интервал_сбора_запросов>"
+              },
+              "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "databaseSpecs": [
@@ -504,7 +523,13 @@ description: Следуя данной инструкции, вы сможете
               { <аналогичный_набор_настроек_для_хоста_2> },
               { ... },
               { <аналогичный_набор_настроек_для_хоста_N> }
-          ]
+          ],
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня>"
+              }
+          }
       }
       ```
 
@@ -548,6 +573,8 @@ description: Следуя данной инструкции, вы сможете
           * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
           * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
 
+      {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
+
       * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
 
           {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -576,6 +603,8 @@ description: Следуя данной инструкции, вы сможете
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
           * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+      
+      {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
   1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -629,6 +658,11 @@ description: Следуя данной инструкции, вы сможете
                   "enabled": <активировать_сбор_статистики>,
                   "sessions_sampling_interval": "<интервал_сбора_сессий>",
                   "statements_sampling_interval": "<интервал_сбора_запросов>"
+              },
+              "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "database_specs": [
@@ -659,7 +693,13 @@ description: Следуя данной инструкции, вы сможете
                   "subnet_id": "<идентификатор_подсети>",
                   "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
               }
-          ]
+          ],
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час_дня>"
+            }
+          }
       }
       ```
 
@@ -703,6 +743,8 @@ description: Следуя данной инструкции, вы сможете
           * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
           * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
+      {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
+
       * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
       * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
@@ -728,6 +770,8 @@ description: Следуя данной инструкции, вы сможете
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
           * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+
+      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
 
   1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

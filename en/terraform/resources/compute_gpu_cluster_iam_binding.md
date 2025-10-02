@@ -17,7 +17,7 @@ Allows creation and management of a single binding within IAM policy for an exis
 //
 resource "yandex_compute_gpu_cluster" "gpu1" {
   name              = "gpu-cluster-name"
-  interconnect_type = "infiniband"
+  interconnect_type = "INFINIBAND"
   zone              = "ru-central1-a"
 
   labels = {

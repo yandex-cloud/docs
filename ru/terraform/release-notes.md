@@ -5,17 +5,25 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.161.0 (October 2, 2025)
+##### FEATURES:
+* iam: add yandex_iam_oauth_client resource and datasource
+##### BUG FIXES:
+* ydb_database_dedicated: fixed error: `Invalid address to set in : scale_policy`
+* postgresql: avoid changes detected with "PASSWORD_ENCRYPTION_MD5" -> null for pg clusters with version < 17
+* yandex_sws_waf_profile: add missing field `id` to `rule_set`
+
 ## 0.160.0 (September 26, 2025)
 ##### FEATURES:
 * mysql: add `authentication_plugins` `MYSQL_NO_LOGIN` and `MDB_IAMPROXY_AUTH`
-* kubernetes: add `workload_identity_federation` attribute to k8s cluster resource and data-source
-* trino: added `yandex_trino_access_control` resource
-* trino: added `yandex_trino_access_control` datasource
+* kubernetes: add "workload_identity_federation" attribute to k8s cluster resource and data-source
+* trino: added 'yandex_trino_access_control' resource
+* trino: added 'yandex_trino_access_control' datasource
 ##### BUG FIXES:
-* CDN: Fix wrong output for `resource.provider_cname`
-* CDN: Fix `yandex_cdn_origin_group` misbehavior when domain not resolved (Issue #374)
+* CDN: Fix wrong output for resource.provider_cname
+* CDN: Fix yandex_cdn_origin_group misbehavior when domain not resolved (Issue #374)
 ##### ENHANCEMENTS:
-* iam: move all `iam_binding` and `iam_member` resource to new framework
+* iam: move all iam_binding and iam_member resource to new framework
 
 ## 0.159.0 (September 15, 2025)
 ##### FEATURES:

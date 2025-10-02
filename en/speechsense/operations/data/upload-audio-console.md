@@ -32,6 +32,8 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 
     {% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
 
+    {% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
+
     {% endnote %}
 
     Once you select the files, their upload into the intermediate buffer will begin. Wait for this operation to complete.

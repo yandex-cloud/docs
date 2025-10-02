@@ -38,7 +38,7 @@ The {{ mgp-name }} usage cost includes:
 * Disk type and storage size.
 * Computing resources allocated to cluster hosts and host type.
 * Settings and number of backups.
-* Egress traffic from {{ yandex-cloud }}.
+* Outgoing traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
@@ -49,7 +49,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 * Standard hosts
 
-  Host operation cost is charged per hour based on what computing resources you allocate for it.
+  The host operation cost is charged per hour based on what computing resources you allocate for it.
 
 * Dedicated hosts
 
@@ -59,7 +59,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 You can find the supported resource configurations in the [Host classes](../concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ GP }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the {{ GP }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -75,15 +75,15 @@ You pay for the following:
 
 
 
-  * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with two master hosts, in increments of 93 GB.
+  * You can only order non-replicated SSD (`network-ssd-nonreplicated`) storage for clusters with two master hosts, in increments of 93 GB.
 
-  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space occupied by DB backups beyond the storage size specified for the cluster.
 
   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-  * When performing automatic backups, {{ mgp-name }} does not create a new backup but saves the DB changes since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+  * Automatic backups in {{ mgp-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
   * The number of hosts in a cluster does not affect the storage size and, consequently, the backup size that is free of charge.
 
@@ -91,7 +91,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 
 * **Standard hosts**: Three `s3-c8-m32` hosts: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
@@ -111,11 +111,11 @@ This is an example of calculating the cost of using a cluster with the following
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ mgp-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mgp-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
 
 {% endnote %}
 
@@ -140,7 +140,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 {% include [Access to Compute Optimized on request](../../_includes/mdb/note-compute-optimized-request.md) %}
 
-The cost calculation will be different depending on the [host configuration](../concepts/instance-types.md):
+The cost calculation varies depending on the [host configuration](../concepts/instance-types.md):
 
 * For i2 and i3 hosts (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network usage](../../compute/pricing.md#software-accelerated-network).
 * For hosts with other configurations, you only pay for their computing resources:

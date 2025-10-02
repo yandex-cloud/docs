@@ -11,7 +11,7 @@ Delete the specified domain from a user pool
 
 Syntax: 
 
-`yc organization-manager idp userpool domain delete <USERPOOL-ID> <DOMAIN> [Flags...] [Global Flags...]`
+`yc organization-manager idp userpool domain delete [<USERPOOL-ID> [<DOMAIN>]] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Userpool ID.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--domain`|<b>`string`</b><br/>Domain name to delete|
 
 #### Global Flags
 

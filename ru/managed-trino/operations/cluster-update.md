@@ -238,7 +238,7 @@ keywords:
         {{ yc-mdb-tr }} cluster update --help
         ```
 
-    2. Измените сервисный аккаунт, выполнив команду:
+    1. Измените сервисный аккаунт, выполнив команду:
 
         ```bash
         {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
@@ -806,7 +806,7 @@ keywords:
 
         * `--retry-policy-additional-properties` — дополнительные параметры перезапросов в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
           
-        * `--retry-policy-exchange-manager-service-s3` — включает использование служебного бакета Object Storage в качестве хранилища Exchange Manager для промежуточных данных.
+        * `--retry-policy-exchange-manager-service-s3` — включает использование служебного бакета {{ objstorage-short-name }} в качестве хранилища Exchange Manager для промежуточных данных.
           
         * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища Exchange Manager в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 

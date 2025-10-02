@@ -1,0 +1,1 @@
+В поле **{{ ui-key.yacloud.alb.label_http-methods }}** выберите нужные HTTP-[методы](https://ru.wikipedia.org/wiki/HTTP#Методы), запросы с которыми необходимо маршрутизировать.

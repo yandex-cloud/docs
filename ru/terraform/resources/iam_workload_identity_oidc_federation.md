@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_workload_identity_oid
 
 # yandex_iam_workload_identity_oidc_federation (Resource)
 
-Allows management of [Yandex Cloud IAM workload identity OIDC federations](https://yandex.cloud/docs/iam/concepts/workload-identity).
+A OIDC workload identity federation.
 
 ## Example Usage
 
@@ -35,32 +35,37 @@ resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
 
 ### Required
 
-- `issuer` (String) Issuer identifier of the external IdP server to be used for authentication.
+- `issuer` (String) URL of the external IdP server to be used for authentication.
 - `jwks_url` (String) URL reference to trusted keys in format of JSON Web Key Set.
+- `name` (String) Name of the OIDC workload identity federation
+ The name is unique within the folder. 3-63 characters long.
 
 ### Optional
 
 - `audiences` (List of String) List of trusted values for aud claim.
-- `description` (String) Description of the OIDC workload identity federation.
-- `disabled` (Boolean) Disabled flag.
-- `federation_id` (String) Id of the OIDC workload identity federation.
-- `folder_id` (String) Id of the folder that the OIDC workload identity federation belongs to.
-- `labels` (Map of String) Resource labels as key-value pairs.
-- `name` (String) Name of the OIDC workload identity federation. The name is unique within the folder.
+- `description` (String) Description of the service account. 0-256 characters long.
+- `disabled` (Boolean) True - the OIDC workload identity federation is disabled and cannot be used for authentication.
+ False - the OIDC workload identity federation is enabled and can be used for authentication.
+- `federation_id` (String) ID of the OIDC workload identity federation to return.
+ To get the OIDC workload identity federation ID, make a [FederationService.List] request.
+- `folder_id` (String) ID of the folder that the OIDC workload identity federation belongs to.
+- `id` (String) ID of the OIDC workload identity federation to return.
+ To get the OIDC workload identity federation ID, make a [FederationService.List] request.
+- `labels` (Map of String) Resource labels as `` key:value `` pairs
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
 - `created_at` (String) Creation timestamp.
-- `enabled` (Boolean) Enabled flag.
-- `id` (String) The ID of this resource.
+- `enabled` (Boolean) True - the OIDC workload identity federation is enabled and can be used for authentication.
+ False - the OIDC workload identity federation is disabled and cannot be used for authentication.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 - `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

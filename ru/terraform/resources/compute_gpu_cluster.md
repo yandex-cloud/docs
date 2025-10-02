@@ -7,12 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_gpu_cluster.md
 
 # yandex_compute_gpu_cluster (Resource)
 
-GPU Cluster connects multiple Compute GPU Instances in the same availability zone with high-speed low-latency network.
-
-Users can create a cluster from several VMs and use GPUDirect RDMA to directly send data between GPUs on different VMs.
-
-For more information about GPU cluster in Yandex Cloud, see:
-* [Documentation](https://yandex.cloud/docs/compute/concepts/gpu_cluster)
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 ## Example usage
 
@@ -22,7 +17,7 @@ For more information about GPU cluster in Yandex Cloud, see:
 //
 resource "yandex_compute_gpu_cluster" "default" {
   name              = "gpu-cluster-name"
-  interconnect_type = "infiniband"
+  interconnect_type = "INFINIBAND"
   zone              = "ru-central1-a"
 
   labels = {
@@ -36,27 +31,35 @@ resource "yandex_compute_gpu_cluster" "default" {
 
 ### Optional
 
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `interconnect_type` (String) Type of interconnect between nodes to use in GPU cluster. Type `INFINIBAND` is set by default, and it is the only one available at the moment.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
+- `description` (String) Description of the GPU cluster.
+- `folder_id` (String) ID of the folder that the GPU cluster belongs to.
+- `gpu_cluster_id` (String) ID of the GPU cluster to return.
+
+ To get a GPU cluster ID, make a [GpuClusterService.List] request.
+- `id` (String) ID of the GPU cluster to return.
+
+ To get a GPU cluster ID, make a [GpuClusterService.List] request.
+- `interconnect_type` (String) Type of interconnect used for this GPU cluster.
+- `labels` (Map of String) GPU cluster labels as `key:value` pairs.
+- `name` (String) Name of the GPU cluster.
+
+ The name is unique within the folder.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-- `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
+- `zone` (String) ID of the availability zone where the GPU cluster resides.
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
-- `status` (String) The status of the GPU cluster.
+- `created_at` (String) Creation timestamp.
+- `status` (String) Status of the GPU cluster.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import

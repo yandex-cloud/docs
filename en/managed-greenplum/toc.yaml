@@ -57,7 +57,7 @@ items:
                 href: operations/pxf/create-hive-source.md
           - name: Creating an external table
             href: operations/pxf/create-table.md
-          - name: Changing PXF settings
+          - name: Editing PXF settings
             href: operations/pxf/settings.md
       - name: Connecting to an external file server (gpfdist)
         href: operations/gpfdist/connect.md
@@ -87,7 +87,7 @@ items:
             href: operations/cluster-operations.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Cluster and host status monitoring
+          - name: Monitoring the state of clusters and hosts
             href: operations/monitoring.md
           - name: Transferring cluster logs to {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
@@ -100,7 +100,7 @@ items:
       - name: Migrating a database to {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-
-          Creating an external table from a {{ objstorage-name }} bucket table
+          Creating an external table from an {{ objstorage-name }} bucket table
           using a configuration file
         href: tutorials/config-server-for-s3.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
@@ -125,13 +125,13 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
       - name: Calculating the cluster configuration
         href: concepts/calculate-specs.md
-      - name: '{{ mgp-name }} network'
+      - name: Networking in {{ mgp-name }}
         href: concepts/network.md
       - name: '{{ mgp-name }} storage'
         items:
@@ -155,7 +155,7 @@ items:
         href: concepts/user-authentication.md
       - name: Command center
         href: concepts/command-center.md
-      - name: Command center parameters
+      - name: Command center settings
         href: concepts/command-center-parameters.md
       - name: External tables
         href: concepts/external-tables.md
@@ -605,5 +605,5 @@ items:
         href: qa/pxf.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

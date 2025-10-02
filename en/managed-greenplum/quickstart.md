@@ -23,7 +23,7 @@ For more tools you can use to work with {{ GP }}, see [{#T}](./operations/connec
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a folder yet, create one:
 
     {% include [create-folder](../_includes/create-folder.md) %}
@@ -44,7 +44,7 @@ To create a cluster:
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
-1. Specify the following cluster parameters:
+1. Specify the following cluster properties:
 
     * **{{ ui-key.yacloud.mdb.forms.section_base }}** → **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: Cluster name. It must be unique within the folder.
 
@@ -63,13 +63,13 @@ To create a cluster:
 
     * **{{ ui-key.yacloud.mdb.forms.section_user }}**:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: Admin user name. It may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: Admin username. It may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
 
             {% include [reserved-usernames-note](../_includes/mdb/mgp/reserved-usernames-note.md) %}
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: Admin user password. It must be from 8 to 128 characters long.
 
-        Admin user is a special user required for managing the cluster. This user cannot be deleted. For more information, see [{#T}](./concepts/cluster-users.md).
+        The admin is a special user required for managing the cluster. This user cannot be deleted. For more information, see [{#T}](./concepts/cluster-users.md).
 
     * **{{ ui-key.yacloud.greenplum.section_resource-master }}** and **{{ ui-key.yacloud.greenplum.section_resource-segment }}**: [Master and segment host](./concepts/index.md) configuration in the {{ GP }} cluster.
 
@@ -78,16 +78,16 @@ To create a cluster:
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 
-1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard will switch to **Running** and its state, to **Alive**. This may take a while.
 
 For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
 
 ## Get the cluster ID {#get-cluster-id}
 
-Get the cluster ID to use to [connect](#connect) to the cluster:
+Get the cluster ID required to [connect](#connect) to the cluster:
 
-1. In the management console, navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-1. Click the name of the cluster you need and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.mdb.cluster.switch_overview }}** tab.
+1. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Click the cluster name and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.mdb.cluster.switch_overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Connect to the cluster {#connect}
@@ -98,19 +98,19 @@ Connect to the cluster you [created](#create-cluster):
 
 - DBeaver {#gui}
 
-    1. [Install DBeaver](https://dbeaver.com/docs/dbeaver/Installation/) to the host to use for the connection.
+    1. [Install DBeaver](https://dbeaver.com/docs/dbeaver/Installation/) to the host that will be used for the connection.
 
         {% note info %}
 
-        Access to the cluster was tested in DBeaver Community 24.2.3
+        Access to the cluster was tested in DBeaver Community 24.2.3
 
         {% endnote %}
 
     1. Launch DBeaver.
-    1. In the **Database** menu, select **New connection**.
+    1. From the **Database** menu, select **New connection**.
     1. Select **{{ GP }}** from the DB list.
     1. Click **Next**.
-    1. Specify the main connection parameters on the **Main** tab:
+    1. Specify the main connection properties on the **Main** tab:
 
         * Under **Server**:
             * **Connect by**: `Host`.
@@ -124,7 +124,7 @@ Connect to the cluster you [created](#create-cluster):
 
         * Under **Authentication**:
             * **Authentication**: `Database Native`.
-            * **User**: Admin user name specified when [creating the cluster](#create-cluster).
+            * **User**: Admin username specified when [creating the cluster](#create-cluster).
             * **Password**: Admin user password.
 
                 You can disable the **Save password** option, which is enabled by default.
@@ -141,11 +141,11 @@ Connect to the cluster you [created](#create-cluster):
 
         {% include [ssl-default-mode](../_includes/mdb/mgp/quickstart/ssl-default-mode.md) %}
 
-        In the production environment, we recommend [connecting to the cluster via SSL with host authentication](./operations/connect.md#connection-ide).
+        In the production environment, we recommend [connecting to the cluster over SSL with host authentication](./operations/connect.md#connection-ide).
 
         {% endnote %}
 
-    1. (Optional) On the **Main** tab, click **Connection description (name, type, ...)** and add a name and description for the connection.
+    1. Optionally, on the **Main** tab, click **Connection description (name, type, ...)** and add a name and description for the connection.
 
         By default, the connection name matches the specified database name, i.e., `postgres`. You may want to select a different name to avoid confusion: you can use this connection to work with any databases, not just `postgres`.
 
@@ -153,11 +153,11 @@ Connect to the cluster you [created](#create-cluster):
 
         You will see the new connection in the left-hand panel on the **Databases** tab.
 
-    1. Expand the created connection in the left-hand panel on the **Databases** tab.
+    1. Expand the connection you created in the left-hand panel on the **Databases** tab.
 
         {% include [dbeaver-connect](../_includes/mdb/mgp/quickstart/dbeaver-connect.md) %}
 
-    1. Run a test query:
+    1. Run this test query:
 
         1. Open the **Databases** folder, expand the `postgres` database context menu, and select **SQL editor** → **Open SQL console**.
 
@@ -204,11 +204,11 @@ Connect to the cluster you [created](#create-cluster):
 
         {% include [ssl-default-mode](../_includes/mdb/mgp/quickstart/ssl-default-mode.md) %}
 
-        In the production environment, we recommend [connecting to the cluster via SSL with host authentication](./operations/connect.md#bash).
+        In the production environment, we recommend [connecting to the cluster over SSL with host authentication](./operations/connect.md#bash).
 
         {% endnote %}
 
-    1. Run a test query:
+    1. Run this test query:
 
         ```sql
         SELECT version();
@@ -216,7 +216,7 @@ Connect to the cluster you [created](#create-cluster):
 
 {% endlist %}
 
-If the connection to the cluster and the test query are successful, the {{ GP }} version will be shown.
+If the connection to the cluster and the test query are successful, you will see the {{ GP }} version.
 
 ## Create a database {#create-db}
 
@@ -252,19 +252,19 @@ After you [connect to the {{ GP }} cluster](#connect), create a database named `
 
         {% note tip %}
 
-        If you do not see the `sample_db` database in the list, make sure you [enabled](#connect) the **Show all databases** option for the connection.
+        If you do not see `sample_db` in the list, make sure you [enabled](#connect) the **Show all databases** option for the connection.
 
         {% endnote %}
 
 - psql {#cli}
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         CREATE DATABASE sample_db;
         ```
 
-    1. Output a list of {{ GP }} cluster databases and make sure it includes `sample_db`:
+    1. Output the list of databases in the {{ GP }} cluster and make sure it includes `sample_db`:
 
         ```sql
         \list
@@ -286,7 +286,7 @@ To make sure the database [was created](#create-db) correctly, run a few queries
 
     1. Open the **Databases** folder, expand the `sample_db` database context menu, and select **SQL editor** → **Open SQL console**.
 
-        This will open a console you can use to run SQL queries to the `sample_db` database.
+        This will open a console you can use to run SQL queries to `sample_db`.
 
     1. Create a table and populate it with data:
 
@@ -322,7 +322,7 @@ To make sure the database [was created](#create-db) correctly, run a few queries
 
 - psql {#cli}
 
-    1. Make sure you are connected to the `sample_db` database:
+    1. Make sure you are connected to `sample_db`:
 
         ```sql
         SELECT current_database();
@@ -360,7 +360,7 @@ To make sure the database [was created](#create-db) correctly, run a few queries
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](./concepts/index.md).
+* Read about the [service concepts](./concepts/index.md).
 * Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to a cluster](./operations/connect.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

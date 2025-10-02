@@ -1,6 +1,6 @@
 ---
-title: Questions and answers about {{ mgp-full-name }}
-description: This page provides answers to questions about {{ mgp-short-name }}.
+title: FAQ about {{ mgp-full-name }}
+description: This page covers FAQ about {{ mgp-short-name }}.
 ---
 
 # FAQ about {{ mgp-short-name }}

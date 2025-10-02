@@ -14,9 +14,9 @@ Fault-tolerant execution is only supported for the following [connectors](index.
 
 {% include [connectors](../../_includes/managed-trino/retry-policy-connector-list.md) %}
 
-To enable fault-tolerant execution, select the **Retry object type** parameter under **Retry policy** when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md) a cluster:
+To enable fault-tolerant execution, select the **Retry object type** parameter under **Retry policy** when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md#change-retry-policy) a cluster:
 
-* **Task**: Retries an intermediate task within the query which caused worker failure.
+* **Task**: Retries the intermediate task within the query that caused worker failure.
 
    {% note warning %}
 

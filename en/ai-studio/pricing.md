@@ -39,12 +39,7 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy:
-
-* The use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
-* The use of a fine-tuned {{ llama }} 8B model is charged according to the {{ llama }} 8B policy^1^.
-
-^1^ {{ meta-disclaimer }}
+At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy: the use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
 
 ### Dedicated instances {#rules-dedicated}
 

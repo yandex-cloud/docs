@@ -1,0 +1,1 @@
+(Опционально) Включите опции **{{ ui-key.yacloud.alb.label_limit-all-requests }}** и/или **{{ ui-key.yacloud.alb.label_limit-requests-per-ip }}** и задайте ограничения на количество запросов, которые виртуальный хост будет обрабатывать за единицу времени.

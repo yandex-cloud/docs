@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--scan-result-id`|<b>`string`</b><br/>Scan result id.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
+|`--page-token`|<b>`string`</b><br/>Page token pagination simplifies navigating large datasets by using a token to represent the current page.|
 |`--filter`|<b>`string`</b><br/>Filter by severity.|
 
 #### Global Flags

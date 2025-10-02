@@ -76,6 +76,12 @@ Generally, a DB includes both user-defined tables (with tablet instances serving
 
 Dedicated mode assumes that the resources for tablet instances and YQL queries are selected from the computing resources explicitly allocated to the DB. Computating resources are VMs that have a certain number of vCPUs and amount of RAM. The task to optimally allocate resources for a DB is currently the user's responsibility. If there are not enough resources to handle the load, the query latency increases, and at peak load, queries will be rejected, e.g., with the `OVERLOADED` return code. The user can add computing resources (VMs) to the DB using the UI or CLI to make sure they are sufficient. Adding compute resources to the DB is relatively fast and comparable to the time it takes to start a VM. Subsequently, {{ ydb-short-name }} will automatically balance tablets across a cluster based on the added resources.
 
+{% note tip %}
+
+In dedicated mode, {{ ydb-name }} uses {{ compute-full-name }} [instance groups](../../compute/concepts/instance-groups/index.md) as cluster nodes. See the [description of instance groups during a zonal incident and our mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
+
+{% endnote %}
+
 ### {{ ydb-short-name }} serverless mode {#serverless}
 
 In the serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate for maintaining the user DB. The amount of allocated resources can be both very large (any number of cores) and very small (significantly less than one core). If a user created a DB with a single table with a single entry and hardly ever makes DB queries, {{ ydb-short-name }} uses a small amount of RAM on tablet instances that are part of the user DB. This is possible because the user DB components are objects rather than processes. If the load increases, the DB components start using more CPU time and memory. If load grows to the point where there are not enough VM resources, the {{ ydb-short-name }} infrastructure can balance the system granularly by spawning tablet instances on other VMs.

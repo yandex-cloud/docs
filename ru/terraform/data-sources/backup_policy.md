@@ -54,21 +54,34 @@ output "my_policy_name" {
 - `created_at` (String) The creation timestamp of the resource.
 - `enabled` (Boolean) If this field is true, it means that the policy is enabled.
 - `fast_backup_enabled` (Boolean) If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup.
+- `file_filters` (List of Object) File filters to specify masks of files to backup or to exclude of backuping. (see [below for nested schema](#nestedatt--file_filters))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `format` (String) Format of the backup. It's strongly recommend to leave this option empty or `AUTO`. Available values: `AUTO`, `VERSION_11`, `VERSION_12`.
 - `id` (String) The ID of this resource.
+- `lvm_snapshotting_enabled` (Boolean) LVM will be used to create the volume snapshot. If LVM fails to create a snapshot (for example, because there is not enough free space), the software will create the snapshot itself.
 - `multi_volume_snapshotting_enabled` (Boolean) If true, snapshots of multiple volumes will be taken simultaneously. Default `true`.
 - `performance_window_enabled` (Boolean) Time windows for performance limitations of backup. Default `false`.
-- `preserve_file_security_settings` (Boolean) If true, a quiesced snapshot of the virtual machine will be taken. Default `true`.
-- `quiesce_snapshotting_enabled` (Boolean) If true, a quiesced snapshot of the virtual machine will be taken. Default `true`.
-- `reattempts` (Set of Object) (see [below for nested schema](#nestedatt--reattempts))
-- `retention` (Set of Object) (see [below for nested schema](#nestedatt--retention))
-- `scheduling` (Set of Object) (see [below for nested schema](#nestedatt--scheduling))
+- `reattempts` (Set of Object) Amount of reattempts that should be performed while trying to make backup at the host. (see [below for nested schema](#nestedatt--reattempts))
+- `retention` (Set of Object) Retention policy for backups. Allows to setup backups lifecycle. (see [below for nested schema](#nestedatt--retention))
+- `scheduling` (Set of Object) Schedule settings for creating backups on the host. (see [below for nested schema](#nestedatt--scheduling))
+- `sector_by_sector` (Boolean) A sector-by-sector backup of a disk or volume creates a backup copy of all sectors of the disk or volume, including those that do not contain data. Therefore, the size of such a backup copy will be equal to the size of the original disk or volume.
 - `silent_mode_enabled` (Boolean) If true, a user interaction will be avoided when possible. Default `true`.
 - `splitting_bytes` (String) Determines the size to split backups. It's better to leave this option unchanged. Default `9223372036854775807`.
 - `updated_at` (String) The update timestamp of the resource.
-- `vm_snapshot_reattempts` (Set of Object) (see [below for nested schema](#nestedatt--vm_snapshot_reattempts))
+- `validation_enabled` (Boolean) Validation is a time-consuming process, even with incremental or differential backups of small amounts of data. This is because not only the data physically contained in the backup copy is verified, but all data restored when it is selected. This option requires access to previously created backup copies.
+- `vm_snapshot_reattempts` (Set of Object) Amount of reattempts that should be performed while trying to make snapshot. (see [below for nested schema](#nestedatt--vm_snapshot_reattempts))
 - `vss_provider` (String) Settings for the volume shadow copy service. Available values are: `NATIVE`, `TARGET_SYSTEM_DEFINED`. Default `NATIVE`.
+
+<a id="nestedatt--file_filters"></a>
+### Nested Schema for `file_filters`
+
+Read-Only:
+
+- `exclusion_masks` (List of String) Do not backup files that match the following criteria.
+
+- `inclusion_masks` (List of String) Backup only files that match the following criteria.
+
+
 
 <a id="nestedatt--reattempts"></a>
 ### Nested Schema for `reattempts`
@@ -151,6 +164,8 @@ Read-Only:
 - `repeat_at` (List of String) List of time in format `HH:MM` (24-hours format), when the schedule applies.
 
 - `repeat_every` (String) Frequency of backup repetition. See `interval_type` for available values.
+
+- `run_later` (Boolean) If true and if the machine is off, launch missed tasks on boot up. Default `false`.
 
 - `type` (String) Type of the scheduling. Available values are: `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`.
 

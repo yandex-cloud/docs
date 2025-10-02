@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_signature_
 
 # yandex_kms_asymmetric_signature_key (Resource)
 
-Creates a Yandex KMS asymmetric signature key that can be used for cryptographic operation.
+An asymmetric KMS key that may contain several versions of the cryptographic material.
 
 ## Example usage
 
@@ -27,26 +27,29 @@ resource "yandex_kms_asymmetric_signature_key" "key-a" {
 
 ### Optional
 
-- `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
-- `description` (String) The resource description.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `name` (String) The resource name.
-- `signature_algorithm` (String) Signature algorithm to be used with a new key. The default value is `RSA_2048_SIGN_PSS_SHA_256`.
+- `asymmetric_signature_key_id` (String) ID of the asymmetric KMS key to return.
+ To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List] request.
+- `deletion_protection` (Boolean) Flag that inhibits deletion of the key
+- `description` (String) Description of the key.
+- `folder_id` (String) ID of the folder that the key belongs to.
+- `id` (String) ID of the asymmetric KMS key to return.
+ To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List] request.
+- `labels` (Map of String) Custom labels for the key as `key:value` pairs. Maximum 64 per key.
+- `name` (String) Name of the key.
+- `signature_algorithm` (String) Signature Algorithm ID.
+- `status` (String) Current status of the key.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
-- `created_at` (String) The creation timestamp of the resource.
-- `id` (String) The ID of this resource.
-- `status` (String) The status of the key.
+- `created_at` (String) Time when the key was created.
 
 <a id="nestedblock--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 - `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

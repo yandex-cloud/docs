@@ -9,9 +9,9 @@ description: '{{ mcp-hub-name }} — это функциональность {{ 
 
 {{ foundation-models-full-name }} позволяет использовать [MCP-серверы](../../../glossary/mcp.md) в AI-агентах для взаимодействия с внешними системами, чтобы получать дополнительный контекст или выполнять действия, например, через вызов внешнего [API](https://ru.wikipedia.org/wiki/API).
 
-_{{ mcp-hub-name }}_ — это функциональность {{ foundation-models-name }}, предназначенная для создания, управления и мониторинга MCP-серверов. Чтобы обращаться к MCP-серверам в {{ mcp-hub-name }}, необходима [роль](../../security/index.md#serverless-mcpGateways-invoker) `serverless.mcpGateways.invoker` или выше.
+_{{ mcp-hub-name }}_ — это функциональность {{ foundation-models-name }}, предназначенная для создания, управления и мониторинга MCP-серверов. {{ mcp-hub-name }} позволяет как подключать внешние MCP-серверы, так и создавать собственные MCP-серверы с нуля или из предварительно настроенных шаблонов.
 
-{{ mcp-hub-name }} позволяет как подключать внешние MCP-серверы, так и создавать собственные MCP-серверы с нуля или из предварительно настроенных шаблонов.
+Чтобы обращаться к MCP-серверам в {{ mcp-hub-name }}, необходима [роль](../../security/index.md#serverless-mcpGateways-invoker) `serverless.mcpGateways.invoker` или выше. Чтобы обращаться к внешним MCP-серверам и MCP-серверам, созданным из шаблона, дополнительно необходима [роль](../../security/index.md#serverless-mcpGateways-anonymousInvoker) `serverless.mcpGateways.anonymousInvoker` или выше.
 
 ## MCP-серверы {#servers}
 

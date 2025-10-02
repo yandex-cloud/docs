@@ -77,8 +77,6 @@ The `tools` field in a function call does not mean the model will actually call 
 
 If, based on the request context, the model elects not to use the suggested tools, it will generate its final response right away.
 
-You can use function calling when working with {{ gpt-pro }} and {{ llama }} 70B^1^ models and when accessing those models via the [AI assistant](../assistant/index.md) API.
-
 ## Use cases {#examples}
 
 [{#T}](../../operations/generation/function-call.md)

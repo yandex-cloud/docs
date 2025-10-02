@@ -15,8 +15,6 @@ Common instance models are subject to the update rules described in [Model lifec
 || **Model and URI** | **Generation** | **Context** | **[Operating modes](../index.md#working-mode)** ||
 || **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 5</br>Latest 5</br>RC 5 | 32,000 | Asynchronous, synchronous ||
 || **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 5</br>Latest 5</br>RC 5.1 | 32,000 | Asynchronous, synchronous ||
-|| **{{ llama }} 8B**^1^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8,192 | Asynchronous, synchronous ||
-|| **{{ llama }} 70B**^1^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8,192 | Asynchronous, synchronous ||
 || **Qwen3 235B** </br>`gpt://<folder_ID>/qwen3-235b-a22b-fp8/latest` | — | 256,000 | [{{ openai }} API](../openai-compatibility.md) ||
 || **gpt-oss-120b** </br>`gpt://<folder_ID>/gpt-oss-120b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||
 || **gpt-oss-20b** </br>`gpt://<folder_ID>/gpt-oss-20b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||  
@@ -78,7 +76,7 @@ You can access text generation models of different versions in a number of ways.
     ```python
     # Text generation
     model = (
-      sdk.models.completions("gpt://b1gt6g8ht345********/llama/deprecated")
+      sdk.models.completions("gpt://b1gt6g8ht345********/yandexgpt/deprecated")
     )
 
     # Image generation
@@ -87,7 +85,7 @@ You can access text generation models of different versions in a number of ways.
     )
     ```
 
-      This example explicitly specifies the `{{ llama }} 70B` model of the `Deprecated` version and the `{{ yandexart-name }}` model of the `Latest` version. 
+      This example explicitly specifies the `{{ gpt-pro }}` model of the `Deprecated` version and the `{{ yandexart-name }}` model of the `Latest` version. 
 
 - API {#curl}
 

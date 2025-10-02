@@ -553,6 +553,10 @@ description: Из статьи вы узнаете, как изменить на
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Измените дополнительные настройки кластера:
 
+     - **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**
+       
+       {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
+
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
 - CLI {#cli}
@@ -579,6 +583,9 @@ description: Из статьи вы узнаете, как изменить на
           --datalens-access=<true_или_false> \
           --websql-access=<true_или_false> \
           --yandexquery-access=<true_или_false> \
+          --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                 `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                 `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
                               `hour=<час_дня> \
@@ -601,6 +608,8 @@ description: Из статьи вы узнаете, как изменить на
 
     * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
+
+    {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
@@ -651,6 +660,8 @@ description: Из статьи вы узнаете, как изменить на
       Где `backup_retain_period_days` — срок хранения автоматических резервных копий в днях. Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
   1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+
+  1. {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
 
   1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -726,12 +737,17 @@ description: Из статьи вы узнаете, как изменить на
                   "enabled": <активировать_сбор_статистики>,
                   "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                   "statementsSamplingInterval": "<интервал_сбора_запросов>"
+              },
+              "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                   "day": "<день_недели>",
-                  "hour": "<час>"
+                  "hour": "<час_дня>"
               }
           },
           "deletionProtection": <защитить_кластер_от_удаления>
@@ -769,14 +785,10 @@ description: Из статьи вы узнаете, как изменить на
               * `enabled` — активация сбора статистики: `true` или `false`;
               * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
+          
+          {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
-      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
-
-          * `anytime` — техническое обслуживание происходит в любое время.
-          * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю, в указанное время:
-
-              * `day` — день недели в формате `DDD`;
-              * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+      {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
       * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -839,12 +851,17 @@ description: Из статьи вы узнаете, как изменить на
                   "enabled": <активировать_сбор_статистики>,
                   "sessions_sampling_interval": "<интервал_сбора_сессий>",
                   "statements_sampling_interval": "<интервал_сбора_запросов>"
+              },
+              "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "maintenance_window": {
               "weekly_maintenance_window": {
                   "day": "<день_недели>",
-                  "hour": "<час>"
+                  "hour": "<час_дня>"
               }
           },
           "deletion_protection": <защитить_кластер_от_удаления>
@@ -883,13 +900,9 @@ description: Из статьи вы узнаете, как изменить на
               * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statements_sampling_interval` — интервал сбора запросов: от `1` до `86400` секунд.
 
-      * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
+          {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
-          * `anytime` — техническое обслуживание происходит в любое время.
-          * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю, в указанное время:
-
-              * `day` — день недели в формате `DDD`;
-              * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}
 
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
