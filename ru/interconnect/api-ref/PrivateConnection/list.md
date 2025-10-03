@@ -20,6 +20,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListPrivatesConnectionResponse.next_page_token]
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:

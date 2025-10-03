@@ -52,8 +52,17 @@ apiPlayground:
             1. Get the current set of labels with a [AddressService.Get](/docs/vpc/api-ref/Address/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         reserved:
           description: |-
             **boolean**
@@ -66,7 +75,7 @@ apiPlayground:
           type: boolean
         dnsRecordSpecs:
           description: |-
-            **[DnsRecordSpec](/docs/vpc/api-ref/Address/create#yandex.cloud.vpc.v1.DnsRecordSpec)**
+            **[DnsRecordSpec](#yandex.cloud.vpc.v1.DnsRecordSpec)**
             Optional DNS record specifications
           type: array
           items:

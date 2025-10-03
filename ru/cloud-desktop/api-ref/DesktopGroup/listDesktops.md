@@ -22,30 +22,31 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListDesktopGroupDesktopsResponse.nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse)
+            the service returns a [ListDesktopGroupDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListDesktopGroupDesktopsResponse.nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse) returned by a previous list request.
+            [ListDesktopGroupDesktopsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupDesktopsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) field.
+            1. The field name. Currently you can use filtering only on [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop) field.
             2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
             3. Value or a list of values to compare against the values of the field.
           type: string
         orderBy:
           description: |-
             **string**
-            Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop), [Desktop.createdAt](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) and [Desktop.status](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) fields.
+            Sorting the list by [Desktop.name](#yandex.cloud.clouddesktop.v1.api.Desktop), [Desktop.createdAt](#yandex.cloud.clouddesktop.v1.api.Desktop) and [Desktop.status](#yandex.cloud.clouddesktop.v1.api.Desktop) fields.
             The default sorting order is ascending.
           type: string
       additionalProperties: false
@@ -193,7 +194,8 @@ Status of the desktop.
 - `STOPPING`: Desktop is stopping.
 - `STOPPED`: Desktop is stopped.
 - `ERROR`: Desktop did not manage start or restart.
-- `CREATION_FAILED`: Desktop did not manage to get created or updated. ||
+- `CREATION_FAILED`: Desktop did not manage to get created or updated.
+- `HEALTH_CHECK`: Desktop in the process of health check. ||
 || name | **string**
 
 Name of the desktop. ||

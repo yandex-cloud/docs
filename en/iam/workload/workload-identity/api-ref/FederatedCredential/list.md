@@ -18,16 +18,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListFederatedCredentialsResponse.nextPageToken](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
+            the service returns a [ListFederatedCredentialsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListFederatedCredentialsResponse.nextPageToken](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
+            to the [ListFederatedCredentialsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
             returned by a previous list request.
           type: string
       required:

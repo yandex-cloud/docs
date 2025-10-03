@@ -32,7 +32,7 @@ apiPlayground:
           format: field-mask
         http:
           description: |-
-            **[HttpBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)**
+            **[HttpBackend](#yandex.cloud.apploadbalancer.v1.HttpBackend)**
             New settings for the HTTP backend.
             Includes only one of the fields `http`, `grpc`, `stream`.
             Name of the backend to update (required) and new settings for the backend.
@@ -41,7 +41,7 @@ apiPlayground:
               properties:
                 targetGroups:
                   description: |-
-                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
                     Target groups that belong to the backend. For details about target groups, see
                     [documentation](/docs/application-load-balancer/concepts/target-group).
                     Includes only one of the fields `targetGroups`, `storageBucket`.
@@ -51,7 +51,7 @@ apiPlayground:
                   $ref: '#/definitions/TargetGroupsBackend'
                 storageBucket:
                   description: |-
-                    **[StorageBucketBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
+                    **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
                     Object Storage bucket to use as the backend. For details about buckets, see
                     [documentation](/docs/storage/concepts/bucket).
                     If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
@@ -63,7 +63,7 @@ apiPlayground:
                   $ref: '#/definitions/StorageBucketBackend'
         grpc:
           description: |-
-            **[GrpcBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend)**
+            **[GrpcBackend](#yandex.cloud.apploadbalancer.v1.GrpcBackend)**
             New settings for the gRPC backend.
             Includes only one of the fields `http`, `grpc`, `stream`.
             Name of the backend to update (required) and new settings for the backend.
@@ -72,14 +72,14 @@ apiPlayground:
               properties:
                 targetGroups:
                   description: |-
-                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
                     Target groups that belong to the backend.
                     Includes only one of the fields `targetGroups`.
                     Reference to targets that belong to the backend. For now, targets are referenced via target groups.
                   $ref: '#/definitions/TargetGroupsBackend'
         stream:
           description: |-
-            **[StreamBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StreamBackend)**
+            **[StreamBackend](#yandex.cloud.apploadbalancer.v1.StreamBackend)**
             New settings for the stream (TCP) backend.
             Includes only one of the fields `http`, `grpc`, `stream`.
             Name of the backend to update (required) and new settings for the backend.
@@ -88,7 +88,7 @@ apiPlayground:
               properties:
                 targetGroups:
                   description: |-
-                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
                     Target groups that belong to the backend. For details about target groups, see
                     [documentation](/docs/application-load-balancer/concepts/target-group).
                     Includes only one of the fields `targetGroups`.

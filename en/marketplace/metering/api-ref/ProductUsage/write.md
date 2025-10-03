@@ -20,7 +20,7 @@ apiPlayground:
           type: string
         usageRecords:
           description: |-
-            **[UsageRecord](/docs/marketplace/metering/ImageProductUsage/write#yandex.cloud.marketplace.metering.v1.UsageRecord)**
+            **[UsageRecord](#yandex.cloud.marketplace.metering.v1.UsageRecord)**
             List of product usage records (up to 25 per request)
           type: array
           items:

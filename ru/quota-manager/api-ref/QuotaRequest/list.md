@@ -9,7 +9,7 @@ apiPlayground:
       properties:
         resource:
           description: |-
-            **[Resource](/docs/quota-manager/api-ref/QuotaLimit/get#yandex.cloud.quotamanager.v1.Resource)**
+            **[Resource](#yandex.cloud.quotamanager.v1.Resource)**
             Required field. Resource to list quota requests in.
           $ref: '#/definitions/Resource'
         filter:
@@ -29,6 +29,7 @@ apiPlayground:
             the service returns a [ListQuotaRequestsResponse.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100
+          default: '100'
           type: string
           format: int64
         pageToken:

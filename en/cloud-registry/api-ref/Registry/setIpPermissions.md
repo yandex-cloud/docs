@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         ipPermissions:
           description: |-
-            **[IpPermission](/docs/cloud-registry/api-ref/Registry/listIpPermissions#yandex.cloud.cloudregistry.v1.IpPermission)**
+            **[IpPermission](#yandex.cloud.cloudregistry.v1.IpPermission)**
             IP permission to be set.
           type: array
           items:

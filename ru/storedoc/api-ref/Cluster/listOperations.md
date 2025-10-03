@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListClusterOperationsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse) returned by the previous list request.
+            [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse) returned by the previous list request.
           type: string
       additionalProperties: false
     body: null

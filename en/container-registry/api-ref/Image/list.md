@@ -33,23 +33,24 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListImagesResponse.nextPageToken](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesResponse)
+            the service returns a [ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListImagesResponse.nextPageToken](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesResponse) returned by a previous list request.
+            [ListImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListImagesResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [Image.name](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.Image) field.
+            1. The field name. Currently you can use filtering only on [Image.name](#yandex.cloud.containerregistry.v1.Image) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.
           type: string

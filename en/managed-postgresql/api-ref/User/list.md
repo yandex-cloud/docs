@@ -22,14 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListUsersResponse.nextPageToken](/docs/managed-postgresql/api-ref/User/list#yandex.cloud.mdb.postgresql.v1.ListUsersResponse)
+            results is larger than `page_size`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListUsersResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.nextPageToken](/docs/managed-postgresql/api-ref/User/list#yandex.cloud.mdb.postgresql.v1.ListUsersResponse)
+            Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListUsersResponse)
             returned by the previous list request.
           type: string
       additionalProperties: false

@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         externalDictionary:
           description: |-
-            **`ExternalDictionary`**
+            **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)**
             Configuration of the external dictionary.
           oneOf:
             - type: object
@@ -35,7 +35,7 @@ apiPlayground:
                   format: int64
                 lifetimeRange:
                   description: |-
-                    **`Range`**
+                    **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
                     Range of intervals between dictionary updates for ClickHouse to choose from.
                     Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
                   $ref: '#/definitions/Range'
@@ -43,31 +43,31 @@ apiPlayground:
               properties:
                 httpSource:
                   description: |-
-                    **`HttpSource`**
+                    **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
                     HTTP source for the dictionary.
                     Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                   $ref: '#/definitions/HttpSource'
                 mysqlSource:
                   description: |-
-                    **`MysqlSource`**
+                    **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
                     MySQL source for the dictionary.
                     Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                   $ref: '#/definitions/MysqlSource'
                 clickhouseSource:
                   description: |-
-                    **`ClickhouseSource`**
+                    **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
                     ClickHouse source for the dictionary.
                     Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                   $ref: '#/definitions/ClickhouseSource'
                 mongodbSource:
                   description: |-
-                    **`MongodbSource`**
+                    **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
                     MongoDB source for the dictionary.
                     Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                   $ref: '#/definitions/MongodbSource'
                 postgresqlSource:
                   description: |-
-                    **`PostgresqlSource`**
+                    **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
                     PostgreSQL source for the dictionary.
                     Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                   $ref: '#/definitions/PostgresqlSource'
@@ -119,7 +119,7 @@ apiPlayground:
             type: string
           headers:
             description: |-
-              **`Header`**
+              **[Header](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource.Header)**
               HTTP headers.
             type: array
             items:
@@ -194,7 +194,7 @@ apiPlayground:
             type: string
           replicas:
             description: |-
-              **`Replica`**
+              **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)**
               List of MySQL replicas of the database used as dictionary source.
             type: array
             items:
@@ -2651,7 +2651,7 @@ Default value: **2592000000** (30 days). ||
 
 Enables or disables session_log system table.
 
-Default value: **false**.
+Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
 
 Change of the setting is applied with restart.
 
@@ -2661,7 +2661,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || sessionLogRetentionTime | **string** (int64)
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
@@ -2816,6 +2816,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || geobaseEnabled | **boolean**
 
 Enables or disables geobase.
+
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 Change of the setting is applied with restart. ||
 || geobaseUri | **string**
@@ -3040,7 +3042,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
 
-Default value: **16**. ||
+Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue). ||
 || numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge | **string** (int64)
 
 When there is less than the specified number of free entries in pool (or replicated queue), start to lower maximum size of
@@ -3970,7 +3974,7 @@ JDBC bridge configuration for queries to external databases.
 ||Field | Description ||
 || host | **string**
 
-Required field. Host of jdbc bridge. ||
+Host of jdbc bridge. ||
 || port | **string** (int64)
 
 Port of jdbc bridge.

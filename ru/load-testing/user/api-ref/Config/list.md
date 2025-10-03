@@ -16,16 +16,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListConfigsResponse.nextPageToken](/docs/load-testing/user/api-ref/Config/list#yandex.cloud.loadtesting.api.v1.ListConfigsResponse)
+            results is larger than `page_size`, the service returns a [ListConfigsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListConfigsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListConfigsResponse.nextPageToken](/docs/load-testing/user/api-ref/Config/list#yandex.cloud.loadtesting.api.v1.ListConfigsResponse) returned by a previous list request.
+            [ListConfigsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListConfigsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

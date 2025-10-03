@@ -174,7 +174,7 @@ A message object representing a wrapper over the inputs and outputs of the compl
 || role | **string**
 
 The ID of the message sender. Supported roles:
-* `system`: Special role used to define the behaviour of the completion model.
+* `system`: Special role used to define the behavior of the completion model.
 * `assistant`: A role used by the model to generate responses.
 * `user`: A role used by the user to describe requests to the model. ||
 || text | **string**
@@ -518,7 +518,7 @@ A message object representing a wrapper over the inputs and outputs of the compl
 || role | **string**
 
 The ID of the message sender. Supported roles:
-* `system`: Special role used to define the behaviour of the completion model.
+* `system`: Special role used to define the behavior of the completion model.
 * `assistant`: A role used by the model to generate responses.
 * `user`: A role used by the user to describe requests to the model. ||
 || text | **string**

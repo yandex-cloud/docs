@@ -18,16 +18,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListRegistriesResponse.nextPageToken](/docs/cloud-registry/api-ref/Registry/list#yandex.cloud.cloudregistry.v1.ListRegistriesResponse)
+            the service returns a [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 10.
+          default: '10'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListRegistriesResponse.nextPageToken](/docs/cloud-registry/api-ref/Registry/list#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
+            [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
           type: string
       required:
         - folderId
@@ -111,7 +112,7 @@ in the next list request. Each subsequent list request will have its own
 
 ## Registry {#yandex.cloud.cloudregistry.v1.Registry}
 
-A Registry resource.
+A Registry resource. For more information, see the [Registry](/docs/cloud-registry/concepts/registry) section of the documentation.
 
 #|
 ||Field | Description ||
@@ -134,7 +135,8 @@ Kind of the registry.
 - `DOCKER`: Registry kind is docker.
 - `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi. ||
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary. ||
 || type | **enum** (Type)
 
 Type of the registry.

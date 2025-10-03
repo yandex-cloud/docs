@@ -20,15 +20,16 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of
             available results is larger than `page_size`, the service returns a
-            [ListPrivateEndpointsResponse.nextPageToken](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) that can be used to get the
+            [ListPrivateEndpointsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) that can be used to get the
             next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListPrivateEndpointsResponse.nextPageToken](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) returned by a previous list
+            [ListPrivateEndpointsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) returned by a previous list
             request.
           type: string
         filter:
@@ -37,7 +38,7 @@ apiPlayground:
             A filter expression that filters PrivateEndpoint listed in the response.
             The expression must specify:
             1. The field name. Currently you can use filtering only on
-            [PrivateEndpoint.name](/docs/vpc/privatelink/api-ref/PrivateEndpoint/get#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint) field.
+            [PrivateEndpoint.name](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match
             the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:

@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         input:
           description: |-
-            **[ExecutionInput](/docs/functions/workflows/api-ref/Execution/start#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
+            **[ExecutionInput](#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
             Input for the Workflow execution
           oneOf:
             - type: object

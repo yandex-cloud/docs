@@ -16,16 +16,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListTestsResponse.nextPageToken](/docs/load-testing/user/api-ref/Test/list#yandex.cloud.loadtesting.api.v1.ListTestsResponse)
+            results is larger than `page_size`, the service returns a [ListTestsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListTestsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListTestsResponse.nextPageToken](/docs/load-testing/user/api-ref/Test/list#yandex.cloud.loadtesting.api.v1.ListTestsResponse) returned by a previous list request.
+            [ListTestsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListTestsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
@@ -39,19 +40,19 @@ apiPlayground:
             - `IN` or `NOT IN` for lists of values.
             3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
             Currently supported fields:
-            - `id` `yandex.cloud.loadtesting.api.v1.test.Test.id`
+            - `id` [yandex.cloud.loadtesting.api.v1.test.Test.id](#yandex.cloud.loadtesting.api.v1.test.Test)
             - operators: `=`, `!=`, `IN`, `NOT IN`
-            - `details.name` `yandex.cloud.loadtesting.api.v1.test.Details.name`
+            - `details.name` [yandex.cloud.loadtesting.api.v1.test.Details.name](#yandex.cloud.loadtesting.api.v1.test.Details)
             - operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
-            - `details.tags.<TAG_NAME>` `yandex.cloud.loadtesting.api.v1.test.Details.tags`
+            - `details.tags.<TAG_NAME>` [yandex.cloud.loadtesting.api.v1.test.Details.tags](#yandex.cloud.loadtesting.api.v1.test.Details)
             - operators: `:`
-            - `summary.status` `yandex.cloud.loadtesting.api.v1.test.Summary.status`
+            - `summary.status` [yandex.cloud.loadtesting.api.v1.test.Summary.status](#yandex.cloud.loadtesting.api.v1.test.Summary)
             - operators: `=`, `!=`, `IN`, `NOT IN`
-            - `summary.is_finished` `yandex.cloud.loadtesting.api.v1.test.Summary.isFinished`
+            - `summary.is_finished` [yandex.cloud.loadtesting.api.v1.test.Summary.isFinished](#yandex.cloud.loadtesting.api.v1.test.Summary)
             - operators: `=`
-            - `summary.created_at` `yandex.cloud.loadtesting.api.v1.test.Summary.createdAt`
+            - `summary.created_at` [yandex.cloud.loadtesting.api.v1.test.Summary.createdAt](#yandex.cloud.loadtesting.api.v1.test.Summary)
             - operators: `<`, `<=`, `>`, `>=`
-            - `summary.created_by` `yandex.cloud.loadtesting.api.v1.test.Summary.createdBy`
+            - `summary.created_by` [yandex.cloud.loadtesting.api.v1.test.Summary.createdBy](#yandex.cloud.loadtesting.api.v1.test.Summary)
             - operators: `=`, `!=`, `IN`, `NOT IN`
             Examples:
             - `summary.status IN ("DONE", "ERROR") AND details.tags.author:"yandex"`

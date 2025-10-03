@@ -349,8 +349,12 @@ User security groups. ||
 ||Field | Description ||
 || anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.metastore.v1.AnytimeMaintenanceWindow)**
 
+The cluster may be restarted for maintenance at any time.
+
 Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 || weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.metastore.v1.WeeklyMaintenanceWindow)**
+
+Maintenance is allowed only within the specified weekly window.
 
 Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 |#
@@ -368,25 +372,35 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 ||Field | Description ||
 || day | enum **WeekDay**
 
-- `WEEK_DAY_UNSPECIFIED`
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+Day of the week when maintenance can occur.
+
+- `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **int64**
 
-Hour of the day in UTC. ||
+Hour of the day in UTC when the maintenance window starts. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.metastore.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
-|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| info | **string**
+
+Information about the maintenance operation. ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Maintenance is postponed until the specified timestamp. ||
+|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp of the latest successfully completed maintenance. ||
+|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp of the next scheduled maintenance window. ||
 |#

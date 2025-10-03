@@ -31,7 +31,7 @@ apiPlayground:
           type: string
         subjectSpec:
           description: |-
-            **[Subject](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.Subject)**
+            **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
             Required field. The subject (e.g., common name, organization, etc.) for the CA.
           $ref: '#/definitions/Subject'
         algorithm:
@@ -272,12 +272,12 @@ apiPlayground:
         properties:
           baseRdn:
             description: |-
-              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
               Required field. Most used field of subject
             $ref: '#/definitions/BaseRDN'
           additionalRdn:
             description: |-
-              **[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
+              **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
               Additional fields of subject
             $ref: '#/definitions/AdditionalRDN'
         required:

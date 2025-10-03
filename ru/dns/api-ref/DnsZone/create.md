@@ -30,8 +30,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             DNS zone labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         zone:
           description: |-
             **string**
@@ -40,7 +49,7 @@ apiPlayground:
           type: string
         privateVisibility:
           description: |-
-            **[PrivateVisibility](/docs/dns/api-ref/DnsZone/get#yandex.cloud.dns.v1.PrivateVisibility)**
+            **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
             Privately visible zone settings.
             At least one of two visibility fields must be set.
           $ref: '#/definitions/PrivateVisibility'

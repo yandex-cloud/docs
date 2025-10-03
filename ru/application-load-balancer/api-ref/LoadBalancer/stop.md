@@ -10,7 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the application load balancer to stop.
-            The application load balancer must have an `ACTIVE` status ([LoadBalancer.status](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.LoadBalancer)).
+            The application load balancer must have an `ACTIVE` status ([LoadBalancer.status](#yandex.cloud.apploadbalancer.v1.LoadBalancer)).
             To get the application load balancer ID, make a [LoadBalancerService.List](/docs/application-load-balancer/api-ref/LoadBalancer/list#List) request.
           type: string
       required:

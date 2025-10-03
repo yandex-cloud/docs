@@ -53,7 +53,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       required:
         - folderId
         - name

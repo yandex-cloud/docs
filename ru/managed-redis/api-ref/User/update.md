@@ -47,7 +47,7 @@ apiPlayground:
             type: string
         permissions:
           description: |-
-            **[Permissions](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.Permissions)**
+            **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
             New set of permissions to grant to the user.
           $ref: '#/definitions/Permissions'
         enabled:

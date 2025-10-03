@@ -39,63 +39,65 @@ items:
           - name: gRPC
             items:
               - name: Overview
-                href: api-ref/grpc/index.md
+                href: connection-manager/api-ref/grpc/index.md
               - name: Connection
                 items:
                   - name: Overview
-                    href: api-ref/grpc/Connection/index.md
+                    href: connection-manager/api-ref/grpc/Connection/index.md
                   - name: Get
-                    href: api-ref/grpc/Connection/get.md
+                    href: connection-manager/api-ref/grpc/Connection/get.md
                   - name: ResolveCluster
-                    href: api-ref/grpc/Connection/resolveCluster.md
+                    href: >-
+                      connection-manager/api-ref/grpc/Connection/resolveCluster.md
                   - name: List
-                    href: api-ref/grpc/Connection/list.md
+                    href: connection-manager/api-ref/grpc/Connection/list.md
                   - name: Create
-                    href: api-ref/grpc/Connection/create.md
+                    href: connection-manager/api-ref/grpc/Connection/create.md
                   - name: Update
-                    href: api-ref/grpc/Connection/update.md
+                    href: connection-manager/api-ref/grpc/Connection/update.md
                   - name: Delete
-                    href: api-ref/grpc/Connection/delete.md
+                    href: connection-manager/api-ref/grpc/Connection/delete.md
                   - name: ListOperations
-                    href: api-ref/grpc/Connection/listOperations.md
+                    href: >-
+                      connection-manager/api-ref/grpc/Connection/listOperations.md
               - name: Operation
                 items:
                   - name: Overview
-                    href: api-ref/grpc/Operation/index.md
+                    href: connection-manager/api-ref/grpc/Operation/index.md
                   - name: Get
-                    href: api-ref/grpc/Operation/get.md
+                    href: connection-manager/api-ref/grpc/Operation/get.md
                   - name: Cancel
-                    href: api-ref/grpc/Operation/cancel.md
+                    href: connection-manager/api-ref/grpc/Operation/cancel.md
           - name: REST
             items:
               - name: Overview
-                href: api-ref/index.md
+                href: connection-manager/api-ref/index.md
               - name: Connection
                 items:
                   - name: Overview
-                    href: api-ref/Connection/index.md
+                    href: connection-manager/api-ref/Connection/index.md
                   - name: Get
-                    href: api-ref/Connection/get.md
+                    href: connection-manager/api-ref/Connection/get.md
                   - name: ResolveCluster
-                    href: api-ref/Connection/resolveCluster.md
+                    href: connection-manager/api-ref/Connection/resolveCluster.md
                   - name: List
-                    href: api-ref/Connection/list.md
+                    href: connection-manager/api-ref/Connection/list.md
                   - name: Create
-                    href: api-ref/Connection/create.md
+                    href: connection-manager/api-ref/Connection/create.md
                   - name: Update
-                    href: api-ref/Connection/update.md
+                    href: connection-manager/api-ref/Connection/update.md
                   - name: Delete
-                    href: api-ref/Connection/delete.md
+                    href: connection-manager/api-ref/Connection/delete.md
                   - name: ListOperations
-                    href: api-ref/Connection/listOperations.md
+                    href: connection-manager/api-ref/Connection/listOperations.md
               - name: Operation
                 items:
                   - name: Overview
-                    href: api-ref/Operation/index.md
+                    href: connection-manager/api-ref/Operation/index.md
                   - name: Get
-                    href: api-ref/Operation/get.md
+                    href: connection-manager/api-ref/Operation/get.md
                   - name: Cancel
-                    href: api-ref/Operation/cancel.md
+                    href: connection-manager/api-ref/Operation/cancel.md
   - name: '{{ metastore-full-name }}'
     items:
       - name: Getting started

@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         targets:
           description: |-
-            **[Target](/docs/network-load-balancer/api-ref/TargetGroup/get#yandex.cloud.loadbalancer.v1.Target)**
+            **[Target](#yandex.cloud.loadbalancer.v1.Target)**
             List of targets to add to the target group.
           type: array
           items:

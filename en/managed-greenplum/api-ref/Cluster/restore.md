@@ -46,8 +46,15 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the Greenplum® cluster as `key:value` pairs.
             For example, "project":"mvp" or "source":"dictionary".
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         environment:
           description: |-
             **enum** (Environment)
@@ -62,17 +69,17 @@ apiPlayground:
             - PRESTABLE
         config:
           description: |-
-            **[GreenplumRestoreConfig](/docs/managed-greenplum/api-ref/Cluster/restore#yandex.cloud.mdb.greenplum.v1.GreenplumRestoreConfig)**
+            **[GreenplumRestoreConfig](#yandex.cloud.mdb.greenplum.v1.GreenplumRestoreConfig)**
             Greenplum® cluster config.
           $ref: '#/definitions/GreenplumRestoreConfig'
         masterResources:
           description: |-
-            **[Resources](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Resources)**
+            **[Resources](#yandex.cloud.mdb.greenplum.v1.Resources)**
             Resources of the Greenplum® master subcluster.
           $ref: '#/definitions/Resources'
         segmentResources:
           description: |-
-            **[Resources](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Resources)**
+            **[Resources](#yandex.cloud.mdb.greenplum.v1.Resources)**
             Resources of the Greenplum® segment subcluster.
           $ref: '#/definitions/Resources'
         networkId:
@@ -106,7 +113,7 @@ apiPlayground:
           type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
             A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
           oneOf:
             - type: object
@@ -119,7 +126,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
                     A weekly maintenance window.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
@@ -227,12 +234,12 @@ apiPlayground:
         properties:
           backupWindowStart:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Time to start the daily backup, in the UTC timezone.
             $ref: '#/definitions/TimeOfDay'
           access:
             description: |-
-              **[Access](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Access)**
+              **[Access](#yandex.cloud.mdb.greenplum.v1.Access)**
               Access policy for external services.
             $ref: '#/definitions/Access'
           zoneId:
@@ -245,14 +252,14 @@ apiPlayground:
             description: |-
               **string**
               ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
-              The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Cluster).
+              The ID of the network is set in the field [Cluster.networkId](#yandex.cloud.mdb.greenplum.v1.Cluster).
             type: string
           assignPublicIp:
             description: |-
               **boolean**
               Determines whether the host should get a public IP address on creation.
               After a host has been created, this setting cannot be changed.
-              To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assignPublicIp](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig) set as needed.
+              To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assignPublicIp](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig) set as needed.
               Possible values:
               * `false` - do not assign a public IP to the master host.
               * `true` - assign a public IP to the master host.

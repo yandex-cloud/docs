@@ -13,4 +13,10 @@ description: Следуя данному руководству, вы сможе
 
 {% endnote %}
 
+{% note warning %}
+
+Если в кластере {{ managed-k8s-name }} используется контроллер сетевых политик Cilium, то настройка имеет свои особенности. Воспользуйтесь следующей [инструкцией](../../managed-kubernetes/operations/cilium-node-local-dns.md).
+
+{% endnote %}
+
 {% include [node-local-dns](../../_tutorials/k8s/node-local-dns.md) %}

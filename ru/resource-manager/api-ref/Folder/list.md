@@ -18,16 +18,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListFoldersResponse.nextPageToken](/docs/resource-manager/api-ref/Folder/list#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
+            the service returns a [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. Set `pageToken`
-            to the [ListFoldersResponse.nextPageToken](/docs/resource-manager/api-ref/Folder/list#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
+            to the [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
             returned by a previous list request to get the next page of results.
           type: string
         filter:
@@ -35,7 +36,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on the [Folder.name](/docs/resource-manager/api-ref/Folder/get#yandex.cloud.resourcemanager.v1.Folder) field.
+            1. The field name. Currently you can use filtering only on the [Folder.name](#yandex.cloud.resourcemanager.v1.Folder) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
           type: string

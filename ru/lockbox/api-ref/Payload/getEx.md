@@ -14,7 +14,7 @@ apiPlayground:
           type: string
         folderAndName:
           description: |-
-            **[FolderAndName](/docs/lockbox/api-ref/Payload/getEx#yandex.cloud.lockbox.v1.FolderAndName)**
+            **[FolderAndName](#yandex.cloud.lockbox.v1.FolderAndName)**
             Includes only one of the fields `secretId`, `folderAndName`.
           $ref: '#/definitions/FolderAndName'
         versionId:

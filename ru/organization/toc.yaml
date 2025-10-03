@@ -575,6 +575,8 @@ items:
                 href: api-ref/grpc/Group/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Group/updateAccessBindings.md
+              - name: ListEffective
+                href: api-ref/grpc/Group/listEffective.md
           - name: Operation
             items:
               - name: Overview
@@ -725,6 +727,60 @@ items:
                     href: idp/api-ref/grpc/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/grpc/User/resolveExternalIds.md
+              - name: OAUTH Application API
+                items:
+                  - name: Overview
+                    href: idp/application/oauth/api-ref/grpc/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/grpc/Application/get.md
+                      - name: List
+                        href: idp/application/oauth/api-ref/grpc/Application/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/update.md
+                      - name: Suspend
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/suspend.md
+                      - name: Reactivate
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/reactivate.md
+                      - name: Delete
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/delete.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/oauth/api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/oauth/api-ref/grpc/Operation/cancel.md
           - name: SAML Federation API
             items:
               - name: Overview
@@ -825,6 +881,8 @@ items:
                 href: api-ref/Group/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Group/updateAccessBindings.md
+              - name: ListEffective
+                href: api-ref/Group/listEffective.md
           - name: Operation
             items:
               - name: Overview
@@ -975,6 +1033,55 @@ items:
                     href: idp/api-ref/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/User/resolveExternalIds.md
+              - name: OAUTH Application API
+                items:
+                  - name: Overview
+                    href: idp/application/oauth/api-ref/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: idp/application/oauth/api-ref/Application/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/Application/get.md
+                      - name: List
+                        href: idp/application/oauth/api-ref/Application/list.md
+                      - name: Create
+                        href: idp/application/oauth/api-ref/Application/create.md
+                      - name: Update
+                        href: idp/application/oauth/api-ref/Application/update.md
+                      - name: Suspend
+                        href: idp/application/oauth/api-ref/Application/suspend.md
+                      - name: Reactivate
+                        href: >-
+                          idp/application/oauth/api-ref/Application/reactivate.md
+                      - name: Delete
+                        href: idp/application/oauth/api-ref/Application/delete.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/oauth/api-ref/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/oauth/api-ref/Operation/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/oauth/api-ref/Operation/cancel.md
           - name: SAML Federation API
             items:
               - name: Overview

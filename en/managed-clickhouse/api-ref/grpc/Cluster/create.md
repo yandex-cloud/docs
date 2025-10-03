@@ -579,6 +579,7 @@ Creates a ClickHouse cluster in the specified folder.
         "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
         "enable_analyzer": "google.protobuf.BoolValue",
         "s3_use_adaptive_timeouts": "google.protobuf.BoolValue",
+        "final": "google.protobuf.BoolValue",
         "compile": "google.protobuf.BoolValue",
         "min_count_to_compile": "google.protobuf.Int64Value",
         "async_insert_threads": "google.protobuf.Int64Value",
@@ -1391,7 +1392,7 @@ Default value: **2592000000** (30 days). ||
 
 Enables or disables session_log system table.
 
-Default value: **false**.
+Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
 
 Change of the setting is applied with restart.
 
@@ -1401,7 +1402,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || session_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
@@ -1556,6 +1557,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || geobase_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables geobase.
+
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 Change of the setting is applied with restart. ||
 || geobase_uri | **string**
@@ -1780,7 +1783,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
 
-Default value: **16**. ||
+Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue). ||
 || number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 When there is less than the specified number of free entries in pool (or replicated queue), start to lower maximum size of
@@ -2710,7 +2715,7 @@ JDBC bridge configuration for queries to external databases.
 ||Field | Description ||
 || host | **string**
 
-Required field. Host of jdbc bridge. ||
+Host of jdbc bridge. ||
 || port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Port of jdbc bridge.
@@ -3786,7 +3791,7 @@ Enables or disables quoting of 64-bit integers in JSON output format.
 If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
 in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
 
-Default value: **true**.
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers). ||
 || output_format_json_quote_denormals | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
@@ -4297,7 +4302,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Enables or disables new query analyzer.
 
-Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
 || s3_use_adaptive_timeouts | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
@@ -4309,6 +4314,14 @@ Enables or disables adaptive timeouts for S3 requests.
 Default value: **true**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts). ||
+|| final | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+If enabled, automatically applies **FINAL** modifier to all tables in a query, to tables where **FINAL** is applicable,
+including joined tables and tables in sub-queries, and distributed tables.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#final). ||
 || compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting is deprecated and has no effect. ||
@@ -4364,7 +4377,8 @@ Required field. Type of the host to be deployed.
 
 - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
-- `ZOOKEEPER`: ZooKeeper host. ||
+- `ZOOKEEPER`: ZooKeeper host.
+- `KEEPER`: ClickHouse Keeper host. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
@@ -6099,7 +6113,7 @@ Default value: **2592000000** (30 days). ||
 
 Enables or disables session_log system table.
 
-Default value: **false**.
+Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
 
 Change of the setting is applied with restart.
 
@@ -6109,7 +6123,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || session_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
@@ -6264,6 +6278,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || geobase_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables geobase.
+
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 Change of the setting is applied with restart. ||
 || geobase_uri | **string**
@@ -6488,7 +6504,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
 
-Default value: **16**. ||
+Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue). ||
 || number_of_free_entries_in_pool_to_lower_max_size_of_merge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 When there is less than the specified number of free entries in pool (or replicated queue), start to lower maximum size of
@@ -7418,7 +7436,7 @@ JDBC bridge configuration for queries to external databases.
 ||Field | Description ||
 || host | **string**
 
-Required field. Host of jdbc bridge. ||
+Host of jdbc bridge. ||
 || port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Port of jdbc bridge.

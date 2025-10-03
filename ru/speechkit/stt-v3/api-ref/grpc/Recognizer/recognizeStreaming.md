@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/Recognizer/recognizeS
 
 # SpeechKit Recognition API v3, gRPC: Recognizer.RecognizeStreaming
 
-Expects audio in real-time
+Performs bidirectional streaming speech recognition receiving results while sending audio.
 
 ## gRPC request
 
@@ -100,10 +100,8 @@ Expects audio in real-time
 }
 ```
 
-Streaming audio request
-Events are control messages from user.
-First message should be session options.
-The next messages are audio data chunks or control messages.
+Streaming audio request.
+Events are control messages from user. First message should be session options. The next messages are audio data chunks or control messages.
 
 #|
 ||Field | Description ||
@@ -138,7 +136,7 @@ Includes only one of the fields `session_options`, `chunk`, `silence_chunk`, `eo
 Configuration for speech recognition model. ||
 || eou_classifier | **[EouClassifierOptions](#speechkit.stt.v3.EouClassifierOptions)**
 
-Configuration for end of utterance detection model. ||
+Configuration for an end of utterance detection model. ||
 || recognition_classifier | **[RecognitionClassifierOptions](#speechkit.stt.v3.RecognitionClassifierOptions)**
 
 Configuration for classifiers over speech recognition. ||
@@ -147,10 +145,10 @@ Configuration for classifiers over speech recognition. ||
 Configuration for speech analysis over speech recognition. ||
 || speaker_labeling | **[SpeakerLabelingOptions](#speechkit.stt.v3.SpeakerLabelingOptions)**
 
-Configuration for speaker labeling ||
+Configuration for speaker labeling. ||
 || summarization | **[SummarizationOptions](#speechkit.stt.v3.SummarizationOptions)**
 
-Summarization options ||
+Summarization options. ||
 |#
 
 ## RecognitionModelOptions {#speechkit.stt.v3.RecognitionModelOptions}
@@ -159,7 +157,9 @@ Summarization options ||
 ||Field | Description ||
 || model | **string**
 
-Sets the recognition model for the cloud version of SpeechKit. Possible values: 'general', 'general:rc', 'general:deprecated'.
+Sets the recognition model for the cloud version of SpeechKit.
+For `Recognizer.RecognizeStreaming`, possible values are `general`, `general:rc`, `general:deprecated`.
+For `AsyncRecognizer.RecognizeFile`, possible values are `general`, `general:rc`, `general:deprecated`, `deferred-general`, `deferred-general:rc`, and `deferred-general:deprecated`.
 The model is ignored for SpeechKit Hybrid. ||
 || audio_format | **[AudioFormatOptions](#speechkit.stt.v3.AudioFormatOptions)**
 
@@ -172,11 +172,12 @@ Text normalization options. ||
 Possible languages in audio. ||
 || audio_processing_type | enum **AudioProcessingType**
 
-How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME.
+For `Recognizer.RecognizeStreaming`, defines the audio data processing mode. Default is `REAL_TIME`.
+For `AsyncRecognizer.RecognizeFile`, this field is ignored.
 
 - `AUDIO_PROCESSING_TYPE_UNSPECIFIED`
-- `REAL_TIME`: Process audio in mode optimized for real-time recognition, i.e. send partials and final responses as soon as possible
-- `FULL_DATA`: Process audio after all data was received ||
+- `REAL_TIME`: Process audio in mode optimized for real-time recognition, i.e. send partials and final responses as soon as possible.
+- `FULL_DATA`: Process audio after all data was received. ||
 |#
 
 ## AudioFormatOptions {#speechkit.stt.v3.AudioFormatOptions}
@@ -187,7 +188,7 @@ Audio format options.
 ||Field | Description ||
 || raw_audio | **[RawAudio](#speechkit.stt.v3.RawAudio)**
 
-Audio without container.
+RAW audio without container.
 
 Includes only one of the fields `raw_audio`, `container_audio`. ||
 || container_audio | **[ContainerAudio](#speechkit.stt.v3.ContainerAudio)**
@@ -205,13 +206,13 @@ RAW Audio format spec (no container to infer type). Used in AudioFormat options.
 ||Field | Description ||
 || audio_encoding | enum **AudioEncoding**
 
-Type of audio encoding
+Type of audio encoding.
 
 - `AUDIO_ENCODING_UNSPECIFIED`
 - `LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM). ||
 || sample_rate_hertz | **int64**
 
-PCM sample rate ||
+PCM sample rate. ||
 || audio_channel_count | **int64**
 
 PCM channel count. Currently only single channel audio is supported in real-time recognition. ||
@@ -235,15 +236,16 @@ Type of audio container.
 
 ## TextNormalizationOptions {#speechkit.stt.v3.TextNormalizationOptions}
 
-Options
+Options for post-processing text results. The normalization levels depend on the settings and the language.
+For detailed information, see [documentation](/docs/speechkit/stt/normalization).
 
 #|
 ||Field | Description ||
 || text_normalization | enum **TextNormalization**
 
 - `TEXT_NORMALIZATION_UNSPECIFIED`
-- `TEXT_NORMALIZATION_ENABLED`: Enable normalization
-- `TEXT_NORMALIZATION_DISABLED`: Disable normalization ||
+- `TEXT_NORMALIZATION_ENABLED`: Enable converting numbers, dates and time from text to numeric format.
+- `TEXT_NORMALIZATION_DISABLED`: Disable all normalization. Default value. ||
 || profanity_filter | **bool**
 
 Profanity filter (default: false). ||
@@ -260,20 +262,22 @@ Define phone formatting mode
 
 ## LanguageRestrictionOptions {#speechkit.stt.v3.LanguageRestrictionOptions}
 
-Type of restriction for the list of languages expected in the incoming speech stream.
+Type of restriction for the list of languages expected in the incoming audio.
 
 #|
 ||Field | Description ||
 || restriction_type | enum **LanguageRestrictionType**
 
-Language restriction type
+Language restriction type.
+All of these restrictions are used by the model as guidelines, not as strict rules.
+The language is recognized for each sentence. If a sentence has phrases in different languages, all of them will be transcribed in the most probable language.
 
 - `LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED`
-- `WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.
-- `BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages. ||
+- `WHITELIST`: The list of most possible languages in the incoming audio.
+- `BLACKLIST`: The list of languages that are likely not to be included in the incoming audio. ||
 || language_code[] | **string**
 
-The list of language codes to restrict recognition in the case of an auto model ||
+The list of [language codes](/docs/speechkit/stt/models) to restrict recognition in the case of an auto model. ||
 |#
 
 ## EouClassifierOptions {#speechkit.stt.v3.EouClassifierOptions}
@@ -282,18 +286,14 @@ The list of language codes to restrict recognition in the case of an auto model 
 ||Field | Description ||
 || default_classifier | **[DefaultEouClassifier](#speechkit.stt.v3.DefaultEouClassifier)**
 
-EOU classifier provided by SpeechKit. Default.
+Default EOU classifier provided by SpeechKit.
 
-Includes only one of the fields `default_classifier`, `external_classifier`.
-
-Type of EOU classifier. ||
+Includes only one of the fields `default_classifier`, `external_classifier`. ||
 || external_classifier | **[ExternalEouClassifier](#speechkit.stt.v3.ExternalEouClassifier)**
 
-EOU is enforced by external messages from user.
+EOU classifier enforced by external messages from user.
 
-Includes only one of the fields `default_classifier`, `external_classifier`.
-
-Type of EOU classifier. ||
+Includes only one of the fields `default_classifier`, `external_classifier`. ||
 |#
 
 ## DefaultEouClassifier {#speechkit.stt.v3.DefaultEouClassifier}
@@ -302,19 +302,21 @@ Type of EOU classifier. ||
 ||Field | Description ||
 || type | enum **EouSensitivity**
 
-EOU sensitivity. Currently two levels, faster with more error and more conservative (our default).
+EOU sensitivity.
 
 - `EOU_SENSITIVITY_UNSPECIFIED`
-- `DEFAULT`
-- `HIGH` ||
+- `DEFAULT`: Default and more conservative EOU detector.
+- `HIGH`: A high-sensitive and fast EOU detector, which may produce more false positives. ||
 || max_pause_between_words_hint_ms | **int64**
 
-Hint for max pause between words. Our EOU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc). ||
+Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection.
+For example, a long pause between words will help distinguish between the end of utterance from slow speech like `One <long pause> two <long pause> three`.
+A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences. ||
 |#
 
 ## ExternalEouClassifier {#speechkit.stt.v3.ExternalEouClassifier}
 
-Use EOU provided by user
+Use EOU provided by user.
 
 #|
 ||Field | Description ||
@@ -327,7 +329,7 @@ Use EOU provided by user
 ||Field | Description ||
 || classifiers[] | **[RecognitionClassifier](#speechkit.stt.v3.RecognitionClassifier)**
 
-List of classifiers to use ||
+List of classifiers to use. For detailed information and usage example, see [documentation](/docs/speechkit/stt/analysis). ||
 |#
 
 ## RecognitionClassifier {#speechkit.stt.v3.RecognitionClassifier}
@@ -339,12 +341,12 @@ List of classifiers to use ||
 Classifier name ||
 || triggers[] | enum **TriggerType**
 
-Describes the types of responses to which the classification results will come
+Describes the types of responses to which the classification results will come. Classification responses will follow the responses of the specified types.
 
 - `TRIGGER_TYPE_UNSPECIFIED`
-- `ON_UTTERANCE`: Apply classifier to utterance responses
-- `ON_FINAL`: Apply classifier to final responses
-- `ON_PARTIAL`: Apply classifier to partial responses ||
+- `ON_UTTERANCE`: Apply classifier to utterance responses.
+- `ON_FINAL`: Apply classifier to final responses.
+- `ON_PARTIAL`: Apply classifier to partial responses. ||
 |#
 
 ## SpeechAnalysisOptions {#speechkit.stt.v3.SpeechAnalysisOptions}
@@ -368,11 +370,11 @@ Quantile levels in range (0, 1) for descriptive statistics ||
 ||Field | Description ||
 || speaker_labeling | enum **SpeakerLabeling**
 
-Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLED.
+Specifies the execution of speaker labeling.
 
 - `SPEAKER_LABELING_UNSPECIFIED`
-- `SPEAKER_LABELING_ENABLED`: Enable speaker labeling
-- `SPEAKER_LABELING_DISABLED`: Disable speaker labeling ||
+- `SPEAKER_LABELING_ENABLED`: Enable speaker labeling.
+- `SPEAKER_LABELING_DISABLED`: Disable speaker labeling. Default value. ||
 |#
 
 ## SummarizationOptions {#speechkit.stt.v3.SummarizationOptions}
@@ -400,9 +402,9 @@ Represents summarization entry for transcription.
 Summarization instruction for model. ||
 || json_object | **bool**
 
-When set to true, the model will respond with a valid JSON object.
-Be sure to explicitly ask the model for JSON.
-Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+When set to true, the model will return a valid JSON object.
+Be sure to ask the model explicitly for JSON.
+Otherwise, it may produce excessive whitespace and run indefinitely until it reaches the token limit.
 
 Includes only one of the fields `json_object`, `json_schema`.
 
@@ -451,7 +453,7 @@ Duration of silence chunk in ms. ||
 
 ## Eou {#speechkit.stt.v3.Eou}
 
-Force EOU
+Force EOU.
 
 #|
 ||Field | Description ||
@@ -723,30 +725,28 @@ Force EOU
 ```
 
 Responses from server.
-Each response contains session uuid
-AudioCursors
-plus specific event
+Each response contains session UUID, AudioCursors, and specific event.
 
 #|
 ||Field | Description ||
 || session_uuid | **[SessionUuid](#speechkit.stt.v3.SessionUuid)**
 
-Session identifier ||
+Session identifier. ||
 || audio_cursors | **[AudioCursors](#speechkit.stt.v3.AudioCursors)**
 
 Progress bar for stream session recognition: how many data we obtained; final and partial times; etc. ||
 || response_wall_time_ms | **int64**
 
-Wall clock on server side. This is time when server wrote results to stream ||
+Wall clock on server side. This is time when server wrote results to stream. ||
 || partial | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
-Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
-from final_time_ms to partial_time_ms. Could change after new data will arrive.
+Partial results, server will send them regularly after enough audio data was received from user.
+This is the current text estimation from `final_time_ms` to `partial_time_ms`. Could change after new data will arrive.
 
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || final | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
-Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases.
+Final results, the recognition is now fixed until `final_time_ms`. For now, final is sent only if the EOU event was triggered. This behavior could be changed in future releases.
 
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || eou_update | **[EouUpdate](#speechkit.stt.v3.EouUpdate)**
@@ -768,22 +768,22 @@ Status messages, send by server with fixed interval (keep-alive).
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || classifier_update | **[RecognitionClassifierUpdate](#speechkit.stt.v3.RecognitionClassifierUpdate)**
 
-Result of the triggered classifier
+Result of the triggered classifier.
 
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || speaker_analysis | **[SpeakerAnalysis](#speechkit.stt.v3.SpeakerAnalysis)**
 
-Speech statistics for every speaker
+Speech statistics for every speaker.
 
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || conversation_analysis | **[ConversationAnalysis](#speechkit.stt.v3.ConversationAnalysis)**
 
-Conversation statistics
+Conversation statistics.
 
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || summarization | **[Summarization](#speechkit.stt.v3.Summarization)**
 
-Summary
+Summary.
 
 Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || channel_tag | **string**
@@ -819,19 +819,19 @@ Amount of audio chunks server received. This cursor is moved after each audio ch
 Input stream reset data. ||
 || partial_time_ms | **int64**
 
-How much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
-to update recognition results (includes silence as well). ||
+How much audio was processed. This time includes trimming silences as well.
+This cursor is moved after server received enough data to update recognition results (includes silence as well). ||
 || final_time_ms | **int64**
 
-Time of last final. This cursor is moved when server decides that recognition from start of audio until final_time_ms will not change anymore
-usually this even is followed by EOU detection (but this could change in future). ||
+Time of last final. This cursor is moved when server decides that recognition from start of audio until `final_time_ms` will not change anymore
+usually this event is followed by EOU detection. This behavior could change in future. ||
 || final_index | **int64**
 
 This is index of last final server send. Incremented after each new final. ||
 || eou_time_ms | **int64**
 
 Estimated time of EOU. Cursor is updated after each new EOU is sent.
-For external classifier this equals to received_data_ms at the moment EOU event arrives.
+For external classifier this equals to `received_data_ms` at the moment EOU event arrives.
 For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings. ||
 |#
 
@@ -935,7 +935,7 @@ Type of refinement. ||
 
 ## StatusCode {#speechkit.stt.v3.StatusCode}
 
-Status message
+Status message.
 
 #|
 ||Field | Description ||
@@ -945,7 +945,7 @@ Code type.
 
 - `CODE_TYPE_UNSPECIFIED`
 - `WORKING`: All good.
-- `WARNING`: For example, if speech is sent not in real time or context is unknown and we've made fallback.
+- `WARNING`: For example, if speech is sent not in real-time or context is unknown and we've made fallback.
 - `CLOSED`: After session was closed. ||
 || message | **string**
 
@@ -958,21 +958,21 @@ Human readable message. ||
 ||Field | Description ||
 || window_type | enum **WindowType**
 
-Response window type
+Response window type.
 
 - `WINDOW_TYPE_UNSPECIFIED`
-- `LAST_UTTERANCE`: The result of applying the classifier to the last utterance response
-- `LAST_FINAL`: The result of applying the classifier to the last final response
-- `LAST_PARTIAL`: The result of applying the classifier to the last partial response ||
+- `LAST_UTTERANCE`: The result of applying the classifier to the last utterance response.
+- `LAST_FINAL`: The result of applying the classifier to the last final response.
+- `LAST_PARTIAL`: The result of applying the classifier to the last partial response. ||
 || start_time_ms | **int64**
 
-Start time of the audio segment used for classification ||
+Start time of the audio segment used for classification. ||
 || end_time_ms | **int64**
 
-End time of the audio segment used for classification ||
+End time of the audio segment used for classification. ||
 || classifier_result | **[RecognitionClassifierResult](#speechkit.stt.v3.RecognitionClassifierResult)**
 
-Result for dictionary-based classifier ||
+Result for dictionary-based classifier. ||
 |#
 
 ## RecognitionClassifierResult {#speechkit.stt.v3.RecognitionClassifierResult}
@@ -981,13 +981,13 @@ Result for dictionary-based classifier ||
 ||Field | Description ||
 || classifier | **string**
 
-Name of the triggered classifier ||
+Name of the triggered classifier. ||
 || highlights[] | **[PhraseHighlight](#speechkit.stt.v3.PhraseHighlight)**
 
-List of highlights, i.e. parts of phrase that determine the result of the classification ||
+List of highlights, i.e. parts of phrase that determine the result of the classification. ||
 || labels[] | **[RecognitionClassifierLabel](#speechkit.stt.v3.RecognitionClassifierLabel)**
 
-Classifier predictions ||
+Classifier predictions. ||
 |#
 
 ## PhraseHighlight {#speechkit.stt.v3.PhraseHighlight}
@@ -996,13 +996,13 @@ Classifier predictions ||
 ||Field | Description ||
 || text | **string**
 
-Text transcription of the highlighted audio segment ||
+Text transcription of the highlighted audio segment. ||
 || start_time_ms | **int64**
 
-Start time of the highlighted audio segment ||
+Start time of the highlighted audio segment. ||
 || end_time_ms | **int64**
 
-End time of the highlighted audio segment ||
+End time of the highlighted audio segment. ||
 |#
 
 ## RecognitionClassifierLabel {#speechkit.stt.v3.RecognitionClassifierLabel}
@@ -1011,10 +1011,10 @@ End time of the highlighted audio segment ||
 ||Field | Description ||
 || label | **string**
 
-The label of the class predicted by the classifier ||
+The label of the class predicted by the classifier. ||
 || confidence | **double**
 
-The prediction confidence ||
+The prediction confidence. ||
 |#
 
 ## SpeakerAnalysis {#speechkit.stt.v3.SpeakerAnalysis}
@@ -1023,47 +1023,47 @@ The prediction confidence ||
 ||Field | Description ||
 || speaker_tag | **string**
 
-Speaker tag ||
+Speaker tag. ||
 || window_type | enum **WindowType**
 
-Response window type
+Response window type.
 
 - `WINDOW_TYPE_UNSPECIFIED`
 - `TOTAL`: Stats for all received audio.
 - `LAST_UTTERANCE`: Stats for last utterance. ||
 || speech_boundaries | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
-Audio segment boundaries ||
+Audio segment boundaries. ||
 || total_speech_ms | **int64**
 
-Total speech duration ||
+Total speech duration. ||
 || speech_ratio | **double**
 
-Speech ratio within audio segment ||
+Speech ratio within audio segment. ||
 || total_silence_ms | **int64**
 
-Total silence duration ||
+Total duration of silence. ||
 || silence_ratio | **double**
 
-Silence ratio within audio segment ||
+Silence ratio within audio segment. ||
 || words_count | **int64**
 
-Number of words in recognized speech ||
+Number of words in recognized speech. ||
 || letters_count | **int64**
 
-Number of letters in recognized speech ||
+Number of letters in recognized speech. ||
 || words_per_second | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for words per second distribution ||
+Descriptive statistics for words per second distribution. ||
 || letters_per_second | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for letters per second distribution ||
+Descriptive statistics for letters per second distribution. ||
 || words_per_utterance | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for words per utterance distribution ||
+Descriptive statistics for words per utterance distribution. ||
 || letters_per_utterance | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for letters per utterance distribution ||
+Descriptive statistics for letters per utterance distribution. ||
 || utterance_count | **int64**
 
 Number of utterances ||
@@ -1078,10 +1078,10 @@ Descriptive statistics for utterance duration distribution ||
 ||Field | Description ||
 || start_time_ms | **int64**
 
-Audio segment start time ||
+Audio segment start time. ||
 || end_time_ms | **int64**
 
-Audio segment end time ||
+Audio segment end time. ||
 |#
 
 ## DescriptiveStatistics {#speechkit.stt.v3.DescriptiveStatistics}
@@ -1090,19 +1090,19 @@ Audio segment end time ||
 ||Field | Description ||
 || min | **double**
 
-Minimum observed value ||
+Minimum observed value. ||
 || max | **double**
 
-Maximum observed value ||
+Maximum observed value. ||
 || mean | **double**
 
-Estimated mean of distribution ||
+Estimated mean of distribution. ||
 || std | **double**
 
-Estimated standard deviation of distribution ||
+Estimated standard deviation of distribution. ||
 || quantiles[] | **[Quantile](#speechkit.stt.v3.DescriptiveStatistics.Quantile)**
 
-List of evaluated quantiles ||
+List of evaluated quantiles. ||
 |#
 
 ## Quantile {#speechkit.stt.v3.DescriptiveStatistics.Quantile}
@@ -1111,10 +1111,10 @@ List of evaluated quantiles ||
 ||Field | Description ||
 || level | **double**
 
-Quantile level in range (0, 1) ||
+Quantile level in range (0, 1). ||
 || value | **double**
 
-Quantile value ||
+Quantile value. ||
 |#
 
 ## ConversationAnalysis {#speechkit.stt.v3.ConversationAnalysis}
@@ -1123,34 +1123,34 @@ Quantile value ||
 ||Field | Description ||
 || conversation_boundaries | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
-Audio segment boundaries ||
+Audio segment boundaries. ||
 || total_simultaneous_silence_duration_ms | **int64**
 
-Total simultaneous silence duration ||
+Total simultaneous silence duration. ||
 || total_simultaneous_silence_ratio | **double**
 
-Simultaneous silence ratio within audio segment ||
+Simultaneous silence ratio within audio segment. ||
 || simultaneous_silence_duration_estimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for simultaneous silence duration distribution ||
+Descriptive statistics for simultaneous silence duration distribution. ||
 || total_simultaneous_speech_duration_ms | **int64**
 
-Total simultaneous speech duration ||
+Total simultaneous speech duration. ||
 || total_simultaneous_speech_ratio | **double**
 
-Simultaneous speech ratio within audio segment ||
+Simultaneous speech ratio within audio segment. ||
 || simultaneous_speech_duration_estimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for simultaneous speech duration distribution ||
+Descriptive statistics for simultaneous speech duration distribution. ||
 || speaker_interrupts[] | **[InterruptsEvaluation](#speechkit.stt.v3.ConversationAnalysis.InterruptsEvaluation)**
 
-Interrupts description for every speaker ||
+Interrupts description for every speaker. ||
 || total_speech_duration_ms | **int64**
 
-Total speech duration, including both simultaneous and separate speech ||
+Total speech duration, including both simultaneous and separate speech. ||
 || total_speech_ratio | **double**
 
-Total speech ratio within audio segment ||
+Total speech ratio within audio segment. ||
 |#
 
 ## InterruptsEvaluation {#speechkit.stt.v3.ConversationAnalysis.InterruptsEvaluation}
@@ -1159,16 +1159,16 @@ Total speech ratio within audio segment ||
 ||Field | Description ||
 || speaker_tag | **string**
 
-Speaker tag ||
+Speaker tag. ||
 || interrupts_count | **int64**
 
-Number of interrupts made by the speaker ||
+Number of interrupts made by the speaker. ||
 || interrupts_duration_ms | **int64**
 
-Total duration of all interrupts ||
+Total duration of all interrupts. ||
 || interrupts[] | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
-Boundaries for every interrupt ||
+Boundaries for every interrupt. ||
 |#
 
 ## Summarization {#speechkit.stt.v3.Summarization}

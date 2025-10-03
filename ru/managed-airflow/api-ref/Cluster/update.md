@@ -47,33 +47,42 @@ apiPlayground:
             Custom labels for the Apache Airflow cluster as `` key:value `` pairs. For example, "env": "prod".
             The new set of labels will completely replace the old ones. To add a label, request the current
             set with the [ClusterService.Get](/docs/managed-airflow/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         configSpec:
           description: |-
-            **[UpdateClusterConfigSpec](/docs/managed-airflow/api-ref/Cluster/update#yandex.cloud.airflow.v1.UpdateClusterConfigSpec)**
+            **[UpdateClusterConfigSpec](#yandex.cloud.airflow.v1.UpdateClusterConfigSpec)**
             Configuration of Apache Airflow components.
           $ref: '#/definitions/UpdateClusterConfigSpec'
         codeSync:
           description: |-
-            **[CodeSyncConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.CodeSyncConfig)**
+            **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig)**
             Parameters of the location and access to the code that will be executed in the cluster.
           oneOf:
             - type: object
               properties:
                 s3:
                   description: |-
-                    **[S3Config](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.S3Config)**
+                    **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
                     Includes only one of the fields `s3`, `gitSync`.
                   $ref: '#/definitions/S3Config'
                 gitSync:
                   description: |-
-                    **[GitSyncConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.GitSyncConfig)**
+                    **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
                     Includes only one of the fields `s3`, `gitSync`.
                   $ref: '#/definitions/GitSyncConfig'
         networkSpec:
           description: |-
-            **[UpdateNetworkConfigSpec](/docs/managed-airflow/api-ref/Cluster/update#yandex.cloud.airflow.v1.UpdateNetworkConfigSpec)**
+            **[UpdateNetworkConfigSpec](#yandex.cloud.airflow.v1.UpdateNetworkConfigSpec)**
             Network related configuration options.
           $ref: '#/definitions/UpdateNetworkConfigSpec'
         deletionProtection:
@@ -89,7 +98,7 @@ apiPlayground:
           type: string
         logging:
           description: |-
-            **[LoggingConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.LoggingConfig)**
+            **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
             Cloud Logging configuration.
           oneOf:
             - type: object
@@ -112,7 +121,7 @@ apiPlayground:
                   type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
             Window of maintenance operations.
           oneOf:
             - type: object
@@ -124,7 +133,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
       additionalProperties: false
@@ -136,7 +145,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Properties to be passed to Apache Airflow configuration file.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
       Resources:
         type: object
         properties:
@@ -156,7 +167,7 @@ apiPlayground:
             format: int64
           resources:
             description: |-
-              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
               Resources allocated to webserver instances.
             $ref: '#/definitions/Resources'
       SchedulerConfig:
@@ -170,7 +181,7 @@ apiPlayground:
             format: int64
           resources:
             description: |-
-              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
               Resources allocated to scheduler instances.
             $ref: '#/definitions/Resources'
       TriggererConfig:
@@ -184,7 +195,7 @@ apiPlayground:
             format: int64
           resources:
             description: |-
-              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
               Resources allocated to triggerer instances.
             $ref: '#/definitions/Resources'
       WorkerConfig:
@@ -204,7 +215,7 @@ apiPlayground:
             format: int64
           resources:
             description: |-
-              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
               Resources allocated to worker instances.
             $ref: '#/definitions/Resources'
       Dependencies:
@@ -232,42 +243,56 @@ apiPlayground:
               **boolean**
               The setting allows to enable Lockbox Secret Backend.
             type: boolean
+      DagProcessorConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of dag-processor instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to dag-processor instances.
+            $ref: '#/definitions/Resources'
       UpdateClusterConfigSpec:
         type: object
         properties:
           airflow:
             description: |-
-              **[AirflowConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.AirflowConfig)**
+              **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
               Configuration of the Apache Airflow application itself.
             $ref: '#/definitions/AirflowConfig'
           webserver:
             description: |-
-              **[WebserverConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.WebserverConfig)**
+              **[WebserverConfig](#yandex.cloud.airflow.v1.WebserverConfig)**
               Configuration of webserver instances.
             $ref: '#/definitions/WebserverConfig'
           scheduler:
             description: |-
-              **[SchedulerConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.SchedulerConfig)**
+              **[SchedulerConfig](#yandex.cloud.airflow.v1.SchedulerConfig)**
               Configuration of scheduler instances.
             $ref: '#/definitions/SchedulerConfig'
           triggerer:
             description: |-
-              **[TriggererConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.TriggererConfig)**
+              **[TriggererConfig](#yandex.cloud.airflow.v1.TriggererConfig)**
               Configuration of triggerer instances.
             $ref: '#/definitions/TriggererConfig'
           worker:
             description: |-
-              **[WorkerConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.WorkerConfig)**
+              **[WorkerConfig](#yandex.cloud.airflow.v1.WorkerConfig)**
               Configuration of worker instances.
             $ref: '#/definitions/WorkerConfig'
           dependencies:
             description: |-
-              **[Dependencies](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Dependencies)**
+              **[Dependencies](#yandex.cloud.airflow.v1.Dependencies)**
               The list of additional packages installed in the cluster.
             $ref: '#/definitions/Dependencies'
           lockbox:
             description: |-
-              **[LockboxConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.LockboxConfig)**
+              **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)**
               Configuration of Lockbox Secret Backend.
             $ref: '#/definitions/LockboxConfig'
           airflowVersion:
@@ -280,6 +305,11 @@ apiPlayground:
               **string**
               Python version. Format: "Major.Minor"
             type: string
+          dagProcessor:
+            description: |-
+              **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+              Configuration of dag-processor instances.
+            $ref: '#/definitions/DagProcessorConfig'
       S3Config:
         type: object
         properties:
@@ -428,7 +458,13 @@ Required field. ID of the Apache Airflow Cluster resource to update. ||
       "enabled": "boolean"
     },
     "airflowVersion": "string",
-    "pythonVersion": "string"
+    "pythonVersion": "string",
+    "dagProcessor": {
+      "count": "string",
+      "resources": {
+        "resourcePresetId": "string"
+      }
+    }
   },
   "codeSync": {
     // Includes only one of the fields `s3`, `gitSync`
@@ -549,6 +585,9 @@ Apache Airflow version. Format: "Major.Minor" ||
 || pythonVersion | **string**
 
 Python version. Format: "Major.Minor" ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
@@ -639,6 +678,18 @@ System packages that are installed in the cluster. ||
 || enabled | **boolean**
 
 The setting allows to enable Lockbox Secret Backend. ||
+|#
+
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
 |#
 
 ## CodeSyncConfig {#yandex.cloud.airflow.v1.CodeSyncConfig}
@@ -849,7 +900,13 @@ Hour of the day in UTC. ||
         "enabled": "boolean"
       },
       "airflowVersion": "string",
-      "pythonVersion": "string"
+      "pythonVersion": "string",
+      "dagProcessor": {
+        "count": "string",
+        "resources": {
+          "resourcePresetId": "string"
+        }
+      }
     },
     "health": "string",
     "status": "string",
@@ -1138,6 +1195,9 @@ Apache Airflow version. Format: "Major.Minor" ||
 || pythonVersion | **string**
 
 Python version. Format: "Major.Minor" ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig2)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig2}
@@ -1228,6 +1288,18 @@ System packages that are installed in the cluster. ||
 || enabled | **boolean**
 
 The setting allows to enable Lockbox Secret Backend. ||
+|#
+
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig2}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources2)**
+
+Resources allocated to dag-processor instances. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}

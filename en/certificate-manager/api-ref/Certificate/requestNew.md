@@ -28,8 +28,15 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels for the certificate as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         domains:
           description: |-
             **string**

@@ -34,7 +34,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels as `` key:value `` pairs. Maximum of 64 per resource.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         name:
           description: |-
             **string**
@@ -47,7 +49,7 @@ apiPlayground:
           type: string
         advancedRateLimiterRules:
           description: |-
-            **[AdvancedRateLimiterRule](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule)**
+            **[AdvancedRateLimiterRule](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule)**
             List of rules.
           type: array
           items:
@@ -56,13 +58,13 @@ apiPlayground:
                 properties:
                   staticQuota:
                     description: |-
-                      **[StaticQuota](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
+                      **[StaticQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
                       Static quota. Counting each request individually.
                       Includes only one of the fields `staticQuota`, `dynamicQuota`.
                     $ref: '#/definitions/StaticQuota'
                   dynamicQuota:
                     description: |-
-                      **[DynamicQuota](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
+                      **[DynamicQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
                       Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
                       Includes only one of the fields `staticQuota`, `dynamicQuota`.
                     $ref: '#/definitions/DynamicQuota'
@@ -73,7 +75,7 @@ apiPlayground:
         properties:
           authorities:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of authorities. OR semantics implied.
             type: array
             items:
@@ -115,7 +117,7 @@ apiPlayground:
         properties:
           httpMethods:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of HTTP methods. OR semantics implied.
             type: array
             items:
@@ -162,7 +164,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the query parameter.
             oneOf:
               - type: object
@@ -205,7 +207,7 @@ apiPlayground:
         properties:
           path:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
             oneOf:
               - type: object
@@ -242,7 +244,7 @@ apiPlayground:
                     type: string
           queries:
             description: |-
-              **[QueryMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
+              **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
               List of query matchers. AND semantics implied.
             type: array
             items:
@@ -257,7 +259,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the header.
             oneOf:
               - type: object
@@ -320,45 +322,45 @@ apiPlayground:
         type: object
         properties:
           ipRangesMatch:
-            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           ipRangesNotMatch:
-            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           geoIpMatch:
-            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
           geoIpNotMatch:
-            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
       Condition:
         type: object
         properties:
           authority:
             description: |-
-              **[AuthorityMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
+              **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
               Match authority (Host header).
             $ref: '#/definitions/AuthorityMatcher'
           httpMethod:
             description: |-
-              **[HttpMethodMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+              **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
               Match HTTP method.
             $ref: '#/definitions/HttpMethodMatcher'
           requestUri:
             description: |-
-              **[RequestUriMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+              **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
               Match Request URI.
             $ref: '#/definitions/RequestUriMatcher'
           headers:
             description: |-
-              **[HeaderMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
+              **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
               Match HTTP headers.
             type: array
             items:
               $ref: '#/definitions/HeaderMatcher'
           sourceIp:
             description: |-
-              **[IpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+              **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
               Match IP.
             $ref: '#/definitions/IpMatcher'
       StaticQuota:
@@ -376,7 +378,7 @@ apiPlayground:
               - DENY
           condition:
             description: |-
-              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the quota.
             $ref: '#/definitions/Condition'
           limit:
@@ -454,7 +456,7 @@ apiPlayground:
               - DENY
           condition:
             description: |-
-              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the quota.
             $ref: '#/definitions/Condition'
           limit:
@@ -472,7 +474,7 @@ apiPlayground:
             format: int64
           characteristics:
             description: |-
-              **[Characteristic](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic)**
+              **[Characteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic)**
               List of characteristics.
             type: array
             items:
@@ -481,14 +483,14 @@ apiPlayground:
                   properties:
                     simpleCharacteristic:
                       description: |-
-                        **[SimpleCharacteristic](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
+                        **[SimpleCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
                         Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes.
                         See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
                         Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
                       $ref: '#/definitions/SimpleCharacteristic'
                     keyCharacteristic:
                       description: |-
-                        **[KeyCharacteristic](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
+                        **[KeyCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
                         Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes.
                         See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
                         Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.

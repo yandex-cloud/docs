@@ -99,7 +99,7 @@ apiPlayground:
             - BOTTOM
         rightWidgets:
           description: |-
-            **[Widget](/docs/video/api-ref/StylePreset/get#yandex.cloud.video.v1.Widget)**
+            **[Widget](#yandex.cloud.video.v1.Widget)**
             List of widgets to display to the right of the player.
           type: array
           items:
@@ -122,7 +122,7 @@ apiPlayground:
                     $ref: '#/definitions/Description'
         bottomWidgets:
           description: |-
-            **[Widget](/docs/video/api-ref/StylePreset/get#yandex.cloud.video.v1.Widget)**
+            **[Widget](#yandex.cloud.video.v1.Widget)**
             List of widgets to display below the player.
           type: array
           items:

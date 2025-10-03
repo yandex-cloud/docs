@@ -12,13 +12,13 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`, the service returns
-            a [ListResourcePresetsResponse.nextPageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+            a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](/docs/managed-opensearch/api-ref/ResourcePreset/list#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse)
+            Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsResponse)
             returned by the previous list request.
           type: string
       additionalProperties: false

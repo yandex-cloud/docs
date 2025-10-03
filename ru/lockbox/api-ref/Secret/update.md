@@ -44,8 +44,15 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         deletionProtection:
           description: |-
             **boolean**
@@ -53,7 +60,7 @@ apiPlayground:
           type: boolean
         passwordPayloadSpecification:
           description: |-
-            **[PasswordPayloadSpecification](/docs/lockbox/api-ref/Secret/get#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+            **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
             Includes only one of the fields `passwordPayloadSpecification`.
           $ref: '#/definitions/PasswordPayloadSpecification'
       required:

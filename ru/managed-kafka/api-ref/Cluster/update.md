@@ -43,11 +43,20 @@ apiPlayground:
             For example, "project": "mvp" or "source": "dictionary".
             The new set of labels will completely replace the old ones.
             To add a label, request the current set with the [ClusterService.Get](/docs/managed-kafka/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.kafka.v1.ConfigSpec)**
             New configuration and resources for hosts in the Apache Kafka® cluster.
             Use `updateMask` to prevent reverting all cluster settings that are not listed in `configSpec` to their default values.
           $ref: '#/definitions/ConfigSpec'
@@ -71,7 +80,7 @@ apiPlayground:
           type: boolean
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
             New maintenance window settings for the cluster.
           oneOf:
             - type: object
@@ -83,7 +92,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
         networkId:
@@ -134,7 +143,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
-              If not set, the value of [logFlushSchedulerIntervalMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              If not set, the value of [logFlushSchedulerIntervalMs](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
               This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
             type: string
             format: int64
@@ -163,14 +172,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of minutes to keep a log segment file before deleting it.
-              If not set, the value of [logRetentionHours](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              If not set, the value of [logRetentionHours](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
             type: string
             format: int64
           logRetentionMs:
             description: |-
               **string** (int64)
               The number of milliseconds to keep a log segment file before deleting it.
-              If not set, the value of [logRetentionMinutes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              If not set, the value of [logRetentionMinutes](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
               This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
             type: string
             format: int64
@@ -222,12 +231,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The largest record batch size allowed by Kafka. Default value: 1048588.
+            default: '1048588'
             type: string
             format: int64
           replicaFetchMaxBytes:
             description: |-
               **string** (int64)
               The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+            default: '1048576'
             type: string
             format: int64
           sslCipherSuites:
@@ -241,6 +252,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Offset storage time after a consumer group loses all its consumers. Default: 10080.
+            default: '10080'
             type: string
             format: int64
           saslEnabledMechanisms:
@@ -250,6 +262,7 @@ apiPlayground:
               - `SASL_MECHANISM_UNSPECIFIED`
               - `SASL_MECHANISM_SCRAM_SHA_256`
               - `SASL_MECHANISM_SCRAM_SHA_512`
+            default: '[SCRAM_SHA_512]'
             type: array
             items:
               type: string
@@ -291,7 +304,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
-              If not set, the value of [logFlushSchedulerIntervalMs](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              If not set, the value of [logFlushSchedulerIntervalMs](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
               This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
             type: string
             format: int64
@@ -320,14 +333,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of minutes to keep a log segment file before deleting it.
-              If not set, the value of [logRetentionHours](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              If not set, the value of [logRetentionHours](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
             type: string
             format: int64
           logRetentionMs:
             description: |-
               **string** (int64)
               The number of milliseconds to keep a log segment file before deleting it.
-              If not set, the value of [logRetentionMinutes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              If not set, the value of [logRetentionMinutes](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
               This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
             type: string
             format: int64
@@ -379,12 +392,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               The largest record batch size allowed by Kafka. Default value: 1048588.
+            default: '1048588'
             type: string
             format: int64
           replicaFetchMaxBytes:
             description: |-
               **string** (int64)
               The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+            default: '1048576'
             type: string
             format: int64
           sslCipherSuites:
@@ -398,6 +413,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Offset storage time after a consumer group loses all its consumers. Default: 10080.
+            default: '10080'
             type: string
             format: int64
           saslEnabledMechanisms:
@@ -407,6 +423,7 @@ apiPlayground:
               - `SASL_MECHANISM_UNSPECIFIED`
               - `SASL_MECHANISM_SCRAM_SHA_256`
               - `SASL_MECHANISM_SCRAM_SHA_512`
+            default: '[SCRAM_SHA_512]'
             type: array
             items:
               type: string
@@ -439,7 +456,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
               Resources allocated to ZooKeeper hosts.
             $ref: '#/definitions/Resources'
       Access:
@@ -484,7 +501,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
               Resources allocated to KRaft controller hosts.
             $ref: '#/definitions/Resources'
       KafkaUIConfig:
@@ -505,26 +522,26 @@ apiPlayground:
             type: string
           kafka:
             description: |-
-              **[Kafka](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka)**
+              **[Kafka](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka)**
               Configuration and resource allocation for Kafka brokers.
             oneOf:
               - type: object
                 properties:
                   kafkaConfig_2_8:
                     description: |-
-                      **[KafkaConfig2_8](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
+                      **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
                       Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
                       Kafka broker configuration.
                     $ref: '#/definitions/KafkaConfig2_8'
                   kafkaConfig_3:
                     description: |-
-                      **[KafkaConfig3](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
+                      **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
                       Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
                       Kafka broker configuration.
                     $ref: '#/definitions/KafkaConfig3'
           zookeeper:
             description: |-
-              **[Zookeeper](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
+              **[Zookeeper](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
               Configuration and resource allocation for ZooKeeper hosts.
             $ref: '#/definitions/Zookeeper'
           zoneId:
@@ -560,27 +577,27 @@ apiPlayground:
             type: boolean
           access:
             description: |-
-              **[Access](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.Access)**
+              **[Access](#yandex.cloud.mdb.kafka.v1.Access)**
               Access policy for external services.
             $ref: '#/definitions/Access'
           restApiConfig:
             description: |-
-              **[RestAPIConfig](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
+              **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
               Configuration of REST API.
             $ref: '#/definitions/RestAPIConfig'
           diskSizeAutoscaling:
             description: |-
-              **[DiskSizeAutoscaling](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
               DiskSizeAutoscaling settings
             $ref: '#/definitions/DiskSizeAutoscaling'
           kraft:
             description: |-
-              **[KRaft](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
+              **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
               Configuration and resource allocation for KRaft-controller hosts.
             $ref: '#/definitions/KRaft'
           kafkaUiConfig:
             description: |-
-              **[KafkaUIConfig](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
+              **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
               Configuration of Kafka UI.
             $ref: '#/definitions/KafkaUIConfig'
       AnytimeMaintenanceWindow:

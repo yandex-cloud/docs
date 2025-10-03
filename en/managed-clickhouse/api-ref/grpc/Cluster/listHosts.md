@@ -104,7 +104,8 @@ Type of the host. If the field has default value, it is not returned in the resp
 
 - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
-- `ZOOKEEPER`: ZooKeeper host. ||
+- `ZOOKEEPER`: ZooKeeper host.
+- `KEEPER`: ClickHouse Keeper host. ||
 || resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
 
 Resources allocated to the ClickHouse host. ||
@@ -115,7 +116,9 @@ Aggregated health of the host. If the field has default value, it is not returne
 - `UNKNOWN`: Health of the host is unknown.
 - `ALIVE`: The host is performing all its functions normally.
 - `DEAD`: The host is inoperable, and cannot perform any of its essential functions.
-- `DEGRADED`: The host is degraded, and can perform only some of its essential functions. ||
+- `DEGRADED`: The host is degraded, and can perform only some of its essential functions.
+- `READONLY`: The host is read-only and cannot perform write requests.
+- `RESTORING`: The host is restoring from backup or syncronzing from other replica. ||
 || services[] | **[Service](#yandex.cloud.mdb.clickhouse.v1.Service)**
 
 Services provided by the host. ||
@@ -158,12 +161,15 @@ Type of the service provided by the host. If the field has default value, it is 
 
 - `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
 - `CLICKHOUSE`: The host is a ClickHouse server.
-- `ZOOKEEPER`: The host is a ZooKeeper server. ||
+- `ZOOKEEPER`: The host is a ZooKeeper server.
+- `KEEPER`: The host is a ClickHouse Keeper server. ||
 || health | enum **Health**
 
 Aggregated health of the service. If the field has default value, it is not returned in the response.
 
 - `UNKNOWN`: Health of the server is unknown. Default value.
 - `ALIVE`: The server is working normally.
-- `DEAD`: The server is dead or unresponsive. ||
+- `DEAD`: The server is dead or unresponsive.
+- `READONLY`: The service is read-only.
+- `RESTORING`: The service is restoring from backup or syncronzing from other replica. ||
 |#

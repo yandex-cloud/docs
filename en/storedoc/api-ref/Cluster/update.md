@@ -43,66 +43,73 @@ apiPlayground:
             For example, "project": "mvp" or "source": "dictionary".
             The new set of labels will completely replace the old ones. To add a label, request the current
             set with the [ClusterService.Get](/docs/managed-mongodb/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.mongodb.v1.ConfigSpec)**
             New configuration and resources for hosts in the cluster.
           oneOf:
             - type: object
               properties:
                 mongodbSpec_3_6:
                   description: |-
-                    **[MongodbSpec3_6](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6)**
+                    **[MongodbSpec3_6](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6)**
                     Configuration and resource allocation for a MongoDB 3.6 cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec3_6'
                 mongodbSpec_4_0:
                   description: |-
-                    **[MongodbSpec4_0](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0)**
+                    **[MongodbSpec4_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0)**
                     Configuration and resource allocation for a MongoDB 4.0 cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec4_0'
                 mongodbSpec_4_2:
                   description: |-
-                    **[MongodbSpec4_2](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2)**
+                    **[MongodbSpec4_2](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2)**
                     Configuration and resource allocation for a MongoDB 4.2 cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec4_2'
                 mongodbSpec_4_4:
                   description: |-
-                    **[MongodbSpec4_4](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4)**
+                    **[MongodbSpec4_4](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4)**
                     Configuration and resource allocation for a MongoDB 4.4 cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec4_4'
                 mongodbSpec_5_0:
                   description: |-
-                    **[MongodbSpec5_0](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0)**
+                    **[MongodbSpec5_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0)**
                     Configuration and resource allocation for a MongoDB 5.0 cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec5_0'
                 mongodbSpec_6_0:
                   description: |-
-                    **[MongodbSpec6_0](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0)**
+                    **[MongodbSpec6_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0)**
                     Configuration and resource allocation for a MongoDB 6.0 cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec6_0'
                 mongodbSpec_4_4Enterprise:
                   description: |-
-                    **[MongodbSpec4_4Enterprise](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise)**
+                    **[MongodbSpec4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise)**
                     Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec4_4_enterprise'
                 mongodbSpec_5_0Enterprise:
                   description: |-
-                    **[MongodbSpec5_0Enterprise](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise)**
+                    **[MongodbSpec5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise)**
                     Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec5_0_enterprise'
                 mongodbSpec_6_0Enterprise:
                   description: |-
-                    **[MongodbSpec6_0Enterprise](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise)**
+                    **[MongodbSpec6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise)**
                     Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
                     Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
                   $ref: '#/definitions/MongodbSpec6_0_enterprise'
@@ -114,7 +121,7 @@ apiPlayground:
           type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
             New maintenance window settings for the cluster.
           oneOf:
             - type: object
@@ -128,7 +135,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.WeeklyMaintenanceWindow)**
                     Maintenance operation can be scheduled on a weekly basis.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                     The maintenance policy in effect.
@@ -199,17 +206,17 @@ apiPlayground:
         properties:
           engineConfig:
             description: |-
-              **`EngineConfig`**
+              **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.EngineConfig)**
               Engine configuration for WiredTiger.
             $ref: '#/definitions/EngineConfig'
           collectionConfig:
             description: |-
-              **`CollectionConfig`**
+              **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig)**
               Collection configuration for WiredTiger.
             $ref: '#/definitions/CollectionConfig'
           indexConfig:
             description: |-
-              **`IndexConfig`**
+              **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.IndexConfig)**
               Index configuration for WiredTiger
             $ref: '#/definitions/IndexConfig'
       Journal:
@@ -220,6 +227,7 @@ apiPlayground:
               **string** (int64)
               Commit interval between journal operations, in milliseconds.
               Default: 100.
+            default: '100'
             type: string
             format: int64
       Storage:
@@ -227,12 +235,12 @@ apiPlayground:
         properties:
           wiredTiger:
             description: |-
-              **`WiredTiger`**
+              **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger)**
               Configuration of the WiredTiger storage engine.
             $ref: '#/definitions/WiredTiger'
           journal:
             description: |-
-              **`Journal`**
+              **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
               Configuration of the MongoDB [journal](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-journal).
             $ref: '#/definitions/Journal'
       OperationProfiling:
@@ -244,7 +252,7 @@ apiPlayground:
               Mode which specifies operations that should be profiled.
               - `MODE_UNSPECIFIED`
               - `OFF`: The profiler is off and does not collect any data.
-              - `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+              - `SLOW_OP`: The profiler collects data for operations that take longer than the value of [slowOpThreshold](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling).
               - `ALL`: The profiler collects data for all operations.
             type: string
             enum:
@@ -303,7 +311,7 @@ apiPlayground:
             format: int64
           compression:
             description: |-
-              **`Compression`**
+              **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression)**
               Compression settings
             $ref: '#/definitions/Compression'
       MongodConfig3_6:
@@ -311,17 +319,17 @@ apiPlayground:
         properties:
           storage:
             description: |-
-              **`Storage`**
+              **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage)**
               `storage` section of mongod configuration.
             $ref: '#/definitions/Storage'
           operationProfiling:
             description: |-
-              **`OperationProfiling`**
+              **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling)**
               `operationProfiling` section of mongod configuration.
             $ref: '#/definitions/OperationProfiling'
           net:
             description: |-
-              **`Network`**
+              **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network)**
               `net` section of mongod configuration.
             $ref: '#/definitions/Network'
       Resources:
@@ -374,17 +382,17 @@ apiPlayground:
         properties:
           config:
             description: |-
-              **`MongodConfig3_6`**
+              **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
               Configuration for mongod 3.6 hosts.
             $ref: '#/definitions/MongodConfig3_6'
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Resources allocated to each mongod host.
             $ref: '#/definitions/Resources'
           diskSizeAutoscaling:
             description: |-
-              **[DiskSizeAutoscaling](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
               Disk size autoscaling settings
             $ref: '#/definitions/DiskSizeAutoscaling'
       MongoCfg:
@@ -392,7 +400,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Required field. Resources for mongocfg hosts.
             $ref: '#/definitions/Resources'
         required:
@@ -402,7 +410,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Required field. Resources for mongos hosts.
             $ref: '#/definitions/Resources'
         required:
@@ -412,7 +420,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Required field. Resources for mongoinfra (mongos+mongocfg) hosts.
             $ref: '#/definitions/Resources'
         required:
@@ -422,7 +430,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 3.6 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -445,7 +453,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 4.0 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -468,7 +476,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 4.2 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -491,7 +499,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 4.4 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -514,7 +522,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 5.0 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -537,7 +545,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 6.0 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -560,7 +568,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 4.4 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -583,7 +591,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 5.0 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:
@@ -606,7 +614,7 @@ apiPlayground:
         properties:
           mongod:
             description: |-
-              **[Mongod](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
               Configuration and resource allocation for mongod 6.0 hosts.
             $ref: '#/definitions/Mongod'
           mongocfg:

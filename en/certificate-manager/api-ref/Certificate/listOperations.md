@@ -22,16 +22,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page that should be returned. If the number of available
-            results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse)
+            results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListCertificateOperationsResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/listOperations#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request.
+            [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

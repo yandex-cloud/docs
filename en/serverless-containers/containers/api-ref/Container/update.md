@@ -49,8 +49,17 @@ apiPlayground:
             Container labels as `key:value` pairs.
             Existing set of labels is completely replaced by the provided set, so if you just want
             to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless-containers/containers/api-ref/Container/get#Get) request.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/update.md

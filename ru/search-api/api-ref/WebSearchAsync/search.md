@@ -10,17 +10,17 @@ apiPlayground:
       properties:
         query:
           description: |-
-            **[SearchQuery](/docs/searchapi/api-ref/ImageSearch/search#yandex.cloud.searchapi.v2.SearchQuery)**
+            **[SearchQuery](#yandex.cloud.searchapi.v2.SearchQuery)**
             Required field. Search query.
           $ref: '#/definitions/SearchQuery'
         sortSpec:
           description: |-
-            **[SortSpec](/docs/searchapi/api-ref/WebSearchAsync/search#yandex.cloud.searchapi.v2.SortSpec)**
+            **[SortSpec](#yandex.cloud.searchapi.v2.SortSpec)**
             The rules for sorting search results that define the sequence of the returned search results.
           $ref: '#/definitions/SortSpec'
         groupSpec:
           description: |-
-            **[GroupSpec](/docs/searchapi/api-ref/WebSearchAsync/search#yandex.cloud.searchapi.v2.GroupSpec)**
+            **[GroupSpec](#yandex.cloud.searchapi.v2.GroupSpec)**
             Grouping settings that are used to group documents from a single domain into a container.
           $ref: '#/definitions/GroupSpec'
         maxPassages:
@@ -76,6 +76,11 @@ apiPlayground:
             **string**
             User-Agent request header value.
           type: string
+        metadata:
+          description: |-
+            **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+            Search flags
+          $ref: '#/definitions/SearchMetadata'
       required:
         - query
       additionalProperties: false
@@ -199,6 +204,29 @@ apiPlayground:
               Maximum number of documents that can be returned per group.
             type: string
             format: int64
+      SearchMetadata:
+        type: object
+        properties:
+          fields:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Search flags, `key:value` pairs.
+              No more than 64.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `[-_0-9a-z]*`.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_0-9a-z]*'
+              maxLength: 63
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
 sourcePath: en/_api-ref/searchapi/v2/api-ref/WebSearchAsync/search.md
 ---
 
@@ -235,7 +263,10 @@ POST https://searchapi.{{ api-host }}/v2/web/searchAsync
   "l10n": "string",
   "folderId": "string",
   "responseFormat": "string",
-  "userAgent": "string"
+  "userAgent": "string",
+  "metadata": {
+    "fields": "object"
+  }
 }
 ```
 
@@ -280,6 +311,9 @@ Search results format.
 || userAgent | **string**
 
 User-Agent request header value. ||
+|| metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+
+Search flags ||
 |#
 
 ## SearchQuery {#yandex.cloud.searchapi.v2.SearchQuery}
@@ -359,6 +393,20 @@ Maximum number of groups that can be returned per page with search results. ||
 || docsInGroup | **string** (int64)
 
 Maximum number of documents that can be returned per group. ||
+|#
+
+## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
+
+#|
+||Field | Description ||
+|| fields | **object** (map<**string**, **string**>)
+
+Search flags, `key:value` pairs.
+No more than 64.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

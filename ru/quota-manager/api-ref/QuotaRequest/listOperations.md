@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListQuotaRequestOperationsResponse.nextPageToken](/docs/quota-manager/api-ref/QuotaRequest/listOperations#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListQuotaRequestOperationsResponse.nextPageToken](#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListQuotaRequestOperationsResponse.nextPageToken](/docs/quota-manager/api-ref/QuotaRequest/listOperations#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
+            to the [ListQuotaRequestOperationsResponse.nextPageToken](#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
             returned by a previous list request.
           type: string
       additionalProperties: false

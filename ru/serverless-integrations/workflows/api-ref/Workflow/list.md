@@ -16,16 +16,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListWorkflowsResponse.nextPageToken](/docs/functions/workflows/api-ref/Workflow/list#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse)
+            results is larger than `pageSize`, the service returns a [ListWorkflowsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListWorkflowsResponse.nextPageToken](/docs/functions/workflows/api-ref/Workflow/list#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse) returned by a previous list request.
+            [ListWorkflowsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

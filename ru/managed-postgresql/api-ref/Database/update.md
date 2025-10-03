@@ -47,7 +47,7 @@ apiPlayground:
           format: field-mask
         extensions:
           description: |-
-            **[Extension](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Extension)**
+            **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
             PostgreSQL extensions that should be enabled for the database.
             If the field is sent, the list of enabled extensions is rewritten entirely.
             Therefore, to disable an active extension you should simply send the list omitting this extension.

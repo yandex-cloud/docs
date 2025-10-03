@@ -52,20 +52,20 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests.
+            If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token.
-            To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) returned by the previous list request.
+            To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) returned by the previous list request.
           type: string
         alwaysNextPageToken:
           description: |-
             **boolean**
             The flag that defines behavior of providing the next page token.
-            If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse), even if current page is empty.
+            If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse), even if current page is empty.
           type: boolean
         filter:
           description: |-

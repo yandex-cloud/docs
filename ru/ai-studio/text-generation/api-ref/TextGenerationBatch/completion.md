@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         completionOptions:
           description: |-
-            **[CompletionOptions](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
+            **[CompletionOptions](#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
             Configuration options for completion generation.
           $ref: '#/definitions/CompletionOptions'
         sourceDatasetId:
@@ -36,7 +36,7 @@ apiPlayground:
           type: boolean
         jsonSchema:
           description: |-
-            **[JsonSchema](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
+            **[JsonSchema](#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
             Enforces a specific JSON structure for the model's response based on a provided schema.
             Includes only one of the fields `jsonObject`, `jsonSchema`.
             Specifies the format of the model's response.
@@ -83,7 +83,7 @@ apiPlayground:
             format: int64
           reasoningOptions:
             description: |-
-              **[ReasoningOptions](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
+              **[ReasoningOptions](#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
               Configures reasoning capabilities for the model, allowing it to perform internal reasoning before responding.
             $ref: '#/definitions/ReasoningOptions'
       JsonSchema:

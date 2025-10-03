@@ -59,4 +59,6 @@ description: Основная сущность, которой оперируе�
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

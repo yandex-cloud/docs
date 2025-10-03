@@ -45,7 +45,8 @@ request to get the next page of results. ||
       "deprecated": "bool",
       "updatable_to": [
         "string"
-      ]
+      ],
+      "lts": "bool"
     }
   ],
   "next_page_token": "string"
@@ -82,4 +83,7 @@ Whether version is deprecated. ||
 || updatable_to[] | **string**
 
 List of versions that can be updated from current. ||
+|| lts | **bool**
+
+Whether version is LTS. ||
 |#

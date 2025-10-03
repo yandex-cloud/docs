@@ -42,7 +42,7 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/grpc/Trail/list#List)
   "description": "string",
   "labels": "map<string, string>",
   "destination": {
-    // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`
+    // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`
     "object_storage": {
       "bucket_id": "string",
       "object_prefix": "string"
@@ -55,6 +55,9 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/grpc/Trail/list#List)
     "data_stream": {
       "database_id": "string",
       "stream_name": "string"
+    },
+    "eventrouter": {
+      "eventrouter_connector_id": "string"
     }
     // end of the list of possible fields
   },
@@ -226,17 +229,22 @@ Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
 || cloud_logging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
 || data_stream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
@@ -273,6 +281,15 @@ ID of the database hosting the destination YDS ||
 || stream_name | **string**
 
 Name of the destination YDS ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouter_connector_id | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}

@@ -75,8 +75,15 @@ apiPlayground:
             New custom labels for the video as `key:value` pairs.
             Maximum 64 labels per video.
             If provided, replaces all existing labels.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         publicAccess:
           description: |-
             **object**

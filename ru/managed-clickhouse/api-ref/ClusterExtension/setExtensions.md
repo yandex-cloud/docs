@@ -19,7 +19,7 @@ apiPlayground:
       type: object
       properties:
         extensionSpecs:
-          description: '**[ExtensionSpec](/docs/managed-clickhouse/api-ref/ClusterExtension/create#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**'
+          description: '**[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**'
           type: array
           items:
             $ref: '#/definitions/ExtensionSpec'

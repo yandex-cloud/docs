@@ -44,7 +44,7 @@ apiPlayground:
           $ref: '#/definitions/RTMPPushParams'
         rtmpPull:
           description: |-
-            **[RTMPPullParams](/docs/video/api-ref/StreamLine/create#yandex.cloud.video.v1.RTMPPullParams)**
+            **[RTMPPullParams](#yandex.cloud.video.v1.RTMPPullParams)**
             RTMP pull input type.
             Includes only one of the fields `rtmpPush`, `rtmpPull`.
             Video signal settings.
@@ -55,8 +55,15 @@ apiPlayground:
             New custom labels for the stream line as `key:value` pairs.
             Maximum 64 labels per stream line.
             If provided, replaces all existing labels.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
       required:
         - fieldMask
       additionalProperties: false

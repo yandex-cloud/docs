@@ -146,7 +146,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [Connection.Update](../api-ref/Connection/update.md) или методом gRPC API [ConnectionService.Update](../api-ref/grpc/Connection/update.md) и передайте в запросе идентификатор подключения.
+  Воспользуйтесь методом REST API [Connection.Update](../connection-manager/api-ref/Connection/update.md) или методом gRPC API [ConnectionService.Update](../connection-manager/api-ref/grpc/Connection/update.md) и передайте в запросе идентификатор подключения.
 
   Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
 

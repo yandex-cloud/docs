@@ -85,7 +85,13 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
       "enabled": "bool"
     },
     "airflow_version": "string",
-    "python_version": "string"
+    "python_version": "string",
+    "dag_processor": {
+      "count": "int64",
+      "resources": {
+        "resource_preset_id": "string"
+      }
+    }
   },
   "health": "Health",
   "status": "Status",
@@ -268,6 +274,9 @@ Apache Airflow version. Format: "Major.Minor" ||
 || python_version | **string**
 
 Python version. Format: "Major.Minor" ||
+|| dag_processor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
@@ -358,6 +367,18 @@ System packages that are installed in the cluster. ||
 || enabled | **bool**
 
 The setting allows to enable Lockbox Secret Backend. ||
+|#
+
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **int64**
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}

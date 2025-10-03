@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         extensionSpec:
           description: |-
-            **[ExtensionSpec](/docs/managed-clickhouse/api-ref/ClusterExtension/create#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+            **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
             Required field. 
           $ref: '#/definitions/ExtensionSpec'
       required:

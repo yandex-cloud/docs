@@ -21,21 +21,21 @@ apiPlayground:
       properties:
         listenerSpec:
           description: |-
-            **[ListenerSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.ListenerSpec)**
+            **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
             Required field. Listener spec.
           oneOf:
             - type: object
               properties:
                 externalAddressSpec:
                   description: |-
-                    **[ExternalAddressSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+                    **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
                     External IP address specification.
                     Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
                     IP address for incoming traffic. Either the ID of the previously created address or the address specification.
                   $ref: '#/definitions/ExternalAddressSpec'
                 internalAddressSpec:
                   description: |-
-                    **[InternalAddressSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+                    **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
                     Internal IP address specification.
                     Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
                     IP address for incoming traffic. Either the ID of the previously created address or the address specification.

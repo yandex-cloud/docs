@@ -26,7 +26,7 @@ apiPlayground:
           type: string
         subject:
           description: |-
-            **[Subject](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.Subject)**
+            **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
             Details about the certificate subject (e.g., CN, O, etc.).
           $ref: '#/definitions/Subject'
         signingAlgorithm:
@@ -143,7 +143,7 @@ apiPlayground:
               - MS_EFS
         subjectAlternativeNames:
           description: |-
-            **[SubjectAlternativeName](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName)**
+            **[SubjectAlternativeName](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName)**
             Subject Alternative Names (SANs) for the certificate, such as DNS entries or IP addresses.
           type: array
           items:
@@ -152,7 +152,7 @@ apiPlayground:
                 properties:
                   otherName:
                     description: |-
-                      **[OtherName](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.OtherName)**
+                      **[OtherName](#yandex.cloud.certificatemanager.v1.privateca.OtherName)**
                       Local defined identifier in arbitrary form
                       Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
                       https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
@@ -187,7 +187,7 @@ apiPlayground:
                     type: string
                   ediPartyName:
                     description: |-
-                      **[EdiPartyName](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
+                      **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
                       Electronic Data Interchange entity
                       Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
                       https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
@@ -314,12 +314,12 @@ apiPlayground:
         properties:
           baseRdn:
             description: |-
-              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
               Required field. Most used field of subject
             $ref: '#/definitions/BaseRDN'
           additionalRdn:
             description: |-
-              **[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
+              **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
               Additional fields of subject
             $ref: '#/definitions/AdditionalRDN'
         required:

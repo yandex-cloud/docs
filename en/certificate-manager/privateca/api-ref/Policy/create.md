@@ -21,52 +21,52 @@ apiPlayground:
           type: string
         subjectPolicy:
           description: |-
-            **[SubjectPolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
+            **[SubjectPolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
             Policy for the subject field of the certificate.
           $ref: '#/definitions/SubjectPolicy'
         sanPolicy:
           description: |-
-            **[SubjectAlternativeNamePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
+            **[SubjectAlternativeNamePolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
             Policy for the subject alternative name (SAN) field of the certificate.
           $ref: '#/definitions/SubjectAlternativeNamePolicy'
         keyUsagesWhiteList:
           description: |-
-            **[KeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
+            **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
             Whitelist of allowed key usages.
             Includes only one of the fields `keyUsagesWhiteList`, `keyUsagesBlackList`.
             Policy for key usages.
           $ref: '#/definitions/KeyUsagePolicy'
         keyUsagesBlackList:
           description: |-
-            **[KeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
+            **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
             Blacklist of disallowed key usages.
             Includes only one of the fields `keyUsagesWhiteList`, `keyUsagesBlackList`.
             Policy for key usages.
           $ref: '#/definitions/KeyUsagePolicy'
         extendedKeyUsagesWhiteList:
           description: |-
-            **[ExtendedKeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
+            **[ExtendedKeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
             Whitelist of allowed extended key usages.
             Includes only one of the fields `extendedKeyUsagesWhiteList`, `extendedKeyUsagesBlackList`.
             Policy for extended key usages.
           $ref: '#/definitions/ExtendedKeyUsagePolicy'
         extendedKeyUsagesBlackList:
           description: |-
-            **[ExtendedKeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
+            **[ExtendedKeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
             Blacklist of disallowed extended key usages.
             Includes only one of the fields `extendedKeyUsagesWhiteList`, `extendedKeyUsagesBlackList`.
             Policy for extended key usages.
           $ref: '#/definitions/ExtendedKeyUsagePolicy'
         extensionWhiteList:
           description: |-
-            **[ExtensionPolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
+            **[ExtensionPolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
             Whitelist of allowed extensions.
             Includes only one of the fields `extensionWhiteList`, `extensionBlackList`.
             Policy for extensions.
           $ref: '#/definitions/ExtensionPolicy'
         extensionBlackList:
           description: |-
-            **[ExtensionPolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
+            **[ExtensionPolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
             Blacklist of disallowed extensions.
             Includes only one of the fields `extensionWhiteList`, `extensionBlackList`.
             Policy for extensions.
@@ -186,7 +186,7 @@ apiPlayground:
             type: string
           ediPartyName:
             description: |-
-              **[EdiPartyName](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
+              **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
               Allowed EDI party names in the SAN field.
             $ref: '#/definitions/EdiPartyName'
           uniformResourceIdentifier:

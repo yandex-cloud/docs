@@ -28,11 +28,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels for the rule.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         filter:
           description: |-
-            **[Filter](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.Filter)**
+            **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
             Filter for the rule.
           oneOf:
             - type: object
@@ -45,7 +54,7 @@ apiPlayground:
                   type: string
         targets:
           description: |-
-            **[Target](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.Target)**
+            **[Target](#yandex.cloud.serverless.eventrouter.v1.Target)**
             Targets for the rule.
           type: array
           items:
@@ -54,32 +63,32 @@ apiPlayground:
                 properties:
                   yds:
                     description: |-
-                      **[YdsTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
+                      **[YdsTarget](#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     $ref: '#/definitions/YdsTarget'
                   ymq:
                     description: |-
-                      **[YmqTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
+                      **[YmqTarget](#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     $ref: '#/definitions/YmqTarget'
                   function:
                     description: |-
-                      **[FunctionTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
+                      **[FunctionTarget](#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     $ref: '#/definitions/FunctionTarget'
                   container:
                     description: |-
-                      **[ContainerTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
+                      **[ContainerTarget](#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     $ref: '#/definitions/ContainerTarget'
                   gatewayWsBroadcast:
                     description: |-
-                      **[GatewayWebsocketBroadcastTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
+                      **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     $ref: '#/definitions/GatewayWebsocketBroadcastTarget'
                   logging:
                     description: |-
-                      **[LoggingTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
+                      **[LoggingTarget](#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     oneOf:
                       - type: object
@@ -98,14 +107,14 @@ apiPlayground:
                             type: string
                   workflow:
                     description: |-
-                      **[WorkflowTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
+                      **[WorkflowTarget](#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
                       Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
                     $ref: '#/definitions/WorkflowTarget'
               - type: object
                 properties:
                   deadLetterQueue:
                     description: |-
-                      **[PutQueueMessage](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
+                      **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
                       Dead letter queue.
                       Includes only one of the fields `deadLetterQueue`.
                       Dead letter settings of the target.
@@ -201,7 +210,7 @@ apiPlayground:
             type: string
           batchSettings:
             description: |-
-              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
               Batch settings.
             $ref: '#/definitions/BatchSettings'
         required:
@@ -231,7 +240,7 @@ apiPlayground:
             type: string
           batchSettings:
             description: |-
-              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
               Batch settings.
             $ref: '#/definitions/BatchSettings'
         required:
@@ -256,7 +265,7 @@ apiPlayground:
             type: string
           batchSettings:
             description: |-
-              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
               Batch settings.
             $ref: '#/definitions/BatchSettings'
         required:
@@ -278,7 +287,7 @@ apiPlayground:
             type: string
           batchSettings:
             description: |-
-              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
               Batch settings.
             $ref: '#/definitions/BatchSettings'
         required:

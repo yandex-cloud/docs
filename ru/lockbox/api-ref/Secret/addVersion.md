@@ -25,7 +25,7 @@ apiPlayground:
           type: string
         payloadEntries:
           description: |-
-            **[PayloadEntryChange](/docs/lockbox/api-ref/Secret/create#yandex.cloud.lockbox.v1.PayloadEntryChange)**
+            **[PayloadEntryChange](#yandex.cloud.lockbox.v1.PayloadEntryChange)**
             Describe how payload entries of the base version change in the added version.
           type: array
           items:

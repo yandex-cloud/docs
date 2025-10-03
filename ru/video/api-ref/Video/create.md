@@ -71,11 +71,18 @@ apiPlayground:
             Maximum 64 labels per video.
             Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
             Values can contain alphanumeric characters and various symbols.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         tusd:
           description: |-
-            **[VideoTUSDParams](/docs/video/api-ref/Video/create#yandex.cloud.video.v1.VideoTUSDParams)**
+            **[VideoTUSDParams](#yandex.cloud.video.v1.VideoTUSDParams)**
             Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
             This is a push-based upload method where the client pushes data to the server.
             Includes only one of the fields `tusd`.

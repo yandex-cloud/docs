@@ -19,10 +19,10 @@ apiPlayground:
       type: object
       properties:
         userSshKeySettings:
-          description: '**[UserSshKeySettings](/docs/organization/api-ref/OsLogin/updateSettings#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings)**'
+          description: '**[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings)**'
           $ref: '#/definitions/UserSshKeySettings'
         sshCertificateSettings:
-          description: '**[SshCertificateSettings](/docs/organization/api-ref/OsLogin/updateSettings#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings)**'
+          description: '**[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings)**'
           $ref: '#/definitions/SshCertificateSettings'
         updateMask:
           description: |-

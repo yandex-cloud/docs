@@ -26,7 +26,7 @@ apiPlayground:
           type: string
         mapreduceJob:
           description: |-
-            **[MapreduceJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.MapreduceJob)**
+            **[MapreduceJob](#yandex.cloud.dataproc.v1.MapreduceJob)**
             Specification for a MapReduce job.
             Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
             Specification for the job.
@@ -47,21 +47,21 @@ apiPlayground:
                   type: string
         sparkJob:
           description: |-
-            **[SparkJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.SparkJob)**
+            **[SparkJob](#yandex.cloud.dataproc.v1.SparkJob)**
             Specification for a Spark job.
             Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
             Specification for the job.
           $ref: '#/definitions/SparkJob'
         pysparkJob:
           description: |-
-            **[PysparkJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.PysparkJob)**
+            **[PysparkJob](#yandex.cloud.dataproc.v1.PysparkJob)**
             Specification for a PySpark job.
             Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
             Specification for the job.
           $ref: '#/definitions/PysparkJob'
         hiveJob:
           description: |-
-            **[HiveJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.HiveJob)**
+            **[HiveJob](#yandex.cloud.dataproc.v1.HiveJob)**
             Specification for a Hive job.
             Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
             Specification for the job.
@@ -76,7 +76,7 @@ apiPlayground:
                   type: string
                 queryList:
                   description: |-
-                    **[QueryList](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.QueryList)**
+                    **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
                     List of Hive queries to be used in the job.
                     Includes only one of the fields `queryFileUri`, `queryList`.
                   $ref: '#/definitions/QueryList'
@@ -118,7 +118,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Property names and values, used to configure Yandex Data Processing and Spark.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
           mainJarFileUri:
             description: |-
               **string**
@@ -186,7 +188,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Property names and values, used to configure Yandex Data Processing and PySpark.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
           mainPythonFileUri:
             description: |-
               **string**

@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.mysql.v1.HostSpec)**
             Configuration of the newly added hosts.
           type: array
           items:

@@ -36,7 +36,7 @@ apiPlayground:
             **string**
             Name of the group.
             The name must be unique within the organization.
-          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          pattern: '|[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])?'
           type: string
         description:
           description: |-

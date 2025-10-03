@@ -33,27 +33,27 @@ apiPlayground:
           type: string
         resourcesSpec:
           description: |-
-            **[ResourcesSpec](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+            **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
             Resource specification of the desktop group.
           $ref: '#/definitions/ResourcesSpec'
         networkInterfaceSpec:
           description: |-
-            **[NetworkInterfaceSpec](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
+            **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
             Network interface specification of the desktop group.
           $ref: '#/definitions/NetworkInterfaceSpec'
         bootDiskSpec:
           description: |-
-            **[DiskSpec](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
+            **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
             Boot disk specification of the desktop group.
           $ref: '#/definitions/DiskSpec'
         dataDiskSpec:
           description: |-
-            **[DiskSpec](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
+            **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
             Data disk specification of the desktop group.
           $ref: '#/definitions/DiskSpec'
         groupConfig:
           description: |-
-            **[DesktopGroupConfiguration](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
+            **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
             Configuration of the desktop group.
           $ref: '#/definitions/DesktopGroupConfiguration'
       required:
@@ -133,16 +133,16 @@ apiPlayground:
               Required field. ID of the subject.
               It can contain one of the following values:
               * `allAuthenticatedUsers`: A special public group that represents anyone
-              who is authenticated. It can be used only if the [type](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              who is authenticated. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `allUsers`: A special public group that represents anyone. No authentication is required.
               For example, you don't need to specify the IAM token in an API query.
-              It can be used only if the [type](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `group:organization:<id>:users`: A special system group that represents all members of organization
-              with given <id>. It can be used only if the [type](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              with given <id>. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `group:federation:<id>:users`: A special system group that represents all users of federation
-              with given <id>. It can be used only if the [type](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              with given <id>. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `<cloud generated id>`: An identifier that represents a user account.
-              It can be used only if the [type](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `userAccount`, `federatedUser` or `serviceAccount`.
+              It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `userAccount`, `federatedUser` or `serviceAccount`.
             type: string
           type:
             description: |-
@@ -187,7 +187,7 @@ apiPlayground:
               - NON_PERSISTENT
           members:
             description: |-
-              **`Subject`**
+              **[Subject](#yandex.cloud.access.Subject)**
               List of members of the desktop group.
             type: array
             items:
@@ -575,7 +575,8 @@ Status of the desktop group.
 - `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop group is being created.
 - `ACTIVE`: Desktop group is ready to use.
-- `DELETING`: Desktop group is being deleted. ||
+- `DELETING`: Desktop group is being deleted.
+- `UPDATING`: Desktop group is updating. ||
 || name | **string**
 
 Name of the desktop group. ||

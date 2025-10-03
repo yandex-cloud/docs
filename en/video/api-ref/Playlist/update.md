@@ -43,7 +43,7 @@ apiPlayground:
           type: string
         items:
           description: |-
-            **[PlaylistItem](/docs/video/api-ref/Playlist/get#yandex.cloud.video.v1.PlaylistItem)**
+            **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
             New list of items to include in the playlist.
             This completely replaces the existing items if specified in the field mask.
             The order of items in this list determines the playback order.

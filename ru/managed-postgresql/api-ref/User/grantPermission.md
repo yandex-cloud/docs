@@ -29,7 +29,7 @@ apiPlayground:
       properties:
         permission:
           description: |-
-            **[Permission](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Permission)**
+            **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
             Required field. Permission that should be granted to the specified user.
           $ref: '#/definitions/Permission'
       required:

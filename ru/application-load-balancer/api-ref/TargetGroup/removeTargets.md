@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         targets:
           description: |-
-            **[Target](/docs/application-load-balancer/api-ref/LoadBalancer/getTargetStates#yandex.cloud.apploadbalancer.v1.Target)**
+            **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
             List of targets to remove from the target group.
           type: array
           items:

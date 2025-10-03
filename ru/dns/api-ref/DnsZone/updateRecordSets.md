@@ -19,14 +19,14 @@ apiPlayground:
       properties:
         deletions:
           description: |-
-            **[RecordSet](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet)**
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
             List of record sets to delete.
           type: array
           items:
             $ref: '#/definitions/RecordSet'
         additions:
           description: |-
-            **[RecordSet](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet)**
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
             List of record sets to add.
           type: array
           items:

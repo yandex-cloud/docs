@@ -29,13 +29,14 @@ apiPlayground:
             the service returns a [ListRepositoriesResponse.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 10.
+          default: '10'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListArtifactsResponse.nextPageToken](/docs/cloud-registry/api-ref/Registry/listArtifacts#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
+            [ListArtifactsResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

@@ -162,6 +162,8 @@ items:
                 href: api-ref/grpc/RoutingInstance/upsertPrefixes.md
               - name: RemovePrefixes
                 href: api-ref/grpc/RoutingInstance/removePrefixes.md
+              - name: UpdateNetworks
+                href: api-ref/grpc/RoutingInstance/updateNetworks.md
               - name: MovePrefix
                 href: api-ref/grpc/RoutingInstance/movePrefix.md
               - name: UpdatePrefixMask

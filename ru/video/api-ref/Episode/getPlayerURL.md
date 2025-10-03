@@ -19,7 +19,7 @@ apiPlayground:
       properties:
         params:
           description: |-
-            **[EpisodePlayerParams](/docs/video/api-ref/Episode/getPlayerURL#yandex.cloud.video.v1.EpisodePlayerParams)**
+            **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)**
             Optional player parameters to customize the playback experience.
             These parameters control initial player state such as mute, autoplay, and visibility of interface controls.
           $ref: '#/definitions/EpisodePlayerParams'

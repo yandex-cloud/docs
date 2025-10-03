@@ -63,7 +63,7 @@ Supports additional features like subtitle processing, translation, and summariz
 ||Field | Description ||
 || video_id | **string**
 
-ID of the video to transcode. ||
+Required field. ID of the video to transcode. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask specifying which transcoding-specific fields should be updated.

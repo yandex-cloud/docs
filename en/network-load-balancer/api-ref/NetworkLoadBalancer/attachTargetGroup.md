@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         attachedTargetGroup:
           description: |-
-            **[AttachedTargetGroup](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
+            **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
             Required field. ID of the attached target group to attach to the network load balancer.
             To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#List) request.
           $ref: '#/definitions/AttachedTargetGroup'
@@ -63,7 +63,7 @@ apiPlayground:
             type: string
           healthChecks:
             description: |-
-              **[HealthCheck](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.HealthCheck)**
+              **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
               A health check to perform on the target group.
               For now we accept only one health check per AttachedTargetGroup.
             type: array
@@ -73,14 +73,14 @@ apiPlayground:
                   properties:
                     tcpOptions:
                       description: |-
-                        **[TcpOptions](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+                        **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
                         Options for TCP health check.
                         Includes only one of the fields `tcpOptions`, `httpOptions`.
                         Protocol to use for the health check. Either TCP or HTTP.
                       $ref: '#/definitions/TcpOptions'
                     httpOptions:
                       description: |-
-                        **[HttpOptions](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+                        **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
                         Options for HTTP health check.
                         Includes only one of the fields `tcpOptions`, `httpOptions`.
                         Protocol to use for the health check. Either TCP or HTTP.

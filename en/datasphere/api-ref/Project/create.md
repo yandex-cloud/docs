@@ -28,16 +28,25 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels of the project.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         settings:
           description: |-
-            **[Settings](/docs/datasphere/api-ref/Project/create#yandex.cloud.datasphere.v2.Project.Settings)**
+            **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
             Settings of the project.
           $ref: '#/definitions/Settings'
         limits:
           description: |-
-            **[Limits](/docs/datasphere/api-ref/Project/create#yandex.cloud.datasphere.v2.Project.Limits)**
+            **[Limits](#yandex.cloud.datasphere.v2.Project.Limits)**
             Limits of the project.
           $ref: '#/definitions/Limits'
       required:

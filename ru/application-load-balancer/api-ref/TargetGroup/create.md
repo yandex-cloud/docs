@@ -31,11 +31,20 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Target group labels as `key:value` pairs.
             For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         targets:
           description: |-
-            **[Target](/docs/application-load-balancer/api-ref/LoadBalancer/getTargetStates#yandex.cloud.apploadbalancer.v1.Target)**
+            **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
             List of targets in the target group.
           type: array
           items:

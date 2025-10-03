@@ -47,26 +47,35 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as key:value pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         userSettings:
           description: |-
-            **[UserSettings](/docs/organization/idp/api-ref/Userpool/get#yandex.cloud.organizationmanager.v1.idp.UserSettings)**
+            **[UserSettings](#yandex.cloud.organizationmanager.v1.idp.UserSettings)**
             User settings for the userpool.
           $ref: '#/definitions/UserSettings'
         passwordQualityPolicy:
           description: |-
-            **[PasswordQualityPolicy](/docs/organization/idp/api-ref/Userpool/get#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy)**
+            **[PasswordQualityPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy)**
             Password quality policy for the userpool.
           $ref: '#/definitions/PasswordQualityPolicy'
         passwordLifetimePolicy:
           description: |-
-            **[PasswordLifetimePolicy](/docs/organization/idp/api-ref/Userpool/get#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy)**
+            **[PasswordLifetimePolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy)**
             Password lifetime policy for the userpool.
           $ref: '#/definitions/PasswordLifetimePolicy'
         bruteforceProtectionPolicy:
           description: |-
-            **[BruteforceProtectionPolicy](/docs/organization/idp/api-ref/Userpool/get#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
+            **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
             Bruteforce protection policy for the userpool.
           $ref: '#/definitions/BruteforceProtectionPolicy'
       additionalProperties: false
@@ -166,12 +175,12 @@ apiPlayground:
             format: int64
           requiredClasses:
             description: |-
-              **[RequiredClasses](/docs/organization/idp/api-ref/Userpool/get#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
+              **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
               Character classes required in passwords.
             $ref: '#/definitions/RequiredClasses'
           minLengthByClassSettings:
             description: |-
-              **[MinLengthByClassSettings](/docs/organization/idp/api-ref/Userpool/get#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.MinLengthByClassSettings)**
+              **[MinLengthByClassSettings](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.MinLengthByClassSettings)**
               Minimum length requirements based on character class diversity.
               If not specified, these checks are disabled.
             $ref: '#/definitions/MinLengthByClassSettings'

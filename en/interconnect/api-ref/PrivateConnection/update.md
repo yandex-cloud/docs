@@ -62,12 +62,12 @@ apiPlayground:
           format: int64
         ipv4Peering:
           description: |-
-            **[Peering](/docs/interconnect/api-ref/PrivateConnection/get#yandex.cloud.cic.v1.Peering)**
+            **[Peering](#yandex.cloud.cic.v1.Peering)**
             IPv4 peering config of connection
           $ref: '#/definitions/Peering'
         ipv4StaticRoutes:
           description: |-
-            **[StaticRoute](/docs/interconnect/api-ref/PrivateConnection/get#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
+            **[StaticRoute](#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
             IPv4 StaticRoute config of connection
           type: array
           items:
@@ -81,8 +81,17 @@ apiPlayground:
             Each value must match the regular expression `[-_0-9a-z]*`.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `[a-z][-_0-9a-z]*`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       additionalProperties: false
     definitions:
       Peering:

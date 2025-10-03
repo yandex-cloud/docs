@@ -10,12 +10,12 @@ apiPlayground:
       properties:
         resource:
           description: |-
-            **[Resource](/docs/quota-manager/api-ref/QuotaLimit/get#yandex.cloud.quotamanager.v1.Resource)**
+            **[Resource](#yandex.cloud.quotamanager.v1.Resource)**
             Required field. Resource to create a quota request in.
           $ref: '#/definitions/Resource'
         desiredQuotaLimits:
           description: |-
-            **[DesiredQuotaLimit](/docs/quota-manager/api-ref/QuotaRequest/create#yandex.cloud.quotamanager.v1.CreateQuotaRequestRequest.DesiredQuotaLimit)**
+            **[DesiredQuotaLimit](#yandex.cloud.quotamanager.v1.CreateQuotaRequestRequest.DesiredQuotaLimit)**
             Desired quota limits
           type: array
           items:

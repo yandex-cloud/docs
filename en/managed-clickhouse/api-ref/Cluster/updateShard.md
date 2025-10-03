@@ -41,7 +41,7 @@ apiPlayground:
           format: field-mask
         configSpec:
           description: |-
-            **[ShardConfigSpec](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
+            **[ShardConfigSpec](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
             New configuration for the specified shard.
           $ref: '#/definitions/ShardConfigSpec'
       additionalProperties: false
@@ -55,6 +55,7 @@ apiPlayground:
               Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
               If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
               Default value: **false**.
+            default: '**false**'
             type: boolean
           selectFromInformationSchemaRequiresGrant:
             description: |-
@@ -62,6 +63,7 @@ apiPlayground:
               Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
               If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
               Default value: **false**.
+            default: '**false**'
             type: boolean
       MergeTree:
         type: object
@@ -125,7 +127,8 @@ apiPlayground:
             description: |-
               **string** (int64)
               How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
-              Default value: **16**.
+              Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue).
             type: string
             format: int64
           numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge:
@@ -378,6 +381,7 @@ apiPlayground:
               **boolean**
               Setting is automatically enabled if cloud storage is enabled, disabled otherwise.
               Default value: **true**.
+            default: '**true**'
             deprecated: true
             type: boolean
       Compression:
@@ -462,7 +466,7 @@ apiPlayground:
             type: string
           headers:
             description: |-
-              **`Header`**
+              **[Header](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource.Header)**
               HTTP headers.
             type: array
             items:
@@ -537,7 +541,7 @@ apiPlayground:
             type: string
           replicas:
             description: |-
-              **`Replica`**
+              **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)**
               List of MySQL replicas of the database used as dictionary source.
             type: array
             items:
@@ -752,7 +756,7 @@ apiPlayground:
             type: string
           retention:
             description: |-
-              **`Retention`**
+              **[Retention](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup.Pattern.Retention)**
               Retention rules.
             type: array
             items:
@@ -767,7 +771,7 @@ apiPlayground:
             type: string
           patterns:
             description: |-
-              **`Pattern`**
+              **[Pattern](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup.Pattern)**
               Pattern to use for the rollup.
             type: array
             items:
@@ -777,24 +781,28 @@ apiPlayground:
               **string**
               The name of the column storing the metric name (Graphite sensor).
               Default value: **Path**.
+            default: '**Path**'
             type: string
           timeColumnName:
             description: |-
               **string**
               The name of the column storing the time of measuring the metric.
               Default value: **Time**.
+            default: '**Time**'
             type: string
           valueColumnName:
             description: |-
               **string**
               The name of the column storing the value of the metric at the time set in **time_column_name**.
               Default value: **Value**.
+            default: '**Value**'
             type: string
           versionColumnName:
             description: |-
               **string**
               The name of the column storing the version of the metric.
               Default value: **Timestamp**.
+            default: '**Timestamp**'
             type: string
         required:
           - name
@@ -811,6 +819,7 @@ apiPlayground:
               - `SECURITY_PROTOCOL_SSL`
               - `SECURITY_PROTOCOL_SASL_PLAINTEXT`
               - `SECURITY_PROTOCOL_SASL_SSL`
+            default: '**SECURITY_PROTOCOL_PLAINTEXT**'
             type: string
             enum:
               - SECURITY_PROTOCOL_UNSPECIFIED
@@ -828,6 +837,7 @@ apiPlayground:
               - `SASL_MECHANISM_PLAIN`
               - `SASL_MECHANISM_SCRAM_SHA_256`
               - `SASL_MECHANISM_SCRAM_SHA_512`
+            default: '**SASL_MECHANISM_GSSAPI**'
             type: string
             enum:
               - SASL_MECHANISM_UNSPECIFIED
@@ -850,6 +860,7 @@ apiPlayground:
               **boolean**
               Enable OpenSSL's builtin broker (server) certificate verification.
               Default value: **true**.
+            default: '**true**'
             type: boolean
           maxPollIntervalMs:
             description: |-
@@ -932,6 +943,7 @@ apiPlayground:
               - `AUTO_OFFSET_RESET_LATEST`
               - `AUTO_OFFSET_RESET_END`
               - `AUTO_OFFSET_RESET_ERROR`
+            default: '**AUTO_OFFSET_RESET_LARGEST**'
             type: string
             enum:
               - AUTO_OFFSET_RESET_UNSPECIFIED
@@ -952,7 +964,7 @@ apiPlayground:
             type: string
           settings:
             description: |-
-              **`Kafka`**
+              **[Kafka](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Kafka)**
               Required field. Kafka topic settings.
             $ref: '#/definitions/Kafka'
         required:
@@ -1012,6 +1024,7 @@ apiPlayground:
               **string** (int64)
               The maximum number of **SELECT** query results stored in the cache.
               Default value: **1024**.
+            default: '**1024**'
             type: string
             format: int64
           maxEntrySizeInBytes:
@@ -1026,6 +1039,7 @@ apiPlayground:
               **string** (int64)
               The maximum number of rows **SELECT** query results may have to be saved in the cache.
               Default value: **30000000**.
+            default: '**30000000**'
             type: string
             format: int64
       JdbcBridge:
@@ -1034,17 +1048,16 @@ apiPlayground:
           host:
             description: |-
               **string**
-              Required field. Host of jdbc bridge.
+              Host of jdbc bridge.
             type: string
           port:
             description: |-
               **string** (int64)
               Port of jdbc bridge.
               Default value: **9019**.
+            default: '**9019**'
             type: string
             format: int64
-        required:
-          - host
       Macro:
         type: object
         properties:
@@ -1337,6 +1350,7 @@ apiPlayground:
               The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to **0**,
               automatic removal of opentelemetry_span_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           opentelemetrySpanLogRetentionTime:
@@ -1361,6 +1375,7 @@ apiPlayground:
               The maximum size that query_views_log can grow to before old data will be removed. If set to **0**,
               automatic removal of query_views_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           queryViewsLogRetentionTime:
@@ -1385,6 +1400,7 @@ apiPlayground:
               The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to **0**,
               automatic removal of asynchronous_metric_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           asynchronousMetricLogRetentionTime:
@@ -1399,7 +1415,7 @@ apiPlayground:
             description: |-
               **boolean**
               Enables or disables session_log system table.
-              Default value: **false**.
+              Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
               Change of the setting is applied with restart.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/session_log).
             type: boolean
@@ -1408,7 +1424,7 @@ apiPlayground:
               **string** (int64)
               The maximum size that session_log can grow to before old data will be removed. If set to **0**,
               automatic removal of session_log data based on size is disabled.
-              Default value: **0**.
+              Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower.
             type: string
             format: int64
           sessionLogRetentionTime:
@@ -1433,6 +1449,7 @@ apiPlayground:
               The maximum size that zookeeper_log can grow to before old data will be removed. If set to **0**,
               automatic removal of zookeeper_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           zookeeperLogRetentionTime:
@@ -1457,6 +1474,7 @@ apiPlayground:
               The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to **0**,
               automatic removal of asynchronous_insert_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           asynchronousInsertLogRetentionTime:
@@ -1481,6 +1499,7 @@ apiPlayground:
               The maximum size that processors_profile_log can grow to before old data will be removed. If set to **0**,
               automatic removal of processors_profile_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           processorsProfileLogRetentionTime:
@@ -1505,6 +1524,7 @@ apiPlayground:
               The maximum size that error_log can grow to before old data will be removed. If set to **0**,
               automatic removal of error_log data based on size is disabled.
               Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           errorLogRetentionTime:
@@ -1517,7 +1537,7 @@ apiPlayground:
             format: int64
           accessControlImprovements:
             description: |-
-              **`AccessControlImprovements`**
+              **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)**
               Access control settings.
             $ref: '#/definitions/AccessControlImprovements'
           maxConnections:
@@ -1588,6 +1608,7 @@ apiPlayground:
             description: |-
               **boolean**
               Enables or disables geobase.
+              Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
               Change of the setting is applied with restart.
             type: boolean
           geobaseUri:
@@ -1653,13 +1674,13 @@ apiPlayground:
             format: int64
           mergeTree:
             description: |-
-              **`MergeTree`**
+              **[MergeTree](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree)**
               Settings for the MergeTree table engine family.
               Change of the settings of **merge_tree** is applied with restart.
             $ref: '#/definitions/MergeTree'
           compression:
             description: |-
-              **`Compression`**
+              **[Compression](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression)**
               Data compression settings for MergeTree engine tables.
               Change of the settings of **compression** is applied with restart.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#compression).
@@ -1668,7 +1689,7 @@ apiPlayground:
               $ref: '#/definitions/Compression'
           dictionaries:
             description: |-
-              **`ExternalDictionary`**
+              **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)**
               Configuration of external dictionaries.
               Change of the settings of **dictionaries** is applied with restart.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries).
@@ -1686,7 +1707,7 @@ apiPlayground:
                       format: int64
                     lifetimeRange:
                       description: |-
-                        **`Range`**
+                        **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
                         Range of intervals between dictionary updates for ClickHouse to choose from.
                         Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
                       $ref: '#/definitions/Range'
@@ -1694,37 +1715,37 @@ apiPlayground:
                   properties:
                     httpSource:
                       description: |-
-                        **`HttpSource`**
+                        **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
                         HTTP source for the dictionary.
                         Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                       $ref: '#/definitions/HttpSource'
                     mysqlSource:
                       description: |-
-                        **`MysqlSource`**
+                        **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
                         MySQL source for the dictionary.
                         Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                       $ref: '#/definitions/MysqlSource'
                     clickhouseSource:
                       description: |-
-                        **`ClickhouseSource`**
+                        **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
                         ClickHouse source for the dictionary.
                         Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                       $ref: '#/definitions/ClickhouseSource'
                     mongodbSource:
                       description: |-
-                        **`MongodbSource`**
+                        **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
                         MongoDB source for the dictionary.
                         Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                       $ref: '#/definitions/MongodbSource'
                     postgresqlSource:
                       description: |-
-                        **`PostgresqlSource`**
+                        **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
                         PostgreSQL source for the dictionary.
                         Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
                       $ref: '#/definitions/PostgresqlSource'
           graphiteRollup:
             description: |-
-              **`GraphiteRollup`**
+              **[GraphiteRollup](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup)**
               Rollup settings for the GraphiteMergeTree engine tables.
               Change of the settings of **graphite_rollup** is applied with restart.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#graphite_rollup).
@@ -1733,13 +1754,13 @@ apiPlayground:
               $ref: '#/definitions/GraphiteRollup'
           kafka:
             description: |-
-              **`Kafka`**
+              **[Kafka](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Kafka)**
               Kafka integration settings.
               Change of the settings of **kafka** is applied with restart.
             $ref: '#/definitions/Kafka'
           kafkaTopics:
             description: |-
-              **`KafkaTopic`**
+              **[KafkaTopic](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.KafkaTopic)**
               Per-topic Kafka integration settings.
               Change of the settings of **kafka_topics** is applied with restart.
             type: array
@@ -1747,13 +1768,13 @@ apiPlayground:
               $ref: '#/definitions/KafkaTopic'
           rabbitmq:
             description: |-
-              **`Rabbitmq`**
+              **[Rabbitmq](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Rabbitmq)**
               RabbitMQ integration settings.
               Change of the settings of **rabbitmq** is applied with restart.
             $ref: '#/definitions/Rabbitmq'
           queryMaskingRules:
             description: |-
-              **`QueryMaskingRule`**
+              **[QueryMaskingRule](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.QueryMaskingRule)**
               Regexp-based rules, which will be applied to queries as well as all log messages before storing them in server logs,
               system.query_log, system.text_log, system.processes tables, and in logs sent to the client. That allows preventing
               sensitive data leakage from SQL queries (like names, emails, personal identifiers or credit card numbers) to logs.
@@ -1764,13 +1785,13 @@ apiPlayground:
               $ref: '#/definitions/QueryMaskingRule'
           queryCache:
             description: |-
-              **`QueryCache`**
+              **[QueryCache](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.QueryCache)**
               [Query cache](https://clickhouse.com/docs/operations/query-cache) configuration.
               Change of the settings of **query_cache** is applied with restart.
             $ref: '#/definitions/QueryCache'
           jdbcBridge:
             description: |-
-              **`JdbcBridge`**
+              **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)**
               JDBC bridge configuration for queries to external databases.
               Change of the settings of **jdbc_bridge** is applied with restart.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse).
@@ -1784,7 +1805,7 @@ apiPlayground:
             type: boolean
           customMacros:
             description: |-
-              **`Macro`**
+              **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)**
               Custom ClickHouse macros.
             type: array
             items:
@@ -1848,17 +1869,17 @@ apiPlayground:
         properties:
           config:
             description: |-
-              **`ClickhouseConfig`**
+              **[ClickhouseConfig](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig)**
               Configuration for a ClickHouse server.
             $ref: '#/definitions/ClickhouseConfig'
           resources:
             description: |-
-              **[Resources](/docs/managed-clickhouse/api-ref/Cluster/get#yandex.cloud.mdb.clickhouse.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
               Resources allocated to ClickHouse hosts.
             $ref: '#/definitions/Resources'
           diskSizeAutoscaling:
             description: |-
-              **[DiskSizeAutoscaling](/docs/managed-clickhouse/api-ref/Cluster/get#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
               Disk size autoscaling settings.
             $ref: '#/definitions/DiskSizeAutoscaling'
       ShardConfigSpec:
@@ -2591,7 +2612,7 @@ Default value: **2592000000** (30 days). ||
 
 Enables or disables session_log system table.
 
-Default value: **false**.
+Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
 
 Change of the setting is applied with restart.
 
@@ -2601,7 +2622,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || sessionLogRetentionTime | **string** (int64)
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
@@ -2756,6 +2777,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || geobaseEnabled | **boolean**
 
 Enables or disables geobase.
+
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 Change of the setting is applied with restart. ||
 || geobaseUri | **string**
@@ -2980,7 +3003,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
 
-Default value: **16**. ||
+Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue). ||
 || numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge | **string** (int64)
 
 When there is less than the specified number of free entries in pool (or replicated queue), start to lower maximum size of
@@ -3910,7 +3935,7 @@ JDBC bridge configuration for queries to external databases.
 ||Field | Description ||
 || host | **string**
 
-Required field. Host of jdbc bridge. ||
+Host of jdbc bridge. ||
 || port | **string** (int64)
 
 Port of jdbc bridge.
@@ -5455,7 +5480,7 @@ Default value: **2592000000** (30 days). ||
 
 Enables or disables session_log system table.
 
-Default value: **false**.
+Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
 
 Change of the setting is applied with restart.
 
@@ -5465,7 +5490,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || sessionLogRetentionTime | **string** (int64)
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
@@ -5620,6 +5645,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || geobaseEnabled | **boolean**
 
 Enables or disables geobase.
+
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 Change of the setting is applied with restart. ||
 || geobaseUri | **string**
@@ -5844,7 +5871,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
 
-Default value: **16**. ||
+Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue). ||
 || numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge | **string** (int64)
 
 When there is less than the specified number of free entries in pool (or replicated queue), start to lower maximum size of
@@ -6774,7 +6803,7 @@ JDBC bridge configuration for queries to external databases.
 ||Field | Description ||
 || host | **string**
 
-Required field. Host of jdbc bridge. ||
+Host of jdbc bridge. ||
 || port | **string** (int64)
 
 Port of jdbc bridge.

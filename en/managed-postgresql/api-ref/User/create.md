@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         userSpec:
           description: |-
-            **[UserSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSpec)**
+            **[UserSpec](#yandex.cloud.mdb.postgresql.v1.UserSpec)**
             Required field. Properties of the user to be created.
           $ref: '#/definitions/UserSpec'
       required:
@@ -219,7 +219,7 @@ apiPlayground:
             format: int64
           pgaudit:
             description: |-
-              **[PGAuditSettings](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
+              **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
               Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
             $ref: '#/definitions/PGAuditSettings'
       UserSpec:
@@ -238,7 +238,7 @@ apiPlayground:
             type: string
           permissions:
             description: |-
-              **[Permission](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Permission)**
+              **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
               Set of permissions to grant to the user to access specific databases.
             type: array
             items:
@@ -254,7 +254,7 @@ apiPlayground:
             format: int64
           settings:
             description: |-
-              **[UserSettings](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings)**
+              **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**
               PostgreSQL settings for the user.
             $ref: '#/definitions/UserSettings'
           login:

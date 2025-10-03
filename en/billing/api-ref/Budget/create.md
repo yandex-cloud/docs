@@ -21,7 +21,7 @@ apiPlayground:
           type: string
         costBudgetSpec:
           description: |-
-            **[CostBudgetSpec](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.CostBudgetSpec)**
+            **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec)**
             Cost budget specification.
             Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
             Specification of the budget.
@@ -55,7 +55,7 @@ apiPlayground:
                   type: string
         expenseBudgetSpec:
           description: |-
-            **[ExpenseBudgetSpec](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
+            **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
             Expense budget specification.
             Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
             Specification of the budget.
@@ -89,7 +89,7 @@ apiPlayground:
                   type: string
         balanceBudgetSpec:
           description: |-
-            **[BalanceBudgetSpec](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.BalanceBudgetSpec)**
+            **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec)**
             Balance budget specification.
             Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
             Specification of the budget.
@@ -150,8 +150,8 @@ apiPlayground:
               type: string
           thresholdRules:
             description: |-
-              **[ThresholdRule](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.ThresholdRule)**
-              List of the [ThresholdRule](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.ThresholdRule).
+              **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+              List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
               Rules define intermediate balance thresholds of the budget.
             type: array
             items:

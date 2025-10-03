@@ -29,8 +29,15 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         environment:
           description: |-
             **enum** (Environment)
@@ -47,147 +54,161 @@ apiPlayground:
             - PRESTABLE
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.postgresql.v1.ConfigSpec)**
             Required field. Configuration and resources for hosts that should be created for the PostgreSQL cluster.
           oneOf:
             - type: object
               properties:
                 postgresqlConfig_9_6:
                   description: |-
-                    **`PostgresqlConfig9_6`**
+                    **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
                     Configuration for a PostgreSQL 9.6 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig9_6'
                 postgresqlConfig_10_1c:
                   description: |-
-                    **`PostgresqlConfig10_1C`**
+                    **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
                     Configuration for a PostgreSQL 10 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig10_1C'
                 postgresqlConfig_10:
                   description: |-
-                    **`PostgresqlConfig10`**
+                    **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
                     Configuration for a PostgreSQL 10 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig10'
                 postgresqlConfig_11:
                   description: |-
-                    **`PostgresqlConfig11`**
+                    **[PostgresqlConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11)**
                     Configuration for a PostgreSQL 11 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig11'
                 postgresqlConfig_11_1c:
                   description: |-
-                    **`PostgresqlConfig11_1C`**
+                    **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
                     Configuration for a PostgreSQL 11 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig11_1C'
                 postgresqlConfig_12:
                   description: |-
-                    **`PostgresqlConfig12`**
+                    **[PostgresqlConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12)**
                     Configuration for a PostgreSQL 12 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig12'
                 postgresqlConfig_12_1c:
                   description: |-
-                    **`PostgresqlConfig12_1C`**
+                    **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
                     Configuration for a PostgreSQL 12 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig12_1C'
                 postgresqlConfig_13:
                   description: |-
-                    **`PostgresqlConfig13`**
+                    **[PostgresqlConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13)**
                     Configuration for a PostgreSQL 13 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig13'
                 postgresqlConfig_13_1c:
                   description: |-
-                    **`PostgresqlConfig13_1C`**
+                    **[PostgresqlConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13_1C)**
                     Configuration for a PostgreSQL 13 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig13_1C'
                 postgresqlConfig_14:
                   description: |-
-                    **`PostgresqlConfig14`**
+                    **[PostgresqlConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14)**
                     Configuration for a PostgreSQL 14 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig14'
                 postgresqlConfig_14_1c:
                   description: |-
-                    **`PostgresqlConfig14_1C`**
+                    **[PostgresqlConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C)**
                     Configuration for a PostgreSQL 14 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig14_1C'
                 postgresqlConfig_15:
                   description: |-
-                    **`PostgresqlConfig15`**
+                    **[PostgresqlConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15)**
                     Configuration for a PostgreSQL 15 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig15'
                 postgresqlConfig_15_1c:
                   description: |-
-                    **`PostgresqlConfig15_1C`**
+                    **[PostgresqlConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C)**
                     Configuration for a PostgreSQL 15 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig15_1C'
                 postgresqlConfig_16:
                   description: |-
-                    **`PostgresqlConfig16`**
+                    **[PostgresqlConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16)**
                     Configuration for a PostgreSQL 16 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig16'
                 postgresqlConfig_16_1c:
                   description: |-
-                    **`PostgresqlConfig16_1C`**
+                    **[PostgresqlConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C)**
                     Configuration for a PostgreSQL 16 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig16_1C'
                 postgresqlConfig_17:
                   description: |-
-                    **`PostgresqlConfig17`**
+                    **[PostgresqlConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17)**
                     Configuration for a PostgreSQL 17 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig17'
                 postgresqlConfig_17_1c:
                   description: |-
-                    **`PostgresqlConfig17_1C`**
+                    **[PostgresqlConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C)**
                     Configuration for a PostgreSQL 17 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     Configuration of a PostgreSQL cluster.
                   $ref: '#/definitions/PostgresqlConfig17_1C'
+                postgresqlConfig_18:
+                  description: |-
+                    **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18)**
+                    Configuration for a PostgreSQL 18 cluster.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+                    Configuration of a PostgreSQL cluster.
+                  $ref: '#/definitions/PostgresqlConfig18'
+                postgresqlConfig_18_1c:
+                  description: |-
+                    **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C)**
+                    Configuration for a PostgreSQL 18 1C cluster.
+                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+                    Configuration of a PostgreSQL cluster.
+                  $ref: '#/definitions/PostgresqlConfig18_1C'
         databaseSpecs:
           description: |-
-            **[DatabaseSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
+            **[DatabaseSpec](#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
             Required field. Descriptions of databases to be created in the PostgreSQL cluster.
           type: array
           items:
             $ref: '#/definitions/DatabaseSpec'
         userSpecs:
           description: |-
-            **[UserSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSpec)**
+            **[UserSpec](#yandex.cloud.mdb.postgresql.v1.UserSpec)**
             Required field. Descriptions of database users to be created in the PostgreSQL cluster.
           type: array
           items:
             $ref: '#/definitions/UserSpec'
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.postgresql.v1.HostSpec)**
             Required field. Individual configurations for hosts that should be created for the PostgreSQL cluster.
           type: array
           items:
@@ -218,7 +239,7 @@ apiPlayground:
             type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-postgresql/api-ref/Cluster/get#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
             Window of maintenance operations.
           oneOf:
             - type: object
@@ -232,14 +253,14 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-postgresql/api-ref/Cluster/get#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
                     Maintenance operation can be scheduled on a weekly basis.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                     The maintenance policy in effect.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
         retentionPolicies:
           description: |-
-            **[BackupRetentionPolicySpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
+            **[BackupRetentionPolicySpec](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
             Backup long-term retention policies setting.
           type: array
           items:
@@ -15103,6 +15124,1922 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      PostgresqlConfig18:
+        type: object
+        properties:
+          maxConnections:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maxPreparedTransactions:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maintenanceWorkMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          autovacuumWorkMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          vacuumCostDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          vacuumCostPageHit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          vacuumCostPageMiss:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          vacuumCostPageDirty:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          vacuumCostLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          bgwriterDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          bgwriterLruMaxpages:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          bgwriterLruMultiplier:
+            description: '**number** (double)'
+            type: number
+            format: double
+          bgwriterFlushAfter:
+            description: |-
+              **string** (int64)
+              in bytes
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: |-
+              **string** (int64)
+              in bytes
+            type: string
+            format: int64
+          walLevel:
+            description: |-
+              **enum** (WalLevel)
+              - `WAL_LEVEL_UNSPECIFIED`
+              - `WAL_LEVEL_REPLICA`
+              - `WAL_LEVEL_LOGICAL`
+            type: string
+            enum:
+              - WAL_LEVEL_UNSPECIFIED
+              - WAL_LEVEL_REPLICA
+              - WAL_LEVEL_LOGICAL
+          synchronousCommit:
+            description: |-
+              **enum** (SynchronousCommit)
+              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
+              - `SYNCHRONOUS_COMMIT_ON`
+              - `SYNCHRONOUS_COMMIT_OFF`
+              - `SYNCHRONOUS_COMMIT_LOCAL`
+              - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+              - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`
+            type: string
+            enum:
+              - SYNCHRONOUS_COMMIT_UNSPECIFIED
+              - SYNCHRONOUS_COMMIT_ON
+              - SYNCHRONOUS_COMMIT_OFF
+              - SYNCHRONOUS_COMMIT_LOCAL
+              - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+              - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+          checkpointTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          checkpointCompletionTarget:
+            description: '**number** (double)'
+            type: number
+            format: double
+          checkpointFlushAfter:
+            description: |-
+              **string** (int64)
+              in bytes
+            type: string
+            format: int64
+          maxWalSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          minWalSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          defaultStatisticsTarget:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          autovacuumMaxWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumCostDelay:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumCostLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumNaptime:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          archiveTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          trackActivityQuerySize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxWorkerProcesses:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumScaleFactor:
+            description: '**number** (double)'
+            type: number
+            format: double
+          autovacuumAnalyzeScaleFactor:
+            description: '**number** (double)'
+            type: number
+            format: double
+          defaultTransactionReadOnly:
+            description: '**boolean**'
+            type: boolean
+          timezone:
+            description: '**string**'
+            type: string
+          enableParallelAppend:
+            description: '**boolean**'
+            type: boolean
+          enableParallelHash:
+            description: '**boolean**'
+            type: boolean
+          enablePartitionPruning:
+            description: '**boolean**'
+            type: boolean
+          enablePartitionwiseAggregate:
+            description: '**boolean**'
+            type: boolean
+          enablePartitionwiseJoin:
+            description: '**boolean**'
+            type: boolean
+          jit:
+            description: '**boolean**'
+            type: boolean
+          maxParallelMaintenanceWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          parallelLeaderParticipation:
+            description: '**boolean**'
+            type: boolean
+          logTransactionSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          planCacheMode:
+            description: |-
+              **enum** (PlanCacheMode)
+              - `PLAN_CACHE_MODE_UNSPECIFIED`
+              - `PLAN_CACHE_MODE_AUTO`
+              - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
+              - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
+            type: string
+            enum:
+              - PLAN_CACHE_MODE_UNSPECIFIED
+              - PLAN_CACHE_MODE_AUTO
+              - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
+              - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          sharedPreloadLibraries:
+            description: |-
+              **enum** (SharedPreloadLibraries)
+              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
+              - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
+              - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
+              - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
+              - `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
+              - `SHARED_PRELOAD_LIBRARIES_PG_CRON`
+              - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
+              - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
+              - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+            type: array
+            items:
+              type: string
+              enum:
+                - SHARED_PRELOAD_LIBRARIES_UNSPECIFIED
+                - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+                - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+                - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+                - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+                - SHARED_PRELOAD_LIBRARIES_PG_CRON
+                - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+                - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+                - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+          autoExplainLogMinDuration:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          autoExplainLogAnalyze:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogBuffers:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogTiming:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogTriggers:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogVerbose:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogNestedStatements:
+            description: '**boolean**'
+            type: boolean
+          autoExplainSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          pgHintPlanEnableHint:
+            description: '**boolean**'
+            type: boolean
+          pgHintPlanEnableHintTable:
+            description: '**boolean**'
+            type: boolean
+          pgHintPlanDebugPrint:
+            description: |-
+              **enum** (PgHintPlanDebugPrint)
+              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
+              - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
+              - `PG_HINT_PLAN_DEBUG_PRINT_ON`
+              - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
+              - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`
+            type: string
+            enum:
+              - PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED
+              - PG_HINT_PLAN_DEBUG_PRINT_OFF
+              - PG_HINT_PLAN_DEBUG_PRINT_ON
+              - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+              - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+          pgHintPlanMessageLevel:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          hashMemMultiplier:
+            description: '**number** (double)'
+            type: number
+            format: double
+          logicalDecodingWorkMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maintenanceIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxSlotWalKeepSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          walKeepSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          enableIncrementalSort:
+            description: '**boolean**'
+            type: boolean
+          autovacuumVacuumInsertThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumInsertScaleFactor:
+            description: '**number** (double)'
+            type: number
+            format: double
+          logMinDurationSample:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logStatementSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          logParameterMaxLength:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          logParameterMaxLengthOnError:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          clientConnectionCheckInterval:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          enableAsyncAppend:
+            description: '**boolean**'
+            type: boolean
+          enableGathermerge:
+            description: '**boolean**'
+            type: boolean
+          enableMemoize:
+            description: '**boolean**'
+            type: boolean
+          logRecoveryConflictWaits:
+            description: |-
+              **boolean**
+              in milliseconds.
+            type: boolean
+          vacuumFailsafeAge:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          vacuumMultixactFailsafeAge:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          pgQualstatsEnabled:
+            description: '**boolean**'
+            type: boolean
+          pgQualstatsTrackConstants:
+            description: '**boolean**'
+            type: boolean
+          pgQualstatsMax:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          pgQualstatsResolveOids:
+            description: '**boolean**'
+            type: boolean
+          pgQualstatsSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          maxStackDepth:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          enableGroupByReordering:
+            description: '**boolean**'
+            type: boolean
+          geqo:
+            description: |-
+              **boolean**
+              enable Genetic Query Optimizer, by default is on
+            type: boolean
+          geqoThreshold:
+            description: |-
+              **string** (int64)
+              The number of tables to use geqo, default is 12
+            type: string
+            format: int64
+          geqoEffort:
+            description: |-
+              **string** (int64)
+              tradeoff between planning time and query plan quality, default is 5
+            type: string
+            format: int64
+          geqoPoolSize:
+            description: |-
+              **string** (int64)
+              number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            type: string
+            format: int64
+          geqoGenerations:
+            description: |-
+              **string** (int64)
+              the number of generations used by GEQO, useful values are in the same range as the pool size
+            type: string
+            format: int64
+          geqoSelectionBias:
+            description: |-
+              **number** (double)
+              selective pressure within the population
+            type: number
+            format: double
+          geqoSeed:
+            description: |-
+              **number** (double)
+              initial value of the random number generator used by GEQO
+            type: number
+            format: double
+          pgTrgmSimilarityThreshold:
+            description: '**number** (double)'
+            type: number
+            format: double
+          pgTrgmWordSimilarityThreshold:
+            description: '**number** (double)'
+            type: number
+            format: double
+          pgTrgmStrictWordSimilarityThreshold:
+            description: '**number** (double)'
+            type: number
+            format: double
+          maxStandbyArchiveDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sessionDurationTimeout:
+            description: |-
+              **string** (int64)
+              Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+            type: string
+            format: int64
+          logReplicationCommands:
+            description: '**boolean**'
+            type: boolean
+          logAutovacuumMinDuration:
+            description: |-
+              **string** (int64)
+              in milliseconds. The default is 1000 (1 sec).
+            type: string
+            format: int64
+          passwordEncryption:
+            description: |-
+              **enum** (PasswordEncryption)
+              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
+              - `PASSWORD_ENCRYPTION_MD5`
+              - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+            type: string
+            enum:
+              - PASSWORD_ENCRYPTION_UNSPECIFIED
+              - PASSWORD_ENCRYPTION_MD5
+              - PASSWORD_ENCRYPTION_SCRAM_SHA_256
+          autoExplainLogFormat:
+            description: |-
+              **enum** (AutoExplainLogFormat)
+              Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+              - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+              - `AUTO_EXPLAIN_LOG_FORMAT_XML`
+              - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+              - `AUTO_EXPLAIN_LOG_FORMAT_YAML`
+            type: string
+            enum:
+              - AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED
+              - AUTO_EXPLAIN_LOG_FORMAT_TEXT
+              - AUTO_EXPLAIN_LOG_FORMAT_XML
+              - AUTO_EXPLAIN_LOG_FORMAT_JSON
+              - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          trackCommitTimestamp:
+            description: '**boolean**'
+            type: boolean
+          maxLogicalReplicationWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxWalSenders:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxReplicationSlots:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlConfig18_1C:
+        type: object
+        properties:
+          maxConnections:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maxPreparedTransactions:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maintenanceWorkMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          autovacuumWorkMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          vacuumCostDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          vacuumCostPageHit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          vacuumCostPageMiss:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          vacuumCostPageDirty:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          vacuumCostLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          bgwriterDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          bgwriterLruMaxpages:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          bgwriterLruMultiplier:
+            description: '**number** (double)'
+            type: number
+            format: double
+          bgwriterFlushAfter:
+            description: |-
+              **string** (int64)
+              in bytes
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: |-
+              **string** (int64)
+              in bytes
+            type: string
+            format: int64
+          walLevel:
+            description: |-
+              **enum** (WalLevel)
+              - `WAL_LEVEL_UNSPECIFIED`
+              - `WAL_LEVEL_REPLICA`
+              - `WAL_LEVEL_LOGICAL`
+            type: string
+            enum:
+              - WAL_LEVEL_UNSPECIFIED
+              - WAL_LEVEL_REPLICA
+              - WAL_LEVEL_LOGICAL
+          synchronousCommit:
+            description: |-
+              **enum** (SynchronousCommit)
+              - `SYNCHRONOUS_COMMIT_UNSPECIFIED`
+              - `SYNCHRONOUS_COMMIT_ON`
+              - `SYNCHRONOUS_COMMIT_OFF`
+              - `SYNCHRONOUS_COMMIT_LOCAL`
+              - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+              - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`
+            type: string
+            enum:
+              - SYNCHRONOUS_COMMIT_UNSPECIFIED
+              - SYNCHRONOUS_COMMIT_ON
+              - SYNCHRONOUS_COMMIT_OFF
+              - SYNCHRONOUS_COMMIT_LOCAL
+              - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+              - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+          checkpointTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          checkpointCompletionTarget:
+            description: '**number** (double)'
+            type: number
+            format: double
+          checkpointFlushAfter:
+            description: |-
+              **string** (int64)
+              in bytes
+            type: string
+            format: int64
+          maxWalSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          minWalSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          defaultStatisticsTarget:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          autovacuumMaxWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumCostDelay:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumCostLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumNaptime:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          archiveTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          trackActivityQuerySize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          onlineAnalyzeEnable:
+            description: '**boolean**'
+            type: boolean
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxWorkerProcesses:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumScaleFactor:
+            description: '**number** (double)'
+            type: number
+            format: double
+          autovacuumAnalyzeScaleFactor:
+            description: '**number** (double)'
+            type: number
+            format: double
+          defaultTransactionReadOnly:
+            description: '**boolean**'
+            type: boolean
+          timezone:
+            description: '**string**'
+            type: string
+          enableParallelAppend:
+            description: '**boolean**'
+            type: boolean
+          enableParallelHash:
+            description: '**boolean**'
+            type: boolean
+          enablePartitionPruning:
+            description: '**boolean**'
+            type: boolean
+          enablePartitionwiseAggregate:
+            description: '**boolean**'
+            type: boolean
+          enablePartitionwiseJoin:
+            description: '**boolean**'
+            type: boolean
+          jit:
+            description: '**boolean**'
+            type: boolean
+          maxParallelMaintenanceWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          parallelLeaderParticipation:
+            description: '**boolean**'
+            type: boolean
+          logTransactionSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          planCacheMode:
+            description: |-
+              **enum** (PlanCacheMode)
+              - `PLAN_CACHE_MODE_UNSPECIFIED`
+              - `PLAN_CACHE_MODE_AUTO`
+              - `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
+              - `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`
+            type: string
+            enum:
+              - PLAN_CACHE_MODE_UNSPECIFIED
+              - PLAN_CACHE_MODE_AUTO
+              - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
+              - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          sharedPreloadLibraries:
+            description: |-
+              **enum** (SharedPreloadLibraries)
+              - `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
+              - `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
+              - `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
+              - `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
+              - `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
+              - `SHARED_PRELOAD_LIBRARIES_PG_CRON`
+              - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
+              - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
+              - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+            type: array
+            items:
+              type: string
+              enum:
+                - SHARED_PRELOAD_LIBRARIES_UNSPECIFIED
+                - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+                - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+                - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+                - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
+                - SHARED_PRELOAD_LIBRARIES_PG_CRON
+                - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+                - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+                - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+          autoExplainLogMinDuration:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          autoExplainLogAnalyze:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogBuffers:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogTiming:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogTriggers:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogVerbose:
+            description: '**boolean**'
+            type: boolean
+          autoExplainLogNestedStatements:
+            description: '**boolean**'
+            type: boolean
+          autoExplainSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          pgHintPlanEnableHint:
+            description: '**boolean**'
+            type: boolean
+          pgHintPlanEnableHintTable:
+            description: '**boolean**'
+            type: boolean
+          pgHintPlanDebugPrint:
+            description: |-
+              **enum** (PgHintPlanDebugPrint)
+              - `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
+              - `PG_HINT_PLAN_DEBUG_PRINT_OFF`
+              - `PG_HINT_PLAN_DEBUG_PRINT_ON`
+              - `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
+              - `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`
+            type: string
+            enum:
+              - PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED
+              - PG_HINT_PLAN_DEBUG_PRINT_OFF
+              - PG_HINT_PLAN_DEBUG_PRINT_ON
+              - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+              - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+          pgHintPlanMessageLevel:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          hashMemMultiplier:
+            description: '**number** (double)'
+            type: number
+            format: double
+          logicalDecodingWorkMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          maintenanceIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxSlotWalKeepSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          walKeepSize:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          enableIncrementalSort:
+            description: '**boolean**'
+            type: boolean
+          autovacuumVacuumInsertThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          autovacuumVacuumInsertScaleFactor:
+            description: '**number** (double)'
+            type: number
+            format: double
+          logMinDurationSample:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logStatementSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          logParameterMaxLength:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          logParameterMaxLengthOnError:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          clientConnectionCheckInterval:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          enableAsyncAppend:
+            description: '**boolean**'
+            type: boolean
+          enableGathermerge:
+            description: '**boolean**'
+            type: boolean
+          enableMemoize:
+            description: '**boolean**'
+            type: boolean
+          logRecoveryConflictWaits:
+            description: |-
+              **boolean**
+              in milliseconds.
+            type: boolean
+          vacuumFailsafeAge:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          vacuumMultixactFailsafeAge:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          pgQualstatsEnabled:
+            description: '**boolean**'
+            type: boolean
+          pgQualstatsTrackConstants:
+            description: '**boolean**'
+            type: boolean
+          pgQualstatsMax:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          pgQualstatsResolveOids:
+            description: '**boolean**'
+            type: boolean
+          pgQualstatsSampleRate:
+            description: '**number** (double)'
+            type: number
+            format: double
+          plantunerFixEmptyTable:
+            description: '**boolean**'
+            type: boolean
+          maxStackDepth:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          enableGroupByReordering:
+            description: '**boolean**'
+            type: boolean
+          geqo:
+            description: |-
+              **boolean**
+              enable Genetic Query Optimizer, by default is on
+            type: boolean
+          geqoThreshold:
+            description: |-
+              **string** (int64)
+              The number of tables to use geqo, default is 12
+            type: string
+            format: int64
+          geqoEffort:
+            description: |-
+              **string** (int64)
+              tradeoff between planning time and query plan quality, default is 5
+            type: string
+            format: int64
+          geqoPoolSize:
+            description: |-
+              **string** (int64)
+              number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            type: string
+            format: int64
+          geqoGenerations:
+            description: |-
+              **string** (int64)
+              the number of generations used by GEQO, useful values are in the same range as the pool size
+            type: string
+            format: int64
+          geqoSelectionBias:
+            description: |-
+              **number** (double)
+              selective pressure within the population
+            type: number
+            format: double
+          geqoSeed:
+            description: |-
+              **number** (double)
+              initial value of the random number generator used by GEQO
+            type: number
+            format: double
+          pgTrgmSimilarityThreshold:
+            description: '**number** (double)'
+            type: number
+            format: double
+          pgTrgmWordSimilarityThreshold:
+            description: '**number** (double)'
+            type: number
+            format: double
+          pgTrgmStrictWordSimilarityThreshold:
+            description: '**number** (double)'
+            type: number
+            format: double
+          maxStandbyArchiveDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sessionDurationTimeout:
+            description: |-
+              **string** (int64)
+              Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
+            type: string
+            format: int64
+          logReplicationCommands:
+            description: '**boolean**'
+            type: boolean
+          logAutovacuumMinDuration:
+            description: |-
+              **string** (int64)
+              in milliseconds. The default is 1000 (1 sec).
+            type: string
+            format: int64
+          passwordEncryption:
+            description: |-
+              **enum** (PasswordEncryption)
+              A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+              - `PASSWORD_ENCRYPTION_UNSPECIFIED`
+              - `PASSWORD_ENCRYPTION_MD5`
+              - `PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+            type: string
+            enum:
+              - PASSWORD_ENCRYPTION_UNSPECIFIED
+              - PASSWORD_ENCRYPTION_MD5
+              - PASSWORD_ENCRYPTION_SCRAM_SHA_256
+          autoExplainLogFormat:
+            description: |-
+              **enum** (AutoExplainLogFormat)
+              Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+              - `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+              - `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+              - `AUTO_EXPLAIN_LOG_FORMAT_XML`
+              - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+              - `AUTO_EXPLAIN_LOG_FORMAT_YAML`
+            type: string
+            enum:
+              - AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED
+              - AUTO_EXPLAIN_LOG_FORMAT_TEXT
+              - AUTO_EXPLAIN_LOG_FORMAT_XML
+              - AUTO_EXPLAIN_LOG_FORMAT_JSON
+              - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          trackCommitTimestamp:
+            description: '**boolean**'
+            type: boolean
+          maxLogicalReplicationWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxWalSenders:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxReplicationSlots:
+            description: '**string** (int64)'
+            type: string
+            format: int64
       Extension:
         type: object
         properties:
@@ -15150,7 +17087,7 @@ apiPlayground:
             type: string
           extensions:
             description: |-
-              **[Extension](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Extension)**
+              **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
               PostgreSQL extensions to be enabled for the database.
             type: array
             items:
@@ -15361,7 +17298,7 @@ apiPlayground:
             format: int64
           pgaudit:
             description: |-
-              **[PGAuditSettings](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
+              **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
               Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
             $ref: '#/definitions/PGAuditSettings'
       UserSpec:
@@ -15380,7 +17317,7 @@ apiPlayground:
             type: string
           permissions:
             description: |-
-              **[Permission](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Permission)**
+              **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
               Set of permissions to grant to the user to access specific databases.
             type: array
             items:
@@ -15389,14 +17326,14 @@ apiPlayground:
             description: |-
               **string** (int64)
               Maximum number of database connections that should be available to the user.
-              When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the `Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections` setting.
+              When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12) setting.
               When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
               Minimum value: `10` (default: `50`), when used in session pooling.
             type: string
             format: int64
           settings:
             description: |-
-              **[UserSettings](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings)**
+              **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**
               PostgreSQL settings for the user.
             $ref: '#/definitions/UserSettings'
           login:
@@ -22563,6 +24500,836 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      PostgresqlHostConfig18:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig18_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
       HostSpec:
         type: object
         properties:
@@ -22577,7 +25344,7 @@ apiPlayground:
               **string**
               ID of the subnet that the host should belong to. This subnet should be a part
               of the network that the cluster belongs to.
-              The ID of the network is set in the field [Cluster.networkId](/docs/managed-postgresql/api-ref/Cluster/get#yandex.cloud.mdb.postgresql.v1.Cluster).
+              The ID of the network is set in the field [Cluster.networkId](#yandex.cloud.mdb.postgresql.v1.Cluster).
             type: string
           assignPublicIp:
             description: |-
@@ -22605,113 +25372,125 @@ apiPlayground:
             format: int64
           configSpec:
             description: |-
-              **[ConfigHostSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
+              **[ConfigHostSpec](#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
               Configuration of a PostgreSQL server for the host.
             oneOf:
               - type: object
                 properties:
                   postgresqlConfig_9_6:
                     description: |-
-                      **`PostgresqlHostConfig9_6`**
+                      **[PostgresqlHostConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6)**
                       Configuration for a host with PostgreSQL 9.6 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig9_6'
                   postgresqlConfig_10_1c:
                     description: |-
-                      **`PostgresqlHostConfig10_1C`**
+                      **[PostgresqlHostConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C)**
                       Configuration for a host with PostgreSQL 10 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig10_1C'
                   postgresqlConfig_10:
                     description: |-
-                      **`PostgresqlHostConfig10`**
+                      **[PostgresqlHostConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10)**
                       Configuration for a host with PostgreSQL 10 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig10'
                   postgresqlConfig_11:
                     description: |-
-                      **`PostgresqlHostConfig11`**
+                      **[PostgresqlHostConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11)**
                       Configuration for a host with PostgreSQL 11 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig11'
                   postgresqlConfig_11_1c:
                     description: |-
-                      **`PostgresqlHostConfig11_1C`**
+                      **[PostgresqlHostConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C)**
                       Configuration for a host with PostgreSQL 11 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig11_1C'
                   postgresqlConfig_12:
                     description: |-
-                      **`PostgresqlHostConfig12`**
+                      **[PostgresqlHostConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12)**
                       Configuration for a host with PostgreSQL 12 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig12'
                   postgresqlConfig_12_1c:
                     description: |-
-                      **`PostgresqlHostConfig12_1C`**
+                      **[PostgresqlHostConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C)**
                       Configuration for a host with PostgreSQL 12 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig12_1C'
                   postgresqlConfig_13:
                     description: |-
-                      **`PostgresqlHostConfig13`**
+                      **[PostgresqlHostConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13)**
                       Configuration for a host with PostgreSQL 13 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig13'
                   postgresqlConfig_13_1c:
                     description: |-
-                      **`PostgresqlHostConfig13_1C`**
+                      **[PostgresqlHostConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C)**
                       Configuration for a host with PostgreSQL 13 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig13_1C'
                   postgresqlConfig_14:
                     description: |-
-                      **`PostgresqlHostConfig14`**
+                      **[PostgresqlHostConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14)**
                       Configuration for a host with PostgreSQL 14 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig14'
                   postgresqlConfig_14_1c:
                     description: |-
-                      **`PostgresqlHostConfig14_1C`**
+                      **[PostgresqlHostConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C)**
                       Configuration for a host with PostgreSQL 14 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig14_1C'
                   postgresqlConfig_15:
                     description: |-
-                      **`PostgresqlHostConfig15`**
+                      **[PostgresqlHostConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15)**
                       Configuration for a host with PostgreSQL 15 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig15'
                   postgresqlConfig_15_1c:
                     description: |-
-                      **`PostgresqlHostConfig15_1C`**
+                      **[PostgresqlHostConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C)**
                       Configuration for a host with PostgreSQL 15 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig15_1C'
                   postgresqlConfig_16:
                     description: |-
-                      **`PostgresqlHostConfig16`**
+                      **[PostgresqlHostConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16)**
                       Configuration for a host with PostgreSQL 16 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig16'
                   postgresqlConfig_16_1c:
                     description: |-
-                      **`PostgresqlHostConfig16_1C`**
+                      **[PostgresqlHostConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C)**
                       Configuration for a host with PostgreSQL 16 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig16_1C'
                   postgresqlConfig_17:
                     description: |-
-                      **`PostgresqlHostConfig17`**
+                      **[PostgresqlHostConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17)**
                       Configuration for a host with PostgreSQL 17 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig17'
                   postgresqlConfig_17_1c:
                     description: |-
-                      **`PostgresqlHostConfig17_1C`**
+                      **[PostgresqlHostConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C)**
                       Configuration for a host with PostgreSQL 17 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
                     $ref: '#/definitions/PostgresqlHostConfig17_1C'
+                  postgresqlConfig_18:
+                    description: |-
+                      **[PostgresqlHostConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18)**
+                      Configuration for a host with PostgreSQL 18 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig18'
+                  postgresqlConfig_18_1c:
+                    description: |-
+                      **[PostgresqlHostConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C)**
+                      Configuration for a host with PostgreSQL 18 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig18_1C'
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -22768,7 +25547,7 @@ apiPlayground:
             type: string
           cron:
             description: |-
-              **[CronTab](/docs/managed-postgresql/api-ref/BackupRetentionPolicy/list#yandex.cloud.mdb.postgresql.v1.CronTab)**
+              **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
               CronTab schedule.
             $ref: '#/definitions/CronTab'
           retainForDays:
@@ -22808,7 +25587,7 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
   "environment": "string",
   "configSpec": {
     "version": "string",
-    // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`
+    // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
     "postgresqlConfig_9_6": {
       "maxConnections": "string",
       "sharedBuffers": "string",
@@ -25392,6 +28171,344 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "maxWalSenders": "string",
       "maxReplicationSlots": "string"
     },
+    "postgresqlConfig_18": {
+      "maxConnections": "string",
+      "sharedBuffers": "string",
+      "tempBuffers": "string",
+      "maxPreparedTransactions": "string",
+      "workMem": "string",
+      "maintenanceWorkMem": "string",
+      "autovacuumWorkMem": "string",
+      "tempFileLimit": "string",
+      "vacuumCostDelay": "string",
+      "vacuumCostPageHit": "string",
+      "vacuumCostPageMiss": "string",
+      "vacuumCostPageDirty": "string",
+      "vacuumCostLimit": "string",
+      "bgwriterDelay": "string",
+      "bgwriterLruMaxpages": "string",
+      "bgwriterLruMultiplier": "number",
+      "bgwriterFlushAfter": "string",
+      "backendFlushAfter": "string",
+      "walLevel": "string",
+      "synchronousCommit": "string",
+      "checkpointTimeout": "string",
+      "checkpointCompletionTarget": "number",
+      "checkpointFlushAfter": "string",
+      "maxWalSize": "string",
+      "minWalSize": "string",
+      "maxStandbyStreamingDelay": "string",
+      "defaultStatisticsTarget": "string",
+      "constraintExclusion": "string",
+      "cursorTupleFraction": "number",
+      "fromCollapseLimit": "string",
+      "joinCollapseLimit": "string",
+      "debugParallelQuery": "string",
+      "clientMinMessages": "string",
+      "logMinMessages": "string",
+      "logMinErrorStatement": "string",
+      "logMinDurationStatement": "string",
+      "logCheckpoints": "boolean",
+      "logConnections": "boolean",
+      "logDisconnections": "boolean",
+      "logDuration": "boolean",
+      "logErrorVerbosity": "string",
+      "logLockWaits": "boolean",
+      "logStatement": "string",
+      "logTempFiles": "string",
+      "searchPath": "string",
+      "rowSecurity": "boolean",
+      "defaultTransactionIsolation": "string",
+      "statementTimeout": "string",
+      "lockTimeout": "string",
+      "idleInTransactionSessionTimeout": "string",
+      "byteaOutput": "string",
+      "xmlbinary": "string",
+      "xmloption": "string",
+      "ginPendingListLimit": "string",
+      "deadlockTimeout": "string",
+      "maxLocksPerTransaction": "string",
+      "maxPredLocksPerTransaction": "string",
+      "arrayNulls": "boolean",
+      "backslashQuote": "string",
+      "defaultWithOids": "boolean",
+      "escapeStringWarning": "boolean",
+      "loCompatPrivileges": "boolean",
+      "quoteAllIdentifiers": "boolean",
+      "standardConformingStrings": "boolean",
+      "synchronizeSeqscans": "boolean",
+      "transformNullEquals": "boolean",
+      "exitOnError": "boolean",
+      "seqPageCost": "number",
+      "randomPageCost": "number",
+      "autovacuumMaxWorkers": "string",
+      "autovacuumVacuumCostDelay": "string",
+      "autovacuumVacuumCostLimit": "string",
+      "autovacuumNaptime": "string",
+      "archiveTimeout": "string",
+      "trackActivityQuerySize": "string",
+      "enableBitmapscan": "boolean",
+      "enableHashagg": "boolean",
+      "enableHashjoin": "boolean",
+      "enableIndexscan": "boolean",
+      "enableIndexonlyscan": "boolean",
+      "enableMaterial": "boolean",
+      "enableMergejoin": "boolean",
+      "enableNestloop": "boolean",
+      "enableSeqscan": "boolean",
+      "enableSort": "boolean",
+      "enableTidscan": "boolean",
+      "maxWorkerProcesses": "string",
+      "maxParallelWorkers": "string",
+      "maxParallelWorkersPerGather": "string",
+      "autovacuumVacuumScaleFactor": "number",
+      "autovacuumAnalyzeScaleFactor": "number",
+      "defaultTransactionReadOnly": "boolean",
+      "timezone": "string",
+      "enableParallelAppend": "boolean",
+      "enableParallelHash": "boolean",
+      "enablePartitionPruning": "boolean",
+      "enablePartitionwiseAggregate": "boolean",
+      "enablePartitionwiseJoin": "boolean",
+      "jit": "boolean",
+      "maxParallelMaintenanceWorkers": "string",
+      "parallelLeaderParticipation": "boolean",
+      "logTransactionSampleRate": "number",
+      "planCacheMode": "string",
+      "effectiveIoConcurrency": "string",
+      "effectiveCacheSize": "string",
+      "sharedPreloadLibraries": [
+        "string"
+      ],
+      "autoExplainLogMinDuration": "string",
+      "autoExplainLogAnalyze": "boolean",
+      "autoExplainLogBuffers": "boolean",
+      "autoExplainLogTiming": "boolean",
+      "autoExplainLogTriggers": "boolean",
+      "autoExplainLogVerbose": "boolean",
+      "autoExplainLogNestedStatements": "boolean",
+      "autoExplainSampleRate": "number",
+      "pgHintPlanEnableHint": "boolean",
+      "pgHintPlanEnableHintTable": "boolean",
+      "pgHintPlanDebugPrint": "string",
+      "pgHintPlanMessageLevel": "string",
+      "hashMemMultiplier": "number",
+      "logicalDecodingWorkMem": "string",
+      "maintenanceIoConcurrency": "string",
+      "maxSlotWalKeepSize": "string",
+      "walKeepSize": "string",
+      "enableIncrementalSort": "boolean",
+      "autovacuumVacuumInsertThreshold": "string",
+      "autovacuumVacuumInsertScaleFactor": "number",
+      "logMinDurationSample": "string",
+      "logStatementSampleRate": "number",
+      "logParameterMaxLength": "string",
+      "logParameterMaxLengthOnError": "string",
+      "clientConnectionCheckInterval": "string",
+      "enableAsyncAppend": "boolean",
+      "enableGathermerge": "boolean",
+      "enableMemoize": "boolean",
+      "logRecoveryConflictWaits": "boolean",
+      "vacuumFailsafeAge": "string",
+      "vacuumMultixactFailsafeAge": "string",
+      "pgQualstatsEnabled": "boolean",
+      "pgQualstatsTrackConstants": "boolean",
+      "pgQualstatsMax": "string",
+      "pgQualstatsResolveOids": "boolean",
+      "pgQualstatsSampleRate": "number",
+      "maxStackDepth": "string",
+      "enableGroupByReordering": "boolean",
+      "geqo": "boolean",
+      "geqoThreshold": "string",
+      "geqoEffort": "string",
+      "geqoPoolSize": "string",
+      "geqoGenerations": "string",
+      "geqoSelectionBias": "number",
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "string",
+      "sessionDurationTimeout": "string",
+      "logReplicationCommands": "boolean",
+      "logAutovacuumMinDuration": "string",
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string",
+      "trackCommitTimestamp": "boolean",
+      "maxLogicalReplicationWorkers": "string",
+      "maxWalSenders": "string",
+      "maxReplicationSlots": "string"
+    },
+    "postgresqlConfig_18_1c": {
+      "maxConnections": "string",
+      "sharedBuffers": "string",
+      "tempBuffers": "string",
+      "maxPreparedTransactions": "string",
+      "workMem": "string",
+      "maintenanceWorkMem": "string",
+      "autovacuumWorkMem": "string",
+      "tempFileLimit": "string",
+      "vacuumCostDelay": "string",
+      "vacuumCostPageHit": "string",
+      "vacuumCostPageMiss": "string",
+      "vacuumCostPageDirty": "string",
+      "vacuumCostLimit": "string",
+      "bgwriterDelay": "string",
+      "bgwriterLruMaxpages": "string",
+      "bgwriterLruMultiplier": "number",
+      "bgwriterFlushAfter": "string",
+      "backendFlushAfter": "string",
+      "walLevel": "string",
+      "synchronousCommit": "string",
+      "checkpointTimeout": "string",
+      "checkpointCompletionTarget": "number",
+      "checkpointFlushAfter": "string",
+      "maxWalSize": "string",
+      "minWalSize": "string",
+      "maxStandbyStreamingDelay": "string",
+      "defaultStatisticsTarget": "string",
+      "constraintExclusion": "string",
+      "cursorTupleFraction": "number",
+      "fromCollapseLimit": "string",
+      "joinCollapseLimit": "string",
+      "debugParallelQuery": "string",
+      "clientMinMessages": "string",
+      "logMinMessages": "string",
+      "logMinErrorStatement": "string",
+      "logMinDurationStatement": "string",
+      "logCheckpoints": "boolean",
+      "logConnections": "boolean",
+      "logDisconnections": "boolean",
+      "logDuration": "boolean",
+      "logErrorVerbosity": "string",
+      "logLockWaits": "boolean",
+      "logStatement": "string",
+      "logTempFiles": "string",
+      "searchPath": "string",
+      "rowSecurity": "boolean",
+      "defaultTransactionIsolation": "string",
+      "statementTimeout": "string",
+      "lockTimeout": "string",
+      "idleInTransactionSessionTimeout": "string",
+      "byteaOutput": "string",
+      "xmlbinary": "string",
+      "xmloption": "string",
+      "ginPendingListLimit": "string",
+      "deadlockTimeout": "string",
+      "maxLocksPerTransaction": "string",
+      "maxPredLocksPerTransaction": "string",
+      "arrayNulls": "boolean",
+      "backslashQuote": "string",
+      "defaultWithOids": "boolean",
+      "escapeStringWarning": "boolean",
+      "loCompatPrivileges": "boolean",
+      "quoteAllIdentifiers": "boolean",
+      "standardConformingStrings": "boolean",
+      "synchronizeSeqscans": "boolean",
+      "transformNullEquals": "boolean",
+      "exitOnError": "boolean",
+      "seqPageCost": "number",
+      "randomPageCost": "number",
+      "autovacuumMaxWorkers": "string",
+      "autovacuumVacuumCostDelay": "string",
+      "autovacuumVacuumCostLimit": "string",
+      "autovacuumNaptime": "string",
+      "archiveTimeout": "string",
+      "trackActivityQuerySize": "string",
+      "onlineAnalyzeEnable": "boolean",
+      "enableBitmapscan": "boolean",
+      "enableHashagg": "boolean",
+      "enableHashjoin": "boolean",
+      "enableIndexscan": "boolean",
+      "enableIndexonlyscan": "boolean",
+      "enableMaterial": "boolean",
+      "enableMergejoin": "boolean",
+      "enableNestloop": "boolean",
+      "enableSeqscan": "boolean",
+      "enableSort": "boolean",
+      "enableTidscan": "boolean",
+      "maxWorkerProcesses": "string",
+      "maxParallelWorkers": "string",
+      "maxParallelWorkersPerGather": "string",
+      "autovacuumVacuumScaleFactor": "number",
+      "autovacuumAnalyzeScaleFactor": "number",
+      "defaultTransactionReadOnly": "boolean",
+      "timezone": "string",
+      "enableParallelAppend": "boolean",
+      "enableParallelHash": "boolean",
+      "enablePartitionPruning": "boolean",
+      "enablePartitionwiseAggregate": "boolean",
+      "enablePartitionwiseJoin": "boolean",
+      "jit": "boolean",
+      "maxParallelMaintenanceWorkers": "string",
+      "parallelLeaderParticipation": "boolean",
+      "logTransactionSampleRate": "number",
+      "planCacheMode": "string",
+      "effectiveIoConcurrency": "string",
+      "effectiveCacheSize": "string",
+      "sharedPreloadLibraries": [
+        "string"
+      ],
+      "autoExplainLogMinDuration": "string",
+      "autoExplainLogAnalyze": "boolean",
+      "autoExplainLogBuffers": "boolean",
+      "autoExplainLogTiming": "boolean",
+      "autoExplainLogTriggers": "boolean",
+      "autoExplainLogVerbose": "boolean",
+      "autoExplainLogNestedStatements": "boolean",
+      "autoExplainSampleRate": "number",
+      "pgHintPlanEnableHint": "boolean",
+      "pgHintPlanEnableHintTable": "boolean",
+      "pgHintPlanDebugPrint": "string",
+      "pgHintPlanMessageLevel": "string",
+      "hashMemMultiplier": "number",
+      "logicalDecodingWorkMem": "string",
+      "maintenanceIoConcurrency": "string",
+      "maxSlotWalKeepSize": "string",
+      "walKeepSize": "string",
+      "enableIncrementalSort": "boolean",
+      "autovacuumVacuumInsertThreshold": "string",
+      "autovacuumVacuumInsertScaleFactor": "number",
+      "logMinDurationSample": "string",
+      "logStatementSampleRate": "number",
+      "logParameterMaxLength": "string",
+      "logParameterMaxLengthOnError": "string",
+      "clientConnectionCheckInterval": "string",
+      "enableAsyncAppend": "boolean",
+      "enableGathermerge": "boolean",
+      "enableMemoize": "boolean",
+      "logRecoveryConflictWaits": "boolean",
+      "vacuumFailsafeAge": "string",
+      "vacuumMultixactFailsafeAge": "string",
+      "pgQualstatsEnabled": "boolean",
+      "pgQualstatsTrackConstants": "boolean",
+      "pgQualstatsMax": "string",
+      "pgQualstatsResolveOids": "boolean",
+      "pgQualstatsSampleRate": "number",
+      "plantunerFixEmptyTable": "boolean",
+      "maxStackDepth": "string",
+      "enableGroupByReordering": "boolean",
+      "geqo": "boolean",
+      "geqoThreshold": "string",
+      "geqoEffort": "string",
+      "geqoPoolSize": "string",
+      "geqoGenerations": "string",
+      "geqoSelectionBias": "number",
+      "geqoSeed": "number",
+      "pgTrgmSimilarityThreshold": "number",
+      "pgTrgmWordSimilarityThreshold": "number",
+      "pgTrgmStrictWordSimilarityThreshold": "number",
+      "maxStandbyArchiveDelay": "string",
+      "sessionDurationTimeout": "string",
+      "logReplicationCommands": "boolean",
+      "logAutovacuumMinDuration": "string",
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string",
+      "trackCommitTimestamp": "boolean",
+      "maxLogicalReplicationWorkers": "string",
+      "maxWalSenders": "string",
+      "maxReplicationSlots": "string"
+    },
     // end of the list of possible fields
     "poolerConfig": {
       "poolingMode": "string",
@@ -25490,7 +28607,7 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "replicationSource": "string",
       "priority": "string",
       "configSpec": {
-        // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`
+        // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
         "postgresqlConfig_9_6": {
           "recoveryMinApplyDelay": "string",
           "sharedBuffers": "string",
@@ -26643,6 +29760,140 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
           "timezone": "string",
           "effectiveIoConcurrency": "string",
           "effectiveCacheSize": "string"
+        },
+        "postgresqlConfig_18": {
+          "recoveryMinApplyDelay": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "workMem": "string",
+          "tempFileLimit": "string",
+          "backendFlushAfter": "string",
+          "maxStandbyStreamingDelay": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "timezone": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string"
+        },
+        "postgresqlConfig_18_1c": {
+          "recoveryMinApplyDelay": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "workMem": "string",
+          "tempFileLimit": "string",
+          "backendFlushAfter": "string",
+          "maxStandbyStreamingDelay": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "timezone": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string"
         }
         // end of the list of possible fields
       }
@@ -26747,124 +29998,138 @@ ID of the key to encrypt cluster disks. ||
 || version | **string**
 
 Version of PostgreSQL used in the cluster.
-Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`, `16`, `17` ||
+Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18` ||
 || postgresqlConfig_9_6 | **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
 
 Configuration for a PostgreSQL 9.6 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_10_1c | **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
 
 Configuration for a PostgreSQL 10 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_10 | **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
 
 Configuration for a PostgreSQL 10 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_11 | **[PostgresqlConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11)**
 
 Configuration for a PostgreSQL 11 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_11_1c | **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
 
 Configuration for a PostgreSQL 11 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_12 | **[PostgresqlConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12)**
 
 Configuration for a PostgreSQL 12 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_12_1c | **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
 
 Configuration for a PostgreSQL 12 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_13 | **[PostgresqlConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13)**
 
 Configuration for a PostgreSQL 13 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_13_1c | **[PostgresqlConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13_1C)**
 
 Configuration for a PostgreSQL 13 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_14 | **[PostgresqlConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14)**
 
 Configuration for a PostgreSQL 14 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_14_1c | **[PostgresqlConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C)**
 
 Configuration for a PostgreSQL 14 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_15 | **[PostgresqlConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15)**
 
 Configuration for a PostgreSQL 15 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_15_1c | **[PostgresqlConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C)**
 
 Configuration for a PostgreSQL 15 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_16 | **[PostgresqlConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16)**
 
 Configuration for a PostgreSQL 16 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_16_1c | **[PostgresqlConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C)**
 
 Configuration for a PostgreSQL 16 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_17 | **[PostgresqlConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17)**
 
 Configuration for a PostgreSQL 17 cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || postgresqlConfig_17_1c | **[PostgresqlConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C)**
 
 Configuration for a PostgreSQL 17 1C cluster.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+
+Configuration of a PostgreSQL cluster. ||
+|| postgresqlConfig_18 | **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18)**
+
+Configuration for a PostgreSQL 18 cluster.
+
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+
+Configuration of a PostgreSQL cluster. ||
+|| postgresqlConfig_18_1c | **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C)**
+
+Configuration for a PostgreSQL 18 1C cluster.
+
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration of a PostgreSQL cluster. ||
 || poolerConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig)**
@@ -33251,6 +36516,832 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 || maxReplicationSlots | **string** (int64) ||
 |#
 
+## PostgresqlConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/18/runtime-config.html).
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64) ||
+|| sharedBuffers | **string** (int64)
+
+in bytes. ||
+|| tempBuffers | **string** (int64)
+
+in bytes. ||
+|| maxPreparedTransactions | **string** (int64) ||
+|| workMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceWorkMem | **string** (int64)
+
+in bytes. ||
+|| autovacuumWorkMem | **string** (int64)
+
+in bytes. ||
+|| tempFileLimit | **string** (int64)
+
+in bytes. ||
+|| vacuumCostDelay | **string** (int64)
+
+in milliseconds. ||
+|| vacuumCostPageHit | **string** (int64) ||
+|| vacuumCostPageMiss | **string** (int64) ||
+|| vacuumCostPageDirty | **string** (int64) ||
+|| vacuumCostLimit | **string** (int64) ||
+|| bgwriterDelay | **string** (int64)
+
+in milliseconds. ||
+|| bgwriterLruMaxpages | **string** (int64) ||
+|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterFlushAfter | **string** (int64)
+
+in bytes ||
+|| backendFlushAfter | **string** (int64)
+
+in bytes ||
+|| walLevel | **enum** (WalLevel)
+
+- `WAL_LEVEL_UNSPECIFIED`
+- `WAL_LEVEL_REPLICA`
+- `WAL_LEVEL_LOGICAL` ||
+|| synchronousCommit | **enum** (SynchronousCommit)
+
+- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
+- `SYNCHRONOUS_COMMIT_ON`
+- `SYNCHRONOUS_COMMIT_OFF`
+- `SYNCHRONOUS_COMMIT_LOCAL`
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+|| checkpointTimeout | **string** (int64)
+
+in milliseconds. ||
+|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointFlushAfter | **string** (int64)
+
+in bytes ||
+|| maxWalSize | **string** (int64)
+
+in bytes. ||
+|| minWalSize | **string** (int64)
+
+in bytes. ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+in milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64) ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+- `CONSTRAINT_EXCLUSION_ON`
+- `CONSTRAINT_EXCLUSION_OFF`
+- `CONSTRAINT_EXCLUSION_PARTITION` ||
+|| cursorTupleFraction | **number** (double) ||
+|| fromCollapseLimit | **string** (int64) ||
+|| joinCollapseLimit | **string** (int64) ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+- `DEBUG_PARALLEL_QUERY_ON`
+- `DEBUG_PARALLEL_QUERY_OFF`
+- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+|| clientMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinDurationStatement | **string** (int64)
+
+in milliseconds. ||
+|| logCheckpoints | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logDuration | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+- `LOG_ERROR_VERBOSITY_TERSE`
+- `LOG_ERROR_VERBOSITY_DEFAULT`
+- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+|| logLockWaits | **boolean** ||
+|| logStatement | **enum** (LogStatement)
+
+- `LOG_STATEMENT_UNSPECIFIED`
+- `LOG_STATEMENT_NONE`
+- `LOG_STATEMENT_DDL`
+- `LOG_STATEMENT_MOD`
+- `LOG_STATEMENT_ALL` ||
+|| logTempFiles | **string** (int64) ||
+|| searchPath | **string** ||
+|| rowSecurity | **boolean** ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+- `TRANSACTION_ISOLATION_READ_COMMITTED`
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`
+- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+|| statementTimeout | **string** (int64)
+
+in milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+in milliseconds. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+- `BYTEA_OUTPUT_UNSPECIFIED`
+- `BYTEA_OUTPUT_HEX`
+- `BYTEA_OUTPUT_ESCAPED` ||
+|| xmlbinary | **enum** (XmlBinary)
+
+- `XML_BINARY_UNSPECIFIED`
+- `XML_BINARY_BASE64`
+- `XML_BINARY_HEX` ||
+|| xmloption | **enum** (XmlOption)
+
+- `XML_OPTION_UNSPECIFIED`
+- `XML_OPTION_DOCUMENT`
+- `XML_OPTION_CONTENT` ||
+|| ginPendingListLimit | **string** (int64)
+
+in bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| maxLocksPerTransaction | **string** (int64) ||
+|| maxPredLocksPerTransaction | **string** (int64) ||
+|| arrayNulls | **boolean** ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+- `BACKSLASH_QUOTE_UNSPECIFIED`
+- `BACKSLASH_QUOTE`
+- `BACKSLASH_QUOTE_ON`
+- `BACKSLASH_QUOTE_OFF`
+- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+|| defaultWithOids | **boolean** ||
+|| escapeStringWarning | **boolean** ||
+|| loCompatPrivileges | **boolean** ||
+|| quoteAllIdentifiers | **boolean** ||
+|| standardConformingStrings | **boolean** ||
+|| synchronizeSeqscans | **boolean** ||
+|| transformNullEquals | **boolean** ||
+|| exitOnError | **boolean** ||
+|| seqPageCost | **number** (double) ||
+|| randomPageCost | **number** (double) ||
+|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64) ||
+|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumNaptime | **string** (int64)
+
+in milliseconds. ||
+|| archiveTimeout | **string** (int64)
+
+in milliseconds. ||
+|| trackActivityQuerySize | **string** (int64) ||
+|| enableBitmapscan | **boolean** ||
+|| enableHashagg | **boolean** ||
+|| enableHashjoin | **boolean** ||
+|| enableIndexscan | **boolean** ||
+|| enableIndexonlyscan | **boolean** ||
+|| enableMaterial | **boolean** ||
+|| enableMergejoin | **boolean** ||
+|| enableNestloop | **boolean** ||
+|| enableSeqscan | **boolean** ||
+|| enableSort | **boolean** ||
+|| enableTidscan | **boolean** ||
+|| maxWorkerProcesses | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64) ||
+|| maxParallelWorkersPerGather | **string** (int64) ||
+|| autovacuumVacuumScaleFactor | **number** (double) ||
+|| autovacuumAnalyzeScaleFactor | **number** (double) ||
+|| defaultTransactionReadOnly | **boolean** ||
+|| timezone | **string** ||
+|| enableParallelAppend | **boolean** ||
+|| enableParallelHash | **boolean** ||
+|| enablePartitionPruning | **boolean** ||
+|| enablePartitionwiseAggregate | **boolean** ||
+|| enablePartitionwiseJoin | **boolean** ||
+|| jit | **boolean** ||
+|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| parallelLeaderParticipation | **boolean** ||
+|| logTransactionSampleRate | **number** (double) ||
+|| planCacheMode | **enum** (PlanCacheMode)
+
+- `PLAN_CACHE_MODE_UNSPECIFIED`
+- `PLAN_CACHE_MODE_AUTO`
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+|| effectiveIoConcurrency | **string** (int64) ||
+|| effectiveCacheSize | **string** (int64) ||
+|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+|| autoExplainLogMinDuration | **string** (int64)
+
+in milliseconds. ||
+|| autoExplainLogAnalyze | **boolean** ||
+|| autoExplainLogBuffers | **boolean** ||
+|| autoExplainLogTiming | **boolean** ||
+|| autoExplainLogTriggers | **boolean** ||
+|| autoExplainLogVerbose | **boolean** ||
+|| autoExplainLogNestedStatements | **boolean** ||
+|| autoExplainSampleRate | **number** (double) ||
+|| pgHintPlanEnableHint | **boolean** ||
+|| pgHintPlanEnableHintTable | **boolean** ||
+|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
+
+- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+|| pgHintPlanMessageLevel | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| hashMemMultiplier | **number** (double) ||
+|| logicalDecodingWorkMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceIoConcurrency | **string** (int64) ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+in bytes. ||
+|| walKeepSize | **string** (int64)
+
+in bytes. ||
+|| enableIncrementalSort | **boolean** ||
+|| autovacuumVacuumInsertThreshold | **string** (int64) ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+|| logMinDurationSample | **string** (int64)
+
+in milliseconds. ||
+|| logStatementSampleRate | **number** (double) ||
+|| logParameterMaxLength | **string** (int64)
+
+in bytes. ||
+|| logParameterMaxLengthOnError | **string** (int64)
+
+in bytes. ||
+|| clientConnectionCheckInterval | **string** (int64)
+
+in milliseconds. ||
+|| enableAsyncAppend | **boolean** ||
+|| enableGathermerge | **boolean** ||
+|| enableMemoize | **boolean** ||
+|| logRecoveryConflictWaits | **boolean**
+
+in milliseconds. ||
+|| vacuumFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| vacuumMultixactFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| pgQualstatsEnabled | **boolean** ||
+|| pgQualstatsTrackConstants | **boolean** ||
+|| pgQualstatsMax | **string** (int64) ||
+|| pgQualstatsResolveOids | **boolean** ||
+|| pgQualstatsSampleRate | **number** (double) ||
+|| maxStackDepth | **string** (int64)
+
+in bytes. ||
+|| enableGroupByReordering | **boolean** ||
+|| geqo | **boolean**
+
+enable Genetic Query Optimizer, by default is on ||
+|| geqoThreshold | **string** (int64)
+
+The number of tables to use geqo, default is 12 ||
+|| geqoEffort | **string** (int64)
+
+tradeoff between planning time and query plan quality, default is 5 ||
+|| geqoPoolSize | **string** (int64)
+
+number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+|| geqoGenerations | **string** (int64)
+
+the number of generations used by GEQO, useful values are in the same range as the pool size ||
+|| geqoSelectionBias | **number** (double)
+
+selective pressure within the population ||
+|| geqoSeed | **number** (double)
+
+initial value of the random number generator used by GEQO ||
+|| pgTrgmSimilarityThreshold | **number** (double) ||
+|| pgTrgmWordSimilarityThreshold | **number** (double) ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+|| maxStandbyArchiveDelay | **string** (int64)
+
+in milliseconds. ||
+|| sessionDurationTimeout | **string** (int64)
+
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+|| logReplicationCommands | **boolean** ||
+|| logAutovacuumMinDuration | **string** (int64)
+
+in milliseconds. The default is 1000 (1 sec). ||
+|| passwordEncryption | **enum** (PasswordEncryption)
+
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+
+- `PASSWORD_ENCRYPTION_UNSPECIFIED`
+- `PASSWORD_ENCRYPTION_MD5`
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| trackCommitTimestamp | **boolean** ||
+|| maxLogicalReplicationWorkers | **string** (int64) ||
+|| maxWalSenders | **string** (int64) ||
+|| maxReplicationSlots | **string** (int64) ||
+|#
+
+## PostgresqlConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/18/runtime-config.html).
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64) ||
+|| sharedBuffers | **string** (int64)
+
+in bytes. ||
+|| tempBuffers | **string** (int64)
+
+in bytes. ||
+|| maxPreparedTransactions | **string** (int64) ||
+|| workMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceWorkMem | **string** (int64)
+
+in bytes. ||
+|| autovacuumWorkMem | **string** (int64)
+
+in bytes. ||
+|| tempFileLimit | **string** (int64)
+
+in bytes. ||
+|| vacuumCostDelay | **string** (int64)
+
+in milliseconds. ||
+|| vacuumCostPageHit | **string** (int64) ||
+|| vacuumCostPageMiss | **string** (int64) ||
+|| vacuumCostPageDirty | **string** (int64) ||
+|| vacuumCostLimit | **string** (int64) ||
+|| bgwriterDelay | **string** (int64)
+
+in milliseconds. ||
+|| bgwriterLruMaxpages | **string** (int64) ||
+|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterFlushAfter | **string** (int64)
+
+in bytes ||
+|| backendFlushAfter | **string** (int64)
+
+in bytes ||
+|| walLevel | **enum** (WalLevel)
+
+- `WAL_LEVEL_UNSPECIFIED`
+- `WAL_LEVEL_REPLICA`
+- `WAL_LEVEL_LOGICAL` ||
+|| synchronousCommit | **enum** (SynchronousCommit)
+
+- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
+- `SYNCHRONOUS_COMMIT_ON`
+- `SYNCHRONOUS_COMMIT_OFF`
+- `SYNCHRONOUS_COMMIT_LOCAL`
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+|| checkpointTimeout | **string** (int64)
+
+in milliseconds. ||
+|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointFlushAfter | **string** (int64)
+
+in bytes ||
+|| maxWalSize | **string** (int64)
+
+in bytes. ||
+|| minWalSize | **string** (int64)
+
+in bytes. ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+in milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64) ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+- `CONSTRAINT_EXCLUSION_ON`
+- `CONSTRAINT_EXCLUSION_OFF`
+- `CONSTRAINT_EXCLUSION_PARTITION` ||
+|| cursorTupleFraction | **number** (double) ||
+|| fromCollapseLimit | **string** (int64) ||
+|| joinCollapseLimit | **string** (int64) ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+- `DEBUG_PARALLEL_QUERY_ON`
+- `DEBUG_PARALLEL_QUERY_OFF`
+- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+|| clientMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinDurationStatement | **string** (int64)
+
+in milliseconds. ||
+|| logCheckpoints | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logDuration | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+- `LOG_ERROR_VERBOSITY_TERSE`
+- `LOG_ERROR_VERBOSITY_DEFAULT`
+- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+|| logLockWaits | **boolean** ||
+|| logStatement | **enum** (LogStatement)
+
+- `LOG_STATEMENT_UNSPECIFIED`
+- `LOG_STATEMENT_NONE`
+- `LOG_STATEMENT_DDL`
+- `LOG_STATEMENT_MOD`
+- `LOG_STATEMENT_ALL` ||
+|| logTempFiles | **string** (int64) ||
+|| searchPath | **string** ||
+|| rowSecurity | **boolean** ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+- `TRANSACTION_ISOLATION_READ_COMMITTED`
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`
+- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+|| statementTimeout | **string** (int64)
+
+in milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+in milliseconds. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+- `BYTEA_OUTPUT_UNSPECIFIED`
+- `BYTEA_OUTPUT_HEX`
+- `BYTEA_OUTPUT_ESCAPED` ||
+|| xmlbinary | **enum** (XmlBinary)
+
+- `XML_BINARY_UNSPECIFIED`
+- `XML_BINARY_BASE64`
+- `XML_BINARY_HEX` ||
+|| xmloption | **enum** (XmlOption)
+
+- `XML_OPTION_UNSPECIFIED`
+- `XML_OPTION_DOCUMENT`
+- `XML_OPTION_CONTENT` ||
+|| ginPendingListLimit | **string** (int64)
+
+in bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| maxLocksPerTransaction | **string** (int64) ||
+|| maxPredLocksPerTransaction | **string** (int64) ||
+|| arrayNulls | **boolean** ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+- `BACKSLASH_QUOTE_UNSPECIFIED`
+- `BACKSLASH_QUOTE`
+- `BACKSLASH_QUOTE_ON`
+- `BACKSLASH_QUOTE_OFF`
+- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+|| defaultWithOids | **boolean** ||
+|| escapeStringWarning | **boolean** ||
+|| loCompatPrivileges | **boolean** ||
+|| quoteAllIdentifiers | **boolean** ||
+|| standardConformingStrings | **boolean** ||
+|| synchronizeSeqscans | **boolean** ||
+|| transformNullEquals | **boolean** ||
+|| exitOnError | **boolean** ||
+|| seqPageCost | **number** (double) ||
+|| randomPageCost | **number** (double) ||
+|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64) ||
+|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumNaptime | **string** (int64)
+
+in milliseconds. ||
+|| archiveTimeout | **string** (int64)
+
+in milliseconds. ||
+|| trackActivityQuerySize | **string** (int64) ||
+|| onlineAnalyzeEnable | **boolean** ||
+|| enableBitmapscan | **boolean** ||
+|| enableHashagg | **boolean** ||
+|| enableHashjoin | **boolean** ||
+|| enableIndexscan | **boolean** ||
+|| enableIndexonlyscan | **boolean** ||
+|| enableMaterial | **boolean** ||
+|| enableMergejoin | **boolean** ||
+|| enableNestloop | **boolean** ||
+|| enableSeqscan | **boolean** ||
+|| enableSort | **boolean** ||
+|| enableTidscan | **boolean** ||
+|| maxWorkerProcesses | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64) ||
+|| maxParallelWorkersPerGather | **string** (int64) ||
+|| autovacuumVacuumScaleFactor | **number** (double) ||
+|| autovacuumAnalyzeScaleFactor | **number** (double) ||
+|| defaultTransactionReadOnly | **boolean** ||
+|| timezone | **string** ||
+|| enableParallelAppend | **boolean** ||
+|| enableParallelHash | **boolean** ||
+|| enablePartitionPruning | **boolean** ||
+|| enablePartitionwiseAggregate | **boolean** ||
+|| enablePartitionwiseJoin | **boolean** ||
+|| jit | **boolean** ||
+|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| parallelLeaderParticipation | **boolean** ||
+|| logTransactionSampleRate | **number** (double) ||
+|| planCacheMode | **enum** (PlanCacheMode)
+
+- `PLAN_CACHE_MODE_UNSPECIFIED`
+- `PLAN_CACHE_MODE_AUTO`
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+|| effectiveIoConcurrency | **string** (int64) ||
+|| effectiveCacheSize | **string** (int64) ||
+|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+|| autoExplainLogMinDuration | **string** (int64)
+
+in milliseconds. ||
+|| autoExplainLogAnalyze | **boolean** ||
+|| autoExplainLogBuffers | **boolean** ||
+|| autoExplainLogTiming | **boolean** ||
+|| autoExplainLogTriggers | **boolean** ||
+|| autoExplainLogVerbose | **boolean** ||
+|| autoExplainLogNestedStatements | **boolean** ||
+|| autoExplainSampleRate | **number** (double) ||
+|| pgHintPlanEnableHint | **boolean** ||
+|| pgHintPlanEnableHintTable | **boolean** ||
+|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
+
+- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+|| pgHintPlanMessageLevel | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| hashMemMultiplier | **number** (double) ||
+|| logicalDecodingWorkMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceIoConcurrency | **string** (int64) ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+in bytes. ||
+|| walKeepSize | **string** (int64)
+
+in bytes. ||
+|| enableIncrementalSort | **boolean** ||
+|| autovacuumVacuumInsertThreshold | **string** (int64) ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+|| logMinDurationSample | **string** (int64)
+
+in milliseconds. ||
+|| logStatementSampleRate | **number** (double) ||
+|| logParameterMaxLength | **string** (int64)
+
+in bytes. ||
+|| logParameterMaxLengthOnError | **string** (int64)
+
+in bytes. ||
+|| clientConnectionCheckInterval | **string** (int64)
+
+in milliseconds. ||
+|| enableAsyncAppend | **boolean** ||
+|| enableGathermerge | **boolean** ||
+|| enableMemoize | **boolean** ||
+|| logRecoveryConflictWaits | **boolean**
+
+in milliseconds. ||
+|| vacuumFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| vacuumMultixactFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| pgQualstatsEnabled | **boolean** ||
+|| pgQualstatsTrackConstants | **boolean** ||
+|| pgQualstatsMax | **string** (int64) ||
+|| pgQualstatsResolveOids | **boolean** ||
+|| pgQualstatsSampleRate | **number** (double) ||
+|| plantunerFixEmptyTable | **boolean** ||
+|| maxStackDepth | **string** (int64)
+
+in bytes. ||
+|| enableGroupByReordering | **boolean** ||
+|| geqo | **boolean**
+
+enable Genetic Query Optimizer, by default is on ||
+|| geqoThreshold | **string** (int64)
+
+The number of tables to use geqo, default is 12 ||
+|| geqoEffort | **string** (int64)
+
+tradeoff between planning time and query plan quality, default is 5 ||
+|| geqoPoolSize | **string** (int64)
+
+number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+|| geqoGenerations | **string** (int64)
+
+the number of generations used by GEQO, useful values are in the same range as the pool size ||
+|| geqoSelectionBias | **number** (double)
+
+selective pressure within the population ||
+|| geqoSeed | **number** (double)
+
+initial value of the random number generator used by GEQO ||
+|| pgTrgmSimilarityThreshold | **number** (double) ||
+|| pgTrgmWordSimilarityThreshold | **number** (double) ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+|| maxStandbyArchiveDelay | **string** (int64)
+
+in milliseconds. ||
+|| sessionDurationTimeout | **string** (int64)
+
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+|| logReplicationCommands | **boolean** ||
+|| logAutovacuumMinDuration | **string** (int64)
+
+in milliseconds. The default is 1000 (1 sec). ||
+|| passwordEncryption | **enum** (PasswordEncryption)
+
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+
+- `PASSWORD_ENCRYPTION_UNSPECIFIED`
+- `PASSWORD_ENCRYPTION_MD5`
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| trackCommitTimestamp | **boolean** ||
+|| maxLogicalReplicationWorkers | **string** (int64) ||
+|| maxWalSenders | **string** (int64) ||
+|| maxReplicationSlots | **string** (int64) ||
+|#
+
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
 
 #|
@@ -33681,87 +37772,97 @@ Configuration of a PostgreSQL server for the host. ||
 
 Configuration for a host with PostgreSQL 9.6 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_10_1c | **[PostgresqlHostConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C)**
 
 Configuration for a host with PostgreSQL 10 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_10 | **[PostgresqlHostConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10)**
 
 Configuration for a host with PostgreSQL 10 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_11 | **[PostgresqlHostConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11)**
 
 Configuration for a host with PostgreSQL 11 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_11_1c | **[PostgresqlHostConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C)**
 
 Configuration for a host with PostgreSQL 11 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_12 | **[PostgresqlHostConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12)**
 
 Configuration for a host with PostgreSQL 12 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_12_1c | **[PostgresqlHostConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C)**
 
 Configuration for a host with PostgreSQL 12 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_13 | **[PostgresqlHostConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13)**
 
 Configuration for a host with PostgreSQL 13 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_13_1c | **[PostgresqlHostConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C)**
 
 Configuration for a host with PostgreSQL 13 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_14 | **[PostgresqlHostConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14)**
 
 Configuration for a host with PostgreSQL 14 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_14_1c | **[PostgresqlHostConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C)**
 
 Configuration for a host with PostgreSQL 14 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_15 | **[PostgresqlHostConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15)**
 
 Configuration for a host with PostgreSQL 15 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_15_1c | **[PostgresqlHostConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C)**
 
 Configuration for a host with PostgreSQL 15 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_16 | **[PostgresqlHostConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16)**
 
 Configuration for a host with PostgreSQL 16 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_16_1c | **[PostgresqlHostConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C)**
 
 Configuration for a host with PostgreSQL 16 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_17 | **[PostgresqlHostConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17)**
 
 Configuration for a host with PostgreSQL 17 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_17_1c | **[PostgresqlHostConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C)**
 
 Configuration for a host with PostgreSQL 17 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`. ||
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+|| postgresqlConfig_18 | **[PostgresqlHostConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18)**
+
+Configuration for a host with PostgreSQL 18 1C server deployed.
+
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+|| postgresqlConfig_18_1c | **[PostgresqlHostConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C)**
+
+Configuration for a host with PostgreSQL 18 1C server deployed.
+
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 |#
 
 ## PostgresqlHostConfig9_6 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6}
@@ -36909,6 +41010,378 @@ in milliseconds. ||
 || effectiveCacheSize | **string** (int64) ||
 |#
 
+## PostgresqlHostConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/18/runtime-config.html).
+
+#|
+||Field | Description ||
+|| recoveryMinApplyDelay | **string** (int64)
+
+in milliseconds. ||
+|| sharedBuffers | **string** (int64)
+
+in bytes. ||
+|| tempBuffers | **string** (int64)
+
+in bytes. ||
+|| workMem | **string** (int64)
+
+in bytes. ||
+|| tempFileLimit | **string** (int64)
+
+in bytes. ||
+|| backendFlushAfter | **string** (int64) ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+in milliseconds. ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+- `CONSTRAINT_EXCLUSION_ON`
+- `CONSTRAINT_EXCLUSION_OFF`
+- `CONSTRAINT_EXCLUSION_PARTITION` ||
+|| cursorTupleFraction | **number** (double) ||
+|| fromCollapseLimit | **string** (int64) ||
+|| joinCollapseLimit | **string** (int64) ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+- `DEBUG_PARALLEL_QUERY_ON`
+- `DEBUG_PARALLEL_QUERY_OFF`
+- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+|| clientMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinDurationStatement | **string** (int64)
+
+in milliseconds. ||
+|| logCheckpoints | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logDuration | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+- `LOG_ERROR_VERBOSITY_TERSE`
+- `LOG_ERROR_VERBOSITY_DEFAULT`
+- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+|| logLockWaits | **boolean** ||
+|| logStatement | **enum** (LogStatement)
+
+- `LOG_STATEMENT_UNSPECIFIED`
+- `LOG_STATEMENT_NONE`
+- `LOG_STATEMENT_DDL`
+- `LOG_STATEMENT_MOD`
+- `LOG_STATEMENT_ALL` ||
+|| logTempFiles | **string** (int64) ||
+|| searchPath | **string** ||
+|| rowSecurity | **boolean** ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+- `TRANSACTION_ISOLATION_READ_COMMITTED`
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`
+- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+|| statementTimeout | **string** (int64)
+
+in milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+in milliseconds. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+- `BYTEA_OUTPUT_UNSPECIFIED`
+- `BYTEA_OUTPUT_HEX`
+- `BYTEA_OUTPUT_ESCAPED` ||
+|| xmlbinary | **enum** (XmlBinary)
+
+- `XML_BINARY_UNSPECIFIED`
+- `XML_BINARY_BASE64`
+- `XML_BINARY_HEX` ||
+|| xmloption | **enum** (XmlOption)
+
+- `XML_OPTION_UNSPECIFIED`
+- `XML_OPTION_DOCUMENT`
+- `XML_OPTION_CONTENT` ||
+|| ginPendingListLimit | **string** (int64)
+
+in bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| maxLocksPerTransaction | **string** (int64) ||
+|| maxPredLocksPerTransaction | **string** (int64) ||
+|| arrayNulls | **boolean** ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+- `BACKSLASH_QUOTE_UNSPECIFIED`
+- `BACKSLASH_QUOTE`
+- `BACKSLASH_QUOTE_ON`
+- `BACKSLASH_QUOTE_OFF`
+- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+|| defaultWithOids | **boolean** ||
+|| escapeStringWarning | **boolean** ||
+|| loCompatPrivileges | **boolean** ||
+|| quoteAllIdentifiers | **boolean** ||
+|| standardConformingStrings | **boolean** ||
+|| synchronizeSeqscans | **boolean** ||
+|| transformNullEquals | **boolean** ||
+|| exitOnError | **boolean** ||
+|| seqPageCost | **number** (double) ||
+|| randomPageCost | **number** (double) ||
+|| enableBitmapscan | **boolean** ||
+|| enableHashagg | **boolean** ||
+|| enableHashjoin | **boolean** ||
+|| enableIndexscan | **boolean** ||
+|| enableIndexonlyscan | **boolean** ||
+|| enableMaterial | **boolean** ||
+|| enableMergejoin | **boolean** ||
+|| enableNestloop | **boolean** ||
+|| enableSeqscan | **boolean** ||
+|| enableSort | **boolean** ||
+|| enableTidscan | **boolean** ||
+|| maxParallelWorkers | **string** (int64) ||
+|| maxParallelWorkersPerGather | **string** (int64) ||
+|| timezone | **string** ||
+|| effectiveIoConcurrency | **string** (int64) ||
+|| effectiveCacheSize | **string** (int64) ||
+|#
+
+## PostgresqlHostConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/18/runtime-config.html).
+
+#|
+||Field | Description ||
+|| recoveryMinApplyDelay | **string** (int64)
+
+in milliseconds. ||
+|| sharedBuffers | **string** (int64)
+
+in bytes. ||
+|| tempBuffers | **string** (int64)
+
+in bytes. ||
+|| workMem | **string** (int64)
+
+in bytes. ||
+|| tempFileLimit | **string** (int64)
+
+in bytes. ||
+|| backendFlushAfter | **string** (int64) ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+in milliseconds. ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+- `CONSTRAINT_EXCLUSION_ON`
+- `CONSTRAINT_EXCLUSION_OFF`
+- `CONSTRAINT_EXCLUSION_PARTITION` ||
+|| cursorTupleFraction | **number** (double) ||
+|| fromCollapseLimit | **string** (int64) ||
+|| joinCollapseLimit | **string** (int64) ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+- `DEBUG_PARALLEL_QUERY_ON`
+- `DEBUG_PARALLEL_QUERY_OFF`
+- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+|| clientMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinDurationStatement | **string** (int64)
+
+in milliseconds. ||
+|| logCheckpoints | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logDuration | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+- `LOG_ERROR_VERBOSITY_TERSE`
+- `LOG_ERROR_VERBOSITY_DEFAULT`
+- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+|| logLockWaits | **boolean** ||
+|| logStatement | **enum** (LogStatement)
+
+- `LOG_STATEMENT_UNSPECIFIED`
+- `LOG_STATEMENT_NONE`
+- `LOG_STATEMENT_DDL`
+- `LOG_STATEMENT_MOD`
+- `LOG_STATEMENT_ALL` ||
+|| logTempFiles | **string** (int64) ||
+|| searchPath | **string** ||
+|| rowSecurity | **boolean** ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+- `TRANSACTION_ISOLATION_READ_COMMITTED`
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`
+- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+|| statementTimeout | **string** (int64)
+
+in milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+in milliseconds. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+- `BYTEA_OUTPUT_UNSPECIFIED`
+- `BYTEA_OUTPUT_HEX`
+- `BYTEA_OUTPUT_ESCAPED` ||
+|| xmlbinary | **enum** (XmlBinary)
+
+- `XML_BINARY_UNSPECIFIED`
+- `XML_BINARY_BASE64`
+- `XML_BINARY_HEX` ||
+|| xmloption | **enum** (XmlOption)
+
+- `XML_OPTION_UNSPECIFIED`
+- `XML_OPTION_DOCUMENT`
+- `XML_OPTION_CONTENT` ||
+|| ginPendingListLimit | **string** (int64)
+
+in bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| maxLocksPerTransaction | **string** (int64) ||
+|| maxPredLocksPerTransaction | **string** (int64) ||
+|| arrayNulls | **boolean** ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+- `BACKSLASH_QUOTE_UNSPECIFIED`
+- `BACKSLASH_QUOTE`
+- `BACKSLASH_QUOTE_ON`
+- `BACKSLASH_QUOTE_OFF`
+- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+|| defaultWithOids | **boolean** ||
+|| escapeStringWarning | **boolean** ||
+|| loCompatPrivileges | **boolean** ||
+|| quoteAllIdentifiers | **boolean** ||
+|| standardConformingStrings | **boolean** ||
+|| synchronizeSeqscans | **boolean** ||
+|| transformNullEquals | **boolean** ||
+|| exitOnError | **boolean** ||
+|| seqPageCost | **number** (double) ||
+|| randomPageCost | **number** (double) ||
+|| enableBitmapscan | **boolean** ||
+|| enableHashagg | **boolean** ||
+|| enableHashjoin | **boolean** ||
+|| enableIndexscan | **boolean** ||
+|| enableIndexonlyscan | **boolean** ||
+|| enableMaterial | **boolean** ||
+|| enableMergejoin | **boolean** ||
+|| enableNestloop | **boolean** ||
+|| enableSeqscan | **boolean** ||
+|| enableSort | **boolean** ||
+|| enableTidscan | **boolean** ||
+|| maxParallelWorkers | **string** (int64) ||
+|| maxParallelWorkersPerGather | **string** (int64) ||
+|| timezone | **string** ||
+|| effectiveIoConcurrency | **string** (int64) ||
+|| effectiveCacheSize | **string** (int64) ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
 
 A maintenance window settings.
@@ -37041,7 +41514,7 @@ Message to describe a crontab schedule.
     ],
     "config": {
       "version": "string",
-      // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`
+      // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
       "postgresqlConfig_9_6": {
         "effectiveConfig": {
           "maxConnections": "string",
@@ -44825,6 +49298,1024 @@ Message to describe a crontab schedule.
           "maxReplicationSlots": "string"
         }
       },
+      "postgresqlConfig_18": {
+        "effectiveConfig": {
+          "maxConnections": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "maxPreparedTransactions": "string",
+          "workMem": "string",
+          "maintenanceWorkMem": "string",
+          "autovacuumWorkMem": "string",
+          "tempFileLimit": "string",
+          "vacuumCostDelay": "string",
+          "vacuumCostPageHit": "string",
+          "vacuumCostPageMiss": "string",
+          "vacuumCostPageDirty": "string",
+          "vacuumCostLimit": "string",
+          "bgwriterDelay": "string",
+          "bgwriterLruMaxpages": "string",
+          "bgwriterLruMultiplier": "number",
+          "bgwriterFlushAfter": "string",
+          "backendFlushAfter": "string",
+          "walLevel": "string",
+          "synchronousCommit": "string",
+          "checkpointTimeout": "string",
+          "checkpointCompletionTarget": "number",
+          "checkpointFlushAfter": "string",
+          "maxWalSize": "string",
+          "minWalSize": "string",
+          "maxStandbyStreamingDelay": "string",
+          "defaultStatisticsTarget": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "autovacuumMaxWorkers": "string",
+          "autovacuumVacuumCostDelay": "string",
+          "autovacuumVacuumCostLimit": "string",
+          "autovacuumNaptime": "string",
+          "archiveTimeout": "string",
+          "trackActivityQuerySize": "string",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxWorkerProcesses": "string",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "autovacuumVacuumScaleFactor": "number",
+          "autovacuumAnalyzeScaleFactor": "number",
+          "defaultTransactionReadOnly": "boolean",
+          "timezone": "string",
+          "enableParallelAppend": "boolean",
+          "enableParallelHash": "boolean",
+          "enablePartitionPruning": "boolean",
+          "enablePartitionwiseAggregate": "boolean",
+          "enablePartitionwiseJoin": "boolean",
+          "jit": "boolean",
+          "maxParallelMaintenanceWorkers": "string",
+          "parallelLeaderParticipation": "boolean",
+          "logTransactionSampleRate": "number",
+          "planCacheMode": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string",
+          "sharedPreloadLibraries": [
+            "string"
+          ],
+          "autoExplainLogMinDuration": "string",
+          "autoExplainLogAnalyze": "boolean",
+          "autoExplainLogBuffers": "boolean",
+          "autoExplainLogTiming": "boolean",
+          "autoExplainLogTriggers": "boolean",
+          "autoExplainLogVerbose": "boolean",
+          "autoExplainLogNestedStatements": "boolean",
+          "autoExplainSampleRate": "number",
+          "pgHintPlanEnableHint": "boolean",
+          "pgHintPlanEnableHintTable": "boolean",
+          "pgHintPlanDebugPrint": "string",
+          "pgHintPlanMessageLevel": "string",
+          "hashMemMultiplier": "number",
+          "logicalDecodingWorkMem": "string",
+          "maintenanceIoConcurrency": "string",
+          "maxSlotWalKeepSize": "string",
+          "walKeepSize": "string",
+          "enableIncrementalSort": "boolean",
+          "autovacuumVacuumInsertThreshold": "string",
+          "autovacuumVacuumInsertScaleFactor": "number",
+          "logMinDurationSample": "string",
+          "logStatementSampleRate": "number",
+          "logParameterMaxLength": "string",
+          "logParameterMaxLengthOnError": "string",
+          "clientConnectionCheckInterval": "string",
+          "enableAsyncAppend": "boolean",
+          "enableGathermerge": "boolean",
+          "enableMemoize": "boolean",
+          "logRecoveryConflictWaits": "boolean",
+          "vacuumFailsafeAge": "string",
+          "vacuumMultixactFailsafeAge": "string",
+          "pgQualstatsEnabled": "boolean",
+          "pgQualstatsTrackConstants": "boolean",
+          "pgQualstatsMax": "string",
+          "pgQualstatsResolveOids": "boolean",
+          "pgQualstatsSampleRate": "number",
+          "maxStackDepth": "string",
+          "enableGroupByReordering": "boolean",
+          "geqo": "boolean",
+          "geqoThreshold": "string",
+          "geqoEffort": "string",
+          "geqoPoolSize": "string",
+          "geqoGenerations": "string",
+          "geqoSelectionBias": "number",
+          "geqoSeed": "number",
+          "pgTrgmSimilarityThreshold": "number",
+          "pgTrgmWordSimilarityThreshold": "number",
+          "pgTrgmStrictWordSimilarityThreshold": "number",
+          "maxStandbyArchiveDelay": "string",
+          "sessionDurationTimeout": "string",
+          "logReplicationCommands": "boolean",
+          "logAutovacuumMinDuration": "string",
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string",
+          "trackCommitTimestamp": "boolean",
+          "maxLogicalReplicationWorkers": "string",
+          "maxWalSenders": "string",
+          "maxReplicationSlots": "string"
+        },
+        "userConfig": {
+          "maxConnections": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "maxPreparedTransactions": "string",
+          "workMem": "string",
+          "maintenanceWorkMem": "string",
+          "autovacuumWorkMem": "string",
+          "tempFileLimit": "string",
+          "vacuumCostDelay": "string",
+          "vacuumCostPageHit": "string",
+          "vacuumCostPageMiss": "string",
+          "vacuumCostPageDirty": "string",
+          "vacuumCostLimit": "string",
+          "bgwriterDelay": "string",
+          "bgwriterLruMaxpages": "string",
+          "bgwriterLruMultiplier": "number",
+          "bgwriterFlushAfter": "string",
+          "backendFlushAfter": "string",
+          "walLevel": "string",
+          "synchronousCommit": "string",
+          "checkpointTimeout": "string",
+          "checkpointCompletionTarget": "number",
+          "checkpointFlushAfter": "string",
+          "maxWalSize": "string",
+          "minWalSize": "string",
+          "maxStandbyStreamingDelay": "string",
+          "defaultStatisticsTarget": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "autovacuumMaxWorkers": "string",
+          "autovacuumVacuumCostDelay": "string",
+          "autovacuumVacuumCostLimit": "string",
+          "autovacuumNaptime": "string",
+          "archiveTimeout": "string",
+          "trackActivityQuerySize": "string",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxWorkerProcesses": "string",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "autovacuumVacuumScaleFactor": "number",
+          "autovacuumAnalyzeScaleFactor": "number",
+          "defaultTransactionReadOnly": "boolean",
+          "timezone": "string",
+          "enableParallelAppend": "boolean",
+          "enableParallelHash": "boolean",
+          "enablePartitionPruning": "boolean",
+          "enablePartitionwiseAggregate": "boolean",
+          "enablePartitionwiseJoin": "boolean",
+          "jit": "boolean",
+          "maxParallelMaintenanceWorkers": "string",
+          "parallelLeaderParticipation": "boolean",
+          "logTransactionSampleRate": "number",
+          "planCacheMode": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string",
+          "sharedPreloadLibraries": [
+            "string"
+          ],
+          "autoExplainLogMinDuration": "string",
+          "autoExplainLogAnalyze": "boolean",
+          "autoExplainLogBuffers": "boolean",
+          "autoExplainLogTiming": "boolean",
+          "autoExplainLogTriggers": "boolean",
+          "autoExplainLogVerbose": "boolean",
+          "autoExplainLogNestedStatements": "boolean",
+          "autoExplainSampleRate": "number",
+          "pgHintPlanEnableHint": "boolean",
+          "pgHintPlanEnableHintTable": "boolean",
+          "pgHintPlanDebugPrint": "string",
+          "pgHintPlanMessageLevel": "string",
+          "hashMemMultiplier": "number",
+          "logicalDecodingWorkMem": "string",
+          "maintenanceIoConcurrency": "string",
+          "maxSlotWalKeepSize": "string",
+          "walKeepSize": "string",
+          "enableIncrementalSort": "boolean",
+          "autovacuumVacuumInsertThreshold": "string",
+          "autovacuumVacuumInsertScaleFactor": "number",
+          "logMinDurationSample": "string",
+          "logStatementSampleRate": "number",
+          "logParameterMaxLength": "string",
+          "logParameterMaxLengthOnError": "string",
+          "clientConnectionCheckInterval": "string",
+          "enableAsyncAppend": "boolean",
+          "enableGathermerge": "boolean",
+          "enableMemoize": "boolean",
+          "logRecoveryConflictWaits": "boolean",
+          "vacuumFailsafeAge": "string",
+          "vacuumMultixactFailsafeAge": "string",
+          "pgQualstatsEnabled": "boolean",
+          "pgQualstatsTrackConstants": "boolean",
+          "pgQualstatsMax": "string",
+          "pgQualstatsResolveOids": "boolean",
+          "pgQualstatsSampleRate": "number",
+          "maxStackDepth": "string",
+          "enableGroupByReordering": "boolean",
+          "geqo": "boolean",
+          "geqoThreshold": "string",
+          "geqoEffort": "string",
+          "geqoPoolSize": "string",
+          "geqoGenerations": "string",
+          "geqoSelectionBias": "number",
+          "geqoSeed": "number",
+          "pgTrgmSimilarityThreshold": "number",
+          "pgTrgmWordSimilarityThreshold": "number",
+          "pgTrgmStrictWordSimilarityThreshold": "number",
+          "maxStandbyArchiveDelay": "string",
+          "sessionDurationTimeout": "string",
+          "logReplicationCommands": "boolean",
+          "logAutovacuumMinDuration": "string",
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string",
+          "trackCommitTimestamp": "boolean",
+          "maxLogicalReplicationWorkers": "string",
+          "maxWalSenders": "string",
+          "maxReplicationSlots": "string"
+        },
+        "defaultConfig": {
+          "maxConnections": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "maxPreparedTransactions": "string",
+          "workMem": "string",
+          "maintenanceWorkMem": "string",
+          "autovacuumWorkMem": "string",
+          "tempFileLimit": "string",
+          "vacuumCostDelay": "string",
+          "vacuumCostPageHit": "string",
+          "vacuumCostPageMiss": "string",
+          "vacuumCostPageDirty": "string",
+          "vacuumCostLimit": "string",
+          "bgwriterDelay": "string",
+          "bgwriterLruMaxpages": "string",
+          "bgwriterLruMultiplier": "number",
+          "bgwriterFlushAfter": "string",
+          "backendFlushAfter": "string",
+          "walLevel": "string",
+          "synchronousCommit": "string",
+          "checkpointTimeout": "string",
+          "checkpointCompletionTarget": "number",
+          "checkpointFlushAfter": "string",
+          "maxWalSize": "string",
+          "minWalSize": "string",
+          "maxStandbyStreamingDelay": "string",
+          "defaultStatisticsTarget": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "autovacuumMaxWorkers": "string",
+          "autovacuumVacuumCostDelay": "string",
+          "autovacuumVacuumCostLimit": "string",
+          "autovacuumNaptime": "string",
+          "archiveTimeout": "string",
+          "trackActivityQuerySize": "string",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxWorkerProcesses": "string",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "autovacuumVacuumScaleFactor": "number",
+          "autovacuumAnalyzeScaleFactor": "number",
+          "defaultTransactionReadOnly": "boolean",
+          "timezone": "string",
+          "enableParallelAppend": "boolean",
+          "enableParallelHash": "boolean",
+          "enablePartitionPruning": "boolean",
+          "enablePartitionwiseAggregate": "boolean",
+          "enablePartitionwiseJoin": "boolean",
+          "jit": "boolean",
+          "maxParallelMaintenanceWorkers": "string",
+          "parallelLeaderParticipation": "boolean",
+          "logTransactionSampleRate": "number",
+          "planCacheMode": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string",
+          "sharedPreloadLibraries": [
+            "string"
+          ],
+          "autoExplainLogMinDuration": "string",
+          "autoExplainLogAnalyze": "boolean",
+          "autoExplainLogBuffers": "boolean",
+          "autoExplainLogTiming": "boolean",
+          "autoExplainLogTriggers": "boolean",
+          "autoExplainLogVerbose": "boolean",
+          "autoExplainLogNestedStatements": "boolean",
+          "autoExplainSampleRate": "number",
+          "pgHintPlanEnableHint": "boolean",
+          "pgHintPlanEnableHintTable": "boolean",
+          "pgHintPlanDebugPrint": "string",
+          "pgHintPlanMessageLevel": "string",
+          "hashMemMultiplier": "number",
+          "logicalDecodingWorkMem": "string",
+          "maintenanceIoConcurrency": "string",
+          "maxSlotWalKeepSize": "string",
+          "walKeepSize": "string",
+          "enableIncrementalSort": "boolean",
+          "autovacuumVacuumInsertThreshold": "string",
+          "autovacuumVacuumInsertScaleFactor": "number",
+          "logMinDurationSample": "string",
+          "logStatementSampleRate": "number",
+          "logParameterMaxLength": "string",
+          "logParameterMaxLengthOnError": "string",
+          "clientConnectionCheckInterval": "string",
+          "enableAsyncAppend": "boolean",
+          "enableGathermerge": "boolean",
+          "enableMemoize": "boolean",
+          "logRecoveryConflictWaits": "boolean",
+          "vacuumFailsafeAge": "string",
+          "vacuumMultixactFailsafeAge": "string",
+          "pgQualstatsEnabled": "boolean",
+          "pgQualstatsTrackConstants": "boolean",
+          "pgQualstatsMax": "string",
+          "pgQualstatsResolveOids": "boolean",
+          "pgQualstatsSampleRate": "number",
+          "maxStackDepth": "string",
+          "enableGroupByReordering": "boolean",
+          "geqo": "boolean",
+          "geqoThreshold": "string",
+          "geqoEffort": "string",
+          "geqoPoolSize": "string",
+          "geqoGenerations": "string",
+          "geqoSelectionBias": "number",
+          "geqoSeed": "number",
+          "pgTrgmSimilarityThreshold": "number",
+          "pgTrgmWordSimilarityThreshold": "number",
+          "pgTrgmStrictWordSimilarityThreshold": "number",
+          "maxStandbyArchiveDelay": "string",
+          "sessionDurationTimeout": "string",
+          "logReplicationCommands": "boolean",
+          "logAutovacuumMinDuration": "string",
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string",
+          "trackCommitTimestamp": "boolean",
+          "maxLogicalReplicationWorkers": "string",
+          "maxWalSenders": "string",
+          "maxReplicationSlots": "string"
+        }
+      },
+      "postgresqlConfig_18_1c": {
+        "effectiveConfig": {
+          "maxConnections": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "maxPreparedTransactions": "string",
+          "workMem": "string",
+          "maintenanceWorkMem": "string",
+          "autovacuumWorkMem": "string",
+          "tempFileLimit": "string",
+          "vacuumCostDelay": "string",
+          "vacuumCostPageHit": "string",
+          "vacuumCostPageMiss": "string",
+          "vacuumCostPageDirty": "string",
+          "vacuumCostLimit": "string",
+          "bgwriterDelay": "string",
+          "bgwriterLruMaxpages": "string",
+          "bgwriterLruMultiplier": "number",
+          "bgwriterFlushAfter": "string",
+          "backendFlushAfter": "string",
+          "walLevel": "string",
+          "synchronousCommit": "string",
+          "checkpointTimeout": "string",
+          "checkpointCompletionTarget": "number",
+          "checkpointFlushAfter": "string",
+          "maxWalSize": "string",
+          "minWalSize": "string",
+          "maxStandbyStreamingDelay": "string",
+          "defaultStatisticsTarget": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "autovacuumMaxWorkers": "string",
+          "autovacuumVacuumCostDelay": "string",
+          "autovacuumVacuumCostLimit": "string",
+          "autovacuumNaptime": "string",
+          "archiveTimeout": "string",
+          "trackActivityQuerySize": "string",
+          "onlineAnalyzeEnable": "boolean",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxWorkerProcesses": "string",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "autovacuumVacuumScaleFactor": "number",
+          "autovacuumAnalyzeScaleFactor": "number",
+          "defaultTransactionReadOnly": "boolean",
+          "timezone": "string",
+          "enableParallelAppend": "boolean",
+          "enableParallelHash": "boolean",
+          "enablePartitionPruning": "boolean",
+          "enablePartitionwiseAggregate": "boolean",
+          "enablePartitionwiseJoin": "boolean",
+          "jit": "boolean",
+          "maxParallelMaintenanceWorkers": "string",
+          "parallelLeaderParticipation": "boolean",
+          "logTransactionSampleRate": "number",
+          "planCacheMode": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string",
+          "sharedPreloadLibraries": [
+            "string"
+          ],
+          "autoExplainLogMinDuration": "string",
+          "autoExplainLogAnalyze": "boolean",
+          "autoExplainLogBuffers": "boolean",
+          "autoExplainLogTiming": "boolean",
+          "autoExplainLogTriggers": "boolean",
+          "autoExplainLogVerbose": "boolean",
+          "autoExplainLogNestedStatements": "boolean",
+          "autoExplainSampleRate": "number",
+          "pgHintPlanEnableHint": "boolean",
+          "pgHintPlanEnableHintTable": "boolean",
+          "pgHintPlanDebugPrint": "string",
+          "pgHintPlanMessageLevel": "string",
+          "hashMemMultiplier": "number",
+          "logicalDecodingWorkMem": "string",
+          "maintenanceIoConcurrency": "string",
+          "maxSlotWalKeepSize": "string",
+          "walKeepSize": "string",
+          "enableIncrementalSort": "boolean",
+          "autovacuumVacuumInsertThreshold": "string",
+          "autovacuumVacuumInsertScaleFactor": "number",
+          "logMinDurationSample": "string",
+          "logStatementSampleRate": "number",
+          "logParameterMaxLength": "string",
+          "logParameterMaxLengthOnError": "string",
+          "clientConnectionCheckInterval": "string",
+          "enableAsyncAppend": "boolean",
+          "enableGathermerge": "boolean",
+          "enableMemoize": "boolean",
+          "logRecoveryConflictWaits": "boolean",
+          "vacuumFailsafeAge": "string",
+          "vacuumMultixactFailsafeAge": "string",
+          "pgQualstatsEnabled": "boolean",
+          "pgQualstatsTrackConstants": "boolean",
+          "pgQualstatsMax": "string",
+          "pgQualstatsResolveOids": "boolean",
+          "pgQualstatsSampleRate": "number",
+          "plantunerFixEmptyTable": "boolean",
+          "maxStackDepth": "string",
+          "enableGroupByReordering": "boolean",
+          "geqo": "boolean",
+          "geqoThreshold": "string",
+          "geqoEffort": "string",
+          "geqoPoolSize": "string",
+          "geqoGenerations": "string",
+          "geqoSelectionBias": "number",
+          "geqoSeed": "number",
+          "pgTrgmSimilarityThreshold": "number",
+          "pgTrgmWordSimilarityThreshold": "number",
+          "pgTrgmStrictWordSimilarityThreshold": "number",
+          "maxStandbyArchiveDelay": "string",
+          "sessionDurationTimeout": "string",
+          "logReplicationCommands": "boolean",
+          "logAutovacuumMinDuration": "string",
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string",
+          "trackCommitTimestamp": "boolean",
+          "maxLogicalReplicationWorkers": "string",
+          "maxWalSenders": "string",
+          "maxReplicationSlots": "string"
+        },
+        "userConfig": {
+          "maxConnections": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "maxPreparedTransactions": "string",
+          "workMem": "string",
+          "maintenanceWorkMem": "string",
+          "autovacuumWorkMem": "string",
+          "tempFileLimit": "string",
+          "vacuumCostDelay": "string",
+          "vacuumCostPageHit": "string",
+          "vacuumCostPageMiss": "string",
+          "vacuumCostPageDirty": "string",
+          "vacuumCostLimit": "string",
+          "bgwriterDelay": "string",
+          "bgwriterLruMaxpages": "string",
+          "bgwriterLruMultiplier": "number",
+          "bgwriterFlushAfter": "string",
+          "backendFlushAfter": "string",
+          "walLevel": "string",
+          "synchronousCommit": "string",
+          "checkpointTimeout": "string",
+          "checkpointCompletionTarget": "number",
+          "checkpointFlushAfter": "string",
+          "maxWalSize": "string",
+          "minWalSize": "string",
+          "maxStandbyStreamingDelay": "string",
+          "defaultStatisticsTarget": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "autovacuumMaxWorkers": "string",
+          "autovacuumVacuumCostDelay": "string",
+          "autovacuumVacuumCostLimit": "string",
+          "autovacuumNaptime": "string",
+          "archiveTimeout": "string",
+          "trackActivityQuerySize": "string",
+          "onlineAnalyzeEnable": "boolean",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxWorkerProcesses": "string",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "autovacuumVacuumScaleFactor": "number",
+          "autovacuumAnalyzeScaleFactor": "number",
+          "defaultTransactionReadOnly": "boolean",
+          "timezone": "string",
+          "enableParallelAppend": "boolean",
+          "enableParallelHash": "boolean",
+          "enablePartitionPruning": "boolean",
+          "enablePartitionwiseAggregate": "boolean",
+          "enablePartitionwiseJoin": "boolean",
+          "jit": "boolean",
+          "maxParallelMaintenanceWorkers": "string",
+          "parallelLeaderParticipation": "boolean",
+          "logTransactionSampleRate": "number",
+          "planCacheMode": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string",
+          "sharedPreloadLibraries": [
+            "string"
+          ],
+          "autoExplainLogMinDuration": "string",
+          "autoExplainLogAnalyze": "boolean",
+          "autoExplainLogBuffers": "boolean",
+          "autoExplainLogTiming": "boolean",
+          "autoExplainLogTriggers": "boolean",
+          "autoExplainLogVerbose": "boolean",
+          "autoExplainLogNestedStatements": "boolean",
+          "autoExplainSampleRate": "number",
+          "pgHintPlanEnableHint": "boolean",
+          "pgHintPlanEnableHintTable": "boolean",
+          "pgHintPlanDebugPrint": "string",
+          "pgHintPlanMessageLevel": "string",
+          "hashMemMultiplier": "number",
+          "logicalDecodingWorkMem": "string",
+          "maintenanceIoConcurrency": "string",
+          "maxSlotWalKeepSize": "string",
+          "walKeepSize": "string",
+          "enableIncrementalSort": "boolean",
+          "autovacuumVacuumInsertThreshold": "string",
+          "autovacuumVacuumInsertScaleFactor": "number",
+          "logMinDurationSample": "string",
+          "logStatementSampleRate": "number",
+          "logParameterMaxLength": "string",
+          "logParameterMaxLengthOnError": "string",
+          "clientConnectionCheckInterval": "string",
+          "enableAsyncAppend": "boolean",
+          "enableGathermerge": "boolean",
+          "enableMemoize": "boolean",
+          "logRecoveryConflictWaits": "boolean",
+          "vacuumFailsafeAge": "string",
+          "vacuumMultixactFailsafeAge": "string",
+          "pgQualstatsEnabled": "boolean",
+          "pgQualstatsTrackConstants": "boolean",
+          "pgQualstatsMax": "string",
+          "pgQualstatsResolveOids": "boolean",
+          "pgQualstatsSampleRate": "number",
+          "plantunerFixEmptyTable": "boolean",
+          "maxStackDepth": "string",
+          "enableGroupByReordering": "boolean",
+          "geqo": "boolean",
+          "geqoThreshold": "string",
+          "geqoEffort": "string",
+          "geqoPoolSize": "string",
+          "geqoGenerations": "string",
+          "geqoSelectionBias": "number",
+          "geqoSeed": "number",
+          "pgTrgmSimilarityThreshold": "number",
+          "pgTrgmWordSimilarityThreshold": "number",
+          "pgTrgmStrictWordSimilarityThreshold": "number",
+          "maxStandbyArchiveDelay": "string",
+          "sessionDurationTimeout": "string",
+          "logReplicationCommands": "boolean",
+          "logAutovacuumMinDuration": "string",
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string",
+          "trackCommitTimestamp": "boolean",
+          "maxLogicalReplicationWorkers": "string",
+          "maxWalSenders": "string",
+          "maxReplicationSlots": "string"
+        },
+        "defaultConfig": {
+          "maxConnections": "string",
+          "sharedBuffers": "string",
+          "tempBuffers": "string",
+          "maxPreparedTransactions": "string",
+          "workMem": "string",
+          "maintenanceWorkMem": "string",
+          "autovacuumWorkMem": "string",
+          "tempFileLimit": "string",
+          "vacuumCostDelay": "string",
+          "vacuumCostPageHit": "string",
+          "vacuumCostPageMiss": "string",
+          "vacuumCostPageDirty": "string",
+          "vacuumCostLimit": "string",
+          "bgwriterDelay": "string",
+          "bgwriterLruMaxpages": "string",
+          "bgwriterLruMultiplier": "number",
+          "bgwriterFlushAfter": "string",
+          "backendFlushAfter": "string",
+          "walLevel": "string",
+          "synchronousCommit": "string",
+          "checkpointTimeout": "string",
+          "checkpointCompletionTarget": "number",
+          "checkpointFlushAfter": "string",
+          "maxWalSize": "string",
+          "minWalSize": "string",
+          "maxStandbyStreamingDelay": "string",
+          "defaultStatisticsTarget": "string",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "string",
+          "joinCollapseLimit": "string",
+          "debugParallelQuery": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "string",
+          "logCheckpoints": "boolean",
+          "logConnections": "boolean",
+          "logDisconnections": "boolean",
+          "logDuration": "boolean",
+          "logErrorVerbosity": "string",
+          "logLockWaits": "boolean",
+          "logStatement": "string",
+          "logTempFiles": "string",
+          "searchPath": "string",
+          "rowSecurity": "boolean",
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "string",
+          "lockTimeout": "string",
+          "idleInTransactionSessionTimeout": "string",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "string",
+          "deadlockTimeout": "string",
+          "maxLocksPerTransaction": "string",
+          "maxPredLocksPerTransaction": "string",
+          "arrayNulls": "boolean",
+          "backslashQuote": "string",
+          "defaultWithOids": "boolean",
+          "escapeStringWarning": "boolean",
+          "loCompatPrivileges": "boolean",
+          "quoteAllIdentifiers": "boolean",
+          "standardConformingStrings": "boolean",
+          "synchronizeSeqscans": "boolean",
+          "transformNullEquals": "boolean",
+          "exitOnError": "boolean",
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "autovacuumMaxWorkers": "string",
+          "autovacuumVacuumCostDelay": "string",
+          "autovacuumVacuumCostLimit": "string",
+          "autovacuumNaptime": "string",
+          "archiveTimeout": "string",
+          "trackActivityQuerySize": "string",
+          "onlineAnalyzeEnable": "boolean",
+          "enableBitmapscan": "boolean",
+          "enableHashagg": "boolean",
+          "enableHashjoin": "boolean",
+          "enableIndexscan": "boolean",
+          "enableIndexonlyscan": "boolean",
+          "enableMaterial": "boolean",
+          "enableMergejoin": "boolean",
+          "enableNestloop": "boolean",
+          "enableSeqscan": "boolean",
+          "enableSort": "boolean",
+          "enableTidscan": "boolean",
+          "maxWorkerProcesses": "string",
+          "maxParallelWorkers": "string",
+          "maxParallelWorkersPerGather": "string",
+          "autovacuumVacuumScaleFactor": "number",
+          "autovacuumAnalyzeScaleFactor": "number",
+          "defaultTransactionReadOnly": "boolean",
+          "timezone": "string",
+          "enableParallelAppend": "boolean",
+          "enableParallelHash": "boolean",
+          "enablePartitionPruning": "boolean",
+          "enablePartitionwiseAggregate": "boolean",
+          "enablePartitionwiseJoin": "boolean",
+          "jit": "boolean",
+          "maxParallelMaintenanceWorkers": "string",
+          "parallelLeaderParticipation": "boolean",
+          "logTransactionSampleRate": "number",
+          "planCacheMode": "string",
+          "effectiveIoConcurrency": "string",
+          "effectiveCacheSize": "string",
+          "sharedPreloadLibraries": [
+            "string"
+          ],
+          "autoExplainLogMinDuration": "string",
+          "autoExplainLogAnalyze": "boolean",
+          "autoExplainLogBuffers": "boolean",
+          "autoExplainLogTiming": "boolean",
+          "autoExplainLogTriggers": "boolean",
+          "autoExplainLogVerbose": "boolean",
+          "autoExplainLogNestedStatements": "boolean",
+          "autoExplainSampleRate": "number",
+          "pgHintPlanEnableHint": "boolean",
+          "pgHintPlanEnableHintTable": "boolean",
+          "pgHintPlanDebugPrint": "string",
+          "pgHintPlanMessageLevel": "string",
+          "hashMemMultiplier": "number",
+          "logicalDecodingWorkMem": "string",
+          "maintenanceIoConcurrency": "string",
+          "maxSlotWalKeepSize": "string",
+          "walKeepSize": "string",
+          "enableIncrementalSort": "boolean",
+          "autovacuumVacuumInsertThreshold": "string",
+          "autovacuumVacuumInsertScaleFactor": "number",
+          "logMinDurationSample": "string",
+          "logStatementSampleRate": "number",
+          "logParameterMaxLength": "string",
+          "logParameterMaxLengthOnError": "string",
+          "clientConnectionCheckInterval": "string",
+          "enableAsyncAppend": "boolean",
+          "enableGathermerge": "boolean",
+          "enableMemoize": "boolean",
+          "logRecoveryConflictWaits": "boolean",
+          "vacuumFailsafeAge": "string",
+          "vacuumMultixactFailsafeAge": "string",
+          "pgQualstatsEnabled": "boolean",
+          "pgQualstatsTrackConstants": "boolean",
+          "pgQualstatsMax": "string",
+          "pgQualstatsResolveOids": "boolean",
+          "pgQualstatsSampleRate": "number",
+          "plantunerFixEmptyTable": "boolean",
+          "maxStackDepth": "string",
+          "enableGroupByReordering": "boolean",
+          "geqo": "boolean",
+          "geqoThreshold": "string",
+          "geqoEffort": "string",
+          "geqoPoolSize": "string",
+          "geqoGenerations": "string",
+          "geqoSelectionBias": "number",
+          "geqoSeed": "number",
+          "pgTrgmSimilarityThreshold": "number",
+          "pgTrgmWordSimilarityThreshold": "number",
+          "pgTrgmStrictWordSimilarityThreshold": "number",
+          "maxStandbyArchiveDelay": "string",
+          "sessionDurationTimeout": "string",
+          "logReplicationCommands": "boolean",
+          "logAutovacuumMinDuration": "string",
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string",
+          "trackCommitTimestamp": "boolean",
+          "maxLogicalReplicationWorkers": "string",
+          "maxWalSenders": "string",
+          "maxReplicationSlots": "string"
+        }
+      },
       // end of the list of possible fields
       "poolerConfig": {
         "poolingMode": "string",
@@ -45149,119 +50640,133 @@ Version of PostgreSQL server software. ||
 
 Configuration of a PostgreSQL 9.6 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_10_1c | **[PostgresqlConfigSet10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10_1C)**
 
 Configuration of a PostgreSQL 10 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_10 | **[PostgresqlConfigSet10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10)**
 
 Configuration of a PostgreSQL 10 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_11 | **[PostgresqlConfigSet11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11)**
 
 Configuration of a PostgreSQL 11 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_11_1c | **[PostgresqlConfigSet11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11_1C)**
 
 Configuration of a PostgreSQL 11 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_12 | **[PostgresqlConfigSet12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12)**
 
 Configuration of a PostgreSQL 12 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_12_1c | **[PostgresqlConfigSet12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12_1C)**
 
 Configuration of a PostgreSQL 12 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_13 | **[PostgresqlConfigSet13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13)**
 
 Configuration of a PostgreSQL 13 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_13_1c | **[PostgresqlConfigSet13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13_1C)**
 
 Configuration of a PostgreSQL 13 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_14 | **[PostgresqlConfigSet14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14)**
 
 Configuration of a PostgreSQL 14 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_14_1c | **[PostgresqlConfigSet14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C)**
 
 Configuration of a PostgreSQL 14 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_15 | **[PostgresqlConfigSet15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15)**
 
 Configuration of a PostgreSQL 15 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_15_1c | **[PostgresqlConfigSet15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C)**
 
 Configuration of a PostgreSQL 15 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_16 | **[PostgresqlConfigSet16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16)**
 
 Configuration of a PostgreSQL 16 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_16_1c | **[PostgresqlConfigSet16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C)**
 
 Configuration of a PostgreSQL 16 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_17 | **[PostgresqlConfigSet17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17)**
 
 Configuration of a PostgreSQL 17 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_17_1c | **[PostgresqlConfigSet17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C)**
 
 Configuration of a PostgreSQL 17 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+
+Configuration for PostgreSQL servers in the cluster. ||
+|| postgresqlConfig_18 | **[PostgresqlConfigSet18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18)**
+
+Configuration of a PostgreSQL 18 server.
+
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+
+Configuration for PostgreSQL servers in the cluster. ||
+|| postgresqlConfig_18_1c | **[PostgresqlConfigSet18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C)**
+
+Configuration of a PostgreSQL 18 1C server.
+
+Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || poolerConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2)**
@@ -51511,6 +57016,864 @@ Default configuration for a PostgreSQL 17 cluster. ||
 Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
 parameters which detailed description is available in
 [PostgreSQL documentation](https://www.postgresql.org/docs/17/runtime-config.html).
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64) ||
+|| sharedBuffers | **string** (int64)
+
+in bytes. ||
+|| tempBuffers | **string** (int64)
+
+in bytes. ||
+|| maxPreparedTransactions | **string** (int64) ||
+|| workMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceWorkMem | **string** (int64)
+
+in bytes. ||
+|| autovacuumWorkMem | **string** (int64)
+
+in bytes. ||
+|| tempFileLimit | **string** (int64)
+
+in bytes. ||
+|| vacuumCostDelay | **string** (int64)
+
+in milliseconds. ||
+|| vacuumCostPageHit | **string** (int64) ||
+|| vacuumCostPageMiss | **string** (int64) ||
+|| vacuumCostPageDirty | **string** (int64) ||
+|| vacuumCostLimit | **string** (int64) ||
+|| bgwriterDelay | **string** (int64)
+
+in milliseconds. ||
+|| bgwriterLruMaxpages | **string** (int64) ||
+|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterFlushAfter | **string** (int64)
+
+in bytes ||
+|| backendFlushAfter | **string** (int64)
+
+in bytes ||
+|| walLevel | **enum** (WalLevel)
+
+- `WAL_LEVEL_UNSPECIFIED`
+- `WAL_LEVEL_REPLICA`
+- `WAL_LEVEL_LOGICAL` ||
+|| synchronousCommit | **enum** (SynchronousCommit)
+
+- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
+- `SYNCHRONOUS_COMMIT_ON`
+- `SYNCHRONOUS_COMMIT_OFF`
+- `SYNCHRONOUS_COMMIT_LOCAL`
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+|| checkpointTimeout | **string** (int64)
+
+in milliseconds. ||
+|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointFlushAfter | **string** (int64)
+
+in bytes ||
+|| maxWalSize | **string** (int64)
+
+in bytes. ||
+|| minWalSize | **string** (int64)
+
+in bytes. ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+in milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64) ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+- `CONSTRAINT_EXCLUSION_ON`
+- `CONSTRAINT_EXCLUSION_OFF`
+- `CONSTRAINT_EXCLUSION_PARTITION` ||
+|| cursorTupleFraction | **number** (double) ||
+|| fromCollapseLimit | **string** (int64) ||
+|| joinCollapseLimit | **string** (int64) ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+- `DEBUG_PARALLEL_QUERY_ON`
+- `DEBUG_PARALLEL_QUERY_OFF`
+- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+|| clientMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinDurationStatement | **string** (int64)
+
+in milliseconds. ||
+|| logCheckpoints | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logDuration | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+- `LOG_ERROR_VERBOSITY_TERSE`
+- `LOG_ERROR_VERBOSITY_DEFAULT`
+- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+|| logLockWaits | **boolean** ||
+|| logStatement | **enum** (LogStatement)
+
+- `LOG_STATEMENT_UNSPECIFIED`
+- `LOG_STATEMENT_NONE`
+- `LOG_STATEMENT_DDL`
+- `LOG_STATEMENT_MOD`
+- `LOG_STATEMENT_ALL` ||
+|| logTempFiles | **string** (int64) ||
+|| searchPath | **string** ||
+|| rowSecurity | **boolean** ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+- `TRANSACTION_ISOLATION_READ_COMMITTED`
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`
+- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+|| statementTimeout | **string** (int64)
+
+in milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+in milliseconds. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+- `BYTEA_OUTPUT_UNSPECIFIED`
+- `BYTEA_OUTPUT_HEX`
+- `BYTEA_OUTPUT_ESCAPED` ||
+|| xmlbinary | **enum** (XmlBinary)
+
+- `XML_BINARY_UNSPECIFIED`
+- `XML_BINARY_BASE64`
+- `XML_BINARY_HEX` ||
+|| xmloption | **enum** (XmlOption)
+
+- `XML_OPTION_UNSPECIFIED`
+- `XML_OPTION_DOCUMENT`
+- `XML_OPTION_CONTENT` ||
+|| ginPendingListLimit | **string** (int64)
+
+in bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| maxLocksPerTransaction | **string** (int64) ||
+|| maxPredLocksPerTransaction | **string** (int64) ||
+|| arrayNulls | **boolean** ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+- `BACKSLASH_QUOTE_UNSPECIFIED`
+- `BACKSLASH_QUOTE`
+- `BACKSLASH_QUOTE_ON`
+- `BACKSLASH_QUOTE_OFF`
+- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+|| defaultWithOids | **boolean** ||
+|| escapeStringWarning | **boolean** ||
+|| loCompatPrivileges | **boolean** ||
+|| quoteAllIdentifiers | **boolean** ||
+|| standardConformingStrings | **boolean** ||
+|| synchronizeSeqscans | **boolean** ||
+|| transformNullEquals | **boolean** ||
+|| exitOnError | **boolean** ||
+|| seqPageCost | **number** (double) ||
+|| randomPageCost | **number** (double) ||
+|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64) ||
+|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumNaptime | **string** (int64)
+
+in milliseconds. ||
+|| archiveTimeout | **string** (int64)
+
+in milliseconds. ||
+|| trackActivityQuerySize | **string** (int64) ||
+|| onlineAnalyzeEnable | **boolean** ||
+|| enableBitmapscan | **boolean** ||
+|| enableHashagg | **boolean** ||
+|| enableHashjoin | **boolean** ||
+|| enableIndexscan | **boolean** ||
+|| enableIndexonlyscan | **boolean** ||
+|| enableMaterial | **boolean** ||
+|| enableMergejoin | **boolean** ||
+|| enableNestloop | **boolean** ||
+|| enableSeqscan | **boolean** ||
+|| enableSort | **boolean** ||
+|| enableTidscan | **boolean** ||
+|| maxWorkerProcesses | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64) ||
+|| maxParallelWorkersPerGather | **string** (int64) ||
+|| autovacuumVacuumScaleFactor | **number** (double) ||
+|| autovacuumAnalyzeScaleFactor | **number** (double) ||
+|| defaultTransactionReadOnly | **boolean** ||
+|| timezone | **string** ||
+|| enableParallelAppend | **boolean** ||
+|| enableParallelHash | **boolean** ||
+|| enablePartitionPruning | **boolean** ||
+|| enablePartitionwiseAggregate | **boolean** ||
+|| enablePartitionwiseJoin | **boolean** ||
+|| jit | **boolean** ||
+|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| parallelLeaderParticipation | **boolean** ||
+|| logTransactionSampleRate | **number** (double) ||
+|| planCacheMode | **enum** (PlanCacheMode)
+
+- `PLAN_CACHE_MODE_UNSPECIFIED`
+- `PLAN_CACHE_MODE_AUTO`
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+|| effectiveIoConcurrency | **string** (int64) ||
+|| effectiveCacheSize | **string** (int64) ||
+|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+|| autoExplainLogMinDuration | **string** (int64)
+
+in milliseconds. ||
+|| autoExplainLogAnalyze | **boolean** ||
+|| autoExplainLogBuffers | **boolean** ||
+|| autoExplainLogTiming | **boolean** ||
+|| autoExplainLogTriggers | **boolean** ||
+|| autoExplainLogVerbose | **boolean** ||
+|| autoExplainLogNestedStatements | **boolean** ||
+|| autoExplainSampleRate | **number** (double) ||
+|| pgHintPlanEnableHint | **boolean** ||
+|| pgHintPlanEnableHintTable | **boolean** ||
+|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
+
+- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+|| pgHintPlanMessageLevel | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| hashMemMultiplier | **number** (double) ||
+|| logicalDecodingWorkMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceIoConcurrency | **string** (int64) ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+in bytes. ||
+|| walKeepSize | **string** (int64)
+
+in bytes. ||
+|| enableIncrementalSort | **boolean** ||
+|| autovacuumVacuumInsertThreshold | **string** (int64) ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+|| logMinDurationSample | **string** (int64)
+
+in milliseconds. ||
+|| logStatementSampleRate | **number** (double) ||
+|| logParameterMaxLength | **string** (int64)
+
+in bytes. ||
+|| logParameterMaxLengthOnError | **string** (int64)
+
+in bytes. ||
+|| clientConnectionCheckInterval | **string** (int64)
+
+in milliseconds. ||
+|| enableAsyncAppend | **boolean** ||
+|| enableGathermerge | **boolean** ||
+|| enableMemoize | **boolean** ||
+|| logRecoveryConflictWaits | **boolean**
+
+in milliseconds. ||
+|| vacuumFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| vacuumMultixactFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| pgQualstatsEnabled | **boolean** ||
+|| pgQualstatsTrackConstants | **boolean** ||
+|| pgQualstatsMax | **string** (int64) ||
+|| pgQualstatsResolveOids | **boolean** ||
+|| pgQualstatsSampleRate | **number** (double) ||
+|| plantunerFixEmptyTable | **boolean** ||
+|| maxStackDepth | **string** (int64)
+
+in bytes. ||
+|| enableGroupByReordering | **boolean** ||
+|| geqo | **boolean**
+
+enable Genetic Query Optimizer, by default is on ||
+|| geqoThreshold | **string** (int64)
+
+The number of tables to use geqo, default is 12 ||
+|| geqoEffort | **string** (int64)
+
+tradeoff between planning time and query plan quality, default is 5 ||
+|| geqoPoolSize | **string** (int64)
+
+number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+|| geqoGenerations | **string** (int64)
+
+the number of generations used by GEQO, useful values are in the same range as the pool size ||
+|| geqoSelectionBias | **number** (double)
+
+selective pressure within the population ||
+|| geqoSeed | **number** (double)
+
+initial value of the random number generator used by GEQO ||
+|| pgTrgmSimilarityThreshold | **number** (double) ||
+|| pgTrgmWordSimilarityThreshold | **number** (double) ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+|| maxStandbyArchiveDelay | **string** (int64)
+
+in milliseconds. ||
+|| sessionDurationTimeout | **string** (int64)
+
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+|| logReplicationCommands | **boolean** ||
+|| logAutovacuumMinDuration | **string** (int64)
+
+in milliseconds. The default is 1000 (1 sec). ||
+|| passwordEncryption | **enum** (PasswordEncryption)
+
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+
+- `PASSWORD_ENCRYPTION_UNSPECIFIED`
+- `PASSWORD_ENCRYPTION_MD5`
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| trackCommitTimestamp | **boolean** ||
+|| maxLogicalReplicationWorkers | **string** (int64) ||
+|| maxWalSenders | **string** (int64) ||
+|| maxReplicationSlots | **string** (int64) ||
+|#
+
+## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig182)**
+
+Effective settings for a PostgreSQL 18 cluster (a combination of settings defined
+in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig182)**
+
+User-defined settings for a PostgreSQL 18 cluster. ||
+|| defaultConfig | **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig182)**
+
+Default configuration for a PostgreSQL 18 cluster. ||
+|#
+
+## PostgresqlConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig182}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/18/runtime-config.html).
+
+#|
+||Field | Description ||
+|| maxConnections | **string** (int64) ||
+|| sharedBuffers | **string** (int64)
+
+in bytes. ||
+|| tempBuffers | **string** (int64)
+
+in bytes. ||
+|| maxPreparedTransactions | **string** (int64) ||
+|| workMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceWorkMem | **string** (int64)
+
+in bytes. ||
+|| autovacuumWorkMem | **string** (int64)
+
+in bytes. ||
+|| tempFileLimit | **string** (int64)
+
+in bytes. ||
+|| vacuumCostDelay | **string** (int64)
+
+in milliseconds. ||
+|| vacuumCostPageHit | **string** (int64) ||
+|| vacuumCostPageMiss | **string** (int64) ||
+|| vacuumCostPageDirty | **string** (int64) ||
+|| vacuumCostLimit | **string** (int64) ||
+|| bgwriterDelay | **string** (int64)
+
+in milliseconds. ||
+|| bgwriterLruMaxpages | **string** (int64) ||
+|| bgwriterLruMultiplier | **number** (double) ||
+|| bgwriterFlushAfter | **string** (int64)
+
+in bytes ||
+|| backendFlushAfter | **string** (int64)
+
+in bytes ||
+|| walLevel | **enum** (WalLevel)
+
+- `WAL_LEVEL_UNSPECIFIED`
+- `WAL_LEVEL_REPLICA`
+- `WAL_LEVEL_LOGICAL` ||
+|| synchronousCommit | **enum** (SynchronousCommit)
+
+- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
+- `SYNCHRONOUS_COMMIT_ON`
+- `SYNCHRONOUS_COMMIT_OFF`
+- `SYNCHRONOUS_COMMIT_LOCAL`
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+|| checkpointTimeout | **string** (int64)
+
+in milliseconds. ||
+|| checkpointCompletionTarget | **number** (double) ||
+|| checkpointFlushAfter | **string** (int64)
+
+in bytes ||
+|| maxWalSize | **string** (int64)
+
+in bytes. ||
+|| minWalSize | **string** (int64)
+
+in bytes. ||
+|| maxStandbyStreamingDelay | **string** (int64)
+
+in milliseconds. ||
+|| defaultStatisticsTarget | **string** (int64) ||
+|| constraintExclusion | **enum** (ConstraintExclusion)
+
+- `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+- `CONSTRAINT_EXCLUSION_ON`
+- `CONSTRAINT_EXCLUSION_OFF`
+- `CONSTRAINT_EXCLUSION_PARTITION` ||
+|| cursorTupleFraction | **number** (double) ||
+|| fromCollapseLimit | **string** (int64) ||
+|| joinCollapseLimit | **string** (int64) ||
+|| debugParallelQuery | **enum** (DebugParallelQuery)
+
+- `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+- `DEBUG_PARALLEL_QUERY_ON`
+- `DEBUG_PARALLEL_QUERY_OFF`
+- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+|| clientMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinMessages | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinErrorStatement | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| logMinDurationStatement | **string** (int64)
+
+in milliseconds. ||
+|| logCheckpoints | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logDuration | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+- `LOG_ERROR_VERBOSITY_TERSE`
+- `LOG_ERROR_VERBOSITY_DEFAULT`
+- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+|| logLockWaits | **boolean** ||
+|| logStatement | **enum** (LogStatement)
+
+- `LOG_STATEMENT_UNSPECIFIED`
+- `LOG_STATEMENT_NONE`
+- `LOG_STATEMENT_DDL`
+- `LOG_STATEMENT_MOD`
+- `LOG_STATEMENT_ALL` ||
+|| logTempFiles | **string** (int64) ||
+|| searchPath | **string** ||
+|| rowSecurity | **boolean** ||
+|| defaultTransactionIsolation | **enum** (TransactionIsolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+- `TRANSACTION_ISOLATION_READ_COMMITTED`
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`
+- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+|| statementTimeout | **string** (int64)
+
+in milliseconds. ||
+|| lockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| idleInTransactionSessionTimeout | **string** (int64)
+
+in milliseconds. ||
+|| byteaOutput | **enum** (ByteaOutput)
+
+- `BYTEA_OUTPUT_UNSPECIFIED`
+- `BYTEA_OUTPUT_HEX`
+- `BYTEA_OUTPUT_ESCAPED` ||
+|| xmlbinary | **enum** (XmlBinary)
+
+- `XML_BINARY_UNSPECIFIED`
+- `XML_BINARY_BASE64`
+- `XML_BINARY_HEX` ||
+|| xmloption | **enum** (XmlOption)
+
+- `XML_OPTION_UNSPECIFIED`
+- `XML_OPTION_DOCUMENT`
+- `XML_OPTION_CONTENT` ||
+|| ginPendingListLimit | **string** (int64)
+
+in bytes. ||
+|| deadlockTimeout | **string** (int64)
+
+in milliseconds. ||
+|| maxLocksPerTransaction | **string** (int64) ||
+|| maxPredLocksPerTransaction | **string** (int64) ||
+|| arrayNulls | **boolean** ||
+|| backslashQuote | **enum** (BackslashQuote)
+
+- `BACKSLASH_QUOTE_UNSPECIFIED`
+- `BACKSLASH_QUOTE`
+- `BACKSLASH_QUOTE_ON`
+- `BACKSLASH_QUOTE_OFF`
+- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+|| defaultWithOids | **boolean** ||
+|| escapeStringWarning | **boolean** ||
+|| loCompatPrivileges | **boolean** ||
+|| quoteAllIdentifiers | **boolean** ||
+|| standardConformingStrings | **boolean** ||
+|| synchronizeSeqscans | **boolean** ||
+|| transformNullEquals | **boolean** ||
+|| exitOnError | **boolean** ||
+|| seqPageCost | **number** (double) ||
+|| randomPageCost | **number** (double) ||
+|| autovacuumMaxWorkers | **string** (int64) ||
+|| autovacuumVacuumCostDelay | **string** (int64) ||
+|| autovacuumVacuumCostLimit | **string** (int64) ||
+|| autovacuumNaptime | **string** (int64)
+
+in milliseconds. ||
+|| archiveTimeout | **string** (int64)
+
+in milliseconds. ||
+|| trackActivityQuerySize | **string** (int64) ||
+|| enableBitmapscan | **boolean** ||
+|| enableHashagg | **boolean** ||
+|| enableHashjoin | **boolean** ||
+|| enableIndexscan | **boolean** ||
+|| enableIndexonlyscan | **boolean** ||
+|| enableMaterial | **boolean** ||
+|| enableMergejoin | **boolean** ||
+|| enableNestloop | **boolean** ||
+|| enableSeqscan | **boolean** ||
+|| enableSort | **boolean** ||
+|| enableTidscan | **boolean** ||
+|| maxWorkerProcesses | **string** (int64) ||
+|| maxParallelWorkers | **string** (int64) ||
+|| maxParallelWorkersPerGather | **string** (int64) ||
+|| autovacuumVacuumScaleFactor | **number** (double) ||
+|| autovacuumAnalyzeScaleFactor | **number** (double) ||
+|| defaultTransactionReadOnly | **boolean** ||
+|| timezone | **string** ||
+|| enableParallelAppend | **boolean** ||
+|| enableParallelHash | **boolean** ||
+|| enablePartitionPruning | **boolean** ||
+|| enablePartitionwiseAggregate | **boolean** ||
+|| enablePartitionwiseJoin | **boolean** ||
+|| jit | **boolean** ||
+|| maxParallelMaintenanceWorkers | **string** (int64) ||
+|| parallelLeaderParticipation | **boolean** ||
+|| logTransactionSampleRate | **number** (double) ||
+|| planCacheMode | **enum** (PlanCacheMode)
+
+- `PLAN_CACHE_MODE_UNSPECIFIED`
+- `PLAN_CACHE_MODE_AUTO`
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+|| effectiveIoConcurrency | **string** (int64) ||
+|| effectiveCacheSize | **string** (int64) ||
+|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
+
+- `SHARED_PRELOAD_LIBRARIES_UNSPECIFIED`
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+|| autoExplainLogMinDuration | **string** (int64)
+
+in milliseconds. ||
+|| autoExplainLogAnalyze | **boolean** ||
+|| autoExplainLogBuffers | **boolean** ||
+|| autoExplainLogTiming | **boolean** ||
+|| autoExplainLogTriggers | **boolean** ||
+|| autoExplainLogVerbose | **boolean** ||
+|| autoExplainLogNestedStatements | **boolean** ||
+|| autoExplainSampleRate | **number** (double) ||
+|| pgHintPlanEnableHint | **boolean** ||
+|| pgHintPlanEnableHintTable | **boolean** ||
+|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
+
+- `PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED`
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+|| pgHintPlanMessageLevel | **enum** (LogLevel)
+
+- `LOG_LEVEL_UNSPECIFIED`
+- `LOG_LEVEL_DEBUG5`
+- `LOG_LEVEL_DEBUG4`
+- `LOG_LEVEL_DEBUG3`
+- `LOG_LEVEL_DEBUG2`
+- `LOG_LEVEL_DEBUG1`
+- `LOG_LEVEL_INFO`
+- `LOG_LEVEL_LOG`
+- `LOG_LEVEL_NOTICE`
+- `LOG_LEVEL_WARNING`
+- `LOG_LEVEL_ERROR`
+- `LOG_LEVEL_FATAL`
+- `LOG_LEVEL_PANIC` ||
+|| hashMemMultiplier | **number** (double) ||
+|| logicalDecodingWorkMem | **string** (int64)
+
+in bytes. ||
+|| maintenanceIoConcurrency | **string** (int64) ||
+|| maxSlotWalKeepSize | **string** (int64)
+
+in bytes. ||
+|| walKeepSize | **string** (int64)
+
+in bytes. ||
+|| enableIncrementalSort | **boolean** ||
+|| autovacuumVacuumInsertThreshold | **string** (int64) ||
+|| autovacuumVacuumInsertScaleFactor | **number** (double) ||
+|| logMinDurationSample | **string** (int64)
+
+in milliseconds. ||
+|| logStatementSampleRate | **number** (double) ||
+|| logParameterMaxLength | **string** (int64)
+
+in bytes. ||
+|| logParameterMaxLengthOnError | **string** (int64)
+
+in bytes. ||
+|| clientConnectionCheckInterval | **string** (int64)
+
+in milliseconds. ||
+|| enableAsyncAppend | **boolean** ||
+|| enableGathermerge | **boolean** ||
+|| enableMemoize | **boolean** ||
+|| logRecoveryConflictWaits | **boolean**
+
+in milliseconds. ||
+|| vacuumFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| vacuumMultixactFailsafeAge | **string** (int64)
+
+in milliseconds. ||
+|| pgQualstatsEnabled | **boolean** ||
+|| pgQualstatsTrackConstants | **boolean** ||
+|| pgQualstatsMax | **string** (int64) ||
+|| pgQualstatsResolveOids | **boolean** ||
+|| pgQualstatsSampleRate | **number** (double) ||
+|| maxStackDepth | **string** (int64)
+
+in bytes. ||
+|| enableGroupByReordering | **boolean** ||
+|| geqo | **boolean**
+
+enable Genetic Query Optimizer, by default is on ||
+|| geqoThreshold | **string** (int64)
+
+The number of tables to use geqo, default is 12 ||
+|| geqoEffort | **string** (int64)
+
+tradeoff between planning time and query plan quality, default is 5 ||
+|| geqoPoolSize | **string** (int64)
+
+number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
+|| geqoGenerations | **string** (int64)
+
+the number of generations used by GEQO, useful values are in the same range as the pool size ||
+|| geqoSelectionBias | **number** (double)
+
+selective pressure within the population ||
+|| geqoSeed | **number** (double)
+
+initial value of the random number generator used by GEQO ||
+|| pgTrgmSimilarityThreshold | **number** (double) ||
+|| pgTrgmWordSimilarityThreshold | **number** (double) ||
+|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
+|| maxStandbyArchiveDelay | **string** (int64)
+
+in milliseconds. ||
+|| sessionDurationTimeout | **string** (int64)
+
+Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0. ||
+|| logReplicationCommands | **boolean** ||
+|| logAutovacuumMinDuration | **string** (int64)
+
+in milliseconds. The default is 1000 (1 sec). ||
+|| passwordEncryption | **enum** (PasswordEncryption)
+
+A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
+
+- `PASSWORD_ENCRYPTION_UNSPECIFIED`
+- `PASSWORD_ENCRYPTION_MD5`
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| trackCommitTimestamp | **boolean** ||
+|| maxLogicalReplicationWorkers | **string** (int64) ||
+|| maxWalSenders | **string** (int64) ||
+|| maxReplicationSlots | **string** (int64) ||
+|#
+
+## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C2)**
+
+Effective settings for a PostgreSQL 18 1C cluster (a combination of settings defined
+in `userConfig` and `defaultConfig`). ||
+|| userConfig | **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C2)**
+
+User-defined settings for a PostgreSQL 18 cluster. ||
+|| defaultConfig | **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C2)**
+
+Default configuration for a PostgreSQL 18 cluster. ||
+|#
+
+## PostgresqlConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C2}
+
+Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+parameters which detailed description is available in
+[PostgreSQL documentation](https://www.postgresql.org/docs/18/runtime-config.html).
 
 #|
 ||Field | Description ||

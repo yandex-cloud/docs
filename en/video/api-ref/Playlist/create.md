@@ -26,7 +26,7 @@ apiPlayground:
           type: string
         items:
           description: |-
-            **[PlaylistItem](/docs/video/api-ref/Playlist/get#yandex.cloud.video.v1.PlaylistItem)**
+            **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
             List of items to include in the playlist.
             Each item represents a video or episode to be played in sequence.
             The order of items in this list determines the playback order.

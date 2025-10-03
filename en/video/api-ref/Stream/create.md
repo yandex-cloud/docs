@@ -50,8 +50,15 @@ apiPlayground:
             Maximum 64 labels per stream.
             Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
             Values can contain alphanumeric characters and various symbols.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         onDemand:
           description: |-
             **object**
@@ -62,7 +69,7 @@ apiPlayground:
           $ref: '#/definitions/OnDemandParams'
         schedule:
           description: |-
-            **[ScheduleParams](/docs/video/api-ref/Stream/create#yandex.cloud.video.v1.ScheduleParams)**
+            **[ScheduleParams](#yandex.cloud.video.v1.ScheduleParams)**
             Scheduled stream that starts and finishes at specified time.
             This type of stream has predetermined start and end time.
             Includes only one of the fields `onDemand`, `schedule`.

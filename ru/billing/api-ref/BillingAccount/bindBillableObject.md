@@ -21,8 +21,8 @@ apiPlayground:
       properties:
         billableObject:
           description: |-
-            **[BillableObject](/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#yandex.cloud.billing.v1.BillableObject)**
-            [yandex.cloud.billing.v1.BillableObject](/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#yandex.cloud.billing.v1.BillableObject) to bind with billing account.
+            **[BillableObject](#yandex.cloud.billing.v1.BillableObject)**
+            [yandex.cloud.billing.v1.BillableObject](#yandex.cloud.billing.v1.BillableObject) to bind with billing account.
           $ref: '#/definitions/BillableObject'
       additionalProperties: false
     definitions:

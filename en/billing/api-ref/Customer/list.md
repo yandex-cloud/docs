@@ -17,7 +17,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListCustomersResponse.nextPageToken](/docs/billing/api-ref/Customer/list#yandex.cloud.billing.v1.ListCustomersResponse)
+            the service returns a [ListCustomersResponse.nextPageToken](#yandex.cloud.billing.v1.ListCustomersResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,7 +25,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results,
-            set `pageToken` to the [ListCustomersResponse.nextPageToken](/docs/billing/api-ref/Customer/list#yandex.cloud.billing.v1.ListCustomersResponse)
+            set `pageToken` to the [ListCustomersResponse.nextPageToken](#yandex.cloud.billing.v1.ListCustomersResponse)
             returned by a previous list request.
           type: string
       required:

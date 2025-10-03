@@ -20,7 +20,7 @@ apiPlayground:
           type: string
         users:
           description: |-
-            **[User](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.User)**
+            **[User](#yandex.cloud.clouddesktop.v1.api.User)**
             List of users.
           type: array
           items:
@@ -285,7 +285,8 @@ Status of the desktop.
 - `STOPPING`: Desktop is stopping.
 - `STOPPED`: Desktop is stopped.
 - `ERROR`: Desktop did not manage start or restart.
-- `CREATION_FAILED`: Desktop did not manage to get created or updated. ||
+- `CREATION_FAILED`: Desktop did not manage to get created or updated.
+- `HEALTH_CHECK`: Desktop in the process of health check. ||
 || name | **string**
 
 Name of the desktop. ||
