@@ -22,15 +22,16 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListPrivateConnectionOperationsResponse.nextPageToken](/docs/interconnect/api-ref/PrivateConnection/listOperations#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse)
+            the service returns a [ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListPrivateConnectionOperationsResponse.nextPageToken](/docs/interconnect/api-ref/PrivateConnection/listOperations#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request.
+            [ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

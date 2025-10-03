@@ -22,16 +22,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page that should be returned. If the number of available
-            results is larger than `pageSize`, the service returns a [ListSymmetricKeyOperationsResponse.nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListSymmetricKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListSymmetricKeyOperationsResponse.nextPageToken](/docs/kms/api-ref/SymmetricKey/listOperations#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse) returned by a previous list request.
+            [ListSymmetricKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

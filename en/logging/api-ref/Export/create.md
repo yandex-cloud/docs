@@ -30,8 +30,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Export labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         groupId:
           description: |-
             **string**
@@ -44,7 +53,7 @@ apiPlayground:
           type: string
         params:
           description: |-
-            **[ExportParams](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.ExportParams)**
+            **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
             Required field. Parameters for logs filtration
           $ref: '#/definitions/ExportParams'
       required:

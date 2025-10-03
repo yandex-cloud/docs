@@ -25,6 +25,7 @@ apiPlayground:
             the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
@@ -38,7 +39,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [Vulnerability.severity](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
+            1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
             2. An `=` operator.
             3. The value in double quotes (`"`).
           type: string
@@ -47,7 +48,7 @@ apiPlayground:
             **string**
             An order expression that orders resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [Vulnerability.severity](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
+            1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
             2. Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).
           type: string
       additionalProperties: false

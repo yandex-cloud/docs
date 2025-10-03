@@ -21,7 +21,7 @@ apiPlayground:
           type: string
         resources:
           description: |-
-            **[Resources](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Resources)**
+            **[Resources](#yandex.cloud.serverless.containers.v1.Resources)**
             Required field. Resources allocated to the revision.
           $ref: '#/definitions/Resources'
         executionTimeout:
@@ -38,7 +38,7 @@ apiPlayground:
           type: string
         imageSpec:
           description: |-
-            **[ImageSpec](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.ImageSpec)**
+            **[ImageSpec](#yandex.cloud.serverless.containers.v1.ImageSpec)**
             Required field. Image configuration for the revision.
           $ref: '#/definitions/ImageSpec'
         concurrency:
@@ -50,7 +50,7 @@ apiPlayground:
           format: int64
         secrets:
           description: |-
-            **[Secret](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Secret)**
+            **[Secret](#yandex.cloud.serverless.containers.v1.Secret)**
             Yandex Lockbox secrets to be used by the revision.
           type: array
           items:
@@ -65,23 +65,23 @@ apiPlayground:
                     type: string
         connectivity:
           description: |-
-            **[Connectivity](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Connectivity)**
+            **[Connectivity](#yandex.cloud.serverless.containers.v1.Connectivity)**
             Network access. If specified the revision will be attached to specified network/subnet(s).
           $ref: '#/definitions/Connectivity'
         provisionPolicy:
           description: |-
-            **[ProvisionPolicy](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
+            **[ProvisionPolicy](#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
             Policy for provisioning instances of the revision.
             The policy is only applied when the revision is ACTIVE.
           $ref: '#/definitions/ProvisionPolicy'
         scalingPolicy:
           description: |-
-            **[ScalingPolicy](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+            **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
             Policy for scaling instances of the revision.
           $ref: '#/definitions/ScalingPolicy'
         logOptions:
           description: |-
-            **[LogOptions](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
             Options for logging from the container.
           oneOf:
             - type: object
@@ -104,14 +104,14 @@ apiPlayground:
                   type: string
         storageMounts:
           description: |-
-            **[StorageMount](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.StorageMount)**
+            **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
             S3 mounts to be used by the revision.
           type: array
           items:
             $ref: '#/definitions/StorageMount'
         mounts:
           description: |-
-            **[Mount](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Mount)**
+            **[Mount](#yandex.cloud.serverless.containers.v1.Mount)**
             Mounts to be used by the revision.
           type: array
           items:
@@ -120,21 +120,21 @@ apiPlayground:
                 properties:
                   objectStorage:
                     description: |-
-                      **[ObjectStorage](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
+                      **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
                       Object storage mounts
                       Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
                       Target mount option
                     $ref: '#/definitions/ObjectStorage'
                   ephemeralDiskSpec:
                     description: |-
-                      **[DiskSpec](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
+                      **[DiskSpec](#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
                       Working disk (worker-local non-shared read-write NBS disk templates)
                       Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
                       Target mount option
                     $ref: '#/definitions/DiskSpec'
         runtime:
           description: |-
-            **[Runtime](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Runtime)**
+            **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
             The container's execution mode.
           oneOf:
             - type: object
@@ -153,12 +153,12 @@ apiPlayground:
                   $ref: '#/definitions/Task'
         metadataOptions:
           description: |-
-            **[MetadataOptions](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+            **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
             Metadata options for the revision.
           $ref: '#/definitions/MetadataOptions'
         asyncInvocationConfig:
           description: |-
-            **[AsyncInvocationConfig](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig)**
+            **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig)**
             Config for asynchronous invocations of the revision.
           $ref: '#/definitions/AsyncInvocationConfig'
       required:
@@ -225,20 +225,25 @@ apiPlayground:
             type: string
           command:
             description: |-
-              **[Command](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Command)**
+              **[Command](#yandex.cloud.serverless.containers.v1.Command)**
               Override for the image's ENTRYPOINT.
             $ref: '#/definitions/Command'
           args:
             description: |-
-              **[Args](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Args)**
+              **[Args](#yandex.cloud.serverless.containers.v1.Args)**
               Override for the image's CMD.
             $ref: '#/definitions/Args'
           environment:
             description: |-
               **object** (map<**string**, **string**>)
               Additional environment for the container.
-            pattern: '[a-zA-Z][a-zA-Z0-9_]*'
-            type: string
+            type: object
+            additionalProperties:
+              type: string
+              maxLength: 4096
+            propertyNames:
+              type: string
+              pattern: '[a-zA-Z][a-zA-Z0-9_]*'
           workingDir:
             description: |-
               **string**

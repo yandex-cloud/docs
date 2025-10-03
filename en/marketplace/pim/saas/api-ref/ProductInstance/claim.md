@@ -20,7 +20,7 @@ apiPlayground:
           type: string
         resourceInfo:
           description: |-
-            **[SaasInfo](/docs/marketplace/pim/ProductInstance/get#yandex.cloud.marketplace.pim.v1.saas.SaasInfo)**
+            **[SaasInfo](#yandex.cloud.marketplace.pim.v1.saas.SaasInfo)**
             Additional information about the resource.
           $ref: '#/definitions/SaasInfo'
       required:
@@ -39,7 +39,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Additional data about the SaaS resource.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
 sourcePath: en/_api-ref/marketplace/pim/v1/saas/pim/saas/api-ref/ProductInstance/claim.md
 ---
 

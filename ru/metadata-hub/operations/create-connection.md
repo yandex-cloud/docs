@@ -99,9 +99,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mpg-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md) для ресурса [Connection](../api-ref/grpc/Connection/).
+  Чтобы создать подключение к кластеру {{ mpg-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection).
 
 {% endlist %}
 
@@ -174,9 +174,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mch-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к кластеру {{ mch-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection).
 
 {% endlist %}
 
@@ -249,9 +249,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mmy-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к кластеру {{ mmy-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection).
 
 {% endlist %}
 
@@ -322,9 +322,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mrd-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к кластеру {{ mrd-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection).
 
 {% endlist %}
 
@@ -394,9 +394,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mos-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к кластеру {{ mos-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection).
 
 {% endlist %}
 
@@ -469,9 +469,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mmg-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к кластеру {{ mmg-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
 
 {% endlist %}
 
@@ -579,9 +579,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к кластеру {{ mgp-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md) для ресурса [Connection](../api-ref/grpc/Connection/).
+  Чтобы создать подключение к кластеру {{ mgp-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection).
 
 {% endlist %}
 
@@ -642,7 +642,7 @@ description: Пошаговые инструкции по работе с {{ con
         --password <пароль> \
         --hosts <список_хостов> \
         --databases <список_БД> \
-        --ca-certificate <путь_к_сертификату>
+        --ca-ce../connection-manager/api-ref/rtificate <путь_к_сертификату>
       ```
 
       Где:
@@ -651,9 +651,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ PG }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ PG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster).
 
 {% endlist %}
 
@@ -738,9 +738,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ CH }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ CH }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster).
 
 {% endlist %}
 
@@ -808,9 +808,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ MY }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ MY }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster).
 
 {% endlist %}
 
@@ -889,9 +889,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ RD }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ RD }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster).
 
 {% endlist %}
 
@@ -955,9 +955,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ VLK }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ VLK }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster).
 
 {% endlist %}
 
@@ -1032,9 +1032,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ TR }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ TR }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster).
 
 {% endlist %}
 
@@ -1111,9 +1111,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ OS }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ OS }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster).
 
 {% endlist %}
 
@@ -1177,9 +1177,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste).
 
 {% endlist %}
 
@@ -1289,9 +1289,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы создать подключение к пользовательской инсталляции {{ GP }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+  Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster).
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster).
 
 {% endlist %}
 

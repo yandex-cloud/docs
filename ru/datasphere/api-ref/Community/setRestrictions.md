@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         restrictions:
           description: |-
-            **[Restriction](/docs/datasphere/api-ref/Community/getRestrictions#yandex.cloud.datasphere.v2.Restriction)**
+            **[Restriction](#yandex.cloud.datasphere.v2.Restriction)**
             List of restrictions to set.
           type: array
           items:

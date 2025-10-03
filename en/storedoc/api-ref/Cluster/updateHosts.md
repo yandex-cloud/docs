@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         updateHostSpecs:
           description: |-
-            **[UpdateHostSpec](/docs/managed-mongodb/api-ref/Cluster/updateHosts#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
+            **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
             New configurations to apply to hosts of a Managed Service for MongoDB cluster.
           type: array
           items:
@@ -76,7 +76,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags).
-            type: string
+            type: object
+            additionalProperties:
+              type: string
         required:
           - hostName
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/updateHosts.md

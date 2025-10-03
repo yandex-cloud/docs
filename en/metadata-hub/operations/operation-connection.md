@@ -19,7 +19,7 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
 - API {#api}
   
-  To get information about a specific connection, use the [Operation.Get](../api-ref/Operation/get.md) REST API method or the [OperationService.Get](../api-ref/grpc/Operation/get.md) gRPC API call and provide the operation ID in the request.
+  To get information about a specific connection, use the [Operation.Get](../connection-manager/api-ref/Operation/get.md) REST API method or the [OperationService.Get](../connection-manager/api-ref/grpc/Operation/get.md) gRPC API call and provide the operation ID in the request.
 
   You can get the operation ID from the connection [operation list](operation-connection.md#operations-list).
 

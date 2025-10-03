@@ -28,28 +28,37 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels for the connector.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         source:
           description: |-
-            **[Source](/docs/serverless-integrations/eventrouter/api-ref/Connector/get#yandex.cloud.serverless.eventrouter.v1.Source)**
+            **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
             Source of the connector.
           oneOf:
             - type: object
               properties:
                 dataStream:
                   description: |-
-                    **[DataStream](/docs/serverless-integrations/eventrouter/api-ref/Connector/get#yandex.cloud.serverless.eventrouter.v1.DataStream)**
+                    **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
                     Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
                   $ref: '#/definitions/DataStream'
                 messageQueue:
                   description: |-
-                    **[MessageQueue](/docs/serverless-integrations/eventrouter/api-ref/Connector/get#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
+                    **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
                     Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
                   $ref: '#/definitions/MessageQueue'
                 timer:
                   description: |-
-                    **[Timer](/docs/serverless-integrations/eventrouter/api-ref/Connector/get#yandex.cloud.serverless.eventrouter.v1.Timer)**
+                    **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
                     Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
                   $ref: '#/definitions/Timer'
                 eventServiceSource:

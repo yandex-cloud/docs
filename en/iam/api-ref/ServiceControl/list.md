@@ -9,7 +9,7 @@ apiPlayground:
       properties:
         resource:
           description: |-
-            **[Resource](/docs/iam/api-ref/ServiceControl/get#yandex.cloud.iam.v1.Resource)**
+            **[Resource](#yandex.cloud.iam.v1.Resource)**
             Required field. Resource container to list a services.
             It is supported only resource-manager.cloud resource container now.
           $ref: '#/definitions/Resource'
@@ -18,16 +18,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListServicesResponse.nextPageToken](/docs/iam/api-ref/ServiceControl/list#yandex.cloud.iam.v1.ListServicesResponse)
+            the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListServicesResponse.nextPageToken](/docs/iam/api-ref/ServiceControl/list#yandex.cloud.iam.v1.ListServicesResponse)
+            to the [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
             returned by a previous list request.
           type: string
       required:

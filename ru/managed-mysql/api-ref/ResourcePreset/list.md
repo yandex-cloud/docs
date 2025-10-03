@@ -11,14 +11,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the API returns a [ListResourcePresetsResponse.nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#yandex.cloud.mdb.mysql.v1.ListResourcePresetsResponse) that can be used to get the next page of results in the subsequent [ResourcePresetService.List](#List) requests.
+            If the number of available results is larger than `pageSize`, the API returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListResourcePresetsResponse) that can be used to get the next page of results in the subsequent [ResourcePresetService.List](#List) requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token that can be used to iterate through multiple pages of results.
-            To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#yandex.cloud.mdb.mysql.v1.ListResourcePresetsResponse) returned by the previous [ResourcePresetService.List](#List) request.
+            To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListResourcePresetsResponse) returned by the previous [ResourcePresetService.List](#List) request.
           type: string
       additionalProperties: false
     body: null

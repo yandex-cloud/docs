@@ -30,88 +30,91 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Endpoint labels as `key:value` pairs.
-            For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels).
-          type: string
+            For details about the concept, see [documentation]({{ api-url-prefix
+            }}/resource-manager/concepts/labels).
+          type: object
+          additionalProperties:
+            type: string
         settings:
           description: |-
-            **[EndpointSettings](/docs/data-transfer/api-ref/Endpoint/get#yandex.cloud.datatransfer.v1.EndpointSettings)**
+            **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
             The new endpoint settings.
           oneOf:
             - type: object
               properties:
                 mysqlSource:
                   description: |-
-                    **`MysqlSource`**
+                    **[MysqlSource](#yandex.cloud.datatransfer.v1.endpoint.MysqlSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/MysqlSource'
                 postgresSource:
                   description: |-
-                    **`PostgresSource`**
+                    **[PostgresSource](#yandex.cloud.datatransfer.v1.endpoint.PostgresSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/PostgresSource'
                 ydbSource:
                   description: |-
-                    **`YdbSource`**
+                    **[YdbSource](#yandex.cloud.datatransfer.v1.endpoint.YdbSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/YdbSource'
                 ydsSource:
                   description: |-
-                    **`YDSSource`**
+                    **[YDSSource](#yandex.cloud.datatransfer.v1.endpoint.YDSSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/YDSSource'
                 kafkaSource:
                   description: |-
-                    **`KafkaSource`**
+                    **[KafkaSource](#yandex.cloud.datatransfer.v1.endpoint.KafkaSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/KafkaSource'
                 mongoSource:
                   description: |-
-                    **`MongoSource`**
+                    **[MongoSource](#yandex.cloud.datatransfer.v1.endpoint.MongoSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/MongoSource'
                 clickhouseSource:
                   description: |-
-                    **`ClickhouseSource`**
+                    **[ClickhouseSource](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/ClickhouseSource'
                 mysqlTarget:
                   description: |-
-                    **`MysqlTarget`**
+                    **[MysqlTarget](#yandex.cloud.datatransfer.v1.endpoint.MysqlTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/MysqlTarget'
                 postgresTarget:
                   description: |-
-                    **`PostgresTarget`**
+                    **[PostgresTarget](#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/PostgresTarget'
                 clickhouseTarget:
                   description: |-
-                    **`ClickhouseTarget`**
+                    **[ClickhouseTarget](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/ClickhouseTarget'
                 ydbTarget:
                   description: |-
-                    **`YdbTarget`**
+                    **[YdbTarget](#yandex.cloud.datatransfer.v1.endpoint.YdbTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/YdbTarget'
                 kafkaTarget:
                   description: |-
-                    **`KafkaTarget`**
+                    **[KafkaTarget](#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/KafkaTarget'
                 mongoTarget:
                   description: |-
-                    **`MongoTarget`**
+                    **[MongoTarget](#yandex.cloud.datatransfer.v1.endpoint.MongoTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/MongoTarget'
                 metrikaSource:
                   description: |-
-                    **`MetrikaSource`**
+                    **[MetrikaSource](#yandex.cloud.datatransfer.v1.endpoint.MetrikaSource)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/MetrikaSource'
                 ydsTarget:
                   description: |-
-                    **`YDSTarget`**
+                    **[YDSTarget](#yandex.cloud.datatransfer.v1.endpoint.YDSTarget)**
                     Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
                   $ref: '#/definitions/YDSTarget'
         updateMask:
@@ -160,7 +163,7 @@ apiPlayground:
               type: string
           tlsMode:
             description: |-
-              **`TLSMode`**
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
               TLS settings for server connection. Disabled by default.
             oneOf:
               - type: object
@@ -174,7 +177,7 @@ apiPlayground:
                     format: empty
                   enabled:
                     description: |-
-                      **`TLSConfig`**
+                      **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
                       Includes only one of the fields `enabled`.
                     $ref: '#/definitions/TLSConfig'
       ConnectionManagerConnection:
@@ -249,7 +252,7 @@ apiPlayground:
         properties:
           connection:
             description: |-
-              **`MysqlConnection`**
+              **[MysqlConnection](#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection)**
               Database connection settings
             oneOf:
               - type: object
@@ -262,13 +265,13 @@ apiPlayground:
                     type: string
                   onPremise:
                     description: |-
-                      **`OnPremiseMysql`**
+                      **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
                       Connection options for on-premise MySQL
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/OnPremiseMysql'
                   connectionManagerConnection:
                     description: |-
-                      **`ConnectionManagerConnection`**
+                      **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/ConnectionManagerConnection'
           database:
@@ -285,7 +288,7 @@ apiPlayground:
             type: string
           password:
             description: |-
-              **`Secret`**
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
               Password for database access.
             oneOf:
               - type: object
@@ -305,7 +308,7 @@ apiPlayground:
             type: string
           objectTransferSettings:
             description: |-
-              **`MysqlObjectTransferSettings`**
+              **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
               Schema migration
               Select database objects to be transferred during activation or deactivation.
             $ref: '#/definitions/MysqlObjectTransferSettings'
@@ -354,7 +357,7 @@ apiPlayground:
               type: string
           tlsMode:
             description: |-
-              **`TLSMode`**
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
               TLS settings for server connection. Disabled by default.
             oneOf:
               - type: object
@@ -368,7 +371,7 @@ apiPlayground:
                     format: empty
                   enabled:
                     description: |-
-                      **`TLSConfig`**
+                      **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
                       Includes only one of the fields `enabled`.
                     $ref: '#/definitions/TLSConfig'
       PostgresObjectTransferSettings:
@@ -647,7 +650,7 @@ apiPlayground:
         properties:
           connection:
             description: |-
-              **`PostgresConnection`**
+              **[PostgresConnection](#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection)**
               Database connection settings
             oneOf:
               - type: object
@@ -660,13 +663,13 @@ apiPlayground:
                     type: string
                   onPremise:
                     description: |-
-                      **`OnPremisePostgres`**
+                      **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
                       Connection options for on-premise PostgreSQL
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/OnPremisePostgres'
                   connectionManagerConnection:
                     description: |-
-                      **`ConnectionManagerConnection`**
+                      **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/ConnectionManagerConnection'
           database:
@@ -681,7 +684,7 @@ apiPlayground:
             type: string
           password:
             description: |-
-              **`Secret`**
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
               Password for database access.
             oneOf:
               - type: object
@@ -725,7 +728,7 @@ apiPlayground:
             type: string
           objectTransferSettings:
             description: |-
-              **`PostgresObjectTransferSettings`**
+              **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
               Select database objects to be transferred during activation or deactivation.
             $ref: '#/definitions/PostgresObjectTransferSettings'
           securityGroups:
@@ -836,7 +839,7 @@ apiPlayground:
         properties:
           fields:
             description: |-
-              **`ColSchema`**
+              **[ColSchema](#yandex.cloud.datatransfer.v1.endpoint.ColSchema)**
               Column schema
             type: array
             items:
@@ -845,7 +848,7 @@ apiPlayground:
         type: object
         properties:
           dataSchema:
-            description: '**`DataSchema`**'
+            description: '**[DataSchema](#yandex.cloud.datatransfer.v1.endpoint.DataSchema)**'
             oneOf:
               - type: object
                 properties:
@@ -856,7 +859,7 @@ apiPlayground:
                     type: string
                   fields:
                     description: |-
-                      **`FieldList`**
+                      **[FieldList](#yandex.cloud.datatransfer.v1.endpoint.FieldList)**
                       Includes only one of the fields `jsonFields`, `fields`.
                     $ref: '#/definitions/FieldList'
           nullKeysAllowed:
@@ -916,14 +919,14 @@ apiPlayground:
                 - YDS_COMPRESSION_CODEC_ZSTD
           parser:
             description: |-
-              **`Parser`**
+              **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
               Data parsing rules
             oneOf:
               - type: object
                 properties:
                   jsonParser:
                     description: |-
-                      **`GenericParserCommon`**
+                      **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
                       Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
                     $ref: '#/definitions/GenericParserCommon'
                   auditTrailsV1Parser:
@@ -938,7 +941,7 @@ apiPlayground:
                     $ref: '#/definitions/CloudLoggingParser'
                   tskvParser:
                     description: |-
-                      **`GenericParserCommon`**
+                      **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
                       Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
                     $ref: '#/definitions/GenericParserCommon'
           allowTtlRewind:
@@ -987,7 +990,7 @@ apiPlayground:
             type: string
           tlsMode:
             description: |-
-              **`TLSMode`**
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
               TLS settings for broker connection. Disabled by default.
             oneOf:
               - type: object
@@ -1001,7 +1004,7 @@ apiPlayground:
                     format: empty
                   enabled:
                     description: |-
-                      **`TLSConfig`**
+                      **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
                       Includes only one of the fields `enabled`.
                     $ref: '#/definitions/TLSConfig'
       KafkaSaslSecurity:
@@ -1026,7 +1029,7 @@ apiPlayground:
               - KAFKA_MECHANISM_SHA512
           password:
             description: |-
-              **`Secret`**
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
               Password for user
             oneOf:
               - type: object
@@ -1079,7 +1082,7 @@ apiPlayground:
         properties:
           connection:
             description: |-
-              **`KafkaConnectionOptions`**
+              **[KafkaConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions)**
               Connection settings
             oneOf:
               - type: object
@@ -1092,20 +1095,20 @@ apiPlayground:
                     type: string
                   onPremise:
                     description: |-
-                      **`OnPremiseKafka`**
+                      **[OnPremiseKafka](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka)**
                       Connection options for on-premise Kafka
                       Includes only one of the fields `clusterId`, `onPremise`.
                     $ref: '#/definitions/OnPremiseKafka'
           auth:
             description: |-
-              **`KafkaAuth`**
+              **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
               Authentication settings
             oneOf:
               - type: object
                 properties:
                   sasl:
                     description: |-
-                      **`KafkaSaslSecurity`**
+                      **[KafkaSaslSecurity](#yandex.cloud.datatransfer.v1.endpoint.KafkaSaslSecurity)**
                       Authentication with SASL
                       Includes only one of the fields `sasl`, `noAuth`.
                     $ref: '#/definitions/KafkaSaslSecurity'
@@ -1131,19 +1134,19 @@ apiPlayground:
             type: string
           transformer:
             description: |-
-              **`DataTransformationOptions`**
+              **[DataTransformationOptions](#yandex.cloud.datatransfer.v1.endpoint.DataTransformationOptions)**
               Data transformation rules
             $ref: '#/definitions/DataTransformationOptions'
           parser:
             description: |-
-              **`Parser`**
+              **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
               Data parsing rules
             oneOf:
               - type: object
                 properties:
                   jsonParser:
                     description: |-
-                      **`GenericParserCommon`**
+                      **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
                       Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
                     $ref: '#/definitions/GenericParserCommon'
                   auditTrailsV1Parser:
@@ -1158,7 +1161,7 @@ apiPlayground:
                     $ref: '#/definitions/CloudLoggingParser'
                   tskvParser:
                     description: |-
-                      **`GenericParserCommon`**
+                      **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
                       Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
                     $ref: '#/definitions/GenericParserCommon'
           topicNames:
@@ -1184,7 +1187,7 @@ apiPlayground:
             description: '**string**'
             type: string
           tlsMode:
-            description: '**`TLSMode`**'
+            description: '**[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**'
             oneOf:
               - type: object
                 properties:
@@ -1197,7 +1200,7 @@ apiPlayground:
                     format: empty
                   enabled:
                     description: |-
-                      **`TLSConfig`**
+                      **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
                       Includes only one of the fields `enabled`.
                     $ref: '#/definitions/TLSConfig'
       MongoConnectionManagerConnection:
@@ -1224,13 +1227,13 @@ apiPlayground:
         type: object
         properties:
           connection:
-            description: '**`MongoConnection`**'
+            description: '**[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)**'
             oneOf:
               - type: object
                 properties:
                   connectionOptions:
                     description: |-
-                      **`MongoConnectionOptions`**
+                      **[MongoConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions)**
                       Includes only one of the fields `connectionOptions`.
                     oneOf:
                       - type: object
@@ -1242,12 +1245,12 @@ apiPlayground:
                             type: string
                           onPremise:
                             description: |-
-                              **`OnPremiseMongo`**
+                              **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
                               Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                             $ref: '#/definitions/OnPremiseMongo'
                           connectionManagerConnection:
                             description: |-
-                              **`MongoConnectionManagerConnection`**
+                              **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
                               Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                             $ref: '#/definitions/MongoConnectionManagerConnection'
           subnetId:
@@ -1255,7 +1258,7 @@ apiPlayground:
             type: string
           collections:
             description: |-
-              **`MongoCollection`**
+              **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
               List of collections for replication. Empty list implies replication of all
               tables on the deployment. Allowed to use * as collection name.
             type: array
@@ -1263,7 +1266,7 @@ apiPlayground:
               $ref: '#/definitions/MongoCollection'
           excludedCollections:
             description: |-
-              **`MongoCollection`**
+              **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
               List of forbidden collections for replication. Allowed to use * as collection
               name for forbid all collections of concrete schema.
             type: array
@@ -1296,7 +1299,7 @@ apiPlayground:
         type: object
         properties:
           shards:
-            description: '**`ClickhouseShard`**'
+            description: '**[ClickhouseShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseShard)**'
             type: array
             items:
               $ref: '#/definitions/ClickhouseShard'
@@ -1309,7 +1312,7 @@ apiPlayground:
             type: string
             format: int64
           tlsMode:
-            description: '**`TLSMode`**'
+            description: '**[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**'
             oneOf:
               - type: object
                 properties:
@@ -1322,32 +1325,32 @@ apiPlayground:
                     format: empty
                   enabled:
                     description: |-
-                      **`TLSConfig`**
+                      **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
                       Includes only one of the fields `enabled`.
                     $ref: '#/definitions/TLSConfig'
       ClickhouseSource:
         type: object
         properties:
           connection:
-            description: '**`ClickhouseConnection`**'
+            description: '**[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)**'
             oneOf:
               - type: object
                 properties:
                   connectionOptions:
                     description: |-
-                      **`ClickhouseConnectionOptions`**
+                      **[ClickhouseConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions)**
                       Includes only one of the fields `connectionOptions`.
                     oneOf:
                       - type: object
                         properties:
                           onPremise:
                             description: |-
-                              **`OnPremiseClickhouse`**
+                              **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
                               Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
                             $ref: '#/definitions/OnPremiseClickhouse'
                           connectionManagerConnection:
                             description: |-
-                              **`ConnectionManagerConnection`**
+                              **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
                               Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
                             $ref: '#/definitions/ConnectionManagerConnection'
                           mdbClusterId:
@@ -1390,7 +1393,7 @@ apiPlayground:
         properties:
           connection:
             description: |-
-              **`MysqlConnection`**
+              **[MysqlConnection](#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection)**
               Database connection settings
             oneOf:
               - type: object
@@ -1403,13 +1406,13 @@ apiPlayground:
                     type: string
                   onPremise:
                     description: |-
-                      **`OnPremiseMysql`**
+                      **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
                       Connection options for on-premise MySQL
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/OnPremiseMysql'
                   connectionManagerConnection:
                     description: |-
-                      **`ConnectionManagerConnection`**
+                      **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/ConnectionManagerConnection'
           database:
@@ -1427,7 +1430,7 @@ apiPlayground:
             type: string
           password:
             description: |-
-              **`Secret`**
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
               Password for database access.
             oneOf:
               - type: object
@@ -1442,6 +1445,7 @@ apiPlayground:
             description: |-
               **string**
               Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.
+            default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION
             type: string
           skipConstraintChecks:
             description: |-
@@ -1495,7 +1499,7 @@ apiPlayground:
         properties:
           connection:
             description: |-
-              **`PostgresConnection`**
+              **[PostgresConnection](#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection)**
               Database connection settings
             oneOf:
               - type: object
@@ -1508,13 +1512,13 @@ apiPlayground:
                     type: string
                   onPremise:
                     description: |-
-                      **`OnPremisePostgres`**
+                      **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
                       Connection options for on-premise PostgreSQL
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/OnPremisePostgres'
                   connectionManagerConnection:
                     description: |-
-                      **`ConnectionManagerConnection`**
+                      **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
                       Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                     $ref: '#/definitions/ConnectionManagerConnection'
           database:
@@ -1529,7 +1533,7 @@ apiPlayground:
             type: string
           password:
             description: |-
-              **`Secret`**
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
               Password for database access.
             oneOf:
               - type: object
@@ -1588,7 +1592,7 @@ apiPlayground:
         type: object
         properties:
           columnValue:
-            description: '**`ColumnValue`**'
+            description: '**[ColumnValue](#yandex.cloud.datatransfer.v1.endpoint.ColumnValue)**'
             oneOf:
               - type: object
                 properties:
@@ -1607,7 +1611,7 @@ apiPlayground:
             description: '**string**'
             type: string
           mapping:
-            description: '**`ValueToShard`**'
+            description: '**[ValueToShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping.ValueToShard)**'
             type: array
             items:
               $ref: '#/definitions/ValueToShard'
@@ -1615,25 +1619,25 @@ apiPlayground:
         type: object
         properties:
           connection:
-            description: '**`ClickhouseConnection`**'
+            description: '**[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)**'
             oneOf:
               - type: object
                 properties:
                   connectionOptions:
                     description: |-
-                      **`ClickhouseConnectionOptions`**
+                      **[ClickhouseConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions)**
                       Includes only one of the fields `connectionOptions`.
                     oneOf:
                       - type: object
                         properties:
                           onPremise:
                             description: |-
-                              **`OnPremiseClickhouse`**
+                              **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
                               Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
                             $ref: '#/definitions/OnPremiseClickhouse'
                           connectionManagerConnection:
                             description: |-
-                              **`ConnectionManagerConnection`**
+                              **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
                               Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
                             $ref: '#/definitions/ConnectionManagerConnection'
                           mdbClusterId:
@@ -1646,7 +1650,7 @@ apiPlayground:
             type: string
           altNames:
             description: |-
-              **`AltName`**
+              **[AltName](#yandex.cloud.datatransfer.v1.endpoint.AltName)**
               Alternative table names in target
             type: array
             items:
@@ -1665,18 +1669,18 @@ apiPlayground:
               - CLICKHOUSE_CLEANUP_POLICY_DROP
               - CLICKHOUSE_CLEANUP_POLICY_TRUNCATE
           sharding:
-            description: '**`ClickhouseSharding`**'
+            description: '**[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)**'
             oneOf:
               - type: object
                 properties:
                   columnValueHash:
                     description: |-
-                      **`ColumnValueHash`**
+                      **[ColumnValueHash](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash)**
                       Includes only one of the fields `columnValueHash`, `customMapping`.
                     $ref: '#/definitions/ColumnValueHash'
                   customMapping:
                     description: |-
-                      **`ColumnValueMapping`**
+                      **[ColumnValueMapping](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping)**
                       Includes only one of the fields `columnValueHash`, `customMapping`.
                     $ref: '#/definitions/ColumnValueMapping'
                   transferId:
@@ -1816,7 +1820,7 @@ apiPlayground:
         properties:
           serializerParameters:
             description: |-
-              **`DebeziumSerializerParameter`**
+              **[DebeziumSerializerParameter](#yandex.cloud.datatransfer.v1.endpoint.DebeziumSerializerParameter)**
               Settings of sterilization parameters as key-value pairs
             type: array
             items:
@@ -1826,7 +1830,7 @@ apiPlayground:
         properties:
           connection:
             description: |-
-              **`KafkaConnectionOptions`**
+              **[KafkaConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions)**
               Connection settings
             oneOf:
               - type: object
@@ -1839,20 +1843,20 @@ apiPlayground:
                     type: string
                   onPremise:
                     description: |-
-                      **`OnPremiseKafka`**
+                      **[OnPremiseKafka](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka)**
                       Connection options for on-premise Kafka
                       Includes only one of the fields `clusterId`, `onPremise`.
                     $ref: '#/definitions/OnPremiseKafka'
           auth:
             description: |-
-              **`KafkaAuth`**
+              **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
               Authentication settings
             oneOf:
               - type: object
                 properties:
                   sasl:
                     description: |-
-                      **`KafkaSaslSecurity`**
+                      **[KafkaSaslSecurity](#yandex.cloud.datatransfer.v1.endpoint.KafkaSaslSecurity)**
                       Authentication with SASL
                       Includes only one of the fields `sasl`, `noAuth`.
                     $ref: '#/definitions/KafkaSaslSecurity'
@@ -1871,14 +1875,14 @@ apiPlayground:
               type: string
           topicSettings:
             description: |-
-              **`KafkaTargetTopicSettings`**
+              **[KafkaTargetTopicSettings](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopicSettings)**
               Target topic settings
             oneOf:
               - type: object
                 properties:
                   topic:
                     description: |-
-                      **`KafkaTargetTopic`**
+                      **[KafkaTargetTopic](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopic)**
                       Full topic name
                       Includes only one of the fields `topic`, `topicPrefix`.
                     $ref: '#/definitions/KafkaTargetTopic'
@@ -1892,7 +1896,7 @@ apiPlayground:
                     type: string
           serializer:
             description: |-
-              **`Serializer`**
+              **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
               Data serialization format settings
             oneOf:
               - type: object
@@ -1911,7 +1915,7 @@ apiPlayground:
                     $ref: '#/definitions/SerializerJSON'
                   serializerDebezium:
                     description: |-
-                      **`SerializerDebezium`**
+                      **[SerializerDebezium](#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium)**
                       Serialize data in debezium format
                       Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
                     $ref: '#/definitions/SerializerDebezium'
@@ -1919,13 +1923,13 @@ apiPlayground:
         type: object
         properties:
           connection:
-            description: '**`MongoConnection`**'
+            description: '**[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)**'
             oneOf:
               - type: object
                 properties:
                   connectionOptions:
                     description: |-
-                      **`MongoConnectionOptions`**
+                      **[MongoConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions)**
                       Includes only one of the fields `connectionOptions`.
                     oneOf:
                       - type: object
@@ -1937,12 +1941,12 @@ apiPlayground:
                             type: string
                           onPremise:
                             description: |-
-                              **`OnPremiseMongo`**
+                              **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
                               Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                             $ref: '#/definitions/OnPremiseMongo'
                           connectionManagerConnection:
                             description: |-
-                              **`MongoConnectionManagerConnection`**
+                              **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
                               Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
                             $ref: '#/definitions/MongoConnectionManagerConnection'
           database:
@@ -2004,7 +2008,7 @@ apiPlayground:
               type: string
               format: int64
           token:
-            description: '**`Secret`**'
+            description: '**[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**'
             oneOf:
               - type: object
                 properties:
@@ -2015,7 +2019,7 @@ apiPlayground:
                       Includes only one of the fields `raw`.
                     type: string
           streams:
-            description: '**`MetrikaStream`**'
+            description: '**[MetrikaStream](#yandex.cloud.datatransfer.v1.endpoint.MetrikaStream)**'
             type: array
             items:
               $ref: '#/definitions/MetrikaStream'
@@ -2059,7 +2063,7 @@ apiPlayground:
               - YDS_COMPRESSION_CODEC_ZSTD
           serializer:
             description: |-
-              **`Serializer`**
+              **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
               Data serialization format
             oneOf:
               - type: object
@@ -2078,7 +2082,7 @@ apiPlayground:
                     $ref: '#/definitions/SerializerJSON'
                   serializerDebezium:
                     description: |-
-                      **`SerializerDebezium`**
+                      **[SerializerDebezium](#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium)**
                       Serialize data in debezium format
                       Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
                     $ref: '#/definitions/SerializerDebezium'
@@ -2847,7 +2851,8 @@ The new description for the endpoint. ||
 
 Endpoint labels as `key:value` pairs.
 
-For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
 The new endpoint settings. ||

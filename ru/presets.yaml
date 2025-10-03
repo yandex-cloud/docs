@@ -13643,6 +13643,10 @@ default:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
         tag: 0.54.0-8
+    yc_gwin:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
+        tag: v1.0.1
     yc_ingress-nginx:
       helmChart:
         name: >-

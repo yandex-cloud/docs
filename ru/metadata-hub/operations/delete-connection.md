@@ -40,8 +40,8 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
   
-  Чтобы удалить подключение {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Delete](../api-ref/Connection/delete.md) или методом gRPC API [ConnectionService.Delete](../api-ref/grpc/Connection/delete.md) и передайте в запросе идентификатор подключения.
+  Чтобы удалить подключение {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) или методом gRPC API [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) и передайте в запросе идентификатор подключения.
 
-  Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
+   Чтобы удалить подключение {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) или методом gRPC API [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) и передайте в запросе идентификатор подключения.
 
 {% endlist %}

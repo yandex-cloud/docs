@@ -32,19 +32,19 @@ apiPlayground:
           type: string
         singlePortDirectJoint:
           description: |-
-            **[SinglePortDirectJoint](/docs/interconnect/api-ref/TrunkConnection/create#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.SinglePortDirectJoint)**
+            **[SinglePortDirectJoint](#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.SinglePortDirectJoint)**
             Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
             Special trunkConnection config
           $ref: '#/definitions/SinglePortDirectJoint'
         lagDirectJoint:
           description: |-
-            **[LagDirectJoint](/docs/interconnect/api-ref/TrunkConnection/create#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.LagDirectJoint)**
+            **[LagDirectJoint](#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.LagDirectJoint)**
             Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
             Special trunkConnection config
           $ref: '#/definitions/LagDirectJoint'
         partnerJointInfo:
           description: |-
-            **[PartnerJoint](/docs/interconnect/api-ref/TrunkConnection/create#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.PartnerJoint)**
+            **[PartnerJoint](#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.PartnerJoint)**
             Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
             Special trunkConnection config
           $ref: '#/definitions/PartnerJoint'
@@ -108,8 +108,17 @@ apiPlayground:
             Each value must match the regular expression `[-_0-9a-z]*`.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `[a-z][-_0-9a-z]*`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         deletionProtection:
           description: |-
             **boolean**
@@ -163,7 +172,7 @@ apiPlayground:
               - TRANSCEIVER_TYPE_100GBASE_ER4
           lagAllocationSettings:
             description: |-
-              **`LagAllocationSettingsRequest`**
+              **[LagAllocationSettingsRequest](#yandex.cloud.cic.v1.common.LagAllocationSettingsRequest)**
               LAG allocation settings that the trunkConnection is deployed on.
             oneOf:
               - type: object

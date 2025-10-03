@@ -81,7 +81,7 @@ apiPlayground:
             - KALEIDOSCOPE
         securityRules:
           description: |-
-            **[SecurityRule](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.SecurityRule)**
+            **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule)**
             List of security rules.
           type: array
           items:
@@ -93,7 +93,7 @@ apiPlayground:
           type: boolean
         overrideVariants:
           description: |-
-            **[OverrideVariant](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
+            **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
             List of variants to use in security_rules
           type: array
           items:
@@ -107,7 +107,7 @@ apiPlayground:
         properties:
           hosts:
             description: |-
-              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
               List of hosts. OR semantics implied.
             type: array
             items:
@@ -154,7 +154,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
               Required field. Value of the query parameter.
             oneOf:
               - type: object
@@ -197,7 +197,7 @@ apiPlayground:
         properties:
           path:
             description: |-
-              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
               Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
             oneOf:
               - type: object
@@ -234,7 +234,7 @@ apiPlayground:
                     type: string
           queries:
             description: |-
-              **[QueryMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
+              **[QueryMatcher](#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
               List of query matchers. AND semantics implied.
             type: array
             items:
@@ -249,7 +249,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
               Required field. Value of the header.
             oneOf:
               - type: object
@@ -312,40 +312,40 @@ apiPlayground:
         type: object
         properties:
           ipRangesMatch:
-            description: '**[IpRangesMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           ipRangesNotMatch:
-            description: '**[IpRangesMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           geoIpMatch:
-            description: '**[GeoIpMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
           geoIpNotMatch:
-            description: '**[GeoIpMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
       Condition:
         type: object
         properties:
           host:
             description: |-
-              **[HostMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher)**
+              **[HostMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher)**
               Host where captcha placed.
             $ref: '#/definitions/HostMatcher'
           uri:
             description: |-
-              **[UriMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher)**
+              **[UriMatcher](#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher)**
               URI where captcha placed.
             $ref: '#/definitions/UriMatcher'
           headers:
             description: |-
-              **[HeaderMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher)**
+              **[HeaderMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher)**
               Captcha request headers.
             type: array
             items:
               $ref: '#/definitions/HeaderMatcher'
           sourceIp:
             description: |-
-              **[IpMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher)**
+              **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher)**
               The IP address of the requester.
             $ref: '#/definitions/IpMatcher'
       SecurityRule:
@@ -370,7 +370,7 @@ apiPlayground:
             type: string
           condition:
             description: |-
-              **[Condition](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition)**
+              **[Condition](#yandex.cloud.smartcaptcha.v1.Condition)**
               The condition for matching the rule.
             $ref: '#/definitions/Condition'
           overrideVariantUuid:

@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.clickhouse.v1.HostSpec)**
             Configurations for ClickHouse hosts that should be added to the cluster.
           type: array
           items:
@@ -49,11 +49,13 @@ apiPlayground:
               - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
               - `CLICKHOUSE`: ClickHouse host.
               - `ZOOKEEPER`: ZooKeeper host.
+              - `KEEPER`: ClickHouse Keeper host.
             type: string
             enum:
               - TYPE_UNSPECIFIED
               - CLICKHOUSE
               - ZOOKEEPER
+              - KEEPER
           subnetId:
             description: |-
               **string**
@@ -143,7 +145,8 @@ Required field. Type of the host to be deployed.
 
 - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
-- `ZOOKEEPER`: ZooKeeper host. ||
+- `ZOOKEEPER`: ZooKeeper host.
+- `KEEPER`: ClickHouse Keeper host. ||
 || subnetId | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part

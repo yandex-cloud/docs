@@ -20,7 +20,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListDnsZoneOperationsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -28,7 +28,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListDnsZoneOperationsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request.
+            [ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

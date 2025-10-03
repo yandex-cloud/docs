@@ -18,8 +18,9 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListRoutingInstancesResponse.nextPageToken](/docs/cloud-router/api-ref/RoutingInstance/list#yandex.cloud.cloudrouter.v1.ListRoutingInstancesResponse)
+            the service returns a [ListRoutingInstancesResponse.nextPageToken](#yandex.cloud.cloudrouter.v1.ListRoutingInstancesResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
@@ -33,7 +34,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [RoutingInstance.name](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance) field.
+            1. The field name. Currently you can use filtering only on [RoutingInstance.name](#yandex.cloud.cloudrouter.v1.RoutingInstance) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
           type: string

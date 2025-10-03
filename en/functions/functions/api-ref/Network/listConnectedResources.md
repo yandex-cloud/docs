@@ -11,16 +11,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListConnectedResourcesResponse.nextPageToken](/docs/functions/functions/api-ref/Network/listConnectedResources#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse)
+            results is larger than `pageSize`, the service returns a [ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListConnectedResourcesResponse.nextPageToken](/docs/functions/functions/api-ref/Network/listConnectedResources#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse) returned by a previous list request.
+            [ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse) returned by a previous list request.
           type: string
         networkId:
           description: |-

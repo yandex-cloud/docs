@@ -27,7 +27,7 @@ apiPlayground:
           type: string
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
             Configurations for mongod hosts to be created with the shard.
           type: array
           items:
@@ -105,7 +105,9 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Host tags
-            type: string
+            type: object
+            additionalProperties:
+              type: string
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/addShard.md
 ---
 

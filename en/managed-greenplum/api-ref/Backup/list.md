@@ -16,14 +16,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](/docs/managed-greenplum/api-ref/Backup/list#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) that can be used to get the next page of results in subsequent list requests.
+            If the number of available results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) that can be used to get the next page of results in subsequent list requests.
             Default value is 100.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](/docs/managed-greenplum/api-ref/Backup/list#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request.
+            The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request.
           type: string
       required:
         - folderId

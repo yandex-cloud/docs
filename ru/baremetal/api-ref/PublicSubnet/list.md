@@ -19,7 +19,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is greater than `page_size`,
-            the service returns a [ListPublicSubnetResponse.nextPageToken](/docs/baremetal/api-ref/PublicSubnet/list#yandex.cloud.baremetal.v1alpha.ListPublicSubnetResponse)
+            the service returns a [ListPublicSubnetResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListPublicSubnetResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
           type: string
@@ -28,7 +28,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListPublicSubnetResponse.nextPageToken](/docs/baremetal/api-ref/PublicSubnet/list#yandex.cloud.baremetal.v1alpha.ListPublicSubnetResponse) returned by a previous list request.
+            [ListPublicSubnetResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListPublicSubnetResponse) returned by a previous list request.
           type: string
         orderBy:
           description: |-

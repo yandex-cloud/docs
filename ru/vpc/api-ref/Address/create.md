@@ -30,11 +30,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Address labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         externalIpv4AddressSpec:
           description: |-
-            **[ExternalIpv4AddressSpec](/docs/vpc/api-ref/Address/create#yandex.cloud.vpc.v1.ExternalIpv4AddressSpec)**
+            **[ExternalIpv4AddressSpec](#yandex.cloud.vpc.v1.ExternalIpv4AddressSpec)**
             Includes only one of the fields `externalIpv4AddressSpec`.
             External ipv4 address specification.
           $ref: '#/definitions/ExternalIpv4AddressSpec'
@@ -45,7 +54,7 @@ apiPlayground:
           type: boolean
         dnsRecordSpecs:
           description: |-
-            **[DnsRecordSpec](/docs/vpc/api-ref/Address/create#yandex.cloud.vpc.v1.DnsRecordSpec)**
+            **[DnsRecordSpec](#yandex.cloud.vpc.v1.DnsRecordSpec)**
             Optional DNS record specifications
           type: array
           items:
@@ -82,7 +91,7 @@ apiPlayground:
             type: string
           requirements:
             description: |-
-              **[AddressRequirements](/docs/vpc/api-ref/Address/get#yandex.cloud.vpc.v1.AddressRequirements)**
+              **[AddressRequirements](#yandex.cloud.vpc.v1.AddressRequirements)**
               Parameters of the allocated address, for example DDoS Protection.
             $ref: '#/definitions/AddressRequirements'
       DnsRecordSpec:

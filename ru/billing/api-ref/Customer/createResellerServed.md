@@ -25,7 +25,7 @@ apiPlayground:
           type: string
         person:
           description: |-
-            **[CustomerPerson](/docs/billing/api-ref/Customer/invite#yandex.cloud.billing.v1.CustomerPerson)**
+            **[CustomerPerson](#yandex.cloud.billing.v1.CustomerPerson)**
             Required field. Person of the customer.
           $ref: '#/definitions/CustomerPerson'
       required:

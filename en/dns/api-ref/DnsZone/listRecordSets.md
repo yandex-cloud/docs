@@ -20,7 +20,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse)
+            results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -28,14 +28,14 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListDnsZoneRecordSetsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse) returned by a previous list request.
+            [ListDnsZoneRecordSetsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters record sets listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
             Each condition has the form `<field> <operator> <value>`, where:
-            1. `<field>` is the field name. Currently you can use filtering only on the [RecordSet.name](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet) and [RecordSet.type](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet) fields.
+            1. `<field>` is the field name. Currently you can use filtering only on the [RecordSet.name](#yandex.cloud.dns.v1.RecordSet) and [RecordSet.type](#yandex.cloud.dns.v1.RecordSet) fields.
             2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
             3. `<value>` represents a value.
             3.1. In case of single value condition (`=` or `!=`), the value is a string in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).

@@ -21,7 +21,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListDryRunLifecyclePolicyResultAffectedImagesResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse)
+            results is larger than `page_size`, the service returns a [ListDryRunLifecyclePolicyResultAffectedImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -29,7 +29,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListDryRunLifecyclePolicyResultAffectedImagesResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse) returned by a previous list request.
+            [ListDryRunLifecyclePolicyResultAffectedImagesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

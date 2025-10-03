@@ -110,6 +110,303 @@ Required field. ID of the Trino cluster that is being stopped. ||
           }
         },
         "additionalProperties": "object"
+      },
+      "accessControl": {
+        "catalogs": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "catalog": {
+              // Includes only one of the fields `nameRegexp`, `ids`, `names`
+              "nameRegexp": "string",
+              "ids": {
+                "any": [
+                  "string"
+                ]
+              },
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "permission": "string",
+            "description": "string"
+          }
+        ],
+        "schemas": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "catalog": {
+              // Includes only one of the fields `nameRegexp`, `ids`, `names`
+              "nameRegexp": "string",
+              "ids": {
+                "any": [
+                  "string"
+                ]
+              },
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "schema": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "owner": "string",
+            "description": "string"
+          }
+        ],
+        "tables": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "catalog": {
+              // Includes only one of the fields `nameRegexp`, `ids`, `names`
+              "nameRegexp": "string",
+              "ids": {
+                "any": [
+                  "string"
+                ]
+              },
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "schema": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "table": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "privileges": [
+              "string"
+            ],
+            "columns": [
+              {
+                "name": "string",
+                "access": "string",
+                "mask": "string"
+              }
+            ],
+            "filter": "string",
+            "description": "string"
+          }
+        ],
+        "functions": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "catalog": {
+              // Includes only one of the fields `nameRegexp`, `ids`, `names`
+              "nameRegexp": "string",
+              "ids": {
+                "any": [
+                  "string"
+                ]
+              },
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "schema": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "function": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "privileges": [
+              "string"
+            ],
+            "description": "string"
+          }
+        ],
+        "procedures": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "catalog": {
+              // Includes only one of the fields `nameRegexp`, `ids`, `names`
+              "nameRegexp": "string",
+              "ids": {
+                "any": [
+                  "string"
+                ]
+              },
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "schema": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "procedure": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "privileges": [
+              "string"
+            ],
+            "description": "string"
+          }
+        ],
+        "queries": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "queryOwners": [
+              "string"
+            ],
+            "privileges": [
+              "string"
+            ],
+            "description": "string"
+          }
+        ],
+        "systemSessionProperties": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "property": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "allow": "string",
+            "description": "string"
+          }
+        ],
+        "catalogSessionProperties": [
+          {
+            "users": [
+              "string"
+            ],
+            "groups": [
+              "string"
+            ],
+            "catalog": {
+              // Includes only one of the fields `nameRegexp`, `ids`, `names`
+              "nameRegexp": "string",
+              "ids": {
+                "any": [
+                  "string"
+                ]
+              },
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "property": {
+              // Includes only one of the fields `nameRegexp`, `names`
+              "nameRegexp": "string",
+              "names": {
+                "any": [
+                  "string"
+                ]
+              }
+              // end of the list of possible fields
+            },
+            "allow": "string",
+            "description": "string"
+          }
+        ]
       }
     },
     "health": "string",
@@ -363,6 +660,9 @@ Version of Trino. ||
 || retryPolicy | **[RetryPolicyConfig](#yandex.cloud.trino.v1.RetryPolicyConfig)**
 
 Configuration for retry policy, specifying the spooling storage destination and other settings. ||
+|| accessControl | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
+
+Configuration for access control, specifying the fine-grained rules of accesses. ||
 |#
 
 ## CoordinatorConfig {#yandex.cloud.trino.v1.CoordinatorConfig}
@@ -474,6 +774,443 @@ Additional properties. ||
 Use service side s3 bucket for exchange manager.
 
 Includes only one of the fields `serviceS3`. ||
+|#
+
+## AccessControlConfig {#yandex.cloud.trino.v1.AccessControlConfig}
+
+#|
+||Field | Description ||
+|| catalogs[] | **[CatalogAccessRule](#yandex.cloud.trino.v1.CatalogAccessRule)**
+
+Catalog access control rules. ||
+|| schemas[] | **[SchemaAccessRule](#yandex.cloud.trino.v1.SchemaAccessRule)**
+
+Schema access control rules. ||
+|| tables[] | **[TableAccessRule](#yandex.cloud.trino.v1.TableAccessRule)**
+
+Table access control rules. ||
+|| functions[] | **[FunctionAccessRule](#yandex.cloud.trino.v1.FunctionAccessRule)**
+
+Function access control rules. ||
+|| procedures[] | **[ProcedureAccessRule](#yandex.cloud.trino.v1.ProcedureAccessRule)**
+
+Procedures access control rules. ||
+|| queries[] | **[QueryAccessRule](#yandex.cloud.trino.v1.QueryAccessRule)**
+
+Queries access control rules. ||
+|| systemSessionProperties[] | **[SystemSessionPropertyAccessRule](#yandex.cloud.trino.v1.SystemSessionPropertyAccessRule)**
+
+System session property access control rules. ||
+|| catalogSessionProperties[] | **[CatalogSessionPropertyAccessRule](#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule)**
+
+Catalog session property access control rules. ||
+|#
+
+## CatalogAccessRule {#yandex.cloud.trino.v1.CatalogAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
+
+Catalog matcher specifying what catalogs the rule is applied to. ||
+|| permission | **enum** (Permission)
+
+Required field. Permission granted by the rule.
+
+- `PERMISSION_UNSPECIFIED`
+- `NONE`: Denies all operations on the catalog entities.
+- `ALL`: Allows all operations on catalog entities.
+- `READ_ONLY`: Allows only read operations on catalog entities. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## CatalogAccessRuleMatcher {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher}
+
+#|
+||Field | Description ||
+|| nameRegexp | **string**
+
+Catalog name regexp the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
+|| ids | **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
+
+Catalog IDs rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
+|| names | **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
+
+Catalog names rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
+|#
+
+## CatalogIds {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## CatalogNames {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## SchemaAccessRule {#yandex.cloud.trino.v1.SchemaAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
+
+Catalog matcher specifying what catalogs the rule is applied to. ||
+|| schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
+
+Schema matcher specifying what schemas the rule is applied to. ||
+|| owner | **enum** (Owner)
+
+Required field. Ownership granted by the rule.
+
+- `OWNER_UNSPECIFIED`
+- `NO`: User is not considered an owner of the schema.
+- `YES`: User is considered an owner of the schema. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## SchemaAccessRuleMatcher {#yandex.cloud.trino.v1.SchemaAccessRuleMatcher}
+
+#|
+||Field | Description ||
+|| nameRegexp | **string**
+
+Schema name regexp the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|| names | **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
+
+Schema names the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|#
+
+## SchemaNames {#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## TableAccessRule {#yandex.cloud.trino.v1.TableAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
+
+Catalog matcher specifying what catalogs the rule is applied to. ||
+|| schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
+
+Schema matcher specifying what schemas the rule is applied to. ||
+|| table | **[TableAccessRuleMatcher](#yandex.cloud.trino.v1.TableAccessRuleMatcher)**
+
+Table matcher specifying what tables the rule is applied to. ||
+|| privileges[] | **enum** (Privilege)
+
+Permission granted by the rule.
+
+- `PRIVILEGE_UNSPECIFIED`
+- `SELECT`: Allows SELECT statements on the table.
+- `INSERT`: Allows INSERT statements on the table.
+- `DELETE`: Allows DELETE statements on the table.
+- `UPDATE`: Allows UPDATE statements on the table.
+- `OWNERSHIP`: Allows CREATE, DROP, COMMENT ON and ALTER statements on the table.
+- `GRANT_SELECT`: Allows SELECT statements on the table while creating view. ||
+|| columns[] | **[Column](#yandex.cloud.trino.v1.TableAccessRule.Column)**
+
+Column rules. ||
+|| filter | **string**
+
+Boolean SQL expression to filter table rows for particular user. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## TableAccessRuleMatcher {#yandex.cloud.trino.v1.TableAccessRuleMatcher}
+
+#|
+||Field | Description ||
+|| nameRegexp | **string**
+
+Table name regexp the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|| names | **[TableNames](#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames)**
+
+Table names the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|#
+
+## TableNames {#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## Column {#yandex.cloud.trino.v1.TableAccessRule.Column}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Column name. ||
+|| access | **enum** (AccessMode)
+
+Required field. Column access mode.
+
+- `ACCESS_MODE_UNSPECIFIED`
+- `NONE`: Access to column is denied.
+- `ALL`: Access to column is allowed. ||
+|| mask | **string**
+
+SQL expression mask to evaluate instead of original column values.
+Mask should have the same type as original column. ||
+|#
+
+## FunctionAccessRule {#yandex.cloud.trino.v1.FunctionAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
+
+Catalog matcher specifying what catalogs the rule is applied to. ||
+|| schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
+
+Schema matcher specifying what schema the rule is applied to. ||
+|| function | **[FunctionAccessRuleMatcher](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher)**
+
+Function matcher specifying what functions the rule is applied to. ||
+|| privileges[] | **enum** (Privilege)
+
+Privileges granted by the rule.
+
+- `PRIVILEGE_UNSPECIFIED`
+- `EXECUTE`: Allows to execute the function.
+- `GRANT_EXECUTE`: Allows to use the function while view creation.
+- `OWNERSHIP`: Allows to CREATE and DROP the function. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## FunctionAccessRuleMatcher {#yandex.cloud.trino.v1.FunctionAccessRuleMatcher}
+
+#|
+||Field | Description ||
+|| nameRegexp | **string**
+
+Function name regexp the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|| names | **[FunctionNames](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames)**
+
+Function names the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|#
+
+## FunctionNames {#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## ProcedureAccessRule {#yandex.cloud.trino.v1.ProcedureAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
+
+Catalog matcher specifying what catalogs the rule is applied to. ||
+|| schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
+
+Schema matcher specifying what schema the rule is applied to. ||
+|| procedure | **[ProcedureAccessRuleMatcher](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher)**
+
+Procedure matcher specifying what functions the rule is applied to. ||
+|| privileges[] | **enum** (Privilege)
+
+Privileges granted by the rule.
+
+- `PRIVILEGE_UNSPECIFIED`
+- `EXECUTE`: Allows to execute the procedure. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## ProcedureAccessRuleMatcher {#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher}
+
+#|
+||Field | Description ||
+|| nameRegexp | **string**
+
+Procedure name regexp the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|| names | **[ProcedureNames](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames)**
+
+Procedure names the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|#
+
+## ProcedureNames {#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## QueryAccessRule {#yandex.cloud.trino.v1.QueryAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| queryOwners[] | **string**
+
+Owners of queries the rule is applied to.
+Cannot be combined with EXECUTE privilege. ||
+|| privileges[] | **enum** (Privilege)
+
+Privileges granted by the user.
+
+- `PRIVILEGE_UNSPECIFIED`
+- `VIEW`: Allows to view the query.
+- `EXECUTE`: Allows to execute the query.
+- `KILL`: Allows to kill the query. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## SystemSessionPropertyAccessRule {#yandex.cloud.trino.v1.SystemSessionPropertyAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
+
+Property matcher specifying what properties the rule is applied to. ||
+|| allow | **enum** (Allow)
+
+Required field. Whether the rule allows setting the property.
+
+- `ALLOW_UNSPECIFIED`
+- `NO`: Denies setting the system session property.
+- `YES`: Allows to set the system session property. ||
+|| description | **string**
+
+Rule description. ||
+|#
+
+## PropertyAccessRuleMatcher {#yandex.cloud.trino.v1.PropertyAccessRuleMatcher}
+
+#|
+||Field | Description ||
+|| nameRegexp | **string**
+
+Property name regexp the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|| names | **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames)**
+
+Property names the rule is applied to.
+
+Includes only one of the fields `nameRegexp`, `names`. ||
+|#
+
+## PropertyNames {#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames}
+
+#|
+||Field | Description ||
+|| any[] | **string** ||
+|#
+
+## CatalogSessionPropertyAccessRule {#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule}
+
+#|
+||Field | Description ||
+|| users[] | **string**
+
+IAM user IDs the rule is applied to. ||
+|| groups[] | **string**
+
+IAM group IDs the rule is applied to. ||
+|| catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
+
+Catalog matcher specifying what catalogs the rule is applied to. ||
+|| property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
+
+Property matcher specifying what properties the rule is applied to. ||
+|| allow | **enum** (Allow)
+
+Required field. Whether the rule allows setting the property.
+
+- `ALLOW_UNSPECIFIED`
+- `NO`: Denies setting the catalog session property.
+- `YES`: Allows to set the catalog session property. ||
+|| description | **string**
+
+Rule description. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}

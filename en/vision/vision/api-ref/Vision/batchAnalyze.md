@@ -10,7 +10,7 @@ apiPlayground:
       properties:
         analyzeSpecs:
           description: |-
-            **[AnalyzeSpec](/docs/vision/vision/api-ref/Vision/batchAnalyze#yandex.cloud.ai.vision.v1.AnalyzeSpec)**
+            **[AnalyzeSpec](#yandex.cloud.ai.vision.v1.AnalyzeSpec)**
             A list of specifications. Each specification contains the file to analyze and features to use for analysis.
             Restrictions:
             * Supported file formats: `JPEG`, `PNG`.

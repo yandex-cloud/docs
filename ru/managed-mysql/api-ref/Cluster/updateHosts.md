@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         updateHostSpecs:
           description: |-
-            **[UpdateHostSpec](/docs/managed-mysql/api-ref/Cluster/updateHosts#yandex.cloud.mdb.mysql.v1.UpdateHostSpec)**
+            **[UpdateHostSpec](#yandex.cloud.mdb.mysql.v1.UpdateHostSpec)**
             New configurations to apply to hosts.
           type: array
           items:

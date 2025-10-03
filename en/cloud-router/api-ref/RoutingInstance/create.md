@@ -32,14 +32,14 @@ apiPlayground:
           type: string
         vpcInfo:
           description: |-
-            **[VpcInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo)**
+            **[VpcInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo)**
             List of the info about vpcNetworks which are attached to the RoutingInstance.
           type: array
           items:
             $ref: '#/definitions/VpcInfo'
         cicPrivateConnectionInfo:
           description: |-
-            **[CicPrivateConnectionInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo)**
+            **[CicPrivateConnectionInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo)**
             List of the info about privateConnections which are attached to the RoutingInstance.
           type: array
           items:
@@ -53,8 +53,17 @@ apiPlayground:
             Each value must match the regular expression `[-_0-9a-z]*`.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `[a-z][-_0-9a-z]*`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       additionalProperties: false
     definitions:
       VpcManualInfo:
@@ -77,7 +86,7 @@ apiPlayground:
         properties:
           manualInfo:
             description: |-
-              **[VpcManualInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo)**
+              **[VpcManualInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo)**
               VpcInfo which is set by user
             $ref: '#/definitions/VpcManualInfo'
       VpcInfo:
@@ -90,7 +99,7 @@ apiPlayground:
             type: string
           azInfos:
             description: |-
-              **[VpcAzInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo)**
+              **[VpcAzInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo)**
               List of the az-related info about vpcNetworks which are attached to routingInstance
             type: array
             items:

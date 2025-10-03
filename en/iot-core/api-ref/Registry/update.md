@@ -47,11 +47,20 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         logOptions:
           description: |-
-            **[LogOptions](/docs/iot-core/api-ref/Registry/get#yandex.cloud.iot.devices.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
             Options for logging registry events
           oneOf:
             - type: object

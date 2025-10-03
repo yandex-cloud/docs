@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         hash:
           description: |-
-            **[PasswordHash](/docs/organization/idp/api-ref/User/create#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
+            **[PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
             Password hash to set.
           $ref: '#/definitions/PasswordHash'
       additionalProperties: false

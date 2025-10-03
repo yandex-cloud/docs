@@ -16,16 +16,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListAsymmetricSignatureKeysResponse.nextPageToken](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysResponse)
+            results is larger than `pageSize`, the service returns a [ListAsymmetricSignatureKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListAsymmetricSignatureKeysResponse.nextPageToken](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysResponse) returned by a previous list request.
+            [ListAsymmetricSignatureKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysResponse) returned by a previous list request.
           type: string
       required:
         - folderId

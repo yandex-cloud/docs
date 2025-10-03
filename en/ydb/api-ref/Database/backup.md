@@ -13,7 +13,7 @@ apiPlayground:
           type: string
         backupSettings:
           description: |-
-            **[BackupSettings](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.BackupSettings)**
+            **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)**
             custom backup options, if required.
           $ref: '#/definitions/BackupSettings'
       additionalProperties: false
@@ -52,7 +52,7 @@ apiPlayground:
         properties:
           executeTime:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Required field. 
             $ref: '#/definitions/TimeOfDay'
         required:
@@ -85,7 +85,7 @@ apiPlayground:
                 - SUNDAY
           executeTime:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Required field. 
             $ref: '#/definitions/TimeOfDay'
         required:
@@ -94,7 +94,7 @@ apiPlayground:
         type: object
         properties:
           daysOfWeek:
-            description: '**[DaysOfWeekBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)**'
+            description: '**[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)**'
             type: array
             items:
               $ref: '#/definitions/DaysOfWeekBackupSchedule'
@@ -137,24 +137,24 @@ apiPlayground:
             type: string
           backupSchedule:
             description: |-
-              **[BackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.BackupSchedule)**
+              **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
               provide schedule. if empty, backup will be disabled.
             oneOf:
               - type: object
                 properties:
                   dailyBackupSchedule:
                     description: |-
-                      **[DailyBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.DailyBackupSchedule)**
+                      **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
                       Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
                     $ref: '#/definitions/DailyBackupSchedule'
                   weeklyBackupSchedule:
                     description: |-
-                      **[WeeklyBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
+                      **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
                       Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
                     $ref: '#/definitions/WeeklyBackupSchedule'
                   recurringBackupSchedule:
                     description: |-
-                      **[RecurringBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
+                      **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
                       Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
                     $ref: '#/definitions/RecurringBackupSchedule'
           backupTimeToLive:

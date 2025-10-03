@@ -60,7 +60,11 @@ editable: false
 
   {% include [rub](../_pricing/smartcaptcha/rub.md) %}
 
-  Оплачивается фактическое количество запросов.
+  Оплачивается фактическое количество запросов. Итоговая стоимость вычисляется ступенчато: первые (100 000 - 10 000) запросов в месяц по одной цене, последующие запросы — по другой цене.
+
+  Период тарификации — календарный месяц. 
+  
+  {% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
 
   {% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
 
@@ -68,7 +72,11 @@ editable: false
 
   {% include [kzt](../_pricing/smartcaptcha/kzt.md) %}
 
-  Оплачивается фактическое количество запросов.
+  Оплачивается фактическое количество запросов. Итоговая стоимость вычисляется ступенчато: первые (100 000 - 10 000) запросов в месяц по одной цене, последующие запросы — по другой цене.
+
+  Период тарификации — календарный месяц. 
+  
+  {% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
 
   {% include [kzt-smartcaptcha](../_pricing_examples/smartcaptcha/kzt-smartcaptcha.md) %}
 

@@ -19,16 +19,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListAccessKeysResponse.nextPageToken](/docs/iam/awscompatibility/api-ref/AccessKey/list#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
+            the service returns a [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListAccessKeysResponse.nextPageToken](/docs/iam/awscompatibility/api-ref/AccessKey/list#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
+            to the [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysResponse)
             returned by a previous list request.
           type: string
       additionalProperties: false

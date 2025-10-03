@@ -23,16 +23,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of
             available results is larger than `pageSize`, the service returns a
-            [ListPrivateEndpointOperationsResponse.nextPageToken](/docs/vpc/privatelink/api-ref/PrivateEndpoint/listOperations#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) that can be used to
+            [ListPrivateEndpointOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) that can be used to
             get the next page of results in subsequent list requests. Default value:
             100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListPrivateEndpointOperationsResponse.nextPageToken](/docs/vpc/privatelink/api-ref/PrivateEndpoint/listOperations#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) returned by a
+            [ListPrivateEndpointOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointOperationsResponse) returned by a
             previous list request.
           type: string
       additionalProperties: false

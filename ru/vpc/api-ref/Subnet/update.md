@@ -46,15 +46,24 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         routeTableId:
           description: |-
             **string**
             ID of route table the subnet is linked to.
           type: string
         dhcpOptions:
-          description: '**[DhcpOptions](/docs/vpc/api-ref/Network/listSubnets#yandex.cloud.vpc.v1.DhcpOptions)**'
+          description: '**[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**'
           $ref: '#/definitions/DhcpOptions'
         v4CidrBlocks:
           description: |-

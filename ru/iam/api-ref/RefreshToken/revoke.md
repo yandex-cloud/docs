@@ -22,7 +22,7 @@ apiPlayground:
           type: string
         revokeFilter:
           description: |-
-            **[RevokeFilter](/docs/iam/api-ref/RefreshToken/revoke#yandex.cloud.iam.v1.RevokeFilter)**
+            **[RevokeFilter](#yandex.cloud.iam.v1.RevokeFilter)**
             The filter for revoking Refresh Token
             Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`.
           $ref: '#/definitions/RevokeFilter'

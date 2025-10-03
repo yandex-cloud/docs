@@ -29,27 +29,34 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
             For example, `"type": "critical"` or `"source": "dictionary"`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         destination:
           description: |-
-            **[Destination](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Destination)**
+            **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
             Required field. Destination configuration for the trail
           oneOf:
             - type: object
               properties:
                 objectStorage:
                   description: |-
-                    **[ObjectStorage](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
+                    **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
                     Configuration for event delivery to Object Storage
                     Uploaded objects will have prefix <trail_id>/ by default
-                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`.
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`.
                   $ref: '#/definitions/ObjectStorage'
                 cloudLogging:
                   description: |-
-                    **[CloudLogging](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
+                    **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
                     Configuration for event delivery to Cloud Logging
-                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`.
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`.
                   oneOf:
                     - type: object
                       properties:
@@ -61,10 +68,16 @@ apiPlayground:
                           type: string
                 dataStream:
                   description: |-
-                    **[DataStream](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.DataStream)**
+                    **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
                     Configuration for event delivery to YDS
-                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`.
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`.
                   $ref: '#/definitions/DataStream'
+                eventrouter:
+                  description: |-
+                    **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+                    Configuration for event delivery to EventRouter
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`.
+                  $ref: '#/definitions/EventRouter'
         serviceAccountId:
           description: |-
             **string**
@@ -72,14 +85,14 @@ apiPlayground:
           type: string
         filter:
           description: |-
-            **[Filter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Filter)**
+            **[Filter](#yandex.cloud.audittrails.v1.Trail.Filter)**
             Event filtering configuration of the trail
             deprecated: use filtering_policy instead
           deprecated: true
           $ref: '#/definitions/Filter'
         filteringPolicy:
           description: |-
-            **[FilteringPolicy](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.FilteringPolicy)**
+            **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy)**
             Event filtering policy of the trail
           $ref: '#/definitions/FilteringPolicy'
       required:
@@ -115,6 +128,14 @@ apiPlayground:
               **string**
               Name of the destination YDS
             type: string
+      EventRouter:
+        type: object
+        properties:
+          eventrouterConnectorId:
+            description: |-
+              **string**
+              ID of the EventRouter Connector
+            type: string
       Resource:
         type: object
         properties:
@@ -136,7 +157,7 @@ apiPlayground:
         properties:
           resource:
             description: |-
-              **[Resource](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Resource)**
+              **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
               Required field. Resource definition
             $ref: '#/definitions/Resource'
         required:
@@ -146,12 +167,12 @@ apiPlayground:
         properties:
           resource:
             description: |-
-              **[Resource](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Resource)**
+              **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
               Required field. Definition of the resource that contains nested resources
             $ref: '#/definitions/Resource'
           filters:
             description: |-
-              **[PathFilterElement](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
+              **[PathFilterElement](#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
               Filters for the resources contained in the parent resource
             type: array
             items:
@@ -160,13 +181,13 @@ apiPlayground:
                   properties:
                     anyFilter:
                       description: |-
-                        **[PathFilterElementAny](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
+                        **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
                         Filter element with ANY type. If used, configures the trail to gather any events from the resource
                         Includes only one of the fields `anyFilter`, `someFilter`.
                       $ref: '#/definitions/PathFilterElementAny'
                     someFilter:
                       description: |-
-                        **[PathFilterElementSome](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
+                        **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
                         Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
                         Includes only one of the fields `anyFilter`, `someFilter`.
                       $ref: '#/definitions/PathFilterElementSome'
@@ -177,7 +198,7 @@ apiPlayground:
         properties:
           root:
             description: |-
-              **[PathFilterElement](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
+              **[PathFilterElement](#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
               Required field. Root element of the resource path filter for the trail
               Resource described in that filter node must contain the trail itself
             oneOf:
@@ -185,13 +206,13 @@ apiPlayground:
                 properties:
                   anyFilter:
                     description: |-
-                      **[PathFilterElementAny](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
+                      **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
                       Filter element with ANY type. If used, configures the trail to gather any events from the resource
                       Includes only one of the fields `anyFilter`, `someFilter`.
                     $ref: '#/definitions/PathFilterElementAny'
                   someFilter:
                     description: |-
-                      **[PathFilterElementSome](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
+                      **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
                       Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
                       Includes only one of the fields `anyFilter`, `someFilter`.
                     $ref: '#/definitions/PathFilterElementSome'
@@ -237,14 +258,14 @@ apiPlayground:
             type: string
           categories:
             description: |-
-              **[EventFilterElementCategory](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory)**
+              **[EventFilterElementCategory](#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory)**
               List of the event categories gathered for a specified service
             type: array
             items:
               $ref: '#/definitions/EventFilterElementCategory'
           pathFilter:
             description: |-
-              **[PathFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+              **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
               Required field. Resource path filter for a specified service
             $ref: '#/definitions/PathFilter'
         required:
@@ -255,7 +276,7 @@ apiPlayground:
         properties:
           filters:
             description: |-
-              **[EventFilterElement](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventFilterElement)**
+              **[EventFilterElement](#yandex.cloud.audittrails.v1.Trail.EventFilterElement)**
               List of filters for services
             type: array
             items:
@@ -265,13 +286,13 @@ apiPlayground:
         properties:
           pathFilter:
             description: |-
-              **[PathFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+              **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
               Configuration of default events gathering for the trail
               If not specified, default events won't be gathered for the trail
             $ref: '#/definitions/PathFilter'
           eventFilter:
             description: |-
-              **[EventFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventFilter)**
+              **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter)**
               Required field. Configuration of additional events gathering from specific services
             $ref: '#/definitions/EventFilter'
         required:
@@ -281,7 +302,7 @@ apiPlayground:
         properties:
           resourceScopes:
             description: |-
-              **[Resource](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Resource)**
+              **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
               A list of resources which will be monitored by the trail
             type: array
             items:
@@ -313,12 +334,12 @@ apiPlayground:
         properties:
           managementEventsFilter:
             description: |-
-              **[ManagementEventsFiltering](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering)**
+              **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering)**
               Singular filter describing gathering management events
             $ref: '#/definitions/ManagementEventsFiltering'
           dataEventsFilters:
             description: |-
-              **[DataEventsFiltering](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering)**
+              **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering)**
               List of filters describing gathering data events
             type: array
             items:
@@ -327,14 +348,14 @@ apiPlayground:
                   properties:
                     includedEvents:
                       description: |-
-                        **[EventTypes](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+                        **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
                         Explicitly included events of specified service
                         New events of the service won't be delivered by default
                         Includes only one of the fields `includedEvents`, `excludedEvents`.
                       $ref: '#/definitions/EventTypes'
                     excludedEvents:
                       description: |-
-                        **[EventTypes](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+                        **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
                         Explicitly excluded events of specified service
                         New events of the service will be delivered by default
                         Includes only one of the fields `includedEvents`, `excludedEvents`.
@@ -343,7 +364,7 @@ apiPlayground:
                   properties:
                     dnsFilter:
                       description: |-
-                        **[DnsDataEventsFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
+                        **[DnsDataEventsFilter](#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
                         Filter is allowed only if service = dns
                         Includes only one of the fields `dnsFilter`.
                       $ref: '#/definitions/DnsDataEventsFilter'
@@ -369,7 +390,7 @@ POST https://audittrails.{{ api-host }}/audit-trails/v1/trails
   "description": "string",
   "labels": "object",
   "destination": {
-    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
+    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
     "objectStorage": {
       "bucketId": "string",
       "objectPrefix": "string"
@@ -382,6 +403,9 @@ POST https://audittrails.{{ api-host }}/audit-trails/v1/trails
     "dataStream": {
       "databaseId": "string",
       "streamName": "string"
+    },
+    "eventrouter": {
+      "eventrouterConnectorId": "string"
     }
     // end of the list of possible fields
   },
@@ -525,17 +549,22 @@ Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
@@ -572,6 +601,15 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouterConnectorId | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}
@@ -800,7 +838,7 @@ Not only recursive queries will be delivered ||
     "description": "string",
     "labels": "object",
     "destination": {
-      // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
+      // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
       "objectStorage": {
         "bucketId": "string",
         "objectPrefix": "string"
@@ -813,6 +851,9 @@ Not only recursive queries will be delivered ||
       "dataStream": {
         "databaseId": "string",
         "streamName": "string"
+      },
+      "eventrouter": {
+        "eventrouterConnectorId": "string"
       }
       // end of the list of possible fields
     },
@@ -1097,17 +1138,22 @@ Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging2)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream2)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter2)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage2}
@@ -1144,6 +1190,15 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter2}
+
+#|
+||Field | Description ||
+|| eventrouterConnectorId | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter2}

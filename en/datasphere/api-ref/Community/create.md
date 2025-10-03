@@ -33,7 +33,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels of the community.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         zoneId:
           description: |-
             **string**

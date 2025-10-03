@@ -21,7 +21,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is greater than `page_size`,
-            the service returns a [ListVrfOperationsResponse.nextPageToken](/docs/baremetal/api-ref/Vrf/listOperations#yandex.cloud.baremetal.v1alpha.ListVrfOperationsResponse)
+            the service returns a [ListVrfOperationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListVrfOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
           type: string
@@ -30,7 +30,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListVrfOperationsResponse.nextPageToken](/docs/baremetal/api-ref/Vrf/listOperations#yandex.cloud.baremetal.v1alpha.ListVrfOperationsResponse) returned by a previous list request.
+            [ListVrfOperationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListVrfOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

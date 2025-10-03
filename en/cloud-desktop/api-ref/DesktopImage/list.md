@@ -20,6 +20,7 @@ apiPlayground:
             the service returns a [ListDesktopImagesRequest.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
@@ -33,14 +34,14 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [DesktopImage.name](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage) field.
+            1. The field name. Currently you can use filtering only on [DesktopImage.name](#yandex.cloud.clouddesktop.v1.api.DesktopImage) field.
             2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
             3. Value or a list of values to compare against the values of the field.
           type: string
         orderBy:
           description: |-
             **string**
-            Sorting the list by [DesktopImage.name](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage), [DesktopImage.createdAt](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage) and [DesktopImage.status](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage) fields.
+            Sorting the list by [DesktopImage.name](#yandex.cloud.clouddesktop.v1.api.DesktopImage), [DesktopImage.createdAt](#yandex.cloud.clouddesktop.v1.api.DesktopImage) and [DesktopImage.status](#yandex.cloud.clouddesktop.v1.api.DesktopImage) fields.
             The default sorting order is ascending.
           type: string
       required:

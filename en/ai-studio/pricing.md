@@ -132,6 +132,13 @@ _{{ price-per-hour-count-per-second }}_
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
 
+### Voice agents {#voice-assistant}
+
+
+
+{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
+
+
 ## Examples of the {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
 
 ### Calculating the text generation cost {#price-example-generating}

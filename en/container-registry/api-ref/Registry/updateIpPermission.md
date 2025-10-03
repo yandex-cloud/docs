@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         ipPermissionDeltas:
           description: |-
-            **[IpPermissionDelta](/docs/container-registry/api-ref/Registry/updateIpPermission#yandex.cloud.containerregistry.v1.IpPermissionDelta)**
+            **[IpPermissionDelta](#yandex.cloud.containerregistry.v1.IpPermissionDelta)**
             Updates to IP permissions.
           type: array
           items:
@@ -61,7 +61,7 @@ apiPlayground:
               - REMOVE
           ipPermission:
             description: |-
-              **[IpPermission](/docs/container-registry/api-ref/Registry/listIpPermission#yandex.cloud.containerregistry.v1.IpPermission)**
+              **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
               Required field. Ip permission.
             $ref: '#/definitions/IpPermission'
         required:

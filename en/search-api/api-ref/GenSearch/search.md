@@ -10,7 +10,7 @@ apiPlayground:
       properties:
         messages:
           description: |-
-            **[GenSearchMessage](/docs/searchapi/api-ref/GenSearch/search#yandex.cloud.searchapi.v2.GenSearchMessage)**
+            **[GenSearchMessage](#yandex.cloud.searchapi.v2.GenSearchMessage)**
             Single search query or a search query with context in the form of chat with the model.
           type: array
           items:
@@ -22,19 +22,19 @@ apiPlayground:
           type: string
         site:
           description: |-
-            **[SiteOption](/docs/searchapi/api-ref/GenSearch/search#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption)**
+            **[SiteOption](#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption)**
             Includes only one of the fields `site`, `host`, `url`.
             Restricts the search to the specific websites, hosts or pages.
           $ref: '#/definitions/SiteOption'
         host:
           description: |-
-            **[HostOption](/docs/searchapi/api-ref/GenSearch/search#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption)**
+            **[HostOption](#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption)**
             Includes only one of the fields `site`, `host`, `url`.
             Restricts the search to the specific websites, hosts or pages.
           $ref: '#/definitions/HostOption'
         url:
           description: |-
-            **[UrlOption](/docs/searchapi/api-ref/GenSearch/search#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption)**
+            **[UrlOption](#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption)**
             Includes only one of the fields `site`, `host`, `url`.
             Restricts the search to the specific websites, hosts or pages.
           $ref: '#/definitions/UrlOption'
@@ -50,7 +50,7 @@ apiPlayground:
           type: boolean
         searchFilters:
           description: |-
-            **[SearchFilter](/docs/searchapi/api-ref/GenSearch/search#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter)**
+            **[SearchFilter](#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter)**
             Restricts the search by date, document formats or language.
           type: array
           items:
@@ -118,6 +118,16 @@ apiPlayground:
             - SEARCH_TYPE_KK
             - SEARCH_TYPE_BE
             - SEARCH_TYPE_UZ
+        getPartialResults:
+          description: |-
+            **boolean**
+            Get partial results
+          type: boolean
+        metadata:
+          description: |-
+            **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+            Search flags
+          $ref: '#/definitions/SearchMetadata'
       required:
         - folderId
       additionalProperties: false
@@ -175,6 +185,29 @@ apiPlayground:
             type: array
             items:
               type: string
+      SearchMetadata:
+        type: object
+        properties:
+          fields:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Search flags, `key:value` pairs.
+              No more than 64.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `[-_0-9a-z]*`.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_0-9a-z]*'
+              maxLength: 63
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
 sourcePath: en/_api-ref/searchapi/v2/api-ref/GenSearch/search.md
 ---
 
@@ -225,7 +258,11 @@ POST https://searchapi.{{ api-host }}/v2/gen/search
       // end of the list of possible fields
     }
   ],
-  "searchType": "string"
+  "searchType": "string",
+  "getPartialResults": "boolean",
+  "metadata": {
+    "fields": "object"
+  }
 }
 ```
 
@@ -272,6 +309,12 @@ Search type that determines the domain name that will be used for the search que
 - `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
 - `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
 - `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
+|| getPartialResults | **boolean**
+
+Get partial results ||
+|| metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+
+Search flags ||
 |#
 
 ## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage}
@@ -348,6 +391,20 @@ Includes only one of the fields `date`, `lang`, `format`.
 - `DOC_FORMAT_ODT`
 - `DOC_FORMAT_ODG`
 - `DOC_FORMAT_DOC` ||
+|#
+
+## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
+
+#|
+||Field | Description ||
+|| fields | **object** (map<**string**, **string**>)
+
+Search flags, `key:value` pairs.
+No more than 64.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.GenSearchResponse}

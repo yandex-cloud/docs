@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         passwordSpec:
           description: |-
-            **[PasswordSpec](/docs/organization/idp/api-ref/User/create#yandex.cloud.organizationmanager.v1.idp.PasswordSpec)**
+            **[PasswordSpec](#yandex.cloud.organizationmanager.v1.idp.PasswordSpec)**
             Required field. New password specification.
           $ref: '#/definitions/PasswordSpec'
       required:

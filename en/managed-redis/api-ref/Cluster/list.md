@@ -17,14 +17,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-redis/api-ref/Cluster/list#yandex.cloud.mdb.redis.v1.ListClustersResponse)
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-redis/api-ref/Cluster/list#yandex.cloud.mdb.redis.v1.ListClustersResponse)
+            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClustersResponse)
             returned by the previous list request.
           type: string
         filter:
@@ -32,7 +32,7 @@ apiPlayground:
             **string**
             A filter expression that filters clusters listed in the response.
             The expression must specify:
-            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster) field.
+            1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.redis.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.
           type: string
@@ -473,7 +473,20 @@ The expression must specify:
           "emergencyUsageThreshold": "string",
           "diskSizeLimit": "string"
         },
-        "backupRetainPeriodDays": "string"
+        "backupRetainPeriodDays": "string",
+        "modules": {
+          "valkeySearch": {
+            "enabled": "boolean",
+            "readerThreads": "string",
+            "writerThreads": "string"
+          },
+          "valkeyJson": {
+            "enabled": "boolean"
+          },
+          "valkeyBloom": {
+            "enabled": "boolean"
+          }
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -695,6 +708,9 @@ Disk size autoscaling settings ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retain period of automatically created backup in days ||
+|| modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
+
+Valkey modules settings ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -1236,6 +1252,54 @@ Amount of used storage for immediately  automatic disk scaling, 0 means disabled
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
+
+#|
+||Field | Description ||
+|| valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
+
+valkey-search module settings ||
+|| valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
+
+valkey-json module settings ||
+|| valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
+
+valkey-bloom module settings ||
+|#
+
+## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-search module ||
+|| readerThreads | **string** (int64)
+
+Controls the amount of threads executing queries ||
+|| writerThreads | **string** (int64)
+
+Controls the amount of threads processing index mutations ||
+|#
+
+## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-json module ||
+|#
+
+## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-bloom module ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

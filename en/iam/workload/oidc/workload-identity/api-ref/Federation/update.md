@@ -65,7 +65,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/update.md

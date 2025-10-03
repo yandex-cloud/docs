@@ -22,7 +22,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListBackupRetentionPoliciesResponse.nextPageToken](/docs/managed-postgresql/api-ref/BackupRetentionPolicy/list#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse)
+            results is larger than `pageSize`, the service returns a [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -30,7 +30,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListBackupRetentionPoliciesResponse.nextPageToken](/docs/managed-postgresql/api-ref/BackupRetentionPolicy/list#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
+            to the [ListBackupRetentionPoliciesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
           type: string
       additionalProperties: false
     body: null

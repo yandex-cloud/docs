@@ -75,7 +75,9 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
       "cpu": {
         "name": "string",
         "vendor": "string",
-        "cores": "int64"
+        "cores": "int64",
+        "physical_cores": "int64",
+        "frequency_mhz": "int64"
       },
       "disk_drives": [
         {
@@ -147,7 +149,13 @@ Name of the CPU. ||
 Vendor of the CPU. ||
 || cores | **int64**
 
-Number of cores. ||
+@deprecated. Number of cores. ||
+|| physical_cores | **int64**
+
+Number of physical cores per CPU (socket). ||
+|| frequency_mhz | **int64**
+
+Frequency of the CPU in megahertz (MHz). ||
 |#
 
 ## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}

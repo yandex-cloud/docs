@@ -129,6 +129,7 @@ Creates a transfer in the specified folder.
               "string"
             ]
           },
+          // Includes only one of the fields `columns`, `random`
           "columns": {
             "include_columns": [
               "string"
@@ -137,6 +138,8 @@ Creates a transfer in the specified folder.
               "string"
             ]
           },
+          "random": "SharderTransformerTypeRandom",
+          // end of the list of possible fields
           "shards_count": "int64"
         },
         "table_splitter_transformer": {
@@ -175,6 +178,17 @@ Creates a transfer in the specified folder.
     "include_objects": [
       "string"
     ]
+  },
+  "replication_runtime": {
+    // Includes only one of the fields `yc_runtime`
+    "yc_runtime": {
+      "job_count": "int64",
+      "upload_shard_params": {
+        "job_count": "int64",
+        "process_count": "int64"
+      }
+    }
+    // end of the list of possible fields
   }
 }
 ```
@@ -210,9 +224,11 @@ The transfer name. Must be unique within the folder. ||
 
 Transfer labels as `key:value` pairs.
 
-For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 || data_objects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
+|| replication_runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
@@ -453,10 +469,22 @@ values will be used for calculating a hash to determine a shard.
 List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
-List of included and excluded columns ||
+List of included and excluded columns
+
+Includes only one of the fields `columns`, `random`. ||
+|| random | **[SharderTransformerTypeRandom](#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom)**
+
+Includes only one of the fields `columns`, `random`. ||
 || shards_count | **int64**
 
 Number of shards ||
+|#
+
+## SharderTransformerTypeRandom {#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom}
+
+#|
+||Field | Description ||
+|| Empty | > ||
 |#
 
 ## TableSplitterTransformer {#yandex.cloud.datatransfer.v1.TableSplitterTransformer}

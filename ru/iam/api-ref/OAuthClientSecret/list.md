@@ -12,7 +12,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListOAuthClientSecretsResponse.nextPageToken](/docs/iam/api-ref/OAuthClientSecret/list#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse)
+            the service returns a [ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -20,7 +20,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListOAuthClientSecretsResponse.nextPageToken](/docs/iam/api-ref/OAuthClientSecret/list#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request.
+            [ListOAuthClientSecretsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientSecretsResponse) returned by a previous list request.
           type: string
         oauthClientId:
           description: |-

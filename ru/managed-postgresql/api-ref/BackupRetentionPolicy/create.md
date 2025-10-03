@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         cron:
           description: |-
-            **[CronTab](/docs/managed-postgresql/api-ref/BackupRetentionPolicy/list#yandex.cloud.mdb.postgresql.v1.CronTab)**
+            **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
             CronTab schedule.
           $ref: '#/definitions/CronTab'
         retainForDays:

@@ -22,14 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the API returns a [ListUsersResponse.nextPageToken](/docs/managed-mysql/api-ref/User/list#yandex.cloud.mdb.mysql.v1.ListUsersResponse) that can be used to get the next page of results in the subsequent [UserService.List](#List) requests.
+            If the number of available results is larger than `pageSize`, the API returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListUsersResponse) that can be used to get the next page of results in the subsequent [UserService.List](#List) requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token that can be used to iterate through multiple pages of results.
-            To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](/docs/managed-mysql/api-ref/User/list#yandex.cloud.mdb.mysql.v1.ListUsersResponse) returned by the previous [UserService.List](#List) request.
+            To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListUsersResponse) returned by the previous [UserService.List](#List) request.
           type: string
       additionalProperties: false
     body: null

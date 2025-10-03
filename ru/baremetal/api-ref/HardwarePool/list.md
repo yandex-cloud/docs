@@ -12,7 +12,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is greater than `page_size`,
-            the service returns a [ListHardwarePoolsResponse.nextPageToken](/docs/baremetal/api-ref/HardwarePool/list#yandex.cloud.baremetal.v1alpha.ListHardwarePoolsResponse)
+            the service returns a [ListHardwarePoolsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListHardwarePoolsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
           type: string
@@ -21,7 +21,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListHardwarePoolsResponse.nextPageToken](/docs/baremetal/api-ref/HardwarePool/list#yandex.cloud.baremetal.v1alpha.ListHardwarePoolsResponse) returned by a previous list request.
+            [ListHardwarePoolsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListHardwarePoolsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

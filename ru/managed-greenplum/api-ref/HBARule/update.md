@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         hbaRule:
           description: |-
-            **[HBARule](/docs/managed-greenplum/api-ref/HBARule/list#yandex.cloud.mdb.greenplum.v1.HBARule)**
+            **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
             Required field. Updated hba rule for the cluster.
           $ref: '#/definitions/HBARule'
       required:

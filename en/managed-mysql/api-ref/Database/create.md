@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         databaseSpec:
           description: |-
-            **[DatabaseSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.DatabaseSpec)**
+            **[DatabaseSpec](#yandex.cloud.mdb.mysql.v1.DatabaseSpec)**
             Required field. Configuration of the database.
           $ref: '#/definitions/DatabaseSpec'
       required:

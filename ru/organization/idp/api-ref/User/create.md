@@ -47,14 +47,14 @@ apiPlayground:
           type: string
         passwordSpec:
           description: |-
-            **[PasswordSpec](/docs/organization/idp/api-ref/User/create#yandex.cloud.organizationmanager.v1.idp.PasswordSpec)**
+            **[PasswordSpec](#yandex.cloud.organizationmanager.v1.idp.PasswordSpec)**
             Password specification.
             Includes only one of the fields `passwordSpec`, `passwordHash`.
             User credentials.
           $ref: '#/definitions/PasswordSpec'
         passwordHash:
           description: |-
-            **[PasswordHash](/docs/organization/idp/api-ref/User/create#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
+            **[PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash)**
             Password hash.
             Includes only one of the fields `passwordSpec`, `passwordHash`.
             User credentials.
@@ -389,6 +389,7 @@ Current status of the user.
 Determines whether the user can authenticate and access the system.
 
 - `STATUS_UNSPECIFIED`: The status is not specified.
+- `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.
 - `SUSPENDED`: The user is suspended and cannot authenticate.

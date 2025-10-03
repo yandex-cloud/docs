@@ -46,7 +46,7 @@
 
 - API {#api}
   
-  Чтобы получить информацию о выполненных операциях конкретного подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ListOperations](../../metadata-hub/api-ref/Connection/listOperations.md) или методом gRPC API [ConnectionService.ListOperations](../../metadata-hub/api-ref/grpc/Connection/listOperations.md) и передайте в запросе идентификатор подключения.
+  Чтобы получить информацию о выполненных операциях конкретного подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ListOperations](../../metadata-hub/connection-manager/api-ref/Connection/listOperations.md) или методом gRPC API [ConnectionService.ListOperations](../../metadata-hub/connection-manager/api-ref/grpc/Connection/listOperations.md) и передайте в запросе идентификатор подключения.
 
   Идентификатор подключения можно получить со [списком подключений](../../metadata-hub/operations/view-connection.md#connection-list) в каталоге.
 

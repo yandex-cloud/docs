@@ -391,6 +391,12 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: AccessAnalyzer
+            items:
+              - name: Overview
+                href: api-ref/grpc/AccessAnalyzer/index.md
+              - name: ListSubjectAccessBindings
+                href: api-ref/grpc/AccessAnalyzer/listSubjectAccessBindings.md
           - name: ApiKey
             items:
               - name: Overview
@@ -639,6 +645,12 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: AccessAnalyzer
+            items:
+              - name: Overview
+                href: api-ref/AccessAnalyzer/index.md
+              - name: ListSubjectAccessBindings
+                href: api-ref/AccessAnalyzer/listSubjectAccessBindings.md
           - name: ApiKey
             items:
               - name: Overview

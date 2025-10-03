@@ -54,14 +54,14 @@ apiPlayground:
             type: string
         handler:
           description: |-
-            **[TlsHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+            **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
             Required field. New settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values.
           oneOf:
             - type: object
               properties:
                 httpHandler:
                   description: |-
-                    **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+                    **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
                     HTTP handler.
                     Includes only one of the fields `httpHandler`, `streamHandler`.
                     Settings for handling requests.
@@ -70,7 +70,7 @@ apiPlayground:
                       properties:
                         http2Options:
                           description: |-
-                            **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                            **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
                             HTTP/2 settings.
                             If specified, incoming HTTP/2 requests are supported by the listener.
                             Includes only one of the fields `http2Options`, `allowHttp10`.
@@ -89,7 +89,7 @@ apiPlayground:
                           type: boolean
                 streamHandler:
                   description: |-
-                    **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+                    **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
                     Stream (TCP) handler.
                     Includes only one of the fields `httpHandler`, `streamHandler`.
                     Settings for handling requests.

@@ -34,7 +34,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels as `` key:value `` pairs. Maximum of 64 per resource.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         name:
           description: |-
             **string**
@@ -59,7 +61,7 @@ apiPlayground:
             - DENY
         securityRules:
           description: |-
-            **[SecurityRule](/docs/smartwebsecurity/api-ref/SecurityProfile/get#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
+            **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
             List of security rules.
           type: array
           items:
@@ -68,19 +70,19 @@ apiPlayground:
                 properties:
                   ruleCondition:
                     description: |-
-                      **[RuleCondition](/docs/smartwebsecurity/api-ref/SecurityProfile/get#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
+                      **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
                       Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
                       Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
                     $ref: '#/definitions/RuleCondition'
                   smartProtection:
                     description: |-
-                      **[SmartProtection](/docs/smartwebsecurity/api-ref/SecurityProfile/get#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
+                      **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
                       Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
                       Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
                     $ref: '#/definitions/SmartProtection'
                   waf:
                     description: |-
-                      **[Waf](/docs/smartwebsecurity/api-ref/SecurityProfile/get#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
+                      **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
                       Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
                       Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
                     $ref: '#/definitions/Waf'
@@ -96,7 +98,7 @@ apiPlayground:
           type: string
         analyzeRequestBody:
           description: |-
-            **[AnalyzeRequestBody](/docs/smartwebsecurity/api-ref/SecurityProfile/get#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
+            **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
             Parameters for request body analyzer.
           $ref: '#/definitions/AnalyzeRequestBody'
       additionalProperties: false
@@ -106,7 +108,7 @@ apiPlayground:
         properties:
           authorities:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of authorities. OR semantics implied.
             type: array
             items:
@@ -148,7 +150,7 @@ apiPlayground:
         properties:
           httpMethods:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of HTTP methods. OR semantics implied.
             type: array
             items:
@@ -195,7 +197,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the query parameter.
             oneOf:
               - type: object
@@ -238,7 +240,7 @@ apiPlayground:
         properties:
           path:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
             oneOf:
               - type: object
@@ -275,7 +277,7 @@ apiPlayground:
                     type: string
           queries:
             description: |-
-              **[QueryMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
+              **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
               List of query matchers. AND semantics implied.
             type: array
             items:
@@ -290,7 +292,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the header.
             oneOf:
               - type: object
@@ -353,45 +355,45 @@ apiPlayground:
         type: object
         properties:
           ipRangesMatch:
-            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           ipRangesNotMatch:
-            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           geoIpMatch:
-            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
           geoIpNotMatch:
-            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
       Condition:
         type: object
         properties:
           authority:
             description: |-
-              **[AuthorityMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
+              **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
               Match authority (Host header).
             $ref: '#/definitions/AuthorityMatcher'
           httpMethod:
             description: |-
-              **[HttpMethodMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+              **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
               Match HTTP method.
             $ref: '#/definitions/HttpMethodMatcher'
           requestUri:
             description: |-
-              **[RequestUriMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+              **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
               Match Request URI.
             $ref: '#/definitions/RequestUriMatcher'
           headers:
             description: |-
-              **[HeaderMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
+              **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
               Match HTTP headers.
             type: array
             items:
               $ref: '#/definitions/HeaderMatcher'
           sourceIp:
             description: |-
-              **[IpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+              **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
               Match IP.
             $ref: '#/definitions/IpMatcher'
       RuleCondition:
@@ -409,7 +411,7 @@ apiPlayground:
               - DENY
           condition:
             description: |-
-              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the rule.
             $ref: '#/definitions/Condition'
       SmartProtection:
@@ -431,7 +433,7 @@ apiPlayground:
               - API
           condition:
             description: |-
-              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the rule.
             $ref: '#/definitions/Condition'
       Waf:
@@ -453,7 +455,7 @@ apiPlayground:
               - API
           condition:
             description: |-
-              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the rule.
             $ref: '#/definitions/Condition'
           wafProfileId:

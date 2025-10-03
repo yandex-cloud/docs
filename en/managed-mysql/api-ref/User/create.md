@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         userSpec:
           description: |-
-            **[UserSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.UserSpec)**
+            **[UserSpec](#yandex.cloud.mdb.mysql.v1.UserSpec)**
             Required field. Configuration of the user.
           $ref: '#/definitions/UserSpec'
       required:
@@ -130,7 +130,7 @@ apiPlayground:
             type: string
           permissions:
             description: |-
-              **[Permission](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.Permission)**
+              **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
               Set of permissions granted to the user to access specific databases.
               One permission per database.
               When a permission for a database is set, the user will have access to the database.
@@ -169,7 +169,7 @@ apiPlayground:
                 - MDB_ADMIN
           connectionLimits:
             description: |-
-              **[ConnectionLimits](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
+              **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
               Set of user connection limits.
             $ref: '#/definitions/ConnectionLimits'
           authenticationPlugin:

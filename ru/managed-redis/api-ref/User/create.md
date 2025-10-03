@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         userSpec:
           description: |-
-            **[UserSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.UserSpec)**
+            **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
             Properties of the user to be created.
           $ref: '#/definitions/UserSpec'
       additionalProperties: false
@@ -74,7 +74,7 @@ apiPlayground:
               type: string
           permissions:
             description: |-
-              **[Permissions](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.Permissions)**
+              **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
               Set of permissions to grant to the user.
             $ref: '#/definitions/Permissions'
           enabled:

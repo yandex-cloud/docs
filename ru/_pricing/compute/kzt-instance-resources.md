@@ -33,7 +33,7 @@
 | 100% vCPU | {{ sku|KZT|compute_gpu.vm.cpu.c100.gpu-standard.v3|string }} |{{ sku|KZT|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3|string }} | − | − |
 | 1 GPU Nvidia A100 | {{ sku|KZT|compute_gpu.vm.gpu.gpu-standard.v3|string }} | {{ sku|KZT|compute_gpu.vm.gpu.gpu-standard.preemptible.v3|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|KZT|compute_gpu.vm.ram.gpu-standard.v3|string }} | {{ sku|KZT|compute_gpu.vm.ram.gpu-standard.preemptible.v3|string }} | − | − |
-| **AMD EPYC™ 9474F with Gen2**^*^ | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| **Gen2**^*^ | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
 | 100% vCPU | {{ sku|KZT|compute_gpu.vm.cpu.c100.gpu-standard.v3i|string }} | {{ sku|KZT|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3i|string }} | - | - |
 | 1 GPU | {{ sku|KZT|compute_gpu.vm.gpu.gpu-standard.v3i|string }} | {{ sku|KZT|compute_gpu.vm.gpu.gpu-standard.preemptible.v3i|string }} | - | - |
 | RAM (за 1 ГБ) | {{ sku|KZT|compute_gpu.vm.ram.gpu-standard.v3i|string }} | {{ sku|KZT|compute_gpu.vm.ram.gpu-standard.preemptible.v3i|string }} | - | - |

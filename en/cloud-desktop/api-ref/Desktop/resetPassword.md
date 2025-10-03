@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         user:
           description: |-
-            **[User](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.User)**
+            **[User](#yandex.cloud.clouddesktop.v1.api.User)**
             Required field. User of the desktop.
           $ref: '#/definitions/User'
       required:

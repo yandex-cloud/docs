@@ -151,7 +151,20 @@ Creates a Redis cluster in the specified folder.
       "emergency_usage_threshold": "google.protobuf.Int64Value",
       "disk_size_limit": "google.protobuf.Int64Value"
     },
-    "backup_retain_period_days": "google.protobuf.Int64Value"
+    "backup_retain_period_days": "google.protobuf.Int64Value",
+    "modules": {
+      "valkey_search": {
+        "enabled": "bool",
+        "reader_threads": "google.protobuf.Int64Value",
+        "writer_threads": "google.protobuf.Int64Value"
+      },
+      "valkey_json": {
+        "enabled": "bool"
+      },
+      "valkey_bloom": {
+        "enabled": "bool"
+      }
+    }
   },
   "host_specs": [
     {
@@ -315,6 +328,9 @@ Disk size autoscaling settings ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retain period of automatically created backup in days ||
+|| modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
+
+Valkey modules settings ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -752,6 +768,54 @@ Amount of used storage for immediately  automatic disk scaling, 0 means disabled
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
+
+#|
+||Field | Description ||
+|| valkey_search | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
+
+valkey-search module settings ||
+|| valkey_json | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
+
+valkey-json module settings ||
+|| valkey_bloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
+
+valkey-bloom module settings ||
+|#
+
+## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable valkey-search module ||
+|| reader_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls the amount of threads executing queries ||
+|| writer_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls the amount of threads processing index mutations ||
+|#
+
+## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable valkey-json module ||
+|#
+
+## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable valkey-bloom module ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}
@@ -1271,7 +1335,20 @@ SanitizePayload parameter. ||
         "emergency_usage_threshold": "google.protobuf.Int64Value",
         "disk_size_limit": "google.protobuf.Int64Value"
       },
-      "backup_retain_period_days": "google.protobuf.Int64Value"
+      "backup_retain_period_days": "google.protobuf.Int64Value",
+      "modules": {
+        "valkey_search": {
+          "enabled": "bool",
+          "reader_threads": "google.protobuf.Int64Value",
+          "writer_threads": "google.protobuf.Int64Value"
+        },
+        "valkey_json": {
+          "enabled": "bool"
+        },
+        "valkey_bloom": {
+          "enabled": "bool"
+        }
+      }
     },
     "network_id": "string",
     "health": "Health",
@@ -1536,6 +1613,9 @@ Disk size autoscaling settings ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retain period of automatically created backup in days ||
+|| modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules2)**
+
+Valkey modules settings ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -2053,6 +2133,54 @@ Amount of used storage for immediately  automatic disk scaling, 0 means disabled
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules2}
+
+#|
+||Field | Description ||
+|| valkey_search | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch2)**
+
+valkey-search module settings ||
+|| valkey_json | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson2)**
+
+valkey-json module settings ||
+|| valkey_bloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom2)**
+
+valkey-bloom module settings ||
+|#
+
+## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable valkey-search module ||
+|| reader_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls the amount of threads executing queries ||
+|| writer_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls the amount of threads processing index mutations ||
+|#
+
+## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable valkey-json module ||
+|#
+
+## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable valkey-bloom module ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow2}

@@ -12,7 +12,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is greater than `page_size`,
-            the service returns a [ListConfigurationsResponse.nextPageToken](/docs/baremetal/api-ref/Configuration/list#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse)
+            the service returns a [ListConfigurationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
           type: string
@@ -21,7 +21,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListConfigurationsResponse.nextPageToken](/docs/baremetal/api-ref/Configuration/list#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse) returned by a previous list request.
+            [ListConfigurationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse) returned by a previous list request.
           type: string
         orderBy:
           description: |-
@@ -125,7 +125,9 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
       "cpu": {
         "name": "string",
         "vendor": "string",
-        "cores": "string"
+        "cores": "string",
+        "physicalCores": "string",
+        "frequencyMhz": "string"
       },
       "diskDrives": [
         {
@@ -197,7 +199,13 @@ Name of the CPU. ||
 Vendor of the CPU. ||
 || cores | **string** (int64)
 
-Number of cores. ||
+@deprecated. Number of cores. ||
+|| physicalCores | **string** (int64)
+
+Number of physical cores per CPU (socket). ||
+|| frequencyMhz | **string** (int64)
+
+Frequency of the CPU in megahertz (MHz). ||
 |#
 
 ## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}

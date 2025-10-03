@@ -30,11 +30,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Cluster labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         configSpec:
           description: |-
-            **[CreateClusterConfigSpec](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.CreateClusterConfigSpec)**
+            **[CreateClusterConfigSpec](#yandex.cloud.dataproc.v1.CreateClusterConfigSpec)**
             Required field. Configuration and resources for hosts that should be created with the cluster.
           $ref: '#/definitions/CreateClusterConfigSpec'
         zoneId:
@@ -173,7 +182,9 @@ apiPlayground:
               the service and the property.
               For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
               in the file `/etc/hadoop/conf/hdfs-site.xml`.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
           sshPublicKeys:
             description: |-
               **string**
@@ -183,7 +194,7 @@ apiPlayground:
               type: string
           initializationActions:
             description: |-
-              **[InitializationAction](/docs/data-proc/api-ref/Cluster/get#yandex.cloud.dataproc.v1.InitializationAction)**
+              **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
               Set of init-actions
             type: array
             items:
@@ -263,6 +274,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+            default: '120'
             type: string
             format: int64
         required:
@@ -308,7 +320,7 @@ apiPlayground:
               - COMPUTENODE
           resources:
             description: |-
-              **[Resources](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.Resources)**
+              **[Resources](#yandex.cloud.dataproc.v1.Resources)**
               Required field. Resource configuration for hosts in the subcluster.
             $ref: '#/definitions/Resources'
           subnetId:
@@ -329,7 +341,7 @@ apiPlayground:
             type: boolean
           autoscalingConfig:
             description: |-
-              **[AutoscalingConfig](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+              **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
               Configuration for instance group based subclusters
             $ref: '#/definitions/AutoscalingConfig'
         required:
@@ -347,12 +359,12 @@ apiPlayground:
             type: string
           hadoop:
             description: |-
-              **[HadoopConfig](/docs/data-proc/api-ref/Cluster/get#yandex.cloud.dataproc.v1.HadoopConfig)**
+              **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
               Yandex Data Processing specific options.
             $ref: '#/definitions/HadoopConfig'
           subclustersSpec:
             description: |-
-              **[CreateSubclusterConfigSpec](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec)**
+              **[CreateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec)**
               Specification for creating subclusters.
             type: array
             items:

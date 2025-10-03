@@ -28,8 +28,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels for the bus.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         deletionProtection:
           description: |-
             **boolean**
@@ -42,7 +51,7 @@ apiPlayground:
           type: boolean
         logOptions:
           description: |-
-            **[LogOptions](/docs/serverless-integrations/eventrouter/api-ref/Bus/get#yandex.cloud.serverless.eventrouter.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.serverless.eventrouter.v1.LogOptions)**
             Options for logging from the bus.
           oneOf:
             - type: object

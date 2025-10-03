@@ -32,7 +32,7 @@ apiPlayground:
           format: field-mask
         user:
           description: |-
-            **[User](/docs/managed-greenplum/api-ref/User/list#yandex.cloud.mdb.greenplum.v1.User)**
+            **[User](#yandex.cloud.mdb.greenplum.v1.User)**
             Required field. 
           $ref: '#/definitions/User'
       required:

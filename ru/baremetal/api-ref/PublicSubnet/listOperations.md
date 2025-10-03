@@ -29,7 +29,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListPublicSubnetOperationsResponse.nextPageToken](/docs/baremetal/api-ref/PublicSubnet/listOperations#yandex.cloud.baremetal.v1alpha.ListPublicSubnetOperationsResponse) returned by a previous list request.
+            [ListPublicSubnetOperationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListPublicSubnetOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

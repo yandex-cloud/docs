@@ -38,7 +38,7 @@ Required field. ID of the registry to create a device in.
 To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request. ||
 || name | **string**
 
-Required field. Name of the device. The name must be unique within the registry. ||
+Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||

@@ -28,7 +28,7 @@ apiPlayground:
           type: string
         computeInstanceParams:
           description: |-
-            **`CreateComputeInstance`**
+            **[CreateComputeInstance](#yandex.cloud.loadtesting.api.v1.agent.CreateComputeInstance)**
             Parameters for compute instance to be created.
           $ref: '#/definitions/CreateComputeInstance'
         agentVersion:
@@ -41,11 +41,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Agent labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         logSettings:
           description: |-
-            **`LogSettings`**
+            **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
             Agent log settings
           $ref: '#/definitions/LogSettings'
       required:
@@ -133,7 +142,7 @@ apiPlayground:
             type: string
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               External DNS configuration
             type: array
             items:
@@ -149,13 +158,13 @@ apiPlayground:
             type: string
           oneToOneNatSpec:
             description: |-
-              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
               An external IP address configuration.
               If not specified, then this instance will have no external internet access.
             $ref: '#/definitions/OneToOneNatSpec'
           dnsRecordSpecs:
             description: |-
-              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
               Internal DNS configuration
             type: array
             items:
@@ -170,12 +179,12 @@ apiPlayground:
             type: string
           primaryV4AddressSpec:
             description: |-
-              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
               Primary IPv4 address that will be assigned to the instance for this network interface.
             $ref: '#/definitions/PrimaryAddressSpec'
           primaryV6AddressSpec:
             description: |-
-              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
               Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
             $ref: '#/definitions/PrimaryAddressSpec'
           securityGroupIds:
@@ -199,8 +208,17 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Resource labels as `key:value` pairs.
-            pattern: '[a-z][-_./\@0-9a-z]*'
-            type: string
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_./\@0-9a-z]*'
+              maxLength: 63
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_./\@0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
           zoneId:
             description: |-
               **string**
@@ -209,7 +227,7 @@ apiPlayground:
             type: string
           resourcesSpec:
             description: |-
-              **[ResourcesSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.ResourcesSpec)**
+              **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
               Required field. Computing resources of the instance, such as the amount of memory and number of cores.
               To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
             $ref: '#/definitions/ResourcesSpec'
@@ -222,17 +240,19 @@ apiPlayground:
               The values must be 256 KB or less.
               For example, you may use the metadata in order to provide your public SSH key to the instance.
               For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
-            type: string
+            type: object
+            additionalProperties:
+              type: string
           bootDiskSpec:
             description: |-
-              **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+              **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
               Required field. Boot disk to attach to the instance.
             oneOf:
               - type: object
                 properties:
                   diskSpec:
                     description: |-
-                      **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                      **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
                       Disk specification.
                       Includes only one of the fields `diskSpec`, `diskId`.
                     oneOf:
@@ -258,7 +278,7 @@ apiPlayground:
                     type: string
           networkInterfaceSpecs:
             description: |-
-              **[NetworkInterfaceSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+              **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
               Network configuration for the instance. Specifies how the network interface is configured
               to interact with other services on the internal network and on the internet.
               Currently only one network interface is supported per instance.
@@ -276,6 +296,7 @@ apiPlayground:
               **string**
               ID of the [Compute VM platform](/docs/compute/concepts/vm-platforms) on which the agent will be created.
               Default value: "standard-v2"
+            default: standard-v2
             type: string
         required:
           - zoneId

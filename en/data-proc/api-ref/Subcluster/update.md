@@ -40,7 +40,7 @@ apiPlayground:
           format: field-mask
         resources:
           description: |-
-            **[Resources](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.Resources)**
+            **[Resources](#yandex.cloud.dataproc.v1.Resources)**
             New configuration of resources that should be allocated for each host in the subcluster.
           $ref: '#/definitions/Resources'
         name:
@@ -59,11 +59,12 @@ apiPlayground:
           description: |-
             **string** (int64)
             Timeout to gracefully decommission nodes. In seconds. Default value: 0
+          default: '0'
           type: string
           format: int64
         autoscalingConfig:
           description: |-
-            **[AutoscalingConfig](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+            **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
             Configuration for instance group based subclusters
           $ref: '#/definitions/AutoscalingConfig'
       required:
@@ -140,6 +141,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+            default: '120'
             type: string
             format: int64
         required:

@@ -233,6 +233,7 @@ Current status of the user.
 Determines whether the user can authenticate and access the system.
 
 - `STATUS_UNSPECIFIED`: The status is not specified.
+- `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.
 - `SUSPENDED`: The user is suspended and cannot authenticate.

@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         toolResultList:
           description: |-
-            **[ToolResultList](/docs/assistants/api-ref/Run/submit#yandex.cloud.ai.assistants.v1.ToolResultList)**
+            **[ToolResultList](#yandex.cloud.ai.assistants.v1.ToolResultList)**
             A list of tool results to submit to the run, such as the output of a function call.
             Includes only one of the fields `toolResultList`.
             Event to submit to the run.
@@ -29,7 +29,7 @@ apiPlayground:
         properties:
           toolResults:
             description: |-
-              **[ToolResult](/docs/assistants/api-ref/Run/submit#yandex.cloud.ai.assistants.v1.ToolResult)**
+              **[ToolResult](#yandex.cloud.ai.assistants.v1.ToolResult)**
               A list of tool results.
             type: array
             items:
@@ -38,7 +38,7 @@ apiPlayground:
                   properties:
                     functionResult:
                       description: |-
-                        **[FunctionResult](/docs/assistants/api-ref/Run/submit#yandex.cloud.ai.assistants.v1.FunctionResult)**
+                        **[FunctionResult](#yandex.cloud.ai.assistants.v1.FunctionResult)**
                         Represents the result of a function call.
                         Includes only one of the fields `functionResult`.
                       oneOf:

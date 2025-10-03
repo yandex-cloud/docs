@@ -26,16 +26,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum bytes of job log per response to return. If the number of available
-            bytes is larger than `pageSize`, the service returns a [ListJobLogResponse.nextPageToken](/docs/data-proc/api-ref/Job/listLog#yandex.cloud.dataproc.v1.ListJobLogResponse)
+            bytes is larger than `pageSize`, the service returns a [ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse)
             that can be used to get the next page of output in subsequent list requests.
             Default value: 1048576.
+          default: '1048576'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListJobLogResponse.nextPageToken](/docs/data-proc/api-ref/Job/listLog#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
+            [ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

@@ -21,23 +21,24 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page that should be returned. If the number of available
-            results is larger than `pageSize`, the service returns a [ListOperationsResponse.nextPageToken](/docs/functions/workflows/api-ref/Workflow/listOperations#yandex.cloud.serverless.workflows.v1.ListOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListOperationsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListOperationsResponse.nextPageToken](/docs/functions/workflows/api-ref/Workflow/listOperations#yandex.cloud.serverless.workflows.v1.ListOperationsResponse) returned by a previous list request.
+            [ListOperationsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListOperationsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently filtering can be applied to the [operation.Operation.done](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation), [operation.Operation.createdBy](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation) field.
+            1. The field name. Currently filtering can be applied to the [operation.Operation.done](#yandex.cloud.operation.Operation), [operation.Operation.createdBy](#yandex.cloud.operation.Operation) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Examples of a filter: `done=false`, `created_by='John.Doe'`.

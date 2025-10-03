@@ -107,8 +107,17 @@ apiPlayground:
             Each value must match the regular expression `[-_0-9a-z]*`.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `[a-z][-_0-9a-z]*`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         deletionProtection:
           description: |-
             **boolean**

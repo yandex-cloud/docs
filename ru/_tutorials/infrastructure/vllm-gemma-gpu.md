@@ -17,7 +17,7 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits#compute-quotas) на суммарное количество GPU на платформе `AMD EPYC™ 9474F with Gen2`, объем RAM, количество vCPU и объем SSD-дисков для создания ВМ. Для этого используйте сервис [{{ quota-manager-full-name }}](../../quota-manager/).
+Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits#compute-quotas) на суммарное количество GPU на платформе `Gen2`, объем RAM, количество vCPU и объем SSD-дисков для создания ВМ. Для этого используйте сервис [{{ quota-manager-full-name }}](../../quota-manager/).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -55,7 +55,7 @@
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер не менее `500 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md) и количество GPU:
 
-         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `AMD Epyc 9474F with Gen2`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Gen2`.
          * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — `1`.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 

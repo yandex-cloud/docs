@@ -31,7 +31,7 @@ The connection list only displays those connections to which the user has access
 
 - API {#api}
 
-  To get the list of {{ connection-manager-name }} connections in the default folder, use the [Connection.List](../api-ref/Connection/list.md) REST API method or the [ConnectionService.List](../api-ref/grpc/Connection/list.md) gRPC API method.
+  To get the list of {{ connection-manager-name }} connections in the default folder, use the [Connection.List](../connection-manager/api-ref/Connection/list.md) REST API method or the [ConnectionService.List](../connection-manager/api-ref/grpc/Connection/list.md) gRPC API method.
 
   To view the list of connections in a different folder, provide the folder ID in the request. [Learn more about how to get a folder ID](../../resource-manager/operations/folder/get-id.md).
 
@@ -50,7 +50,7 @@ The connection list only displays those connections to which the user has access
 
 - API {#api}
   
-  To get information about a {{ connection-manager-name }} connection, use the [Connection.Get](../api-ref/Connection/get.md) REST API method or the [ConnectionService.Get](../api-ref/grpc/Connection/get.md) gRPC API method and provide the connection ID in the request.
+  To get information about a {{ connection-manager-name }} connection, use the [Connection.Get](../connection-manager/api-ref/Connection/get.md) REST API method or the [ConnectionService.Get](../connection-manager/api-ref/grpc/Connection/get.md) gRPC API method and provide the connection ID in the request.
 
   You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 
@@ -71,7 +71,7 @@ The connection list only displays those connections to which the user has access
 
 - API {#api}
   
-  To get information about {{ connection-manager-name }} connection dependencies, use the [Connection.ResolveCluster](../api-ref/Connection/resolveCluster.md) REST API method or the [ConnectionService.ResolveCluster](../api-ref/grpc/Connection/resolveCluster.md) gRPC API method and provide the connection ID in the request.
+  To get information about {{ connection-manager-name }} connection dependencies, use the [Connection.ResolveCluster](../connection-manager/api-ref/Connection/resolveCluster.md) REST API method or the [ConnectionService.ResolveCluster](../connection-manager/api-ref/grpc/Connection/resolveCluster.md) gRPC API method and provide the connection ID in the request.
 
   You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 

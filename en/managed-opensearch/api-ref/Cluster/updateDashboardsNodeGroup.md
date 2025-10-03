@@ -39,7 +39,7 @@ apiPlayground:
           format: field-mask
         nodeGroupSpec:
           description: |-
-            **[DashboardsNodeGroupUpdateSpec](/docs/managed-opensearch/api-ref/Cluster/updateDashboardsNodeGroup#yandex.cloud.mdb.opensearch.v1.DashboardsNodeGroupUpdateSpec)**
+            **[DashboardsNodeGroupUpdateSpec](#yandex.cloud.mdb.opensearch.v1.DashboardsNodeGroupUpdateSpec)**
             New configuration for the host group.
           $ref: '#/definitions/DashboardsNodeGroupUpdateSpec'
       additionalProperties: false
@@ -89,7 +89,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
               Resources allocated to the hosts.
             $ref: '#/definitions/Resources'
           hostsCount:
@@ -119,7 +119,7 @@ apiPlayground:
             type: boolean
           diskSizeAutoscaling:
             description: |-
-              **[DiskSizeAutoscaling](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
               Disk size autoscaling settings
             $ref: '#/definitions/DiskSizeAutoscaling'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateDashboardsNodeGroup.md

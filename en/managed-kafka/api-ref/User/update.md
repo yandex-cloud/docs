@@ -46,7 +46,7 @@ apiPlayground:
           type: string
         permissions:
           description: |-
-            **[Permission](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.Permission)**
+            **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
             New set of permissions for the user.
           type: array
           items:
@@ -94,7 +94,7 @@ apiPlayground:
               Only ip-addresses allowed as value of single host.
               When not defined, access from any host is allowed.
               Bare in mind that the same host might appear in multiple permissions at the same time,
-              hence removing individual permission doesn't automatically restricts access from the [allowHosts](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.Permission) of the permission.
+              hence removing individual permission doesn't automatically restricts access from the [allowHosts](#yandex.cloud.mdb.kafka.v1.Permission) of the permission.
               If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.
             type: array
             items:

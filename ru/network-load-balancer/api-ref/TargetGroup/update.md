@@ -48,11 +48,20 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs.
             The existing set of `` labels `` is completely replaced with the provided set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         targets:
           description: |-
-            **[Target](/docs/network-load-balancer/api-ref/TargetGroup/get#yandex.cloud.loadbalancer.v1.Target)**
+            **[Target](#yandex.cloud.loadbalancer.v1.Target)**
             A new list of targets for this target group.
           type: array
           items:

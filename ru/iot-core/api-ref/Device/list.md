@@ -25,16 +25,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListDevicesResponse.nextPageToken](/docs/iot-core/api-ref/Device/list#yandex.cloud.iot.devices.v1.ListDevicesResponse)
+            results is larger than `page_size`, the service returns a [ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListDevicesResponse.nextPageToken](/docs/iot-core/api-ref/Device/list#yandex.cloud.iot.devices.v1.ListDevicesResponse) returned by a previous list request.
+            [ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse) returned by a previous list request.
           type: string
         deviceView:
           description: |-

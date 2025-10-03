@@ -62,8 +62,15 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         deletionProtection:
           description: |-
             **boolean**

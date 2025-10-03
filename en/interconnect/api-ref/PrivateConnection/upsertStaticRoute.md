@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         ipv4StaticRoutes:
           description: |-
-            **[StaticRoute](/docs/interconnect/api-ref/PrivateConnection/get#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
+            **[StaticRoute](#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
             IPv4 StaticRoute configs to upsert
           type: array
           items:

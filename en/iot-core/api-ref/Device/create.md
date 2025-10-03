@@ -17,7 +17,7 @@ apiPlayground:
         name:
           description: |-
             **string**
-            Required field. Name of the device. The name must be unique within the registry.
+            Name of the device. The name must be unique within the registry.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
@@ -27,7 +27,7 @@ apiPlayground:
           type: string
         certificates:
           description: |-
-            **[Certificate](/docs/iot-core/api-ref/Device/create#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
+            **[Certificate](#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
             Device certificate.
           type: array
           items:
@@ -37,7 +37,9 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Alias of a device topic.
             Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         password:
           description: |-
             **string**
@@ -48,11 +50,19 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       required:
         - registryId
-        - name
       additionalProperties: false
     definitions:
       Certificate:
@@ -103,7 +113,7 @@ Required field. ID of the registry to create a device in.
 To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request. ||
 || name | **string**
 
-Required field. Name of the device. The name must be unique within the registry. ||
+Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||

@@ -16,16 +16,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListRegressionDashboardsResponse.nextPageToken](/docs/load-testing/user/api-ref/RegressionDashboard/list#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse)
+            results is larger than `page_size`, the service returns a [ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListRegressionDashboardsResponse.nextPageToken](/docs/load-testing/user/api-ref/RegressionDashboard/list#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse) returned by a previous list request.
+            [ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
@@ -39,9 +40,9 @@ apiPlayground:
             - `IN` or `NOT IN` for lists of values.
             3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
             Currently supported fields:
-            - `id` `yandex.cloud.loadtesting.api.v1.regression.Dashboard.id`
+            - `id` [yandex.cloud.loadtesting.api.v1.regression.Dashboard.id](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)
             - operators: `=`, `!=`, `IN`, `NOT IN`
-            - `name` `yandex.cloud.loadtesting.api.v1.regression.Dashboard.name`
+            - `name` [yandex.cloud.loadtesting.api.v1.regression.Dashboard.name](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)
             - operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
             Examples:
             - `id IN ("1", "2", "3")`

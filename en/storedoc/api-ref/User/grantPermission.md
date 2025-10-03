@@ -29,7 +29,7 @@ apiPlayground:
       properties:
         permission:
           description: |-
-            **[Permission](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.Permission)**
+            **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
             Required field. Permission that should be granted to the specified user.
           $ref: '#/definitions/Permission'
       required:
@@ -47,7 +47,7 @@ apiPlayground:
           roles:
             description: |-
               **string**
-              MongoDB roles for the [databaseName](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
+              MongoDB roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
             type: array
             items:
               type: string

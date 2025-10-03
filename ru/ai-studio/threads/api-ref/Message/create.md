@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         author:
           description: |-
-            **[Author](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Author)**
+            **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
             Author of the message, containing details about the message's creator.
             If not provided, the default author ID specified in the corresponding thread will be used.
           $ref: '#/definitions/Author'
@@ -23,10 +23,12 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Set of key-value pairs to label the message.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         content:
           description: |-
-            **[MessageContent](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
+            **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
             Required field. Content of the message.
           $ref: '#/definitions/MessageContent'
       required:
@@ -60,7 +62,7 @@ apiPlayground:
         properties:
           content:
             description: |-
-              **[ContentPart](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.ContentPart)**
+              **[ContentPart](#yandex.cloud.ai.assistants.v1.threads.ContentPart)**
               A list of content parts that make up the message.
             type: array
             items:
@@ -69,7 +71,7 @@ apiPlayground:
                   properties:
                     text:
                       description: |-
-                        **[Text](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Text)**
+                        **[Text](#yandex.cloud.ai.assistants.v1.threads.Text)**
                         Text content of the message part.
                         Includes only one of the fields `text`.
                         Specifies the type of content that the part contains.

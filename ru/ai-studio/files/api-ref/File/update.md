@@ -42,14 +42,16 @@ apiPlayground:
           type: string
         expirationConfig:
           description: |-
-            **`ExpirationConfig`**
+            **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
             New expiration configuration for the file.
           $ref: '#/definitions/ExpirationConfig'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             New set of labels for the file.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       required:
         - updateMask
       additionalProperties: false

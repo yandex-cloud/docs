@@ -14,7 +14,7 @@ apiPlayground:
           type: string
         folderAndName:
           description: |-
-            **[FolderAndName](/docs/certificate-manager/api-ref/CertificateContent/getEx#yandex.cloud.certificatemanager.v1.FolderAndName)**
+            **[FolderAndName](#yandex.cloud.certificatemanager.v1.FolderAndName)**
             Includes only one of the fields `certificateId`, `folderAndName`.
           $ref: '#/definitions/FolderAndName'
         versionId:

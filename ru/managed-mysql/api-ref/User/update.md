@@ -46,7 +46,7 @@ apiPlayground:
           type: string
         permissions:
           description: |-
-            **[Permission](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.Permission)**
+            **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
             A new set of permissions that should be granted to the user.
           type: array
           items:
@@ -83,7 +83,7 @@ apiPlayground:
               - MDB_ADMIN
         connectionLimits:
           description: |-
-            **[ConnectionLimits](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
+            **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
             Set of changed user connection limits.
           $ref: '#/definitions/ConnectionLimits'
         authenticationPlugin:

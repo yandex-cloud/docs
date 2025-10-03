@@ -17,7 +17,7 @@ apiPlayground:
         name:
           description: |-
             **string**
-            Required field. Name of the broker. The name must be unique within the folder.
+            Name of the broker. The name must be unique within the folder.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
@@ -29,11 +29,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         certificates:
           description: |-
-            **[Certificate](/docs/iot-core/broker/api-ref/Broker/create#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
+            **[Certificate](#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
             Broker certificates.
           type: array
           items:
@@ -46,7 +55,7 @@ apiPlayground:
           type: string
         logOptions:
           description: |-
-            **[LogOptions](/docs/iot-core/broker/api-ref/Broker/get#yandex.cloud.iot.broker.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.iot.broker.v1.LogOptions)**
             Options for logging broker events
           oneOf:
             - type: object
@@ -69,7 +78,6 @@ apiPlayground:
                   type: string
       required:
         - folderId
-        - name
       additionalProperties: false
     definitions:
       Certificate:
@@ -127,7 +135,7 @@ Required field. ID of the folder to create a broker in.
 To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || name | **string**
 
-Required field. Name of the broker. The name must be unique within the folder. ||
+Name of the broker. The name must be unique within the folder. ||
 || description | **string**
 
 Description of the broker. ||

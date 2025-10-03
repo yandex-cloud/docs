@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListLocksResponse.nextPageToken](/docs/marketplace/license-manager/api-ref/Lock/list#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse)
+            results is larger than `page_size`, the service returns a [ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListLocksResponse.nextPageToken](/docs/marketplace/license-manager/api-ref/Lock/list#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request.
+            [ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

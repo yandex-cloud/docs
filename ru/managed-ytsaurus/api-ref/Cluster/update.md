@@ -45,7 +45,9 @@ apiPlayground:
             1. Get the current set of labels with a [ClusterService.Get](/docs/ytsaurus/api-ref/Cluster/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         subnetId:
           description: |-
             **string**
@@ -60,7 +62,7 @@ apiPlayground:
             type: string
         spec:
           description: |-
-            **[ClusterSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ClusterSpec)**
+            **[ClusterSpec](#yandex.cloud.ytsaurus.v1.ClusterSpec)**
             New cluster specification.
           $ref: '#/definitions/ClusterSpec'
       required:
@@ -96,10 +98,10 @@ apiPlayground:
         type: object
         properties:
           hdd:
-            description: '**[HddSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec)**'
+            description: '**[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec)**'
             $ref: '#/definitions/HddSpec'
           ssd:
-            description: '**[SsdSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec)**'
+            description: '**[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec)**'
             $ref: '#/definitions/SsdSpec'
       DiskSpec:
         type: object
@@ -141,23 +143,23 @@ apiPlayground:
             description: '**string**'
             type: string
           disks:
-            description: '**[DiskSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec)**'
+            description: '**[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec)**'
             type: array
             items:
               $ref: '#/definitions/DiskSpec'
           scalePolicy:
-            description: '**[ScalePolicy](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)**'
+            description: '**[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)**'
             oneOf:
               - type: object
                 properties:
                   fixed:
                     description: |-
-                      **[FixedScale](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale)**
+                      **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale)**
                       Includes only one of the fields `fixed`, `auto`.
                     $ref: '#/definitions/FixedScale'
                   auto:
                     description: |-
-                      **[AutoScale](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale)**
+                      **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale)**
                       Includes only one of the fields `fixed`, `auto`.
                     $ref: '#/definitions/AutoScale'
           name:
@@ -193,10 +195,10 @@ apiPlayground:
         type: object
         properties:
           http:
-            description: '**[HttpProxySpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.HttpProxySpec)**'
+            description: '**[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec)**'
             $ref: '#/definitions/HttpProxySpec'
           rpc:
-            description: '**[RpcProxySpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.RpcProxySpec)**'
+            description: '**[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**'
             $ref: '#/definitions/RpcProxySpec'
       OdinSpec:
         type: object
@@ -209,21 +211,21 @@ apiPlayground:
         type: object
         properties:
           storage:
-            description: '**[StorageSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.StorageSpec)**'
+            description: '**[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec)**'
             $ref: '#/definitions/StorageSpec'
           compute:
-            description: '**[ComputeSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ComputeSpec)**'
+            description: '**[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec)**'
             type: array
             items:
               $ref: '#/definitions/ComputeSpec'
           tablet:
-            description: '**[TabletSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.TabletSpec)**'
+            description: '**[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)**'
             $ref: '#/definitions/TabletSpec'
           proxy:
-            description: '**[ProxySpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.ProxySpec)**'
+            description: '**[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)**'
             $ref: '#/definitions/ProxySpec'
           odin:
-            description: '**[OdinSpec](/docs/ytsaurus/api-ref/Cluster/get#yandex.cloud.ytsaurus.v1.OdinSpec)**'
+            description: '**[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)**'
             $ref: '#/definitions/OdinSpec'
 sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Cluster/update.md
 ---

@@ -19,7 +19,7 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
   
   {% endnote %}
 
-  To cancel an operation for a specific connection, use the [Operation.Cancel](../api-ref/Operation/cancel.md) REST API method or the [OperationService.Cancel](../api-ref/grpc/Operation/cancel.md) gRPC API method and provide the operation ID in the request.
+  To cancel an operation for a specific connection, use the [Operation.Cancel](../connection-manager/api-ref/Operation/cancel.md) REST API method or the [OperationService.Cancel](../connection-manager/api-ref/grpc/Operation/cancel.md) gRPC API method and provide the operation ID in the request.
 
   You can get the operation ID from the connection [operation list](operation-connection.md#operations-list).
 

@@ -25,23 +25,24 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available results
-            is larger than `pageSize`, the service returns a [ListContainersRevisionsResponse.nextPageToken](/docs/serverless-containers/containers/api-ref/Container/listRevisions#yandex.cloud.serverless.containers.v1.ListContainersRevisionsResponse)
+            is larger than `pageSize`, the service returns a [ListContainersRevisionsResponse.nextPageToken](#yandex.cloud.serverless.containers.v1.ListContainersRevisionsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListContainersRevisionsResponse.nextPageToken](/docs/serverless-containers/containers/api-ref/Container/listRevisions#yandex.cloud.serverless.containers.v1.ListContainersRevisionsResponse) returned by a previous list request.
+            [ListContainersRevisionsResponse.nextPageToken](#yandex.cloud.serverless.containers.v1.ListContainersRevisionsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently filtering can only be applied to the [Revision.status](/docs/serverless-containers/containers/api-ref/Container/getRevision#yandex.cloud.serverless.containers.v1.Revision) and [Revision.runtime](/docs/serverless-containers/containers/api-ref/Container/getRevision#yandex.cloud.serverless.containers.v1.Revision) fields.
+            1. The field name. Currently filtering can only be applied to the [Revision.status](#yandex.cloud.serverless.containers.v1.Revision) and [Revision.runtime](#yandex.cloud.serverless.containers.v1.Revision) fields.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `status="ACTIVE"`.

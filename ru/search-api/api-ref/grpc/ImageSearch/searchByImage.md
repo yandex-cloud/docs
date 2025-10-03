@@ -93,9 +93,7 @@ The images found. ||
 || page | **int64**
 
 The number of the page with search results. ||
-|| max_page | **int64**
-
-The number of the last page with search results. ||
+|| max_page | **int64** ||
 || id | **string**
 
 CBIR ID of the image used for the search. ||

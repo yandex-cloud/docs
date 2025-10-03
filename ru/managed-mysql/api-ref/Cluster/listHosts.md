@@ -22,14 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests.
+            If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token that can be used to iterate through multiple pages of results.
-            To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request.
+            To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request.
           type: string
       additionalProperties: false
     body: null

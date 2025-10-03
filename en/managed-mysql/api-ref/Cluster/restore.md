@@ -40,8 +40,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the new cluster as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         environment:
           description: |-
             **enum** (Environment)
@@ -59,28 +68,28 @@ apiPlayground:
             - PRESTABLE
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.mysql.v1.ConfigSpec)**
             Configuration of the new cluster.
           oneOf:
             - type: object
               properties:
                 mysqlConfig_5_7:
                   description: |-
-                    **`MysqlConfig5_7`**
+                    **[MysqlConfig5_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7)**
                     Configuration for a MySQL 5.7 cluster.
                     Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`.
                     Cluster-wide MySQL configuration.
                   $ref: '#/definitions/MysqlConfig5_7'
                 mysqlConfig_8_0:
                   description: |-
-                    **`MysqlConfig8_0`**
+                    **[MysqlConfig8_0](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_0)**
                     Configuration for a MySQL 8.0 cluster.
                     Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`.
                     Cluster-wide MySQL configuration.
                   $ref: '#/definitions/MysqlConfig8_0'
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.mysql.v1.HostSpec)**
             Configuration of hosts in the new cluster.
           type: array
           items:
@@ -116,7 +125,7 @@ apiPlayground:
             type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
             Window of maintenance operations.
           oneOf:
             - type: object
@@ -130,7 +139,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
                     Maintenance operation can be scheduled on a weekly basis.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                     The maintenance policy in effect.

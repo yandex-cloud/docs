@@ -41,7 +41,7 @@ apiPlayground:
           format: field-mask
         topicSpec:
           description: |-
-            **[TopicSpec](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicSpec)**
+            **[TopicSpec](#yandex.cloud.mdb.kafka.v1.TopicSpec)**
             New configuration of the topic.
             Use `updateMask` to prevent reverting all topic settings that are not listed in `topicSpec` to their default values.
           oneOf:
@@ -49,13 +49,13 @@ apiPlayground:
               properties:
                 topicConfig_2_8:
                   description: |-
-                    **[TopicConfig2_8](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
+                    **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
                     Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
                     User-defined settings for the topic.
                   $ref: '#/definitions/TopicConfig2_8'
                 topicConfig_3:
                   description: |-
-                    **[TopicConfig3](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
+                    **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
                     Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
                     User-defined settings for the topic.
                   $ref: '#/definitions/TopicConfig3'
@@ -133,7 +133,7 @@ apiPlayground:
           retentionBytes:
             description: |-
               **string** (int64)
-              The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` [cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
+              The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` [cleanupPolicy](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
               It is helpful if you need to control the size of log due to limited disk space.
               This setting overrides the cluster-level [KafkaConfig2_8.logRetentionBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
             type: string
@@ -246,7 +246,7 @@ apiPlayground:
           retentionBytes:
             description: |-
               **string** (int64)
-              The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` [cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
+              The maximum size a partition can grow to before Kafka will discard old log segments to free up space if the `delete` [cleanupPolicy](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
               It is helpful if you need to control the size of log due to limited disk space.
               This setting overrides the cluster-level [KafkaConfig3.logRetentionBytes](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
             type: string

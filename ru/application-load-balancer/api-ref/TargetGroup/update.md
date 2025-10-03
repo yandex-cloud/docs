@@ -53,11 +53,20 @@ apiPlayground:
             1. Get the current set of labels with a [TargetGroupService.Get](/docs/application-load-balancer/api-ref/TargetGroup/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         targets:
           description: |-
-            **[Target](/docs/application-load-balancer/api-ref/LoadBalancer/getTargetStates#yandex.cloud.apploadbalancer.v1.Target)**
+            **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
             New list of targets in the target group.
             Existing list of targets is completely replaced by the specified list, so if you just want to add or remove
             a target, make a [TargetGroupService.AddTargets](/docs/application-load-balancer/api-ref/TargetGroup/addTargets#AddTargets) request or a [TargetGroupService.RemoveTargets](/docs/application-load-balancer/api-ref/TargetGroup/removeTargets#RemoveTargets) request.

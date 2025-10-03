@@ -38,11 +38,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             A new set of cluster labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         configSpec:
           description: |-
-            **[UpdateClusterConfigSpec](/docs/data-proc/api-ref/Cluster/update#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec)**
+            **[UpdateClusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec)**
             Configuration and resources for hosts that should be created with the Yandex Data Processing cluster.
           $ref: '#/definitions/UpdateClusterConfigSpec'
         name:
@@ -65,6 +74,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Timeout to gracefully decommission nodes. In seconds. Default value: 0
+          default: '0'
           type: string
           format: int64
         uiProxy:
@@ -166,6 +176,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+            default: '120'
             type: string
             format: int64
         required:
@@ -187,7 +198,7 @@ apiPlayground:
             type: string
           resources:
             description: |-
-              **[Resources](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.Resources)**
+              **[Resources](#yandex.cloud.dataproc.v1.Resources)**
               Resource configuration for each host in the subcluster.
             $ref: '#/definitions/Resources'
           hostsCount:
@@ -198,7 +209,7 @@ apiPlayground:
             format: int64
           autoscalingConfig:
             description: |-
-              **[AutoscalingConfig](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+              **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
               Configuration for instance group based subclusters
             $ref: '#/definitions/AutoscalingConfig'
       InitializationAction:
@@ -268,7 +279,9 @@ apiPlayground:
               the service and the property.
               For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
               in the file `/etc/hadoop/conf/hdfs-site.xml`.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
           sshPublicKeys:
             description: |-
               **string**
@@ -278,7 +291,7 @@ apiPlayground:
               type: string
           initializationActions:
             description: |-
-              **[InitializationAction](/docs/data-proc/api-ref/Cluster/get#yandex.cloud.dataproc.v1.InitializationAction)**
+              **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
               Set of init-actions
             type: array
             items:
@@ -293,14 +306,14 @@ apiPlayground:
         properties:
           subclustersSpec:
             description: |-
-              **[UpdateSubclusterConfigSpec](/docs/data-proc/api-ref/Cluster/update#yandex.cloud.dataproc.v1.UpdateSubclusterConfigSpec)**
+              **[UpdateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateSubclusterConfigSpec)**
               New configuration for subclusters in a cluster.
             type: array
             items:
               $ref: '#/definitions/UpdateSubclusterConfigSpec'
           hadoop:
             description: |-
-              **[HadoopConfig](/docs/data-proc/api-ref/Cluster/get#yandex.cloud.dataproc.v1.HadoopConfig)**
+              **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
               Hadoop specific options
             $ref: '#/definitions/HadoopConfig'
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/update.md

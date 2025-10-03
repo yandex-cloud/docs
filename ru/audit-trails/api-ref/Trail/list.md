@@ -16,9 +16,10 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListTrailsResponse.nextPageToken](/docs/audit-trails/api-ref/Trail/list#yandex.cloud.audittrails.v1.ListTrailsResponse)
+            results is larger than `page_size`, the service returns a [ListTrailsResponse.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
@@ -109,7 +110,7 @@ format is "<field> desc\|acs" ||
       "description": "string",
       "labels": "object",
       "destination": {
-        // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
+        // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
         "objectStorage": {
           "bucketId": "string",
           "objectPrefix": "string"
@@ -122,6 +123,9 @@ format is "<field> desc\|acs" ||
         "dataStream": {
           "databaseId": "string",
           "streamName": "string"
+        },
+        "eventrouter": {
+          "eventrouterConnectorId": "string"
         }
         // end of the list of possible fields
       },
@@ -326,17 +330,22 @@ Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
@@ -373,6 +382,15 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouterConnectorId | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}

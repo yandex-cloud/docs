@@ -47,11 +47,20 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         logOptions:
           description: |-
-            **[LogOptions](/docs/iot-core/broker/api-ref/Broker/get#yandex.cloud.iot.broker.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.iot.broker.v1.LogOptions)**
             Options for logging broker events
           oneOf:
             - type: object

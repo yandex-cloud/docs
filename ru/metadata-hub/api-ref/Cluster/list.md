@@ -16,14 +16,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-metastore/api-ref/Cluster/list#yandex.cloud.metastore.v1.ListClustersResponse)
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.metastore.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-metastore/api-ref/Cluster/list#yandex.cloud.metastore.v1.ListClustersResponse)
+            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.metastore.v1.ListClustersResponse)
             returned by a previous list request.
           type: string
         filter:
@@ -31,7 +31,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-metastore/api-ref/Cluster/get#yandex.cloud.metastore.v1.Cluster) field.
+            1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.metastore.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
           type: string
@@ -350,8 +350,12 @@ User security groups. ||
 ||Field | Description ||
 || anytime | **object**
 
+The cluster may be restarted for maintenance at any time.
+
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 || weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.metastore.v1.WeeklyMaintenanceWindow)**
+
+Maintenance is allowed only within the specified weekly window.
 
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 |#
@@ -362,25 +366,31 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+Day of the week when maintenance can occur.
+
+- `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC when the maintenance window starts. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.metastore.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+Information about the maintenance operation. ||
 || delayedUntil | **string** (date-time)
+
+Maintenance is postponed until the specified timestamp.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -390,6 +400,8 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || latestMaintenanceTime | **string** (date-time)
 
+Timestamp of the latest successfully completed maintenance.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -397,6 +409,8 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || nextMaintenanceWindowTime | **string** (date-time)
+
+Timestamp of the next scheduled maintenance window.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

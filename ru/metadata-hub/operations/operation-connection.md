@@ -15,7 +15,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
   
-  Чтобы получить информацию о конкретной операции, воспользуйтесь методом REST API [Operation.Get](../api-ref/Operation/get.md) или методом gRPC API [OperationService.Get](../api-ref/grpc/Operation/get.md) и передайте в запросе идентификатор операции.
+  Чтобы получить информацию о конкретной операции, воспользуйтесь методом REST API [Operation.Get](../connection-manager/api-ref/Operation/get.md) или методом gRPC API [OperationService.Get](../connection-manager/api-ref/grpc/Operation/get.md) и передайте в запросе идентификатор операции.
 
   Идентификатор операции можно получить со [списком операций](operation-connection.md#operations-list) подключения.
 

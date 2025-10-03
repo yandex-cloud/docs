@@ -47,8 +47,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             New sink labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         serviceAccountId:
           description: |-
             **string**
@@ -56,14 +65,14 @@ apiPlayground:
           type: string
         yds:
           description: |-
-            **[Yds](/docs/logging/api-ref/Sink/get#yandex.cloud.logging.v1.Sink.Yds)**
+            **[Yds](#yandex.cloud.logging.v1.Sink.Yds)**
             Yandex data stream
             Includes only one of the fields `yds`, `s3`.
             New logs destination
           $ref: '#/definitions/Yds'
         s3:
           description: |-
-            **[S3](/docs/logging/api-ref/Sink/get#yandex.cloud.logging.v1.Sink.S3)**
+            **[S3](#yandex.cloud.logging.v1.Sink.S3)**
             Object storage
             Includes only one of the fields `yds`, `s3`.
             New logs destination

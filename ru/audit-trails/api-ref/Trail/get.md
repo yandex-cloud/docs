@@ -58,7 +58,7 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) requ
   "description": "string",
   "labels": "object",
   "destination": {
-    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
+    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
     "objectStorage": {
       "bucketId": "string",
       "objectPrefix": "string"
@@ -71,6 +71,9 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) requ
     "dataStream": {
       "databaseId": "string",
       "streamName": "string"
+    },
+    "eventrouter": {
+      "eventrouterConnectorId": "string"
     }
     // end of the list of possible fields
   },
@@ -256,17 +259,22 @@ Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
@@ -303,6 +311,15 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouterConnectorId | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}

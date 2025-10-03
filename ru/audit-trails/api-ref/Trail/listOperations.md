@@ -21,9 +21,10 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page that should be returned. If the number of available
-            results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.nextPageToken](/docs/audit-trails/api-ref/Trail/listOperations#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
+            results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:

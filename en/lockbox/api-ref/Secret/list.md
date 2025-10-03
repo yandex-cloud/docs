@@ -19,6 +19,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:

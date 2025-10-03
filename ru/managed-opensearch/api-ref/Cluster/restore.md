@@ -30,8 +30,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the new OpenSearch cluster to be created from the backup as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         environment:
           description: |-
             **enum** (Environment)
@@ -48,7 +57,7 @@ apiPlayground:
             - PRESTABLE
         configSpec:
           description: |-
-            **[ConfigCreateSpec](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.ConfigCreateSpec)**
+            **[ConfigCreateSpec](#yandex.cloud.mdb.opensearch.v1.ConfigCreateSpec)**
             Required field. Configuration for the new OpenSearch cluster to be created from the backup.
           $ref: '#/definitions/ConfigCreateSpec'
         networkId:
@@ -81,7 +90,7 @@ apiPlayground:
           type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
             Cluster maintenance window. Should be defined by either one of the two options.
           oneOf:
             - type: object
@@ -94,7 +103,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
                     A weekly maintenance window.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
@@ -179,7 +188,7 @@ apiPlayground:
             type: string
           resources:
             description: |-
-              **[Resources](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
               Resources allocated to the hosts.
             $ref: '#/definitions/Resources'
           hostsCount:
@@ -223,7 +232,7 @@ apiPlayground:
                 - MANAGER
           diskSizeAutoscaling:
             description: |-
-              **[DiskSizeAutoscaling](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
               Disk size autoscaling settings
             $ref: '#/definitions/DiskSizeAutoscaling'
         required:
@@ -233,7 +242,7 @@ apiPlayground:
         properties:
           nodeGroups:
             description: |-
-              **[NodeGroup](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+              **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
               Dashboards type host groups of the cluster.
             type: array
             items:
@@ -317,26 +326,26 @@ apiPlayground:
         properties:
           snapshotSchedule:
             description: |-
-              **[SnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
+              **[SnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
               Snapshot creation schedule
             oneOf:
               - type: object
                 properties:
                   hourlySnapshotSchedule:
                     description: |-
-                      **[HourlySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
+                      **[HourlySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
                       Hourly based snapshot schedule
                       Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
                     $ref: '#/definitions/HourlySnapshotSchedule'
                   dailySnapshotSchedule:
                     description: |-
-                      **[DailySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
+                      **[DailySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
                       Daily based snapshot schedule
                       Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
                     $ref: '#/definitions/DailySnapshotSchedule'
                   weeklySnapshotSchedule:
                     description: |-
-                      **[WeeklySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
+                      **[WeeklySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
                       Weekly based snapshot schedule
                       Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
                     $ref: '#/definitions/WeeklySnapshotSchedule'
@@ -361,29 +370,29 @@ apiPlayground:
             type: string
           opensearchSpec:
             description: |-
-              **[OpenSearchCreateSpec](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec)**
+              **[OpenSearchCreateSpec](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec)**
               OpenSearch configuration.
             oneOf:
               - type: object
                 properties:
                   opensearchConfig_2:
                     description: |-
-                      **`OpenSearchConfig2`**
+                      **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
                       Includes only one of the fields `opensearchConfig_2`.
                     $ref: '#/definitions/OpenSearchConfig2'
           dashboardsSpec:
             description: |-
-              **[DashboardsCreateSpec](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec)**
+              **[DashboardsCreateSpec](#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec)**
               Dashboards configuration.
             $ref: '#/definitions/DashboardsCreateSpec'
           access:
             description: |-
-              **[Access](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Access)**
+              **[Access](#yandex.cloud.mdb.opensearch.v1.Access)**
               Access policy for external services.
             $ref: '#/definitions/Access'
           snapshotManagement:
             description: |-
-              **[SnapshotManagement](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
+              **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
               Snapshot management configuration
             $ref: '#/definitions/SnapshotManagement'
         required:

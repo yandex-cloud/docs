@@ -52,4 +52,6 @@ _Резервный_ хост-мастер (STANDBY) непрерывно реп
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

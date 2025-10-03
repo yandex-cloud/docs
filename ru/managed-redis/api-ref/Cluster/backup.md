@@ -449,7 +449,20 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
         "emergencyUsageThreshold": "string",
         "diskSizeLimit": "string"
       },
-      "backupRetainPeriodDays": "string"
+      "backupRetainPeriodDays": "string",
+      "modules": {
+        "valkeySearch": {
+          "enabled": "boolean",
+          "readerThreads": "string",
+          "writerThreads": "string"
+        },
+        "valkeyJson": {
+          "enabled": "boolean"
+        },
+        "valkeyBloom": {
+          "enabled": "boolean"
+        }
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -752,6 +765,9 @@ Disk size autoscaling settings ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retain period of automatically created backup in days ||
+|| modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
+
+Valkey modules settings ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -1293,6 +1309,54 @@ Amount of used storage for immediately  automatic disk scaling, 0 means disabled
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
+
+#|
+||Field | Description ||
+|| valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
+
+valkey-search module settings ||
+|| valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
+
+valkey-json module settings ||
+|| valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
+
+valkey-bloom module settings ||
+|#
+
+## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-search module ||
+|| readerThreads | **string** (int64)
+
+Controls the amount of threads executing queries ||
+|| writerThreads | **string** (int64)
+
+Controls the amount of threads processing index mutations ||
+|#
+
+## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-json module ||
+|#
+
+## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-bloom module ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

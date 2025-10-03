@@ -16,14 +16,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-airflow/api-ref/Cluster/list#yandex.cloud.airflow.v1.ListClustersResponse)
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.airflow.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-airflow/api-ref/Cluster/list#yandex.cloud.airflow.v1.ListClustersResponse)
+            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.airflow.v1.ListClustersResponse)
             returned by the previous list request.
           type: string
         filter:
@@ -31,7 +31,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Cluster) field.
+            1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.airflow.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
           type: string
@@ -141,7 +141,13 @@ The expression must specify:
           "enabled": "boolean"
         },
         "airflowVersion": "string",
-        "pythonVersion": "string"
+        "pythonVersion": "string",
+        "dagProcessor": {
+          "count": "string",
+          "resources": {
+            "resourcePresetId": "string"
+          }
+        }
       },
       "health": "string",
       "status": "string",
@@ -349,6 +355,9 @@ Apache Airflow version. Format: "Major.Minor" ||
 || pythonVersion | **string**
 
 Python version. Format: "Major.Minor" ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
@@ -439,6 +448,18 @@ System packages that are installed in the cluster. ||
 || enabled | **boolean**
 
 The setting allows to enable Lockbox Secret Backend. ||
+|#
+
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}

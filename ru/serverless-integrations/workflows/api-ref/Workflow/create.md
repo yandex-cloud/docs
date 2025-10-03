@@ -29,11 +29,20 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Workflow labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         specification:
           description: |-
-            **[WorkflowSpecification](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
+            **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
             Required field. Specification of Workflow
           oneOf:
             - type: object
@@ -46,7 +55,7 @@ apiPlayground:
                   type: string
         logOptions:
           description: |-
-            **[LogOptions](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions)**
             Options for logging from Workflow.
           oneOf:
             - type: object
@@ -80,7 +89,7 @@ apiPlayground:
           type: boolean
         schedule:
           description: |-
-            **[WorkflowSchedule](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
+            **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
             Workflow schedule settings.
           $ref: '#/definitions/WorkflowSchedule'
       required:

@@ -31,6 +31,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
@@ -44,7 +45,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effectiveFrom](/docs/functions/functions/api-ref/Function/listTagHistory#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) and [FunctionTagHistoryRecord.effectiveTo](/docs/functions/functions/api-ref/Function/listTagHistory#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) fields.
+            1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effectiveFrom](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) and [FunctionTagHistoryRecord.effectiveTo](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) fields.
             2. An `=` or `>` or `<` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             For example, `effective_to>2021-01-01T12:00:00Z`.

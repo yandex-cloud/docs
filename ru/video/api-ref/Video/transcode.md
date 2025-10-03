@@ -9,8 +9,10 @@ apiPlayground:
         videoId:
           description: |-
             **string**
-            ID of the video to transcode.
+            Required field. ID of the video to transcode.
           type: string
+      required:
+        - videoId
       additionalProperties: false
     query: null
     body:
@@ -38,13 +40,13 @@ apiPlayground:
             type: string
         translationSettings:
           description: |-
-            **[VideoTranslationSettings](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoTranslationSettings)**
+            **[VideoTranslationSettings](#yandex.cloud.video.v1.VideoTranslationSettings)**
             Settings for automatic translation of audio tracks.
             Defines source tracks and target languages for subtitle and audio translation.
           $ref: '#/definitions/VideoTranslationSettings'
         summarizationSettings:
           description: |-
-            **[VideoSummarizationSettings](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoSummarizationSettings)**
+            **[VideoSummarizationSettings](#yandex.cloud.video.v1.VideoSummarizationSettings)**
             Settings for automatic video content summarization.
             Defines which audio tracks should be processed to generate text summaries.
           $ref: '#/definitions/VideoSummarizationSettings'
@@ -109,19 +111,19 @@ apiPlayground:
         properties:
           inputTrack:
             description: |-
-              **[InputTrack](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
+              **[InputTrack](#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
               Required field. Input track settings.
             $ref: '#/definitions/InputTrack'
           subtitles:
             description: |-
-              **[SubtitleTrack](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoTranslationSettings.SubtitleTrack)**
+              **[SubtitleTrack](#yandex.cloud.video.v1.VideoTranslationSettings.SubtitleTrack)**
               Settings for target subtitle tracks.
             type: array
             items:
               $ref: '#/definitions/SubtitleTrack'
           audio:
             description: |-
-              **[AudioTrack](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoTranslationSettings.AudioTrack)**
+              **[AudioTrack](#yandex.cloud.video.v1.VideoTranslationSettings.AudioTrack)**
               Settings for target audio tracks.
             type: array
             items:
@@ -133,7 +135,7 @@ apiPlayground:
         properties:
           tracks:
             description: |-
-              **[TranslationTrack](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoTranslationSettings.TranslationTrack)**
+              **[TranslationTrack](#yandex.cloud.video.v1.VideoTranslationSettings.TranslationTrack)**
               Translation settings for each track.
             type: array
             items:
@@ -143,7 +145,7 @@ apiPlayground:
         properties:
           inputTrack:
             description: |-
-              **[InputTrack](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
+              **[InputTrack](#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
               Required field. Input track settings.
             $ref: '#/definitions/InputTrack'
         required:
@@ -153,7 +155,7 @@ apiPlayground:
         properties:
           tracks:
             description: |-
-              **[SummarizationTrack](/docs/video/api-ref/Video/transcode#yandex.cloud.video.v1.VideoSummarizationSettings.SummarizationTrack)**
+              **[SummarizationTrack](#yandex.cloud.video.v1.VideoSummarizationSettings.SummarizationTrack)**
               Summarization settings for each track.
             type: array
             items:

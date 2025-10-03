@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         osSettingsSpec:
           description: |-
-            **[OsSettingsSpec](/docs/baremetal/api-ref/Server/create#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
+            **[OsSettingsSpec](#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
             Operating system specific settings for provisioning the server.
           oneOf:
             - type: object
@@ -51,7 +51,7 @@ apiPlayground:
                   type: string
                 passwordLockboxSecret:
                   description: |-
-                    **[LockboxSecret](/docs/baremetal/api-ref/Server/create#yandex.cloud.baremetal.v1alpha.LockboxSecret)**
+                    **[LockboxSecret](#yandex.cloud.baremetal.v1alpha.LockboxSecret)**
                     Reference to the Lockbox secret used to obtain the password.
                     Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
                     Password for the server.

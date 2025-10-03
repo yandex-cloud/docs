@@ -22,16 +22,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListAddressOperationsResponse.nextPageToken](/docs/vpc/api-ref/Address/listOperations#yandex.cloud.vpc.v1.ListAddressOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListAddressOperationsResponse.nextPageToken](/docs/vpc/api-ref/Address/listOperations#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request.
+            [ListAddressOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request.
           type: string
       additionalProperties: false
     body: null

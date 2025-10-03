@@ -57,7 +57,8 @@ Required field. Type of the host to be deployed.
 
 - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
-- `ZOOKEEPER`: ZooKeeper host. ||
+- `ZOOKEEPER`: ZooKeeper host.
+- `KEEPER`: ClickHouse Keeper host. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part

@@ -22,6 +22,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Timeout to gracefully decommission nodes. In seconds. Default value: 0
+          default: '0'
           type: string
           format: int64
       additionalProperties: false
