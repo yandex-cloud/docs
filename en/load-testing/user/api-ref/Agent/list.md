@@ -16,16 +16,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `page_size`, the service returns a [ListAgentsResponse.nextPageToken](/docs/load-testing/user/api-ref/Agent/list#yandex.cloud.loadtesting.api.v1.ListAgentsResponse)
+            results is larger than `page_size`, the service returns a [ListAgentsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListAgentsResponse.nextPageToken](/docs/load-testing/user/api-ref/Agent/list#yandex.cloud.loadtesting.api.v1.ListAgentsResponse) returned by a previous list request.
+            [ListAgentsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
@@ -39,9 +40,9 @@ apiPlayground:
             - `IN` or `NOT IN` for lists of values.
             3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
             Currently supported fields:
-            - `id` `yandex.cloud.loadtesting.api.v1.agent.Agent.id`
+            - `id` [yandex.cloud.loadtesting.api.v1.agent.Agent.id](#yandex.cloud.loadtesting.api.v1.agent.Agent)
             - operators: `=`, `!=`, `IN`, `NOT IN`
-            - `name` `yandex.cloud.loadtesting.api.v1.agent.Agent.name`
+            - `name` [yandex.cloud.loadtesting.api.v1.agent.Agent.name](#yandex.cloud.loadtesting.api.v1.agent.Agent)
             - operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
             Examples:
             - `id IN ("1", "2", "3")`

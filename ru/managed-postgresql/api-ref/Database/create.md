@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         databaseSpec:
           description: |-
-            **[DatabaseSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
+            **[DatabaseSpec](#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
             Required field. Configuration of the database to create.
           $ref: '#/definitions/DatabaseSpec'
       required:
@@ -75,7 +75,7 @@ apiPlayground:
             type: string
           extensions:
             description: |-
-              **[Extension](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Extension)**
+              **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
               PostgreSQL extensions to be enabled for the database.
             type: array
             items:

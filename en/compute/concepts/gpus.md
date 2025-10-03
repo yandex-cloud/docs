@@ -80,7 +80,7 @@ The computing resources may have the following configurations:
   4 | 320 | 112 | 476
   8 | 640 | 224 | 952
 
-* AMD EPYC™ 9474F with Gen2 (`gpu-standard-v3i`):
+* Gen2 (`gpu-standard-v3i`):
 
   Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
@@ -127,7 +127,7 @@ You can group several VMs into a cluster. This will allow you to accelerate dist
 
 You can add VMs from different folders, networks, and subnets to your cluster. For the cluster VMs to interact properly, we recommend using a [security group](../../vpc/concepts/security-groups.md) that allows unlimited traffic within the group. The default security group meets this requirement. If you edited the default security group, add a group with unlimited internal traffic.
 
-Maximum cluster size for AMD EPYC™ 9474F with Gen2 is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB RAM configuration. The actual maximum cluster size is limited by the technical availability of the resources.
+Maximum cluster size for Gen2 is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB RAM configuration. The actual maximum cluster size is limited by the technical availability of the resources.
 
 
 #### See also {#see-also}

@@ -24,29 +24,30 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `page_size`, the service returns
-            a [ListLifecyclePoliciesResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/list#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) that can be used to get the next page of results in subsequent list requests.
+            a [ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListLifecyclePoliciesResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/list#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) returned by a previous list request.
+            [ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters lifecycle policy resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
+            1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
           type: string
         orderBy:
           description: |-
             **string**
-            Sorting the list by [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy), [LifecyclePolicy.createdAt](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) and [LifecyclePolicy.status](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) fields.
+            Sorting the list by [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy), [LifecyclePolicy.createdAt](#yandex.cloud.containerregistry.v1.LifecyclePolicy) and [LifecyclePolicy.status](#yandex.cloud.containerregistry.v1.LifecyclePolicy) fields.
             The default sorting order is ascending.
           type: string
       additionalProperties: false

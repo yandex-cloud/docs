@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         settings:
           description: |-
-            **[AuthSettings](/docs/managed-opensearch/api-ref/Cluster/getAuthSettings#yandex.cloud.mdb.opensearch.v1.AuthSettings)**
+            **[AuthSettings](#yandex.cloud.mdb.opensearch.v1.AuthSettings)**
             Required. Auth settings.
           $ref: '#/definitions/AuthSettings'
       additionalProperties: false
@@ -73,7 +73,7 @@ apiPlayground:
         properties:
           saml:
             description: |-
-              **[SAMLSettings](/docs/managed-opensearch/api-ref/Cluster/getAuthSettings#yandex.cloud.mdb.opensearch.v1.SAMLSettings)**
+              **[SAMLSettings](#yandex.cloud.mdb.opensearch.v1.SAMLSettings)**
               SAML settings
             $ref: '#/definitions/SAMLSettings'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateAuthSettings.md

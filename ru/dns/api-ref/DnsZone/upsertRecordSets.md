@@ -19,21 +19,21 @@ apiPlayground:
       properties:
         deletions:
           description: |-
-            **[RecordSet](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet)**
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
             Delete only specified records from corresponding record sets.
           type: array
           items:
             $ref: '#/definitions/RecordSet'
         replacements:
           description: |-
-            **[RecordSet](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet)**
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
             Entirely replace specified record sets.
           type: array
           items:
             $ref: '#/definitions/RecordSet'
         merges:
           description: |-
-            **[RecordSet](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet)**
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
             Replace specified records or add new ones if no such record sets exists.
           type: array
           items:

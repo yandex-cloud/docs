@@ -61,7 +61,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
+            results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -69,7 +69,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListClusterLogsResponse.nextPageToken](/docs/managed-redis/api-ref/Cluster/listLogs#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request.
+            [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request.
           type: string
       additionalProperties: false
     body: null

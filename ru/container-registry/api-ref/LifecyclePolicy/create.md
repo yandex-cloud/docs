@@ -39,7 +39,7 @@ apiPlayground:
             - DISABLED
         rules:
           description: |-
-            **[LifecycleRule](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecycleRule)**
+            **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule)**
             The rules of the lifecycle policy.
           type: array
           items:

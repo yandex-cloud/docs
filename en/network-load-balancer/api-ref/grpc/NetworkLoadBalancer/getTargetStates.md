@@ -38,7 +38,8 @@ ID of the target group to get states of resources from. ||
     {
       "subnet_id": "string",
       "address": "string",
-      "status": "Status"
+      "status": "Status",
+      "zone_shifted": "bool"
     }
   ]
 }
@@ -73,4 +74,7 @@ Status of the target.
 - `UNHEALTHY`: Health check failed and the target is not receiving traffic.
 - `DRAINING`: Target is being deleted and the network load balancer is no longer sending traffic to this target.
 - `INACTIVE`: The network load balancer is stopped and not performing health checks on this target. ||
+|| zone_shifted | **bool**
+
+Zone shifted status. ||
 |#

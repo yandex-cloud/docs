@@ -48,11 +48,20 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs.
             The existing set of `` labels `` is completely replaced with the provided set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         listenerSpecs:
           description: |-
-            **[ListenerSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.ListenerSpec)**
+            **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
             A list of listeners and their specs for the network load balancer.
           type: array
           items:
@@ -61,21 +70,21 @@ apiPlayground:
                 properties:
                   externalAddressSpec:
                     description: |-
-                      **[ExternalAddressSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+                      **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
                       External IP address specification.
                       Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
                       IP address for incoming traffic. Either the ID of the previously created address or the address specification.
                     $ref: '#/definitions/ExternalAddressSpec'
                   internalAddressSpec:
                     description: |-
-                      **[InternalAddressSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+                      **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
                       Internal IP address specification.
                       Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
                       IP address for incoming traffic. Either the ID of the previously created address or the address specification.
                     $ref: '#/definitions/InternalAddressSpec'
         attachedTargetGroups:
           description: |-
-            **[AttachedTargetGroup](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
+            **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
             A list of attached target groups for the network load balancer.
           type: array
           items:
@@ -173,7 +182,7 @@ apiPlayground:
             type: string
           healthChecks:
             description: |-
-              **[HealthCheck](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.HealthCheck)**
+              **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
               A health check to perform on the target group.
               For now we accept only one health check per AttachedTargetGroup.
             type: array
@@ -183,14 +192,14 @@ apiPlayground:
                   properties:
                     tcpOptions:
                       description: |-
-                        **[TcpOptions](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+                        **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
                         Options for TCP health check.
                         Includes only one of the fields `tcpOptions`, `httpOptions`.
                         Protocol to use for the health check. Either TCP or HTTP.
                       $ref: '#/definitions/TcpOptions'
                     httpOptions:
                       description: |-
-                        **[HttpOptions](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+                        **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
                         Options for HTTP health check.
                         Includes only one of the fields `tcpOptions`, `httpOptions`.
                         Protocol to use for the health check. Either TCP or HTTP.

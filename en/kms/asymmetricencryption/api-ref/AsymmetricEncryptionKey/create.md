@@ -28,8 +28,15 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
             For example, `"project": "mvp"` or `"source": "dictionary"`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         encryptionAlgorithm:
           description: |-
             **enum** (AsymmetricEncryptionAlgorithm)

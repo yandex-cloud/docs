@@ -22,13 +22,13 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
+            If the number of available results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request.
+            Page token. To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) returned by the previous list request.
           type: string
       additionalProperties: false
     body: null

@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListGroupOperationsResponse.nextPageToken](/docs/organization/api-ref/Group/listOperations#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListGroupOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. Set `pageToken`
-            to the [ListGroupOperationsResponse.nextPageToken](/docs/organization/api-ref/Group/listOperations#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
+            to the [ListGroupOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
             returned by a previous list request to get the next page of results.
           type: string
       additionalProperties: false

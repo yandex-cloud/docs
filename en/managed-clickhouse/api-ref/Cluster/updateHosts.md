@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         updateHostSpecs:
           description: |-
-            **[UpdateHostSpec](/docs/managed-clickhouse/api-ref/Cluster/updateHosts#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
+            **[UpdateHostSpec](#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
             New configurations to apply to hosts.
           type: array
           items:

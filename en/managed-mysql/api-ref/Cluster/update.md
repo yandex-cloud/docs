@@ -42,25 +42,34 @@ apiPlayground:
             New set of custom labels for the cluster as `key:value` pairs.
             This set will completely replace the current one.
             To add a label, request the current label set with the [ClusterService.Get](/docs/managed-mysql/api-ref/Cluster/get#Get) request, then send an [ClusterService.Update](#Update) request with the new label added to the current set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.mysql.v1.ConfigSpec)**
             New configuration of the cluster.
           oneOf:
             - type: object
               properties:
                 mysqlConfig_5_7:
                   description: |-
-                    **`MysqlConfig5_7`**
+                    **[MysqlConfig5_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7)**
                     Configuration for a MySQL 5.7 cluster.
                     Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`.
                     Cluster-wide MySQL configuration.
                   $ref: '#/definitions/MysqlConfig5_7'
                 mysqlConfig_8_0:
                   description: |-
-                    **`MysqlConfig8_0`**
+                    **[MysqlConfig8_0](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_0)**
                     Configuration for a MySQL 8.0 cluster.
                     Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`.
                     Cluster-wide MySQL configuration.
@@ -73,7 +82,7 @@ apiPlayground:
           type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
             Configuration of a maintenance window in an MySQL cluster.
           oneOf:
             - type: object
@@ -87,7 +96,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
                     Maintenance operation can be scheduled on a weekly basis.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                     The maintenance policy in effect.

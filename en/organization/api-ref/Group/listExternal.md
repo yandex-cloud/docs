@@ -19,16 +19,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListExternalGroupsResponse.nextPageToken](/docs/organization/api-ref/Group/listExternal#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
+            the service returns a [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. Set `pageToken`
-            to the [ListExternalGroupsResponse.nextPageToken](/docs/organization/api-ref/Group/listExternal#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
+            to the [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
             returned by a previous list external request to get the next page of results.
           type: string
         filter:
@@ -36,7 +37,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The fields name or id. Currently you can use filtering only on the [Group.name](/docs/organization/api-ref/Group/get#yandex.cloud.organizationmanager.v1.Group) or [Group.id](/docs/organization/api-ref/Group/get#yandex.cloud.organizationmanager.v1.Group) fields.
+            1. The fields name or id. Currently you can use filtering only on the [Group.name](#yandex.cloud.organizationmanager.v1.Group) or [Group.id](#yandex.cloud.organizationmanager.v1.Group) fields.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
           type: string

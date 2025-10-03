@@ -25,8 +25,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         kind:
           description: |-
             **enum** (Kind)
@@ -38,6 +47,7 @@ apiPlayground:
             - `NUGET`: Registry kind is nuget.
             - `DEBIAN`: Registry kind is debian.
             - `PYPI`: Registry kind is pypi.
+            - `BINARY`: Regisrty kind is binary.
           type: string
           enum:
             - KIND_UNSPECIFIED
@@ -47,6 +57,7 @@ apiPlayground:
             - NUGET
             - DEBIAN
             - PYPI
+            - BINARY
         type:
           description: |-
             **enum** (Type)
@@ -70,8 +81,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Property names and values.
-          pattern: '[a-zA-Z]+'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.~!*''();/?:@&=+$,%#0-9a-zA-Z]+'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-zA-Z]+'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       required:
         - folderId
         - kind
@@ -130,7 +150,8 @@ Required field. Kind of the registry.
 - `DOCKER`: Registry kind is docker.
 - `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi. ||
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary. ||
 || type | **enum** (Type)
 
 Required field. Type of the registry.
@@ -284,7 +305,7 @@ A list of messages that carry the error details. ||
 
 ## Registry {#yandex.cloud.cloudregistry.v1.Registry}
 
-A Registry resource.
+A Registry resource. For more information, see the [Registry](/docs/cloud-registry/concepts/registry) section of the documentation.
 
 #|
 ||Field | Description ||
@@ -307,7 +328,8 @@ Kind of the registry.
 - `DOCKER`: Registry kind is docker.
 - `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi. ||
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary. ||
 || type | **enum** (Type)
 
 Type of the registry.

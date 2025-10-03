@@ -20,7 +20,7 @@ apiPlayground:
           type: string
         params:
           description: |-
-            **[ExportParams](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.ExportParams)**
+            **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
             Required field. 
           $ref: '#/definitions/ExportParams'
         resultFilename:

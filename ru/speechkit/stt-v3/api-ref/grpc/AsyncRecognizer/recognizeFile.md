@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/recog
 
 # SpeechKit Recognition API v3, gRPC: AsyncRecognizer.RecognizeFile
 
+Performs asynchronous speech recognition.
+
 ## gRPC request
 
 **rpc RecognizeFile ([RecognizeFileRequest](#speechkit.stt.v3.RecognizeFileRequest)) returns ([yandex.cloud.operation.Operation](#yandex.cloud.operation.Operation))**
@@ -91,7 +93,7 @@ Bytes with data
 Includes only one of the fields `content`, `uri`. ||
 || uri | **string**
 
-S3 data url
+S3 data URL
 
 Includes only one of the fields `content`, `uri`. ||
 || recognition_model | **[RecognitionModelOptions](#speechkit.stt.v3.RecognitionModelOptions)**
@@ -117,7 +119,9 @@ Summarization options ||
 ||Field | Description ||
 || model | **string**
 
-Sets the recognition model for the cloud version of SpeechKit. Possible values: 'general', 'general:rc', 'general:deprecated'.
+Sets the recognition model for the cloud version of SpeechKit.
+For `Recognizer.RecognizeStreaming`, possible values are `general`, `general:rc`, `general:deprecated`.
+For `AsyncRecognizer.RecognizeFile`, possible values are `general`, `general:rc`, `general:deprecated`, `deferred-general`, `deferred-general:rc`, and `deferred-general:deprecated`.
 The model is ignored for SpeechKit Hybrid. ||
 || audio_format | **[AudioFormatOptions](#speechkit.stt.v3.AudioFormatOptions)**
 
@@ -130,11 +134,12 @@ Text normalization options. ||
 Possible languages in audio. ||
 || audio_processing_type | enum **AudioProcessingType**
 
-How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME.
+For `Recognizer.RecognizeStreaming`, defines the audio data processing mode. Default is `REAL_TIME`.
+For `AsyncRecognizer.RecognizeFile`, this field is ignored.
 
 - `AUDIO_PROCESSING_TYPE_UNSPECIFIED`
-- `REAL_TIME`: Process audio in mode optimized for real-time recognition, i.e. send partials and final responses as soon as possible
-- `FULL_DATA`: Process audio after all data was received ||
+- `REAL_TIME`: Process audio in mode optimized for real-time recognition, i.e. send partials and final responses as soon as possible.
+- `FULL_DATA`: Process audio after all data was received. ||
 |#
 
 ## AudioFormatOptions {#speechkit.stt.v3.AudioFormatOptions}
@@ -145,7 +150,7 @@ Audio format options.
 ||Field | Description ||
 || raw_audio | **[RawAudio](#speechkit.stt.v3.RawAudio)**
 
-Audio without container.
+RAW audio without container.
 
 Includes only one of the fields `raw_audio`, `container_audio`. ||
 || container_audio | **[ContainerAudio](#speechkit.stt.v3.ContainerAudio)**
@@ -163,13 +168,13 @@ RAW Audio format spec (no container to infer type). Used in AudioFormat options.
 ||Field | Description ||
 || audio_encoding | enum **AudioEncoding**
 
-Type of audio encoding
+Type of audio encoding.
 
 - `AUDIO_ENCODING_UNSPECIFIED`
 - `LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM). ||
 || sample_rate_hertz | **int64**
 
-PCM sample rate ||
+PCM sample rate. ||
 || audio_channel_count | **int64**
 
 PCM channel count. Currently only single channel audio is supported in real-time recognition. ||
@@ -193,15 +198,16 @@ Type of audio container.
 
 ## TextNormalizationOptions {#speechkit.stt.v3.TextNormalizationOptions}
 
-Options
+Options for post-processing text results. The normalization levels depend on the settings and the language.
+For detailed information, see [documentation](/docs/speechkit/stt/normalization).
 
 #|
 ||Field | Description ||
 || text_normalization | enum **TextNormalization**
 
 - `TEXT_NORMALIZATION_UNSPECIFIED`
-- `TEXT_NORMALIZATION_ENABLED`: Enable normalization
-- `TEXT_NORMALIZATION_DISABLED`: Disable normalization ||
+- `TEXT_NORMALIZATION_ENABLED`: Enable converting numbers, dates and time from text to numeric format.
+- `TEXT_NORMALIZATION_DISABLED`: Disable all normalization. Default value. ||
 || profanity_filter | **bool**
 
 Profanity filter (default: false). ||
@@ -218,20 +224,22 @@ Define phone formatting mode
 
 ## LanguageRestrictionOptions {#speechkit.stt.v3.LanguageRestrictionOptions}
 
-Type of restriction for the list of languages expected in the incoming speech stream.
+Type of restriction for the list of languages expected in the incoming audio.
 
 #|
 ||Field | Description ||
 || restriction_type | enum **LanguageRestrictionType**
 
-Language restriction type
+Language restriction type.
+All of these restrictions are used by the model as guidelines, not as strict rules.
+The language is recognized for each sentence. If a sentence has phrases in different languages, all of them will be transcribed in the most probable language.
 
 - `LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED`
-- `WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.
-- `BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages. ||
+- `WHITELIST`: The list of most possible languages in the incoming audio.
+- `BLACKLIST`: The list of languages that are likely not to be included in the incoming audio. ||
 || language_code[] | **string**
 
-The list of language codes to restrict recognition in the case of an auto model ||
+The list of [language codes](/docs/speechkit/stt/models) to restrict recognition in the case of an auto model. ||
 |#
 
 ## RecognitionClassifierOptions {#speechkit.stt.v3.RecognitionClassifierOptions}
@@ -240,7 +248,7 @@ The list of language codes to restrict recognition in the case of an auto model 
 ||Field | Description ||
 || classifiers[] | **[RecognitionClassifier](#speechkit.stt.v3.RecognitionClassifier)**
 
-List of classifiers to use ||
+List of classifiers to use. For detailed information and usage example, see [documentation](/docs/speechkit/stt/analysis). ||
 |#
 
 ## RecognitionClassifier {#speechkit.stt.v3.RecognitionClassifier}
@@ -252,12 +260,12 @@ List of classifiers to use ||
 Classifier name ||
 || triggers[] | enum **TriggerType**
 
-Describes the types of responses to which the classification results will come
+Describes the types of responses to which the classification results will come. Classification responses will follow the responses of the specified types.
 
 - `TRIGGER_TYPE_UNSPECIFIED`
-- `ON_UTTERANCE`: Apply classifier to utterance responses
-- `ON_FINAL`: Apply classifier to final responses
-- `ON_PARTIAL`: Apply classifier to partial responses ||
+- `ON_UTTERANCE`: Apply classifier to utterance responses.
+- `ON_FINAL`: Apply classifier to final responses.
+- `ON_PARTIAL`: Apply classifier to partial responses. ||
 |#
 
 ## SpeechAnalysisOptions {#speechkit.stt.v3.SpeechAnalysisOptions}
@@ -281,11 +289,11 @@ Quantile levels in range (0, 1) for descriptive statistics ||
 ||Field | Description ||
 || speaker_labeling | enum **SpeakerLabeling**
 
-Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLED.
+Specifies the execution of speaker labeling.
 
 - `SPEAKER_LABELING_UNSPECIFIED`
-- `SPEAKER_LABELING_ENABLED`: Enable speaker labeling
-- `SPEAKER_LABELING_DISABLED`: Disable speaker labeling ||
+- `SPEAKER_LABELING_ENABLED`: Enable speaker labeling.
+- `SPEAKER_LABELING_DISABLED`: Disable speaker labeling. Default value. ||
 |#
 
 ## SummarizationOptions {#speechkit.stt.v3.SummarizationOptions}
@@ -313,9 +321,9 @@ Represents summarization entry for transcription.
 Summarization instruction for model. ||
 || json_object | **bool**
 
-When set to true, the model will respond with a valid JSON object.
-Be sure to explicitly ask the model for JSON.
-Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+When set to true, the model will return a valid JSON object.
+Be sure to ask the model explicitly for JSON.
+Otherwise, it may produce excessive whitespace and run indefinitely until it reaches the token limit.
 
 Includes only one of the fields `json_object`, `json_schema`.
 

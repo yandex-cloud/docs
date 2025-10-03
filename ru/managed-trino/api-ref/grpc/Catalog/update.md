@@ -21,7 +21,7 @@ Updates the specified Trino Catalog.
   "catalog": {
     "name": "string",
     "connector": {
-      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`
+      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`
       "hive": {
         "metastore": {
           // Includes only one of the fields `hive`
@@ -154,6 +154,29 @@ Updates the specified Trino Catalog.
           // end of the list of possible fields
         },
         "additional_properties": "map<string, string>"
+      },
+      "hudi": {
+        "metastore": {
+          // Includes only one of the fields `hive`
+          "hive": {
+            // Includes only one of the fields `uri`
+            "uri": "string"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
+        },
+        "filesystem": {
+          // Includes only one of the fields `s3`, `external_s3`
+          "s3": "S3FileSystem",
+          "external_s3": {
+            "aws_access_key": "string",
+            "aws_secret_key": "string",
+            "aws_endpoint": "string",
+            "aws_region": "string"
+          }
+          // end of the list of possible fields
+        },
+        "additional_properties": "map<string, string>"
       }
       // end of the list of possible fields
     },
@@ -211,47 +234,52 @@ Connector configuration. Exactly one connector type must be specified.
 
 Hive connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || iceberg | **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
 
 Iceberg connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || delta_lake | **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
 
 Delta Lake connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || postgresql | **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
 
 PostgreSQL connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || clickhouse | **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
 
 ClickHouse connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || tpch | **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
 
 TPC-H connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || tpcds | **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
 
 TPC-DS connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || oracle | **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
 
 Oracle connector configuration for connecting to Oracle Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || sqlserver | **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
 
 SQLServer connector configuration for connecting to SQLServer Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+|| hudi | **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
+
+Hudi connector configuration.
+
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 |#
 
 ## HiveConnector {#yandex.cloud.trino.v1.HiveConnector}
@@ -565,6 +593,21 @@ Required field. Name of the SQLServer user. ||
 Required field. Password of the SQLServer user. ||
 |#
 
+## HudiConnector {#yandex.cloud.trino.v1.HudiConnector}
+
+#|
+||Field | Description ||
+|| metastore | **[Metastore](#yandex.cloud.trino.v1.Metastore)**
+
+Required field. Metastore configuration. ||
+|| filesystem | **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
+
+Required field. File system configuration. ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional properties. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -585,7 +628,7 @@ Required field. Password of the SQLServer user. ||
     "id": "string",
     "name": "string",
     "connector": {
-      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`
+      // Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`
       "hive": {
         "metastore": {
           // Includes only one of the fields `hive`
@@ -718,6 +761,29 @@ Required field. Password of the SQLServer user. ||
           // end of the list of possible fields
         },
         "additional_properties": "map<string, string>"
+      },
+      "hudi": {
+        "metastore": {
+          // Includes only one of the fields `hive`
+          "hive": {
+            // Includes only one of the fields `uri`
+            "uri": "string"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
+        },
+        "filesystem": {
+          // Includes only one of the fields `s3`, `external_s3`
+          "s3": "S3FileSystem",
+          "external_s3": {
+            "aws_access_key": "string",
+            "aws_secret_key": "string",
+            "aws_endpoint": "string",
+            "aws_region": "string"
+          }
+          // end of the list of possible fields
+        },
+        "additional_properties": "map<string, string>"
       }
       // end of the list of possible fields
     },
@@ -828,47 +894,52 @@ Connector configuration. Exactly one connector type must be specified.
 
 Hive connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || iceberg | **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector2)**
 
 Iceberg connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || delta_lake | **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector2)**
 
 Delta Lake connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || postgresql | **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector2)**
 
 PostgreSQL connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || clickhouse | **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector2)**
 
 ClickHouse connector configuration.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || tpch | **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector2)**
 
 TPC-H connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || tpcds | **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector2)**
 
 TPC-DS connector for synthetic benchmarking.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || oracle | **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector2)**
 
 Oracle connector configuration for connecting to Oracle Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 || sqlserver | **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector2)**
 
 SQLServer connector configuration for connecting to SQLServer Database instances.
 
-Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`. ||
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
+|| hudi | **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector2)**
+
+Hudi connector configuration.
+
+Includes only one of the fields `hive`, `iceberg`, `delta_lake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`. ||
 |#
 
 ## HiveConnector {#yandex.cloud.trino.v1.HiveConnector2}
@@ -1180,4 +1251,19 @@ Required field. Name of the SQLServer user. ||
 || password | **string**
 
 Required field. Password of the SQLServer user. ||
+|#
+
+## HudiConnector {#yandex.cloud.trino.v1.HudiConnector2}
+
+#|
+||Field | Description ||
+|| metastore | **[Metastore](#yandex.cloud.trino.v1.Metastore2)**
+
+Required field. Metastore configuration. ||
+|| filesystem | **[FileSystem](#yandex.cloud.trino.v1.FileSystem2)**
+
+Required field. File system configuration. ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional properties. ||
 |#

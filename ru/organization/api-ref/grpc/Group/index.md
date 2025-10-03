@@ -27,4 +27,5 @@ A set of methods for managing groups.
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the specified group. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified group. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified group. ||
+|| [ListEffective](listEffective.md) | Returns groups that the subject belongs to within a specific organization. ||
 |#

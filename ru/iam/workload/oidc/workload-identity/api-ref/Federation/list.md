@@ -18,16 +18,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListFederationsResponse.nextPageToken](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
+            the service returns a [ListFederationsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListFederationsResponse.nextPageToken](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
+            to the [ListFederationsResponse.nextPageToken](#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
             returned by a previous list request.
           type: string
       required:

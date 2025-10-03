@@ -17,21 +17,21 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the API returns a [ListClustersResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#yandex.cloud.mdb.mysql.v1.ListClustersResponse) that can be used to get the next page of results in the subsequent [ClusterService.List](#List) requests.
+            If the number of available results is larger than `pageSize`, the API returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClustersResponse) that can be used to get the next page of results in the subsequent [ClusterService.List](#List) requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token that can be used to iterate through multiple pages of results.
-            To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#yandex.cloud.mdb.mysql.v1.ListClustersResponse) returned by the previous [ClusterService.List](#List) request.
+            To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClustersResponse) returned by the previous [ClusterService.List](#List) request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that selects clusters listed in the response.
             The expression must specify:
-            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.Cluster) field.
+            1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.mysql.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
           type: string

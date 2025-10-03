@@ -54,15 +54,32 @@ Gwin — инструмент для управления балансировщ
       --output sa-key.json
     ```
 
-## Установите Gwin с помощью Helm-чарта {#helm-install}
+## Установите Gwin {#install}
+
+### Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gwin](/marketplace/products/yc/gwin) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Задайте настройки приложения:
+
+   * **Пространство имен** — создайте новое [пространство имен](../../../managed-kubernetes/concepts/index.md#namespace) (например, `gwin-space`). Если вы оставите пространство имен по умолчанию, Gwin может работать некорректно.
+   * **Название приложения** — укажите название приложения.
+   * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Gwin.
+   * **Ключ сервисного аккаунта** — скопируйте содержимое файла `sa-key.json`.
+
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Дождитесь перехода приложения в статус `Deployed`.
+
+### Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [helm-install](../helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с контроллером Gwin выполните команду:
 
     ```bash
-    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-      --version v1.0.1 \
+    helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+      --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
       --untar \
     helm install \
       --namespace <пространство_имен> \

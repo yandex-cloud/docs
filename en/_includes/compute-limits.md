@@ -44,7 +44,7 @@ You can increase this quota only upon agreement with your account manager.
 `compute.instanceGpus.count` | 0 ||
 || Total number of {{ a100-epyc }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
 `compute.instanceA100Gpus.count` | 0 ||
-|| Total number of GPUs for AMD EPYC™ 9474F with Gen2 across all VMs and number of available slots in reserved instance pools per cloud
+|| Total number of GPUs for Gen2 across all VMs and number of available slots in reserved instance pools per cloud
 `compute.instanceV3IGpus.count` | 0 ||
 || Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
 `compute.instanceT4Gpus.count` | 0 ||

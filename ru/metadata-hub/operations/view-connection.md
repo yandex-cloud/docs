@@ -64,7 +64,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
 
-  Чтобы получить список подключений {{ connection-manager-name }} в каталоге по умолчанию, воспользуйтесь методом REST API [Connection.List](../api-ref/Connection/list.md) или методом gRPC API [ConnectionService.List](../api-ref/grpc/Connection/list.md).
+  Чтобы получить список подключений {{ connection-manager-name }} в каталоге по умолчанию, воспользуйтесь методом REST API [Connection.List](../connection-manager/api-ref/Connection/list.md) или методом gRPC API [ConnectionService.List](../connection-manager/api-ref/grpc/Connection/list.md).
 
   Чтобы посмотреть список подключений в другом каталоге, передайте в запросе идентификатор каталога. [Подробнее о том, как получить идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 
@@ -105,7 +105,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
   
-  Чтобы получить информацию о подключении {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Get](../api-ref/Connection/get.md) или методом gRPC API [ConnectionService.Get](../api-ref/grpc/Connection/get.md) и передайте в запросе идентификатор подключения.
+  Чтобы получить информацию о подключении {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Get](../connection-manager/api-ref/Connection/get.md) или методом gRPC API [ConnectionService.Get](../connection-manager/api-ref/grpc/Connection/get.md) и передайте в запросе идентификатор подключения.
 
   Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
 
@@ -154,7 +154,7 @@ description: Пошаговые инструкции по работе с {{ con
 
 - API {#api}
   
-  Чтобы получить информацию о зависимостях подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ResolveCluster](../api-ref/Connection/resolveCluster.md) или методом gRPC API [ConnectionService.ResolveCluster](../api-ref/grpc/Connection/resolveCluster.md) и передайте в запросе идентификатор подключения.
+  Чтобы получить информацию о зависимостях подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ResolveCluster](../connection-manager/api-ref/Connection/resolveCluster.md) или методом gRPC API [ConnectionService.ResolveCluster](../connection-manager/api-ref/grpc/Connection/resolveCluster.md) и передайте в запросе идентификатор подключения.
 
   Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
 

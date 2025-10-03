@@ -48,7 +48,11 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/GenSearch/search.md
       // end of the list of possible fields
     }
   ],
-  "search_type": "SearchType"
+  "search_type": "SearchType",
+  "get_partial_results": "bool",
+  "metadata": {
+    "fields": "map<string, string>"
+  }
 }
 ```
 
@@ -95,6 +99,12 @@ Search type that determines the domain name that will be used for the search que
 - `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
 - `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
 - `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
+|| get_partial_results | **bool**
+
+Get partial results ||
+|| metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+
+Search flags ||
 |#
 
 ## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage}
@@ -171,6 +181,20 @@ Includes only one of the fields `date`, `lang`, `format`.
 - `DOC_FORMAT_ODT`
 - `DOC_FORMAT_ODG`
 - `DOC_FORMAT_DOC` ||
+|#
+
+## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
+
+#|
+||Field | Description ||
+|| fields | **object** (map<**string**, **string**>)
+
+Search flags, `key:value` pairs.
+No more than 64.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 |#
 
 ## GenSearchResponse {#yandex.cloud.searchapi.v2.GenSearchResponse}

@@ -12,7 +12,7 @@ apiPlayground:
           description: |-
             **string**
             The name of the model.
-            Specifies basic synthesis functionality. Currently should be empty. Do not use it.
+            This parameter is only required for specific functionalities, such as [SpeechKit Brand Voice Lite](/docs/speechkit/tts/brand-voice/) or SpeechKit Brand Voice Call Center. If you are not sure whether your use case needs this parameter, do not include it.
           type: string
         text:
           description: |-
@@ -23,14 +23,14 @@ apiPlayground:
           type: string
         textTemplate:
           description: |-
-            **[TextTemplate](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.TextTemplate)**
+            **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
             Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`.
             Includes only one of the fields `text`, `textTemplate`.
             Text to synthesis, one of text synthesis markups.
           $ref: '#/definitions/TextTemplate'
         hints:
           description: |-
-            **[Hints](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.Hints)**
+            **[Hints](#speechkit.tts.v3.Hints)**
             Optional hints for synthesis.
           type: array
           items:
@@ -46,7 +46,7 @@ apiPlayground:
                     type: string
                   audioTemplate:
                     description: |-
-                      **[AudioTemplate](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.AudioTemplate)**
+                      **[AudioTemplate](#speechkit.tts.v3.AudioTemplate)**
                       Template for synthesizing.
                       Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
                       The hint for TTS engine to specify synthesised audio characteristics.
@@ -83,27 +83,27 @@ apiPlayground:
                     type: string
                   duration:
                     description: |-
-                      **[DurationHint](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.DurationHint)**
+                      **[DurationHint](#speechkit.tts.v3.DurationHint)**
                       Hint to limit both minimum and maximum audio duration.
                       Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
                       The hint for TTS engine to specify synthesised audio characteristics.
                     $ref: '#/definitions/DurationHint'
         outputAudioSpec:
           description: |-
-            **[AudioFormatOptions](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.AudioFormatOptions)**
+            **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
             Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header
           oneOf:
             - type: object
               properties:
                 rawAudio:
                   description: |-
-                    **[RawAudio](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.RawAudio)**
+                    **[RawAudio](#speechkit.tts.v3.RawAudio)**
                     The audio format specified in request parameters.
                     Includes only one of the fields `rawAudio`, `containerAudio`.
                   $ref: '#/definitions/RawAudio'
                 containerAudio:
                   description: |-
-                    **[ContainerAudio](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.ContainerAudio)**
+                    **[ContainerAudio](#speechkit.tts.v3.ContainerAudio)**
                     The audio format specified inside the container metadata.
                     Includes only one of the fields `rawAudio`, `containerAudio`.
                   $ref: '#/definitions/ContainerAudio'
@@ -115,6 +115,7 @@ apiPlayground:
             - `LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED`
             - `MAX_PEAK`: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
             - `LUFS`: The type of normalization based on EBU R 128 recommendation.
+          default: '`LUFS`'
           type: string
           enum:
             - LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED
@@ -151,7 +152,7 @@ apiPlayground:
             type: string
           variables:
             description: |-
-              **[TextVariable](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.TextVariable)**
+              **[TextVariable](#speechkit.tts.v3.TextVariable)**
               Defining variables in template text.
               Sample: `{animal: cat, place: forest}`
             type: array
@@ -182,7 +183,7 @@ apiPlayground:
         properties:
           audio:
             description: |-
-              **[AudioContent](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.AudioContent)**
+              **[AudioContent](#speechkit.tts.v3.AudioContent)**
               Audio file.
             oneOf:
               - type: object
@@ -197,12 +198,12 @@ apiPlayground:
                     format: bytes
           textTemplate:
             description: |-
-              **[TextTemplate](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.TextTemplate)**
+              **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
               Template and description of its variables.
             $ref: '#/definitions/TextTemplate'
           variables:
             description: |-
-              **[AudioVariable](/docs/ai/tts/tts-v3/api-ref/Synthesizer/utteranceSynthesis#speechkit.tts.v3.AudioVariable)**
+              **[AudioVariable](#speechkit.tts.v3.AudioVariable)**
               Describing variables in audio.
             type: array
             items:
@@ -365,7 +366,7 @@ POST https://{{ api-host-sk-tts }}/tts/v3/utteranceSynthesis
 || model | **string**
 
 The name of the model.
-Specifies basic synthesis functionality. Currently should be empty. Do not use it. ||
+This parameter is only required for specific functionalities, such as [SpeechKit Brand Voice Lite](/docs/speechkit/tts/brand-voice/) or SpeechKit Brand Voice Call Center. If you are not sure whether your use case needs this parameter, do not include it. ||
 || text | **string**
 
 Raw text (e.g. "Hello, Alice").

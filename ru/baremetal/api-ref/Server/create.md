@@ -47,7 +47,7 @@ apiPlayground:
           type: string
         networkInterfaces:
           description: |-
-            **[NetworkInterfaceSpec](/docs/baremetal/api-ref/Server/create#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
+            **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
             Network configuration for the server. Specifies how the network interface is configured
             to interact with other servers on the internal network and on the internet.
             Currently up to 2 network interfaces are supported: required private network interface and
@@ -59,21 +59,21 @@ apiPlayground:
                 properties:
                   privateSubnet:
                     description: |-
-                      **[PrivateSubnetNetworkInterface](/docs/baremetal/api-ref/Server/get#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
+                      **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
                       Private subnet.
                       Includes only one of the fields `privateSubnet`, `publicSubnet`.
                       Subnet that the network interface belongs to.
                     $ref: '#/definitions/PrivateSubnetNetworkInterface'
                   publicSubnet:
                     description: |-
-                      **[PublicSubnetNetworkInterface](/docs/baremetal/api-ref/Server/get#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
+                      **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
                       Public subnet.
                       Includes only one of the fields `privateSubnet`, `publicSubnet`.
                       Subnet that the network interface belongs to.
                     $ref: '#/definitions/PublicSubnetNetworkInterface'
         osSettingsSpec:
           description: |-
-            **[OsSettingsSpec](/docs/baremetal/api-ref/Server/create#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
+            **[OsSettingsSpec](#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
             Operating system specific settings for provisioning the server. Optional, if omitted, the
             server will be created without an operating system.
           oneOf:
@@ -105,7 +105,7 @@ apiPlayground:
                   type: string
                 passwordLockboxSecret:
                   description: |-
-                    **[LockboxSecret](/docs/baremetal/api-ref/Server/create#yandex.cloud.baremetal.v1alpha.LockboxSecret)**
+                    **[LockboxSecret](#yandex.cloud.baremetal.v1alpha.LockboxSecret)**
                     Reference to the Lockbox secret used to obtain the password.
                     Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
                     Password for the server.
@@ -114,8 +114,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       additionalProperties: false
     definitions:
       PrivateSubnetNetworkInterface:

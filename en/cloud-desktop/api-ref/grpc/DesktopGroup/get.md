@@ -98,7 +98,8 @@ Status of the desktop group.
 - `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop group is being created.
 - `ACTIVE`: Desktop group is ready to use.
-- `DELETING`: Desktop group is being deleted. ||
+- `DELETING`: Desktop group is being deleted.
+- `UPDATING`: Desktop group is updating. ||
 || name | **string**
 
 Name of the desktop group. ||

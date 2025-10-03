@@ -17,23 +17,24 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#yandex.cloud.mdb.mongodb.v1.ListClustersResponse)
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListClustersResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#yandex.cloud.mdb.mongodb.v1.ListClustersResponse) returned by the previous list request.
+            to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClustersResponse) returned by the previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+            1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.mongodb.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
           type: string

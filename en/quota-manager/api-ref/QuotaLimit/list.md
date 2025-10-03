@@ -9,7 +9,7 @@ apiPlayground:
       properties:
         resource:
           description: |-
-            **[Resource](/docs/quota-manager/api-ref/QuotaLimit/get#yandex.cloud.quotamanager.v1.Resource)**
+            **[Resource](#yandex.cloud.quotamanager.v1.Resource)**
             Required field. The resource for which quota limits are being listed.
           $ref: '#/definitions/Resource'
         service:

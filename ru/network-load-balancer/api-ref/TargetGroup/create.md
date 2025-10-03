@@ -30,8 +30,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         regionId:
           description: |-
             **string**
@@ -39,7 +48,7 @@ apiPlayground:
           type: string
         targets:
           description: |-
-            **[Target](/docs/network-load-balancer/api-ref/TargetGroup/get#yandex.cloud.loadbalancer.v1.Target)**
+            **[Target](#yandex.cloud.loadbalancer.v1.Target)**
             List of targets within the target group.
           type: array
           items:

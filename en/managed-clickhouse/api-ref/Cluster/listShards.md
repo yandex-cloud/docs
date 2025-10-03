@@ -22,14 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClusterShardsResponse.nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse)
+            results is larger than `pageSize`, the service returns a [ListClusterShardsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token.  to get the next page of results, set `pageToken` to the [ListClusterShardsResponse.nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listShards#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse)
+            Page token.  to get the next page of results, set `pageToken` to the [ListClusterShardsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse)
             returned by the previous list request.
           type: string
       additionalProperties: false
@@ -1460,7 +1460,7 @@ Default value: **2592000000** (30 days). ||
 
 Enables or disables session_log system table.
 
-Default value: **false**.
+Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
 
 Change of the setting is applied with restart.
 
@@ -1470,7 +1470,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **0**. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || sessionLogRetentionTime | **string** (int64)
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
@@ -1625,6 +1625,8 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || geobaseEnabled | **boolean**
 
 Enables or disables geobase.
+
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 Change of the setting is applied with restart. ||
 || geobaseUri | **string**
@@ -1849,7 +1851,9 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue.
 
-Default value: **16**. ||
+Default value: **32** for versions 25.8 and higher, **16** for versions 25.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_replicated_merges_in_queue). ||
 || numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge | **string** (int64)
 
 When there is less than the specified number of free entries in pool (or replicated queue), start to lower maximum size of
@@ -2779,7 +2783,7 @@ JDBC bridge configuration for queries to external databases.
 ||Field | Description ||
 || host | **string**
 
-Required field. Host of jdbc bridge. ||
+Host of jdbc bridge. ||
 || port | **string** (int64)
 
 Port of jdbc bridge.

@@ -19,7 +19,7 @@ apiPlayground:
       properties:
         resource:
           description: |-
-            **[Resource](/docs/iam/api-ref/ServiceControl/get#yandex.cloud.iam.v1.Resource)**
+            **[Resource](#yandex.cloud.iam.v1.Resource)**
             Required field. Resource container to get a service information in.
             It is supported only resource-manager.cloud resource container now.
           $ref: '#/definitions/Resource'

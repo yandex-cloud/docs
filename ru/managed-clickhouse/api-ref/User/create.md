@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         userSpec:
           description: |-
-            **[UserSpec](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.UserSpec)**
+            **[UserSpec](#yandex.cloud.mdb.clickhouse.v1.UserSpec)**
             Required field. Properties of the user to be created.
           $ref: '#/definitions/UserSpec'
       required:
@@ -1031,7 +1031,7 @@ apiPlayground:
               Enables or disables quoting of 64-bit integers in JSON output format.
               If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
               in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
-              Default value: **true**.
+              Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers).
             type: boolean
           outputFormatJsonQuoteDenormals:
@@ -1254,6 +1254,7 @@ apiPlayground:
               - `QUOTA_MODE_DEFAULT`
               - `QUOTA_MODE_KEYED`
               - `QUOTA_MODE_KEYED_BY_IP`
+            default: '**QUOTA_MODE_DEFAULT**'
             type: string
             enum:
               - QUOTA_MODE_UNSPECIFIED
@@ -1602,7 +1603,7 @@ apiPlayground:
             description: |-
               **boolean**
               Enables or disables new query analyzer.
-              Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+              Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
             type: boolean
           s3UseAdaptiveTimeouts:
@@ -1613,6 +1614,14 @@ apiPlayground:
               * **false** - all attempts are made with identical timeouts.
               Default value: **true**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts).
+            type: boolean
+          final:
+            description: |-
+              **boolean**
+              If enabled, automatically applies **FINAL** modifier to all tables in a query, to tables where **FINAL** is applicable,
+              including joined tables and tables in sub-queries, and distributed tables.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#final).
             type: boolean
           compile:
             description: |-
@@ -1699,22 +1708,23 @@ apiPlayground:
               **boolean**
               Enable or disable password generation using Connection Manager.
               Default value: **false**.
+            default: '**false**'
             type: boolean
           permissions:
             description: |-
-              **[Permission](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.Permission)**
+              **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
               Set of permissions to grant to the user. If not set, it's granted permissions to access all databases.
             type: array
             items:
               $ref: '#/definitions/Permission'
           settings:
             description: |-
-              **[UserSettings](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+              **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
               User settings
             $ref: '#/definitions/UserSettings'
           quotas:
             description: |-
-              **[UserQuota](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
+              **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
               Quotas assigned to the user.
             type: array
             items:
@@ -1924,6 +1934,7 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
       "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
       "enableAnalyzer": "boolean",
       "s3UseAdaptiveTimeouts": "boolean",
+      "final": "boolean",
       "compile": "boolean",
       "minCountToCompile": "string",
       "asyncInsertThreads": "string",
@@ -2899,7 +2910,7 @@ Enables or disables quoting of 64-bit integers in JSON output format.
 If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
 in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
 
-Default value: **true**.
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers). ||
 || outputFormatJsonQuoteDenormals | **boolean**
@@ -3410,7 +3421,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Enables or disables new query analyzer.
 
-Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
 || s3UseAdaptiveTimeouts | **boolean**
@@ -3422,6 +3433,14 @@ Enables or disables adaptive timeouts for S3 requests.
 Default value: **true**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts). ||
+|| final | **boolean**
+
+If enabled, automatically applies **FINAL** modifier to all tables in a query, to tables where **FINAL** is applicable,
+including joined tables and tables in sub-queries, and distributed tables.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#final). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
@@ -3662,6 +3681,7 @@ The total query execution time, in milliseconds (wall time). **0** means unlimit
       "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
       "enableAnalyzer": "boolean",
       "s3UseAdaptiveTimeouts": "boolean",
+      "final": "boolean",
       "compile": "boolean",
       "minCountToCompile": "string",
       "asyncInsertThreads": "string",
@@ -4732,7 +4752,7 @@ Enables or disables quoting of 64-bit integers in JSON output format.
 If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
 in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
 
-Default value: **true**.
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers). ||
 || outputFormatJsonQuoteDenormals | **boolean**
@@ -5243,7 +5263,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Enables or disables new query analyzer.
 
-Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
 || s3UseAdaptiveTimeouts | **boolean**
@@ -5255,6 +5275,14 @@ Enables or disables adaptive timeouts for S3 requests.
 Default value: **true**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts). ||
+|| final | **boolean**
+
+If enabled, automatically applies **FINAL** modifier to all tables in a query, to tables where **FINAL** is applicable,
+including joined tables and tables in sub-queries, and distributed tables.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#final). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||

@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/delet
 
 # SpeechKit Recognition API v3, gRPC: AsyncRecognizer.DeleteRecognition
 
+Deletes results of asynchronous recognition by operation ID.
+
 ## gRPC request
 
 **rpc DeleteRecognition ([DeleteRecognitionRequest](#speechkit.stt.v3.DeleteRecognitionRequest)) returns ([google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty))**

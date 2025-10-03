@@ -32,17 +32,19 @@ apiPlayground:
           type: string
         expirationConfig:
           description: |-
-            **`ExpirationConfig`**
+            **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
             Expiration configuration for the search index.
           $ref: '#/definitions/ExpirationConfig'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Set of key-value pairs to label the search index.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         textSearchIndex:
           description: |-
-            **[TextSearchIndex](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**
+            **[TextSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**
             Configuration for a traditional keyword-based text search index.
             Includes only one of the fields `textSearchIndex`, `vectorSearchIndex`, `hybridSearchIndex`.
           oneOf:
@@ -50,7 +52,7 @@ apiPlayground:
               properties:
                 ngramTokenizer:
                   description: |-
-                    **[NgramTokenizer](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
+                    **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
                     Tokenizer that generates n-grams.
                     Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
                     Tokenizer type used for text search. The tokenizer determines how the
@@ -90,13 +92,13 @@ apiPlayground:
                   $ref: '#/definitions/YandexLemmerAnalyzer'
         vectorSearchIndex:
           description: |-
-            **[VectorSearchIndex](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex)**
+            **[VectorSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex)**
             Configuration for a vector-based search index using embeddings.
             Includes only one of the fields `textSearchIndex`, `vectorSearchIndex`, `hybridSearchIndex`.
           $ref: '#/definitions/VectorSearchIndex'
         hybridSearchIndex:
           description: |-
-            **[HybridSearchIndex](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.HybridSearchIndex)**
+            **[HybridSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.HybridSearchIndex)**
             Configuration for a hybrid (vector-based + keyword-based) search index.
             Includes only one of the fields `textSearchIndex`, `vectorSearchIndex`, `hybridSearchIndex`.
           $ref: '#/definitions/HybridSearchIndex'
@@ -155,6 +157,7 @@ apiPlayground:
               The maximum number of tokens allowed in a single chunk.
               Constraints: must be within the range [100, 2048].
               Default value: 800
+            default: '800'
             type: string
             format: int64
           chunkOverlapTokens:
@@ -164,6 +167,7 @@ apiPlayground:
               This allows for some context from the previous chunk to be included in the next chunk.
               Constraints: must be less than or equal to half of `max_chunk_size_tokens`.
               Default value: 400
+            default: '400'
             type: string
             format: int64
       VectorSearchIndex:
@@ -181,7 +185,7 @@ apiPlayground:
             type: string
           chunkingStrategy:
             description: |-
-              **[ChunkingStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)**
+              **[ChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)**
               Chunking strategy used to split text into smaller chunks before indexing.
               In the case of vector search, tokens are produced by the tokenizer from the embedding model.
             oneOf:
@@ -189,7 +193,7 @@ apiPlayground:
                 properties:
                   staticStrategy:
                     description: |-
-                      **[StaticChunkingStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
+                      **[StaticChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
                       Includes only one of the fields `staticStrategy`.
                     $ref: '#/definitions/StaticChunkingStrategy'
       MeanCombinationStrategy:
@@ -231,14 +235,14 @@ apiPlayground:
         properties:
           textSearchIndex:
             description: |-
-              **[TextSearchIndex](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**
+              **[TextSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**
               Configuration for a traditional keyword-based text search index.
             oneOf:
               - type: object
                 properties:
                   ngramTokenizer:
                     description: |-
-                      **[NgramTokenizer](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
+                      **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
                       Tokenizer that generates n-grams.
                       Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
                       Tokenizer type used for text search. The tokenizer determines how the
@@ -278,12 +282,12 @@ apiPlayground:
                     $ref: '#/definitions/YandexLemmerAnalyzer'
           vectorSearchIndex:
             description: |-
-              **[VectorSearchIndex](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex)**
+              **[VectorSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex)**
               Configuration for a vector-based search index.
             $ref: '#/definitions/VectorSearchIndex'
           chunkingStrategy:
             description: |-
-              **[ChunkingStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)**
+              **[ChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)**
               Common chunking strategy that applies to both text and vector search indexes.
               If provided, it overrides the individual chunking strategies in both `text_search_index` and `vector_search_index`.
               In this case, both text and vector search will use token-based chunking, where tokens are produced by the tokenizer of the embedding model.
@@ -292,7 +296,7 @@ apiPlayground:
                 properties:
                   staticStrategy:
                     description: |-
-                      **[StaticChunkingStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
+                      **[StaticChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
                       Includes only one of the fields `staticStrategy`.
                     $ref: '#/definitions/StaticChunkingStrategy'
           normalizationStrategy:
@@ -309,19 +313,19 @@ apiPlayground:
               - L2
           combinationStrategy:
             description: |-
-              **[CombinationStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.CombinationStrategy)**
+              **[CombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.CombinationStrategy)**
               Combination strategy for merging rankings from different indices. Default is arithmetic mean
             oneOf:
               - type: object
                 properties:
                   meanCombination:
                     description: |-
-                      **[MeanCombinationStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.MeanCombinationStrategy)**
+                      **[MeanCombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.MeanCombinationStrategy)**
                       Includes only one of the fields `meanCombination`, `rrfCombination`.
                     $ref: '#/definitions/MeanCombinationStrategy'
                   rrfCombination:
                     description: |-
-                      **[ReciprocalRankFusionCombinationStrategy](/docs/assistants/api-ref/SearchIndex/create#yandex.cloud.ai.assistants.v1.searchindex.ReciprocalRankFusionCombinationStrategy)**
+                      **[ReciprocalRankFusionCombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ReciprocalRankFusionCombinationStrategy)**
                       Includes only one of the fields `meanCombination`, `rrfCombination`.
                     $ref: '#/definitions/ReciprocalRankFusionCombinationStrategy'
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/create.md

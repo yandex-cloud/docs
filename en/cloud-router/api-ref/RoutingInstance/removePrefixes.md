@@ -25,7 +25,7 @@ apiPlayground:
           type: string
         vpcAzInfoPrefixes:
           description: |-
-            **[VpcAzInfoPrefixes](/docs/cloud-router/api-ref/RoutingInstance/upsertPrefixes#yandex.cloud.cloudrouter.v1.VpcAzInfoPrefixes)**
+            **[VpcAzInfoPrefixes](#yandex.cloud.cloudrouter.v1.VpcAzInfoPrefixes)**
             List of VpcAzInfoPrefixes to remove.
           type: array
           items:

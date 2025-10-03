@@ -10,12 +10,12 @@ apiPlayground:
       properties:
         query:
           description: |-
-            **[SearchQuery](/docs/searchapi/api-ref/ImageSearch/search#yandex.cloud.searchapi.v2.SearchQuery)**
+            **[SearchQuery](#yandex.cloud.searchapi.v2.SearchQuery)**
             Required field. Search query.
           $ref: '#/definitions/SearchQuery'
         imageSpec:
           description: |-
-            **[ImageSpec](/docs/searchapi/api-ref/ImageSearch/search#yandex.cloud.searchapi.v2.ImageSpec)**
+            **[ImageSpec](#yandex.cloud.searchapi.v2.ImageSpec)**
             Searching for images with a particular size, orientation, format or color.
           $ref: '#/definitions/ImageSpec'
         site:

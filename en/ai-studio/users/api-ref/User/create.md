@@ -28,14 +28,16 @@ apiPlayground:
           type: string
         expirationConfig:
           description: |-
-            **`ExpirationConfig`**
+            **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
             Expiration configuration for the user.
           $ref: '#/definitions/ExpirationConfig'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Set of key-value pairs to label the user.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       required:
         - folderId
       additionalProperties: false

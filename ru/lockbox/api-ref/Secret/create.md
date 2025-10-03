@@ -28,8 +28,15 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
             For example, `"project": "mvp"` or `"source": "dictionary"`.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         kmsKeyId:
           description: |-
             **string**
@@ -42,7 +49,7 @@ apiPlayground:
           type: string
         versionPayloadEntries:
           description: |-
-            **[PayloadEntryChange](/docs/lockbox/api-ref/Secret/create#yandex.cloud.lockbox.v1.PayloadEntryChange)**
+            **[PayloadEntryChange](#yandex.cloud.lockbox.v1.PayloadEntryChange)**
             Payload entries added to the first version.
           type: array
           items:
@@ -71,7 +78,7 @@ apiPlayground:
           type: boolean
         passwordPayloadSpecification:
           description: |-
-            **[PasswordPayloadSpecification](/docs/lockbox/api-ref/Secret/get#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+            **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
             Includes only one of the fields `passwordPayloadSpecification`.
           $ref: '#/definitions/PasswordPayloadSpecification'
         createVersion:

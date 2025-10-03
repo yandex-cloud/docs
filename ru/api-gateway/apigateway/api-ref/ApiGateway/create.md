@@ -30,8 +30,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         openapiSpec:
           description: |-
             **string**
@@ -41,12 +50,12 @@ apiPlayground:
           type: string
         connectivity:
           description: |-
-            **[Connectivity](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.Connectivity)**
+            **[Connectivity](#yandex.cloud.serverless.apigateway.v1.Connectivity)**
             Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
           $ref: '#/definitions/Connectivity'
         logOptions:
           description: |-
-            **[LogOptions](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
             Options for logging from the API gateway.
           oneOf:
             - type: object
@@ -67,14 +76,41 @@ apiPlayground:
                   type: string
         variables:
           description: |-
-            **object** (map<**string**, **[VariableInput](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+            **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
             Values of variables defined in the specification.
           type: object
           additionalProperties:
-            type: string
+            oneOf:
+              - type: object
+                properties:
+                  stringValue:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                      Variable value that can has only primitive type
+                    type: string
+                  intValue:
+                    description: |-
+                      **string** (int64)
+                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                      Variable value that can has only primitive type
+                    type: string
+                    format: int64
+                  doubleValue:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                      Variable value that can has only primitive type
+                    type: string
+                  boolValue:
+                    description: |-
+                      **boolean**
+                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                      Variable value that can has only primitive type
+                    type: boolean
         canary:
           description: |-
-            **[Canary](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.Canary)**
+            **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary)**
             Canary release of the gateway.
           $ref: '#/definitions/Canary'
         executionTimeout:
@@ -115,11 +151,38 @@ apiPlayground:
             format: int64
           variables:
             description: |-
-              **object** (map<**string**, **[VariableInput](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+              **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
               Values specification variables, associated with canary.
             type: object
             additionalProperties:
-              type: string
+              oneOf:
+                - type: object
+                  properties:
+                    stringValue:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                        Variable value that can has only primitive type
+                      type: string
+                    intValue:
+                      description: |-
+                        **string** (int64)
+                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                        Variable value that can has only primitive type
+                      type: string
+                      format: int64
+                    doubleValue:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                        Variable value that can has only primitive type
+                      type: string
+                    boolValue:
+                      description: |-
+                        **boolean**
+                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+                        Variable value that can has only primitive type
+                      type: boolean
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/create.md
 ---
 

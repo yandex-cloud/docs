@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListServiceAccountOperationsResponse.nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListServiceAccountOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListServiceAccountOperationsResponse.nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
+            to the [ListServiceAccountOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
             returned by a previous list request.
           type: string
       additionalProperties: false

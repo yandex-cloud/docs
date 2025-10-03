@@ -22,14 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the service returns a [ListTopicsResponse.nextPageToken](/docs/managed-kafka/api-ref/Topic/list#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) that can be used to get the next page of results in subsequent list requests.
+            If the number of available results is larger than `pageSize`, the service returns a [ListTopicsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token.
-            To get the next page of results, set `pageToken` to the [ListTopicsResponse.nextPageToken](/docs/managed-kafka/api-ref/Topic/list#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) returned by the previous list request.
+            To get the next page of results, set `pageToken` to the [ListTopicsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) returned by the previous list request.
           type: string
       additionalProperties: false
     body: null

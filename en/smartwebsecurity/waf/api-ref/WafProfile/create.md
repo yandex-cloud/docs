@@ -27,35 +27,37 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels as `` key:value `` pairs. Maximum of 64 per resource.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         rules:
           description: |-
-            **[WafProfileRule](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule)**
+            **[WafProfileRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule)**
             Settings for each rule in rule set.
           type: array
           items:
             $ref: '#/definitions/WafProfileRule'
         exclusionRules:
           description: |-
-            **[WafProfileExclusionRule](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule)**
+            **[WafProfileExclusionRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule)**
             List of exclusion rules. See [Rules](/docs/smartwebsecurity/concepts/waf#exclusion-rules).
           type: array
           items:
             $ref: '#/definitions/WafProfileExclusionRule'
         coreRuleSet:
           description: |-
-            **[CoreRuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet)**
+            **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet)**
             Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf#rules-set) for details.
             Includes only one of the fields `coreRuleSet`.
           $ref: '#/definitions/CoreRuleSet'
         analyzeRequestBody:
           description: |-
-            **[AnalyzeRequestBody](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
+            **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
             Parameters for request body analyzer.
           $ref: '#/definitions/AnalyzeRequestBody'
         ruleSets:
           description: |-
-            **[WafProfileRuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet)**
+            **[WafProfileRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet)**
             List of rule sets. See [Rules](/docs/smartwebsecurity/concepts/waf#rules-set).
           type: array
           items:
@@ -64,19 +66,19 @@ apiPlayground:
                 properties:
                   coreRuleSet:
                     description: |-
-                      **[WafProfileCoreRuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileCoreRuleSet)**
+                      **[WafProfileCoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileCoreRuleSet)**
                       Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf#rules-set) for details.
                       Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`.
                     $ref: '#/definitions/WafProfileCoreRuleSet'
                   yaRuleSet:
                     description: |-
-                      **[WafProfileYaRuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileYaRuleSet)**
+                      **[WafProfileYaRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileYaRuleSet)**
                       Yandex rule set settings.
                       Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`.
                     $ref: '#/definitions/WafProfileYaRuleSet'
                   mlRuleSet:
                     description: |-
-                      **[WafProfileMlRuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileMlRuleSet)**
+                      **[WafProfileMlRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileMlRuleSet)**
                       Yandex Machine learning rule set settings.
                       Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`.
                     $ref: '#/definitions/WafProfileMlRuleSet'
@@ -112,7 +114,7 @@ apiPlayground:
         properties:
           authorities:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of authorities. OR semantics implied.
             type: array
             items:
@@ -154,7 +156,7 @@ apiPlayground:
         properties:
           httpMethods:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of HTTP methods. OR semantics implied.
             type: array
             items:
@@ -201,7 +203,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the query parameter.
             oneOf:
               - type: object
@@ -244,7 +246,7 @@ apiPlayground:
         properties:
           path:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
             oneOf:
               - type: object
@@ -281,7 +283,7 @@ apiPlayground:
                     type: string
           queries:
             description: |-
-              **[QueryMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
+              **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
               List of query matchers. AND semantics implied.
             type: array
             items:
@@ -296,7 +298,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the header.
             oneOf:
               - type: object
@@ -359,45 +361,45 @@ apiPlayground:
         type: object
         properties:
           ipRangesMatch:
-            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           ipRangesNotMatch:
-            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
             $ref: '#/definitions/IpRangesMatcher'
           geoIpMatch:
-            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
           geoIpNotMatch:
-            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
             $ref: '#/definitions/GeoIpMatcher'
       Condition:
         type: object
         properties:
           authority:
             description: |-
-              **[AuthorityMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
+              **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
               Match authority (Host header).
             $ref: '#/definitions/AuthorityMatcher'
           httpMethod:
             description: |-
-              **[HttpMethodMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+              **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
               Match HTTP method.
             $ref: '#/definitions/HttpMethodMatcher'
           requestUri:
             description: |-
-              **[RequestUriMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+              **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
               Match Request URI.
             $ref: '#/definitions/RequestUriMatcher'
           headers:
             description: |-
-              **[HeaderMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
+              **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
               Match HTTP headers.
             type: array
             items:
               $ref: '#/definitions/HeaderMatcher'
           sourceIp:
             description: |-
-              **[IpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+              **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
               Match IP.
             $ref: '#/definitions/IpMatcher'
       ExcludeRules:
@@ -430,12 +432,12 @@ apiPlayground:
             type: string
           condition:
             description: |-
-              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching traffic.
             $ref: '#/definitions/Condition'
           excludeRules:
             description: |-
-              **[ExcludeRules](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules)**
+              **[ExcludeRules](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules)**
               Required field. Exclude rules.
             $ref: '#/definitions/ExcludeRules'
           logExcluded:
@@ -507,7 +509,7 @@ apiPlayground:
             format: int64
           ruleSet:
             description: |-
-              **[RuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+              **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
               Required field. Rule set.
             $ref: '#/definitions/RuleSet'
         required:
@@ -543,7 +545,7 @@ apiPlayground:
         properties:
           ruleSet:
             description: |-
-              **[RuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+              **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
               Required field. Rule set.
             $ref: '#/definitions/RuleSet'
           inboundAnomalyScore:
@@ -605,12 +607,12 @@ apiPlayground:
         properties:
           ruleSet:
             description: |-
-              **[RuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+              **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
               Required field. Rule set.
             $ref: '#/definitions/RuleSet'
           ruleGroups:
             description: |-
-              **[RuleGroup](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup)**
+              **[RuleGroup](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup)**
               List of rule groups.
             type: array
             items:
@@ -622,12 +624,12 @@ apiPlayground:
         properties:
           ruleSet:
             description: |-
-              **[RuleSet](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+              **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
               Required field. Rule set.
             $ref: '#/definitions/RuleSet'
           ruleGroups:
             description: |-
-              **[RuleGroup](/docs/smartwebsecurity/api-ref/WafProfile/get#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup)**
+              **[RuleGroup](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup)**
               List of rule groups.
             type: array
             items:

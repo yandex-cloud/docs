@@ -55,14 +55,14 @@ apiPlayground:
           type: string
         glossaryConfig:
           description: |-
-            **[TranslateGlossaryConfig](/docs/translate/api-ref/Translation/translate#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
+            **[TranslateGlossaryConfig](#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
             Glossary to be applied for the translation. For more information, see [Glossaries](/docs/translate/concepts/glossary).
           oneOf:
             - type: object
               properties:
                 glossaryData:
                   description: |-
-                    **[GlossaryData](/docs/translate/api-ref/Translation/translate#yandex.cloud.ai.translate.v2.GlossaryData)**
+                    **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
                     Pass glossary data in the request. Currently, the only way to pass glossary.
                     Includes only one of the fields `glossaryData`.
                   $ref: '#/definitions/GlossaryData'
@@ -101,7 +101,7 @@ apiPlayground:
         properties:
           glossaryPairs:
             description: |-
-              **[GlossaryPair](/docs/translate/api-ref/Translation/translate#yandex.cloud.ai.translate.v2.GlossaryPair)**
+              **[GlossaryPair](#yandex.cloud.ai.translate.v2.GlossaryPair)**
               Array of text pairs.
               The maximum total length of all source texts is 10000 characters.
               The maximum total length of all translated texts is 10000 characters.

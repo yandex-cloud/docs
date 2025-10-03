@@ -17,7 +17,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListProjectsResponse.nextPageToken](/docs/datasphere/api-ref/Project/list#yandex.cloud.datasphere.v2.ListProjectsResponse)
+            the service returns a [ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,7 +25,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListProjectsResponse.nextPageToken](/docs/datasphere/api-ref/Project/list#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request.
+            [ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request.
           type: string
         projectNamePattern:
           description: |-

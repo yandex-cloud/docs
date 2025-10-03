@@ -1583,6 +1583,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
               "string"
             ]
           },
+          // Includes only one of the fields `columns`, `random`
           "columns": {
             "includeColumns": [
               "string"
@@ -1591,6 +1592,8 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
               "string"
             ]
           },
+          "random": "object",
+          // end of the list of possible fields
           "shardsCount": "string"
         },
         "tableSplitterTransformer": {
@@ -1630,7 +1633,18 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
       "string"
     ]
   },
-  "prestable": "boolean"
+  "prestable": "boolean",
+  "replicationRuntime": {
+    // Includes only one of the fields `ycRuntime`
+    "ycRuntime": {
+      "jobCount": "string",
+      "uploadShardParams": {
+        "jobCount": "string",
+        "processCount": "string"
+      }
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -1669,6 +1683,7 @@ Transfer core entity
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 || dataObjects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 || prestable | **boolean** ||
+|| replicationRuntime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 |#
 
 ## Endpoint {#yandex.cloud.datatransfer.v1.Endpoint}
@@ -3204,7 +3219,12 @@ values will be used for calculating a hash to determine a shard.
 List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
-List of included and excluded columns ||
+List of included and excluded columns
+
+Includes only one of the fields `columns`, `random`. ||
+|| random | **object**
+
+Includes only one of the fields `columns`, `random`. ||
 || shardsCount | **string** (int64)
 
 Number of shards ||

@@ -276,6 +276,7 @@ Name of the database that the user should lose access to. ||
       "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
       "enableAnalyzer": "boolean",
       "s3UseAdaptiveTimeouts": "boolean",
+      "final": "boolean",
       "compile": "boolean",
       "minCountToCompile": "string",
       "asyncInsertThreads": "string",
@@ -1346,7 +1347,7 @@ Enables or disables quoting of 64-bit integers in JSON output format.
 If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
 in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
 
-Default value: **true**.
+Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers). ||
 || outputFormatJsonQuoteDenormals | **boolean**
@@ -1857,7 +1858,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Enables or disables new query analyzer.
 
-Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+Default value: **true** for versions 25.9 and higher, **false** for version 25.8, **true** for versions from 25.5 to 25.7, **false** for versions 25.4 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
 || s3UseAdaptiveTimeouts | **boolean**
@@ -1869,6 +1870,14 @@ Enables or disables adaptive timeouts for S3 requests.
 Default value: **true**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts). ||
+|| final | **boolean**
+
+If enabled, automatically applies **FINAL** modifier to all tables in a query, to tables where **FINAL** is applicable,
+including joined tables and tables in sub-queries, and distributed tables.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#final). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||

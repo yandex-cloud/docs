@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         accessBindingDeltas:
           description: |-
-            **`AccessBindingDelta`**
+            **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
             Updates to access bindings.
           type: array
           items:
@@ -124,11 +124,11 @@ apiPlayground:
           roleId:
             description: |-
               **string**
-              Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+              Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the [subject](#yandex.cloud.access.AccessBinding).
             type: string
           subject:
             description: |-
-              **`Subject`**
+              **[Subject](#yandex.cloud.access.Subject)**
               Required field. Identity for which access binding is being created.
               It can represent an account with a unique ID or several accounts with a system identifier.
             $ref: '#/definitions/Subject'
@@ -152,7 +152,7 @@ apiPlayground:
               - REMOVE
           accessBinding:
             description: |-
-              **`AccessBinding`**
+              **[AccessBinding](#yandex.cloud.access.AccessBinding)**
               Required field. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
             $ref: '#/definitions/AccessBinding'
         required:

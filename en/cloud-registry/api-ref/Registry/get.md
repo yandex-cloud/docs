@@ -64,7 +64,7 @@ To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref
 }
 ```
 
-A Registry resource.
+A Registry resource. For more information, see the [Registry](/docs/cloud-registry/concepts/registry) section of the documentation.
 
 #|
 ||Field | Description ||
@@ -87,7 +87,8 @@ Kind of the registry.
 - `DOCKER`: Registry kind is docker.
 - `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi. ||
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary. ||
 || type | **enum** (Type)
 
 Type of the registry.

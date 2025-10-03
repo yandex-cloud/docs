@@ -70,7 +70,7 @@ apiPlayground:
           description: |-
             **string**
             Record token that can be used to control logs streaming.
-            Set `recordToken` to the [StreamLogRecord.nextRecordToken](/docs/managed-mysql/api-ref/Cluster/streamLogs#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record.
+            Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record.
           type: string
         filter:
           description: |-

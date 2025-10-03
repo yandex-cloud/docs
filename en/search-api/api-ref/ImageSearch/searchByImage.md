@@ -162,9 +162,7 @@ The images found. ||
 || page | **string** (int64)
 
 The number of the page with search results. ||
-|| maxPage | **string** (int64)
-
-The number of the last page with search results. ||
+|| maxPage | **string** (int64) ||
 || id | **string**
 
 CBIR ID of the image used for the search. ||

@@ -20,7 +20,7 @@
   Для поддержки кластерного режима:
 : * [Ubuntu 20.04 LTS GPU Cluster](/marketplace/products/yc/ubuntu-2004-lts-gpu-cluster)(`ubuntu-2004-lts-gpu-cluster`)
 
-AMD EPYC™ 9474F with Gen2
+Gen2
 
 : * [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) (`ubuntu-2004-lts-secureboot-cuda-12-2`)
 

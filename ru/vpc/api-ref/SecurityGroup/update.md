@@ -52,11 +52,20 @@ apiPlayground:
             1. Get the current set of labels with a [SecurityGroupService.Get](/docs/vpc/api-ref/SecurityGroup/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         ruleSpecs:
           description: |-
-            **[SecurityGroupRuleSpec](/docs/vpc/api-ref/SecurityGroup/create#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+            **[SecurityGroupRuleSpec](#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
             Updated rule list. All existing rules will be replaced with given list.
           type: array
           items:
@@ -84,7 +93,7 @@ apiPlayground:
                 properties:
                   cidrBlocks:
                     description: |-
-                      **[CidrBlocks](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.CidrBlocks)**
+                      **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
                       CIDR blocks to allow to recieve or send traffic.
                       Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
                     $ref: '#/definitions/CidrBlocks'

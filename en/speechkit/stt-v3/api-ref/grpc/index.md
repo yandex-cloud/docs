@@ -9,11 +9,11 @@ The SpeechKit Speech To Text Service API v3 allows application developers to use
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/stt/v3).
 
-**Service URL**: `https://{{ api-host-sk-stt }}`
+**Service URL**: `{{ api-host-sk-stt }}`
 
 #|
 ||Service | Description ||
-|| [AsyncRecognizer](AsyncRecognizer/index.md) | A set of methods for async voice recognition. ||
+|| [AsyncRecognizer](AsyncRecognizer/index.md) | A set of methods for asynchronous speech recognition: recognize pre-recorded audio and receive results by request. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
-|| [Recognizer](Recognizer/index.md) | A set of methods for voice recognition. ||
+|| [Recognizer](Recognizer/index.md) | A set of methods for streaming speech recognition. ||
 |#

@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListFolderOperationsResponse.nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListFolderOperationsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. Set `pageToken`
-            to the [ListFolderOperationsResponse.nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
+            to the [ListFolderOperationsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
             returned by a previous list request to get the next page of results.
           type: string
       additionalProperties: false

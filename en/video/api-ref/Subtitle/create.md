@@ -29,7 +29,7 @@ apiPlayground:
           type: string
         upload:
           description: |-
-            **[SubtitleUploadParams](/docs/video/api-ref/Subtitle/create#yandex.cloud.video.v1.SubtitleUploadParams)**
+            **[SubtitleUploadParams](#yandex.cloud.video.v1.SubtitleUploadParams)**
             Upload subtitle.
             Includes only one of the fields `upload`.
             Source type.

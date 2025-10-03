@@ -41,7 +41,9 @@ editable: false
 
 Оплачиваются пакеты легитимных запросов. В каждый пакет включено определенное количество запросов. Пакет WAF можно приобрести только вместе с пакетом AntiDDoS.
 
-Цены на различные тарифы подписки приведены за 1 месяц.
+Цены на различные тарифы подписки приведены за 1 календарный месяц.
+
+{% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
 
 
 {% list tabs group=pricing %}
@@ -75,6 +77,10 @@ editable: false
 {% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+Период тарификации — календарный месяц. 
+  
+{% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
 
 Оплачивается фактическое количество легитимных запросов. При этом для каждого запроса оплачивается:
 

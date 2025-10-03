@@ -22,7 +22,7 @@ apiPlayground:
           description: |-
             **string**
             Resource type to return resources for.
-            If not specified, [ListResourcesResponse](/docs/logging/api-ref/LogGroup/listResources#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types.
+            If not specified, [ListResourcesResponse](#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types.
           type: string
       additionalProperties: false
     body: null

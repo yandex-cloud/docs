@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         nodeGroupSpec:
           description: |-
-            **[NodeGroup](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+            **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
             Configuration of the new host group.
           $ref: '#/definitions/NodeGroup'
       additionalProperties: false
@@ -77,7 +77,7 @@ apiPlayground:
             type: string
           resources:
             description: |-
-              **[Resources](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
               Resources allocated to the hosts.
             $ref: '#/definitions/Resources'
           hostsCount:
@@ -121,7 +121,7 @@ apiPlayground:
                 - MANAGER
           diskSizeAutoscaling:
             description: |-
-              **[DiskSizeAutoscaling](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
               Disk size autoscaling settings
             $ref: '#/definitions/DiskSizeAutoscaling'
         required:

@@ -75,3 +75,7 @@ The revocation function was unable to check revocation for the certificate
 #### Что делать, если возникает ошибка kafkacat: command not found? {#kafkacat-not-found}
 
 На Ubuntu 24.04 и выше команда `kafkacat` не работает, используйте вместо нее команду `kcat`.
+
+#### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mkf-short-name }}? {#services}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

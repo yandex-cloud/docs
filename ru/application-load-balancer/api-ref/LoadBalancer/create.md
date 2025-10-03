@@ -31,8 +31,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Application load balancer labels as `key:value` pairs.
             For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         regionId:
           description: |-
             **string**
@@ -46,7 +55,7 @@ apiPlayground:
           type: string
         listenerSpecs:
           description: |-
-            **[ListenerSpec](/docs/application-load-balancer/api-ref/LoadBalancer/create#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
+            **[ListenerSpec](#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
             Listeners that belong to the application load balancer.
             For details about the concept,
             see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener).
@@ -57,31 +66,31 @@ apiPlayground:
                 properties:
                   http:
                     description: |-
-                      **[HttpListener](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpListener)**
+                      **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
                       Unencrypted HTTP listener settings.
                       Includes only one of the fields `http`, `tls`, `stream`.
                       Listener type and settings.
                     $ref: '#/definitions/HttpListener'
                   tls:
                     description: |-
-                      **[TlsListener](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener)**
+                      **[TlsListener](#yandex.cloud.apploadbalancer.v1.TlsListener)**
                       TLS-encrypted HTTP or TCP stream listener settings.
-                      All handlers within a listener ([TlsListener.defaultHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
-                      type, [HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+                      All handlers within a listener ([TlsListener.defaultHandler](#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
+                      type, [HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
                       supported.
                       Includes only one of the fields `http`, `tls`, `stream`.
                       Listener type and settings.
                     $ref: '#/definitions/TlsListener'
                   stream:
                     description: |-
-                      **[StreamListener](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamListener)**
+                      **[StreamListener](#yandex.cloud.apploadbalancer.v1.StreamListener)**
                       Unencrypted stream (TCP) listener settings.
                       Includes only one of the fields `http`, `tls`, `stream`.
                       Listener type and settings.
                     $ref: '#/definitions/StreamListener'
         allocationPolicy:
           description: |-
-            **[AllocationPolicy](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AllocationPolicy)**
+            **[AllocationPolicy](#yandex.cloud.apploadbalancer.v1.AllocationPolicy)**
             Locality settings of the application load balancer.
             For details about the concept,
             see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location).
@@ -97,7 +106,7 @@ apiPlayground:
             type: string
         autoScalePolicy:
           description: |-
-            **[AutoScalePolicy](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AutoScalePolicy)**
+            **[AutoScalePolicy](#yandex.cloud.apploadbalancer.v1.AutoScalePolicy)**
             Scaling settings of the application load balancer.
             The scaling settings relate to a special internal instance group which facilitates the balancer's work.
             Instances in this group are called _resource units_. The group is scaled automatically based on incoming load
@@ -107,7 +116,7 @@ apiPlayground:
           $ref: '#/definitions/AutoScalePolicy'
         logOptions:
           description: |-
-            **[LogOptions](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions)**
             Cloud logging settings of the application load balancer.
           $ref: '#/definitions/LogOptions'
         allowZonalShift:
@@ -145,15 +154,15 @@ apiPlayground:
         properties:
           handler:
             description: |-
-              **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+              **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
               Settings for handling HTTP requests.
-              Only one of `handler` and [redirects](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpListener) can be specified.
+              Only one of `handler` and [redirects](#yandex.cloud.apploadbalancer.v1.HttpListener) can be specified.
             oneOf:
               - type: object
                 properties:
                   http2Options:
                     description: |-
-                      **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                      **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
                       HTTP/2 settings.
                       If specified, incoming HTTP/2 requests are supported by the listener.
                       Includes only one of the fields `http2Options`, `allowHttp10`.
@@ -172,7 +181,7 @@ apiPlayground:
                     type: boolean
           redirects:
             description: |-
-              **[Redirects](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Redirects)**
+              **[Redirects](#yandex.cloud.apploadbalancer.v1.Redirects)**
               Redirects settings.
               Only one of `redirects` and [handler](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest) can be specified.
             $ref: '#/definitions/Redirects'
@@ -213,14 +222,14 @@ apiPlayground:
               type: string
           handler:
             description: |-
-              **[TlsHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+              **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
               Required field. Settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest) values.
             oneOf:
               - type: object
                 properties:
                   httpHandler:
                     description: |-
-                      **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+                      **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
                       HTTP handler.
                       Includes only one of the fields `httpHandler`, `streamHandler`.
                       Settings for handling requests.
@@ -229,7 +238,7 @@ apiPlayground:
                         properties:
                           http2Options:
                             description: |-
-                              **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                              **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
                               HTTP/2 settings.
                               If specified, incoming HTTP/2 requests are supported by the listener.
                               Includes only one of the fields `http2Options`, `allowHttp10`.
@@ -248,7 +257,7 @@ apiPlayground:
                             type: boolean
                   streamHandler:
                     description: |-
-                      **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+                      **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
                       Stream (TCP) handler.
                       Includes only one of the fields `httpHandler`, `streamHandler`.
                       Settings for handling requests.
@@ -261,15 +270,15 @@ apiPlayground:
         properties:
           defaultHandler:
             description: |-
-              **[TlsHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+              **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
               Required field. Settings for handling requests by default, with Server Name
-              Indication (SNI) not matching any of the [sniHandlers](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener).
+              Indication (SNI) not matching any of the [sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener).
             oneOf:
               - type: object
                 properties:
                   httpHandler:
                     description: |-
-                      **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+                      **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
                       HTTP handler.
                       Includes only one of the fields `httpHandler`, `streamHandler`.
                       Settings for handling requests.
@@ -278,7 +287,7 @@ apiPlayground:
                         properties:
                           http2Options:
                             description: |-
-                              **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                              **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
                               HTTP/2 settings.
                               If specified, incoming HTTP/2 requests are supported by the listener.
                               Includes only one of the fields `http2Options`, `allowHttp10`.
@@ -297,16 +306,16 @@ apiPlayground:
                             type: boolean
                   streamHandler:
                     description: |-
-                      **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+                      **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
                       Stream (TCP) handler.
                       Includes only one of the fields `httpHandler`, `streamHandler`.
                       Settings for handling requests.
                     $ref: '#/definitions/StreamHandler'
           sniHandlers:
             description: |-
-              **[SniMatch](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.SniMatch)**
+              **[SniMatch](#yandex.cloud.apploadbalancer.v1.SniMatch)**
               Settings for handling requests with Server Name Indication (SNI)
-              matching one of [SniMatch.serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.SniMatch) values.
+              matching one of [SniMatch.serverNames](#yandex.cloud.apploadbalancer.v1.SniMatch) values.
             type: array
             items:
               $ref: '#/definitions/SniMatch'
@@ -317,7 +326,7 @@ apiPlayground:
         properties:
           handler:
             description: |-
-              **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+              **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
               Required field. Settings for handling stream (TCP) requests.
             $ref: '#/definitions/StreamHandler'
         required:
@@ -348,7 +357,7 @@ apiPlayground:
             description: |-
               **boolean**
               Show zonal shift status for the location.
-              Deprecated: use [zonalTrafficDisabled](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Location) below to track traffic status.
+              Deprecated: use [zonalTrafficDisabled](#yandex.cloud.apploadbalancer.v1.Location) below to track traffic status.
             deprecated: true
             type: boolean
           zonalTrafficDisabled:
@@ -364,7 +373,7 @@ apiPlayground:
         properties:
           locations:
             description: |-
-              **[Location](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Location)**
+              **[Location](#yandex.cloud.apploadbalancer.v1.Location)**
               Availability zones and subnets that the application load balancer resides.
             uniqueItems: true
             type: array
@@ -386,8 +395,8 @@ apiPlayground:
             description: |-
               **string** (int64)
               Upper limit for the total number of resource units across all availability zones.
-              If a positive value is specified, it must be at least [minZoneSize](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AutoScalePolicy) multiplied by the size of
-              [AllocationPolicy.locations](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
+              If a positive value is specified, it must be at least [minZoneSize](#yandex.cloud.apploadbalancer.v1.AutoScalePolicy) multiplied by the size of
+              [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
               If the value is 0, there is no upper limit.
             type: string
             format: int64
@@ -563,7 +572,7 @@ apiPlayground:
             type: string
           discardRules:
             description: |-
-              **[LogDiscardRule](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.LogDiscardRule)**
+              **[LogDiscardRule](#yandex.cloud.apploadbalancer.v1.LogDiscardRule)**
               ordered list of rules, first matching rule applies
             type: array
             items:

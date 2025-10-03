@@ -34,7 +34,7 @@ apiPlayground:
           type: string
         samples:
           description: |-
-            **[ClassificationSample](/docs/foundation-models/text-classification/api-ref/TextClassification/fewShotClassify#yandex.cloud.ai.foundation_models.v1.text_classification.ClassificationSample)**
+            **[ClassificationSample](#yandex.cloud.ai.foundation_models.v1.text_classification.ClassificationSample)**
             Optional set of text samples with expected labels that may be used as an additional hint for the classifier.
           type: array
           items:

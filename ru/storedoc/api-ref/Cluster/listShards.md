@@ -22,7 +22,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListClusterShardsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse)
+            results is larger than `pageSize`, the service returns a [ListClusterShardsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -30,7 +30,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListClusterShardsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) returned by the previous list request.
+            [ListClusterShardsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) returned by the previous list request.
           type: string
       additionalProperties: false
     body: null

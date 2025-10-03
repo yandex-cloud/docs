@@ -20,7 +20,7 @@ apiPlayground:
       properties:
         extensionSpec:
           description: |-
-            **[ExtensionSpec](/docs/managed-opensearch/api-ref/Extension/create#yandex.cloud.mdb.opensearch.v1.ExtensionSpec)**
+            **[ExtensionSpec](#yandex.cloud.mdb.opensearch.v1.ExtensionSpec)**
             Required field. 
           $ref: '#/definitions/ExtensionSpec'
       required:

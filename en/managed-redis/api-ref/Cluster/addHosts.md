@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
             Configurations for Redis hosts that should be added to the cluster.
           type: array
           items:

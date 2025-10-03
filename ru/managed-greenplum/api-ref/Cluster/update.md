@@ -43,8 +43,15 @@ apiPlayground:
             For example, `"project":"mvp"` or `"source":"dictionary"`.
             The new set of labels completely replaces the old one.
             To add a label, request the current set with the [ClusterService.Get](/docs/managed-greenplum/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         name:
           description: |-
             **string**
@@ -53,17 +60,17 @@ apiPlayground:
           type: string
         config:
           description: |-
-            **[GreenplumConfig](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig)**
+            **[GreenplumConfig](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig)**
             The Greenplum® cluster configuration.
           $ref: '#/definitions/GreenplumConfig'
         masterConfig:
           description: |-
-            **[MasterSubclusterConfigSpec](/docs/managed-greenplum/api-ref/Cluster/create#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec)**
+            **[MasterSubclusterConfigSpec](#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec)**
             Configuration of the Greenplum® master subcluster.
           $ref: '#/definitions/MasterSubclusterConfigSpec'
         segmentConfig:
           description: |-
-            **[SegmentSubclusterConfigSpec](/docs/managed-greenplum/api-ref/Cluster/create#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfigSpec)**
+            **[SegmentSubclusterConfigSpec](#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfigSpec)**
             Configuration of the Greenplum® segment subcluster.
           $ref: '#/definitions/SegmentSubclusterConfigSpec'
         userPassword:
@@ -78,7 +85,7 @@ apiPlayground:
           type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
             The Greenplum® cluster maintenance window. Should be defined by either one of the two options.
           oneOf:
             - type: object
@@ -91,7 +98,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
                     A weekly maintenance window.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
@@ -109,39 +116,39 @@ apiPlayground:
           type: boolean
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-greenplum/api-ref/Cluster/create#yandex.cloud.mdb.greenplum.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.greenplum.v1.ConfigSpec)**
             Settings of the Greenplum® cluster.
           oneOf:
             - type: object
               properties:
                 greenplumConfig_6_17:
                   description: |-
-                    **[GreenplumConfig6_17](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17)**
+                    **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17)**
                     Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
                   $ref: '#/definitions/GreenplumConfig6_17'
                 greenplumConfig_6_19:
                   description: |-
-                    **[GreenplumConfig6_19](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19)**
+                    **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19)**
                     Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
                   $ref: '#/definitions/GreenplumConfig6_19'
                 greenplumConfig_6_21:
                   description: |-
-                    **[GreenplumConfig6_21](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21)**
+                    **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21)**
                     Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
                   $ref: '#/definitions/GreenplumConfig6_21'
                 greenplumConfig_6_22:
                   description: |-
-                    **[GreenplumConfig6_22](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
+                    **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
                     Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
                   $ref: '#/definitions/GreenplumConfig6_22'
                 greenplumConfig_6:
                   description: |-
-                    **[GreenplumConfig6](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
+                    **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
                     Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
                   $ref: '#/definitions/GreenplumConfig6'
         cloudStorage:
           description: |-
-            **[CloudStorage](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
+            **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
             Cloud storage settings
           $ref: '#/definitions/CloudStorage'
         serviceAccountId:
@@ -151,7 +158,7 @@ apiPlayground:
           type: string
         logging:
           description: |-
-            **[LoggingConfig](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
+            **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
             Cloud logging configuration
           oneOf:
             - type: object
@@ -234,7 +241,7 @@ apiPlayground:
             type: string
           backupWindowStart:
             description: |-
-              **`TimeOfDay`**
+              **[TimeOfDay](#google.type.TimeOfDay)**
               Time to start the daily backup, in the UTC timezone.
             $ref: '#/definitions/TimeOfDay'
           backupRetainPeriodDays:
@@ -245,7 +252,7 @@ apiPlayground:
             format: int64
           access:
             description: |-
-              **[Access](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Access)**
+              **[Access](#yandex.cloud.mdb.greenplum.v1.Access)**
               Access policy for external services.
             $ref: '#/definitions/Access'
           zoneId:
@@ -257,7 +264,7 @@ apiPlayground:
           subnetId:
             description: |-
               **string**
-              ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Cluster)).
+              ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](#yandex.cloud.mdb.greenplum.v1.Cluster)).
             type: string
           assignPublicIp:
             description: |-
@@ -290,7 +297,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.greenplum.v1.Resources)**
               Resources allocated to Greenplum® master subcluster hosts.
             $ref: '#/definitions/Resources'
       SegmentSubclusterConfigSpec:
@@ -298,7 +305,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.greenplum.v1.Resources)**
               Resources allocated to Greenplum® segment subcluster hosts.
             $ref: '#/definitions/Resources'
       AnytimeMaintenanceWindow:
@@ -454,8 +461,8 @@ apiPlayground:
               **string** (int64)
               The maximum memory limit for a query, in bytes.
               Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
-              Taking into account the configuration of a single segment host, calculate [maxStatementMem](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
-              When changing both [maxStatementMem](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) and `statement_mem`, [maxStatementMem](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) must be changed first, or listed first in the `postgresql.conf` file.
+              Taking into account the configuration of a single segment host, calculate [maxStatementMem](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+              When changing both [maxStatementMem](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) and `statement_mem`, [maxStatementMem](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) must be changed first, or listed first in the `postgresql.conf` file.
               Default value is 2097152000 (2000 MB).
               More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
             type: string

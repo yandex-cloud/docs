@@ -63,7 +63,7 @@ apiPlayground:
         recordToken:
           description: |-
             **string**
-            Record token. Set `recordToken` to the [StreamLogRecord.nextRecordToken](/docs/managed-clickhouse/api-ref/Cluster/streamLogs#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
+            Record token. Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
             request to start streaming from next log record.
           type: string
         filter:

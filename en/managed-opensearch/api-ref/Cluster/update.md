@@ -43,11 +43,20 @@ apiPlayground:
             For example, `"project": "mvp"` or `"source": "dictionary"`.
             The new set of labels completely replaces the old one. To add a label, request the current
             set with the [ClusterService.Get](/docs/managed-opensearch/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         configSpec:
           description: |-
-            **[ConfigUpdateSpec](/docs/managed-opensearch/api-ref/Cluster/update#yandex.cloud.mdb.opensearch.v1.ConfigUpdateSpec)**
+            **[ConfigUpdateSpec](#yandex.cloud.mdb.opensearch.v1.ConfigUpdateSpec)**
             New cluster configuration
           $ref: '#/definitions/ConfigUpdateSpec'
         name:
@@ -75,7 +84,7 @@ apiPlayground:
           type: boolean
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
             Cluster maintenance window. Should be defined by either one of the two options.
           oneOf:
             - type: object
@@ -88,7 +97,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
                     A weekly maintenance window.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
@@ -198,26 +207,26 @@ apiPlayground:
         properties:
           snapshotSchedule:
             description: |-
-              **[SnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
+              **[SnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
               Snapshot creation schedule
             oneOf:
               - type: object
                 properties:
                   hourlySnapshotSchedule:
                     description: |-
-                      **[HourlySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
+                      **[HourlySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
                       Hourly based snapshot schedule
                       Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
                     $ref: '#/definitions/HourlySnapshotSchedule'
                   dailySnapshotSchedule:
                     description: |-
-                      **[DailySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
+                      **[DailySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
                       Daily based snapshot schedule
                       Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
                     $ref: '#/definitions/DailySnapshotSchedule'
                   weeklySnapshotSchedule:
                     description: |-
-                      **[WeeklySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
+                      **[WeeklySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
                       Weekly based snapshot schedule
                       Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
                     $ref: '#/definitions/WeeklySnapshotSchedule'
@@ -242,14 +251,14 @@ apiPlayground:
             type: string
           opensearchSpec:
             description: |-
-              **[OpenSearchClusterUpdateSpec](/docs/managed-opensearch/api-ref/Cluster/update#yandex.cloud.mdb.opensearch.v1.OpenSearchClusterUpdateSpec)**
+              **[OpenSearchClusterUpdateSpec](#yandex.cloud.mdb.opensearch.v1.OpenSearchClusterUpdateSpec)**
               OpenSearch configuration.
             oneOf:
               - type: object
                 properties:
                   opensearchConfig_2:
                     description: |-
-                      **`OpenSearchConfig2`**
+                      **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
                       Includes only one of the fields `opensearchConfig_2`.
                     $ref: '#/definitions/OpenSearchConfig2'
           dashboardsSpec:
@@ -259,12 +268,12 @@ apiPlayground:
             $ref: '#/definitions/DashboardsClusterUpdateSpec'
           access:
             description: |-
-              **[Access](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Access)**
+              **[Access](#yandex.cloud.mdb.opensearch.v1.Access)**
               Access policy for external services.
             $ref: '#/definitions/Access'
           snapshotManagement:
             description: |-
-              **[SnapshotManagement](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
+              **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
               Snapshot management configuration
             $ref: '#/definitions/SnapshotManagement'
         required:

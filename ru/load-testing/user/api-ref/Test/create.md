@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         configurations:
           description: |-
-            **`SingleAgentConfiguration`**
+            **[SingleAgentConfiguration](#yandex.cloud.loadtesting.api.v1.test.SingleAgentConfiguration)**
             Test configuration associated with agents on which they will be executed.
             In case of multiple configurations, a multitest will be created.
           type: array
@@ -23,13 +23,26 @@ apiPlayground:
             $ref: '#/definitions/SingleAgentConfiguration'
         testDetails:
           description: |-
-            **`Details`**
+            **[Details](#yandex.cloud.loadtesting.api.v1.test.Details)**
             Test details. Name, tags etc.
           $ref: '#/definitions/Details'
       required:
         - folderId
       additionalProperties: false
     definitions:
+      ObjectStorage:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Bucket name.
+            type: string
+          name:
+            description: |-
+              **string**
+              File name.
+            type: string
       SingleAgentConfiguration:
         type: object
         properties:
@@ -40,7 +53,7 @@ apiPlayground:
             type: string
           agentSelector:
             description: |-
-              **`AgentSelector`**
+              **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
               Agent selection criterion.
             oneOf:
               - type: object
@@ -65,7 +78,7 @@ apiPlayground:
                     type: boolean
           files:
             description: |-
-              **object** (map<**string**, **`FilePointer`**>)
+              **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
               Additional files to be used during test execution, represented as `rel_path:file` pairs.
               `rel_path` can be either a simple file name, a relative path, or absolute path. Files are
               downloaded by the agent to appropriate location.
@@ -76,7 +89,15 @@ apiPlayground:
               - etc.
             type: object
             additionalProperties:
-              type: string
+              oneOf:
+                - type: object
+                  properties:
+                    objectStorage:
+                      description: |-
+                        **[ObjectStorage](#yandex.cloud.loadtesting.api.v1.test.ObjectStorage)**
+                        Reference to a file in Object Storage.
+                        Includes only one of the fields `objectStorage`.
+                      $ref: '#/definitions/ObjectStorage'
       Tag:
         type: object
         properties:
@@ -106,7 +127,7 @@ apiPlayground:
             type: string
           tags:
             description: |-
-              **`Tag`**
+              **[Tag](#yandex.cloud.loadtesting.api.v1.common.Tag)**
               Tags assigned to the test.
             type: array
             items:
@@ -118,7 +139,7 @@ apiPlayground:
             type: string
           artifactSettings:
             description: |-
-              **`ArtifactSettings`**
+              **[ArtifactSettings](#yandex.cloud.loadtesting.api.v1.test.ArtifactSettings)**
               Settings which define where to upload test artifacts and which files should be included.
             oneOf:
               - type: object

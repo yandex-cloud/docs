@@ -18,22 +18,23 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListSubnetsResponse.nextPageToken](/docs/vpc/api-ref/Subnet/list#yandex.cloud.vpc.v1.ListSubnetsResponse)
+            the service returns a [ListSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetsResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListSubnetsResponse.nextPageToken](/docs/vpc/api-ref/Subnet/list#yandex.cloud.vpc.v1.ListSubnetsResponse) returned by a previous list request.
+            [ListSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on [Subnet.name](/docs/vpc/api-ref/Network/listSubnets#yandex.cloud.vpc.v1.Subnet) field.
+            1. The field name. Currently you can use filtering only on [Subnet.name](#yandex.cloud.vpc.v1.Subnet) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
           type: string

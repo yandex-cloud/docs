@@ -43,7 +43,7 @@ apiPlayground:
           type: string
         rules:
           description: |-
-            **[ScanRules](/docs/container-registry/api-ref/ScanPolicy/get#yandex.cloud.containerregistry.v1.ScanRules)**
+            **[ScanRules](#yandex.cloud.containerregistry.v1.ScanRules)**
             Rules of the scan policy.
           $ref: '#/definitions/ScanRules'
       additionalProperties: false
@@ -93,12 +93,12 @@ apiPlayground:
         properties:
           pushRule:
             description: |-
-              **[PushRule](/docs/container-registry/api-ref/ScanPolicy/get#yandex.cloud.containerregistry.v1.PushRule)**
+              **[PushRule](#yandex.cloud.containerregistry.v1.PushRule)**
               Description of on-push scan rule.
             $ref: '#/definitions/PushRule'
           scheduleRules:
             description: |-
-              **[ScheduledRule](/docs/container-registry/api-ref/ScanPolicy/get#yandex.cloud.containerregistry.v1.ScheduledRule)**
+              **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule)**
               Description of time based rescan rule.
             type: array
             items:

@@ -19,13 +19,14 @@ apiPlayground:
             If the number of available results is larger than `page_size`,
             the service returns a next_page_token.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListPolicyResponse.nextPageToken](/docs/certificate-manager/private-ca/api-ref/Policy/list#yandex.cloud.certificatemanager.v1.privateca.ListPolicyResponse) returned by a previous list request.
+            [ListPolicyResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.privateca.ListPolicyResponse) returned by a previous list request.
           type: string
       required:
         - certificateAuthorityId

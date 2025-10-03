@@ -26,7 +26,7 @@ apiPlayground:
           type: string
         content:
           description: |-
-            **`Content`**
+            **[Content](#yandex.cloud.loadtesting.api.v1.regression.Dashboard.Content)**
             Content of the dashboard.
           $ref: '#/definitions/Content'
       required:
@@ -164,20 +164,20 @@ apiPlayground:
         properties:
           selector:
             description: |-
-              **`KpiSelector`**
+              **[KpiSelector](#yandex.cloud.loadtesting.api.v1.report.KpiSelector)**
               Kind of KPI.
             oneOf:
               - type: object
                 properties:
                   responseTime:
                     description: |-
-                      **`ResponseTime`**
+                      **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
                       Response time cummulative quantile (percentile).
                       Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
                     $ref: '#/definitions/ResponseTime'
                   instances:
                     description: |-
-                      **`Instances`**
+                      **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
                       A number of instances throughout the test.
                       Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
                     $ref: '#/definitions/Instances'
@@ -189,31 +189,31 @@ apiPlayground:
                     $ref: '#/definitions/ImbalanceRps'
                   protocolCodesAbsolute:
                     description: |-
-                      **`ProtocolCodesAbsolute`**
+                      **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
                       A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
                       Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
                     $ref: '#/definitions/ProtocolCodesAbsolute'
                   protocolCodesRelative:
                     description: |-
-                      **`ProtocolCodesRelative`**
+                      **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
                       A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
                       Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
                     $ref: '#/definitions/ProtocolCodesRelative'
                   networkCodesAbsolute:
                     description: |-
-                      **`NetworkCodesAbsolute`**
+                      **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
                       A total number of requests completed with certain network codes.
                       Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
                     $ref: '#/definitions/NetworkCodesAbsolute'
                   networkCodesRelative:
                     description: |-
-                      **`NetworkCodesRelative`**
+                      **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
                       A percentage of requests completed with certain network codes.
                       Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
                     $ref: '#/definitions/NetworkCodesRelative'
           threshold:
             description: |-
-              **`KpiThreshold`**
+              **[KpiThreshold](#yandex.cloud.loadtesting.api.v1.report.KpiThreshold)**
               A condition that should be specified.
             $ref: '#/definitions/KpiThreshold'
       ChartWidget:
@@ -246,7 +246,7 @@ apiPlayground:
             type: string
           kpis:
             description: |-
-              **`Kpi`**
+              **[Kpi](#yandex.cloud.loadtesting.api.v1.report.Kpi)**
               KPIs to show.
             type: array
             items:
@@ -288,7 +288,7 @@ apiPlayground:
         properties:
           widgets:
             description: |-
-              **`Widget`**
+              **[Widget](#yandex.cloud.loadtesting.api.v1.regression.Widget)**
               Widgets.
             type: array
             items:
@@ -297,19 +297,19 @@ apiPlayground:
                   properties:
                     chart:
                       description: |-
-                        **`ChartWidget`**
+                        **[ChartWidget](#yandex.cloud.loadtesting.api.v1.regression.ChartWidget)**
                         Chart widget.
                         Includes only one of the fields `chart`, `text`, `title`.
                       $ref: '#/definitions/ChartWidget'
                     text:
                       description: |-
-                        **`TextWidget`**
+                        **[TextWidget](#yandex.cloud.loadtesting.api.v1.regression.TextWidget)**
                         Text widget.
                         Includes only one of the fields `chart`, `text`, `title`.
                       $ref: '#/definitions/TextWidget'
                     title:
                       description: |-
-                        **`TitleWidget`**
+                        **[TitleWidget](#yandex.cloud.loadtesting.api.v1.regression.TitleWidget)**
                         Title widget.
                         Includes only one of the fields `chart`, `text`, `title`.
                       $ref: '#/definitions/TitleWidget'

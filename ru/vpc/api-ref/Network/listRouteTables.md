@@ -22,15 +22,16 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page that should be returned. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListNetworkRouteTablesResponse.nextPageToken](/docs/vpc/api-ref/Network/listRouteTables#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
+            the service returns a [ListNetworkRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. Set `pageToken`
-            to the [ListNetworkRouteTablesResponse.nextPageToken](/docs/vpc/api-ref/Network/listRouteTables#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
+            to the [ListNetworkRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
             returned by a previous list request to get the next page of results.
           type: string
       additionalProperties: false

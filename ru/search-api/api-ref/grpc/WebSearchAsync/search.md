@@ -34,7 +34,10 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
   "l10n": "Localization",
   "folder_id": "string",
   "response_format": "Format",
-  "user_agent": "string"
+  "user_agent": "string",
+  "metadata": {
+    "fields": "map<string, string>"
+  }
 }
 ```
 
@@ -79,6 +82,9 @@ Search results format.
 || user_agent | **string**
 
 User-Agent request header value. ||
+|| metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+
+Search flags ||
 |#
 
 ## SearchQuery {#yandex.cloud.searchapi.v2.SearchQuery}
@@ -158,6 +164,20 @@ Maximum number of groups that can be returned per page with search results. ||
 || docs_in_group | **int64**
 
 Maximum number of documents that can be returned per group. ||
+|#
+
+## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
+
+#|
+||Field | Description ||
+|| fields | **object** (map<**string**, **string**>)
+
+Search flags, `key:value` pairs.
+No more than 64.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

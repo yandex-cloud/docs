@@ -33,7 +33,7 @@
 | 100% vCPU | {{ sku|USD|compute_gpu.vm.cpu.c100.gpu-standard.v3|string }} | {{ sku|USD|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3|string }} | − | − |
 | 1 NVIDIA A100 GPU | {{ sku|USD|compute_gpu.vm.gpu.gpu-standard.v3|string }} | {{ sku|USD|compute_gpu.vm.gpu.gpu-standard.preemptible.v3|string }} | − | − |
 | RAM (for 1 GB) | {{ sku|USD|compute_gpu.vm.ram.gpu-standard.v3|string }} | {{ sku|USD|compute_gpu.vm.ram.gpu-standard.preemptible.v3|string }} | − | − |
-| **AMD EPYC™ 9474F with Gen2**^*^ | Regular VM | Preemptible&nbsp;VM  | | |
+| **Gen2**^*^ | Regular VM | Preemptible&nbsp;VM  | | |
 | 100% vCPU | {{ sku|USD|compute_gpu.vm.cpu.c100.gpu-standard.v3i|string }} | {{ sku|USD|compute_gpu.vm.cpu.c100.gpu-standard.preemptible.v3i|string }} | - | - |
 | 1 GPU | {{ sku|USD|compute_gpu.vm.gpu.gpu-standard.v3i|string }} | {{ sku|USD|compute_gpu.vm.gpu.gpu-standard.preemptible.v3i|string }} | - | - |
 | RAM (for 1 GB) | {{ sku|USD|compute_gpu.vm.ram.gpu-standard.v3i|string }} | {{ sku|USD|compute_gpu.vm.ram.gpu-standard.preemptible.v3i|string }} | - | - |

@@ -15,14 +15,14 @@ apiPlayground:
           type: string
         messages:
           description: |-
-            **[Message](/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate#yandex.cloud.ai.foundation_models.v1.image_generation.Message)**
+            **[Message](#yandex.cloud.ai.foundation_models.v1.image_generation.Message)**
             A list of messages representing the context for the image generation model.
           type: array
           items:
             $ref: '#/definitions/Message'
         generationOptions:
           description: |-
-            **[ImageGenerationOptions](/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions)**
+            **[ImageGenerationOptions](#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions)**
             Image generation options.
           $ref: '#/definitions/ImageGenerationOptions'
       additionalProperties: false
@@ -72,7 +72,7 @@ apiPlayground:
             format: int64
           aspectRatio:
             description: |-
-              **[AspectRatio](/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
+              **[AspectRatio](#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
               Aspect ratio of generated image.
             $ref: '#/definitions/AspectRatio'
 sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generation/api-ref/ImageGenerationAsync/generate.md

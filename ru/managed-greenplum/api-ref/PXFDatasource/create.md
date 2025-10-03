@@ -19,31 +19,31 @@ apiPlayground:
       type: object
       properties:
         datasource:
-          description: '**[PXFDatasource](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasource)**'
+          description: '**[PXFDatasource](#yandex.cloud.mdb.greenplum.v1.PXFDatasource)**'
           oneOf:
             - type: object
               properties:
                 s3:
                   description: |-
-                    **[PXFDatasourceS3](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
+                    **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
                     Settings of an external S3 data source.
                     Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
                   $ref: '#/definitions/PXFDatasourceS3'
                 jdbc:
                   description: |-
-                    **[PXFDatasourceJDBC](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC)**
+                    **[PXFDatasourceJDBC](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC)**
                     Settings of an external JDBC data source.
                     Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
                   $ref: '#/definitions/PXFDatasourceJDBC'
                 hdfs:
                   description: |-
-                    **[PXFDatasourceHDFS](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS)**
+                    **[PXFDatasourceHDFS](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS)**
                     Settings of an external HDFS data source.
                     Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
                   $ref: '#/definitions/PXFDatasourceHDFS'
                 hive:
                   description: |-
-                    **[PXFDatasourceHive](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive)**
+                    **[PXFDatasourceHive](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive)**
                     Settings of an external Hive data source.
                     Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
                   $ref: '#/definitions/PXFDatasourceHive'
@@ -217,6 +217,21 @@ apiPlayground:
               Base64 encoded contents of the keytab file.
             pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
             type: string
+      PXFDatasourceHDFSDfsNamenode:
+        type: object
+        properties:
+          rpcAddress:
+            description: '**string**'
+            type: string
+          serviceRpcAddress:
+            description: '**string**'
+            type: string
+          httpAddress:
+            description: '**string**'
+            type: string
+          httpsAddress:
+            description: '**string**'
+            type: string
       PXFDatasourceHDFSDfs:
         type: object
         properties:
@@ -239,17 +254,38 @@ apiPlayground:
             type: boolean
           namenodes:
             description: |-
-              **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**>)
+              **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**>)
               List of HDFS service logical names.
               Specify them separated by commas. The names can be arbitrary.
             type: object
             additionalProperties:
-              type: string
+              $ref: '#/definitions/PXFDatasourceHDFSDfsNamenode'
             maxProperties: 10000
           nameservices:
             description: |-
               **string**
               Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource
+            type: string
+      PXFDatasourceHDFSYarnHaRm:
+        type: object
+        properties:
+          resourcemanagerAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerSchedulerAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerResourceTrackerAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerAdminAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerWebappAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerWebappHttpsAddress:
+            description: '**string**'
             type: string
       PXFDatasourceHDFSYarn:
         type: object
@@ -278,23 +314,23 @@ apiPlayground:
             type: string
           haRm:
             description: |-
-              **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
+              **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
               Highly available ResourceManager service.
             type: object
             additionalProperties:
-              type: string
+              $ref: '#/definitions/PXFDatasourceHDFSYarnHaRm'
             maxProperties: 10000
       PXFDatasourceHDFS:
         type: object
         properties:
           core:
             description: |-
-              **[PXFDatasourceCore](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceCore)**
+              **[PXFDatasourceCore](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceCore)**
               Settings of the file system and security rules.
             $ref: '#/definitions/PXFDatasourceCore'
           kerberos:
             description: |-
-              **[PXFDatasourceKerberos](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
+              **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
               Settings of the Kerberos network authentication protocol.
             $ref: '#/definitions/PXFDatasourceKerberos'
           userImpersonation:
@@ -325,12 +361,12 @@ apiPlayground:
               type: string
           dfs:
             description: |-
-              **[PXFDatasourceHDFSDfs](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs)**
+              **[PXFDatasourceHDFSDfs](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs)**
               Settings of the distributed file system.
             $ref: '#/definitions/PXFDatasourceHDFSDfs'
           yarn:
             description: |-
-              **[PXFDatasourceHDFSYarn](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn)**
+              **[PXFDatasourceHDFSYarn](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn)**
               Settings of the ResourceManager service that is responsible for tracking resources in a cluster and scheduling applications (e.g., MapReduce jobs).
             $ref: '#/definitions/PXFDatasourceHDFSYarn'
       PXFDatasourceHive:
@@ -338,12 +374,12 @@ apiPlayground:
         properties:
           core:
             description: |-
-              **[PXFDatasourceCore](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceCore)**
+              **[PXFDatasourceCore](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceCore)**
               Settings of the file system and security rules.
             $ref: '#/definitions/PXFDatasourceCore'
           kerberos:
             description: |-
-              **[PXFDatasourceKerberos](/docs/managed-greenplum/api-ref/PXFDatasource/list#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
+              **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
               Settings of the Kerberos network authentication protocol.
             $ref: '#/definitions/PXFDatasourceKerberos'
           userImpersonation:

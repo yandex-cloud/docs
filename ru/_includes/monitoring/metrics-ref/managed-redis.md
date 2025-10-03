@@ -240,7 +240,7 @@ subcluster_name | Имя подкластера
 | `redis_repl_backlog_size`<br/>`DGAUGE`, байты | Максимальный объем памяти, доступный под буфер репликации. | 
 | `redis_total_reads_processed`<br/>`DGAUGE`, штуки | Общее количество обработанных операций чтения. | 
 | `redis_total_writes_processed`<br/>`DGAUGE`, штуки | Общее количество обработанных операций записи. | 
-| `redis_used_memory`<br/>`DGAUGE`, байты| Фактическое использованием памяти на хосте. Если значение параметра `redis_used_memory` достигнет значения параметра `redis_used_memory`, при попытке вставить новые записи {{ mrd-full-name }} применит режим управления памятью, установленный настройкой [Maxmemory policy](../../../managed-redis/concepts/settings-list.md#settings-maxmemory-policy). | 
+| `redis_used_memory`<br/>`DGAUGE`, байты| Фактическое использованием памяти на хосте. Если значение параметра `redis_used_memory` достигнет значения параметра `redis_maxmemory`, при попытке вставить новые записи {{ mrd-full-name }} применит режим управления памятью, установленный настройкой [Maxmemory policy](../../../managed-redis/concepts/settings-list.md#settings-maxmemory-policy). | 
 | `redis_used_memory_dataset`<br/>`DGAUGE`, байты | Использование оперативной памяти для хранения данных. | 
 | `redis_used_memory_overhead`<br/>`DGAUGE`, байты | Объем оперативной памяти, используемый для внутренних структур данных и управления. | 
 | `redis_used_memory_rss`<br/>`DGAUGE`, байты | Использование памяти процессами Redis. | 

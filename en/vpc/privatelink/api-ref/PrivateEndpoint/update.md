@@ -54,11 +54,20 @@ apiPlayground:
             request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         addressSpec:
           description: |-
-            **[AddressSpec](/docs/vpc/privatelink/api-ref/PrivateEndpoint/create#yandex.cloud.vpc.v1.privatelink.AddressSpec)**
+            **[AddressSpec](#yandex.cloud.vpc.v1.privatelink.AddressSpec)**
             Private endpoint address specification.
           oneOf:
             - type: object
@@ -71,13 +80,13 @@ apiPlayground:
                   type: string
                 internalIpv4AddressSpec:
                   description: |-
-                    **[InternalIpv4AddressSpec](/docs/vpc/privatelink/api-ref/PrivateEndpoint/create#yandex.cloud.vpc.v1.privatelink.InternalIpv4AddressSpec)**
+                    **[InternalIpv4AddressSpec](#yandex.cloud.vpc.v1.privatelink.InternalIpv4AddressSpec)**
                     Internal ipv4 address specification.
                     Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
                   $ref: '#/definitions/InternalIpv4AddressSpec'
         dnsOptions:
           description: |-
-            **[DnsOptions](/docs/vpc/privatelink/api-ref/PrivateEndpoint/get#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
+            **[DnsOptions](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
             Private endpoint dns options.
           $ref: '#/definitions/DnsOptions'
       additionalProperties: false

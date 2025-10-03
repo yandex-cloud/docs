@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute-quotas) for the total number of `AMD EPYC™ 9474F with Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VM. To do this, use [{{ quota-manager-full-name }}](../../quota-manager/).
+Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute-quotas) for the total number of `Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VM. To do this, use [{{ quota-manager-full-name }}](../../quota-manager/).
 
 ### Required paid resources {#paid-resources}
 
@@ -55,7 +55,7 @@ The infrastructure support cost includes a fee for continuously running VMs and 
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` [disk type](../../compute/concepts/disk.md#disks_types) and set the size to at least `500 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md) and number of GPUs:
 
-         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `AMD Epyc 9474F with Gen2`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Gen2`.
          * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: `1`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 

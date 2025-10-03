@@ -21,16 +21,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListFederatedUserAccountsResponse.nextPageToken](/docs/organization/saml/api-ref/Federation/listUserAccounts#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
+            results is larger than `pageSize`, the service returns a [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListFederatedUserAccountsResponse.nextPageToken](/docs/organization/saml/api-ref/Federation/listUserAccounts#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
+            to the [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
             returned by a previous list request.
           type: string
         filter:
@@ -38,7 +39,7 @@ apiPlayground:
             **string**
             A filter expression that filters resources listed in the response.
             The expression must specify:
-            1. The field name. Currently you can use filtering only on the [nameId](/docs/organization/saml/api-ref/Federation/listUserAccounts#yandex.cloud.organizationmanager.v1.SamlUserAccount) field.
+            1. The field name. Currently you can use filtering only on the [nameId](#yandex.cloud.organizationmanager.v1.SamlUserAccount) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
             `[a-z0-9A-Z/@_.\-=+*\\]+`.

@@ -26,13 +26,13 @@ apiPlayground:
           type: string
         issuer:
           description: |-
-            **[Issuer](/docs/certificate-manager/private-ca/api-ref/PrivateCa/generateCsrForCertificateAuthority#yandex.cloud.certificatemanager.v1.privateca.Issuer)**
+            **[Issuer](#yandex.cloud.certificatemanager.v1.privateca.Issuer)**
             Required field. Specifies the Certificate Authority issuer.
             Required to define the issuer attributes for the CSR.
           $ref: '#/definitions/Issuer'
         subjectSpec:
           description: |-
-            **[Subject](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.Subject)**
+            **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
             Required field. Subject specifies the distinguished name (DN) fields for the CA (e.g., CN, O, etc.).
             This is a required field that defines the identity information of the certificate.
           $ref: '#/definitions/Subject'
@@ -280,11 +280,11 @@ apiPlayground:
         properties:
           baseRdn:
             description: |-
-              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
               Required field. 
             $ref: '#/definitions/BaseRDN'
           additionalRdn:
-            description: '**[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**'
+            description: '**[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**'
             $ref: '#/definitions/AdditionalRDN'
         required:
           - baseRdn
@@ -293,12 +293,12 @@ apiPlayground:
         properties:
           baseRdn:
             description: |-
-              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
               Required field. Most used field of subject
             $ref: '#/definitions/BaseRDN'
           additionalRdn:
             description: |-
-              **[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
+              **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
               Additional fields of subject
             $ref: '#/definitions/AdditionalRDN'
         required:

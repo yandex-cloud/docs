@@ -54,7 +54,7 @@ apiPlayground:
           description: |-
             **string**
             Record token.
-            Set `recordToken` to the [StreamLogRecord.nextRecordToken](/docs/managed-kafka/api-ref/Cluster/streamLogs#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record.
+            Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.kafka.v1.StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record.
           type: string
         filter:
           description: |-

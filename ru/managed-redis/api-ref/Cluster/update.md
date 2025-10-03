@@ -43,36 +43,43 @@ apiPlayground:
             For example, "project": "mvp" or "source": "dictionary".
             The new set of labels will completely replace the old ones. To add a label, request the current
             set with the [ClusterService.Get](/docs/managed-redis/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
             New configuration and resources for hosts in the cluster.
           oneOf:
             - type: object
               properties:
                 redisConfig_5_0:
                   description: |-
-                    **`RedisConfig5_0`**
+                    **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
                     Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
                     Configuration of a Redis cluster.
                   $ref: '#/definitions/RedisConfig5_0'
                 redisConfig_6_0:
                   description: |-
-                    **`RedisConfig6_0`**
+                    **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
                     Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
                     Configuration of a Redis cluster.
                   $ref: '#/definitions/RedisConfig6_0'
                 redisConfig_6_2:
                   description: |-
-                    **`RedisConfig6_2`**
+                    **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
                     Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
                     Configuration of a Redis cluster.
                   $ref: '#/definitions/RedisConfig6_2'
                 redisConfig_7_0:
                   description: |-
-                    **`RedisConfig7_0`**
+                    **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
                     Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
                     Configuration of a Redis cluster.
                   $ref: '#/definitions/RedisConfig7_0'
@@ -84,7 +91,7 @@ apiPlayground:
           type: string
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
             New maintenance window settings for the cluster.
           oneOf:
             - type: object
@@ -98,7 +105,7 @@ apiPlayground:
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
                     Maintenance operation can be scheduled on a weekly basis.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                     The maintenance policy in effect.
@@ -236,12 +243,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
       RedisConfig6_0:
@@ -315,12 +322,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
       RedisConfig6_2:
@@ -394,12 +401,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -479,12 +486,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **`ClientOutputBufferLimit`**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -693,7 +700,20 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
       "emergencyUsageThreshold": "string",
       "diskSizeLimit": "string"
     },
-    "backupRetainPeriodDays": "string"
+    "backupRetainPeriodDays": "string",
+    "modules": {
+      "valkeySearch": {
+        "enabled": "boolean",
+        "readerThreads": "string",
+        "writerThreads": "string"
+      },
+      "valkeyJson": {
+        "enabled": "boolean"
+      },
+      "valkeyBloom": {
+        "enabled": "boolean"
+      }
+    }
   },
   "name": "string",
   "maintenanceWindow": {
@@ -816,6 +836,9 @@ Disk size autoscaling settings ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retain period of automatically created backup in days ||
+|| modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
+
+Valkey modules settings ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -1279,6 +1302,54 @@ Amount of used storage for immediately  automatic disk scaling, 0 means disabled
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
+## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules}
+
+#|
+||Field | Description ||
+|| valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
+
+valkey-search module settings ||
+|| valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
+
+valkey-json module settings ||
+|| valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
+
+valkey-bloom module settings ||
+|#
+
+## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-search module ||
+|| readerThreads | **string** (int64)
+
+Controls the amount of threads executing queries ||
+|| writerThreads | **string** (int64)
+
+Controls the amount of threads processing index mutations ||
+|#
+
+## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-json module ||
+|#
+
+## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-bloom module ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}
 
 A maintenance window settings.
@@ -1732,7 +1803,20 @@ Hour of the day in UTC (in `HH` format). ||
         "emergencyUsageThreshold": "string",
         "diskSizeLimit": "string"
       },
-      "backupRetainPeriodDays": "string"
+      "backupRetainPeriodDays": "string",
+      "modules": {
+        "valkeySearch": {
+          "enabled": "boolean",
+          "readerThreads": "string",
+          "writerThreads": "string"
+        },
+        "valkeyJson": {
+          "enabled": "boolean"
+        },
+        "valkeyBloom": {
+          "enabled": "boolean"
+        }
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -2035,6 +2119,9 @@ Disk size autoscaling settings ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retain period of automatically created backup in days ||
+|| modules | **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules2)**
+
+Valkey modules settings ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -2576,6 +2663,54 @@ Amount of used storage for immediately  automatic disk scaling, 0 means disabled
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
+|#
+
+## ValkeyModules {#yandex.cloud.mdb.redis.v1.ValkeyModules2}
+
+#|
+||Field | Description ||
+|| valkeySearch | **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch2)**
+
+valkey-search module settings ||
+|| valkeyJson | **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson2)**
+
+valkey-json module settings ||
+|| valkeyBloom | **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom2)**
+
+valkey-bloom module settings ||
+|#
+
+## ValkeySearch {#yandex.cloud.mdb.redis.v1.ValkeySearch2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-search module ||
+|| readerThreads | **string** (int64)
+
+Controls the amount of threads executing queries ||
+|| writerThreads | **string** (int64)
+
+Controls the amount of threads processing index mutations ||
+|#
+
+## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-json module ||
+|#
+
+## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable valkey-bloom module ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow2}

@@ -17,7 +17,7 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return. If the number of available
             results is larger than `page_size`, the service returns
-            a [ListDryRunLifecyclePolicyResultsResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) that can be used to get
+            a [ListDryRunLifecyclePolicyResultsResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) that can be used to get
             the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,7 +25,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListDryRunLifecyclePolicyResultsResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) returned by a previous list request.
+            [ListDryRunLifecyclePolicyResultsResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) returned by a previous list request.
           type: string
         filter:
           description: |-
@@ -39,7 +39,7 @@ apiPlayground:
         orderBy:
           description: |-
             **string**
-            Sorting the list by [DryRunLifecyclePolicyResult.runAt](/docs/container-registry/api-ref/LifecyclePolicy/getDryRunResult#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) and [DryRunLifecyclePolicyResult.affectedImagesCount](/docs/container-registry/api-ref/LifecyclePolicy/getDryRunResult#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) fields.
+            Sorting the list by [DryRunLifecyclePolicyResult.runAt](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) and [DryRunLifecyclePolicyResult.affectedImagesCount](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) fields.
             The default sorting order is ascending.
           type: string
       required:

@@ -757,7 +757,8 @@ Description of the endpoint. ||
 
 Endpoint labels as `key:value` pairs.
 
-For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)** ||
 |#
 

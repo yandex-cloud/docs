@@ -31,6 +31,8 @@
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
 ## Отказоустойчивость кластера {#high-availability}
 
 Чтобы обеспечить надежность хранения и бесперебойную доступность данных в кластере, он должен удовлетворять следующим требованиям:

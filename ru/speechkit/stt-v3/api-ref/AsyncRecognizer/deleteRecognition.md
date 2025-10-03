@@ -18,6 +18,8 @@ sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/deleteRecogniti
 
 # SpeechKit Recognition API v3, REST: AsyncRecognizer.DeleteRecognition
 
+Deletes results of asynchronous recognition by operation ID.
+
 ## HTTP request
 
 ```

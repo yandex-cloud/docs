@@ -28,7 +28,7 @@ apiPlayground:
           type: string
         vrfOptionsSpec:
           description: |-
-            **[VrfOptionsSpec](/docs/baremetal/api-ref/PrivateSubnet/create#yandex.cloud.baremetal.v1alpha.VrfOptionsSpec)**
+            **[VrfOptionsSpec](#yandex.cloud.baremetal.v1alpha.VrfOptionsSpec)**
             VRF options. Optional.
           $ref: '#/definitions/VrfOptionsSpec'
         folderId:
@@ -42,8 +42,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       additionalProperties: false
     definitions:
       DhcpOptionsSpec:
@@ -75,7 +84,7 @@ apiPlayground:
             type: string
           dhcpOptions:
             description: |-
-              **[DhcpOptionsSpec](/docs/baremetal/api-ref/PrivateSubnet/create#yandex.cloud.baremetal.v1alpha.DhcpOptionsSpec)**
+              **[DhcpOptionsSpec](#yandex.cloud.baremetal.v1alpha.DhcpOptionsSpec)**
               DHCP options for the subnet.
               The absence or null value indicates that DHCP is disabled.
             $ref: '#/definitions/DhcpOptionsSpec'

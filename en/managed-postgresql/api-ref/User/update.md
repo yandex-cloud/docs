@@ -46,7 +46,7 @@ apiPlayground:
           type: string
         permissions:
           description: |-
-            **[Permission](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.Permission)**
+            **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
             Set of permissions granted to the user to access specific databases.
           type: array
           items:
@@ -61,7 +61,7 @@ apiPlayground:
           type: string
           format: int64
         settings:
-          description: '**[UserSettings](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings)**'
+          description: '**[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**'
           $ref: '#/definitions/UserSettings'
         login:
           description: |-
@@ -295,7 +295,7 @@ apiPlayground:
             format: int64
           pgaudit:
             description: |-
-              **[PGAuditSettings](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
+              **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
               Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
             $ref: '#/definitions/PGAuditSettings'
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/update.md

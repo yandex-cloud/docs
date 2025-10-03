@@ -52,11 +52,18 @@ apiPlayground:
             New custom labels for the channel as `key:value` pairs.
             Maximum 64 labels per channel.
             If provided, replaces all existing labels.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
         settings:
           description: |-
-            **[ChannelSettings](/docs/video/api-ref/Channel/get#yandex.cloud.video.v1.ChannelSettings)**
+            **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
             New configuration settings for the channel's behavior and features.
           $ref: '#/definitions/ChannelSettings'
       required:
@@ -114,7 +121,7 @@ apiPlayground:
         properties:
           advertisement:
             description: |-
-              **[AdvertisementSettings](/docs/video/api-ref/Channel/get#yandex.cloud.video.v1.AdvertisementSettings)**
+              **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings)**
               Settings for advertisement display and behavior.
               Controls whether and how advertisements are shown with content in this channel.
               If not specified, default advertisement settings are applied.
@@ -123,7 +130,7 @@ apiPlayground:
                 properties:
                   yandexDirect:
                     description: |-
-                      **[YandexDirect](/docs/video/api-ref/Channel/get#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+                      **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
                       Yandex.Direct advertisement provider settings.
                       When specified, advertisements will be served through Yandex.Direct.
                       Includes only one of the fields `yandexDirect`.
@@ -132,7 +139,7 @@ apiPlayground:
                     $ref: '#/definitions/YandexDirect'
           refererVerification:
             description: |-
-              **[RefererVerificationSettings](/docs/video/api-ref/Channel/get#yandex.cloud.video.v1.RefererVerificationSettings)**
+              **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**
               Settings for HTTP Referer verification to control content embedding.
               Restricts which domains can embed content from this channel.
               If not specified or disabled, content can be embedded on any domain.

@@ -45,7 +45,7 @@ Required field. ID of the folder to create a registry in.
 To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || name | **string**
 
-Required field. Name of the registry. The name must be unique within the folder. ||
+Name of the registry. The name must be unique within the folder. ||
 || description | **string**
 
 Description of the registry. ||

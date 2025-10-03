@@ -22,7 +22,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `page_token` to the
-            [ListBusesResponse.nextPageToken](/docs/serverless-integrations/eventrouter/api-ref/Bus/list#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request.
+            [ListBusesResponse.nextPageToken](#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request.
           type: string
         filter:
           description: |-

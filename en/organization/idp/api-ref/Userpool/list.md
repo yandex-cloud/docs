@@ -17,16 +17,17 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page to return.
             If the number of available results is larger than `pageSize`,
-            the service returns a [ListUserpoolsResponse.nextPageToken](/docs/organization/idp/api-ref/Userpool/list#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
+            the service returns a [ListUserpoolsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListUserpoolsResponse.nextPageToken](/docs/organization/idp/api-ref/Userpool/list#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
+            to the [ListUserpoolsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.idp.ListUserpoolsResponse)
             returned by a previous list request.
           type: string
         filter:

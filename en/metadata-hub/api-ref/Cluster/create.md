@@ -30,8 +30,17 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the Metastore Cluster as `` key:value `` pairs.
             For example: {"env": "prod"}.
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         deletionProtection:
           description: |-
             **boolean**
@@ -44,17 +53,17 @@ apiPlayground:
           type: string
         configSpec:
           description: |-
-            **[ConfigSpec](/docs/managed-metastore/api-ref/Cluster/create#yandex.cloud.metastore.v1.ConfigSpec)**
+            **[ConfigSpec](#yandex.cloud.metastore.v1.ConfigSpec)**
             Configuration of the Metastore Cluster.
           $ref: '#/definitions/ConfigSpec'
         serviceAccountId:
           description: |-
             **string**
-            Service account used to access Cloud resources.
+            Required field. Service account used to access Cloud resources.
           type: string
         logging:
           description: |-
-            **[LoggingConfig](/docs/managed-metastore/api-ref/Cluster/get#yandex.cloud.metastore.v1.LoggingConfig)**
+            **[LoggingConfig](#yandex.cloud.metastore.v1.LoggingConfig)**
             Cloud logging configuration.
           oneOf:
             - type: object
@@ -77,12 +86,12 @@ apiPlayground:
                   type: string
         network:
           description: |-
-            **[NetworkConfig](/docs/managed-metastore/api-ref/Cluster/get#yandex.cloud.metastore.v1.NetworkConfig)**
+            **[NetworkConfig](#yandex.cloud.metastore.v1.NetworkConfig)**
             Network-related configuration options.
           $ref: '#/definitions/NetworkConfig'
         maintenanceWindow:
           description: |-
-            **[MaintenanceWindow](/docs/managed-metastore/api-ref/Cluster/get#yandex.cloud.metastore.v1.MaintenanceWindow)**
+            **[MaintenanceWindow](#yandex.cloud.metastore.v1.MaintenanceWindow)**
             Maintenance window.
           oneOf:
             - type: object
@@ -90,16 +99,19 @@ apiPlayground:
                 anytime:
                   description: |-
                     **object**
+                    The cluster may be restarted for maintenance at any time.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/AnytimeMaintenanceWindow'
                 weeklyMaintenanceWindow:
                   description: |-
-                    **[WeeklyMaintenanceWindow](/docs/managed-metastore/api-ref/Cluster/get#yandex.cloud.metastore.v1.WeeklyMaintenanceWindow)**
+                    **[WeeklyMaintenanceWindow](#yandex.cloud.metastore.v1.WeeklyMaintenanceWindow)**
+                    Maintenance is allowed only within the specified weekly window.
                     Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
                   $ref: '#/definitions/WeeklyMaintenanceWindow'
       required:
         - folderId
         - name
+        - serviceAccountId
       additionalProperties: false
     definitions:
       Resources:
@@ -117,7 +129,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-metastore/api-ref/Cluster/get#yandex.cloud.metastore.v1.Resources)**
+              **[Resources](#yandex.cloud.metastore.v1.Resources)**
               Configuration for computational resources for Metastore server instances.
             $ref: '#/definitions/Resources'
       NetworkConfig:
@@ -146,14 +158,15 @@ apiPlayground:
           day:
             description: |-
               **enum** (WeekDay)
-              - `WEEK_DAY_UNSPECIFIED`
-              - `MON`
-              - `TUE`
-              - `WED`
-              - `THU`
-              - `FRI`
-              - `SAT`
-              - `SUN`
+              Day of the week when maintenance can occur.
+              - `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
+              - `MON`: Monday.
+              - `TUE`: Tuesday.
+              - `WED`: Wednesday.
+              - `THU`: Thursday.
+              - `FRI`: Friday.
+              - `SAT`: Saturday.
+              - `SUN`: Sunday.
             type: string
             enum:
               - WEEK_DAY_UNSPECIFIED
@@ -167,7 +180,7 @@ apiPlayground:
           hour:
             description: |-
               **string** (int64)
-              Hour of the day in UTC.
+              Hour of the day in UTC when the maintenance window starts.
             type: string
             format: int64
 sourcePath: en/_api-ref/metastore/v1/api-ref/Cluster/create.md
@@ -254,7 +267,7 @@ Metastore server version. ||
 Configuration of the Metastore Cluster. ||
 || serviceAccountId | **string**
 
-Service account used to access Cloud resources. ||
+Required field. Service account used to access Cloud resources. ||
 || logging | **[LoggingConfig](#yandex.cloud.metastore.v1.LoggingConfig)**
 
 Cloud logging configuration. ||
@@ -352,8 +365,12 @@ User security groups. ||
 ||Field | Description ||
 || anytime | **object**
 
+The cluster may be restarted for maintenance at any time.
+
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 || weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.metastore.v1.WeeklyMaintenanceWindow)**
+
+Maintenance is allowed only within the specified weekly window.
 
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 |#
@@ -364,17 +381,19 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+Day of the week when maintenance can occur.
+
+- `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC when the maintenance window starts. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -746,8 +765,12 @@ User security groups. ||
 ||Field | Description ||
 || anytime | **object**
 
+The cluster may be restarted for maintenance at any time.
+
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 || weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.metastore.v1.WeeklyMaintenanceWindow2)**
+
+Maintenance is allowed only within the specified weekly window.
 
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 |#
@@ -758,25 +781,31 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+Day of the week when maintenance can occur.
+
+- `WEEK_DAY_UNSPECIFIED`: Day of the week is not specified.
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC when the maintenance window starts. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.metastore.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+Information about the maintenance operation. ||
 || delayedUntil | **string** (date-time)
+
+Maintenance is postponed until the specified timestamp.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -786,6 +815,8 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || latestMaintenanceTime | **string** (date-time)
 
+Timestamp of the latest successfully completed maintenance.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -793,6 +824,8 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || nextMaintenanceWindowTime | **string** (date-time)
+
+Timestamp of the next scheduled maintenance window.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

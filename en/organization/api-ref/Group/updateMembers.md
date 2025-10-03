@@ -21,7 +21,7 @@ apiPlayground:
       properties:
         memberDeltas:
           description: |-
-            **[MemberDelta](/docs/organization/api-ref/Group/updateMembers#yandex.cloud.organizationmanager.v1.MemberDelta)**
+            **[MemberDelta](#yandex.cloud.organizationmanager.v1.MemberDelta)**
             Updates to group members.
           type: array
           items:

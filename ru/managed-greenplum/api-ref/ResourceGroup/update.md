@@ -31,7 +31,7 @@ apiPlayground:
           type: string
           format: field-mask
         resourceGroup:
-          description: '**[ResourceGroup](/docs/managed-greenplum/api-ref/ResourceGroup/list#yandex.cloud.mdb.greenplum.v1.ResourceGroup)**'
+          description: '**[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup)**'
           $ref: '#/definitions/ResourceGroup'
       additionalProperties: false
     definitions:

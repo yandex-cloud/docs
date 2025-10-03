@@ -20,24 +20,24 @@ apiPlayground:
       properties:
         mongocfg:
           description: |-
-            **[MongoCfg](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**
+            **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**
             mongocfg specification for sharding.
           $ref: '#/definitions/MongoCfg'
         mongos:
           description: |-
-            **[Mongos](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.Mongos)**
+            **[Mongos](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.Mongos)**
             mongos specification for sharding.
           $ref: '#/definitions/Mongos'
         hostSpecs:
           description: |-
-            **[HostSpec](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.HostSpec)**
+            **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
             Configurations for mongos and mongocfg hosts.
           type: array
           items:
             $ref: '#/definitions/HostSpec'
         mongoinfra:
           description: |-
-            **[MongoInfra](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
+            **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
             mongos specification for sharding.
           $ref: '#/definitions/MongoInfra'
       additionalProperties: false
@@ -71,7 +71,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Required field. Resources for mongocfg hosts.
             $ref: '#/definitions/Resources'
         required:
@@ -81,7 +81,7 @@ apiPlayground:
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Required field. Resources for mongos hosts.
             $ref: '#/definitions/Resources'
         required:
@@ -155,13 +155,15 @@ apiPlayground:
             description: |-
               **object** (map<**string**, **string**>)
               Host tags
-            type: string
+            type: object
+            additionalProperties:
+              type: string
       MongoInfra:
         type: object
         properties:
           resources:
             description: |-
-              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
               Required field. Resources for mongoinfra (mongos+mongocfg) hosts.
             $ref: '#/definitions/Resources'
         required:

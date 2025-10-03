@@ -15,7 +15,7 @@ apiPlayground:
           type: string
         messages:
           description: |-
-            **[MessageData](/docs/assistants/api-ref/Thread/create#yandex.cloud.ai.assistants.v1.threads.MessageData)**
+            **[MessageData](#yandex.cloud.ai.assistants.v1.threads.MessageData)**
             List of messages to initialize the thread.
           type: array
           items:
@@ -37,17 +37,19 @@ apiPlayground:
           type: string
         expirationConfig:
           description: |-
-            **`ExpirationConfig`**
+            **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
             Expiration configuration for the thread.
           $ref: '#/definitions/ExpirationConfig'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Set of key-value pairs to label the thread.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         tools:
           description: |-
-            **[Tool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.Tool)**
+            **[Tool](#yandex.cloud.ai.assistants.v1.Tool)**
             List of tools that are available for assistants to use in this thread.
           type: array
           items:
@@ -56,19 +58,19 @@ apiPlayground:
                 properties:
                   searchIndex:
                     description: |-
-                      **[SearchIndexTool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+                      **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
                       SearchIndexTool tool that performs search across specified indexes.
                       Includes only one of the fields `searchIndex`, `function`, `genSearch`.
                     $ref: '#/definitions/SearchIndexTool'
                   function:
                     description: |-
-                      **[FunctionTool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.FunctionTool)**
+                      **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
                       Function tool that can be invoked by the assistant.
                       Includes only one of the fields `searchIndex`, `function`, `genSearch`.
                     $ref: '#/definitions/FunctionTool'
                   genSearch:
                     description: |-
-                      **[GenSearchTool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchTool)**
+                      **[GenSearchTool](#yandex.cloud.ai.assistants.v1.GenSearchTool)**
                       Performs web retrieval and generative synthesis.
                       Includes only one of the fields `searchIndex`, `function`, `genSearch`.
                     $ref: '#/definitions/GenSearchTool'
@@ -102,7 +104,7 @@ apiPlayground:
         properties:
           content:
             description: |-
-              **[ContentPart](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.ContentPart)**
+              **[ContentPart](#yandex.cloud.ai.assistants.v1.threads.ContentPart)**
               A list of content parts that make up the message.
             type: array
             items:
@@ -111,7 +113,7 @@ apiPlayground:
                   properties:
                     text:
                       description: |-
-                        **[Text](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Text)**
+                        **[Text](#yandex.cloud.ai.assistants.v1.threads.Text)**
                         Text content of the message part.
                         Includes only one of the fields `text`.
                         Specifies the type of content that the part contains.
@@ -121,17 +123,19 @@ apiPlayground:
         properties:
           author:
             description: |-
-              **[Author](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Author)**
+              **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
               Author of the message, containing details about the message's creator.
             $ref: '#/definitions/Author'
           labels:
             description: |-
               **object** (map<**string**, **string**>)
               Set of key-value pairs that can be used to organize and categorize the message.
-            type: string
+            type: object
+            additionalProperties:
+              type: string
           content:
             description: |-
-              **[MessageContent](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
+              **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
               Content of the message.
             $ref: '#/definitions/MessageContent'
       ExpirationConfig:
@@ -200,14 +204,14 @@ apiPlayground:
             format: int64
           rephraserOptions:
             description: |-
-              **[RephraserOptions](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.RephraserOptions)**
+              **[RephraserOptions](#yandex.cloud.ai.assistants.v1.RephraserOptions)**
               Options for rephrasing user queries.
               Used to rewrite the last user message for search,
               incorporating context from the previous conversation.
             $ref: '#/definitions/RephraserOptions'
           callStrategy:
             description: |-
-              **[CallStrategy](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.CallStrategy)**
+              **[CallStrategy](#yandex.cloud.ai.assistants.v1.CallStrategy)**
               Defines the strategy for triggering search.
               Controls whether search results are always included or returned only when
               the model explicitly calls the tool.
@@ -223,7 +227,7 @@ apiPlayground:
                     $ref: '#/definitions/AlwaysCall'
                   autoCall:
                     description: |-
-                      **[AutoCall](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
+                      **[AutoCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
                       Includes only one of the fields `alwaysCall`, `autoCall`.
                       One of `always_call` or `auto_call`.
                       always_call is used if no strategy is explicitly set
@@ -276,28 +280,28 @@ apiPlayground:
         properties:
           options:
             description: |-
-              **[GenSearchOptions](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions)**
+              **[GenSearchOptions](#yandex.cloud.ai.assistants.v1.GenSearchOptions)**
               Scoping and filtering rules for the search query
             oneOf:
               - type: object
                 properties:
                   site:
                     description: |-
-                      **[SiteOption](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
+                      **[SiteOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
                       Includes only one of the fields `site`, `host`, `url`.
                       Restricts the search to the specific websites, hosts or pages.
                       Includes only one of the fields site, host, url.
                     $ref: '#/definitions/SiteOption'
                   host:
                     description: |-
-                      **[HostOption](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
+                      **[HostOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
                       Includes only one of the fields `site`, `host`, `url`.
                       Restricts the search to the specific websites, hosts or pages.
                       Includes only one of the fields site, host, url.
                     $ref: '#/definitions/HostOption'
                   url:
                     description: |-
-                      **[UrlOption](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
+                      **[UrlOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
                       Includes only one of the fields `site`, `host`, `url`.
                       Restricts the search to the specific websites, hosts or pages.
                       Includes only one of the fields site, host, url.

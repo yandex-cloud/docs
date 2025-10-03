@@ -5,7 +5,7 @@ description: Из статьи вы узнаете, что находится в
 
 # Разграничение зон контроля пользователей сервисов управляемых баз данных (MDB) и {{ yandex-cloud }}
 
-При работе с сервисами управляемых баз данных (MDB) {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }} и {{ mkf-short-name }} необходимо учитывать, что контролирует [сервис MDB](#cloud-responsibilities), а что [клиент {{ yandex-cloud }}](#customer-responsibilities). Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных.
+При работе с сервисами управляемых баз данных (MDB) {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }} и {{ mkf-short-name }} необходимо учитывать, что контролирует [сервис MDB](#cloud-responsibilities), а что — [клиент {{ yandex-cloud }}](#customer-responsibilities). Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных.
 
 ## Зона контроля {{ yandex-cloud }} {#cloud-responsibilities}
 

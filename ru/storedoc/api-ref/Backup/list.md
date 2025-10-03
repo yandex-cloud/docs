@@ -17,7 +17,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse)
+            results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse)
             that can be used to get the next page of results in subsequent list requests.
           type: string
           format: int64
@@ -25,7 +25,7 @@ apiPlayground:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken` to the
-            [ListBackupsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request.
+            [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) returned by the previous list request.
           type: string
       required:
         - folderId

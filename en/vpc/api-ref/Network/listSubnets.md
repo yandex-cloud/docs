@@ -22,15 +22,16 @@ apiPlayground:
             **string** (int64)
             The maximum number of results per page that should be returned. If the number of available
             results is larger than `pageSize`,
-            the service returns a [ListNetworkSubnetsResponse.nextPageToken](/docs/vpc/api-ref/Network/listSubnets#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
+            the service returns a [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. Set `pageToken`
-            to the [ListNetworkSubnetsResponse.nextPageToken](/docs/vpc/api-ref/Network/listSubnets#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
+            to the [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
             returned by a previous list request to get the next page of results.
           type: string
       additionalProperties: false

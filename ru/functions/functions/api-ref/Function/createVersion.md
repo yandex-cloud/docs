@@ -31,7 +31,7 @@ apiPlayground:
           type: string
         resources:
           description: |-
-            **[Resources](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Resources)**
+            **[Resources](#yandex.cloud.serverless.functions.v1.Resources)**
             Required field. Resources allocated to the version.
           $ref: '#/definitions/Resources'
         executionTimeout:
@@ -48,7 +48,7 @@ apiPlayground:
           type: string
         package:
           description: |-
-            **[Package](/docs/functions/functions/api-ref/Function/createVersion#yandex.cloud.serverless.functions.v1.Package)**
+            **[Package](#yandex.cloud.serverless.functions.v1.Package)**
             Functions deployment package.
             Includes only one of the fields `package`, `content`, `versionId`.
             Source of the deployment package for the version.
@@ -73,8 +73,13 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Environment settings for the version.
-          pattern: '[a-zA-Z][a-zA-Z0-9_]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            maxLength: 4096
+          propertyNames:
+            type: string
+            pattern: '[a-zA-Z][a-zA-Z0-9_]*'
         tag:
           description: |-
             **string**
@@ -85,17 +90,19 @@ apiPlayground:
             type: string
         connectivity:
           description: |-
-            **[Connectivity](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Connectivity)**
+            **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
             Function version connectivity. If specified the version will be attached to specified network/subnet(s).
           $ref: '#/definitions/Connectivity'
         namedServiceAccounts:
           description: |-
             **object** (map<**string**, **string**>)
             Additional service accounts to be used by the version.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
         secrets:
           description: |-
-            **[Secret](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Secret)**
+            **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**
             Yandex Lockbox secrets to be used by the version.
           type: array
           items:
@@ -110,7 +117,7 @@ apiPlayground:
                     type: string
         logOptions:
           description: |-
-            **[LogOptions](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.LogOptions)**
+            **[LogOptions](#yandex.cloud.serverless.functions.v1.LogOptions)**
             Options for logging from the function
           oneOf:
             - type: object
@@ -133,14 +140,14 @@ apiPlayground:
                   type: string
         storageMounts:
           description: |-
-            **[StorageMount](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.StorageMount)**
+            **[StorageMount](#yandex.cloud.serverless.functions.v1.StorageMount)**
             S3 mounts to be used by the version.
           type: array
           items:
             $ref: '#/definitions/StorageMount'
         asyncInvocationConfig:
           description: |-
-            **[AsyncInvocationConfig](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig)**
+            **[AsyncInvocationConfig](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig)**
             Config for asynchronous invocations of the version
           $ref: '#/definitions/AsyncInvocationConfig'
         tmpfsSize:
@@ -159,7 +166,7 @@ apiPlayground:
           format: int64
         mounts:
           description: |-
-            **[Mount](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Mount)**
+            **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
             Mounts to be used by the version.
           type: array
           items:
@@ -168,21 +175,21 @@ apiPlayground:
                 properties:
                   objectStorage:
                     description: |-
-                      **[ObjectStorage](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
+                      **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
                       Object storage mounts
                       Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
                       Target mount option
                     $ref: '#/definitions/ObjectStorage'
                   ephemeralDiskSpec:
                     description: |-
-                      **[DiskSpec](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
+                      **[DiskSpec](#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
                       Working disk (worker-local non-shared read-write NBS disk templates)
                       Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
                       Target mount option
                     $ref: '#/definitions/DiskSpec'
         metadataOptions:
           description: |-
-            **[MetadataOptions](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.MetadataOptions)**
+            **[MetadataOptions](#yandex.cloud.serverless.functions.v1.MetadataOptions)**
             Metadata options for the version.
           $ref: '#/definitions/MetadataOptions'
       required:
@@ -299,7 +306,7 @@ apiPlayground:
             format: int64
           successTarget:
             description: |-
-              **[ResponseTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+              **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
               Required field. Target for successful result of the version's invocation
             oneOf:
               - type: object
@@ -312,13 +319,13 @@ apiPlayground:
                     $ref: '#/definitions/EmptyTarget'
                   ymqTarget:
                     description: |-
-                      **[YMQTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.YMQTarget)**
+                      **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
                       Target to send a result to ymq
                       Includes only one of the fields `emptyTarget`, `ymqTarget`.
                     $ref: '#/definitions/YMQTarget'
           failureTarget:
             description: |-
-              **[ResponseTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+              **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
               Required field. Target for unsuccessful result, if all retries failed
             oneOf:
               - type: object
@@ -331,7 +338,7 @@ apiPlayground:
                     $ref: '#/definitions/EmptyTarget'
                   ymqTarget:
                     description: |-
-                      **[YMQTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.YMQTarget)**
+                      **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
                       Target to send a result to ymq
                       Includes only one of the fields `emptyTarget`, `ymqTarget`.
                     $ref: '#/definitions/YMQTarget'

@@ -21,13 +21,13 @@ apiPlayground:
         pageSize:
           description: |-
             **string** (int64)
-            The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListFormatSchemasResponse.nextPageToken](/docs/managed-clickhouse/api-ref/FormatSchema/list#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list.
+            The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
-            Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](/docs/managed-clickhouse/api-ref/FormatSchema/list#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) returned by the previous format schema list request.
+            Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) returned by the previous format schema list request.
           type: string
       additionalProperties: false
     body: null

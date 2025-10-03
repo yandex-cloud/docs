@@ -13,6 +13,6 @@ The SpeechKit Speech To Text Service API v3 allows application developers to use
 
 #|
 ||Service | Description ||
-|| [AsyncRecognizer](AsyncRecognizer/index.md) | A set of methods for async voice recognition. ||
+|| [AsyncRecognizer](AsyncRecognizer/index.md) | A set of methods for asynchronous speech recognition: recognize pre-recorded audio and receive results by request. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 |#

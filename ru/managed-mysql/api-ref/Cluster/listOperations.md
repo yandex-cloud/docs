@@ -22,14 +22,14 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
-            If the number of available results is larger than `pageSize`, the API returns a [ListClusterOperationsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests.
+            If the number of available results is larger than `pageSize`, the API returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token that can be used to iterate through multiple pages of results.
-            To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request.
+            To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request.
           type: string
       additionalProperties: false
     body: null

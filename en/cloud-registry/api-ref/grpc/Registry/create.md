@@ -50,7 +50,8 @@ Required field. Kind of the registry.
 - `DOCKER`: Registry kind is docker.
 - `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi. ||
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary. ||
 || type | enum **Type**
 
 Required field. Type of the registry.
@@ -165,7 +166,7 @@ ID of the registry that is being created. ||
 
 ## Registry {#yandex.cloud.cloudregistry.v1.Registry}
 
-A Registry resource.
+A Registry resource. For more information, see the [Registry](/docs/cloud-registry/concepts/registry) section of the documentation.
 
 #|
 ||Field | Description ||
@@ -188,7 +189,8 @@ Kind of the registry.
 - `DOCKER`: Registry kind is docker.
 - `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi. ||
+- `PYPI`: Registry kind is pypi.
+- `BINARY`: Regisrty kind is binary. ||
 || type | enum **Type**
 
 Type of the registry.

@@ -27,7 +27,7 @@ To change connection settings:
 
 - API {#api}
 
-  Use the [Connection.Update](../api-ref/Connection/update.md) REST API method or the [ConnectionService.Update](../api-ref/grpc/Connection/update.md) gRPC API call and provide the connection ID in the request.
+  Use the [Connection.Update](../connection-manager/api-ref/Connection/update.md) REST API method or the [ConnectionService.Update](../connection-manager/api-ref/grpc/Connection/update.md) gRPC API call and provide the connection ID in the request.
 
   You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 

@@ -19,16 +19,17 @@ apiPlayground:
           description: |-
             **string** (int64)
             The maximum number of results per page to return. If the number of available
-            results is larger than `pageSize`, the service returns a [ListFederationOperationsResponse.nextPageToken](/docs/organization/saml/api-ref/Federation/listOperations#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
+            results is larger than `pageSize`, the service returns a [ListFederationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+          default: '100'
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Page token. To get the next page of results, set `pageToken`
-            to the [ListFederationOperationsResponse.nextPageToken](/docs/organization/saml/api-ref/Federation/listOperations#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
+            to the [ListFederationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
             returned by a previous list request.
           type: string
       additionalProperties: false

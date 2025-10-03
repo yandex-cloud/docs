@@ -15,12 +15,12 @@ apiPlayground:
           type: string
         completionOptions:
           description: |-
-            **[CompletionOptions](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
+            **[CompletionOptions](#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
             Configuration options for completion generation.
           $ref: '#/definitions/CompletionOptions'
         messages:
           description: |-
-            **[Message](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.Message)**
+            **[Message](#yandex.cloud.ai.foundation_models.v1.Message)**
             A list of messages representing the context for the completion model.
           type: array
           items:
@@ -36,21 +36,21 @@ apiPlayground:
                     type: string
                   toolCallList:
                     description: |-
-                      **[ToolCallList](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
+                      **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
                       List of tool calls made by the model as part of the response generation.
                       Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
                       Message content.
                     $ref: '#/definitions/ToolCallList'
                   toolResultList:
                     description: |-
-                      **[ToolResultList](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
+                      **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
                       List of tool results returned from external tools that were invoked by the model.
                       Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
                       Message content.
                     $ref: '#/definitions/ToolResultList'
         tools:
           description: |-
-            **[Tool](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.Tool)**
+            **[Tool](#yandex.cloud.ai.foundation_models.v1.Tool)**
             List of tools that are available for the model to invoke during the completion generation.
             Note: This parameter is not yet supported and will be ignored if provided.
           type: array
@@ -60,7 +60,7 @@ apiPlayground:
                 properties:
                   function:
                     description: |-
-                      **[FunctionTool](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.FunctionTool)**
+                      **[FunctionTool](#yandex.cloud.ai.foundation_models.v1.FunctionTool)**
                       Represents a function that can be called.
                       Includes only one of the fields `function`.
                     $ref: '#/definitions/FunctionTool'
@@ -75,7 +75,7 @@ apiPlayground:
           type: boolean
         jsonSchema:
           description: |-
-            **[JsonSchema](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
+            **[JsonSchema](#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
             Enforces a specific JSON structure for the model's response based on a provided schema.
             Includes only one of the fields `jsonObject`, `jsonSchema`.
             Specifies the format of the model's response.
@@ -87,7 +87,7 @@ apiPlayground:
           type: boolean
         toolChoice:
           description: |-
-            **[ToolChoice](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ToolChoice)**
+            **[ToolChoice](#yandex.cloud.ai.foundation_models.v1.ToolChoice)**
             Specifies how the model should select which tool (or tools) to use when generating a response.
           oneOf:
             - type: object
@@ -157,7 +157,7 @@ apiPlayground:
             format: int64
           reasoningOptions:
             description: |-
-              **[ReasoningOptions](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
+              **[ReasoningOptions](#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
               Configures reasoning capabilities for the model, allowing it to perform internal reasoning before responding.
             $ref: '#/definitions/ReasoningOptions'
       FunctionCall:
@@ -179,7 +179,7 @@ apiPlayground:
         properties:
           toolCalls:
             description: |-
-              **[ToolCall](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ToolCall)**
+              **[ToolCall](#yandex.cloud.ai.foundation_models.v1.ToolCall)**
               A list of tool calls to be executed.
             type: array
             items:
@@ -188,7 +188,7 @@ apiPlayground:
                   properties:
                     functionCall:
                       description: |-
-                        **[FunctionCall](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
+                        **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
                         Represents a call to a function.
                         Includes only one of the fields `functionCall`.
                       $ref: '#/definitions/FunctionCall'
@@ -197,7 +197,7 @@ apiPlayground:
         properties:
           toolResults:
             description: |-
-              **[ToolResult](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ToolResult)**
+              **[ToolResult](#yandex.cloud.ai.foundation_models.v1.ToolResult)**
               A list of tool results.
             type: array
             items:
@@ -206,7 +206,7 @@ apiPlayground:
                   properties:
                     functionResult:
                       description: |-
-                        **[FunctionResult](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
+                        **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
                         Represents the result of a function call.
                         Includes only one of the fields `functionResult`.
                       oneOf:
@@ -427,7 +427,7 @@ A message object representing a wrapper over the inputs and outputs of the compl
 || role | **string**
 
 The ID of the message sender. Supported roles:
-* `system`: Special role used to define the behaviour of the completion model.
+* `system`: Special role used to define the behavior of the completion model.
 * `assistant`: A role used by the model to generate responses.
 * `user`: A role used by the user to describe requests to the model. ||
 || text | **string**
@@ -704,7 +704,7 @@ A message object representing a wrapper over the inputs and outputs of the compl
 || role | **string**
 
 The ID of the message sender. Supported roles:
-* `system`: Special role used to define the behaviour of the completion model.
+* `system`: Special role used to define the behavior of the completion model.
 * `assistant`: A role used by the model to generate responses.
 * `user`: A role used by the user to describe requests to the model. ||
 || text | **string**

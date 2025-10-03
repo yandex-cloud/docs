@@ -13,6 +13,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 #|
 ||Service | Description ||
+|| [AccessAnalyzer](AccessAnalyzer/index.md) | A set of methods for access analysis. ||
 || [ApiKey](ApiKey/index.md) | A set of methods for managing API keys. ||
 || [IamToken](IamToken/index.md) | A set of methods for managing IAM tokens. ||
 || [Key](Key/index.md) | A set of methods for managing Key resources. ||

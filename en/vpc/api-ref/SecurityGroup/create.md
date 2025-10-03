@@ -30,8 +30,17 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         networkId:
           description: |-
             **string**
@@ -39,7 +48,7 @@ apiPlayground:
           type: string
         ruleSpecs:
           description: |-
-            **[SecurityGroupRuleSpec](/docs/vpc/api-ref/SecurityGroup/create#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+            **[SecurityGroupRuleSpec](#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
             Security rules specifications.
           type: array
           items:
@@ -67,7 +76,7 @@ apiPlayground:
                 properties:
                   cidrBlocks:
                     description: |-
-                      **[CidrBlocks](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.CidrBlocks)**
+                      **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
                       CIDR blocks to allow to recieve or send traffic.
                       Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
                     $ref: '#/definitions/CidrBlocks'

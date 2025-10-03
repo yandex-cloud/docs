@@ -52,8 +52,17 @@ apiPlayground:
             1. Get the current set of labels with a [GatewayService.Get](/docs/vpc/api-ref/Gateway/get#Get) request.
             2. Add or remove a label in this set.
             3. Send the new set in this field.
-          pattern: '[a-z][-_./\@0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
         sharedEgressGatewaySpec:
           description: |-
             **object**

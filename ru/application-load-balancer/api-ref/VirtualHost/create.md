@@ -40,14 +40,14 @@ apiPlayground:
             type: string
         routes:
           description: |-
-            **[Route](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Route)**
+            **[Route](#yandex.cloud.apploadbalancer.v1.Route)**
             Routes of the virtual host.
             A route contains a set of conditions (predicates) that are used by the load balancer to select the route
             for the request and an action on the request.
             For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
             The order of routes matters: the first route whose predicate matches the request is selected.
             The most specific routes should be at the top of the list, so that they are not overridden.
-            For example, if the first HTTP route is configured, via [HttpRoute.match](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRoute), to match paths prefixed with just `/`,
+            For example, if the first HTTP route is configured, via [HttpRoute.match](#yandex.cloud.apploadbalancer.v1.HttpRoute), to match paths prefixed with just `/`,
             other routes are never matched.
           type: array
           items:
@@ -56,7 +56,7 @@ apiPlayground:
                 properties:
                   http:
                     description: |-
-                      **[HttpRoute](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRoute)**
+                      **[HttpRoute](#yandex.cloud.apploadbalancer.v1.HttpRoute)**
                       HTTP route configuration.
                       Includes only one of the fields `http`, `grpc`.
                       Route configuration.
@@ -65,7 +65,7 @@ apiPlayground:
                         properties:
                           route:
                             description: |-
-                              **[HttpRouteAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRouteAction)**
+                              **[HttpRouteAction](#yandex.cloud.apploadbalancer.v1.HttpRouteAction)**
                               Forwards the request to a backend group for processing as configured.
                               Includes only one of the fields `route`, `redirect`, `directResponse`.
                               Action performed on the request if the route is selected.
@@ -90,7 +90,7 @@ apiPlayground:
                                     type: boolean
                           redirect:
                             description: |-
-                              **[RedirectAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction)**
+                              **[RedirectAction](#yandex.cloud.apploadbalancer.v1.RedirectAction)**
                               Redirects the request as configured.
                               Includes only one of the fields `route`, `redirect`, `directResponse`.
                               Action performed on the request if the route is selected.
@@ -108,24 +108,24 @@ apiPlayground:
                                   replacePrefix:
                                     description: |-
                                       **string**
-                                      Replacement for the path prefix matched by [StringMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch).
-                                      For instance, if [StringMatch.prefixMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `replace_prefix` value is `/bar`,
+                                      Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch).
+                                      For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `replace_prefix` value is `/bar`,
                                       a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
-                                      For [StringMatch.exactMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
+                                      For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
                                       Includes only one of the fields `replacePath`, `replacePrefix`.
                                       URI path replacement.
                                       If not specified, the original path is used.
                                     type: string
                           directResponse:
                             description: |-
-                              **[DirectResponseAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.DirectResponseAction)**
+                              **[DirectResponseAction](#yandex.cloud.apploadbalancer.v1.DirectResponseAction)**
                               Instructs the load balancer to respond directly as configured.
                               Includes only one of the fields `route`, `redirect`, `directResponse`.
                               Action performed on the request if the route is selected.
                             $ref: '#/definitions/DirectResponseAction'
                   grpc:
                     description: |-
-                      **[GrpcRoute](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.GrpcRoute)**
+                      **[GrpcRoute](#yandex.cloud.apploadbalancer.v1.GrpcRoute)**
                       gRPC route configuration.
                       Includes only one of the fields `http`, `grpc`.
                       Route configuration.
@@ -134,7 +134,7 @@ apiPlayground:
                         properties:
                           route:
                             description: |-
-                              **[GrpcRouteAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.GrpcRouteAction)**
+                              **[GrpcRouteAction](#yandex.cloud.apploadbalancer.v1.GrpcRouteAction)**
                               Forwards the request to a backend group for processing as configured.
                               Includes only one of the fields `route`, `statusResponse`.
                               Action performed on the request if the route is selected.
@@ -159,14 +159,14 @@ apiPlayground:
                                     type: boolean
                           statusResponse:
                             description: |-
-                              **[GrpcStatusResponseAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction)**
+                              **[GrpcStatusResponseAction](#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction)**
                               Instructs the load balancer to respond directly with a specified status.
                               Includes only one of the fields `route`, `statusResponse`.
                               Action performed on the request if the route is selected.
                             $ref: '#/definitions/GrpcStatusResponseAction'
         modifyRequestHeaders:
           description: |-
-            **[HeaderModification](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+            **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
             Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends.
           type: array
           items:
@@ -208,7 +208,7 @@ apiPlayground:
                     type: string
         modifyResponseHeaders:
           description: |-
-            **[HeaderModification](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+            **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
             Modifications that are made to the headers of HTTP responses received from backends
             before responses are forwarded to clients.
           type: array
@@ -251,12 +251,12 @@ apiPlayground:
                     type: string
         routeOptions:
           description: |-
-            **[RouteOptions](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RouteOptions)**
+            **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)**
             Route options for the virtual host.
           $ref: '#/definitions/RouteOptions'
         rateLimit:
           description: |-
-            **[RateLimit](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RateLimit)**
+            **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
             RateLimit is a rate limit configuration applied for a whole virtual host.
           $ref: '#/definitions/RateLimit'
       additionalProperties: false
@@ -272,7 +272,7 @@ apiPlayground:
             format: int64
           body:
             description: |-
-              **[Payload](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.Payload)**
+              **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
               Response body.
             oneOf:
               - type: object
@@ -319,7 +319,7 @@ apiPlayground:
             type: string
           value:
             description: |-
-              **[StringMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch)**
+              **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
               Specifies how the header match will be performed to route the request.
               In the absence of value a request that has specified header name will match,
               regardless of the header's value.
@@ -354,7 +354,7 @@ apiPlayground:
         properties:
           andPrincipals:
             description: |-
-              **[Principal](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Principal)**
+              **[Principal](#yandex.cloud.apploadbalancer.v1.Principal)**
               Required. A match occurs when all principals match the request.
             type: array
             items:
@@ -363,7 +363,7 @@ apiPlayground:
                   properties:
                     header:
                       description: |-
-                        **[HeaderMatcher](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher)**
+                        **[HeaderMatcher](#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher)**
                         A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
                         Includes only one of the fields `header`, `remoteIp`, `any`.
                       $ref: '#/definitions/HeaderMatcher'
@@ -396,7 +396,7 @@ apiPlayground:
               - DENY
           principals:
             description: |-
-              **[Principals](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Principals)**
+              **[Principals](#yandex.cloud.apploadbalancer.v1.Principals)**
               Required. A match occurs when at least one matches the request.
             type: array
             items:
@@ -408,7 +408,7 @@ apiPlayground:
         properties:
           modifyRequestHeaders:
             description: |-
-              **[HeaderModification](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+              **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
               Apply the following modifications to the request headers.
             type: array
             items:
@@ -450,7 +450,7 @@ apiPlayground:
                       type: string
           modifyResponseHeaders:
             description: |-
-              **[HeaderModification](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+              **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
               Apply the following modifications to the response headers.
             type: array
             items:
@@ -491,7 +491,7 @@ apiPlayground:
                         Operation to perform on the header.
                       type: string
           rbac:
-            description: '**[RBAC](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RBAC)**'
+            description: '**[RBAC](#yandex.cloud.apploadbalancer.v1.RBAC)**'
             $ref: '#/definitions/RBAC'
           securityProfileId:
             description: |-
@@ -503,7 +503,7 @@ apiPlayground:
         properties:
           allRequests:
             description: |-
-              **[Limit](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
+              **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
               AllRequests is a rate limit configuration applied to all incoming requests.
             oneOf:
               - type: object
@@ -524,7 +524,7 @@ apiPlayground:
                     format: int64
           requestsPerIp:
             description: |-
-              **[Limit](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
+              **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
               RequestsPerIp is a rate limit configuration applied separately for each set of requests
               grouped by client IP address.
             oneOf:

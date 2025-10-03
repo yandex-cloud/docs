@@ -36,8 +36,17 @@ apiPlayground:
           type: string
         labels:
           description: '**object** (map<**string**, **string**>)'
-          pattern: '[a-z][-_0-9a-z]*'
-          type: string
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/updateProperties.md
@@ -273,7 +282,8 @@ Status of the desktop.
 - `STOPPING`: Desktop is stopping.
 - `STOPPED`: Desktop is stopped.
 - `ERROR`: Desktop did not manage start or restart.
-- `CREATION_FAILED`: Desktop did not manage to get created or updated. ||
+- `CREATION_FAILED`: Desktop did not manage to get created or updated.
+- `HEALTH_CHECK`: Desktop in the process of health check. ||
 || name | **string**
 
 Name of the desktop. ||

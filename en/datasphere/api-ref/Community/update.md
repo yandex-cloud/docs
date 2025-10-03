@@ -44,7 +44,9 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Labels of the community.
-          type: string
+          type: object
+          additionalProperties:
+            type: string
       additionalProperties: false
     definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/update.md
