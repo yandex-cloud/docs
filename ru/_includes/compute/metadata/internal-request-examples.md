@@ -35,7 +35,6 @@ curl \
 
 ```bash
 curl \
-  --header Metadata-Flavor:Google \
   169.254.169.254/latest/user-data
 ```
 
@@ -61,7 +60,6 @@ users:
 curl \
   --silent \
   --fail \
-  --header Metadata-Flavor:Google \
   169.254.169.254/latest/user-data | \
   yq .users[].name
 ```
