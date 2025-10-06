@@ -739,7 +739,7 @@ yc iam create-token
       def create_iam_token():
         jwt = create_jwt()
         
-        sdk = yandexcloud.SDK(service_account_key=sa_key)
+        sdk = yandexcloud.SDK(service_account_key=sa_key, endpoint="api.yandexcloud.kz")
         iam_service = sdk.client(IamTokenServiceStub)
         iam_token = iam_service.Create(
             CreateIamTokenRequest(jwt=jwt)
@@ -781,6 +781,7 @@ yc iam create-token
 
         sdk, err := ycsdk.Build(ctx, ycsdk.Config{
           Credentials: credentials,
+          Endpoint: "api.yandexcloud.kz:443",
         })
         if err != nil {
           panic(err)

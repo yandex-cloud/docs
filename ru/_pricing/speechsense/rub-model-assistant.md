@@ -1,5 +1,5 @@
 #|
 || **Модель** | **Цена за 1 000 символов,<br>вкл. НДС** ||
-|| YandexGPT Pro | {% calc [currency=RUB] 0,15 %} ||
-|| YandexGPT Lite | {% calc [currency=RUB] 0,025 %} ||
+|| YandexGPT Pro | {{ sku|RUB|speechsense.analysis.assistant.v1|string }} ||
+|| YandexGPT Lite | {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.assistant.v1|number }} / 6 %} ||
 |#

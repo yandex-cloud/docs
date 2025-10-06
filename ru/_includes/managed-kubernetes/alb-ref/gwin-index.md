@@ -14,7 +14,7 @@
 
 ![image](../../../_assets/managed-kubernetes/gwin.svg)
 
-Установить контроллер Gwin можно [по инструкции](../../..//managed-kubernetes/alb-ref/gwin-quickstart.md).
+Установить контроллер Gwin можно [по инструкции](../../../managed-kubernetes/alb-ref/gwin-quickstart.md).
 
 ## Примеры конфигурации
 
