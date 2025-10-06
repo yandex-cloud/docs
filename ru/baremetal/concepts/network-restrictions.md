@@ -29,7 +29,7 @@ MSS в приватной сети | 8870
 
 ## Полоса пропускания {#bandwidth}
 
-### Полоса пропускания для публичной сети {#bandwidth-for-pubic-network}
+### Модель потребления трафика в публичной сети {#bandwidth-for-pubic-network}
 
 
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}

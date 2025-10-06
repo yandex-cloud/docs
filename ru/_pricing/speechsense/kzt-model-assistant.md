@@ -1,5 +1,5 @@
 #|
 || **Модель** | **Цена за 1 000 символов,<br>вкл. НДС** ||
-|| YandexGPT Pro | {% calc [currency=KZT] 0,15 * 5 %} ||
-|| YandexGPT Lite | {% calc [currency=KZT] 0,025 * 5 %} ||
+|| YandexGPT Pro | {{ sku|KZT|speechsense.analysis.assistant.v1|string }} ||
+|| YandexGPT Lite | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.assistant.v1|number }} / 6 %} ||
 |#

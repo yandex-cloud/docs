@@ -115,11 +115,11 @@ _Объем данных_ — это единица тарификации ус�
 
 - Цены в рублях {#prices-bandwidth-rub}
   
-  {% include [rub-badwidth-restrictions](../_pricing/baremetal/rub-bandwidth.md) %}
+  {% include [rub-bandwidth-restrictions](../_pricing/baremetal/rub-bandwidth.md) %}
 
 - Цены в тенге {#prices-bandwidth-kzt}
 
-  {% include [kzt-badwidth-restrictions](../_pricing/baremetal/kzt-bandwidth.md) %}
+  {% include [kzt-bandwidth-restrictions](../_pricing/baremetal/kzt-bandwidth.md) %}
 
 {% endlist %}
 
