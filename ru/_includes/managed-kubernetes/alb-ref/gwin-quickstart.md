@@ -40,7 +40,7 @@ Gwin — инструмент для управления балансировщ
 
    * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов {{ alb-name }}.
    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
-   * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — если используются облачные сертификаты, зарегистрированные в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
+   * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — если используются облачные сертификаты, зарегистрированные в сервисе [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager.editor) — если используются сертификаты кластера {{ managed-k8s-name }}. В этом случае контроллер создает соответствующие им облачные сертификаты.
    * [compute.viewer](../../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
    *  [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer) — чтобы контроллер мог определить, в какой сети нужно развернуть L7-балансировщик.

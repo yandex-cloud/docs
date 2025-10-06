@@ -222,6 +222,16 @@ items:
           Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
           Ansible
         href: tutorials/sa-oslogin-ansible.md
+      - name: Настройка единого входа в приложения (SSO)
+        items:
+          - name: Обзор
+            href: tutorials/single-sign-on/index.md
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/grafana/oidc-grafana.md
   - name: Концепции
     items:
       - name: Организация

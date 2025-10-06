@@ -218,6 +218,14 @@ items:
             href: security/wlif-k8s-integration.md
           - name: '{{ managed-k8s-name }}'
             href: security/wlif-managed-k8s-integration.md
+      - name: Настройка единого входа в приложения (SSO)
+        items:
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: security/single-sign-on/grafana/oidc-grafana.md
       - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md

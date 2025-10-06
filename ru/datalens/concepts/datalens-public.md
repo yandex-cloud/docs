@@ -17,6 +17,7 @@
   * [AppMetrica](../operations/connection/create-appmetrica.md)
   * [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+  * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
     {% note info %}
 

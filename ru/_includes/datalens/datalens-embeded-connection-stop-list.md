@@ -5,6 +5,7 @@
   * [AppMetrica](../../datalens/operations/connection/create-appmetrica.md)
   * [{{ yandex-cloud }} Billing](../../datalens/operations/connection/create-cloud-billing.md)
   * [{{ datalens-short-name }} Usage Analytics](../../datalens/operations/connection/create-usage-tracking.md)
+  * [{{ speechsense-name }}](../../datalens/operations/connection/create-speechsense.md)
 
     {% note info %}
 

@@ -73,6 +73,7 @@
 * [{#T}](fqdn.md)
 * [{#T}](ssh-keygen.md)
 * [{#T}](url.md)
+* [{#T}](dhcp.md)
 
 ## Безопасность {#security}
 

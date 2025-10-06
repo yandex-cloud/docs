@@ -2395,6 +2395,9 @@ default:
         v1|string: ₸0.80
   sku|KZT|speechsense:
     analysis:
+      assistant:
+        v1|number: 0.75
+        v1|string: ₸0.75
       audio|number: 0.05
       audio|pricingRate:
         30000000|number: 0.025
@@ -4389,6 +4392,9 @@ default:
         v1|string: ₽0.16
   sku|RUB|speechsense:
     analysis:
+      assistant:
+        v1|number: 0.15
+        v1|string: ₽0.15
       audio|number: 0.01
       audio|pricingRate:
         30000000|number: 0.005
@@ -6319,6 +6325,9 @@ default:
         v1|string: $0.001333
   sku|USD|speechsense:
     analysis:
+      assistant:
+        v1|number: 0.00125
+        v1|string: $0.001250
       audio|number: 0.000083
       audio|pricingRate:
         30000000|number: 0.000042
@@ -13168,6 +13177,8 @@ default:
       spaces-page:
         community-resources: Community resources
         configurations: Configurations
+        data-processing-sa:
+          title: Yandex Data Processing
         ssa:
           add-service-account:
             button: Add service account

@@ -1,5 +1,5 @@
 #|
 || **Model** | **Price per 1,000 characters,<br>without VAT** ||
-|| YandexGPT Pro | {% calc [currency=USD] 0,15 / 120 %} ||
-|| YandexGPT Lite | {% calc [currency=USD] 0,025 / 120 %} ||
+|| YandexGPT Pro | {{ sku|USD|speechsense.analysis.assistant.v1|string }} ||
+|| YandexGPT Lite | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.assistant.v1|number }} / 6 %} ||
 |#
