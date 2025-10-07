@@ -7,6 +7,5 @@ Users with this role can:
 * View info on [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant user groups and modify such permissions.
 * View the list of [users](../../../organization/concepts/groups.md) and [service accounts](../../../organization/concepts/groups.md) belonging to user groups.
 * Add users and service accounts to and remove them from groups.
-* Configure user group [mapping](../../../organization/concepts/add-federation.md#group-mapping).
 
 This role includes the `organization-manager.groups.editor` and `organization-manager.groups.memberAdmin` permissions.

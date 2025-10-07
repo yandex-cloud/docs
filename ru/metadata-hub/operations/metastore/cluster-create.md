@@ -36,6 +36,7 @@ description: Следуя данной инструкции, вы сможете
     1. (Опционально) Добавьте [метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для разделения ресурсов на логические группы.
     1. Укажите сервисный аккаунт, созданный ранее.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть и подсеть, в которых будет размещен кластер {{ metastore-name }}. Укажите заранее настроенную группу безопасности.
+    1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** выберите [конфигурацию кластера](../../concepts/metastore.md#presets).
     1. (Опционально) Задайте настройки логирования:
 
         1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.

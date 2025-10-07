@@ -21,11 +21,7 @@ description: Следуя данной инструкции, вы сможете
         1. Измените версию {{ metastore-name }}.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
-  1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените конфигурацию вычислительных ресурсов кластера. Доступные конфигурации:
-
-        * **standard** — 2 vCPU и 8 ГБ RAM.
-        * **cpu-optimized** — 2 vCPU и 4 ГБ RAM.
-
+  1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
   1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или выключите запись логов. Если логирование включено:
       * Укажите, в какую лог-группу или каталог будут записываться логи.
       * Выберите минимальный уровень логирования. 

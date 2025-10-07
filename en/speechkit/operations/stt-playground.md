@@ -19,10 +19,10 @@ Convert the file to a supported [audio format](../formats.md) beforehand: MP3, W
 
 {% endnote %}
 
-1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}** to start speech recognition in the audio file.
+1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_start-recognition }}** to start speech recognition in the audio file.
 
    Recognition may take from a few seconds to a few minutes depending on the audio file size.
 
-1. Click ![Copy](../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_copy-text }}** to copy the recognized text.
+1. Click ![Copy](../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_copy-text }}** to copy the recognized text.
 
 {{ speechkit-name }} Playground features basic speech recognition options. For more flexible recognition settings, use the [API](../stt/index.md).

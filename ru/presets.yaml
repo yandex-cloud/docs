@@ -8053,8 +8053,8 @@ default:
             actionEditConnector: Редактировать коннектор
             buttonSelectCloudCatalog: Выбрать облако/каталог
             title: Ресурсы окружения
-          WorkspaceSelect:
-            create_action: Создать окружение
+          WorkspacesPlaceholder:
+            createWorkspace_8yAnK: Создать окружение
           WorkspaceStandardsForm:
             modules_title_s8LDi: Модули контроля
             standards_title_dBBXP: Наборы требований
@@ -8516,8 +8516,8 @@ default:
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки
         servers:
-          ConfigurationField:
-            poolFilter_frWLA: Пул
+          Filters:
+            poolFilter_tVgg5: Пул
         title_common-info: Общая информация
         title_routing-settings: IP-адресация и маршрутизация
         title_section-accesses: Доступы
@@ -11223,10 +11223,11 @@ default:
           field_voice: Голос
           label_button_playback: Синтезировать и воспроизвести
           label_synthesis-settings: Настройки синтеза
+        speech-to-text-v2:
+          label_button_copy-text: Скопировать
+          label_button_start-recognition: Распознать
         speech-to-text:
           field_language: Язык
-          label_button_copy-text: Скопировать текст
-          label_button_start-recognition: Распознать
           label_language-auto: Автоматически
       spqr:
         console_password: Пароль для консоли Sharded PostgreSQL
@@ -11867,6 +11868,39 @@ default:
                     GenericParserCommon:
                       unescape_string_values:
                         title: Разэкранировать значения строк
+            elasticsearch:
+              console:
+                form:
+                  elasticsearch:
+                    ElasticSearchConnection:
+                      password:
+                        title: Пароль
+                      security_groups:
+                        title: Группы безопасности
+                      user:
+                        title: Пользователь
+                    ElasticSearchSource:
+                      dump_index_with_mapping:
+                        title: Перенести индекс с сопоставлением типов
+                    ElasticSearchTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      sanitize_doc_keys:
+                        title: Исправить некорректные ключи в документах
+                    OnPremiseElasticSearch:
+                      addresses:
+                        title: Узлы с данными
+                      ca_certificate:
+                        title: Сертификат CA
+                      ssl_enabled:
+                        title: SSL
+                      subnet_id:
+                        title: Идентификатор подсети
+                    OnPremiseElasticSearchHostPort:
+                      host:
+                        title: Хост
+                      port:
+                        title: Порт
             greenplum:
               console:
                 form:

@@ -33,7 +33,7 @@ description: В данном разделе описано, как начать 
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![vector-circle](../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}** и нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.WorkspaceSelect.create_action }}**.
+  1. На панели слева выберите ![vector-circle](../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}** и нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.WorkspacesPlaceholder.createWorkspace_8yAnK }}**.
   1. {% include [workspace-create-step1](../_includes/security-deck/workspace-create-step1.md) %}
   1. {% include [workspace-create-step2](../_includes/security-deck/workspace-create-step2.md) %}
   1. {% include [workspace-create-step3](../_includes/security-deck/workspace-create-step3.md) %}
