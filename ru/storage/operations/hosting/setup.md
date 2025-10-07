@@ -14,6 +14,19 @@ description: Следуя данной инструкции, вы сможете
 * [Переадресация всех запросов](#redirects).
 * [Условная переадресация запросов](#redirects-on-conditions).
 
+{% note warning %}
+
+Хостинг статического сайта не поддерживается в бакетах со следующими параметрами:
+
+* Включено [шифрование](../../concepts/encryption.md) бакета. [Отключите](../buckets/encrypt.md#del) шифрование, [удалите](../objects/delete-all.md) объекты из бакета и [загрузите](../objects/upload.md) их заново.
+* Отсутствует [публичный доступ](../../security/overview.md#anonymous) к объектам и их списку. [Откройте](../buckets/bucket-availability.md#open-public-access) публичный доступ.
+* Настроены [политики доступа](../../concepts/policy.md), ограничивающие доступ к объектам и их списку анонимным пользователям. [Измените](../buckets/policy.md#apply-policy) политику доступа.
+* Включен доступ только из [сервисных подключений VPC](../../security/overview.md#pe-vpc). [Восстановите](../buckets/access-via-vpc.md#disable) доступ к бакету из публичной сети.
+
+Подробнее см. на странице [{#T}](../../security/overview.md).
+
+{% endnote %}
+
 ## Хостинг статического сайта {#hosting}
 
 {% list tabs group=instructions %}

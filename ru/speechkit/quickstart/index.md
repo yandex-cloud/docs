@@ -17,7 +17,7 @@
 1. Перейдите на вкладку **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}**.
 1. В поле **{{ ui-key.yacloud.speechkit.speech-to-text.field_language }}** выберите нужный язык или оставьте значение `{{ ui-key.yacloud.speechkit.speech-to-text.label_language-auto }}`.
 1. Нажмите **Выбрать файл** или перетащите аудиофайл в зону загрузки.
-1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}**, чтобы распознать речь в аудиофайле.
+1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_start-recognition }}**, чтобы распознать речь в аудиофайле.
 
 Подробную инструкцию см. на странице [{#T}](../operations/stt-playground.md).
 

@@ -17,7 +17,7 @@ To recognize speech from an audio file via the {{ speechkit-name }} Playground i
 1. Go to the **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}** tab.
 1. In the **{{ ui-key.yacloud.speechkit.speech-to-text.field_language }}** field, select the language you need or leave `{{ ui-key.yacloud.speechkit.speech-to-text.label_language-auto }}`.
 1. Click **Select file** or drag the audio file to the loading area.
-1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}** to start speech recognition in the audio file.
+1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_start-recognition }}** to start speech recognition in the audio file.
 
 For a detailed guide, see [{#T}](../operations/stt-playground.md).
 

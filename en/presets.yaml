@@ -6983,7 +6983,7 @@ default:
         action_cicd: CI/CD
         action_commit: Commit changes
         action_create-file: Create file
-        button_commit-and-go-to-read-mode: Commit and back to Read mode
+        button_commit-and-go-to-read-mode: Commit and back to read mode
         field_after-commit-action: After commit action
         field_commit-branch: Commit branch
         field_text_commit-directly-to-the-branch: 'Commit directly to the branch:'
@@ -8042,8 +8042,8 @@ default:
             actionEditConnector: Edit connector
             buttonSelectCloudCatalog: Select cloud/catalog
             title: Workspace resources
-          WorkspaceSelect:
-            create_action: Create workspace
+          WorkspacesPlaceholder:
+            createWorkspace_8yAnK: Create workspace
           WorkspaceStandardsForm:
             modules_title_s8LDi: Control modules
             standards_title_dBBXP: Rule sets
@@ -8501,8 +8501,8 @@ default:
         label_vrf-interconnect-direct-type: Connection ID
         label_vrf-interconnect-select-type: Setup method
         servers:
-          ConfigurationField:
-            poolFilter_frWLA: Pool
+          Filters:
+            poolFilter_tVgg5: Pool
         title_common-info: General information
         title_routing-settings: IP addressing and routing
         title_section-accesses: Accesses
@@ -11206,10 +11206,11 @@ default:
           field_voice: Voice
           label_button_playback: Synthesize and playback
           label_synthesis-settings: Synthesis settings
-        speech-to-text:
-          field_language: Language
+        speech-to-text-v2:
           label_button_copy-text: Copy text
           label_button_start-recognition: Start recognition
+        speech-to-text:
+          field_language: Language
           label_language-auto: Automatic
       spqr:
         console_password: Password from Sharded PostgreSQL console
@@ -11848,6 +11849,39 @@ default:
                     GenericParserCommon:
                       unescape_string_values:
                         title: Unescape string values
+            elasticsearch:
+              console:
+                form:
+                  elasticsearch:
+                    ElasticSearchConnection:
+                      password:
+                        title: Password
+                      security_groups:
+                        title: Security groups
+                      user:
+                        title: User
+                    ElasticSearchSource:
+                      dump_index_with_mapping:
+                        title: Dump an index with type mapping
+                    ElasticSearchTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      sanitize_doc_keys:
+                        title: Sanitize documents keys
+                    OnPremiseElasticSearch:
+                      addresses:
+                        title: Data nodes
+                      ca_certificate:
+                        title: CA certificate
+                      ssl_enabled:
+                        title: SSL
+                      subnet_id:
+                        title: Subnet ID
+                    OnPremiseElasticSearchHostPort:
+                      host:
+                        title: Host
+                      port:
+                        title: Port
             greenplum:
               console:
                 form:

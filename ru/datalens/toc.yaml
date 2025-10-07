@@ -914,8 +914,10 @@ items:
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Август 2025
+      - name: Сентябрь 2025
         href: release-notes/index.md
+      - name: Август 2025
+        href: release-notes/2508.md
       - name: Июль 2025
         href: release-notes/2507.md
       - name: Июнь 2025
@@ -924,10 +926,10 @@ items:
         href: release-notes/2505.md
       - name: Апрель 2025
         href: release-notes/2504.md
-      - name: Март 2025
-        href: release-notes/2503.md
       - name: Архив
         items:
+          - name: Март 2025
+            href: release-notes/2503.md
           - name: Февраль 2025
             href: release-notes/2502.md
           - name: Январь 2025

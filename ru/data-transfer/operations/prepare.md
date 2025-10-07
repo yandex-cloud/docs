@@ -50,6 +50,11 @@ description: Из статьи вы узнаете, как подготовит�
 
 {% include [prepare mysql db](../../_includes/data-transfer/endpoints/sources/mysql-prepare.md) %}
 
+### Источник {{ ES }} {#source-es}
+
+
+{% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
 ### Источник {{ OS }} {#source-os}
 
 {% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/opensearch-prepare.md) %}
@@ -98,6 +103,11 @@ description: Из статьи вы узнаете, как подготовит�
 ### Приемник {{ objstorage-full-name }} {#target-storage}
 
 {% include [prepare object storage db](../../_includes/data-transfer/endpoints/targets/object-storage-prepare.md) %}
+
+### Приемник {{ ES }} {#target-es}
+
+
+{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
 
 ### Приемник {{ OS }} {#target-os}
 

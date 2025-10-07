@@ -10,7 +10,8 @@ The `organization-manager.editor` role enables managing organization settings, i
 * View info on the [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.
 * Add and remove federated users.
 * View info on identity federation [certificates](../../organization/concepts/add-federation.md#build-trust) and add, modify, and delete them.
-* View the lists of [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mappings](../../organization/concepts/add-federation.md#group-mapping) and info on them, as well as create, edit, and delete such lists.
+* Configure [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mapping](../../organization/concepts/add-federation.md#group-mapping).
+* View the lists of federated user group mappings and info on them, as well as create, edit, and delete such lists.
 * View info on the attributes of [federated](../../iam/concepts/users/accounts.md#saml-federation) user, as well as create, modify, and delete such attributes.
 * View info on [user pools](../../organization/concepts/user-pools.md) and access permissions granted for them.
 * Create, modify, and delete user pools.

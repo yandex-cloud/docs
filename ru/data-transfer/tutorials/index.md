@@ -41,6 +41,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ OS }} в {{ ydb-short-name }}](opensearch-to-ydb.md)
 * [{{ OS }} в {{ GP }}](opensearch-to-greenplum.md)
 * [{{ PG }} в {{ OS }}](postgresql-to-opensearch.md)
+* [{{ ES }} в {{ OS }}](mes-to-mos.md)
 
 ## Захват изменений данных {#cdc}
 
