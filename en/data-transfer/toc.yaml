@@ -37,6 +37,12 @@ items:
                 href: operations/endpoint/source/clickhouse.md
               - name: Target
                 href: operations/endpoint/target/clickhouse.md
+          - name: Elasticsearch
+            items:
+              - name: Source
+                href: operations/endpoint/source/elasticsearch.md
+              - name: Target
+                href: operations/endpoint/target/elasticsearch.md
           - name: Greenplum®
             items:
               - name: Source
@@ -159,6 +165,8 @@ items:
             href: tutorials/opensearch-to-ydb.md
           - name: '{{ OS }} in {{ GP }}'
             href: tutorials/opensearch-to-greenplum.md
+          - name: '{{ ES }} in {{ OS }}'
+            href: tutorials/mes-to-mos.md
           - name: '{{ PG }} in {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
       - name: Change data capture and delivery to the queue

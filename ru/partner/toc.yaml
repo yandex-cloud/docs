@@ -40,6 +40,8 @@ items:
     href: security/index.md
   - name: Термины и определения
     href: terms.md
+  - name: История изменений
+    href: release-notes/index.md
   - name: Вопросы и ответы
     expanded: true
     items:

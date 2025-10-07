@@ -19,10 +19,10 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}**, чтобы распознать речь в аудиофайле.
+1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_start-recognition }}**, чтобы распознать речь в аудиофайле.
 
    Распознавание может занять от нескольких секунд до нескольких минут в зависимости от размера аудиофайла.
 
-1. Нажмите кнопку ![Copy](../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_copy-text }}**, чтобы скопировать распознанный текст.
+1. Нажмите кнопку ![Copy](../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_copy-text }}**, чтобы скопировать распознанный текст.
 
 {{ speechkit-name }} Playground предоставляет базовые возможности распознавания речи. Более гибкие настройки распознавания доступны только через [API](../stt/index.md).

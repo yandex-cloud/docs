@@ -116,9 +116,20 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите на имя нужного кластера.
   1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
-  1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
+  1. Укажите имя базы данных.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+  1. Выберите движок базы данных: 
+      
+      * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+      * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+
+        Доступен только в [реплицированных](../concepts/replication.md) кластерах.
+
+      Движок задается при создании базы данных и не может быть изменен для этой базы.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
 - CLI {#cli}
 
@@ -197,12 +208,21 @@ description: Следуя данной инструкции, вы сможете
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases' \
           --data '{
                     "databaseSpec": {
-                      "name": "<имя_БД>"
+                      "name": "<имя_базы_данных>",
+                      "engine": "<движок_базы_данных>"
                     }
                   }'
       ```
 
-      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+      Где: 
+
+      * `databaseSpec.name` — имя базы данных.
+
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+        
+      * `databaseSpec.engine` — движок базы данных. Возможные значения:
+        
+        {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -227,14 +247,23 @@ description: Следуя данной инструкции, вы сможете
           -d '{
                 "cluster_id": "<идентификатор_кластера>",
                 "database_spec": {
-                  "name": "<имя_БД>"
+                  "name": "<имя_базы_данных>",
+                  "engine": "<движок_базы_данных>"
                 }
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.clickhouse.v1.DatabaseService.Create
       ```
 
-      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+      Где: 
+
+      * `database_spec.name` — имя базы данных.
+
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+        
+      * `database_spec.engine` — движок базы данных. Возможные значения:
+
+        {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

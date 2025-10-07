@@ -37,6 +37,12 @@ items:
                 href: operations/endpoint/source/clickhouse.md
               - name: Приемник
                 href: operations/endpoint/target/clickhouse.md
+          - name: Elasticsearch
+            items:
+              - name: Источник
+                href: operations/endpoint/source/elasticsearch.md
+              - name: Приемник
+                href: operations/endpoint/target/elasticsearch.md
           - name: Greenplum®
             items:
               - name: Источник
@@ -161,6 +167,8 @@ items:
             href: tutorials/opensearch-to-greenplum.md
           - name: '{{ PG }} в {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
+          - name: '{{ ES }} в {{ OS }}'
+            href: tutorials/mes-to-mos.md
       - name: Захват изменений данных и поставка в очередь
         items:
           - name: '{{ MY }} в {{ KF }}'
