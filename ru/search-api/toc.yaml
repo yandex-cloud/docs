@@ -87,9 +87,9 @@ items:
     href: pricing.md
   - name: Справочник API
     items:
-      - name: Аутентификация в API v2
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: API v2
+      - name: API
         items:
           - name: gRPC (англ.)
             items:

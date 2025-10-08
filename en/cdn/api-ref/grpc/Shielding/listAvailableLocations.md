@@ -17,7 +17,8 @@ Lists available geographical locations.
 {
   "folder_id": "string",
   "page_size": "int64",
-  "page_token": "string"
+  "page_token": "string",
+  "resource_id": "string"
 }
 ```
 
@@ -36,6 +37,9 @@ Maximum number of results per page. ||
 Page token. To get the next page of results,
 set `page_token` to the [ListShieldingLocationsResponse.next_page_token](#yandex.cloud.cdn.v1.ListShieldingLocationsResponse)
 returned by a previous list response. ||
+|| resource_id | **string**
+
+Required field. ID of the resource for which to request a list of locations where shielding can be activated. ||
 |#
 
 ## ListShieldingLocationsResponse {#yandex.cloud.cdn.v1.ListShieldingLocationsResponse}

@@ -1,6 +1,8 @@
 # Автоматизация работы с {{ dataproc-full-name }} с помощью {{ maf-full-name }}
 
 
+{% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
+
 В сервисе {{ maf-full-name }} можно создать DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md), который позволит автоматизировать работу с [сервисом {{ dataproc-full-name }}](../../../data-proc/index.yaml). Ниже рассматривается DAG, который включает в себя несколько задач:
 
 1. Создать кластер {{ dataproc-name }}.
@@ -304,7 +306,7 @@ DAG будет состоять из нескольких вершин, кото
       # Настройки DAG
       with DAG(
               'DATA_INGEST',
-              schedule_interval='@hourly',
+              schedule='@hourly',
               tags=['data-processing-and-airflow'],
               start_date=datetime.datetime.now(),
               max_active_runs=1,
@@ -401,7 +403,7 @@ DAG будет состоять из нескольких вершин, кото
       # Настройки DAG
       with DAG(
               'DATA_INGEST',
-              schedule_interval='@hourly',
+              schedule='@hourly',
               tags=['data-processing-and-airflow'],
               start_date=datetime.datetime.now(),
               max_active_runs=1,

@@ -186,7 +186,7 @@
 
   1. Посмотрите описание команды создания федерации:
 
-     ```
+     ```bash
      yc organization-manager federation saml create --help
      ```
 
@@ -456,8 +456,8 @@
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
       * `description` — описание федерации.
-      * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации. 
-      * `labels` — набор пар меток ключ/значение, которые присвоены федерации.
+      * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации.
+      * `labels` — набор пар меток ключ/значение, которые присвоены федерации. Необязательный параметр.
       * `issuer` — идентификатор IdP-сервера, на котором должна происходить аутентификация: 
 
         - Keycloak 17 или новее
@@ -581,7 +581,7 @@
 
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
-     ```
+     ```bash
      yc organization-manager federation saml certificate create \
        --federation-id <ID_федерации> \
        --name "my-certificate" \

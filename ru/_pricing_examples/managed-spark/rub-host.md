@@ -1,12 +1,10 @@
-> 720 × (24 × {% calc [currency=RUB] 1,5477 %} + 96 × {% calc [currency=RUB] 0,40788 %}) = {% calc [currency=RUB] 720 × (24 × 1,5477 + 96 × 0,40788) %}
+> 720 × (24 × {{ sku|RUB|spark.cluster.generic.vcpu.v2|string }} + 96 × {{ sku|RUB|spark.cluster.generic.ram.v2|string }}) = {% calc [currency=RUB] 720 × (24 × {{ sku|RUB|spark.cluster.generic.vcpu.v2|number }} + 96 × {{ sku|RUB|spark.cluster.generic.ram.v2|number }}) %}
 >
-> Итого: {% calc [currency=RUB] 720 × (24 × 1,5477 + 96 × 0,40788) %} — стоимость использования кластера в течение 30 дней.
+> Итого: {% calc [currency=RUB] 720 × (24 × {{ sku|RUB|spark.cluster.generic.vcpu.v2|number }} + 96 × {{ sku|RUB|spark.cluster.generic.ram.v2|number }}) %} — стоимость использования кластера в течение 30 дней.
 
 Где:
 * 720 — количество часов в 30 днях.
 * 24 — общее количество vCPU.
-* {% calc [currency=RUB] 1,5477 %} — стоимость часа использования 1 vCPU.
+* {{ sku|RUB|spark.cluster.generic.vcpu.v2|string }} — стоимость часа использования 1 vCPU.
 * 96 — общий объем RAM (в гигабайтах).
-* {% calc [currency=RUB] 0,40788 %} — стоимость часа использования 1 ГБ RAM.
-
-
+* {{ sku|RUB|spark.cluster.generic.ram.v2|string }} — стоимость часа использования 1 ГБ RAM.

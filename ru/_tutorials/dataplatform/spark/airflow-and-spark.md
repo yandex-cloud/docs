@@ -1,6 +1,8 @@
 # Автоматизация работы с {{ msp-full-name }} с помощью {{ maf-full-name }}
 
 
+{% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
+
 В сервисе {{ maf-full-name }} можно создать DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md), который позволит автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml). Ниже рассматривается DAG, который включает в себя несколько задач:
 
 1. Создать кластер {{ SPRK }}.

@@ -143,6 +143,19 @@ apiPlayground:
             Attaching/detaching stopped instance will leave the size of the reserved instance pool unchanged. Starting such attached instance will use resources from the reserved instance pool.
             Reserved instance pool resource configuration must match the resource configuration of the instance.
           type: string
+        application:
+          description: |-
+            **[Application](#yandex.cloud.compute.v1.Application)**
+            Instance application settings.
+          oneOf:
+            - type: object
+              properties:
+                containerSolution:
+                  description: |-
+                    **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
+                    Container specification.
+                    Includes only one of the fields `containerSolution`.
+                  $ref: '#/definitions/ContainerSolutionSpec'
       additionalProperties: false
     definitions:
       ResourcesSpec:
@@ -317,6 +330,54 @@ apiPlayground:
               - SSH_AUTHORIZATION_UNSPECIFIED
               - INSTANCE_METADATA
               - OS_LOGIN
+      Secret:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the secret.
+            type: string
+          key:
+            description: |-
+              **string**
+              Required field. Name of the key.
+            type: string
+          versionId:
+            description: |-
+              **string**
+              Version of the secret.
+            type: string
+        required:
+          - id
+          - key
+      ContainerSolutionSpec:
+        type: object
+        properties:
+          productId:
+            description: |-
+              **string**
+              Required field. ID of the product.
+            type: string
+          secrets:
+            description: |-
+              **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
+              A list of the secrets.
+            type: object
+            additionalProperties:
+              $ref: '#/definitions/Secret'
+            maxProperties: 100
+          environment:
+            description: |-
+              **object** (map<**string**, **string**>)
+              A list of the environmets.
+            type: object
+            additionalProperties:
+              type: string
+              maxLength: 10000
+            maxProperties: 100
+        required:
+          - productId
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/update.md
 ---
 
@@ -387,7 +448,25 @@ To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Insta
   "serialPortSettings": {
     "sshAuthorization": "string"
   },
-  "reservedInstancePoolId": "string"
+  "reservedInstancePoolId": "string",
+  "application": {
+    // Includes only one of the fields `containerSolution`
+    "containerSolution": {
+      "productId": "string",
+      "secrets": "object",
+      "environment": "object"
+    },
+    // end of the list of possible fields
+    "cloudbackup": {
+      "enabled": "boolean",
+      "initialPolicyIds": [
+        "string"
+      ],
+      "recoveryFromBackup": "boolean",
+      "backupId": "string",
+      "instanceRegistrationId": "string"
+    }
+  }
 }
 ```
 
@@ -473,6 +552,9 @@ ID of the reserved instance pool that the instance should belong to.
 Attaching/detaching running instance will increase/decrease the size of the reserved instance pool.
 Attaching/detaching stopped instance will leave the size of the reserved instance pool unchanged. Starting such attached instance will use resources from the reserved instance pool.
 Reserved instance pool resource configuration must match the resource configuration of the instance. ||
+|| application | **[Application](#yandex.cloud.compute.v1.Application)**
+
+Instance application settings. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -601,6 +683,71 @@ Authentication and authorization in serial console when using SSH protocol
 - `SSH_AUTHORIZATION_UNSPECIFIED`
 - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
 - `OS_LOGIN`: Authentication and authorization using Oslogin service ||
+|#
+
+## Application {#yandex.cloud.compute.v1.Application}
+
+#|
+||Field | Description ||
+|| containerSolution | **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
+
+Container specification.
+
+Includes only one of the fields `containerSolution`. ||
+|| cloudbackup | **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec)**
+
+Backup settings. ||
+|#
+
+## ContainerSolutionSpec {#yandex.cloud.compute.v1.ContainerSolutionSpec}
+
+#|
+||Field | Description ||
+|| productId | **string**
+
+Required field. ID of the product. ||
+|| secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
+
+A list of the secrets. ||
+|| environment | **object** (map<**string**, **string**>)
+
+A list of the environmets. ||
+|#
+
+## Secret {#yandex.cloud.compute.v1.Secret}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the secret. ||
+|| key | **string**
+
+Required field. Name of the key. ||
+|| versionId | **string**
+
+Version of the secret. ||
+|#
+
+## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, backup is enabled. ||
+|| initialPolicyIds[] | **string**
+
+A list of policy IDs to apply after resource registration. ||
+|| recoveryFromBackup | **boolean**
+
+If true, recovery from backup starts on instance. ||
+|| backupId | **string**
+
+ID of the backup to recover from. ||
+|| instanceRegistrationId | **string**
+
+ID of the instance registration for cloud backup agent installation. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -771,7 +918,25 @@ Authentication and authorization in serial console when using SSH protocol
       "generation2Features": "object"
       // end of the list of possible fields
     },
-    "reservedInstancePoolId": "string"
+    "reservedInstancePoolId": "string",
+    "application": {
+      // Includes only one of the fields `containerSolution`
+      "containerSolution": {
+        "productId": "string",
+        "secrets": "object",
+        "environment": "object"
+      },
+      // end of the list of possible fields
+      "cloudbackup": {
+        "enabled": "boolean",
+        "initialPolicyIds": [
+          "string"
+        ],
+        "recoveryFromBackup": "boolean",
+        "backupId": "string",
+        "instanceRegistrationId": "string"
+      }
+    }
   }
   // end of the list of possible fields
 }
@@ -995,6 +1160,9 @@ This feature set is inherited from the image/disk used as a boot one at the crea
 || reservedInstancePoolId | **string**
 
 ID of the reserved instance pool that the instance belongs to. ||
+|| application | **[Application](#yandex.cloud.compute.v1.Application2)**
+
+Instance application settings. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}
@@ -1299,4 +1467,69 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## Application {#yandex.cloud.compute.v1.Application2}
+
+#|
+||Field | Description ||
+|| containerSolution | **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec2)**
+
+Container specification.
+
+Includes only one of the fields `containerSolution`. ||
+|| cloudbackup | **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec2)**
+
+Backup settings. ||
+|#
+
+## ContainerSolutionSpec {#yandex.cloud.compute.v1.ContainerSolutionSpec2}
+
+#|
+||Field | Description ||
+|| productId | **string**
+
+Required field. ID of the product. ||
+|| secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret2)**>)
+
+A list of the secrets. ||
+|| environment | **object** (map<**string**, **string**>)
+
+A list of the environmets. ||
+|#
+
+## Secret {#yandex.cloud.compute.v1.Secret2}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the secret. ||
+|| key | **string**
+
+Required field. Name of the key. ||
+|| versionId | **string**
+
+Version of the secret. ||
+|#
+
+## BackupSpec {#yandex.cloud.compute.v1.BackupSpec2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, backup is enabled. ||
+|| initialPolicyIds[] | **string**
+
+A list of policy IDs to apply after resource registration. ||
+|| recoveryFromBackup | **boolean**
+
+If true, recovery from backup starts on instance. ||
+|| backupId | **string**
+
+ID of the backup to recover from. ||
+|| instanceRegistrationId | **string**
+
+ID of the instance registration for cloud backup agent installation. ||
 |#

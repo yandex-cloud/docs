@@ -215,7 +215,7 @@ description: Следуя данной инструкции, вы сможете
      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
        environment         = "<окружение>"
-       network_id          = "<идентификатор_сети>"
+       network_id          = yandex_vpc_network.<имя_сети>.id
        security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
        deletion_protection = <защитить_кластер_от_удаления>
 
@@ -231,7 +231,7 @@ description: Следуя данной инструкции, вы сможете
 
        host {
          zone_id          = "<зона_доступности>"
-         subnet_id        = "<идентификатор_подсети>"
+         subnet_id        = yandex_vpc_subnet.<имя_подсети>.id
          assign_public_ip = <разрешить_публичный_доступ_к_хосту>
          host_parameters {
            hidden               = <скрыть_хост>
@@ -242,12 +242,12 @@ description: Следуя данной инструкции, вы сможете
      }
 
      resource "yandex_mdb_mongodb_database" "<имя_БД>" {
-       cluster_id = "<идентификатор_кластера>"
+       cluster_id = yandex_mdb_mongodb_cluster.<имя_кластера>.id
        name       = "<имя_БД>"
      }
 
      resource "yandex_mdb_mongodb_user" "<имя_пользователя>" {
-       cluster_id = <идентификатор_кластера>
+       cluster_id = yandex_mdb_mongodb_cluster.<имя_кластера>.id
        name       = "<имя_пользователя>"
        password   = "<пароль>"
        permission {
@@ -264,7 +264,7 @@ description: Следуя данной инструкции, вы сможете
      resource "yandex_vpc_subnet" "<имя_подсети>" {
        name           = "<имя_подсети>"
        zone           = "<зона_доступности>"
-       network_id     = "<идентификатор_сети>"
+       network_id     = yandex_vpc_network.<имя_сети>.id
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
@@ -710,7 +710,7 @@ description: Следуя данной инструкции, вы сможете
     1. Запишите идентификатор первоначального кластера {{ SD }} в переменную окружения:
 
         ```bash
-        export MONGODB_CLUSTER_ID=<идентификатор_кластера>
+        export STOREDOC_CLUSTER_ID=<идентификатор_кластера>
         ```
 
         Идентификатор можно запросить вместе со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
@@ -718,7 +718,7 @@ description: Следуя данной инструкции, вы сможете
     1. Импортируйте настройки первоначального кластера {{ SD }} в конфигурацию {{ TF }}:
 
         ```bash
-        terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
+        terraform import yandex_mdb_mongodb_cluster.old ${STOREDOC_CLUSTER_ID}
         ```
 
     1. Получите импортированную конфигурацию:

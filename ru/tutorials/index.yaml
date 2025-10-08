@@ -3,51 +3,128 @@ description:
   - >-
     Практические руководства, которые помогут вам решать различные задачи с
     помощью сервисов {{ yandex-cloud }}.
-links:
-  - title: Безопасность
-    description: Настройте безопасность инфраструктуры с помощью {{ yandex-cloud }}
-    href: security/
-  - title: Хранение и восстановление данных
-    description: Настройте резервное копирование и восстановление данных
-    href: archive/
-  - title: Разработка и тестирование
-    description: Используйте сервисы {{ yandex-cloud }} в разработке и тестировании
-    href: dev/
-  - title: Базовая инфраструктура
+blocks:
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    title: Практические руководства платформы Yandex Cloud
     description: >-
-      Развертывайте базовую инфраструктуру удобными средствами управления
-      облачными ресурсами
-    href: infrastructure/
-  - title: Контейнерная инфраструктура
-    description: Развертывайте контейнерную инфраструктуру в {{ yandex-cloud }}
-    href: container-infrastructure/
-  - title: Прикладные решения
-    description: Выполняйте практические задачи средствами {{ yandex-cloud }}
-    href: applied/
-  - title: Построение Data Platform
-    description: Создавайте Data Platform с помощью {{ yandex-cloud }}
-    href: dataplatform/
-  - title: Продукты Microsoft в {{ yandex-cloud }}
-    description: Развертывайте продукты Microsoft в {{ yandex-cloud }}
-    href: windows/
-  - title: Архитектура, сетевое взаимодействие
-    description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
-    href: routing/
-  - title: Визуализация и анализ данных
-    description: Собирайте, визуализируйте и анализируйте данные из различных источников
-    href: datalens/
-  - title: Бессерверные технологии
-    description: >-
-      Создавайте собственные приложения и интеграции с помощью
-      serverless-технологий
-    href: serverless/
-  - title: Машинное обучение и искусственный интеллект
-    description: >-
-      Применяйте возможности {{ yandex-cloud }} для создания решений на базе
-      машинного обучения и искусственного интеллекта
-    href: ml-ai/
+      Практические руководства, которые помогут вам решать различные задачи с
+      помощью сервисов Yandex Cloud.
+    children:
+      - type: basic-card
+        title: Безопасность
+        text: Создавайте безопасную инфраструктуру в Yandex Cloud.
+        urlTitle: Руководства по безопасности
+        url: https://yandex.cloud/ru/docs/tutorials/security/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Хранение и восстановление данных
+        text: Настраивайте резервное копирование и восстановление данных.
+        urlTitle: Хранение и восстановление данных
+        url: https://yandex.cloud/ru/docs/tutorials/archive/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Разработка и тестирование
+        text: Используйте сервисы Yandex Cloud для разработки и тестирования.
+        urlTitle: Руководства по разработке и тестированию
+        url: https://yandex.cloud/ru/docs/tutorials/dev/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Базовая инфраструктура
+        text: >-
+          Развертывайте базовую инфраструктуру удобными средствами и управляйте
+          облачными ресурсами.
+        urlTitle: Руководства по работе с системами управления базовой инфраструктурой
+        url: https://yandex.cloud/ru/docs/tutorials/infrastructure/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Контейнерная инфраструктура
+        text: Развертывайте контейнерную инфраструктуру в Yandex Cloud.
+        urlTitle: Руководства по работе с контейнерной инфраструктурой
+        url: https://yandex.cloud/ru/docs/tutorials/container-infrastructure/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Прикладные решения
+        text: Выполняйте практические задачи с использованием сервисов Yandex Cloud.
+        urlTitle: Прикладные решения
+        url: https://yandex.cloud/ru/docs/tutorials/applied/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Построение Data Platform
+        text: Создавайте платформу данных с помощью Yandex Cloud.
+        urlTitle: Построение Data Platform на базе Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/dataplatform/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Продукты Microsoft в Yandex Cloud
+        text: Развертывайте продукты Microsoft в Yandex Cloud.
+        urlTitle: Руководства по работе с Windows в Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/windows/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Архитектура, сетевое взаимодействие
+        text: >-
+          Настраивайте статические маршруты и VPN для доступа к облачным
+          ресурсам.
+        urlTitle: Руководства по работе с сетевой инфраструктурой в Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/routing/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Визуализация и анализ данных
+        text: >-
+          Собирайте, визуализируйте и анализируйте данные из различных
+          источников.
+        urlTitle: Руководства по анализу и визуализации данных
+        url: https://yandex.cloud/ru/docs/tutorials/datalens/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Бессерверные технологии
+        text: >-
+          Создавайте собственные приложения и интеграции с помощью
+          serverless-технологий.
+        urlTitle: Руководства по работе с бессерверными технологиями в Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/serverless/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Машинное обучение и искусственный интеллект
+        text: >-
+          Применяйте возможности Yandex Cloud для создания решений на базе
+          машинного обучения и искусственного интеллекта.
+        urlTitle: Руководства по работе с машинным обучением и искусственным интеллектом
+        url: https://yandex.cloud/ru/docs/tutorials/ml-ai/
+        border: shadow
+        controlPosition: content
+        animated: false
 meta:
   title: Практические руководства
   description: >-
     Практические руководства, которые помогут вам решать различные задачи с
     помощью сервисов {{ yandex-cloud }}.
+links: []
