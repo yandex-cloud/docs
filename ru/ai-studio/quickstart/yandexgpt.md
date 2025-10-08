@@ -24,25 +24,6 @@
 
   {% include [sdk-before-begin-ai-langmodel-user](../../_includes/ai-studio/sdk-before-begin-ai-langmodel-user.md) %}
 
-- API {#api}
-
-  Чтобы воспользоваться примерами запроса через API, установите [cURL](https://curl.haxx.se). 
-
-  Для работы с API {{ yagpt-name }} необходимо аутентифицироваться со своего аккаунта:
-
-  1. Получите IAM-токен: см. инструкцию для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
-  1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-  1. При обращении к {{ gpt-lite }} или {{ gpt-pro }} через API передайте полученные параметры:
-
-     * в файле запроса в параметре `modelUri` указывайте идентификатор каталога;
-     * в запросе в заголовке `Authorization` указывайте IAM-токен.
-
-     ```json
-     Authorization: Bearer <IAM-токен>
-     ```
-
-  Другие способы аутентификации в API описаны на странице [{#T}](../api-ref/authentication.md).
-
 {% endlist %}
 
 ## Сгенерируйте текст {#generate-text}
@@ -54,15 +35,30 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** или найдите его с помощью строки поиска на дашборде.
+  1. На панели слева выберите ![image](../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
 
      ![screen01](../../_assets/ai-studio/quickstart/yandexgpt/screen01.png)
 
-  1. В поле **{{ ui-key.yacloud.yagpt.label_temperature-text }}** укажите значение от `0` до `1`, которое определяет вариативность ответа модели: чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
-  1. В блоке **{{ ui-key.yacloud.yagpt.label_instruction-text }}** опишите контекст запроса.
-  1. В блоке **{{ ui-key.yacloud.yagpt.label_request-text }}** опишите свой запрос к модели.
-  1. Нажмите кнопку **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. Ответ отобразится в правой части экрана.
+  1. Выберите тип генерации:
+
+      * **Генерация с учетом контекста** — модель будет генерировать ответы с учетом истории диалога. Это позволит уточнить результат в процессе общения.
+      * **Генерация текста** —  модель будет генерировать ответы только на основе вашего последнего сообщения и инструкции.
+
+  1. Напишите запрос в поле ввода снизу и нажмите ![image](../../_assets/console-icons/arrow-up.svg) или **Enter**. Вы также можете воспользоваться примерами запроса, предлагаемыми сверху.
+
+     Созданные диалоги сохраняются на панели **{{ ui-key.yacloud.yagpt.experiments-page-subtitle }}** справа. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) возле нужного диалога, чтобы переименовать или удалить его.
+
+  1. Чтобы настроить чат, в блоке **{{ ui-key.yacloud.yagpt.settings }}**:
+
+     1. Выберите [модель](../concepts/generation/models.md) генерации.
+     1. **{{ ui-key.yacloud.yagpt.label_temperature-text }}** — укажите значение от `0` до `1`, которое определяет вариативность ответа модели. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
+     1. **{{ ui-key.yacloud.yagpt.instruction }}** — опишите требуемую задачу, стиль письма, лимиты и другие предписания для модели. Для повышения точности генерации см. [{#T}](../gpt-prompting-guide/about.md).
+     1. **{{ ui-key.yacloud.yagpt.use-context }}** — измените тип генерации.
+     1. **{{ ui-key.yacloud.yagpt.use-assistant }}** — если опция включена, {{ ai-playground }} будет работать на основе [{{ assistant-api }}](../concepts/assistant/index.md).
+
+  1. Нажмите ![image](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.yagpt.train-modal }}**, если нужно [научить модель](../concepts/tuning/index.md) следовать сложному формату ответов.
+  1. Нажмите ![image](../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через ML SDK для Python или [cURL](https://curl.haxx.se).
 
      ![screen02](../../_assets/ai-studio/quickstart/yandexgpt/screen02.png)
 
@@ -70,79 +66,6 @@
 
   {% include [yandexgpt-sdk-entire-generation-block](../../_includes/ai-studio/yandexgpt/yandexgpt-sdk-entire-generation-block.md) %}
 
-- API {#api}
-
-  1. Создайте файл с телом запроса (например, `prompt.json`):
-
-     ```json
-     {
-       "modelUri": "gpt://<идентификатор_каталога>/yandexgpt",
-       "completionOptions": {
-         "stream": false,
-         "temperature": 0.6,
-         "maxTokens": "2000",
-         "reasoningOptions": {
-           "mode": "DISABLED"
-         }
-       },
-       "messages": [
-         {
-           "role": "system",
-           "text": "Найди ошибки в тексте и исправь их"
-         },
-         {
-           "role": "user",
-           "text": "Ламинат подойдет для укладке на кухне или в детской комнате – он не боиться влаги и механических повреждений благодаря защитному слою из облицованных меламиновых пленок толщиной 0,2 мм и обработанным воском замкам."
-         }
-       ]
-     }
-     ```
-
-     Где:
-
-     {% include [api-parameters](../../_includes/ai-studio/yandexgpt/api-parameters.md) %}
-
-  1. Отправьте запрос нейросети с помощью метода [completion](../text-generation/api-ref/TextGeneration/completion.md), выполнив команду:
-
-     ```bash
-     export FOLDER_ID=<идентификатор_каталога>
-     export IAM_TOKEN=<IAM-токен>
-     curl \
-       --request POST \
-       --header "Content-Type: application/json" \
-       --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --data "@prompt.json" \
-       "https://llm.{{ api-host }}/foundationModels/v1/completion"
-     ```
-
-     Где:
-
-     * `FOLDER_ID`— идентификатор каталога, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-     * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
-
-     В ответе сервис вернет сгенерированный текст:
-
-     ```json
-     {
-       "result": {
-         "alternatives": [
-           {
-             "message": {
-               "role": "assistant",
-               "text": "Ламинат подходит для укладки на кухне и в детской комнате. Он не боится влажности и механических повреждений, благодаря защитному слою, состоящему из меланиновых плёнок толщиной 0.2 мм, и обработанным воском замкам."
-             },
-             "status": "ALTERNATIVE_STATUS_TRUNCATED_FINAL"
-           }
-         ],
-         "usage": {
-           "inputTextTokens": "67",
-           "completionTokens": "50",
-           "totalTokens": "117"
-         },
-         "modelVersion": "06.12.2023"
-       }
-     }
-     ```
 
 {% endlist %}
 

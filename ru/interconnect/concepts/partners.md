@@ -33,6 +33,7 @@
 [TNS Plus](https://tnsplus.kz/) | M9 | 1 000 | - |
 [Selectel](https://selectel.ru) | M9 | 1 000 | - |
 [Юл-ком](https://ul-com.ru) | TEHNO | 10 000 | - |
+[NEXTREMUM](https://nextremum.net/ru) | TEHNO | 10 000 | - |
 
 где:
 
@@ -45,3 +46,4 @@
 ## Стать партнером {{ interconnect-name }} {#list}
 
 Если ваша компания хочет стать партнером {{ yandex-cloud }} по предоставлению услуги {{ interconnect-name }}, обращайтесь с запросом по адресу <cloud-noc@yandex.net>.
+

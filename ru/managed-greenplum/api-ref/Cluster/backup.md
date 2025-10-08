@@ -331,17 +331,20 @@ To get the Greenplum cluster ID, use a [ClusterService.List](/docs/managed-green
         "effectiveConfig": {
           "mode": "string",
           "size": "string",
-          "clientIdleTimeout": "string"
+          "clientIdleTimeout": "string",
+          "idleInTransactionTimeout": "string"
         },
         "userConfig": {
           "mode": "string",
           "size": "string",
-          "clientIdleTimeout": "string"
+          "clientIdleTimeout": "string",
+          "idleInTransactionTimeout": "string"
         },
         "defaultConfig": {
           "mode": "string",
           "size": "string",
-          "clientIdleTimeout": "string"
+          "clientIdleTimeout": "string",
+          "idleInTransactionTimeout": "string"
         }
       },
       "backgroundActivities": {
@@ -1319,11 +1322,18 @@ The number of servers in the server pool. Clients are placed in a wait queue whe
 Set to zero to disable the limit. ||
 || clientIdleTimeout | **string** (int64)
 
-Server pool idle timeout, in seconds.
+Client pool idle timeout, in seconds.
 
-A server connection closes after being idle for the specified time.
+Drop stale client connection after this much seconds of idleness, which is not in transaction.
 
-Set to zero to disable the limit. ||
+Set to zero to disable. ||
+|| idleInTransactionTimeout | **string** (int64)
+
+Client pool idle in transaction timeout, in seconds.
+
+Drop client connection in transaction after this much seconds of idleness.
+
+Set to zero to disable. ||
 |#
 
 ## BackgroundActivitiesConfig {#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig}

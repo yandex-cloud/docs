@@ -196,7 +196,25 @@ Currently you can use filtering only on the [Instance.name](#yandex.cloud.comput
         "generation2_features": "Generation2HardwareFeatures"
         // end of the list of possible fields
       },
-      "reserved_instance_pool_id": "string"
+      "reserved_instance_pool_id": "string",
+      "application": {
+        // Includes only one of the fields `container_solution`
+        "container_solution": {
+          "product_id": "string",
+          "secrets": "map<string, Secret>",
+          "environment": "map<string, string>"
+        },
+        // end of the list of possible fields
+        "cloudbackup": {
+          "enabled": "bool",
+          "initial_policy_ids": [
+            "string"
+          ],
+          "recovery_from_backup": "bool",
+          "backup_id": "string",
+          "instance_registration_id": "string"
+        }
+      }
     }
   ],
   "next_page_token": "string"
@@ -333,6 +351,9 @@ This feature set is inherited from the image/disk used as a boot one at the crea
 || reserved_instance_pool_id | **string**
 
 ID of the reserved instance pool that the instance belongs to. ||
+|| application | **[Application](#yandex.cloud.compute.v1.Application)**
+
+Instance application settings. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}
@@ -647,4 +668,69 @@ and UEFI boot (with UEFI related features).
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## Application {#yandex.cloud.compute.v1.Application}
+
+#|
+||Field | Description ||
+|| container_solution | **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
+
+Container specification.
+
+Includes only one of the fields `container_solution`. ||
+|| cloudbackup | **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec)**
+
+Backup settings. ||
+|#
+
+## ContainerSolutionSpec {#yandex.cloud.compute.v1.ContainerSolutionSpec}
+
+#|
+||Field | Description ||
+|| product_id | **string**
+
+Required field. ID of the product. ||
+|| secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
+
+A list of the secrets. ||
+|| environment | **object** (map<**string**, **string**>)
+
+A list of the environmets. ||
+|#
+
+## Secret {#yandex.cloud.compute.v1.Secret}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the secret. ||
+|| key | **string**
+
+Required field. Name of the key. ||
+|| version_id | **string**
+
+Version of the secret. ||
+|#
+
+## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+If true, backup is enabled. ||
+|| initial_policy_ids[] | **string**
+
+A list of policy IDs to apply after resource registration. ||
+|| recovery_from_backup | **bool**
+
+If true, recovery from backup starts on instance. ||
+|| backup_id | **string**
+
+ID of the backup to recover from. ||
+|| instance_registration_id | **string**
+
+ID of the instance registration for cloud backup agent installation. ||
 |#

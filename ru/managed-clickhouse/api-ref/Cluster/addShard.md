@@ -277,7 +277,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
-              Default value: **1000** for versions 23.11 and higher, **100** for versions 23.10 and lower.
+              Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window).
             type: string
             format: int64
@@ -1763,6 +1763,7 @@ apiPlayground:
               **[KafkaTopic](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.KafkaTopic)**
               Per-topic Kafka integration settings.
               Change of the settings of **kafka_topics** is applied with restart.
+            deprecated: true
             type: array
             items:
               $ref: '#/definitions/KafkaTopic'
@@ -3184,7 +3185,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **1000** for versions 23.11 and higher, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicatedDeduplicationWindowSeconds | **string** (int64)
@@ -6088,7 +6089,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **1000** for versions 23.11 and higher, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicatedDeduplicationWindowSeconds | **string** (int64)

@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите нужный проект.
-1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.upload-audio.upload-audio-key-value }}**.
+1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → **{{ ui-key.yc-ui-talkanalytics.upload-audio.upload-audio-key-value }}**.
 1. В открывшемся окне выберите файлы для загрузки одним из способов:
 
     * Выделите один или несколько файлов в файловом менеджере и перетащите их в область {{ speechsense-name }}, обозначенную пунктирной линией.

@@ -2372,6 +2372,17 @@ default:
           100|number: 378
           100|string: ₸378.00
         v1|string: Free
+  sku|KZT|spark:
+    cluster:
+      generic:
+        ram:
+          v2|month|string: ₸1468.3680
+          v2|number: 2.0394
+          v2|string: ₸2.0394
+        vcpu:
+          v2|month|string: ₸5571.72
+          v2|number: 7.7385
+          v2|string: ₸7.7385
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
@@ -4369,6 +4380,17 @@ default:
           100|number: 75.6
           100|string: ₽75.60
         v1|string: Free
+  sku|RUB|spark:
+    cluster:
+      generic:
+        ram:
+          v2|month|string: ₽293.6736
+          v2|number: 0.4079
+          v2|string: ₽0.4079
+        vcpu:
+          v2|month|string: ₽1114.3440
+          v2|number: 1.5477
+          v2|string: ₽1.5477
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
@@ -6300,6 +6322,17 @@ default:
           100|number: 0.63
           100|string: $0.630000
         v1|string: Free
+  sku|USD|spark:
+    cluster:
+      generic:
+        ram:
+          v2|month|string: $2.447279
+          v2|number: 0.003399
+          v2|string: $0.003399
+        vcpu:
+          v2|month|string: $9.286196
+          v2|number: 0.012897
+          v2|string: $0.012897
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.000021
@@ -8194,6 +8227,7 @@ default:
         field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
+        section_dag_processor: DAG processor configuration
         section_scheduler: Scheduler configuration
         section_storage: DAG file storage
         section_triggerer: Triggerer configuration
@@ -9765,6 +9799,7 @@ default:
         folder:
           dashboard:
             button_add: Create resource
+            label_ai-studio: AI Studio
             label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
             label_audit-trails: Audit Trails
@@ -10494,6 +10529,7 @@ default:
           backup-window-start: Backup start time (UTC)
           base_field_description: Description
           base_field_environment: Environment
+          base_field_fcv: Compatibility version
           base_field_folder: Folder
           base_field_hosts-count: Hosts
           base_field_name: Cluster name
@@ -11533,24 +11569,31 @@ default:
         switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
       yagpt:
+        experiments-page-subtitle: Experiments
         foundation-models:
           playground:
             text-generation:
               title: Text generation
           section_title:
             playground: AI Playground
+        instruction: Instructions
         label_button-instruct-submit: View answer
         label_instruction-text: Instructions
         label_promt: YandexGPT Prompt mode
         label_request-text: Request
         label_temperature-text: Temperature
         model: Model
+        playground: AI Playground
+        settings: Settings
         speechkit:
           services:
             speech-synthesys:
               title: Speech synthesis
             stt:
               title: Speech recognition
+        train-modal: Fine-tune model
+        use-assistant: Use an assistant
+        use-context: Use context
         YaGPT:
           create-instance_3Ltog: Deploy instance
           instances-title_j9Cpb: Instances
