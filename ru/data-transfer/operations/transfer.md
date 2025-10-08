@@ -14,6 +14,7 @@ description: 'Следуя данной инструкции, вы сможет�
 * [Деактивировать трансфер](#deactivate).
 * [Удалить трансфер](#delete).
 
+
 Подробнее о состояниях [трансфера](../concepts/index.md#transfer), возможных действиях с ним и имеющихся ограничениях см. в разделе [{#T}](../concepts/transfer-lifecycle.md).
 
 Если вы хотите перенести трансфер и [эндпоинты](../concepts/index.md#endpoint) в другую [зону доступности](../../overview/concepts/geo-scope.md), обратитесь к [инструкции](endpoint/migration-to-an-availability-zone.md).
@@ -355,7 +356,7 @@ description: 'Следуя данной инструкции, вы сможет�
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-full-name }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт ![ellipsis](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 - CLI {#cli}
 
@@ -446,7 +447,7 @@ description: 'Следуя данной инструкции, вы сможет�
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Если нужный трансфер находится в активном состоянии, [деактивируйте его](#deactivate).
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.common.remove }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.remove }}**.
+    1. Нажмите кнопку ![ellipsis](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.remove }}**.
 
 - CLI {#cli}
 
@@ -473,6 +474,8 @@ description: 'Следуя данной инструкции, вы сможет�
     Чтобы узнать идентификатор трансфера, [получите список трансферов в каталоге](#list).
 
 {% endlist %}
+
+
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 

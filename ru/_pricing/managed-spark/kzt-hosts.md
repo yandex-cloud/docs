@@ -1,7 +1,5 @@
-
 | Ресурс        | Цена за 1 час,<br>вкл. НДС                         | Цена за 1 месяц,<br>вкл. НДС |
 |---------------|---------------------------------------------------:|-----------------------------:|
-| vCPU     | {% calc [currency=KZT] 1,5477 * 5 %} | {% calc [currency=KZT] 1,5477 * 720 * 5 %} |
-| RAM (за 1 ГБ) | {% calc [currency=KZT] 0,40788 * 5 %}  | {% calc [currency=KZT] 0,40788 * 720 * 5 %}  |
-
+| vCPU     | {{ sku|KZT|spark.cluster.generic.vcpu.v2|string }} | {{ sku|KZT|spark.cluster.generic.vcpu.v2|month|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|spark.cluster.generic.ram.v2|string }} | {{ sku|KZT|spark.cluster.generic.ram.v2|month|string }} |
 

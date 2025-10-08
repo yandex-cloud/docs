@@ -91,6 +91,10 @@ keywords:
 
         {% endnote %}
 
+      * dag-процессора;
+        
+        {% include [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
       * (опционально) службы Triggerer.
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
@@ -288,6 +292,12 @@ keywords:
             },
             "lockbox": {
               "enabled": <использование_секретов>
+            },
+            "dagProcessor": {
+              "count": "<количество_экземпляров>",
+              "resources": {
+                "resourcePresetId": "<идентификатор_ресурсов>"
+              }
             }
           },
           "network": {
@@ -335,11 +345,11 @@ keywords:
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
-                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и Triggerer.
+                * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
                 * `minCount`, `maxCount` — минимальное и максимальное количество экземпляров в кластере для воркера.
-                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и Triggerer. Возможные значения:
+                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов веб-сервера, планировщика, DAG-процессора, воркера и Triggerer. Возможные значения:
 
                     * `c1-m2` — 1 vCPU, 2 ГБ RAM.
                     * `c1-m4` — 1 vCPU, 4 ГБ RAM.
@@ -349,6 +359,8 @@ keywords:
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m16` — 8 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов:
 
@@ -475,6 +487,12 @@ keywords:
             },
             "lockbox": {
               "enabled": <использование_секретов>
+            },
+            "dag_processor": {
+              "count": "<количество_экземпляров>",
+              "resources": {
+                "resource_preset_id": "<идентификатор_ресурсов>"
+              }
             }
           },
           "network": {
@@ -522,11 +540,11 @@ keywords:
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
-                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и Triggerer.
+                * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
                 * `min_count`, `max_count` — минимальное и максимальное количество экземпляров в кластере для воркера.
-                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и Triggerer. Возможные значения:
+                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов веб-сервера, планировщика, DAG-процессора, воркера и Triggerer. Возможные значения:
 
                     * `c1-m2` — 1 vCPU, 2 ГБ RAM.
                     * `c1-m4` — 1 vCPU, 4 ГБ RAM.
@@ -536,6 +554,8 @@ keywords:
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
                     * `c8-m16` — 8 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+                
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов:
 

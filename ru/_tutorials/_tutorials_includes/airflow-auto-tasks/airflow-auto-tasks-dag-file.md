@@ -17,7 +17,7 @@
 
     with DAG(
         dag_id="yq_hello_world_operator",
-        schedule_interval="@hourly",
+        schedule="@hourly",
         start_date=datetime.datetime.now(),
     ) as dag:
 

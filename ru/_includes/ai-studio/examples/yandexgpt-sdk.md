@@ -26,7 +26,7 @@ def main():
     )
 
     result = (
-        sdk.models.completions("yandexgpt").configure(temperature=0.5).run(messages)
+        sdk.models.chat("yandexgpt").configure(temperature=0.5).run(messages)
     )
 
     for alternative in result:

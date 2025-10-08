@@ -2383,6 +2383,17 @@ default:
           100|number: 378
           100|string: "378,00\_₸"
         v1|string: Не тарифицируется
+  sku|KZT|spark:
+    cluster:
+      generic:
+        ram:
+          v2|month|string: "1\_468,3680\_₸"
+          v2|number: 2.0394
+          v2|string: "2,0394\_₸"
+        vcpu:
+          v2|month|string: "5\_571,72\_₸"
+          v2|number: 7.7385
+          v2|string: "7,7385\_₸"
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
@@ -4380,6 +4391,17 @@ default:
           100|number: 75.6
           100|string: "75,60\_₽"
         v1|string: Не тарифицируется
+  sku|RUB|spark:
+    cluster:
+      generic:
+        ram:
+          v2|month|string: "293,6736\_₽"
+          v2|number: 0.4079
+          v2|string: "0,4079\_₽"
+        vcpu:
+          v2|month|string: "1\_114,3440\_₽"
+          v2|number: 1.5477
+          v2|string: "1,5477\_₽"
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
@@ -6311,6 +6333,17 @@ default:
           100|number: 0.63
           100|string: "0,630000\_$"
         v1|string: Не тарифицируется
+  sku|USD|spark:
+    cluster:
+      generic:
+        ram:
+          v2|month|string: "2,447279\_$"
+          v2|number: 0.003399
+          v2|string: "0,003399\_$"
+        vcpu:
+          v2|month|string: "9,286196\_$"
+          v2|number: 0.012897
+          v2|string: "0,012897\_$"
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.000021
@@ -8205,6 +8238,7 @@ default:
         field_lockbox: Использовать Lockbox Secret Backend
         section_accesses: Настройки доступа
         section_airflow-configuration: Конфигурация Airflow
+        section_dag_processor: Конфигурация DAG-процессора
         section_scheduler: Конфигурация планировщика
         section_storage: Хранилище DAG-файлов
         section_triggerer: Конфигурация Triggerer
@@ -9782,6 +9816,7 @@ default:
         folder:
           dashboard:
             button_add: Создать ресурс
+            label_ai-studio: AI Studio
             label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
             label_audit-trails: Audit Trails
@@ -10511,6 +10546,7 @@ default:
           backup-window-start: Начало резервного копирования (UTC)
           base_field_description: Описание
           base_field_environment: Окружение
+          base_field_fcv: Версия совместимости
           base_field_folder: Каталог
           base_field_hosts-count: Хосты
           base_field_name: Имя кластера
@@ -11550,24 +11586,31 @@ default:
         switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
       yagpt:
+        experiments-page-subtitle: Эксперименты
         foundation-models:
           playground:
             text-generation:
               title: Генерация текста
           section_title:
             playground: AI Playground
+        instruction: Инструкция
         label_button-instruct-submit: Узнать ответ
         label_instruction-text: Инструкции
         label_promt: Промт-режим YandexGPT
         label_request-text: Запрос
         label_temperature-text: Температура
         model: Модель
+        playground: AI Playground
+        settings: Настройки
         speechkit:
           services:
             speech-synthesys:
               title: Синтез речи
             stt:
               title: Распознавание речи
+        train-modal: Дообучить модель
+        use-assistant: Использовать ассистента
+        use-context: Использовать контекст
         YaGPT:
           create-instance_3Ltog: Развернуть инстанс
           instances-title_j9Cpb: Инстансы

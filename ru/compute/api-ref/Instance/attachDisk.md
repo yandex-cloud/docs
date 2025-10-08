@@ -367,7 +367,25 @@ Placement group ID. ||
       "generation2Features": "object"
       // end of the list of possible fields
     },
-    "reservedInstancePoolId": "string"
+    "reservedInstancePoolId": "string",
+    "application": {
+      // Includes only one of the fields `containerSolution`
+      "containerSolution": {
+        "productId": "string",
+        "secrets": "object",
+        "environment": "object"
+      },
+      // end of the list of possible fields
+      "cloudbackup": {
+        "enabled": "boolean",
+        "initialPolicyIds": [
+          "string"
+        ],
+        "recoveryFromBackup": "boolean",
+        "backupId": "string",
+        "instanceRegistrationId": "string"
+      }
+    }
   }
   // end of the list of possible fields
 }
@@ -594,6 +612,9 @@ This feature set is inherited from the image/disk used as a boot one at the crea
 || reservedInstancePoolId | **string**
 
 ID of the reserved instance pool that the instance belongs to. ||
+|| application | **[Application](#yandex.cloud.compute.v1.Application)**
+
+Instance application settings. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}
@@ -898,4 +919,69 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## Application {#yandex.cloud.compute.v1.Application}
+
+#|
+||Field | Description ||
+|| containerSolution | **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
+
+Container specification.
+
+Includes only one of the fields `containerSolution`. ||
+|| cloudbackup | **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec)**
+
+Backup settings. ||
+|#
+
+## ContainerSolutionSpec {#yandex.cloud.compute.v1.ContainerSolutionSpec}
+
+#|
+||Field | Description ||
+|| productId | **string**
+
+Required field. ID of the product. ||
+|| secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
+
+A list of the secrets. ||
+|| environment | **object** (map<**string**, **string**>)
+
+A list of the environmets. ||
+|#
+
+## Secret {#yandex.cloud.compute.v1.Secret}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the secret. ||
+|| key | **string**
+
+Required field. Name of the key. ||
+|| versionId | **string**
+
+Version of the secret. ||
+|#
+
+## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, backup is enabled. ||
+|| initialPolicyIds[] | **string**
+
+A list of policy IDs to apply after resource registration. ||
+|| recoveryFromBackup | **boolean**
+
+If true, recovery from backup starts on instance. ||
+|| backupId | **string**
+
+ID of the backup to recover from. ||
+|| instanceRegistrationId | **string**
+
+ID of the instance registration for cloud backup agent installation. ||
 |#

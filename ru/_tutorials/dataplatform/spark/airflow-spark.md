@@ -1,5 +1,7 @@
 # Запуск PySpark-задания с помощью {{ maf-full-name }}
 
+{% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
+
 С помощью кластера {{ maf-full-name }} можно автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml), включая следующие операции:
 * создание кластеров {{ SPRK }},
 * ожидание запуска кластеров,

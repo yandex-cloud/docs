@@ -1911,7 +1911,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **1000** for versions 23.11 and higher, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -6632,7 +6632,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **1000** for versions 23.11 and higher, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**

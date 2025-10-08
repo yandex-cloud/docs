@@ -1,11 +1,11 @@
 ---
 title: Как начать работать с {{ search-api-full-name }}
-description: Следуя данной инструкции, вы сможете настроить ваше рабочее пространство {{ yandex-cloud }} и начать работать с {{ search-api-name }} с помощью интерфейса API v2.
+description: Следуя данной инструкции, вы сможете настроить ваше рабочее пространство {{ yandex-cloud }} и начать работать с {{ search-api-name }} с помощью интерфейса API.
 ---
 
-# Как начать работать с {{ search-api-name }} через интерфейс API v2
+# Как начать работать с {{ search-api-name }} через интерфейс API
 
-[API v2](../concepts/index.md#api-v2) – рекомендованный интерфейс для работы с {{ search-api-name }}. API v2 полностью интегрирован в [экосистему {{ yandex-cloud }}](../../overview/concepts/services.md) и одновременно с аутентификацией по [API-ключу](../../iam/concepts/authorization/api-key.md) поддерживает более безопасную [аутентификацию](../api-ref/authentication.md) с помощью короткоживущих [IAM-токенов](../../iam/concepts/authorization/iam-token.md).
+[API](../concepts/index.md#api-v2) – рекомендованный интерфейс для работы с {{ search-api-name }}. API полностью интегрирован в [экосистему {{ yandex-cloud }}](../../overview/concepts/services.md) и одновременно с аутентификацией по [API-ключу](../../iam/concepts/authorization/api-key.md) поддерживает более безопасную [аутентификацию](../api-ref/authentication.md) с помощью короткоживущих [IAM-токенов](../../iam/concepts/authorization/iam-token.md).
 
 Стоимость использования {{ search-api-name }} см. в разделе [{#T}](../pricing.md)
 

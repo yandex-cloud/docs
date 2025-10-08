@@ -1,5 +1,7 @@
 # Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }} Python SDK
 
+{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+
 При работе с {{ maf-name }} вы можете использовать [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) для выполнения запросов к API {{ yandex-cloud }}. Сервис поддерживает отправку запросов к любым типам облачных ресурсов. При этом ручная настройка аутентификации в облаке не требуется. {{ yandex-cloud }} Python SDK аутентифицируется через [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру {{ AF }}.
 
 Ниже рассматривается [направленный ациклический граф (DAG)](../../managed-airflow/concepts/index.md#about-the-service), отправляющий запрос к API {{ yandex-cloud }}. Запрос возвращает список виртуальных машин в каталоге, в котором создан кластер {{ AF }}.

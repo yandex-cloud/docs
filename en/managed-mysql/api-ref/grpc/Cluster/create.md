@@ -1804,7 +1804,7 @@ Hour of the day in UTC (in `HH` format). ||
     ],
     "config": {
       "version": "string",
-      // Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`
+      // Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`, `mysql_config_8_4`
       "mysql_config_5_7": {
         "effective_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -2394,6 +2394,296 @@ Hour of the day in UTC (in `HH` format). ||
           "max_write_lock_count": "google.protobuf.Int64Value"
         }
       },
+      "mysql_config_8_4": {
+        "effective_config": {
+          "innodb_buffer_pool_size": "google.protobuf.Int64Value",
+          "max_connections": "google.protobuf.Int64Value",
+          "long_query_time": "google.protobuf.DoubleValue",
+          "audit_log": "google.protobuf.BoolValue",
+          "sql_mode": [
+            "SQLMode"
+          ],
+          "max_allowed_packet": "google.protobuf.Int64Value",
+          "innodb_flush_log_at_trx_commit": "google.protobuf.Int64Value",
+          "innodb_lock_wait_timeout": "google.protobuf.Int64Value",
+          "transaction_isolation": "TransactionIsolation",
+          "innodb_print_all_deadlocks": "google.protobuf.BoolValue",
+          "net_read_timeout": "google.protobuf.Int64Value",
+          "net_write_timeout": "google.protobuf.Int64Value",
+          "group_concat_max_len": "google.protobuf.Int64Value",
+          "tmp_table_size": "google.protobuf.Int64Value",
+          "max_heap_table_size": "google.protobuf.Int64Value",
+          "default_time_zone": "string",
+          "character_set_server": "string",
+          "collation_server": "string",
+          "innodb_adaptive_hash_index": "google.protobuf.BoolValue",
+          "innodb_numa_interleave": "google.protobuf.BoolValue",
+          "innodb_log_buffer_size": "google.protobuf.Int64Value",
+          "innodb_log_file_size": "google.protobuf.Int64Value",
+          "innodb_io_capacity": "google.protobuf.Int64Value",
+          "innodb_io_capacity_max": "google.protobuf.Int64Value",
+          "innodb_read_io_threads": "google.protobuf.Int64Value",
+          "innodb_write_io_threads": "google.protobuf.Int64Value",
+          "innodb_purge_threads": "google.protobuf.Int64Value",
+          "innodb_thread_concurrency": "google.protobuf.Int64Value",
+          "innodb_temp_data_file_max_size": "google.protobuf.Int64Value",
+          "thread_cache_size": "google.protobuf.Int64Value",
+          "thread_stack": "google.protobuf.Int64Value",
+          "join_buffer_size": "google.protobuf.Int64Value",
+          "sort_buffer_size": "google.protobuf.Int64Value",
+          "table_definition_cache": "google.protobuf.Int64Value",
+          "table_open_cache": "google.protobuf.Int64Value",
+          "table_open_cache_instances": "google.protobuf.Int64Value",
+          "explicit_defaults_for_timestamp": "google.protobuf.BoolValue",
+          "auto_increment_increment": "google.protobuf.Int64Value",
+          "auto_increment_offset": "google.protobuf.Int64Value",
+          "sync_binlog": "google.protobuf.Int64Value",
+          "binlog_cache_size": "google.protobuf.Int64Value",
+          "binlog_group_commit_sync_delay": "google.protobuf.Int64Value",
+          "binlog_row_image": "BinlogRowImage",
+          "binlog_rows_query_log_events": "google.protobuf.BoolValue",
+          "rpl_semi_sync_master_wait_for_slave_count": "google.protobuf.Int64Value",
+          "slave_parallel_type": "SlaveParallelType",
+          "slave_parallel_workers": "google.protobuf.Int64Value",
+          "regexp_time_limit": "google.protobuf.Int64Value",
+          "mdb_preserve_binlog_bytes": "google.protobuf.Int64Value",
+          "interactive_timeout": "google.protobuf.Int64Value",
+          "wait_timeout": "google.protobuf.Int64Value",
+          "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
+          "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
+          "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+          "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+          "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+          "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+          "lower_case_table_names": "google.protobuf.Int64Value",
+          "slow_query_log": "google.protobuf.BoolValue",
+          "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
+          "log_slow_rate_type": "LogSlowRateType",
+          "log_slow_rate_limit": "google.protobuf.Int64Value",
+          "log_slow_sp_statements": "google.protobuf.BoolValue",
+          "log_slow_filter": [
+            "LogSlowFilterType"
+          ],
+          "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
+          "innodb_page_size": "google.protobuf.Int64Value",
+          "max_sp_recursion_depth": "google.protobuf.Int64Value",
+          "innodb_compression_level": "google.protobuf.Int64Value",
+          "autocommit": "google.protobuf.BoolValue",
+          "innodb_status_output": "google.protobuf.BoolValue",
+          "innodb_strict_mode": "google.protobuf.BoolValue",
+          "innodb_print_lock_wait_timeout_info": "google.protobuf.BoolValue",
+          "log_error_verbosity": "google.protobuf.Int64Value",
+          "max_digest_length": "google.protobuf.Int64Value",
+          "lock_wait_timeout": "google.protobuf.Int64Value",
+          "max_prepared_stmt_count": "google.protobuf.Int64Value",
+          "optimizer_switch": "string",
+          "optimizer_search_depth": "google.protobuf.Int64Value",
+          "userstat": "google.protobuf.BoolValue",
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+          "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "sql_require_primary_key": "google.protobuf.BoolValue",
+          "mdb_use_async_replication": "google.protobuf.BoolValue",
+          "mdb_async_allowed_lag": "google.protobuf.Int64Value",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
+        },
+        "user_config": {
+          "innodb_buffer_pool_size": "google.protobuf.Int64Value",
+          "max_connections": "google.protobuf.Int64Value",
+          "long_query_time": "google.protobuf.DoubleValue",
+          "audit_log": "google.protobuf.BoolValue",
+          "sql_mode": [
+            "SQLMode"
+          ],
+          "max_allowed_packet": "google.protobuf.Int64Value",
+          "innodb_flush_log_at_trx_commit": "google.protobuf.Int64Value",
+          "innodb_lock_wait_timeout": "google.protobuf.Int64Value",
+          "transaction_isolation": "TransactionIsolation",
+          "innodb_print_all_deadlocks": "google.protobuf.BoolValue",
+          "net_read_timeout": "google.protobuf.Int64Value",
+          "net_write_timeout": "google.protobuf.Int64Value",
+          "group_concat_max_len": "google.protobuf.Int64Value",
+          "tmp_table_size": "google.protobuf.Int64Value",
+          "max_heap_table_size": "google.protobuf.Int64Value",
+          "default_time_zone": "string",
+          "character_set_server": "string",
+          "collation_server": "string",
+          "innodb_adaptive_hash_index": "google.protobuf.BoolValue",
+          "innodb_numa_interleave": "google.protobuf.BoolValue",
+          "innodb_log_buffer_size": "google.protobuf.Int64Value",
+          "innodb_log_file_size": "google.protobuf.Int64Value",
+          "innodb_io_capacity": "google.protobuf.Int64Value",
+          "innodb_io_capacity_max": "google.protobuf.Int64Value",
+          "innodb_read_io_threads": "google.protobuf.Int64Value",
+          "innodb_write_io_threads": "google.protobuf.Int64Value",
+          "innodb_purge_threads": "google.protobuf.Int64Value",
+          "innodb_thread_concurrency": "google.protobuf.Int64Value",
+          "innodb_temp_data_file_max_size": "google.protobuf.Int64Value",
+          "thread_cache_size": "google.protobuf.Int64Value",
+          "thread_stack": "google.protobuf.Int64Value",
+          "join_buffer_size": "google.protobuf.Int64Value",
+          "sort_buffer_size": "google.protobuf.Int64Value",
+          "table_definition_cache": "google.protobuf.Int64Value",
+          "table_open_cache": "google.protobuf.Int64Value",
+          "table_open_cache_instances": "google.protobuf.Int64Value",
+          "explicit_defaults_for_timestamp": "google.protobuf.BoolValue",
+          "auto_increment_increment": "google.protobuf.Int64Value",
+          "auto_increment_offset": "google.protobuf.Int64Value",
+          "sync_binlog": "google.protobuf.Int64Value",
+          "binlog_cache_size": "google.protobuf.Int64Value",
+          "binlog_group_commit_sync_delay": "google.protobuf.Int64Value",
+          "binlog_row_image": "BinlogRowImage",
+          "binlog_rows_query_log_events": "google.protobuf.BoolValue",
+          "rpl_semi_sync_master_wait_for_slave_count": "google.protobuf.Int64Value",
+          "slave_parallel_type": "SlaveParallelType",
+          "slave_parallel_workers": "google.protobuf.Int64Value",
+          "regexp_time_limit": "google.protobuf.Int64Value",
+          "mdb_preserve_binlog_bytes": "google.protobuf.Int64Value",
+          "interactive_timeout": "google.protobuf.Int64Value",
+          "wait_timeout": "google.protobuf.Int64Value",
+          "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
+          "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
+          "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+          "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+          "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+          "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+          "lower_case_table_names": "google.protobuf.Int64Value",
+          "slow_query_log": "google.protobuf.BoolValue",
+          "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
+          "log_slow_rate_type": "LogSlowRateType",
+          "log_slow_rate_limit": "google.protobuf.Int64Value",
+          "log_slow_sp_statements": "google.protobuf.BoolValue",
+          "log_slow_filter": [
+            "LogSlowFilterType"
+          ],
+          "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
+          "innodb_page_size": "google.protobuf.Int64Value",
+          "max_sp_recursion_depth": "google.protobuf.Int64Value",
+          "innodb_compression_level": "google.protobuf.Int64Value",
+          "autocommit": "google.protobuf.BoolValue",
+          "innodb_status_output": "google.protobuf.BoolValue",
+          "innodb_strict_mode": "google.protobuf.BoolValue",
+          "innodb_print_lock_wait_timeout_info": "google.protobuf.BoolValue",
+          "log_error_verbosity": "google.protobuf.Int64Value",
+          "max_digest_length": "google.protobuf.Int64Value",
+          "lock_wait_timeout": "google.protobuf.Int64Value",
+          "max_prepared_stmt_count": "google.protobuf.Int64Value",
+          "optimizer_switch": "string",
+          "optimizer_search_depth": "google.protobuf.Int64Value",
+          "userstat": "google.protobuf.BoolValue",
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+          "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "sql_require_primary_key": "google.protobuf.BoolValue",
+          "mdb_use_async_replication": "google.protobuf.BoolValue",
+          "mdb_async_allowed_lag": "google.protobuf.Int64Value",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
+        },
+        "default_config": {
+          "innodb_buffer_pool_size": "google.protobuf.Int64Value",
+          "max_connections": "google.protobuf.Int64Value",
+          "long_query_time": "google.protobuf.DoubleValue",
+          "audit_log": "google.protobuf.BoolValue",
+          "sql_mode": [
+            "SQLMode"
+          ],
+          "max_allowed_packet": "google.protobuf.Int64Value",
+          "innodb_flush_log_at_trx_commit": "google.protobuf.Int64Value",
+          "innodb_lock_wait_timeout": "google.protobuf.Int64Value",
+          "transaction_isolation": "TransactionIsolation",
+          "innodb_print_all_deadlocks": "google.protobuf.BoolValue",
+          "net_read_timeout": "google.protobuf.Int64Value",
+          "net_write_timeout": "google.protobuf.Int64Value",
+          "group_concat_max_len": "google.protobuf.Int64Value",
+          "tmp_table_size": "google.protobuf.Int64Value",
+          "max_heap_table_size": "google.protobuf.Int64Value",
+          "default_time_zone": "string",
+          "character_set_server": "string",
+          "collation_server": "string",
+          "innodb_adaptive_hash_index": "google.protobuf.BoolValue",
+          "innodb_numa_interleave": "google.protobuf.BoolValue",
+          "innodb_log_buffer_size": "google.protobuf.Int64Value",
+          "innodb_log_file_size": "google.protobuf.Int64Value",
+          "innodb_io_capacity": "google.protobuf.Int64Value",
+          "innodb_io_capacity_max": "google.protobuf.Int64Value",
+          "innodb_read_io_threads": "google.protobuf.Int64Value",
+          "innodb_write_io_threads": "google.protobuf.Int64Value",
+          "innodb_purge_threads": "google.protobuf.Int64Value",
+          "innodb_thread_concurrency": "google.protobuf.Int64Value",
+          "innodb_temp_data_file_max_size": "google.protobuf.Int64Value",
+          "thread_cache_size": "google.protobuf.Int64Value",
+          "thread_stack": "google.protobuf.Int64Value",
+          "join_buffer_size": "google.protobuf.Int64Value",
+          "sort_buffer_size": "google.protobuf.Int64Value",
+          "table_definition_cache": "google.protobuf.Int64Value",
+          "table_open_cache": "google.protobuf.Int64Value",
+          "table_open_cache_instances": "google.protobuf.Int64Value",
+          "explicit_defaults_for_timestamp": "google.protobuf.BoolValue",
+          "auto_increment_increment": "google.protobuf.Int64Value",
+          "auto_increment_offset": "google.protobuf.Int64Value",
+          "sync_binlog": "google.protobuf.Int64Value",
+          "binlog_cache_size": "google.protobuf.Int64Value",
+          "binlog_group_commit_sync_delay": "google.protobuf.Int64Value",
+          "binlog_row_image": "BinlogRowImage",
+          "binlog_rows_query_log_events": "google.protobuf.BoolValue",
+          "rpl_semi_sync_master_wait_for_slave_count": "google.protobuf.Int64Value",
+          "slave_parallel_type": "SlaveParallelType",
+          "slave_parallel_workers": "google.protobuf.Int64Value",
+          "regexp_time_limit": "google.protobuf.Int64Value",
+          "mdb_preserve_binlog_bytes": "google.protobuf.Int64Value",
+          "interactive_timeout": "google.protobuf.Int64Value",
+          "wait_timeout": "google.protobuf.Int64Value",
+          "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
+          "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
+          "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+          "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+          "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+          "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+          "lower_case_table_names": "google.protobuf.Int64Value",
+          "slow_query_log": "google.protobuf.BoolValue",
+          "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
+          "log_slow_rate_type": "LogSlowRateType",
+          "log_slow_rate_limit": "google.protobuf.Int64Value",
+          "log_slow_sp_statements": "google.protobuf.BoolValue",
+          "log_slow_filter": [
+            "LogSlowFilterType"
+          ],
+          "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
+          "innodb_page_size": "google.protobuf.Int64Value",
+          "max_sp_recursion_depth": "google.protobuf.Int64Value",
+          "innodb_compression_level": "google.protobuf.Int64Value",
+          "autocommit": "google.protobuf.BoolValue",
+          "innodb_status_output": "google.protobuf.BoolValue",
+          "innodb_strict_mode": "google.protobuf.BoolValue",
+          "innodb_print_lock_wait_timeout_info": "google.protobuf.BoolValue",
+          "log_error_verbosity": "google.protobuf.Int64Value",
+          "max_digest_length": "google.protobuf.Int64Value",
+          "lock_wait_timeout": "google.protobuf.Int64Value",
+          "max_prepared_stmt_count": "google.protobuf.Int64Value",
+          "optimizer_switch": "string",
+          "optimizer_search_depth": "google.protobuf.Int64Value",
+          "userstat": "google.protobuf.BoolValue",
+          "max_execution_time": "google.protobuf.Int64Value",
+          "audit_log_policy": "AuditLogPolicy",
+          "replication_sender_observe_commit_only": "google.protobuf.BoolValue",
+          "replication_optimize_for_static_plugin_config": "google.protobuf.BoolValue",
+          "innodb_lru_scan_depth": "google.protobuf.Int64Value",
+          "sql_require_primary_key": "google.protobuf.BoolValue",
+          "mdb_use_async_replication": "google.protobuf.BoolValue",
+          "mdb_async_allowed_lag": "google.protobuf.Int64Value",
+          "mdb_force_ssl": "google.protobuf.BoolValue",
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
+        }
+      },
       // end of the list of possible fields
       "resources": {
         "resource_preset_id": "string",
@@ -2627,14 +2917,21 @@ Version of MySQL used in the cluster. ||
 
 Configuration of a MySQL 5.7 server.
 
-Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`.
+Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`, `mysql_config_8_4`.
 
 Cluster-wide MySQL configuration. ||
 || mysql_config_8_0 | **[MysqlConfigSet8_0](#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0)**
 
 Configuration of a MySQL 8.0 server.
 
-Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`.
+Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`, `mysql_config_8_4`.
+
+Cluster-wide MySQL configuration. ||
+|| mysql_config_8_4 | **[MysqlConfigSet8_4](#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_4)**
+
+Configuration of a MySQL 8.4 server.
+
+Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`, `mysql_config_8_4`.
 
 Cluster-wide MySQL configuration. ||
 || resources | **[Resources](#yandex.cloud.mdb.mysql.v1.Resources2)**
@@ -3752,6 +4049,534 @@ Force ssl on all hosts (require_secure_transport) ||
 An optimization for change buffering
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+
+- `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
+|| max_write_lock_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count). ||
+|#
+
+## MysqlConfigSet8_4 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_4}
+
+#|
+||Field | Description ||
+|| effective_config | **[MysqlConfig8_4](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_4)**
+
+Effective settings for a MySQL 8.4 cluster (a combination of settings defined
+in `user_config` and `default_config`). ||
+|| user_config | **[MysqlConfig8_4](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_4)**
+
+User-defined settings for a MySQL 8.4 cluster. ||
+|| default_config | **[MysqlConfig8_4](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_4)**
+
+Default configuration for a MySQL 8.4 cluster. ||
+|#
+
+## MysqlConfig8_4 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_4}
+
+Options and structure of `MysqlConfig8_4` reflects MySQL 8.4 configuration file
+
+#|
+||Field | Description ||
+|| innodb_buffer_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size of the InnoDB buffer pool used for caching table and index data.
+
+For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size). ||
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum permitted number of simultaneous client connections.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_connections). ||
+|| long_query_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+Time that it takes to process a query before it is considered slow.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_long_query_time). ||
+|| audit_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable writing of audit log of MySQL.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#audit-log-options-variables). ||
+|| sql_mode[] | enum **SQLMode**
+
+Server SQL mode of MySQL.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sql-mode-setting).
+
+- `SQLMODE_UNSPECIFIED`
+- `ALLOW_INVALID_DATES`
+- `ANSI_QUOTES`
+- `ERROR_FOR_DIVISION_BY_ZERO`
+- `HIGH_NOT_PRECEDENCE`
+- `IGNORE_SPACE`
+- `NO_AUTO_VALUE_ON_ZERO`
+- `NO_BACKSLASH_ESCAPES`
+- `NO_ENGINE_SUBSTITUTION`
+- `NO_UNSIGNED_SUBTRACTION`
+- `NO_ZERO_DATE`
+- `NO_ZERO_IN_DATE`
+- `ONLY_FULL_GROUP_BY`
+- `PAD_CHAR_TO_FULL_LENGTH`
+- `PIPES_AS_CONCAT`
+- `REAL_AS_FLOAT`
+- `STRICT_ALL_TABLES`
+- `STRICT_TRANS_TABLES`
+- `TIME_TRUNCATE_FRACTIONAL`
+- `ANSI`
+- `TRADITIONAL`
+- `NO_DIR_IN_CREATE` ||
+|| max_allowed_packet | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size in bytes of one packet.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_allowed_packet). ||
+|| innodb_flush_log_at_trx_commit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Transaction log flush behaviour.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) ||
+|| innodb_lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Max time in seconds for a transaction to wait for a row lock
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) ||
+|| transaction_isolation | enum **TransactionIsolation**
+
+Default transaction isolation level.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_transaction_isolation)
+
+- `TRANSACTION_ISOLATION_UNSPECIFIED`
+- `READ_COMMITTED`
+- `REPEATABLE_READ`
+- `SERIALIZABLE` ||
+|| innodb_print_all_deadlocks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Print information about deadlocks in error log
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks) ||
+|| net_read_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds to wait for more data from a connection before aborting the read.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_net_read_timeout) ||
+|| net_write_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds to wait for a block to be written to a connection before aborting the write.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_net_write_timeout) ||
+|| group_concat_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum permitted result length in bytes for the GROUP_CONCAT() function.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_group_concat_max_len) ||
+|| tmp_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size of internal in-memory temporary tables.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_tmp_table_size) ||
+|| max_heap_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_heap_table_size) ||
+|| default_time_zone | **string**
+
+The servers default time zone.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-options.html#option_mysqld_default-time-zone) ||
+|| character_set_server | **string**
+
+The servers default character set.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_character_set_server) ||
+|| collation_server | **string**
+
+Set the default server collation.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_collation_server) ||
+|| innodb_adaptive_hash_index | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables Innodb adaptive hash index
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index) ||
+|| innodb_numa_interleave | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_numa_interleave) ||
+|| innodb_log_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_log_buffer_size) ||
+|| innodb_log_file_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The size in bytes of the single Innodb Redo log file.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_log_file_size) ||
+|| innodb_io_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limits IO available for InnoDB background tasks
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_io_capacity) ||
+|| innodb_io_capacity_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limits IO available for InnoDB background tasks
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_io_capacity_max) ||
+|| innodb_read_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of I/O threads for read operations in InnoDB.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_read_io_threads) ||
+|| innodb_write_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of I/O threads for write operations in InnoDB.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_write_io_threads) ||
+|| innodb_purge_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of background threads devoted to the InnoDB purge operation.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_purge_threads) ||
+|| innodb_thread_concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Defines the maximum number of threads permitted inside of InnoDB.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_thread_concurrency) ||
+|| innodb_temp_data_file_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Limits the max size of InnoDB temp tablespace
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path) ||
+|| thread_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+How many threads the server should cache for reuse.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_thread_cache_size). ||
+|| thread_stack | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The stack size for each thread. The default is large enough for normal operation.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_thread_stack). ||
+|| join_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_join_buffer_size). ||
+|| sort_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Each session that must perform a sort allocates a buffer of this size.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_sort_buffer_size). ||
+|| table_definition_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of table definitions that can be stored in the definition cache.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_table_definition_cache). ||
+|| table_open_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of open tables for all threads.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_table_open_cache). ||
+|| table_open_cache_instances | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of open tables cache instances.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_table_open_cache_instances). ||
+|| explicit_defaults_for_timestamp | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+This system variable determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp). ||
+|| auto_increment_increment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Can be used to control the operation of AUTO_INCREMENT columns.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-master.html#sysvar_auto_increment_increment). ||
+|| auto_increment_offset | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Can be used to control the operation of AUTO_INCREMENT columns.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-master.html#sysvar_auto_increment_offset). ||
+|| sync_binlog | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls how often the MySQL server synchronizes the binary log to disk.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_sync_binlog). ||
+|| binlog_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The size of the cache to hold changes to the binary log during a transaction.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_cache_size). ||
+|| binlog_group_commit_sync_delay | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay). ||
+|| binlog_row_image | enum **BinlogRowImage**
+
+For MySQL row-based replication, this variable determines how row images are written to the binary log.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_row_image).
+
+- `BINLOG_ROW_IMAGE_UNSPECIFIED`
+- `FULL`
+- `MINIMAL`
+- `NOBLOB` ||
+|| binlog_rows_query_log_events | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When enabled, it causes the server to write informational log events such as row query log events into its binary log.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events). ||
+|| rpl_semi_sync_master_wait_for_slave_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of replica acknowledgments the source must receive per transaction before proceeding.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-master.html#sysvar_rpl_semi_sync_master_wait_for_slave_count). ||
+|| slave_parallel_type | enum **SlaveParallelType**
+
+When using a multithreaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_type).
+
+- `SLAVE_PARALLEL_TYPE_UNSPECIFIED`
+- `DATABASE`
+- `LOGICAL_CLOCK` ||
+|| slave_parallel_workers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the number of applier threads for executing replication transactions in parallel.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_workers). ||
+|| regexp_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_regexp_time_limit). ||
+|| mdb_preserve_binlog_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The size of the binary log to hold. ||
+|| interactive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds the server waits for activity on an interactive connection before closing it.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_interactive_timeout). ||
+|| wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of seconds the server waits for activity on a noninteractive connection before closing it.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_wait_timeout). ||
+|| mdb_offline_mode_enable_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data. ||
+|| mdb_offline_mode_disable_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
+Should be less than mdb_offline_mode_enable_lag. ||
+|| range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The limit on memory consumption for the range optimizer.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size). ||
+|| innodb_online_alter_log_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The limit in bytes on the size of the temporary log files used during online DDL operations
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size). ||
+|| innodb_ft_min_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size). ||
+|| innodb_ft_max_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size). ||
+|| lower_case_table_names | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Table names storage and comparison strategy
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_lower_case_table_names). ||
+|| slow_query_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Manages slow query log
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_slow_query_log). ||
+|| slow_query_log_always_write_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#slow_query_log_always_write_time). ||
+|| log_slow_rate_type | enum **LogSlowRateType**
+
+Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
+
+For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_type).
+
+- `LOG_SLOW_RATE_TYPE_UNSPECIFIED`
+- `SESSION`
+- `QUERY` ||
+|| log_slow_rate_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_limit). ||
+|| log_slow_sp_statements | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When TRUE, statements executed by stored procedures are logged to the slow log
+
+For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_sp_statements). ||
+|| log_slow_filter[] | enum **LogSlowFilterType**
+
+Filters the slow log by the query's execution plan
+
+For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_filter).
+
+- `LOG_SLOW_FILTER_TYPE_UNSPECIFIED`
+- `FULL_SCAN`
+- `FULL_JOIN`
+- `TMP_TABLE`
+- `TMP_TABLE_ON_DISK`
+- `FILESORT`
+- `FILESORT_ON_DISK` ||
+|| mdb_priority_choice_max_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
+Should be less than mdb_offline_mode_disable_lag. ||
+|| innodb_page_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the page size for InnoDB tablespaces.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_page_size). ||
+|| max_sp_recursion_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of times that any given stored procedure may be called recursively.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_sp_recursion_depth). ||
+|| innodb_compression_level | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_compression_level). ||
+|| autocommit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_autocommit). ||
+|| innodb_status_output | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables periodic output for the standard InnoDB Monitor.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_status_output). ||
+|| innodb_strict_mode | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_strict_mode). ||
+|| innodb_print_lock_wait_timeout_info | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.4/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info). ||
+|| log_error_verbosity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+System variable specifies the verbosity for handling events intended for the error log
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_log_error_verbosity). ||
+|| max_digest_length | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_digest_length). ||
+|| lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_lock_wait_timeout). ||
+|| max_prepared_stmt_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+This variable limits the total number of prepared statements in the server.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_prepared_stmt_count). ||
+|| optimizer_switch | **string**
+
+The system variable enables control over optimizer behavior.
+
+For details, see [MySQL documentation for the variable]
+https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_optimizer_switch
+https://dev.mysql.com/doc/refman/8.4/en/switchable-optimizations.html ||
+|| optimizer_search_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum depth of search performed by the query optimizer
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html) ||
+|| userstat | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables collection of statistics
+
+For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.4/diagnostics/user_stats.html#userstat). ||
+|| max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_execution_time) ||
+|| audit_log_policy | enum **AuditLogPolicy**
+
+The policy controlling how the audit log plugin writes events to its log file
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#sysvar_audit_log_policy)
+
+- `AUDIT_LOG_POLICY_UNSPECIFIED`
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| replication_sender_observe_commit_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Limit callbacks to improve performance for semisynchronous replication
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only). ||
+|| replication_optimize_for_static_plugin_config | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config). ||
+|| innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth) ||
+|| sql_require_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_sql_require_primary_key). ||
+|| mdb_use_async_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable async replication ||
+|| mdb_async_allowed_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Async replication allowed lag (seconds) ||
+|| mdb_force_ssl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Force ssl on all hosts (require_secure_transport) ||
+|| innodb_change_buffering | enum **InnodbChangeBuffering**
+
+An optimization for change buffering
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
 - `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
 - `INNODB_CHANGE_BUFFERING_NONE`
