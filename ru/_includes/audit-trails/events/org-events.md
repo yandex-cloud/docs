@@ -12,7 +12,6 @@
 `CreateOsLoginProfile` | Создание профиля {{ oslogin }}
 `CreateUserSshKey` | Создание SSH-ключа пользователя
 `DeactivateMfaEnforcement` | Деактивация политики MFA
-`DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `DeleteGroup` | Удаление группы пользователей
 `DeleteGroupMapping` | Удаление сопоставления групп федеративных пользователей
 `DeleteInvitation` | Удаление приглашения
@@ -51,10 +50,14 @@
 `SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
 `SetOrganizationAccessBindings` | Назначение прав доступа к организации
 `saml.AddFederationDomain` | Привязка [домена](../../../organization/concepts/domains.md) к федерации
+`saml.AddFederatedUserAccounts` | Добавление пользователя в федерацию
 `saml.CreateApplication` | Создание [SAML](../../../organization/concepts/add-federation.md)-приложения
+`saml.CreateFederation` | Создание федерации удостоверений
 `saml.CreateSignatureCertificate` | Создание сертификата для подписи
 `saml.DeleteApplication` | Удаление SAML-приложения
+`saml.DeleteFederation` | Удаление федерации удостоверений
 `saml.DeleteFederationDomain` | Удаление домена
+`saml.DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `saml.DeleteSignatureCertificate` | Удаление сертификата для подписи
 `saml.ReactivateApplication` | Активация SAML-приложения
 `saml.ReactivateFederatedUserAccounts` | Активация федеративного пользователя
@@ -64,6 +67,7 @@
 `saml.UpdateApplication` | Изменение SAML-приложения
 `saml.UpdateApplicationAccessBindings` | Изменение прав доступа к SAML-приложению
 `saml.UpdateApplicationAssignments` | Изменение списка пользователей SAML-приложения
+`saml.UpdateFederation` | Изменение федерации удостоверений
 `saml.UpdateSignatureCertificate` | Изменение сертификата для подписи
 `saml.ValidateFederationDomain` | Валидация домена, привязываемого к федерации 
 `UpdateGroup` | Изменение группы пользователей

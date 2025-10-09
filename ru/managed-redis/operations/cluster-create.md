@@ -96,6 +96,8 @@ description: Следуя данной инструкции, вы сможете
 
      * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
 
+     {% include [console-autoscaling](../../_includes/mdb/mrd/console-autoscaling.md) %}
+
      
      * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
@@ -192,6 +194,9 @@ description: Следуя данной инструкции, вы сможете
         --persistence-mode <режим_персистентности> \
         --resource-preset <класс_хоста> \
         --disk-size <размер_хранилища_ГБ> \
+        --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_гигабайтах>,`
+                                `planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<пароль_пользователя> \
         --backup-window-start <время> \
@@ -215,6 +220,10 @@ description: Следуя данной инструкции, вы сможете
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
+
+      * `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
+
+        {% include [autoscale-description](../../_includes/mdb/mrd/cli-autoscaling.md) %}
 
       * `--persistence-mode` — режим [персистентности данных](../concepts/replication.md#persistence).
 
@@ -280,6 +289,12 @@ description: Следуя данной инструкции, вы сможете
          announce_hostnames  = <использование_FQDN_вместо_IP-адресов>
          persistence_mode    = "<режим_персистентности>"
 
+         disk_size_autoscaling {
+           planned_usage_threshold   = "<процент_для_планового_увеличения>"
+           emergency_usage_threshold = "<процент_для_незамедлительного_увеличения>"
+           disk_size_limit           = "<максимальный_размер_хранилища_в_гибибайтах>"
+         }
+
          config {
            password = "<пароль>"
            version  = "<версия_{{ VLK }}>"
@@ -315,6 +330,10 @@ description: Следуя данной инструкции, вы сможете
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
             {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+       * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
+
+            {% include [autoscale-description](../../_includes/mdb/mrd/terraform/terraform-autoscaling.md) %}
 
        * `announce_hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
@@ -372,6 +391,11 @@ description: Следуя данной инструкции, вы сможете
               "diskSize": "<размер_хранилища_в_байтах>",
               "diskTypeId": "<тип_диска>"
             },
+            "diskSizeAutoscaling": {
+              "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+              "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+              "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+            },
             "access": {
               "webSql": <доступ_из_{{ websql-name }}>
             },
@@ -422,6 +446,8 @@ description: Следуя данной инструкции, вы сможете
                 * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
                 * `diskSize` — размер диска в байтах;
                 * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+            {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-rest.md) %}    
 
             
             * `access.webSql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.yaml): `true` или `false`.
@@ -509,6 +535,11 @@ description: Следуя данной инструкции, вы сможете
               "disk_size": "<размер_хранилища_в_байтах>",
               "disk_type_id": "<тип_диска>"
             },
+            "disk_size_autoscaling": {
+              "planned_usage_threshold": "<процент_для_планового_увеличения>",
+              "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+              "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+            },
             "access": {
               "web_sql": <доступ_из_{{ websql-name }}>
             },
@@ -559,6 +590,8 @@ description: Следуя данной инструкции, вы сможете
                 * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
                 * `disk_size` — размер диска в байтах;
                 * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+            {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-grpc.md) %}    
 
             
             * `access.web_sql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.yaml): `true` или `false`.

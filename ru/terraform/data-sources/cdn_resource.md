@@ -46,6 +46,7 @@ output "resource_cname" {
 - `origin_group_id` (Number) The ID of a specific origin group.
 - `origin_group_name` (String) The name of a specific origin group.
 - `origin_protocol` (String) Protocol of origin resource. `http` or `https`.
+- `provider_type` (String) CDN provider is a content delivery service provider. Possible values: "ourcdn" (default) or "gcore"
 - `resource_id` (String) The ID of a specific resource.
 - `secondary_hostnames` (Set of String) List of secondary hostname strings.
 - `ssl_certificate` (Block Set, Max: 1) SSL certificate of CDN resource. (see [below for nested schema](#nestedblock--ssl_certificate))
@@ -56,7 +57,6 @@ output "resource_cname" {
 - `created_at` (String) The creation timestamp of the resource.
 - `id` (String) The ID of this resource.
 - `provider_cname` (String) Provider CNAME of CDN resource, computed value for read and update operations.
-- `provider_type` (String) Type of the CDN provider for this resource.
 
 <a id="nestedblock--options"></a>
 ### Nested Schema for `options`

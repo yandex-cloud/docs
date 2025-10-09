@@ -19,6 +19,8 @@ description: Из статьи вы узнаете, как изменить на
 * [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 
 
+* [Настроить автоматическое увеличение размера хранилища](#disk-size-aut0scale).
+
 * [Настроить серверы](#change-redis-config) {{ VLK }} согласно [документации {{ VLK }}](https://valkey.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
@@ -861,6 +863,171 @@ description: Из статьи вы узнаете, как изменить на
             * `disk_type_id` — [тип диска](../concepts/storage.md).
             * `disk_size` — новый размер хранилища в байтах.
 
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Настроить автоматическое увеличение размера хранилища {#disk-size-autoscale}
+
+Подробнее о хранилище и автоматическом увеличении см. в разделе [Хранилище в {{ mrd-name }}](../concepts/storage.md).
+
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+
+  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** настройте автоматическое увеличение размера диска:
+
+        {% include [console-autoscaling](../../_includes/mdb/mrd/console-autoscaling.md) %}
+
+  1. Сохраните изменения.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы настроить автоматическое увеличение размера хранилища:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+     ```bash
+     {{ yc-mdb-rd }} cluster update --help
+     ```
+
+  1. Укажите максимальный размер хранилища и условия для его увеличения в команде изменения кластера.
+
+      ```bash
+      {{ yc-mdb-rd }} cluster update <идентификатор_или_имя_кластера> \
+          --disk-size-autoscaling planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                  `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>,`
+                                  `disk-size-limit=<максимальный_размер_хранилища_в_гигабайтах> \
+      ```
+
+      Где:
+
+      {% include [autoscale-description](../../_includes/mdb/mrd/cli-autoscaling.md) %}
+
+- {{ TF }} {#tf}
+
+  Чтобы настроить автоматическое увеличение размера хранилища:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте в описание кластера блок:
+
+      ```hcl
+      disk_size_autoscaling {
+        planned_usage_threshold   = "<процент_для_планового_увеличения>"
+        emergency_usage_threshold = "<процент_для_незамедлительного_увеличения>"
+        disk_size_limit           = "<максимальный_размер_хранилища_в_гибибайтах>"
+      }
+      ```
+
+      Где:
+
+      {% include [autoscale-description](../../_includes/mdb/mrd/terraform/terraform-autoscaling.md) %}
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [terraform-timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.diskSizeAutoscaling",
+                      "configSpec": {
+                        "diskSizeAutoscaling": {
+                          "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                          "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                          "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+          * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-rest.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [ "config_spec.disk_size_autoscaling" ]
+                  },
+                  "config_spec": {
+                    "disk_size_autoscaling": {
+                      "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                      "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                      "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Update
+        ```
+
+        Где:
+
+          * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+          {% include [autoscale-description](../../_includes/mdb/mrd/api/autoscaling-grpc.md) %}
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

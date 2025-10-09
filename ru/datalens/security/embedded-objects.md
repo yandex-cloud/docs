@@ -30,11 +30,14 @@
 <iframe frameborder="0" src="https://datalens.yandex/bdzix********?_embedded=1&_no_controls=1&_lang=ru&_theme=dark&_autoupdate=50"></iframe>
 ```
 
+
 Примеры публичных встроенных чартов и дашбордов:
 
+* [Сиала](https://seala.ru/oil/neftrossiya) — описание рынка нефти и нефтепродуктов России.
 * Кинопоиск — публичная статистика [оценок фильмов](https://www.kinopoisk.ru/votes/) и [рейтинг фильмографии](https://www.kinopoisk.ru/name/37859/) актеров.
-* [Аудитория Яндекс Директа](https://yandex.ru/adv/products/platforms) — результат исследования Яндекса.
-* [Каталог школ с прикрепленными домами](https://gradstat.ru/) — сервис городских данных для родителей.
+
+С другими примерами можно ознакомиться в [сообществе](https://t.me/YandexDataLens/28639/28977) в Telegram.
+
 
 ## Получить код для вставки {#get-code}
 

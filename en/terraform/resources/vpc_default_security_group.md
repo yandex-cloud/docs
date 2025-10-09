@@ -86,9 +86,9 @@ resource "yandex_vpc_network" "lab-net" {
 ### Optional
 
 - `description` (String) The resource description.
-- `egress` (Set of Object) A list of egress rules. (see [below for nested schema](#nestedatt--egress))
+- `egress` (Block Set) A list of egress rules. (see [below for nested schema](#nestedblock--egress))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `ingress` (Set of Object) A list of ingress rules. (see [below for nested schema](#nestedatt--ingress))
+- `ingress` (Block Set) A list of ingress rules. (see [below for nested schema](#nestedblock--ingress))
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
@@ -99,40 +99,52 @@ resource "yandex_vpc_network" "lab-net" {
 - `name` (String) The resource name. Cannot be updated.
 - `status` (String) Status of this security group.
 
-<a id="nestedatt--egress"></a>
+<a id="nestedblock--egress"></a>
 ### Nested Schema for `egress`
 
+Required:
+
+- `protocol` (String) One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
+
 Optional:
 
-- `description` (String)
-- `from_port` (Number)
-- `id` (String)
-- `labels` (Map of String)
-- `port` (Number)
-- `predefined_target` (String)
-- `protocol` (String)
-- `security_group_id` (String)
-- `to_port` (Number)
-- `v4_cidr_blocks` (List of String)
-- `v6_cidr_blocks` (List of String)
+- `description` (String) Description of the rule.
+- `from_port` (Number) Minimum port number.
+- `labels` (Map of String) Labels to assign to this rule.
+- `port` (Number) Port number (if applied to a single port).
+- `predefined_target` (String) Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
+- `security_group_id` (String) Target security group ID for this rule.
+- `to_port` (Number) Maximum port number.
+- `v4_cidr_blocks` (List of String) The blocks of IPv4 addresses for this rule.
+- `v6_cidr_blocks` (List of String) The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
+
+Read-Only:
+
+- `id` (String) The resource identifier.
 
 
-<a id="nestedatt--ingress"></a>
+<a id="nestedblock--ingress"></a>
 ### Nested Schema for `ingress`
 
+Required:
+
+- `protocol` (String) One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
+
 Optional:
 
-- `description` (String)
-- `from_port` (Number)
-- `id` (String)
-- `labels` (Map of String)
-- `port` (Number)
-- `predefined_target` (String)
-- `protocol` (String)
-- `security_group_id` (String)
-- `to_port` (Number)
-- `v4_cidr_blocks` (List of String)
-- `v6_cidr_blocks` (List of String)
+- `description` (String) Description of the rule.
+- `from_port` (Number) Minimum port number.
+- `labels` (Map of String) Labels to assign to this rule.
+- `port` (Number) Port number (if applied to a single port).
+- `predefined_target` (String) Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
+- `security_group_id` (String) Target security group ID for this rule.
+- `to_port` (Number) Maximum port number.
+- `v4_cidr_blocks` (List of String) The blocks of IPv4 addresses for this rule.
+- `v6_cidr_blocks` (List of String) The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
+
+Read-Only:
+
+- `id` (String) The resource identifier.
 
 
 <a id="nestedblock--timeouts"></a>
