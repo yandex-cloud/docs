@@ -136,7 +136,7 @@
 || Вид ограничения | Значение ||
 || Количество одновременно выполняемых [операций](../api-design-guide/concepts/operation.md) в одном [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 ||
 || Количество [пулов резервов ВМ](../compute/concepts/reserved-pools.md) в одном облаке^1^
-`compute.reservedInstancePools.count` | 0 ||
+`compute.reservedInstancePools.count` | 1 ||
 |#
 
 ^1^ Чтобы увеличить [квоты]({{ link-console-quotas }}) на файловые хранилища, оптимизированные для развертывания образы, выделенные хосты или пулы резервов ВМ, обратитесь в [техническую поддержку]({{ link-console-support }}).

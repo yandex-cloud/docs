@@ -264,7 +264,7 @@ description: Из статьи вы узнаете, как безопасно в
       - Для чарта {#chart}
 
         ```bash
-        https://datalens.yandex.cloud/embeds/chart#dl_embed_token=<токен>
+        {{ link-datalens-main }}/embeds/chart#dl_embed_token=<токен>
         ```
 
         Где `<токен>` — JWT-токен.
@@ -272,7 +272,7 @@ description: Из статьи вы узнаете, как безопасно в
       - Для дашборда {#dashboard}
 
         ```bash
-        https://datalens.yandex.cloud/embeds/dash#dl_embed_token=<токен>
+        {{ link-datalens-main }}/embeds/dash#dl_embed_token=<токен>
         ```
 
         Где `<токен>` — JWT-токен.
@@ -286,7 +286,7 @@ description: Из статьи вы узнаете, как безопасно в
       - Для чарта {#chart}
 
         ```html
-        <iframe src="https://datalens.yandex.cloud/embeds/chart#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="{{ link-datalens-main }}/embeds/chart#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
         ```
 
         Где:
@@ -300,7 +300,7 @@ description: Из статьи вы узнаете, как безопасно в
       - Для дашборда {#dashboard}
 
         ```html
-        <iframe src="https://datalens.yandex.cloud/embeds/dash#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="{{ link-datalens-main }}/embeds/dash#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
         ```
 
         Где:
@@ -315,7 +315,7 @@ description: Из статьи вы узнаете, как безопасно в
 
       {% note info %}
 
-      Если на сайте и в приложении, куда будет встроен чарт или дашборд, реализована политика доступа по белым спискам, добавьте домен `https://datalens.ru` в список разрешенных.
+      Если на сайте и в приложении, куда будет встроен чарт или дашборд, реализована политика доступа по белым спискам, добавьте домен `{{ link-datalens-main }}` в список разрешенных.
 
       {% endnote %}
 
@@ -346,7 +346,7 @@ const iframe = document.getElementById('ID_IFRAME');
 iframe.contentWindow.postMessage({
     type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
     token: 'NEW_TOKEN'
-}, 'https://datalens.ru/');
+}, '{{ link-datalens-main }}/');
 ```
 
 Учитывайте время окончания действия токена при его обновлении.
@@ -362,7 +362,7 @@ iframe.contentWindow.postMessage({
 - Для чарта {#chart}
 
   ```html
-  <iframe src="https://datalens.yandex.cloud/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="{{ link-datalens-main }}/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
   ```
 
   Где:
@@ -374,7 +374,7 @@ iframe.contentWindow.postMessage({
 - Для дашборда {#dashboard}
 
   ```html
-  <iframe src="https://datalens.yandex.cloud/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="{{ link-datalens-main }}/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
   ```
 
   Где:

@@ -9,7 +9,150 @@ description: Следуя данной инструкции, вы научите
 
 Примеры работы с форматами Cap'n Proto и Protobuf при вставке данных в кластер приведены в разделе [Добавление данных в кластер](../tutorials/insert.md).
 
-## Перед подключением схемы формата данных {#prereq}
+## Получить список схем формата данных в кластере {#list-format-schemas}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список схем формата данных в кластере, выполните команду:
+
+  ```bash
+  {{ yc-mdb-ch }} format-schema list --cluster-name="<имя_кластера>"
+  ```
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [FormatSchema.List](../api-ref/FormatSchema/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [FormatSchemaService.List](../api-ref/grpc/FormatSchema/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.List
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse).
+
+{% endlist %}
+
+## Получить детальную информацию о схеме формата данных {get-format-schema}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить детальную информацию о схеме формата данных, выполните команду:
+
+  ```bash
+  {{ yc-mdb-ch }} format-schema get "<имя_схемы_формата>" \
+    --cluster-name="<имя_кластера>"
+  ```
+
+  Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [FormatSchema.Get](../api-ref/FormatSchema/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название схемы — со [списком схем](#list-format-schemas) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/FormatSchema/get.md#yandex.cloud.mdb.clickhouse.v1.FormatSchema).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [FormatSchemaService.Get](../api-ref/grpc/FormatSchema/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "format_schema_name": "<название_схемы>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Get
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название схемы — со [списком схем](#list-format-schemas) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/FormatSchema/get.md#yandex.cloud.mdb.clickhouse.v1.FormatSchema).
+
+{% endlist %}
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+## Создать схему формата данных {#add-format-schema}
+
+### Перед подключением схемы формата данных {#prereq}
 
 {{ mch-name }} работает только со схемами формата данных, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение. Перед подключением схемы к кластеру:
 
@@ -24,7 +167,7 @@ description: Следуя данной инструкции, вы научите
 1. [Получите ссылку](s3-access.md#get-link-to-object) на файл схемы.
 
 
-## Создать схему формата данных {#add-format-schema}
+### Подключите схему формата данных {#create-format-schema}
 
 {% list tabs group=instructions %}
 
@@ -293,7 +436,7 @@ description: Следуя данной инструкции, вы научите
                     "uri": "<ссылка_на_файл>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
-            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Create
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Update
         ```
 
         Где:
@@ -412,144 +555,3 @@ description: Следуя данной инструкции, вы научите
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/FormatSchema/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-## Получить список схем формата данных в кластере {#list-format-schemas}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить список схем формата данных в кластере, выполните команду:
-
-  ```bash
-  {{ yc-mdb-ch }} format-schema list --cluster-name="<имя_кластера>"
-  ```
-
-  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-- REST API {#api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Воспользуйтесь методом [FormatSchema.List](../api-ref/FormatSchema/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
-
-        ```bash
-        curl \
-            --request GET \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas'
-        ```
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse).
-
-- gRPC API {#grpc-api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [FormatSchemaService.List](../api-ref/grpc/FormatSchema/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                    "cluster_id": "<идентификатор_кластера>"
-                }' \
-            {{ api-host-mdb }}:{{ port-https }} \
-            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.List
-        ```
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse).
-
-{% endlist %}
-
-## Получить детальную информацию о схеме формата данных {get-format-schema}
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить детальную информацию о схеме формата данных, выполните команду:
-
-  ```bash
-  {{ yc-mdb-ch }} format-schema get "<имя_схемы_формата>" \
-    --cluster-name="<имя_кластера>"
-  ```
-
-  Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-- REST API {#api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Воспользуйтесь методом [FormatSchema.Get](../api-ref/FormatSchema/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
-
-        ```bash
-        curl \
-            --request GET \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>'
-        ```
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название схемы — со [списком схем](#list-format-schemas) в кластере.
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse).
-
-- gRPC API {#grpc-api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [FormatSchemaService.Get](../api-ref/grpc/FormatSchema/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                    "cluster_id": "<идентификатор_кластера>",
-                    "format_schema_name": "<название_схемы>"
-                }' \
-            {{ api-host-mdb }}:{{ port-https }} \
-            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Get
-        ```
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название схемы — со [списком схем](#list-format-schemas) в кластере.
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/FormatSchema/get.md#yandex.cloud.mdb.clickhouse.v1.FormatSchema).
-
-{% endlist %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

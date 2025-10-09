@@ -78,6 +78,12 @@ description: В сервисе {{ metadata-hub-full-name }} вы можете с
 
 В {{ yandex-cloud }} {{ metastore-name }} интегрируется с другими сервисами, расширяя их возможности для работы с данными и упрощая создание комплексных решений.
 
+{% note info %}
+
+Для интеграции с другими сервисами {{ yandex-cloud }} используйте кластеры {{ metastore-name }} версии 3.1.
+
+{% endnote %}
+
 ### {{ dataproc-name }} и {{ metastore-name }} {#data-processing}
 
 [{{ dataproc-name }}](../../data-proc/concepts/index.md) — это сервис для запуска распределенных вычислений на базе [{{ SPRK }}](https://spark.apache.org/), [Apache Hive](https://hive.apache.org/) и других инструментов экосистемы Apache Hadoop®. {{ SPRK }} активно использует {{ metastore-name }} для хранения схем таблиц и доступа к данным через SQL-интерфейс.

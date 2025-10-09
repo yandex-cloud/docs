@@ -5209,18 +5209,54 @@ default:
         12_month|string: "2\_144,832475\_$"
         3_month|string: "2\_397,165708\_$"
         6_month|string: "2\_346,699061\_$"
+      ba-a612-n-25g-p1:
+        1_day|string: "1\_222,832844\_$"
+        1_month|string: "1\_186,147859\_$"
+        12_month|string: "1\_039,407918\_$"
+        3_month|string: "1\_161,691202\_$"
+        6_month|string: "1\_137,234545\_$"
       ba-a612-n-2x25g:
         1_day|string: "2\_223,332444\_$"
         1_month|string: "2\_156,632471\_$"
         12_month|string: "1\_889,832577\_$"
         3_month|string: "2\_112,165822\_$"
         6_month|string: "2\_067,699173\_$"
+      ba-i208-s-10g-p1:
+        1_day|string: "419,374832\_$"
+        1_month|string: "406,793587\_$"
+        12_month|string: "356,468607\_$"
+        3_month|string: "398,406091\_$"
+        6_month|string: "390,018594\_$"
+      ba-i209-ss-1-10g-p1:
+        1_day|string: "132,916614\_$"
+        1_month|string: "128,929115\_$"
+        12_month|int|string: "113\_$"
+        3_month|string: "126,270783\_$"
+        6_month|string: "123,612451\_$"
       ba-i217-s-1-10g:
         1_day|string: "304,999878\_$"
         1_month|string: "295,849882\_$"
         12_month|string: "259,249896\_$"
         3_month|string: "289,749884\_$"
         6_month|string: "283,649887\_$"
+      ba-i507-nh-2x25g-p1:
+        1_day|string: "1\_116,499553\_$"
+        1_month|string: "1\_083,004567\_$"
+        12_month|string: "949,024620\_$"
+        3_month|string: "1\_060,674576\_$"
+        6_month|string: "1\_038,344585\_$"
+      ba-i512-nh-2x25g-p1:
+        1_day|string: "1\_387,832778\_$"
+        1_month|string: "1\_346,197795\_$"
+        12_month|string: "1\_179,657861\_$"
+        3_month|string: "1\_318,441139\_$"
+        6_month|string: "1\_290,684484\_$"
+      ba-i523-nh-2x25g-p1:
+        1_day|string: "2\_182,124127\_$"
+        1_month|string: "2\_116,660403\_$"
+        12_month|string: "1\_854,805508\_$"
+        3_month|string: "2\_073,017921\_$"
+        6_month|string: "2\_029,375438\_$"
       ba-i523-nh-2x25g:
         1_day|string: "3\_967,498413\_$"
         1_month|string: "3\_848,473461\_$"
@@ -5233,6 +5269,12 @@ default:
         12_month|string: "650,249740\_$"
         3_month|string: "726,749709\_$"
         6_month|string: "711,449715\_$"
+      ha-i502-n-25g-gxl4-p1:
+        1_day|string: "1\_000,999600\_$"
+        1_month|string: "970,969612\_$"
+        12_month|string: "850,849660\_$"
+        3_month|string: "950,949620\_$"
+        6_month|string: "930,929628\_$"
       ha-i502-n-25g-gxl4:
         1_day|string: "1\_819,999272\_$"
         1_month|string: "1\_765,399294\_$"

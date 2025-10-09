@@ -3,6 +3,9 @@
 * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
 * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 * `version` — версия {{ metastore-name }}.
+
+  {% include [metastore-version](metastore-version-cluster-create.md) %}
+
 * `configSpec.resources.resourcePresetId` — идентификатор вычислительных ресурсов кластера. Возможные значения:
   * `c2-m8` — 2 vCPU и 8 ГБ RAM.
   * `c2-m4` — 2 vCPU и 4 ГБ RAM.

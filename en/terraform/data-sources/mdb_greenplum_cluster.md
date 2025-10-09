@@ -74,7 +74,7 @@ output "network_id" {
 - `status` (String) Status of the cluster.
 - `subnet_id` (String) The ID of the subnet, to which the hosts belongs. The subnet must be a part of the network to which the cluster belongs.
 - `user_name` (String) Greenplum cluster admin user name.
-- `version` (String) Version of the Greenplum cluster. (`6.25`)
+- `version` (String) Version of the Greenplum cluster. (`6.28`)
 - `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 
 <a id="nestedblock--background_activities"></a>

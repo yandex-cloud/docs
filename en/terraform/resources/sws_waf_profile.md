@@ -130,6 +130,7 @@ Required:
 
 Optional:
 
+- `id` (String) Id of the rule set.
 - `name` (String) Name of the rule set.
 - `type` (String) Type of the rule set.
 
@@ -371,6 +372,7 @@ Required:
 
 Optional:
 
+- `id` (String) ID of the rule set.
 - `name` (String) Name of the rule set.
 - `type` (String) Type of the rule set.
 
@@ -396,6 +398,7 @@ Required:
 
 Optional:
 
+- `id` (String) ID of the rule set.
 - `name` (String) Name of the rule set.
 - `type` (String) Type of the rule set.
 
@@ -432,6 +435,7 @@ Required:
 
 Optional:
 
+- `id` (String) ID of the rule set.
 - `name` (String) Name of the rule set.
 - `type` (String) Type of the rule set.
 
