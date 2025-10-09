@@ -56,6 +56,7 @@ resource "yandex_cdn_origin_group" "my_group" {
 ### Optional
 
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `provider_type` (String) CDN provider is a content delivery service provider. Possible values: "ourcdn" (default) or "gcore"
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - `use_next` (Boolean) If the option is active (has true value), in case the origin responds with 4XX or 5XX codes, use the next origin from the list.
 

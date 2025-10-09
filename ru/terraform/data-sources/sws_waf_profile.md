@@ -85,7 +85,8 @@ Read-Only:
 
 Read-Only:
 
-- `id` (String)
+- `id` (String) Id of the rule set.
+
 - `name` (String) Name of the rule set.
 
 - `type` (String) Type of the rule set.
@@ -342,13 +343,14 @@ Read-Only:
 
 Read-Only:
 
+- `id` (String) ID of the rule set.
+
 - `name` (String) Name of the rule set.
 
 - `type` (String) Type of the rule set.
 
 - `version` (String) Version of the rule set.
 
-- `id` (String) Id of the rule set.
 
 
 
@@ -382,13 +384,14 @@ Read-Only:
 
 Read-Only:
 
+- `id` (String) ID of the rule set.
+
 - `name` (String) Name of the rule set.
 
 - `type` (String) Type of the rule set.
 
 - `version` (String) Version of the rule set.
 
-- `id` (String) Id of the rule set.
 
 
 
@@ -422,10 +425,11 @@ Read-Only:
 
 Read-Only:
 
+- `id` (String) ID of the rule set.
+
 - `name` (String) Name of the rule set.
 
 - `type` (String) Type of the rule set.
 
 - `version` (String) Version of the rule set.
 
-- `id` (String) Id of the rule set.

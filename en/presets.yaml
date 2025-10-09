@@ -5198,18 +5198,54 @@ default:
         12_month|string: $2144.832475
         3_month|string: $2397.165708
         6_month|string: $2346.699061
+      ba-a612-n-25g-p1:
+        1_day|string: $1222.832844
+        1_month|string: $1186.147859
+        12_month|string: $1039.407918
+        3_month|string: $1161.691202
+        6_month|string: $1137.234545
       ba-a612-n-2x25g:
         1_day|string: $2223.332444
         1_month|string: $2156.632471
         12_month|string: $1889.832577
         3_month|string: $2112.165822
         6_month|string: $2067.699173
+      ba-i208-s-10g-p1:
+        1_day|string: $419.374832
+        1_month|string: $406.793587
+        12_month|string: $356.468607
+        3_month|string: $398.406091
+        6_month|string: $390.018594
+      ba-i209-ss-1-10g-p1:
+        1_day|string: $132.916614
+        1_month|string: $128.929115
+        12_month|int|string: $113
+        3_month|string: $126.270783
+        6_month|string: $123.612451
       ba-i217-s-1-10g:
         1_day|string: $304.999878
         1_month|string: $295.849882
         12_month|string: $259.249896
         3_month|string: $289.749884
         6_month|string: $283.649887
+      ba-i507-nh-2x25g-p1:
+        1_day|string: $1116.499553
+        1_month|string: $1083.004567
+        12_month|string: $949.024620
+        3_month|string: $1060.674576
+        6_month|string: $1038.344585
+      ba-i512-nh-2x25g-p1:
+        1_day|string: $1387.832778
+        1_month|string: $1346.197795
+        12_month|string: $1179.657861
+        3_month|string: $1318.441139
+        6_month|string: $1290.684484
+      ba-i523-nh-2x25g-p1:
+        1_day|string: $2182.124127
+        1_month|string: $2116.660403
+        12_month|string: $1854.805508
+        3_month|string: $2073.017921
+        6_month|string: $2029.375438
       ba-i523-nh-2x25g:
         1_day|string: $3967.498413
         1_month|string: $3848.473461
@@ -5222,6 +5258,12 @@ default:
         12_month|string: $650.249740
         3_month|string: $726.749709
         6_month|string: $711.449715
+      ha-i502-n-25g-gxl4-p1:
+        1_day|string: $1000.999600
+        1_month|string: $970.969612
+        12_month|string: $850.849660
+        3_month|string: $950.949620
+        6_month|string: $930.929628
       ha-i502-n-25g-gxl4:
         1_day|string: $1819.999272
         1_month|string: $1765.399294

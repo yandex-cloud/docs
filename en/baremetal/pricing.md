@@ -29,6 +29,22 @@ All prices are per month.
 {% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
 
 
+
+#### Prices for promo configurations {#promo}
+
+{% note info %}
+
+Prices for promo configurations are valid from 00:00 19/09/2025 to 23:59 31/12/2025.
+
+{% endnote %}
+
+
+
+All prices are per month.
+
+{% include [usd-servers.md](../_pricing/baremetal/usd-servers-promo.md) %}
+
+
 {% note info %}
 
 [Quarantined](./concepts/servers.md#quarantine) servers are free of charge. However, if a server is not restored for further use during the quarantine, the time it spent in quarantine will be included in the paid lease term.

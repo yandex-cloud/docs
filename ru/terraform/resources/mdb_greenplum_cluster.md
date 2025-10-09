@@ -25,7 +25,7 @@ resource "yandex_mdb_greenplum_cluster" "my_cluster" {
   zone_id            = "ru-central1-a"
   subnet_id          = yandex_vpc_subnet.foo.id
   assign_public_ip   = true
-  version            = "6.25"
+  version            = "6.28"
   master_host_count  = 2
   segment_host_count = 5
   segment_in_host    = 1
@@ -113,7 +113,7 @@ resource "yandex_vpc_security_group" "test-sg-x" {
 - `subnet_id` (String) The ID of the subnet, to which the hosts belongs. The subnet must be a part of the network to which the cluster belongs.
 - `user_name` (String) Greenplum cluster admin user name.
 - `user_password` (String, Sensitive) Greenplum cluster admin password name.
-- `version` (String) Version of the Greenplum cluster. (`6.25`)
+- `version` (String) Version of the Greenplum cluster. (`6.28`)
 - `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 
 ### Optional

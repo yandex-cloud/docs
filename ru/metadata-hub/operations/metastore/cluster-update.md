@@ -20,6 +20,8 @@ description: Следуя данной инструкции, вы сможете
         1. Выберите другой [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый с ролью `{{ roles.metastore.integrationProvider }}`.
         1. Измените версию {{ metastore-name }}.
 
+            {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
   1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
   1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или выключите запись логов. Если логирование включено:

@@ -43,7 +43,8 @@ output "origin_group_name" {
 ### Read-Only
 
 - `id` (String) The ID of this resource.
-- `origin` (Set of Object) (see [below for nested schema](#nestedatt--origin))
+- `origin` (Set of Object) A set of available origins. (see [below for nested schema](#nestedatt--origin))
+- `provider_type` (String) CDN provider is a content delivery service provider
 - `use_next` (Boolean) If the option is active (has true value), in case the origin responds with 4XX or 5XX codes, use the next origin from the list.
 
 <a id="nestedatt--origin"></a>

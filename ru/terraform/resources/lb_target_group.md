@@ -44,7 +44,7 @@ resource "yandex_lb_target_group" "my_tg" {
 - `name` (String) Name of the target group.
  The name is unique within the folder. 3-63 characters long.
 - `region_id` (String) ID of the region where the target group resides.
-- `target` (Block List) A list of targets in the target group. (see [below for nested schema](#nestedblock--target))
+- `target` (Block Set) A list of targets in the target group. (see [below for nested schema](#nestedblock--target))
 - `target_group_id` (String) ID of the TargetGroup resource to return.
  To get the target group ID, use a [TargetGroupService.List] request.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))

@@ -5,6 +5,22 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.163.0 (October 9, 2025)
+##### FEATURES:
+* postgresql: add pg 18 support
+* greenplum: add support for Greenplum 6.28 and deprecate 6.25
+##### BUG FIXES:
+* vpc: reverted fix for empty rules handling in yandex_security_group because it breaks JSON configuration and migration to terraform-plugin-framework
+* loadbalancer: fix yandex_lb_target_group.target type
+* all: in generated datasources return warning when resource not found
+* postgresql: fix 16-1c, 17-1c and 18 pg version support in yandex_mdb_postgresql_cluster_v2
+
+## 0.162.0 (October 6, 2025)
+##### FEATURES:
+* CDN: added provider_type for resource and origin group configuration
+##### ENHANCEMENTS:
+* general: move resources to terraform-plugin-framework: yandex_container_registry, yandex_container_repository, yandex_iam_workload_identity_oidc_federation, yandex_iam_workload_identity_federated_credential, yandex_iam_service_account, yandex_kms_asymmetric_encryption_key, yandex_kms_asymmetric_signature_key, yandex_kms_symmetric_key, yandex_lb_target_group, yandex_organizationmanager_group, yandex_organizationmanager_user_ssh_key, yandex_compute_disk_placement_group, yandex_compute_filesystem, yandex_compute_gpu_cluster, yandex_logging_group, yandex_serverless_eventrouter_bus
+
 ## 0.161.0 (October 2, 2025)
 ##### FEATURES:
 * iam: add yandex_iam_oauth_client resource and datasource
