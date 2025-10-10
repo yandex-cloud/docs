@@ -15,7 +15,6 @@
         
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
 
-       Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
 
 - {{ MG }}
     
@@ -25,7 +24,7 @@
     
     1. {% include [mondodb cluster requirement](../../mongodb-cluster-requirement.md) %}
     
-    1. [Настройте кластер-приемник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
+    1. Настройте кластер-приемник, чтобы к нему можно было подключиться из интернета:
         
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
         
@@ -111,8 +110,7 @@
             ```javascript
             sh.shardCollection("<имя_базы-приемника>.<имя_коллекции>", { <имя_поля>: <1|"hashed">, ... });
             ```
-        
-           Описание функции `shardCollection()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
+           
         
         1. Чтобы убедиться в том, что шардирование настроено и включено, получите список доступных шардов:
         
@@ -131,6 +129,5 @@
         
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
 
-       Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/basics/sharding/).
 
 {% endlist %}

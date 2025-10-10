@@ -1,5 +1,11 @@
 # Autoscaling
 
+{% note info %}
+
+Autoscaling is only available for the [OLTP mode](oltp-and-olap.md).
+
+{% endnote %}
+
 In [dedicated mode](serverless-and-dedicated.md#dedicated) in {{ ydb-name }}, you can use _autoscaling_ of computing resources.
 
 Autoscaling means adjusting the number of nodes in a database as the workload changes.
@@ -14,4 +20,4 @@ For reliable and stable performance, a database should have more than one node a
 
 ## Example
 
-Your database is deployed with six compute nodes, and you need to maintain CPU utilization at 50% under the fluctuating load. This allows the system to handle traffic spikes without allocating too many resources. To achieve this, autoscaling is configured the following way: target CPU utilization of 50%, with minimum number of nodes being three and maximum number, nine. With this configuration, the system will automatically scale up the number of compute nodes when CPU utilization exceeds 50% to handle higher loads. Conversely, when CPU utilization drops below 50%, the number of nodes will be scale down to optimize costs during periods of lower loads. At all times, the total number of nodes will remain between three and nine.
+Your database is deployed with six compute nodes, and you need to maintain CPU utilization at 50% under the fluctuating load. This allows the system to handle traffic spikes without allocating too many resources. To achieve this, autoscaling is configured as follows: target CPU utilization of 50%, where the minimum number of nodes is 3 and the maximum number is 9. With this configuration, the system will automatically scale up the number of compute nodes when CPU utilization exceeds 50% to handle higher loads. Conversely, when CPU utilization drops below 50%, the number of nodes will be scale down to optimize costs during periods of lower loads. At all times, the total number of nodes will remain between three and nine.

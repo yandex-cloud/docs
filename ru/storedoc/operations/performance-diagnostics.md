@@ -45,7 +45,6 @@
        * `AVG` – среднее значение;
        * `SUM` – сумма.
    
-Подробнее про отображаемые сведения см. [в документации {{ MG }}](https://docs.mongodb.com/manual/reference/database-profiler/#output-reference).
 
 ## Получить информацию об индексах {#get-indexes}
 

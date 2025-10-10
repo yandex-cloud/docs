@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ ydb-full-name }}
+title: How to work with {{ ydb-full-name }}
 description: In this article, you will learn how to work with the managed service for {{ ydb-full-name }} in {{ yandex-cloud }}.
 ---
 
@@ -11,3 +11,4 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](schema.md)
 * [{#T}](crud.md)
 * [{#T}](monitoring.md)
+* [{#T}](ydb-mcp-cursor.md)

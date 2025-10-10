@@ -13,6 +13,7 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 * [{#T}](serverless-and-dedicated.md).
 * [{#T}](autoscaling.md).
 * [{#T}](dynamodb-tables.md).
+* [{#T}](transfer.md).
 * [{#T}](limits.md).
 
 ## {{ ydb-short-name }} DBMS {#ydb}

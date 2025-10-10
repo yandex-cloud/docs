@@ -63,7 +63,7 @@ description: Из статьи вы узнаете, что такое храни
    {% endnote %}
 
 * [Принудительно синхронизируйте](../operations/hosts.md#resetup) данные между хостами. Это поможет, если из кластера был удален большой объем данных, но дисковое пространство не было освобождено (т. е. помечено как доступное к переиспользованию).
-* Примените команду `compact`. Предварительно [добавьте](../operations/cluster-users.md#updateuser) пользователю [роль mdbDbAdmin](users-and-roles.md#mdbdbadmin). Подробнее о команде см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/command/compact).
+* Примените команду `compact`. Предварительно [добавьте](../operations/cluster-users.md#updateuser) пользователю [роль mdbDbAdmin](users-and-roles.md#mdbdbadmin). 
 
 ## Примеры использования {#examples}
 

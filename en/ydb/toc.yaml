@@ -19,6 +19,10 @@ items:
         href: operations/crud.md
       - name: Monitoring DB status
         href: operations/monitoring.md
+      - name: >-
+          Using {{ ydb-short-name }} via the ydb-mcp server with the Cursor IDE
+          as an example
+        href: operations/ydb-mcp-cursor.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -123,6 +127,8 @@ items:
         href: concepts/autoscaling.md
       - name: OLTP or OLAP operating modes
         href: concepts/oltp-and-olap.md
+      - name: Transfer
+        href: concepts/transfer.md
       - name: DynamoDB tables
         href: concepts/dynamodb-tables.md
       - name: Quotas and limits

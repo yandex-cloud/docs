@@ -57,7 +57,7 @@
 
 ### Создайте дамп {#dump}
 
-Создать дамп базы данных следует с помощью утилиты `mongodump`. Подробно утилита описана в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/program/mongodump/).
+Создать дамп базы данных следует с помощью утилиты `mongodump`.
 
 1. Установите `mongodump` и дополнительные утилиты для работы с MongoDB. Пример для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts):
 
@@ -68,7 +68,6 @@
     sudo apt install mongodb-org-shell mongodb-org-tools
     ```
 
-    Инструкции для других платформ, а также более подробную информацию об установке утилит можно найти на странице [Install MongoDB](https://docs.mongodb.com/manual/installation/).
 
 1. Перед созданием дампа рекомендуется переключить СУБД в режим «только чтение», чтобы не потерять данные, которые могут появиться за время создания дампа.
 
@@ -143,7 +142,7 @@
 
 ### Восстановите данные {#restore}
 
-Восстанавливать базу данных из дампа следует с помощью утилиты [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/).
+Восстанавливать базу данных из дампа следует с помощью утилиты `mongorestore`.
 
 * Если вы восстанавливаете дамп с виртуальной машины в {{ yandex-cloud }}:
 

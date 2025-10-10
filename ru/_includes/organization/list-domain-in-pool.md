@@ -7,4 +7,22 @@
   1. В списке [пулов пользователей](../../organization/concepts/user-pools.md) выберите нужный пул.
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.caption_domains }}** отобразится список всех доступных доменов.
 
+- CLI {#cli}
+
+  {% include [cli-install](../cli-install.md) %}
+
+  {% include [default-catalogue](../default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для получения списка [доменов](../../organization/concepts/domains.md) в [пуле пользователей](../../organization/concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp userpool domain list --help
+     ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc organization-manager idp userpool domain list <идентификатор_пула>
+      ```
+
 {% endlist %}

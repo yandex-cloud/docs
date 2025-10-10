@@ -9,10 +9,9 @@ description: '{{ SD }} поддерживает шардирование для 
 
 {{ mmg-name }} поддерживает основные стратегии шардирования данных:
  
- * [по хешу](https://docs.mongodb.com/manual/core/hashed-sharding/) (ключ шардирования на базе хеша);
- * [по диапазону значений](https://docs.mongodb.com/manual/core/ranged-sharding/) (ranged sharding).
+ * по хешу (ключ шардирования на базе хеша);
+ * по диапазону значений (ranged sharding).
 
-Более подробно шардирование баз {{ SD }} рассмотрено в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
 ## Преимущества шардирования {#advantages}
 
@@ -66,7 +65,7 @@ description: '{{ SD }} поддерживает шардирование для 
 
 - Кластер можно [создать шардированным](../operations/cluster-create.md#creating-a-sharded-cluster) либо [включить шардирование](../operations/shards.md#enable) позже.
 
-- За управление шардированием в {{ mmg-name }} отвечают хосты с ролями `MONGOS` ([маршрутизация запросов пользователей](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) и `MONGOCFG` ([хранение конфигурации шардов](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)).
+- За управление шардированием в {{ mmg-name }} отвечают хосты с ролями `MONGOS` (маршрутизация запросов пользователей) и `MONGOCFG` (хранение конфигурации шардов).
 
 - В {{ mmg-name }} можно включить шардирование двух типов:
   - **Стандартное** — экономичный тип шардирования для кластеров, в которых нет особых требований к хостам, управляющим шардированием.

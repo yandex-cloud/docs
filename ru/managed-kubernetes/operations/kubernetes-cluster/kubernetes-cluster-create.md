@@ -41,6 +41,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
+{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

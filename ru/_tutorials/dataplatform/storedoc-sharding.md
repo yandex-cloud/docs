@@ -29,7 +29,7 @@
 
 {% note warning %}
 
-Все операции по настройке шардирования с помощью CLI `mongosh` необходимо выполнять от имени пользователя с ролью [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
+Все операции по настройке шардирования с помощью CLI `mongosh` необходимо выполнять от имени пользователя с ролью [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) в базе данных `admin`.
 
 {% endnote %}
 
@@ -54,20 +54,13 @@
    sh.shardCollection( "<имя_БД>.<коллекция>", { "<индекс>": <тип_индекса> } )
    ```
 
-   Подробное описание команды `shardCollection` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
 
 1. Переключите приложения, которые используют вашу базу данных, на использование **исключительно** хостов `MONGOS` или `MONGOINFRA`.
 
 ### Шардирование разнородных данных {#brackets}
 
-Если коллекция состоит из документов с разнородными [типами данных](https://www.mongodb.com/docs/manual/reference/bson-types), шарды лучше формировать по значениям ключа `_id` одинакового типа, пользуясь механизмом [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). Тогда распределение по шардам и поиск документов выполняется быстрее, чем с разнотипными значениями `_id`.
+Если коллекция состоит из документов с разнородными типами данных, шарды лучше формировать по значениям ключа `_id` одинакового типа, пользуясь механизмом `Type Bracketing`. Тогда распределение по шардам и поиск документов выполняется быстрее, чем с разнотипными значениями `_id`.
 
-### Ссылки по теме {#links}
-
-Документация {{ MG }} рассказывает о решениях проблем шардирования:
-
-* О механизме шардирования в общем: [Sharding](https://docs.mongodb.com/manual/sharding/index.html).
-* О выборе ключа шардирования и стратегиях шардирования: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).
 
 ## Пример шардирования {#example}
 
@@ -75,7 +68,7 @@
 
 Последовательность операций:
 
-1. [Подключитесь](../../storedoc/operations/connect/index.md) к базе `billing`. У пользователя, от имени которого вы подключаетесь к базе, должна быть роль [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
+1. [Подключитесь](../../storedoc/operations/connect/index.md) к базе `billing`. У пользователя, от имени которого вы подключаетесь к базе, должна быть роль [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) в базе данных `admin`.
 1. Включите шардирование для базы `billing`:
 
    ```text

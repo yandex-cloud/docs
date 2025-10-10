@@ -10,6 +10,8 @@ description: Следуя данной инструкции, вы сможете
 
 Перед тем как создавать группу узлов, [создайте](../kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }} и убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
 
+{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

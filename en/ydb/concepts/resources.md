@@ -52,13 +52,13 @@ For more information about {{ ydb-short-name }} clusters, see the [documentation
 
 {{ ydb-full-name }} uses three disks in each of the three availability zones, both for databases on dedicated resources and serverless databases. This configuration ensures fault tolerance if a zone or disk fails, as well as provides a redundancy factor of 3.
 
-For more information about storage groups in {{ ydb-short-name }}, see the [documentation]({{ ydb.docs }}/concepts/databases#storage-groups).
+For more information about storage groups in {{ ydb-short-name }}, see the [documentation]({{ ydb.docs }}/concepts/glossary#storage-group).
 
 ## Temporary storage (spilling) {#spilling}
 
-OLAP databases in Yandex Managed Service for {{ ydb-full-name }} use **spilling**—a memory management mechanism that temporarily saves intermediate computation data to disk when the system runs out of RAM. Spilling enables execution of user queries that require processing large data volumes, which intermediate computation data exceeds available node memory.
+{{ ydb-full-name }} OLAP databases use **spilling**, a memory management mechanism to save temporary computation data to the disk if there is not enough RAM. Spilling enables user queries that involve processing massive amounts of data, when temporary data exceeds the available node memory.
 
-For more information about spilling in {{ ydb-short-name }}, see [the {{ ydb-short-name }} documentation]({{ ydb.docs }}/concepts/spilling).
+For more information about spilling in {{ ydb-short-name }}, see [this guide]({{ ydb.docs }}/concepts/spilling).
 
 ## Regions and availability zones {#regions-az}
 
