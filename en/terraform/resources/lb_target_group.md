@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/lb_target_group.md
 
 # yandex_lb_target_group (Resource)
 
-A TargetGroup resource. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources).
+Creates a target group in the specified folder and adds the specified targets to it. For more information, see [the official documentation](https://yandex.cloud/docs/load-balancer/concepts/target-resources).
 
 ## Example usage
 
@@ -36,31 +36,26 @@ resource "yandex_lb_target_group" "my_tg" {
 
 ### Optional
 
-- `description` (String) Description of the target group. 0-256 characters long.
-- `folder_id` (String) ID of the folder that the target group belongs to.
-- `id` (String) ID of the TargetGroup resource to return.
- To get the target group ID, use a [TargetGroupService.List] request.
-- `labels` (Map of String) Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
-- `name` (String) Name of the target group.
- The name is unique within the folder. 3-63 characters long.
-- `region_id` (String) ID of the region where the target group resides.
-- `target` (Block Set) A list of targets in the target group. (see [below for nested schema](#nestedblock--target))
-- `target_group_id` (String) ID of the TargetGroup resource to return.
- To get the target group ID, use a [TargetGroupService.List] request.
+- `description` (String) The resource description.
+- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
+- `name` (String) The resource name.
+- `region_id` (String) ID of the availability zone where the target group resides. If omitted, default region is being used.
+- `target` (Block Set) A Target resource. (see [below for nested schema](#nestedblock--target))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
-- `created_at` (String) Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `created_at` (String) The creation timestamp of the resource.
+- `id` (String) The ID of this resource.
 
 <a id="nestedblock--target"></a>
 ### Nested Schema for `target`
 
-Optional:
+Required:
 
 - `address` (String) IP address of the target.
-- `subnet_id` (String) ID of the subnet that targets are connected to.
- All targets in the target group must be connected to the same subnet within a single availability zone.
+- `subnet_id` (String) ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.
 
 
 <a id="nestedblock--timeouts"></a>
@@ -68,9 +63,8 @@ Optional:
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-- `read` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import

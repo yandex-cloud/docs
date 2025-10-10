@@ -29,11 +29,13 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 ## What goes into the cost of using {{ ydb-name }} {#rules}
 
 When using {{ ydb-name }} in dedicated-instance mode, you pay for the following:
+
 * Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
 * Disk space allocated for [temporary storage (spilling)](../concepts/resources.md#spilling).
 
 The following resources are paid additionally:
+
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
@@ -58,21 +60,21 @@ You pay for the following:
 
     {% endnote %}
 
-* Disk space allocated for temporary storage (spilling).
+* Temporary storage size (for spilling).
 
     {% note info %}
 
-    The cost of the temporary storage (spilling) is specified for one {{ ydb-short-name }} node.
+    The cost of temporary storage (spilling) is specified per {{ ydb-short-name }} node.
 
     {% endnote %}
 
 The price covers one month of use. The minimum billing unit is 1 GB/hr (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ ydb-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ ydb-name }} provides two types of CVoS discount: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -100,3 +102,4 @@ Currently, you cannot order storage or web traffic this way.
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
+

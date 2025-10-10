@@ -324,6 +324,8 @@ items:
         href: concepts/index.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
+      - name: Обновление операционной системы в группе узлов
+        href: concepts/node-os-update.md
       - name: Шифрование
         href: concepts/encryption.md
       - name: Использование объектов API {{ k8s }}

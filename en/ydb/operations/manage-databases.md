@@ -20,11 +20,16 @@ You can use the management console or {{ yandex-cloud }} CLI to:
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. Under **Load type**, select one of these options:
+
+      - `OLTP`
+      - `OLAP (Analytics β)`
+
   1. You will be suggested default values for DB parameters. They are selected for you to get started in the most efficient way. You can change them right away or later, if required. For more information about the DB settings, see [Serverless and dedicated modes](../concepts/serverless-and-dedicated.md).
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
@@ -80,7 +85,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-  
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. In the {{ TF }} configuration file, describe the parameters of the serverless DB to create:
@@ -103,15 +108,15 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
      * `name`: DB name. This is a required parameter.
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
+     * `enable_throttling_rcu_limit`: Introduce a throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
      * `storage_size_limit`: Data size limit in bytes. This is an optional parameter. The default value is `50` GB.
      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional parameter. The default value is `0`.
-     
+
   1. Apply the changes:
-  
+
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
     {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }}CLI](../../cli/quickstart.md) command:
 
     ```bash
@@ -126,7 +131,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
     > resource "yandex_ydb_database_serverless" "database1" {
     >   name                = "test-ydb-serverless"
     >   deletion_protection = "true"
-    > 
+    >
     >   serverless_database {
     >     enable_throttling_rcu_limit = false
     >     provisioned_rcu_limit       = 10
@@ -216,13 +221,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
      * `name`: DB name. This is a required parameter.
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
+     * `enable_throttling_rcu_limit`: Introduce a throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
      * `storage_size_limit`: Amount of data, GB. This is an optional parameter. The default value is `50`.
      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional parameter. The default value is `0`.
 
   1. Apply the changes:
-  
+
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {{ TF }} will apply the required changes to the resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
@@ -230,7 +235,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
     ```bash
     yc ydb database get <DB_name>
     ```
-  
+
   **Example**
 
   Changing the provisioned throughput capacity and amount of data for the `test-ydb-serverless` DB:
@@ -280,11 +285,16 @@ You can use the management console or {{ yandex-cloud }} CLI to:
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
+  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
+  1. Under **Load type**, select one of these options:
+
+      - `OLTP`
+      - `OLAP`
+
   1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
 
       {% note warning %}
@@ -351,7 +361,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
   * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to recover control as soon as the command to create DB is accepted by the cloud.
 
   **Examples**
-  
+
   1. Creating a single-node dedicated YDB database with the minimum configuration, named `dedb` and accessible from the internet:
 
       > ```bash
@@ -406,10 +416,10 @@ You can use the management console or {{ yandex-cloud }} CLI to:
      ```
 
      Where:
-    
+
      * `name`: DB name.
      * `network_id`: ID of the network the DB is connected to.
-     * `subnet_ids`: Subnet IDs list. Separated by commas.
+     * `subnet_ids`: List of subnet IDs. Separated by commas.
      * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
      * `scale_policy`: Scaling policy, where `size` indicates the number of DB instances.
@@ -418,7 +428,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
         * `storage_type_id`: Media type. For the `ssd` type, a single storage group can store up to 100 GB of data.
 
   1. Create a database:
-  
+
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
@@ -743,7 +753,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
            --access-binding role=<role>,subject=group:<group_ID>
         ```
 
-     Provide a separate `--access-binding` parameter for each role. For example:
+     Provide a separate `--access-binding` parameter for each role. Here is an example:
 
      ```bash
      yc ydb database set-access-bindings \

@@ -18,7 +18,6 @@
 
     Значение `disabled` отключает сжатие. Значение по умолчанию — `snappy,zstd,zlib`.
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors).
 
 - **Operation profiling**{#setting-operation-profiling} {{ tag-all }}
 
@@ -38,7 +37,6 @@
     - `slowOp` (по умолчанию) — собирается информация только о медленных операциях (выполняющихся дольше порога, заданного настройкой [Slow op threshold](#setting-slow-op-threshold));
     - `all` — собирается информация обо всех выполняющихся запросах.
 
-    Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
 
   - **Slow op sample rate**{#setting-slow-sample-rate}
 
@@ -46,7 +44,6 @@
 
     Минимальное значение — `0`, максимальное значение — `1`, значение по умолчанию — `1`.
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate).
 
   - **Slow op threshold**{#setting-slow-op-threshold}
   
@@ -54,7 +51,6 @@
 
     Минимальное значение — `0`, максимальное значение — `36000000` (10 часов), значение по умолчанию — `300`.
 
-    Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
 
 
 - **Set parameter**{#setting-set-parameter}
@@ -65,7 +61,6 @@
 
     Значение по умолчанию — `false` (контроль скорости отключен).
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
 
   - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-all }}
 
@@ -79,7 +74,6 @@
 
     Возможные значения — от нуля и выше, значение по умолчанию — `60`. Увеличение значения настройки увеличивает использование диска.
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds).
 
 - **Storage**{#setting-storage} {{ tag-all }}
 
@@ -91,29 +85,26 @@
 
   {% endnote %}
 
-  Настройки взаимодействия {{ SD }} с [хранилищем данных](https://docs.mongodb.com/manual/core/storage-engines/).
 
   - **Journal → Commit interval**{#setting-journal-commit-interval}
   
-    Интервал в миллисекундах между сохранениями [данных журнала](https://docs.mongodb.com/manual/core/journaling/) {{ SD }} на диск.
+    Интервал в миллисекундах между сохранениями данных журнала {{ SD }} на диск.
 
     Минимальное значение — `1`, максимальное значение — `500`, значение по умолчанию — `300`.
 
-    Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.journal.commitIntervalMs).
 
   - **Wired tiger**{#setting-wired-tiger}
   
-    Настройки [движка хранения данных](https://docs.mongodb.com/manual/core/wiredtiger/):
+    Настройки движка хранения данных:
     
     - **Collection config → Block compressor**{#setting-block-compressor}
     
-      Настройка сжатия данных. Установленное здесь значение будет работать только для новых коллекций. Также вы можете переопределить его для [отдельных коллекций](https://docs.mongodb.com/manual/reference/method/db.createCollection/#create-collection-storage-engine-options) и [индексов](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#options).
+      Настройка сжатия данных. Установленное здесь значение будет работать только для новых коллекций. Также вы можете переопределить его для отдельных коллекций и индексов.
 
       - `none` — сжатие отключено.
       - `snappy` — использование библиотеки [snappy](https://google.github.io/snappy/) для сжатия данных. При выборе этой настройки в большинстве случаев сжатие и распаковка будут быстрее, чем при использовании библиотеки `zlib`, но итоговый размер файлов будет на 20—100% больше.
       - `zlib` — использование библиотеки [zlib](http://www.zlib.net/) для сжатия данных. Этот способ работает медленнее `snappy`, но в большинстве случаев лучше сжимает данные.
 
-      Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor).
 
     - **Engine config → Cache size gb**{#setting-engine-cache-size}
 
@@ -126,7 +117,6 @@
 
       Например, для хостов класса {{ s1-medium }} максимальное значение настройки — `28.8`, значение по умолчанию — `16`.
 
-      Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).
 
     - **Index config → Prefix compression**{#setting-prefix-compression}
 
@@ -134,4 +124,3 @@
 
       Значение по умолчанию — `true` (сжатие префиксов включено).
 
-      Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression).

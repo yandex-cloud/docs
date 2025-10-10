@@ -302,7 +302,7 @@ shard | Идентификатор шарда
 | `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, штуки | Прирост конфликтов при записи за секунду. | 
 | `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, штуки | Прирост просканированных ключей индекса за секунду. | 
 | `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, штуки | Прирост просканированных документов за секунду. | 
-| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, штуки | Прирост удаленных документов с использованием [TTL индекса](https://www.mongodb.com/docs/manual/core/index-ttl/) за секунду. | 
+| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, штуки | Прирост удаленных документов с использованием TTL индекса за секунду. |
 | `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, штуки | Прирост фоновых операций удаления документов из коллекций с использованием TTL индекса за секунду. | 
 | `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд БД за секунду. | 
 | `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций над коллекциями БД за секунду. | 

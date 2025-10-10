@@ -52,5 +52,5 @@ Read-Only:
 
 - `address` (String) IP address of the target.
 
-- `subnet_id` (String) ID of the subnet that targets are connected to.
+- `subnet_id` (String) ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.
 

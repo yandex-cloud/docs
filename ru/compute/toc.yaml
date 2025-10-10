@@ -415,6 +415,8 @@ items:
         href: operations/operation-logs.md
       - name: Посмотреть метрики в {{ monitoring-name }}
         href: operations/metrics-pull.md
+      - name: Рекомендации по обновлению драйверов NVIDIA
+        href: operations/gpu-driver-update.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Практические руководства
