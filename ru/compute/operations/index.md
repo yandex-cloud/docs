@@ -246,3 +246,4 @@ description: Пошаговые инструкции по работе и упр
 
 * [{#T}](operation-logs.md)
 * [{#T}](metrics-pull.md)
+* [{#T}](gpu-driver-update.md)

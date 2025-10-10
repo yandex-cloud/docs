@@ -319,6 +319,8 @@
 
 ## Обновление группы узлов {#node-group-upgrade}
 
+{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
+
 ### Настройка автоматического обновления группы узлов {#node-group-auto-upgrade}
 
 Выберите режим автоматического обновления группы узлов {{ managed-k8s-name }} и задайте нужный график обновления:

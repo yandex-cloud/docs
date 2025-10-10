@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
 
 На странице появятся следующие графики:
 
-* **Asserts total** — количество срабатываний [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) в кластере.
+* **Asserts total** — количество срабатываний assert в кластере.
 * **Average operation time per host** — среднее время выполнения операций каждым хостом (в микросекундах).
 * **Average operations time on primary** — среднее время выполнения операций на первичных репликах (в микросекундах).
 * **Average operations time on secondaries** — среднее время выполнения операций на вторичных репликах (в микросекундах).
@@ -58,12 +58,12 @@ description: Следуя данной инструкции, вы сможете
     * с запросами на чтение;
     * с запросами на запись.
 * **Replicated queries** — среднее количество реплицированных запросов в кластере.
-* **Replication lag per host and write_concern wait** — задержки репликации на каждом хосте и ожидание [подтверждения записи](https://docs.mongodb.com/manual/reference/write-concern/) (в секундах).
+* **Replication lag per host and write_concern wait** — задержки репликации на каждом хосте и ожидание подтверждения записи (в секундах).
 * **Scan and order per host** — количество сортировок данных без использования индекса на каждом хосте.
 * **Scanned / returned** — показывает соотношения:
     * `scanned_docs / returned_docs` — количество просканированных документов к количеству возвращенных;
     * `scanned_keys / returned_docs` — количество просканированных ключей индекса к количеству возвращенных документов.
-* **TTL indexes activity** — общее количество [индексов TTL](https://docs.mongodb.com/manual/core/index-ttl/).
+* **TTL indexes activity** — общее количество индексов TTL.
 * **Total operations count on cluster** — общее количество выполненных в кластере операций.
 * **Total operations time on cluster** — общее время выполнения операций в кластере (в миллисекундах).
 * **WiredTiger cache pages evicted on primary** — среднее количество страниц оперативной памяти, вытесненных на первичной реплике.

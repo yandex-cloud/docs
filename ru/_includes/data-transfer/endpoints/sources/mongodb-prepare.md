@@ -17,7 +17,7 @@
     
     1. {% include [mondodb cluster requirement](../../mongodb-cluster-requirement.md) %}
     
-    1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../../../../data-transfer/concepts/network.md#source-external). Чтобы настроить [кластер-источник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) для подключения из интернета:
+    1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../../../../data-transfer/concepts/network.md#source-external). Чтобы настроить кластер-источник для подключения из интернета:
         
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
         
@@ -61,7 +61,7 @@
             });
             ```
     
-    1. Создайте пользователя с ролью [`readWrite`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-readWrite) на все базы в источнике, которые будут реплицироваться:
+    1. Создайте пользователя с ролью `readWrite` на все базы в источнике, которые будут реплицироваться:
     
         ```javascript
         use admin
@@ -87,17 +87,17 @@
     
        {% note info %}
     
-       Для версий {{ MG }}, начиная с {{ dt-mg-version }}, достаточно выдать созданному пользователю роль [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) на реплицируемые базы.
+       Для версий {{ MG }}, начиная с {{ dt-mg-version }}, достаточно выдать созданному пользователю роль `read` на реплицируемые базы.
     
        {% endnote %}
     
-    1. При использовании {{ MG }}, начиная с версии {{ dt-mg-version }}, для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`, а также на запись с чтением коллекции `__data_transfer.__dt_cluster_time`. Чтобы назначить пользователю роль [`clusterAdmin`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterAdmin), предоставляющую такие права, подключитесь к {{ MG }} и выполните команды:
+    1. При использовании {{ MG }}, начиная с версии {{ dt-mg-version }}, для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`, а также на запись с чтением коллекции `__data_transfer.__dt_cluster_time`. Чтобы назначить пользователю роль `clusterAdmin`, предоставляющую такие права, подключитесь к {{ MG }} и выполните команды:
     
         ```js
         use admin;
         db.grantRolesToUser("<имя_пользователя>", ["clusterAdmin"]);
         ```
     
-       Для выдачи более гранулярных прав можно назначить роль [`clusterMonitor`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterMonitor), необходимую для чтения коллекции `local.oplog.rs`, а также дать доступ на чтение и запись системной коллекции `__data_transfer.__dt_cluster_time`.
+       Для выдачи более гранулярных прав можно назначить роль `clusterMonitor`, необходимую для чтения коллекции `local.oplog.rs`, а также дать доступ на чтение и запись системной коллекции `__data_transfer.__dt_cluster_time`.
 
 {% endlist %}

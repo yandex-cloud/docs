@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [Изменить класс хостов](#change-resource-preset).
 * [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
-* [Настроить серверы](#change-mongod-config) {{ SD }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
+* [Настроить серверы](#change-mongod-config) {{ SD }} согласно документации {{ MG }}.
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности](#change-sg-set).
@@ -470,7 +470,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-mdb-mg }} cluster update-config
   ```
 
-  Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
+  Например, для установки значения параметра net.maxIncomingConnections в `4096`, выполните следующую команду:
 
   ```bash
   {{ yc-mdb-mg }} cluster update-config <имя_кластера> \

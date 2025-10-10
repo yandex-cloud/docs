@@ -9,9 +9,13 @@ description:
     consistency, and ACID transaction support. Queries are made using an SQL
     dialect (<a href="https://ydb.tech/docs/en/yql/reference/">YQL</a>).
   - >-
+    This guide describes the features of using YDB in the Yandex Cloud
+    infrastructure. For the main YDB documentation, see <a
+    href="https://ydb.tech/docs/">https://ydb.tech/docs/</a>.
+  - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law 152-FZ on Personal Data.
+    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 links:
   - title: Getting started
     description: Create your first database
@@ -31,11 +35,11 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: Identity and access management
-    description: Configure access permissions to use the service
+  - title: Security and access management
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing/
 meta:
   title: Yandex Managed Service for YDB

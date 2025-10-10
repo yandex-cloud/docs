@@ -36,7 +36,6 @@ description: '{{ data-transfer-full-name }} учитывает особенно�
 db.<имя_коллекции>.createIndex(<свойства_индекса>)
 ```
 
-Описание функции `createIndex()` см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
 
 ## {{ MY }} {#mysql}
 
