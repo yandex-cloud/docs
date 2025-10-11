@@ -69,9 +69,9 @@ spec:
   addresses:
     - type: IPAddress
       value: <IP> # ipv4 address preallocated with vpc
-    - type: gateway.alb.yc.io/autoIPv4 # Automatic external ipv4 address.
+    - type: gwin.yandex.cloud/autoIPv4 # Automatic external ipv4 address.
       value: auto
-    - type: gateway.alb.yc.io/internalIPv4 # Address in vpc subnet.
+    - type: gwin.yandex.cloud/internalIPv4 # Address in vpc subnet.
       value: <subnet-id>/<ip> # You can use "auto" in <ip>.
 ```
 
@@ -367,9 +367,9 @@ Types and values:
 ```yaml
 - type: IPAddress
   value: <IP> # ipv4 address preallocated with vpc
-- type: gateway.alb.yc.io/autoIPv4 # Automatic external ipv4 address.
+- type: gwin.yandex.cloud/autoIPv4 # Automatic external ipv4 address.
   value: auto
-- type: gateway.alb.yc.io/internalIPv4 # Address in vpc subnet.
+- type: gwin.yandex.cloud/internalIPv4 # Address in vpc subnet.
   value: <subnet-id>/<ip> # You can use "auto" in <ip>.
 ```
 
@@ -377,5 +377,5 @@ Types and values:
 
 | Field | Description |
 |-------|-------------|
-| type | **string** <br> Address type: `IPAddress` for standard IP addresses, `gateway.alb.yc.io/autoIPv4` for automatic external IPv4 address, `gateway.alb.yc.io/internalIPv4` for address in VPC subnet. <br> Example: `IPAddress`,`gateway.alb.yc.io/autoIPv4`,`gateway.alb.yc.io/internalIPv4`. |
-| value | **string** <br> Load balancer public IP address. To use a public IP address, first, you need to [reserve it](https://yandex.cloud/en/docs/vpc/operations/get-static-ip) in VPC. For `gateway.alb.yc.io/autoIPv4` use `auto`. For `gateway.alb.yc.io/internalIPv4` use `<subnet-id>/<ip>` format where you can use `auto` for IP. <br> Example: `5.4.3.2`, `auto`, `subnet-123/10.0.0.1`. |
+| type | **string** <br> Address type: `IPAddress` for standard IP addresses, `gwin.yandex.cloud/autoIPv4` for automatic external IPv4 address, `gwin.yandex.cloud/internalIPv4` for address in VPC subnet. <br> Example: `IPAddress`,`gwin.yandex.cloud/autoIPv4`,`gwin.yandex.cloud/internalIPv4`. |
+| value | **string** <br> Load balancer public IP address. To use a public IP address, first, you need to [reserve it](https://yandex.cloud/en/docs/vpc/operations/get-static-ip) in VPC. For `gwin.yandex.cloud/autoIPv4` use `auto`. For `gwin.yandex.cloud/internalIPv4` use `<subnet-id>/<ip>` format where you can use `auto` for IP. <br> Example: `5.4.3.2`, `auto`, `subnet-123/10.0.0.1`. |
