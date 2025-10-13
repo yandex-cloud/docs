@@ -22,10 +22,10 @@ editable: false
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the total number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/generation/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
+Text generation cost is based on the total number of [prompt](concepts/generation/index.md#working-mode) and response [tokens](concepts/generation/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
 
 * [Model](concepts/generation/models.md) that gets the request.
-* The model's [operating mode](concepts/index.md#working-mode).
+* The model's [operating mode](concepts/generation/index.md#working-mode).
 
 The number of [prompt](concepts/index.md) and response [tokens](concepts/generation/tokens.md) for the same text may vary depending on the model.
 
@@ -66,6 +66,10 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 ### Assistants {#rules-assistant}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, you can use {{ assistant-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
+
+### Using voice agents {#rules-voice-assistant}
+
+The cost of using voice agents consists of your fees for speech recognition (input audio), speech synthesis (output audio), and text generation using the speech-realtime-250923.
 
 ### Image generation {#rules-image-generation}
 
@@ -125,18 +129,21 @@ _{{ price-per-hour-count-per-second }}_
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
 
 
+### Using voice agents {#voice-assistant}
+
+_The prices are per minute. Billing is per second._
+
+
+
+{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
+
+
 ### Image generation {#pricing-image-generation}
 
 
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
-
-### Voice agents {#voice-assistant}
-
-
-
-{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
 
 
 ## Examples of the {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
@@ -187,11 +194,23 @@ Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with 
 
 Cost of using {{ foundation-models-full-name }} for text vectorization with the following parameter:
 
-* Number of tokens in the request: 2,000
+* Number of tokens per request: 2,000
 
 
 
 {% include [usd-embedding-k1](../_pricing_examples/ai-studio/usd-embedding-k1.md) %}
 
 
+
+## Voice agent cost calculation example {#price-example-voice-assistant}
+
+Cost of using the speech-realtime-250923 voice agent with the following parameters:
+
+* Input audio: 30 seconds.
+* Output audio: 1 minute.
+* Number of tokens per request: 2,000.
+
+
+
+{% include [usd-voice-assistant-pro](../_pricing_examples/ai-studio/usd-voice-assistant-pro.md) %}
 

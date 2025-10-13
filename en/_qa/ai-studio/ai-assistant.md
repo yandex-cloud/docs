@@ -4,12 +4,12 @@
 
 #### How do I write effective instructions for an AI assistant? {#assistant-instruction}
 
-When creating an AI assistant, provide a detailed plain-language description of what your assistant should do in the `instruction` field. Here is an example:
+When creating an AI assistant, provide a detailed plain-language description of what your assistant should do in the `instruction` field. For example:
 
 ```
 You are a support specialist. Your task is to answer questions on the topic. 
+Stick strictly to the context.
 If the answer is not in the context, simply state that, without making assumptions.
-Stick strictly to the context. 
 Keep your responses short but informative.
 ```
 

@@ -3,7 +3,7 @@ title: General questions about {{ foundation-models-full-name }}
 description: How to get my activity logs in {{ foundation-models-name }}? Find the answer to this and other questions in this article.
 ---
 
-# General questions about {{ foundation-models-full-name }}
+# General questions {{ foundation-models-full-name }}
 
 {% include [logs](../../_qa/logs.md) %}
 

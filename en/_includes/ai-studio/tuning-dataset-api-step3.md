@@ -3,6 +3,6 @@ Upload your data by specifying the link you got in the previous step and the pat
 ```bash 
 curl \
   --request PUT \
-  --upload-file <path_to_file> \
+  --upload-file <file_path> \
   "<link>"
 ```

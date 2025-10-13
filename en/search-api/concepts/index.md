@@ -9,7 +9,7 @@ With {{ search-api-full-name }}, you can automatically submit queries to the Yan
 
 With {{ search-api-name }}, you can easily implement the search feature on individual websites, groups of websites, or across the internet, or create an application with built-in search features. Additionally, it offers features to monitor website ranking for specific queries in Yandex search results. {{ search-api-name }} enables [text](./web-search.md) and [image](./image-search.md) search, where you can customize search parameters, optimize results for specific devices, and select the output format. 
 
-In {{ search-api-name }}, you can run queries in synchronous and deferred (asynchronous) modes. In synchronous mode, you will get the results immediately once your query is processed. In synchronous mode, you will get a response with minimum delay, but not instantly: processing takes some time. In asynchronous mode, in response to a query, you will get the [`Operation` object](../../api-design-guide/concepts/operation.md) with the ID of the operation in progress. You can use this ID to find out the query status and later get the result.
+In {{ search-api-name }}, you can run queries in synchronous and deferred (asynchronous) modes. In synchronous mode, you will get the results immediately once your query is processed. You get your response with minimum delay, however, not instantly: processing takes time. In asynchronous mode, in response to a query, you will get the [`Operation` object](../../api-design-guide/concepts/operation.md) with the ID of the operation in progress. You can use this ID to find out the query status and later get the result.
 
 {{ search-api-name }} provides two interfaces for queries: API v2 and API v1. 
 

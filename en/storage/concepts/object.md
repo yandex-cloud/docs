@@ -89,8 +89,8 @@ Key | Description
 `Date` | Date and time the request to upload an object to {{ objstorage-name }} was sent.
 `Content-Length` | Object size in bytes.
 `Last-Modified` | Date the object was created or last modified.
-`Content-MD5` | Object MD5 hash value, Base64-encoded.
-`Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2).
+`Content-MD5` | Object's base64-encoded MD5 hash.
+`Cache-Control` | Value of the `Cache-Control` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for the object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header means the object expires 200 seconds after the client receives it. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2).
 `Expires` | Value of the `Expires` HTTP header provided by the client when saving the object to the bucket. {{ objstorage-name }} later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header means the object expires at 20:00:00 GMT on April 15, 2020. You can read more about it in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3).
 
 ### User-defined metadata {#user-meta}
@@ -109,6 +109,39 @@ The PUT request header must not exceed 8 KB. The maximum size of user-defined me
 
 For more information, see [{#T}](../operations/objects/object-meta.md).
 
+## Conditional writes {#conditional-writes}
+
+To avoid accidental overwriting and conflicts during concurrent uploads, you can set object write conditions. The conditions are set using [S3 API](../s3/index.md) headers:
+
+* For the [upload](../s3/api-ref/object/upload.md) and [completeUpload](../s3/api-ref/multipart/completeupload.md) methods:
+
+    * `If-Match`: The write will only be performed if an object already exists for the specified key and its current `ETag` matches the values in the header.
+    * `If-None-Match`: The write will only be performed if there is no object with the same name in the bucket for the specified key.
+
+* For the [copy](../s3/api-ref/object/copy.md) and [copyPart](../s3/api-ref/multipart/copypart.md) methods:
+
+    * `X-Amz-Copy-Source-If-Match`: The write will only be performed if an object already exists for the specified key and its current `ETag` matches the values in the header.
+    * `X-Amz-Copy-Source-If-None-Match`: The write will only be performed if there is no object with the same name in the bucket for the specified key.
+
+You can use the conditions for object uploads and multipart uploads, when copying whole objects of parts of objects. For more information, see the [Conditional object upload](../operations/objects/upload.md#conditional-writes) guide.
+
+Response codes:
+
+* `404` (`Not Found`): Object for the key is not found. Only for `If-Match`.
+* `409` (`Conflict`): The condition was met; however, the key was modified by another write operation during the upload.
+* `412` (`Precondition Failed`): Condition not met.
+
+[Multipart upload](../operations/objects/multipart-upload.md#conditional-writes) features:
+
+* Multipart uploads initiate without any conditions. Headers are applied at the `Complete Multipart Upload` stage.
+* If getting response code `409`, you have to manually [interrupt](../operations/objects/deleting-multipart.md) the current multipart upload and start a new one.
+
+
+    {% note warning %}
+
+    Until you interrupt the multipart upload, the uploaded parts remain in the bucket and are subject to [data storage](../pricing.md#prices-storage) charges.
+
+    {% endnote %}
 
 ## Use cases {#examples}
 

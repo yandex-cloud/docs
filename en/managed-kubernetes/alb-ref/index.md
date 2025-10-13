@@ -7,7 +7,13 @@ noIndex: true
 # {{ alb-name }} tool reference for {{ managed-k8s-name }}
 
 
-{{ alb-name }} provides tools for deploying L7 load balancers in {{ managed-k8s-full-name }} clusters: [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) and [Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md). This reference describes {{ k8s }} resource configurations used by the Ingress controller and Gateway API to deploy an infrastructure.
+{{ alb-name }} provides tools for deploying L7 load balancers in {{ managed-k8s-full-name }} clusters: [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), [Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md), and [Gwin](gwin-quickstart.md) controller. 
+
+This reference describes {{ k8s }} resource configurations used by the Ingress controller and Gateway API to deploy an infrastructure. You can find the Gwin resource reference on the controller's [overview page](gwin-index.md).
+
+## Gwin resources {#gwin}
+
+{% include [gwin-resources](../../_includes/managed-kubernetes/alb-ref/gwin-resources.md) %}
 
 ## Ingress controller resources {#ingress}
 
@@ -25,5 +31,5 @@ noIndex: true
 * [RoutePolicy](route-policy.md): `HTTPRoute` resource policy and backend access rule configuration.
 * [HTTPRoute](grpc-route.md): Rules for redirecting or routing gRPC traffic across backends.
 * [YCStorageBucket](./yc-storage-bucket.md): {{ objstorage-name }} bucket parameters for setting up a backend in the `HTTPRoute` resource.
-* [TLSRoute](./tls-route.md): Rules for TLS traffic routing between backends.
+* [TLSRoute](./tls-route.md): Rules for routing TLS traffic across backends.
 * [Service](service-for-gateway.md): {{ k8s }} backend service description.

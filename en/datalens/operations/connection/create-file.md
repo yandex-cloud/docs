@@ -53,6 +53,9 @@ To create a connection to a file:
 
 You can add, rename, [replace](#file-replace), and delete existing files in the connection.
 
+## Additional settings {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
 ## File replacement {#file-replace}
 

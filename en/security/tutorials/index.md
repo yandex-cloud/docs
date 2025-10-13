@@ -98,6 +98,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](kubernetes-security/sign-cr-with-cosign.md)
 * [{#T}](kubernetes-security/kubernetes-lockbox-secrets.md)
 * [{#T}](kubernetes-security/wlif-k8s-integration.md)
+* [{#T}](kubernetes-security/wlif-managed-k8s-integration.md)
 * [{#T}](kubernetes-security/alb-ingress-with-sws-profile.md)
 * [{#T}](kubernetes-security/nlb-with-target-resource-k8s/index.md)
 * [{#T}](kubernetes-security/k8s-fluent-bit-logging.md)

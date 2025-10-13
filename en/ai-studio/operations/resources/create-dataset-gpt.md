@@ -20,7 +20,7 @@ Create a tuning dataset:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
   1. Enter a name and descriptions for the dataset. Follow these naming requirements:
@@ -38,7 +38,7 @@ Create a tuning dataset:
 
      {% include [sdk-dataset](../../../_includes/ai-studio/examples/dataset-sdk.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 dataset-create.py

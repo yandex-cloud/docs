@@ -14,7 +14,7 @@ You can create a trigger that will invoke a [function](../../functions/operation
 {% include [write-logs](../../_includes/logging/write-logs.md) %}
 
 
-### See also {#see-also_}
+### See also {#see-also}
 
 - [Reading records](read-logs.md)
 - [Monitoring](monitoring.md)

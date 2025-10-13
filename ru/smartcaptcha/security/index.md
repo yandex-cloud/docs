@@ -22,7 +22,9 @@ description: В разделе описано, на какие ресурсы м
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ captcha-name }}.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
+
+{% include [smartcaptcha](../../_mermaid/roles/smartcaptcha.md) %}
 
 ### Сервисные роли {#service-roles}
 

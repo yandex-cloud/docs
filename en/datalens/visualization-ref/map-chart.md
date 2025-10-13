@@ -26,7 +26,7 @@ You can do the following operations with geolayers:
 * Reorder the layers inside a visualization type. However, you cannot change the order of visualization types (top-to-bottom: point map, polyline map, chloropleth map, and heat map).
 
 
-You can purchase pre-calculated geolayers from partners in {{ marketplace-name }}.
+You can purchase pre-calculated geolayers from partners in [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens&categories=geolayer).
 
 
 {% note info %}

@@ -1,0 +1,1 @@
+For security reasons, we recommend storing {{ sd-name }} resources in a separate [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) restricted only to security staff.

@@ -1,0 +1,4 @@
+In the connector section that appears, click ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceResourcesForm.buttonSelectCloudCatalog }}** to select the resources ([clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder)) whose security will be managed in the new workspace:
+
+1. Select the resources whose security you want to manage in the workspace. You can only select the resources that are accessible to the previously selected service account.
+1. Click **{{ ui-key.yacloud_org.security.workspaces.ServiceAccountResourceSelectDialog.action_save }}**.

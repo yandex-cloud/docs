@@ -16,7 +16,7 @@
 
     {% include [yandexgpt-model-version-sdk-info](./yandexgpt-model-version-sdk-info.md) %}
 
-1. Run the created file:
+1. Run the file you created:
 
     ```bash
     python3 generate-text.py

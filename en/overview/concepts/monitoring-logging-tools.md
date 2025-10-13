@@ -1,9 +1,9 @@
 ---
-title: '{{ yandex-cloud }} observability tools'
+title: '{{ yandex-cloud }} observability tools for monitoring and logging'
 description: '{{ yandex-cloud }} offers a number of observability (monitoring and logging) tools. These are {{ monitoring-full-name }}, {{ cloud-logging-full-name }}, and {{ at-full-name }}.'
 ---
 
-# Observability tools
+# Observability tools for monitoring and logging
 
 {{ yandex-cloud }} offers the following observability services:
 

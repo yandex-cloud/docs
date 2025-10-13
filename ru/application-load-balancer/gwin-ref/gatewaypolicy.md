@@ -50,7 +50,6 @@ spec:
     - group: gateway.networking.k8s.io
       kind: Gateway
       name: example-gateway
-      namespace: gateway-ns
   # Or use label selector
   selector:
     matchLabels:

@@ -95,6 +95,8 @@ keywords:
                    `resource-preset-id=<идентификатор_ресурсов> \
            --triggerer count=<количество_экземпляров>,`
                       `resource-preset-id=<идентификатор_ресурсов> \
+           --dag-processor count=<количество_экземпляров>,`
+                      `resource-preset-id=<идентификатор_ресурсов> \ 
            --deb-packages <список_deb-пакетов> \
            --pip-packages <список_pip-пакетов> \
            --dags-bucket <имя-бакета> \

@@ -28,7 +28,7 @@ description: Управление доступом в сервисе для хр
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/lockbox/service-roles-hierarchy.svg)
+{% include [lockbox](../../_mermaid/roles/lockbox.md) %}
 
 ### Сервисные роли {#service-roles}
 

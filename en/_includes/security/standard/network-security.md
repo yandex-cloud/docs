@@ -12,7 +12,7 @@ To isolate applications from each other, put resources in different [security gr
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
-With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. For a guide on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
+With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the session status and, if the rule allows creating a session, the response traffic will be automatically allowed. For a guide on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
 You can use security groups to protect:
 * VM
@@ -33,6 +33,10 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 * Security groups in each cloud object.
 * A separate NGFW VM from {{ marketplace-name }}.
 * [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle, e.g., [your own disk image](../../../compute/operations/image-create/upload.md).
+
+| ID requirements | Severity |
+| --- | --- |
+| NET1 | High |
 
 {% list tabs group=instructions %}
 
@@ -119,6 +123,10 @@ This is important because without your rules cloud resources remain open to all 
 
 You can combine security groups by assigning up to five groups per object for more flexible access control.
 
+| ID requirements | Severity |
+| --- | --- |
+| NET2 | High |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -171,6 +179,10 @@ If no port range is set, it is considered that access is granted across all port
 
 Make sure to only allow access through the ports that your application requires to run and from the IPs to connect to your objects from.
 
+| ID requirements | Severity |
+| --- | --- |
+| NET3 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -217,6 +229,10 @@ We recommend that you only allow access to your cloud infrastructure through con
 * Source: CIDR.
 * CIDR blocks: 0.0.0.0/0 (access from any IP address) or ::/0 (ipv6).
 
+| ID requirements | Severity |
+| --- | --- |
+| NET4 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -262,6 +278,10 @@ We recommend that you only allow access to your cloud infrastructure through con
 * [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
 * [Advanced](/services/ddos-protection) DDoS protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Solidwall WAF in your Curator account. To enable advanced protection, contact your manager or technical support.
+
+| ID requirements | Severity |
+| --- | --- |
+| NET5 | High |
 
 {% list tabs group=instructions %}
 
@@ -343,6 +363,10 @@ For better control of administrative actions, we recommend that you use PAM (Pri
 
 To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
+| ID requirements | Severity |
+| --- | --- |
+| NET6 | High |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -372,6 +396,10 @@ Use this service to:
 * Administer desktops remotely.
 * Create desktop groups with the same computing resources and cloud [network](../../../vpc/concepts/network.md).
 
+| ID requirements | Severity |
+| --- | --- |
+| NET7 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -392,6 +420,10 @@ Use this service to:
 #### 2.8 Secure Yandex Browser is used for remote access to {{ cloud-desktop-name }} {#use-yandex-browser}
 
 Employees working remotely via {{ cloud-desktop-name }} should use the [Secure Yandex Browser](https://browser.yandex.ru/corp) to access the corporate resources. This requirement enforces data security for protection against [phishing](https://en.wikipedia.org/wiki/Phishing), malicious websites, and data leaks. The browser has built-in tools for traffic encryption, blocking of dangerous resources, and integration with corporate authentication systems.
+
+| ID requirements | Severity |
+| --- | --- |
+| NET9 | Low |
 
 #### 2.9 Outbound internet access control is performed {#outgoing-access}
 
@@ -426,6 +458,10 @@ Possible options for setting up outbound internet access:
 |#
 
 Regardless of which option you select for setting up outbound internet access, be sure to limit traffic using one of the mechanisms described above. To build a secure system, use static IP addresses because they can be added to the list of exceptions of the receiving party's firewall.
+
+| ID requirements | Severity |
+| --- | --- |
+| NET10 | Informational |
 
 {% list tabs group=instructions %}
 
@@ -493,3 +529,7 @@ Regardless of which option you select for setting up outbound internet access, b
 #### 2.10 DNS queries are not provided to third-party recursive resolvers {#recursive-resolvers}
 
 To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../../support/overview.md).
+
+| ID requirements | Severity |
+| --- | --- |
+| NET8 | Low |

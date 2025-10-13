@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Активировать сервис
 
 
-Минимальная роль в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), необходимая для активации сервиса, — `backup.editor` (см. [описание роли](../security/index.md#backup-editor)).
+{% include [activate-provider-roles](../../_includes/backup/activate-provider-roles.md) %}
 
 {% include [agent-send-data](../../_includes/backup/agent-send-data.md) %}
 

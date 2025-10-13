@@ -1,4 +1,4 @@
-The `name` label is for the metric name.
+The `name` label contains the metric name.
 
 ## Database metrics {#managed-ydb-db-metrics}
 Metric name<br>Type, units | Description<br>Labels
@@ -94,14 +94,14 @@ Metric name<br/>Type, unit | Description<br>Labels
 
 Metric name<br/>Type, unit | Description<br>Labels
 --- | ---
-`table.columnshard.bulk_upsert.bytes`<br>`RATE`, bytes per second | The rate of adding data to all partitions of all DB tables through the `BulkUpsert` gRPC API call
-`table.columnshard.bulk_upsert.rows`<br>`RATE`, rows per second | The rate of adding rows to all partitions of all DB tables through the `BulkUpsert` gRPC API call
-`table.columnshard.scan.bytes`<br>`RATE`, bytes per second | The rate of reading data by all partitions of all DB tables through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API calls
-`table.columnshard.scan.rows`<br>`RATE`, rows per second | The rate of reading rows by all partitions of all DB tables through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API calls
-`table.columnshard.write.bytes`<br>`RATE`, bytes per second | The rate of writing data to all partitions of all DB tables
-`table.columnshard.write.rows`<br>`RATE`, rows per second | The rate of writing rows to all partitions of all DB tables
+`table.columnshard.bulk_upsert.bytes`<br>`RATE`, bytes per second | Rate of adding data to all partitions of all DB tables through the `BulkUpsert` gRPC API call
+`table.columnshard.bulk_upsert.rows`<br>`RATE`, rows per second | Rate of adding rows to all partitions of all DB tables through the `BulkUpsert` gRPC API call
+`table.columnshard.scan.bytes`<br>`RATE`, bytes per second | Rate of data reads by all partitions of all DB tables through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API call
+`table.columnshard.scan.rows`<br>`RATE`, rows per second | Rate of row reads by all partitions of all DB tables through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API call
+`table.columnshard.write.bytes`<br>`RATE`, bytes per second | Rate of data writes to all partitions of all DB tables
+`table.columnshard.write.rows`<br>`RATE`, rows per second | Rate of row writes to all partitions of all DB tables
 
-## Resource usage metrics (for Dedicated mode only) {#ydb_dedicated_resources}
+## Resource usage metrics (for dedicated mode only) {#ydb_dedicated_resources}
 
 Metric name<br>Type<br>Units | Description<br>Labels
 --- | ---
@@ -110,7 +110,7 @@ Metric name<br>Type<br>Units | Description<br>Labels
 `resources.memory.limit_bytes`<br>`IGAUGE`, bytes | RAM available to database nodes
 `resources.memory.used_bytes`<br>`IGAUGE`, bytes | RAM used by database nodes
 
-## Query processing metrics (for Dedicated mode only) {#ydb_dedicated_queries}
+## Query processing metrics (for dedicated mode only) {#ydb_dedicated_queries}
 
 Metric name<br>Type<br>Units | Description<br>Labels
 --- | ---

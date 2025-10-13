@@ -22,4 +22,37 @@ description: Follow this guide to update user data in an {{ org-name }} pool.
   1. Update the user's full name and phone number under **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command for updating user data in the [pool](../../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp user update --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc organization-manager idp user update <user_ID> \
+       --username <user_login_and_domain> \
+       --full-name <user_first_and_last_name> \
+       --given-name <username> \
+       --family-name <user_last_name> \
+       --email <user_email> \
+       --phone-number <user_phone_number>
+     ```
+
+     Where:     
+
+     * `--username`: New user login and domain in `login@domain` format. The login must be unique for the current user pool.
+     * `--full-name`: New user first and last name.
+     * `--given-name`: New user name.
+     * `--family-name`: New user last name.
+     * `--email`: New user email address.
+     * `--phone-number`: New user phone number.
+
 {% endlist %}

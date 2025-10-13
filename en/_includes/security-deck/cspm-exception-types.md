@@ -1,0 +1,2 @@
+* `Resource has been checked manually`: If the exception conditions are met, the resource will only generate signals about rule compliance.
+* `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the exception conditions are met, the resource will generate no signals at all, neither about compliance nor violation.

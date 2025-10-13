@@ -4,6 +4,7 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
@@ -149,6 +150,7 @@ default:
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
+  cspm-name: CSPM
   data-catalog-full-name: Yandex Data Catalog
   data-catalog-name: Data Catalog
   data-transfer-full-name: Yandex Data Transfer
@@ -371,6 +373,7 @@ default:
   mch-full-name: Yandex Managed Service for ClickHouse®
   mch-name: Managed Service for ClickHouse®
   mch-short-name: Managed Service for ClickHouse®
+  mcp-hub-name: MCP Hub
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -432,6 +435,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -547,6 +551,8 @@ default:
   quota-manager-full-name: Yandex Cloud Quota Manager
   quota-manager-name: Cloud Quota Manager
   RD: Valkey™
+  realtime-api: Realtime API
+  realtime-model: speech-realtime-250923
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -13706,8 +13712,8 @@ default:
         tag: 1.0.9
     yc_chaos-mesh:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
-        tag: 2.6.1-1b
+        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
+        tag: 2.8.0
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
@@ -13759,7 +13765,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.1
+        tag: v1.0.2
     yc_ingress-nginx:
       helmChart:
         name: >-
@@ -13811,8 +13817,8 @@ default:
         tag: 0.1.1-4
     yc_velero-yc-csi:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 8.5.0-4
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero
+        tag: 8.5.0-5
     yc_victoria-logs:
       helmChart:
         name: >-

@@ -1,0 +1,1 @@
+Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](../../backup/security/index.md#backup-editor) `backup.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создавать резервные копии ВМ или серверов {{ baremetal-name }}.

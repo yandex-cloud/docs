@@ -43,7 +43,7 @@ To use the examples:
 
       For more information about accessing classifier models, see [{#T}](../../../ai-studio/concepts/classifier/models.md#addressing-models).
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 classify.py

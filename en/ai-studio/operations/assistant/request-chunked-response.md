@@ -5,7 +5,7 @@ description: Follow this guide to make {{ assistant-api }} create your AI assist
 
 # Creating a RAG assistant with intermediate response generation results
 
-{% include [assistants-preview-stage](../../../_includes/ai-studio/assistants-preview-stage.md) %}
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 {{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context. When making requests to the assistant, you can get intermediate generation results as the model is generating a response.
 

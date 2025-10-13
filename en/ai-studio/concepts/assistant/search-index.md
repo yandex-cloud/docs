@@ -1,8 +1,10 @@
 # Search indexes
 
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
+
 You can upload documents with additional information for the AI assistant created using {{ assistant-api }}. Search indexes help navigate the uploaded documents so that the language model can use this information when generating responses.
 
-In {{ assistant-api }}, the following search types are available: {#search-types}
+In {{ assistant-api }}, there are the following search types: {#search-types}
 
 * _Text_ search or keyword search. This is a conventional type of search where each word is broken down into parts, and these parts are searched for within the document. The more parts of the searched word or phrase are found in the text, the more relevant the result. For example, when searching for the word `light`, the text search will find fragments containing the words `lighting` and `light bulb`, but not `illumination`.
 * _Vector_ or semantic search. It help you find synonyms or other words or phrases close in meaning. The vector search results for `light` will contain not only cognate words, but also words close in meaning, such as `illumination`, `chandelier`, or `sun`.
@@ -16,7 +18,7 @@ If your top priority is precise keyword matching, create a text or hybrid index.
 
 {% endnote %}
 
-When you create a search index, the uploaded files are split into chunks of text from a few lines to several paragraphs and text characters are converted into [tokens](../generation/tokens.md). When a user asks a question, the assistant searches for relevant information and adds the chunks it finds to the search query context. When creating information chunks, the semantic meaning is ignored, so the text may be split mid-sentence. In this case, the context will be incomplete. To minimize the loss of information due to broken context, _overlapping_ is used when splitting data into chunks. This way, part of information is retained in two adjacent chunks simultaneously. The larger the chunk size, the more context the model has for generating a response, but the slower and more expensive request processing is. When creating a search index, you can use a [fine-tuned embedding model](../../operations/tuning/create-embeddings.md).
+When you create a search index, the uploaded files are split into chunks of text from a few lines to several paragraphs and text characters are converted into [tokens](../generation/tokens.md). When a user asks a question, the assistant searches for relevant information and adds the chunks it finds to the request context. When creating information chunks, the semantic meaning is ignored, so the text may be split mid-sentence. In this case, the context will be incomplete. To minimize the loss of information due to broken context, _overlapping_ is used when splitting data into chunks. This way, part of information is retained in two adjacent chunks simultaneously. The larger the chunk size, the more context the model has for generating a response, but the slower and more expensive request processing is. When creating a search index, you can use a [fine-tuned embedding model](../../operations/tuning/create-embeddings.md).
 
 Search quality depends on the chunk size, amount of overlap, tokenization policy, and other settings. There are no one-size-fits-all parameters that work equally well for all data types; you need to set the most optimal search parameters on a case-by-case basis. 
 
@@ -59,7 +61,7 @@ Here is an example of creating a text search index for a single file:
      {
       "folder_id": "<folder_ID>",
       "file_ids": [ "<file_ID>" ],
-      "name":"index_name",
+      "name": "index_name",
       "text_search_index": {
         "chunking_strategy": {
           "static_strategy": {
@@ -116,7 +118,7 @@ Here is an example of creating a vector search for a single file:
      {
       "folder_id": "<folder_ID>",
       "file_ids": [ "<file_ID>" ],
-      "name":"index_name",
+      "name": "index_name",
       "vector_search_index": {
         "doc_embedder_uri": "emb://<folder_ID>/text-search-doc/latest",
         "query_embedder_uri": "emb://<folder_ID>/text-search-query/latest",
@@ -139,7 +141,7 @@ A hybrid search index consists of a text and vector indexes and contains additio
 The final hybrid search output will depend on the strategy used to combine the results of each index. Use the `combination_strategy` [parameter](../../searchindex/api-ref/grpc/SearchIndex/create.md#yandex.cloud.ai.assistants.v1.searchindex.CombinationStrategy) to select one of these two ways of combining the text and vector index results:
 
 * `rrf_combination` ([Reciprocal Rank Fusion](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf), RRF): Combination method where greater weight is given to top-ranking elements from each index.
-* `mean_combination`: Combination method based on the average value. The available options are arithmetic mean, geometric mean, and harmonic mean. Additionally, you can specify weights for each index, where the first value will indicate a text search weight, and the second one, vector search weight. The weight sum must equal 1. The default value is an arithmetic mean.
+* `mean_combination`: Combination method based on the average value. The available options are arithmetic mean, geometric mean, and harmonic mean. Additionally, you can specify weights for each index: the first weight value for text search and the second one for vector search. The sum of these weights must equal 1. The default value is an arithmetic mean.
 
 The ways of estimating text and vector search quality are different. To interpret search results correctly, you need to normalize their rankings. You can select normalization type using the `normalization_strategy` [parameter](../../searchindex/api-ref/grpc/SearchIndex/create.md#yandex.cloud.ai.assistants.v1.searchindex.HybridSearchIndex):
 
@@ -195,7 +197,7 @@ Here is an example of creating a hybrid search index for a single file:
      {
       "folder_id": "<folder_ID>",
       "file_ids": [ "<file_ID>" ],
-      "name":"index_name",
+      "name": "index_name",
       "hybrid_search_index": {
         "chunking_strategy": {
           "static_strategy": {

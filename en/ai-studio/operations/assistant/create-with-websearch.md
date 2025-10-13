@@ -303,7 +303,7 @@ To use the examples:
           }
           ```
 
-          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+          Now you get a response saying the run is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
   1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
       ```bash

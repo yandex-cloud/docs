@@ -302,8 +302,14 @@ items:
             href: tutorials/kubernetes-security/sign-cr-with-cosign.md
           - name: Syncing with {{ managed-k8s-name }} secrets
             href: tutorials/kubernetes-security/kubernetes-lockbox-secrets.md
-          - name: Getting {{ lockbox-name }} secret value on the {{ k8s }} side
+          - name: >-
+              Getting the {{ lockbox-name }} secret value on the custom {{ k8s
+              }} installation side
             href: tutorials/kubernetes-security/wlif-k8s-integration.md
+          - name: >-
+              Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }}
+              cluster using a workload identity federation
+            href: tutorials/kubernetes-security/wlif-managed-k8s-integration.md
           - name: >-
               Creating an L7 load balancer with a {{ sws-name }} profile through
               an {{ alb-name }} ingress controller

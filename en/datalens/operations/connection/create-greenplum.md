@@ -16,7 +16,7 @@ description: In this tutorial, you will learn how to connect to {{ GP }} in {{ d
 
 To create a {{ GP }} connection:
 
-1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
 1. Under **Databases**, select the **Greenplum** connection.
 
 

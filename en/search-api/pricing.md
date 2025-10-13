@@ -37,9 +37,9 @@ Users are subject to quotas. For more information, see [Quotas and limits](conce
 
 Cost of using {{ search-api-name }} for initiating search queries through [API v2](./concepts/index.md#api-v2) with the following parameters:
 
-* **Number of daytime synchronous requests per month**: 250,000
-* **Number of daytime deferred requests per month**: 50,000
-* **Number of synchronous requests with a generative response per month**: 10,000
+* **Number of synchronous requests per month**: 250,000.
+* **Number of deferred requests per month**: 50,000.
+* **Number of synchronous requests with a generative response per month**: 10,000.
 
 
 

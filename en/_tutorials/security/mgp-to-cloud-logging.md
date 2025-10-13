@@ -15,6 +15,33 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
    {% list tabs group=instructions %}
 
+   * Management console {#console}
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+      1. Enter a name for the cluster.
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
+
+         * Cloud network.
+         * Security group.
+         * Availability zone and subnet.
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the admin user credentials:
+
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+
+         * Select the service account with the `logging.writer` role.
+         * Enable **{{ ui-key.yacloud.logging.field_logging }}**.
+         * To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
+         * Select the folder whose log group you want to use.
+         * Enable the **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** and **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}** options. Use [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
+
+      1. Click **{{ ui-key.yacloud.common.create }}**.
+
    * CLI {#cli}
 
       ```bash
@@ -229,6 +256,33 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 1. Create a {{ mgp-name }} cluster with active logging and a service account [created earlier](#before-you-begin):
 
    {% list tabs group=instructions %}
+
+   * Management console {#console}
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+      1. Enter a name for the cluster.
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
+
+         * Cloud network.
+         * Security group.
+         * Availability zone and subnet.
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the admin user credentials:
+
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+
+         * Select the service account with the `logging.writer` role.
+         * Enable **{{ ui-key.yacloud.logging.field_logging }}**.
+         * To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
+         * Select the `greenplum-log-group` log group.
+         * Enable the **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** and **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}** options. Use [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
+
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    * CLI {#cli}
 

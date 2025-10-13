@@ -6,6 +6,14 @@ For more information about speech recognition methods, see [About technology](st
 
 
 
+## Release as of 19/09/2025 {#190925}
+
+Updates to `general:rc`:
+
+* Improved Russian and Uzbek recognition quality on certain client scenarios.
+* Enhanced answerphone classification.
+* Fixed issues with word duplication and concatenation in recognition.
+
 ## Release as of 31/07/2025 {#310725}
 
 Added a feature for accessing generative text models in recognition requests. Learn more about this feature in [{#T}](./stt/llm-results.md).
@@ -194,7 +202,7 @@ For the `general:rc` model:
 ## Release as of 20/12/22 {#201222}
 
 For the `general:rc` model:
-1. Based on user requests, we improved recognition quality for the names of medications and first, last, and middle names.
+1. Based on user requests, we have improved recognition quality for the names of medications, first and last names, and patronymics.
 1. Slightly improved recognition quality for Kazakh and Turkish.
 
 ## Release as of 20/10/22 {#201022}
@@ -224,7 +232,7 @@ The fixes are available for testing.
 
 ## Release as of 07/06/22 {#070622}
 
-1. Improved punctuation placement and recognition of last names in the `general:rc` model.
+1. Improved punctuation and recognition of last names in the `general:rc` model.
 1. [April 25 release](#250422) upgrades are available in the `general` model.
 
 ## Release as of 25/04/22 {#250422}
@@ -276,7 +284,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
 1. New languages are also available under their own codes. The `general:rc` model uses an indication as a hint for language recognition. If the language is indicated explicitly, the model will use it as a hint to improve the recognition quality. Currently, a hint only affects the quality of recognition of Russian.
 
 
-_Known problems_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
+_Known issues_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
 
 ## Release 26.01.22 {#260122}
 

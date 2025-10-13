@@ -1,6 +1,6 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
@@ -33,7 +33,7 @@
        --federation-users <federation_ID>
      ```
 
-     To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), instead of the `--subject` parameter, use `--organization-users <organization_ID>` or `--federation-users <federation_ID>`. In the parameter, provide the ID of the [organization](../../organization/quickstart.md) or [identity federation](../../organization/concepts/add-federation.md), respectively, to all the users you want to assign the role to.
+     To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), instead of the `--subject` parameter, use `--organization-users <organization_ID>` or `--federation-users <federation_ID>`. In the parameter, provide the [organization](../../organization/quickstart.md) or [identity federation](../../organization/concepts/add-federation.md) ID to all the users you want to assign the role to.
          
      You can also assign a role to a system group using the `--subject` parameter. To do this, provide in it the [subject](../../iam/concepts/access-control/index.md#subject) ID matching the selected system group.
 
@@ -73,7 +73,7 @@
      Where:
      
      * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required parameter.
-     * `role`: Role to assign. This is a required parameter.
+     * `role`: Role being assigned. This is a required parameter.
      * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
@@ -81,7 +81,7 @@
          * `system:group:organization:<organization_ID>:users`: To assign a role to the `All users in organization X` system group.
          * `system:group:federation:<federation_ID>:users`: To assign a role to the `All users in federation N` system group.
 
-     For more information about the `yandex_organizationmanager_organization_iam_member` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
+     For more information about `yandex_organizationmanager_organization_iam_member` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

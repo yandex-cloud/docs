@@ -68,7 +68,7 @@ To enable your AI assistant to use WebSearch, do the following:
 
   Where:
 
-  * The `site`, `host`, and `url` objects define the search scope. This is an optional setting. If none of these objects are specified, the search will target all internet websites.
+  * The `site`, `host`, and `url` objects define the search scope. This is an optional parameter. If none of these objects are specified, the search will target all internet websites.
   
       Note that the `site`, `host`, and `url` objects are mutually exclusive; you can only set one of them:
 
@@ -89,8 +89,8 @@ To enable your AI assistant to use WebSearch, do the following:
 
           Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. You also cannot provide a specific path to the search area in the `host` object.
       * `url`: Restricts the search to a specific array of pages, e.g., `{{ link-docs }}/serverless-containers/concepts/container` and `{{ link-docs }}/container-registry/concepts/docker-image`.
-  * `enableNrfmDocs`: Parameter that determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` object. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional setting. The possible values are `true` or `false`.
-  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional setting. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `enableNrfmDocs`: Parameter that determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` object. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional parameter. The possible values are: `true` or `false`.
+  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you go `"date": ">20250101"`, the response will return only documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
   * `description`: Required text description of the WebSearch tool you are creating. This description must define conditions for the AI assistant to use the tool.
 
 {% endlist %}

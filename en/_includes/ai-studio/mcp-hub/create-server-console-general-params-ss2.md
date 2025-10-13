@@ -1,0 +1,1 @@
+Optionally, add a description and labels for the server you are creating by using the corresponding buttons.

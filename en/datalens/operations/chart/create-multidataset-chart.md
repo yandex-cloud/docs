@@ -33,16 +33,4 @@ To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-ch
 1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
 
 
-
-## Example of creating a multi-dataset chart {#chart-example}
-
-{% include [datalens-multidataset-chart-example_presets](../../../_includes/datalens/datalens-multidataset-chart-example_presets.md) %}
-
-
-## Example of creating a multi-dataset chart with SQL queries {#sql-example}
-
-
-{% include [datalens-multidataset-chart-example](../../../_includes/datalens/datalens-multidataset-chart-example.md) %}
-
-
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

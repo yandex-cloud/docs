@@ -94,7 +94,7 @@ If you created a configuration based on another configuration or a preset, the c
 
 To add a field:
 
-1. Navigate to the **Startup options** tab.
+1. Navigate to the **Parameters** tab.
 1. Add a field to the form for the user to fill out when installing the application:
 
     1. Click **Add field**.
@@ -121,7 +121,7 @@ To add a resource:
     * **Value**: Static value you specify in the field.
     * **Application attribute**: Value of one of the application attributes, e.g., the ID of the folder in which the user will install the application.
     * **Reference**: Value of one of the parameters pertaining to the resource you added.
-    * **Input field**: Value obtained from a form field the user fills out when installing the application.
+    * **Parameters**: Value obtained from a form field the user fills out when installing the application.
     * **No value**: Empty value.
     * **Resource**: Selecting one of the resources you added.
     * **Expression**: [Calculated expression](../concepts/expressions.md) allowing you to dynamically generate the field value based on other values, input parameters, and calculations.

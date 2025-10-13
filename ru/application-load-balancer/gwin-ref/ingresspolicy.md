@@ -65,7 +65,6 @@ spec:
     - group: networking.k8s.io
       kind: Ingress
       name: example-ingress
-      namespace: ingress-ns
   # Or use label selector
   selector:
     matchLabels:
@@ -190,6 +189,9 @@ spec:
       
       # HTTP method restrictions
       allowedMethods: ["GET", "POST", "PUT"]  # restrict allowed HTTP methods
+      
+      # URL path rewriting
+      prefixRewrite: "/new-prefix"  # rewrite URL path prefix
       
       # Header modifications
       modifyRequestHeaders:
@@ -355,6 +357,7 @@ Ingress rule configuration that combines backend group and route settings.
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
 | allowedMethods | **[]string** <br> Restricts which HTTP methods are allowed for this route. If not specified, all methods are allowed. <br> Example: `["GET", "POST", "PUT"]` |
+| prefixRewrite | **string** <br> Replaces URL paths in HTTP/gRPC requests. With pathType Exact, the entire path is replaced; with pathType Prefix, only the matching prefix is rewritten. <br> Example: `/new-prefix` |
 | modifyRequestHeaders | **[HeaderModifier](#headermodifier)** <br> Specifies how to modify HTTP request headers before forwarding to backends. |
 | modifyResponseHeaders | **[HeaderModifier](#headermodifier)** <br> Specifies how to modify HTTP response headers before returning to clients. |
 | securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |

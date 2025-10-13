@@ -24,14 +24,21 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 
 * [{#T}](./embeddings/search.md)
 
-## Step-by-step guides for {{ assistant-api }} {#assistant}
+## Step-by-step guides on how to build AI agents {#agents}
 
+* [{#T}](./agents/create-voice-agent.md)
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
 * [{#T}](./assistant/create-with-labels.md)
 * [{#T}](./assistant/create-with-websearch.md)
 * [{#T}](./assistant/request-chunked-response.md)
 * [{#T}](./assistant/rephraser.md)
+
+## Step-by-step guides on how to use MCP servers {#mcp-servers}
+
+* [{#T}](./mcp-servers/connect-external.md)
+* [{#T}](./mcp-servers/create-from-template.md)
+* [{#T}](./mcp-servers/create-brand-new.md)
 
 ## Step-by-step guides on managing {{ foundation-models-name }} resources {#resources}
 

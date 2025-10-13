@@ -5,7 +5,7 @@ description: Follow this guide to learn how to use {{ gpt-lite }} and {{ gpt-pro
 
 # How to build a chat with {{ gpt-lite }} or {{ gpt-pro }}
 
-{{ gpt-lite }} and {{ gpt-pro }} models do not retain the context of previous messages, so to have a continuous dialog with a selected model, you need to save the message history on your device and send it each time you are addressing the model. The [chat](../../concepts/generation/index.md) available in the management console consists of multiple prompts where the context of each new text query includes the model's responses to previous ones. The text generation models are subject to context length [limits](../../concepts/limits.md).
+{{ gpt-lite }} and {{ gpt-pro }} models do not retain the context of previous messages, so to have a continuous dialog with a selected model, you need to save the message history on your device and send it each time you are addressing the model. The [chat](../../concepts/generation/index.md) available in the management console consists of multiple prompts where the context of each new text request includes the model's responses to previous ones. The text generation models are subject to context length [limits](../../concepts/limits.md).
 
 {% note tip %}
 
@@ -13,7 +13,7 @@ Use {{ assistant-api }} to create a chat with the model. For an example of a cha
 
 {% endnote %}
 
-To create a chat with a model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
+To create a chat with a model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/generation/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Getting started {#before-begin}
 
@@ -120,7 +120,7 @@ To create a chat with a model in your application and avoid delays in responses,
           },
           {
               "role": "assistant",
-              "text": ""”Albert Einstein studied **physics** and **mathematics**. 
+              "text": "Albert Einstein studied **physics** and **mathematics**."
       His work had a major influence on both fields 
       as well as on theoretical physics in general.""",
           },
@@ -159,7 +159,7 @@ To create a chat with a model in your application and avoid delays in responses,
           },
           {
               "role": "assistant",
-              "text": ""”Albert Einstein studied **physics** and **mathematics**. 
+              "text": """Albert Einstein studied **physics** and **mathematics**. 
       His work had a major influence on both fields 
       as well as on theoretical physics in general.""",
           },
@@ -169,7 +169,7 @@ To create a chat with a model in your application and avoid delays in responses,
           },
           {
               "role": "assistant",
-              "text": """Albert Einstein is one of the greatest scientists of the 20th century. 
+              "text": "Albert Einstein is one of the 20th century's greatest scientists."
       Here are some of his important discoveries:\n* **Special theory of relativity.** 
       Einstein has formulated the special theory of relativity, which describes motion, 
       laws of mechanics, and spatiotemporal relationships at random velocities 

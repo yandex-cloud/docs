@@ -18,14 +18,14 @@
 
 - Checking via the API {#API}
 
-  To view a list of employees, use the [UserService_List](https://yandex.ru/dev/api360/doc/ru/ref/UserService/UserService_List) REST API method for the [UserService](https://yandex.ru/dev/api360/doc/ru/ref/UserService/) resource. To find users with admin permissions, filter the results by the `isAdmin: true` parameter.
+  To view a list of employees, use the [UserService_List](https://yandex.ru/dev/api360/doc/ru/ref/UserService/UserService_List) REST API method for the [UserService](https://yandex.ru/dev/api360/doc/ru/ref/UserService/) resource. To find users with admin permissions, filter the results by this parameter: `isAdmin: true`.
 
 {% endlist %}
 
 **How to implement:**
 
 * Limit the number of admins to one (or the minimum required number).
-* For other users with administrative tasks, use roles with restricted permissions. For more information, see the [documentation](https://yandex.com/support/yandex-360/business/admin/ru/accounts).
+* For other users with administrative tasks, use roles with restricted permissions. For more information, see [this guide](https://yandex.com/support/yandex-360/business/admin/ru/accounts).
 
 ### Second factor is used for domain users and Yandex ID users {#Y360-3}
 
@@ -94,7 +94,7 @@ An organization must have an active password management policy which requires us
    {"changeFrequency":180,"enabled":true}
    ```
   
-  If `enabled: false` or `changeFrequency > 180`, the policy does not comply with Y360-6.
+  If the response returns `enabled: false` or `changeFrequency > 180`, the policy does not comply with Y360-6.
 
 {% endlist %}
 

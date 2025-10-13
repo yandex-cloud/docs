@@ -20,14 +20,14 @@ Create a tuning dataset:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
   1. Enter a name and descriptions for the dataset. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. In the **{{ ui-key.yacloud.common.type }}** field, select the classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
+  1. In the **{{ ui-key.yacloud.common.type }}** field, select a classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
   1. Optionally, add or delete dataset [labels](../../../resource-manager/concepts/labels.md). They allow you to group resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
@@ -38,7 +38,7 @@ Create a tuning dataset:
 
      {% include [dataset-sdk-cls](../../../_includes/ai-studio/examples/dataset-sdk-cls.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 dataset-create.py

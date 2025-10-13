@@ -15,9 +15,9 @@ description: Videos of conferences and webinars on {{ foundation-models-name }}.
 
 * Creating a Telegram bot based on an LLM with RAG and Function Calling. [Click here to watch the video](https://www.youtube.com/live/gQEpthYWN38).
 
-* How to fine-tune LLMs using LoRA. [Click here to watch the video](https://www.youtube.com/watch?v=PVeuQu1j6Y4).
+* How to fine-tune LLMs using LoRA. Click [here](https://www.youtube.com/watch?v=PVeuQu1j6Y4) to watch the video.
 
-* Deep-dive for developers: creating AI assistants. [Click here to watch the video](https://www.youtube.com/watch?v=Xjutc_T0p8s).
+* Deep-dive for developers: Creating AI assistants. Click [here](https://www.youtube.com/watch?v=Xjutc_T0p8s) to watch the video.
 
 * {{ yandexart-name }} for businesses. Watch the video on [YouTube](https://www.youtube.com/watch?v=I9Fpsxv8Hlc) or [Yandex](https://runtime.strm.yandex.ru/player/episode/vplefdetiqv7tasxrbyk).
 
@@ -57,7 +57,7 @@ description: Videos of conferences and webinars on {{ foundation-models-name }}.
 
 * RAG: Training AI to process new data. Read [our article](https://yandex.cloud/ru/blog/posts/2025/05/retrieval-augmented-generation-basics).
 
-* HR Tech: Using neural networks and cloud solutions to manage recruitment and retain employees. Read [our article](https://yandex.cloud/ru/blog/posts/2025/05/hr-tech).
+* HR‑Tech: Using neural networks and cloud solutions to manage recruitment and retain employees. Read [our article](https://yandex.cloud/ru/blog/posts/2025/05/hr-tech).
 
 * How technology is driving change in the construction sector. Read [our article](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
 
@@ -71,17 +71,17 @@ description: Videos of conferences and webinars on {{ foundation-models-name }}.
 
 ### 2024 {#2024-articles}
 
-* How to create prompts for a neural network: an example of a Golden Apple gift card service. Read [our article](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
+* How to create prompts for a neural network: Example of a Golden Apple gift card service. Read [our article](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
 
-* How to use {{ yagpt-name }} to automatically answer 60% of questions and product reviews: Ralf Ringer's experience. Read [our article](https://vc.ru/services/1659960-kak-s-pomoshyu-yandexgpt-avtomaticheski-otvechat-na-60-voprosov-i-otzyvov-opyt-ralf-ringer).
+* Using {{ yagpt-name }} to provide auto replies to 60% of customer questions and reviews: Ralf Ringer's experience. Read [our article](https://vc.ru/services/1659960-kak-s-pomoshyu-yandexgpt-avtomaticheski-otvechat-na-60-voprosov-i-otzyvov-opyt-ralf-ringer).
 
-* More powerful family of {{ yagpt-name }} 4 models: improved answers, long context, stepwise reasoning. Read [our article](https://habr.com/ru/companies/yandex/articles/852968/).
+* More powerful family of {{ yagpt-name }} 4 models: Improved answers, long context, stepwise reasoning. Read [our article](https://habr.com/ru/companies/yandex/articles/852968/).
 
-* Creatives, subtitling, and voice-overs: what tasks media companies are handing over to AI. Read [our article](https://vc.ru/future/1162468-sozdanie-kreativov-podgotovka-subtitrov-i-ozvuchivanie-tekstov-kakie-zadachi-mediakompanii-peredayut-ii).
+* Creatives, subtitling, and voice-overs: What tasks media companies are handing over to AI. Read [our article](https://vc.ru/future/1162468-sozdanie-kreativov-podgotovka-subtitrov-i-ozvuchivanie-tekstov-kakie-zadachi-mediakompanii-peredayut-ii).
 
 * How we were teaching {{ yandexart-name }} to create likeable images. Read [our article](https://habr.com/ru/companies/yandex/articles/805745/).
 
-* Personalized learning and automatic assessment of students' works: how EdTech projects use AI. Read [our article](https://vc.ru/education/1084748-personalizirovat-obuchenie-i-avtomaticheski-proveryat-raboty-studentov-kak-edtech-proekty-ispolzuyut-ii).
+* Personalized learning and automatic assessment of students' works: How EdTech projects use AI. Read [our article](https://vc.ru/education/1084748-personalizirovat-obuchenie-i-avtomaticheski-proveryat-raboty-studentov-kak-edtech-proekty-ispolzuyut-ii).
 
 ### 2023 {#2023-articles}
 
@@ -97,7 +97,7 @@ description: Videos of conferences and webinars on {{ foundation-models-name }}.
 
 ### 2023: Yandex Scale {#yandex-scale-2023}
 
-* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) for the video.
+* ML in {{ yandex-cloud }}: Past, present, and future.  Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) to watch the recording.
 
 ### 2023: Webinar {#webinar-2023}
 

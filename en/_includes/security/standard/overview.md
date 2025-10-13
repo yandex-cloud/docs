@@ -78,3 +78,7 @@ You can automate the audit of compliance with all the recommendations using avai
 ### Terms and abbreviations {#terms}
 
 This document uses the terms and definitions introduced in ISO/IEC 27000:2018 and ISO/IEC 29100:2011, as well as the terms from the {{ yandex-cloud }} .
+
+### IDs {#ids}
+
+Each check has an identifier in the following format: `ID:IAM1`. These IDs are used to create links to standard sections for use in Cloud Security Posture Management ({{ cspm-name }}) tools and do not contain any other information.
