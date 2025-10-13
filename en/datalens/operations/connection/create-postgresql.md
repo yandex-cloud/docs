@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to connect to {{ PG }} in {{ d
 
 To create a {{ PG }} connection:
 
-1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
 1. Under **Databases**, select the **{{ PG }}** connection.
 
    ![screen01](../../../_assets/datalens/operations/connection/create-postgresql/screen01.png)

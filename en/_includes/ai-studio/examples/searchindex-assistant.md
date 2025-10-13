@@ -14,7 +14,7 @@ from yandex_cloud_ml_sdk.search_indexes import (
 mypath = "<path_to_files_with_examples>"
 folder = "<folder_ID>"
 token = "<API_key>"
-instruction = "<instruction_for_search_strategy>"
+instruction = "<search_strategy_instructions>"
 
 
 def main():
@@ -90,7 +90,7 @@ def main():
         # Displaying some of the _citations_ property attributes: information
         # about utilized chunks created from the source files.
         # To display the entire contents of the _citations_ property,
-        # run this command: print(result.citations).
+        # run the following command: print(result.citations).
         count = 1
         for citation in result.citations:
             for source in citation.sources:

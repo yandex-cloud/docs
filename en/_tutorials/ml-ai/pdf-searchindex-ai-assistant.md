@@ -6,7 +6,7 @@ This tutorial provides an example of creating an [AI assistant](../../ai-studio/
 
 In this tutorial, a [PDF](https://en.wikipedia.org/wiki/PDF) file serves as an example of a source file with complex formatting. We will convert this source file to [Markdown](https://en.wikipedia.org/wiki/Markdown) format. Many models are trained on and work best with Markdown data, so this format is the most efficient to use as a source for a search index. The search indexes you will create from the source file will employ two [search types](../../ai-studio/concepts/assistant/search-index.md#search-types): text and hybrid.
 
-You will use [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md) for Python to access the [{{ assistant-api }}](../../ai-studio/assistants/api-ref/index.md) and [Text Generation API](../../ai-studio/text-generation/api-ref/index.md).
+You will use [{{ assistant-api }}](../../ai-studio/assistants/api-ref/index.md) for Python to access the [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md) and [Text Generation API](../../ai-studio/text-generation/api-ref/index.md).
 
 
 ## Getting started {#before-you-begin}
@@ -132,7 +132,7 @@ You will create a search index, sourced from a Markdown file. You will then ask 
     Over the nine months prior to September 30, 2024, Yandex issued loans worth 6.5 billion rubles.
     ```
 
-    As you can see, the hybrid search provided a better result: the answers to all three questions are correct.
+    As you can see, the hybrid search returned a better result: the answers to all three questions are correct.
 
 
 ### Improve your assistant {#improve-assistant}

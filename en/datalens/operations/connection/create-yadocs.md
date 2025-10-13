@@ -43,7 +43,7 @@ To create a connection to Yandex Documents:
          1. Click **Log in**.
          1. Select a Yandex account to log in to Yandex Documents.
          1. Grant **{{ datalens-short-name }}** a permission to access your Yandex account. Click **Next**.
-     1. Specify the **Path to file in Yandex Documents** relative to the root directory. Omit `/disk` at the beginning. You can view the file location in Yandex Documents: open the file and go to **File** → **Table details**.
+     1. Specify the **Path to file in Yandex Documents** relative to the root directory. Omit `/disk` at the beginning. You can view the file location in Yandex Documents: open the file and navigate to **File** → **Table details**.
      1. Click **Add**.
      1. If the file you are uploading contains several sheets, specify the ones you want to upload, or select all available. Each sheet is uploaded to a separate table.
      1. Click **Add**. The information about the added file and the uploaded data will be displayed at the center of the screen.
@@ -64,6 +64,9 @@ To create a connection to Yandex Documents:
 
 You can add, rename, and delete files in the connection.
 
+## Additional settings {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
 ## Limitations {#restrictions}
 

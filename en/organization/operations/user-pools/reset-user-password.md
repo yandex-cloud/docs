@@ -1,9 +1,9 @@
 ---
-title: How to reset a user password in a {{ org-full-name }} pool
-description: Follow this guide to reset a user password in a {{ org-name }} pool.
+title: How to change a user password in a {{ org-full-name }} pool
+description: Follow this guide to change a user password in an {{ org-name }} pool.
 ---
 
-# Resetting a user password
+# Changing a user password
 
 
 {% include [note-preview](../../../_includes/note-preview.md) %}

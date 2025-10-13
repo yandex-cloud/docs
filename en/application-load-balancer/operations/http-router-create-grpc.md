@@ -18,7 +18,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
   1. Specify your HTTP router name.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Specify **{{ ui-key.yacloud.common.name }}**.
-  1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify your load balancer [IP address](../../vpc/concepts/address.md) or enter `*`.
+  1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, enter: `*` or the [IP address](../../vpc/concepts/address.md) of the load balancer.
   1. Optionally, in the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
@@ -139,7 +139,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        --prefix-fqmn-match / \
        --backend-group-name <backend_group_name> \
        --request-max-timeout 60s \
-       --rate-limit rps=50,requests-per-ip
+       --rate-limit rps=50,requests-per-ip \
+       --disable-security-profile=<disable_security_profile>
      ```
 
      Where:
@@ -153,8 +154,9 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--rate-limit`: Request rate limit.
      * `--request-max-timeout`: Maximum request timeout in seconds. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
+     * `--disable-security-profile`: Flag to disable the security profile. The default value is `false`. This is an optional parameter.
 
-     For more information about the `yc alb virtual-host append-grpc-route` command options, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
+     For more information about `yc alb virtual-host append-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
      Result:
 
@@ -172,6 +174,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
         route:
           backend_group_id: ds7snban2dvn********
           max_timeout: 60s
+       disable_security_profile: true
      ```
 
 - {{ TF }} {#tf}
@@ -207,7 +210,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        }
        
        route {
-         name = "<route_name>"
+         name                     = "<route_name>"
+         disable_security_profile = <disable_security_profile>
          grpc_route {
            grpc_route_action {
              backend_group_id = "<backend_group_ID>"
@@ -230,7 +234,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. Use the following name format:
+       * `name`: Virtual host name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -244,12 +248,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
            * `per_minute`: Per minute.
        * `route`: Route description:
          * `name`: Route name.
+         * `disable_security_profile`: Optional flag to disable the [security profile](../../smartwebsecurity/concepts/profiles.md) in [{{ sws-full-name }}](../../smartwebsecurity/). The default value is `false`.
          * `grpc_route`: Route description for gRPC traffic:
            * `grpc_route_action`: Action applied to gRPC traffic.
              * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
              * `max_timeout`: Maximum request timeout in seconds. You can specify a shorter timeout in the `grpc-timeout` request HTTP header.
        * `route_options`: Additional virtual host parameters (optional):
-         * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+         * `security_profile_id`: Security profile ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:

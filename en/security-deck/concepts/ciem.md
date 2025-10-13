@@ -5,9 +5,11 @@ description: This section describes the {{ sd-name }} Cloud Infrastructure Entit
 
 # Cloud Infrastructure Entitlement Management ({{ ciem-name }})
 
+{% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
+
 To ensure data and cloud infrastructure [security](../../security/standard/all.md), you need to regularly audit the access permissions of [users](../../overview/roles-and-resources.md#users) and [service accounts](../../iam/concepts/users/accounts.md#sa).
 
-[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/), or {{ ciem-name }}, provides a centralized [view](../operations/ciem/view-permissions.md) of the full list of access permissions for organization [resources](../../iam/concepts/access-control/resources-with-access-control.md) granted to [subjects](../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) accesses from subjects.
+[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool providing a centralized [view](../operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from subjects.
 
 ## Viewing access permissions {#viewing-permissions}
 
@@ -38,7 +40,7 @@ Currently, Cloud Infrastructure Entitlement Management does not display subjects
 
 ## Revoking access permissions {#revoking-permissions}
 
-Cloud Infrastructure Entitlement Management allows you to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from a subject or group as well as remove a subject from a user group, if required.
+Cloud Infrastructure Entitlement Management allows you to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from a subject or group and remove a subject from a user group as needed.
 
 To revoke access permissions, users must have one of these roles: `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, `organization-manager.organizations.owner`, or the administrator role in the [service](../../overview/concepts/services.md) where they want to revoke the subject's access to a resource.
 

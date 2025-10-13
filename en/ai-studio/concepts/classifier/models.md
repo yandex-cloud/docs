@@ -9,7 +9,7 @@ description: In this tutorial, you will learn about the classifier models availa
 
 If an out-of-the-box model is not enough, you can [fine-tune](../../operations/tuning/tune-classifiers.md) a {{ gpt-lite }}-based classifier for the model to classify your requests more accurately. To access a fine-tuned classifier model, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API method.
 
-| **Model** | **URI** | **[Operating modes](../index.md#working-mode)** |
+| **Model** | **URI** | **[Operating modes](../generation/index.md#working-mode)** |
 |---|---|---|
 | Prompt-based classifier built on {{ gpt-lite }} | `cls://<folder_ID>/yandexgpt-lite/latest` | Synchronous |
 | Prompt-based classifier built on {{ gpt-pro }} | `cls://<folder_ID>/yandexgpt/latest` | Synchronous |

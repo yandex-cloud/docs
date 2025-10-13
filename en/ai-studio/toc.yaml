@@ -57,25 +57,37 @@ items:
             href: operations/tuning/tune-classifiers.md
           - name: Tuning an embedding model
             href: operations/tuning/create-embeddings.md
-      - name: Developing AI assistants
+      - name: Developing AI agents
         items:
-          - name: Creating a simple assistant
-            href: operations/assistant/create.md
-          - name: Creating an assistant with the VectorStore tool
-            href: operations/assistant/create-with-searchindex.md
-          - name: Creating a search assistant with file and index metadata
-            href: operations/assistant/create-with-labels.md
-          - name: Creating an assistant with the WebSearch tool
-            href: operations/assistant/create-with-websearch.md
-          - name: Getting intermediate response generation results
-            href: operations/assistant/request-chunked-response.md
-          - name: Rephrasing queries using the model
-            href: operations/assistant/rephraser.md
+          - name: Creating a voice agent
+            href: operations/agents/create-voice-agent.md
+          - name: '{{ assistant-api }}'
+            items:
+              - name: Creating a simple assistant
+                href: operations/assistant/create.md
+              - name: Creating an assistant with the VectorStore tool
+                href: operations/assistant/create-with-searchindex.md
+              - name: Creating a search assistant with file and index metadata
+                href: operations/assistant/create-with-labels.md
+              - name: Creating an assistant with the WebSearch tool
+                href: operations/assistant/create-with-websearch.md
+              - name: Getting intermediate response generation results
+                href: operations/assistant/request-chunked-response.md
+              - name: Rephrasing queries using the model
+                href: operations/assistant/rephraser.md
+      - name: '{{ mcp-hub-name }}'
+        items:
+          - name: Connecting an external MCP server
+            href: operations/mcp-servers/connect-external.md
+          - name: Creating an MCP server from a template
+            href: operations/mcp-servers/create-from-template.md
+          - name: Creating an MCP server from scratch
+            href: operations/mcp-servers/create-brand-new.md
   - name: Concepts
     items:
       - name: About {{ foundation-models-full-name }}
         href: concepts/index.md
-      - name: AI models
+      - name: '{{ model-gallery-name }}'
         items:
           - name: Overview
             href: concepts/generation/index.md
@@ -107,9 +119,13 @@ items:
             href: concepts/generation/tokens.md
           - name: TBD units
             hidden: true
-      - name: Developing AI assistants
+      - name: '{{ agents-atelier-name }}'
         items:
-          - name: What an AI assistant is
+          - name: Overview of AI agents
+            href: concepts/agents/index.md
+          - name: Voice agents
+            href: concepts/agents/realtime.md
+          - name: '{{ assistant-api }}'
             href: concepts/assistant/index.md
           - name: Tools
             items:
@@ -123,7 +139,7 @@ items:
                 href: concepts/assistant/rephraser.md
               - name: MCP TBD
                 hidden: true
-      - name: AI search
+      - name: AI Search
         items:
           - name: Source files
             href: concepts/assistant/files.md
@@ -131,13 +147,23 @@ items:
             href: concepts/assistant/search-index.md
           - name: TBD connectors
             hidden: true
+      - name: '{{ mcp-hub-name }}'
+        items:
+          - name: Overview
+            href: concepts/mcp-hub/index.md
+          - name: MCP server templates
+            href: concepts/mcp-hub/templates.md
+      - name: '{{ sw-full-name }}'
+        href: ../serverless-integrations/concepts/workflows/workflow.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Terms and definitions
+        href: concepts/glossary.md
   - name: Compatibility with {{ openai }}
     href: concepts/openai-compatibility.md
   - name: '{{ ml-sdk-full-name }}'
     items:
-      - name: '{{ ml-sdk-full-name }} overview'
+      - name: About {{ ml-sdk-full-name }}
         href: sdk/index.md
       - name: SDK reference
         items:

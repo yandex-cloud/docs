@@ -5,6 +5,8 @@ description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-na
 
 # Data Security Posture Management ({{ dspm-name }})
 
+{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+
 [Data Security Posture Management]({{ link-sd-main }}dspm/), or {{ dspm-name }}, helps quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely actions to protect it from unauthorized access or leaks, such as configuring [access policies](../../storage/concepts/policy.md), anonymizing data, etc.
 
 ## Scanning for sensitive information {#scanning}

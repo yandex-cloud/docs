@@ -36,7 +36,7 @@ description: In this guide, you will learn how to correctly add fields to a {{ c
 || {{ compute-name }} instance group | Selecting a {{ compute-full-name }} [instance group](../../compute/concepts/instance-groups/index.md) from those available in the folder | See [{#T}](#parameters). ||
 || {{ lockbox-short-name }} secret | Selecting a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) from those available in the folder | ^ ||
 || {{ vpc-short-name }} network | Selecting a {{ vpc-full-name }} [network](../../vpc/concepts/network.md#network) from those available in the folder | ^ ||
-|| Number With Scale | Providing a number of specified units, e.g., a number of hours. | **Format**: Number input format.<br/>**Validator**: Validating the text in the field,<ul><li>with no validation if empty.</li><li>`base`: Checks there are no spaces at the beginning and end of the string.</li><li>`number`: Checks the text matches the number format.</li></ul><br/>**Default value**: Default units of measurement.<br/>**View**: Units of measurement to convert the user-specified value into in the form results.<br/>**Scale**: Rules for converting the user-specified value into the units of measurement specified in the **View** parameter.<br/>For other settings, see [{#T}](#parameters). ||
+|| Number With Scale | Providing a number of specified units, e.g., a number of hours. | **Format**: Number input format.<br/>**Validator**: Validating the text in the field,<ul><li>with no validation if empty.</li><li>`base`: Checks there are no spaces at the beginning and end of the string.</li><li>`number`: Checks the text matches the number format.</li></ul><br/>**Default value**: Default units of measurement.<br/>**View type**: Units of measurement to convert the user-specified value into in the form results.<br/>**Scale**: Rules for converting the user-specified value into the units of measurement specified in the **View** parameter.<br/>For other settings, see [{#T}](#parameters). ||
 || Password | Specifying a hidden string: characters will be automatically replaced with asterisks. | See [{#T}](#parameters). ||
 || Service account | Selecting a [service account](../../iam/concepts/users/service-accounts.md) from those available in the folder | ^ ||
 || Text Area | Specifying multiple strings | ^ ||
@@ -49,9 +49,9 @@ description: In this guide, you will learn how to correctly add fields to a {{ c
 Parameter | Description
 --- | ---
 Variable name | You can use the variable name when creating resources to access the user-specified value.
-Required field | If selected, the field becomes a required one.
-Maximum length | Maximum string length
-Minimum length | Minimum string length
+Required | If selected, the field becomes a required one.
+Max length | Maximum string length
+Min length | Minimum string length
 Maximum | Maximum value of a number
 Minimum | Minimum value of a number
 Pattern | Regular expression that the user-specified field value must match.
@@ -61,9 +61,9 @@ Pattern error | Error message the user will see if the field value they provide 
 
 Parameter | Description
 --- | ---
-Hide field | If selected, the field will be hidden from the form. The user will not see it.
-Disable field | If selected, the field becomes unavailable for filling. The user will not be able to change its value.
-Expand field | If selected, the field will not be cut.
-Field header | Field header the user will see.
+Hidden | If selected, the field will be hidden from the form. The user will not see it.
+Disabled | If selected, the field becomes unavailable for filling. The user will not be able to change its value.
+Field open | If selected, the field will not be cut.
+Field title | Field header the user will see.
 Field description | Pop-up hint for the field the user will see.
 Placeholder | Text to show in the field when it is empty.

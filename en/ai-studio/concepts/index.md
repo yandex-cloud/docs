@@ -1,38 +1,21 @@
 ---
-title: About {{ foundation-models-full-name }}
-description: '{{ foundation-models-full-name }} is a service that provides access to the APIs of large neural networks that can generate high-quality texts and images. {{ gpt-lite }} and {{ gpt-pro }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other things. {{ yandexart-name }} can create an image by description. The quality of the neural network''s response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.'
+title: About {{ ai-studio-full-name }}
+description: '{{ ai-studio-full-name }} is a platform for building AI solutions. It offers everything you need to build an intelligent agent that will help your business address everyday tasks. {{ gpt-lite }} and {{ gpt-pro }} can generate product descriptions, articles, news stories, newsletters, blog posts, and much more. {{ yandexart-name }} can create an image from a description. The quality of the neural network''s response directly depends on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.'
 ---
 
-# About {{ foundation-models-full-name }}
+# About {{ ai-studio-full-name }}
 
-{{ foundation-models-full-name }} comprises several large generative models plus an efficient toolset you can use to leverage their capabilities to advance your business.
+{{ ai-studio-full-name }} is a platform for building AI agents and leveraging large generative models effectively. 
 
-With [{{ gpt-lite }} and {{ gpt-pro }}](generation/index.md), you can quickly generate text content, e.g., product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect. For the full list of generative text models, see [{#T}](generation/models.md).
+[{{ model-gallery-name }}](./generation/index.md) offers a wide range of generative models for working with text and images. You can use them to: 
+Generate product descriptions, articles, news stories, newsletters, blog posts, advertising images, logos, and much more. To access the models running in the _common instance_, use {{ ai-playground }} or integrate them into your apps with {{ ml-sdk-name }} and various APIs. If the model is missing from the common instance or is required for heavy workloads, you can deploy a _[dedicated instance](./generation/dedicated-instance.md)_ right in the management console. For large amounts of homogenous data, you might want to use [batch processing mode](./generation/dedicated-instance.md).
 
-{{ foundation-models-name }} also provides the [API](../embeddings/api-ref/index.md) to work with _embeddings_, i.e., vector representations of text. It can be used to classify information, compare and match texts, or search through a knowledge base of your own. For more information on embeddings and the Embeddings API, see [{#T}](./embeddings.md).
+In addition to generative models, {{ model-gallery-name }} offers text [classifiers](./classifier/index.md) and [embedding models](./embeddings.md). If you are not satisfied with the response format of generative models or the behavior of classifiers and embeddings, you can [fine-tune](./tuning/index.md) them.
 
-With {{ yagpt-name }} classifiers, you can classify various texts. Special models are better at it than the {{ gpt-lite }}and {{ gpt-pro }} models, their API being tailored for classification tasks. For more information about the supported classification types, see [{#T}](classifier/index.md). 
+The [{{ agents-atelier-name }}](./agents/index.md) development environment supports building text and voice AI agents that can use ready-made customizable [tools](./agents/index.md#tools). If ready-to-use tools are not enough, you can always build a custom MCP server in {{ mcp-hub-name }} to enable the agent to use any external tools and APIs.
 
-To create images in {{ foundation-models-name }} use the {{ yandexart-name }} neural network that will help you create detailed and realistic images based on a text prompt.
+For those who prefer creating agents in a graphical editor, {{ ai-studio-name }} offers a {{ sw-full-name }} builder.
 
-In addition to models working with a single type of data, {{ foundation-models-name }} provides multimodal models. 
+The {{ ai-studio-name }} API is fully compatible with the {{ openai }} API: use the Responses API to build text agents, the Realtime API to create voice agents, and the Vector Store API for search through documents. The APIs support integration with such widely used frameworks as LangChain and LangGraph.
 
 For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
-
-## {{ foundation-models-name }} working modes {#working-mode}
-
-In {{ foundation-models-name }}, you can use models in three modes: _synchronous_, _asynchronous_, or _batch_ mode. The modes differ in response time and operation logic.
-
-In synchronous mode, the model gets your request and returns the result immediately after processing. The response delay in synchronous mode is minimal but not instant: the model takes time to do the work. With the `stream` option enabled, the model sends intermediate generation results during the process. You may opt for synchronous mode if you need to maintain a chatbot dialog. 
-
-In asynchronous mode, the model responds to a request by sending an [Operation object](../../api-design-guide/concepts/operation.md) containing the ID of the operation it is performing. You can use the ID to learn the status of the request and later get the result of it by submitting a request to a special output endpoint (its value depends on the model). Intermediate generation results are not available in asynchronous mode. In asynchronous mode, generation usually takes longer (from a couple of minutes to several hours) than in synchronous mode but is cheaper. Use asynchronous mode if you do not need an urgent response.
-
-Batch processing mode allows you to process a large data array in a single request to the model. Input data is provided as a [dataset](./resources/dataset.md) whose type depends on the model. For each request, {{ foundation-models-name }} runs an individual instance of the model to process the dataset and then stops it. The result is saved as another dataset, which you can download in [Parquet](https://parquet.apache.org/) format or use immediately, e.g., to tune another model. It may take several hours to generate the result.
-
-Different models support different operating modes.
-
-## Prompt {#prompt}
-
-Generative models are managed using _prompts_. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt, the more accurate will be the results returned by the model.
-
-Apart from the prompt, other request parameters will impact the model's output too. Use {{ foundation-models-name }} Playground available from the [management console]({{ link-console-main }}) to test your requests.

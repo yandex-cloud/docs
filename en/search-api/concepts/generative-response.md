@@ -15,7 +15,7 @@ You need the `search-api.webSearch.user` [role](../security/index.md#search-api-
 
 ## Request body format {#body}
 
-The names of the request body fields are different in [REST API](../api-ref/index.md) and [gRPC API](../api-ref/grpc/index.md): the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter, [snake_case](https://en.wikipedia.org/wiki/Snake_case).
+The names of the request body fields in the [REST API](../api-ref/index.md) and [gRPC API](../api-ref/grpc/index.md) are different: the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter, [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
 Each query seeking a generative response must contain the following request body in [JSON](https://en.wikipedia.org/wiki/JSON) format:
 
@@ -90,9 +90,9 @@ Each query seeking a generative response must contain the following request body
   {% include [gen-response-legend-part1](../../_includes/search-api/gen-response-legend-part1.md) %}
 
   * `folderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-  * `fixMisspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixedMisspellQuery` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
-  * `enableNrfmDocs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
-  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `fixMisspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixedMisspellQuery` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values range `true` or `false`.
+  * `enableNrfmDocs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional parameter. The possible values range `true` or `false`.
+  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you go `"date": ">20250101"`, the response will return only documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
 
   {% cut "Request body example:" %}
 
@@ -193,9 +193,9 @@ Each query seeking a generative response must contain the following request body
   {% include [gen-response-legend-part1](../../_includes/search-api/gen-response-legend-part1.md) %}
 
   * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-  * `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
-  * `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
-  * `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values range `true` or `false`.
+  * `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values range `true` or `false`.
+  * `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you go `"date": ">20250101"`, the response will return only documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
 
   {% cut "Request body example:" %}
 
@@ -323,7 +323,7 @@ Each query seeking a generative response must contain the following request body
   * `message.content`: Text of the generative response. The footnotes within the text refer to sources, the list and order of which are given in the `sources` field.
   * `sources`: Array of source documents that were found during the query, could be used by {{ yagpt-name }} as data sources when forming the response, and can be footnoted in the `message.content` field. Each source document contains the following fields:
 
-      * `used`: Indicates whether the document was used to generate the response. The possible values are `true` or `false`.
+      * `used`: Indicates whether the document was used to generate the response. The possible values range `true` or `false`.
       * `url`: Document URL.
       * `title`: Document title. It may be missing from the results if the website owner did not define the page header.
   * `searchQueries`: List of additional search queries sent by the generative model to the search engine. Each query contains the following fields:
@@ -493,7 +493,7 @@ Each query seeking a generative response must contain the following request body
 
       * `url`: Document URL.
       * `title`: Document title.
-      * `used`: Indicates whether the document was used to generate the response. The possible values are `true` or `false`.
+      * `used`: Indicates whether the document was used to generate the response. The possible values range `true` or `false`.
   * `search_queries`: List of additional search queries sent by the generative model to the search engine. Each query contains the following fields:
 
       * `text`: Search query text.

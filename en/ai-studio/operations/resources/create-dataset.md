@@ -29,7 +29,7 @@ If you need a JSON schema to prepare your data, you can get the structure of any
   
   Where:
   * `<IAM_token>`
-  * `<dataset_type>`: Dataset type for which you are requesting the JSON schema. The possible values are:
+  * `<dataset_type>`: Dataset type for which you are requesting the JSON schema. Values to choose from:
   
     {% include [dataset-types](../../../_includes/ai-studio/dataset-types.md) %}
 
@@ -45,7 +45,7 @@ If you need a JSON schema to prepare your data, you can get the structure of any
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
-  1. Enter a name and descriptions for the dataset. The naming requirements are as follows:
+  1. Enter a name and descriptions for the dataset. Follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -66,7 +66,7 @@ If you need a JSON schema to prepare your data, you can get the structure of any
      * `<file_path>`: Path to the file prepared earlier.
      * `<dataset_type>`: [Type](#get-schema) of the new dataset. 
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 dataset-create.py

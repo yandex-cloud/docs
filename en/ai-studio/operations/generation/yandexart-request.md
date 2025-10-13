@@ -1,6 +1,6 @@
 # Generating an image using {{ yandexart-name }}
 
-With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [operation object](../../../api-design-guide/concepts/operation.md) containing an operation ID, which you can use to [track the operation progress](../../../api-design-guide/concepts/operation.md#monitoring) and get the result after the generation is completed. Generating a result in asynchronous mode can take from a few minutes up to several hours.
+With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/generation/index.md#working-mode). In response to an asynchronous request, the model will return an [operation object](../../../api-design-guide/concepts/operation.md) containing the operation ID you can use to [follow up the operation's progress](../../../api-design-guide/concepts/operation.md#monitoring) and get the result once the generation is complete. Generating a result in asynchronous mode can take from a few minutes up to several hours.
 
 ## Getting started {#before-begin}
 
@@ -37,9 +37,9 @@ To use the examples:
 - SDK {#sdk}
 
   This code includes four independent examples illustrating different uses of the SDK interface:
-  * Example 1: A simple request of one text description.
-  * Example 2: A request of two text descriptions with the result saved to a file named `./image.jpeg`.
-  * Example 3: A request of two text descriptions with weight specified.
+  * Example 1: A simple request consisting of a single text description.
+  * Example 2: A request consisting of two text descriptions, with the result saved to a file named `./image.jpeg`.
+  * Example 3: A request consisting of two text descriptions, with weight specified.
   * Example 4: A combination of a request to a [{{ gpt-pro }} model](../../concepts/generation/models.md) (to generate an extended prompt) and a request to a {{ yandexart-name }} model (to generate an image based on that prompt).
 
   The code in the example does not return an [operation object](../../../api-design-guide/concepts/operation.md) but waits for the models to execute their requests and stores the result in the `result` variable.
@@ -61,7 +61,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      For more information about accessing the image generation model, see [{#T}](../../../ai-studio/concepts/classifier/models.md#addressing-models).
+      For more information about accessing the image generation model, see [{#T}](../../concepts/generation/models.md#addressing-models).
       
   1. Run the file you created:
 

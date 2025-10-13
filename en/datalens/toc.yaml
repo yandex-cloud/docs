@@ -25,6 +25,8 @@ items:
         href: workbooks-collections/export-import-notifications.md
       - name: Configuring access
         href: workbooks-collections/security.md
+  - name: DataLens neuroanalyst
+    href: concepts/neuroanalyst.md
   - name: Tutorials
     items:
       - name: Overview
@@ -177,6 +179,8 @@ items:
             href: operations/connection/create-bitrix24.md
           - name: Creating a Yandex Music podcast connection
             href: operations/connection/create-podcasts.md
+          - name: Suggest your partner connector
+            href: operations/marketplace/create-connector-for-partners.md
   - name: Datasets
     items:
       - name: Overview
@@ -201,6 +205,8 @@ items:
         href: concepts/calculations/index.md
       - name: Formula syntax
         href: concepts/calculations/formula-syntax.md
+      - name: Neuroanalyst for creating calculated fields
+        href: concepts/calculations/formulas-helper.md
       - name: Function reference
         items:
           - name: All Functions
@@ -687,6 +693,8 @@ items:
                 href: charts/editor/quickstart/from-database.md
               - name: Creating a table based on API Connector
                 href: charts/editor/quickstart/from-api-connector.md
+          - name: Neuroanalyst in Editor
+            href: charts/editor/code-helper.md
           - name: Tabs
             href: charts/editor/tabs.md
           - name: Sources
@@ -773,6 +781,8 @@ items:
             href: operations/chart/add-parameter-chart.md
       - name: Versioning
         href: concepts/chart/versioning.md
+      - name: Exporting data from charts
+        href: concepts/chart/data-export.md
       - name: Chart inspector
         href: concepts/chart/inspector.md
       - name: Access management
@@ -795,6 +805,8 @@ items:
         href: dashboard/versioning.md
       - name: Parameters
         href: dashboard/dashboard_parameters.md
+      - name: Neuroanalyst on your dashboard
+        href: dashboard/insights.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Step-by-step guides
@@ -845,6 +857,8 @@ items:
         href: reports/add-selector.md
       - name: Versioning
         href: reports/versioning.md
+      - name: Neuroanalyst in reports
+        href: reports/insights.md
   - name: Access management
     items:
       - name: Overview
@@ -885,14 +899,8 @@ items:
         href: settings/ui-customization.md
       - name: Disabling navigation through directories
         href: settings/disable-folder-navigation.md
-  - name: Marketplace
-    items:
-      - name: Overview
-        href: concepts/marketplace.md
-      - name: Adding a product from Marketplace
-        href: operations/marketplace/add-marketplace-product.md
-      - name: Creating a partner connector
-        href: operations/marketplace/create-connector-for-partners.md
+  - name: DataLens Gallery
+    href: concepts/gallery.md
   - name: Pricing policy
     items:
       - name: Current pricing policy

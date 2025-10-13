@@ -7,7 +7,7 @@ description: The `uploadPart` method in the {{ objstorage-name }} API (S3) saves
 
 Saves a part of an object.
 
-Users number object parts themselves and transmit these numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer from 1 to 10,000 inclusive.
+Users number object parts themselves and transmit the numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer from 1 to 10,000 inclusive.
 
 If multiple parts with the same number are uploaded, {{ objstorage-name }} saves the last one received.
 
@@ -47,7 +47,6 @@ The `Content-Length` header is required.
 
 The `Content-MD5` header is required if [default object locks](../../../concepts/object-lock.md#default) are configured in the bucket.
 
-
 ## Response {#response}
 
 ### Headers {#response-headers}
@@ -56,7 +55,7 @@ A response may contain [common headers](../common-response-headers.md) and the h
 
 Header | Description
 ----- | -----
-`X-Amz-Storage-Class` | [Storage class](../../../concepts/storage-class.md) of the object.<br/>It takes the `COLD` value if the object is in a cold storage, or `ICE`, if it is in an ice storage.<br/><br/>If the object is in a standard storage, there is no header.
+`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>`COLD` if the object is in a cold storage or `ICE` if it is in an ice storage.<br/><br/>There will be no header if the object is in a standard storage.
 
 
 ### Response codes {#response-codes}

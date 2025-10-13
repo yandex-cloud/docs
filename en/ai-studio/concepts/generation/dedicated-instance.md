@@ -10,7 +10,7 @@ Dedicated instances have a number of advantages:
 * No additional quotas for requests and parallel generations. The restrictions you get only depend on the instance configuration you select.
 * Optimized model inference for efficient hardware utilization.
 
-Dedicated instances will benefit you if you need to process massive volumes of requests without delays. Dedicated instance is not [priced](../../pricing.md) based on the amount of incoming and outgoing tokens: you only pay for its running time. 
+Dedicated instances will benefit you if you need to process massive volumes of requests without delays. A dedicated instance is not [priced](../../pricing.md) based on the amount of incoming and outgoing tokens: you only pay for its running time. 
 
 ## Dedicated instance models {#models}
 
@@ -36,8 +36,8 @@ All deployed models are accessible via an API compatible with [{{ openai }}](../
 
 ## Dedicated instance configurations {#config}
 
-Each model may be available for deployment in several configurations: **S**, **M**, or **L**. Each configuration guarantees specific values ​​of TTFT (_time to first token_), _Latency_ (time it takes to generate a response), and TPS (_tokens per second_) for requests with different context lengths.
+Each model may be available for deployment in several configurations: **S**, **M**, or **L**. Each configuration guarantees specific values ​of TTFT (_time to first token_), _Latency_ (time it takes to generate a response), and TPS (_tokens per second_) for requests with different context lengths.
 
-The figure below shows the dependence of latency and the number of tokens processed by the model on the number of parallel generations (Concurrency in the figure): up to a certain point, the more generations the model processes in parallel, the longer the generation will last, and the more tokens will be generated per second.
+The figure below shows the dependence of latency and the number of tokens processed by the model on the number of parallel generations (_Concurrency_ in the figure): up to a certain point, the more generations the model processes in parallel, the longer the generation will last, and the more tokens will be generated per second.
 
 ![instances](../../../_assets/ai-studio/instances-chart.svg)

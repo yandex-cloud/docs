@@ -19,6 +19,8 @@ items:
         href: operations/autoscale.md
       - name: Подключение {{ TF }}-провайдера {{ k8s }}
         href: operations/apply-tf-provider.md
+      - name: Установка приложений из {{ marketplace-full-name }} с помощью {{ TF }}
+        href: operations/apply-helm-provider.md
       - name: Подключение к кластеру
         items:
           - name: Обзор способов подключения

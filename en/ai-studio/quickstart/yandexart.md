@@ -68,7 +68,7 @@ To get started in {{ yandex-cloud }}:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
-  1. Leave the [**Seed** parameter](../concepts/generation/index.md) at random or specify any value.
+  1. Leave the [**Seed**](../concepts/generation/index.md) parameter at random or specify any value.
   1. Click **Generate**. Generating an image takes some time. The output will appear on the left side of the screen.
 
 - SDK {#sdk}

@@ -1,0 +1,3 @@
+
+* ![base-standard-yc](../../_assets/security-deck/cspm-base-yc.svg) `{{ yandex-cloud }} basic security rules`: Minimum set of security requirements ensuring basic protection of cloud infrastructure and applications deployed on the {{ yandex-cloud }} platform.
+* ![cspm-standard-yc](../../_assets/security-deck/cspm-standard-yc.svg) `{{ yandex-cloud }} cloud infrastructure protection standard`: [Standard](../../security/standard/all.md) providing comprehensive security requirements and best practices for protection of the cloud infrastructure and applications deployed on the {{ yandex-cloud }} platform. These elements help ensure security policy compliance and protection against common threats and vulnerabilities in the cloud environment.

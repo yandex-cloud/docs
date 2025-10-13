@@ -1,6 +1,6 @@
 ---
-title: How to delete a domain in a {{ org-full-name }} user pool
-description: Follow this guide to delete a domain in an {{ org-name }} user pool.
+title: How to remove a domain from a {{ org-full-name }} user pool or federation
+description: Follow this guide to delete a domain from an {{ org-name }} user pool or federation.
 ---
 
 # Deleting a domain
@@ -10,13 +10,10 @@ description: Follow this guide to delete a domain in an {{ org-name }} user pool
 
 You cannot delete the default [domain](../../concepts/domains.md) or a domain with associated users.
 
-{% list tabs group=instructions %}
+## Deleting a domain from a user pool {#userpool}
 
-- {{ cloud-center }} UI {#cloud-center}
+{% include [delete-domain-from-pool](../../../_includes/organization/delete-domain-from-pool.md) %}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
-  1. In the left-hand panel, click ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** and select the [user pool](../../concepts/user-pools.md).
-  1. Under **{{ ui-key.yacloud_org.organization.userpools.caption_domains }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the domain and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.organization.userpool.action_delete-domain }}**.
-  1. In the window that opens, confirm deleting the domain.
+## Deleting a domain from a federation {#federation}
 
-{% endlist %}
+{% include [delete-domain-from-fed](../../../_includes/organization/delete-domain-from-fed.md) %}

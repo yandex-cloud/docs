@@ -206,8 +206,10 @@ items:
             href: security/wlif-github-integration.md
           - name: '{{ GL }}'
             href: security/wlif-gitlab-integration.md
-          - name: '{{ k8s }}'
+          - name: Custom installation {{ k8s }}
             href: security/wlif-k8s-integration.md
+          - name: '{{ managed-k8s-name }}'
+            href: security/wlif-managed-k8s-integration.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md

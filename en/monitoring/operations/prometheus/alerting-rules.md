@@ -46,19 +46,21 @@ To test alerting, copy the code below into the `host-cpu-usage-alert.yml` file:
 
 ```yaml
 groups:
-  - name: CPU_Usage_Alerts
-    rules:
-      - alert: HighCPUUsage
-        expr: 100 * (1 - avg by(instance) (rat(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
-        for: 5m
-        labels:
-          severity: critical
-        annotations:
-          summary: "High CPU usage detected on {{$labels.instance}}"
-          description: "CPU usage on instance {{$labels.instance}} has been above 80% for the last5 minutes."
+  - name: CPU_Usage_Alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU usage detected on {{$labels.instance}}"
+          description: "CPU usage on instance {{$labels.instance}} has been above 80% for the last 5 minutes."
 ```
 
 This example describes the `CPU_Usage_Alerts` rule with the `HighCPUUsage` alert: The alert goes off when CPU usage remains above 80% for more than five minutes. CPU usage percentage is calculated by the formula in the `expr` field.
+
+The alert has a `severity: critical` label, which is used to route notification channels. In the Alert Manager configuration, you can map specific labels with channels so that notifications for different alerts are sent to different channels.
 
 ### Adding or replacing an alerting rule file {#create}
 
@@ -75,7 +77,7 @@ This example describes the `CPU_Usage_Alerts` rule with the `HighCPUUsage` alert
 
 - API {#api}
 
-   1. Encode the file contents to [Base64](https://en.wikipedia.org/wiki/Base64) as defined in [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
+   1. Create a file named `host-cpu-usage-alert.yml` and encode its contents in [Base64](https://en.wikipedia.org/wiki/Base64) as per [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
       ```bash
       # cat <<EOF > host-cpu-usage-alert.yml
@@ -83,8 +85,8 @@ This example describes the `CPU_Usage_Alerts` rule with the `HighCPUUsage` alert
       - name: CPU_Usage_Alerts
       rules:
           - alert: HighCPUUsage
-          expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 10
-          for: 2m
+          expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+          for: 5m
           labels:
               severity: critical
           annotations:
@@ -129,28 +131,50 @@ For more on file operations and rule computation, see [{#T}](./recording-rules.m
 
 [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) is a notifications delivery component you set up separately from the alerting rules. For setup, you can use [configuration files](https://prometheus.io/docs/alerting/latest/configuration/) created for your other {{ prometheus-name }} installations.
 
-### Rule processing highlights {#rule-processing}
+### Notification channel settings {#rule-processing}
 
 * Notification channels from the configuration file are mapped against the {{ monitoring-full-name }} [notification channels](../../concepts/alerting/notification-channel.md) specified in the workspace folder.
-* Only the [email](https://prometheus.io/docs/alerting/latest/configuration/#email_config) and [Telegram](https://prometheus.io/docs/alerting/latest/configuration/#telegram_config) channels are currently supported. All other channels will be ignored without any error notifications. Future versions will include support for all notification channels available in {{ monitoring-full-name }}.
-* The channel is selected according to the specified type; [dynamic routing](https://prometheus.io/docs/alerting/latest/configuration/#route) is currently not supported.
-* The system will not accept the file if the configuration lacks channels matching those in the folder.
+* Currently, only the [email](https://prometheus.io/docs/alerting/latest/configuration/#email_config), [Telegram](https://prometheus.io/docs/alerting/latest/configuration/#telegram_config), SMS, and push channels are supported. All other channels will be ignored without any error notifications.
+* The channel is selected under the [routing rules](https://prometheus.io/docs/alerting/latest/configuration/#route) in the Alert Manager configuration, in the `routes` section. In the routing rules, channels are mapped to labels specified in the alerting rules in the `labels` section, e.g., `severity: critical`.
 
 ### Sample configuration file {#config-example}
 
-To set up notifications, add your email address and Telegram account to the example below.
+This example is configured to send Telegram, email, SMS, and push notifications.
 
 ```yaml
 global:
   resolve_timeout: 5m
+# Routing and grouping alerts
+route:
+  # Default receiver
+  receiver: 'default-receiver'
+  routes:
+    # Alert notifications with the following label are sent to this channel: severity="warning"
+    - receiver: 'warning-receiver'
+      matchers:
+        - severity="warning"
+    # Alert notifications with the following label are sent to this channel: severity="critical"
+    - receiver: 'critical-receiver'
+      matchers:
+        - severity="critical"
+
 receivers:
-  - name: 'email'
-    email_configs:
-      - to: 'alerts@company.org'
-  - name: 'telegram'
-    telegram_configs:
-      - api_url: 'https://api.telegram.org'
+# Default receiver; this channel is used to send notifications for alerts that have no matches in the _routes_ section
+- name: 'default-receiver'
+  yandex_monitoring_configs:
+    # Channels are not specified, alerts without labels are not sent
+    - channel_names: []
+# Receiver for alerts with the severity="warning" label; instead of an email, specify the name of the channel specified in the workspace folder
+- name: 'warning-receiver'
+  yandex_monitoring_configs:
+    - channel_names: [ 'email', 'push-channel' ]
+# Receiver for alerts with the severity="critical" label; instead of Telegram, specify the name of the channel specified in the workspace folder
+- name: 'critical-receiver'
+  yandex_monitoring_configs:
+    - channel_names: [ 'telegram', 'sms-channel' ]
 ```
+
+For more information on setting up dynamic notification routing, see [this Prometheus guide](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
 ### Adding or replacing a configuration file {#alert-manager-create}
 
@@ -167,26 +191,38 @@ receivers:
 
 - API {#api}
 
-   1. Encode the file contents to [Base64](https://en.wikipedia.org/wiki/Base64) as defined in [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
+   1. Save the configuration to the `alertmanager.yml` file and encode it in [Base64](https://en.wikipedia.org/wiki/Base64) as per [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
        ```bash
         # cat <<EOF > alertmanager.yml
         global:
-        resolve_timeout: 5m
+          resolve_timeout: 5m
+        route:
+          receiver: 'default-receiver'
+          routes:
+            - receiver: 'warning-receiver'
+              matchers:
+                - severity="warning"
+            - receiver: 'critical-receiver'
+              matchers:
+                - severity="critical"
 
-        receivers:
-        - name: email_receiver
-            email_configs:
-            - to: "alerts@monitoring.org"
-        - name: 'telegram'
-            telegram_configs:
-            - api_url: 'https://api.telegram.org'
+          receivers:
+          - name: 'default-receiver'
+            yandex_monitoring_configs:
+              - channel_names: []
+          - name: 'warning-receiver'
+            yandex_monitoring_configs:
+              - channel_names: [ 'email', 'push-channel' ]
+          - name: 'critical-receiver'
+            yandex_monitoring_configs:
+              - channel_names: [ 'telegram', 'sms-channel' ]
+
         EOF
 
         # base64 -iw0 alertmanager.yml
 
         # Z2xvYmFsOgogIHJlc29sdmVfdGltZW91******
-
        ```
 
    1. Save the result as a JSON file:

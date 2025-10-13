@@ -1,0 +1,2 @@
+* [HTTP Stream](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) is the latest state-of-art transport mechanism. Your AI agent will be able to get updates (events) from the server without a persistent HTTP connection.
+* [SSE](https://modelcontextprotocol.io/specification/2024-11-05/basic/transports#http-with-sse) is a legacy transport mechanism. Your AI agent will be able to get updates from the server over the same persistent HTTP connection.

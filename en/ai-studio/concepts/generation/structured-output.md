@@ -1,6 +1,6 @@
 # Formatting model responses
 
-By default, the model returns a response formatted using [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with [emoji](https://en.wikipedia.org/wiki/Emoji), or in a different format, e.g., [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
+By default, the model returns a response formatted with [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with [emoji](https://en.wikipedia.org/wiki/Emoji), or in a different format, e.g., [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
 
 Here is an example:
 
@@ -37,7 +37,7 @@ Result:
       {
         "message": {
           "role": "assistant",
-          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"curd\", \"sour cream\"],\n    \"fruit\": [\"apples\", \"bananas\", \"oranges\"]\n}"
+          "text": "{\n    \"meat\": [\"beef\", \"pork\", \"mutton\"],\n    \"dairy products\": [\"milk\", \"curd\", \"sour cream\"],\n    \"fruits\": [\"apples\", \"bananas\", \"oranges\"]\n}"
         },
         "status": "ALTERNATIVE_STATUS_FINAL"
       }

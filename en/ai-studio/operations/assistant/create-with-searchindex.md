@@ -5,7 +5,7 @@ description: Follow this guide to create a personalized assistant in {{ assistan
 
 # Creating a RAG assistant with the VectorStore tool
 
-{% include [assistants-preview-stage](../../../_includes/ai-studio/assistants-preview-stage.md) %}
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 {{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
 
@@ -52,7 +52,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
 
   1. Run the file you created:
 
@@ -324,7 +324,7 @@ To use the examples:
           Where:
           * `modelUri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `searchIndexIds`: Search index ID you got at the previous step.
-          * `instruction`: Prompt with an instruction for the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+          * `instruction`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash
@@ -540,7 +540,7 @@ To use the examples:
           }
           ```
 
-          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+          {{ assistant-api }} has returned the run information: the run is in the `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
 
       1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
@@ -694,7 +694,7 @@ To use the examples:
       }
       ```
 
-      {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+      {{ assistant-api }} has returned the run information: the run is in the `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
   1. Get the result of the run with the assistant's second response. To do this, make a request by specifying the run ID you got earlier:
 
       ```bash

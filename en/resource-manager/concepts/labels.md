@@ -22,11 +22,11 @@ A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can us
 
     For example, you can use the `project:app` label to find the {{ yandex-cloud }} resources used in the `app` project.
 
-* Grouping resources by various criteria, such as project, team, environment, application, etc.
+* Grouping resources by different criteria, such as project, team, environment, application, etc.
 
     For example, you can use the `environment:production` and `environment:test` labels to mark {{ yandex-cloud }} resources as belonging to the production and test environments.
 
-* Automating actions with a resource group, such as launching, stopping, or deleting the labeled resources.
+* Automating actions with a resource group, such as launching, stopping, or deleting labeled resources.
 
     For example, you can [manage a resource group using {{ sf-full-name }}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md).
 
@@ -110,5 +110,7 @@ Some service resources do not support labels, and some interfaces may not displa
 * [Managing labels in {{ ml-platform-full-name }} projects](../../datasphere/operations/projects/manage-project-labels.md)
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

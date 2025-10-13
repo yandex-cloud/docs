@@ -1,26 +1,21 @@
 ---
-title: How to add a domain to a {{ org-full-name }} user pool
-description: Follow this guide to add a domain to an {{ org-name }} user pool.
+title: How to associate a domain with a user pool or a {{ org-full-name }} federation
+description: Follow this guide to associate a domain with a user pool or a {{ org-name }} federation.
 ---
 
-# Adding a domain
+# Associating a domain
 
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-To add a [domain](../../concepts/domains.md), you must be its owner and have the credentials to modify DNS records in the domain name registrar's system.
+You can associate a [domain](../../concepts/domains.md) with a [user pool](../../concepts/user-pools.md) or [federation](../../concepts/add-federation.md), which allows authentication through the [Login Discovery](../../concepts/domains.md#login-discovery) system. When authenticating, a user with your domain will be redirected to your federation or user pool.
 
-{% list tabs group=instructions %}
+To use a domain in a user pool or federation, domain ownership must be [verified](validate-domain.md) via a DNS record.
 
-- {{ cloud-center }} UI {#cloud-center}
+## Associating a domain with a user pool {#userpool}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
-  1. In the left-hand panel, click ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** and select the [user pool](../../concepts/user-pools.md).
-  1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.userpools.action.add_domain }}**.
-  1. Enter the domain name. The domain must not be linked to another user pool or [federation](../../concepts/add-federation.md).
-  1. Click **{{ ui-key.yacloud.common.add }}**.
+{% include [add-domain-to-pool](../../../_includes/organization/add-domain-to-pool.md) %}
 
-  To use the domain for adding new users, [verify](validate-domain.md) it.
+## Associating a domain with a federation {#federation}
 
-{% endlist %}
-
+{% include [add-domain-to-fed](../../../_includes/organization/add-domain-to-fed.md) %}

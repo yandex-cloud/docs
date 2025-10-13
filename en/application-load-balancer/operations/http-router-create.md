@@ -112,7 +112,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
      Where:
      * `--http-router-name`: HTTP router name.
-     * `--authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
+     * `--authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional argument.
      * `--modify-request-header`: Request header modification settings:
        * `name`: Modified header name.
        * `append`: String appended to the header.
@@ -154,8 +154,9 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        --prefix-path-match / \
        --backend-group-name <backend_group_name> \
        --request-timeout <request_timeout>s \
-       --request-idle-timeout <request_idle_timeout>s
-       --rate-limit rps=<request_limit>,requests-per-ip
+       --request-idle-timeout <request_idle_timeout>s \
+       --rate-limit rps=<request_limit>,requests-per-ip \
+       --disable-security-profile=<disable_security_profile>
      ```
 
      Where:
@@ -170,6 +171,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--request-timeout`: Request timeout in seconds.
      * `--request-max-timeout`: Maximum request timeout in seconds.
      * `--rate-limit`: Request rate limit.
+     * `--disable-security-profile`: Flag to disable the security profile. The default value is `false`. This is an optional parameter.
 
      For more information about `yc alb virtual-host append-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
@@ -190,6 +192,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
            backend_group_id: a5d4db973944********
            timeout: 2s
            idle_timeout: 3s
+         disable_security_profile: true
      modify_request_headers:
      - name: Accept-Language
        append: ru-RU
@@ -228,7 +231,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        }
        
        route {
-         name = "<route_name>"
+         name                     = "<route_name>"
+         disable_security_profile = <disable_security_profile>
          http_route {
            http_route_action {
              backend_group_id = "<backend_group_ID>"
@@ -252,7 +256,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. Use the following name format:
+       * `name`: Virtual host name. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -266,12 +270,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
            * `per_minute`: Per minute.
        * `route`: Route description:
          * `name`: Route name.
+         * `disable_security_profile`: Optional flag to disable the [security profile](../../smartwebsecurity/concepts/profiles.md) in [{{ sws-full-name }}](../../smartwebsecurity/). The default value is `false`.
          * `http_route_action`: Action applied to HTTP traffic.
            * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
            * `timeout`: Maximum request timeout in seconds.
        * `authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
        * `route_options`: Additional virtual host parameters (optional):
-           * `security_profile_id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+           * `security_profile_id`: Security profile ID. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
   
 
      Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:

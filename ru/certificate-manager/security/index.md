@@ -26,7 +26,7 @@ description: Управление доступом в сервисе для по
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/certificate-manager/service-roles-hierarchy-with-admin.svg)
+{% include [certificate-manager](../../_mermaid/roles/certificate-manager.md) %}
 
 ### Сервисные роли {#service-roles}
 

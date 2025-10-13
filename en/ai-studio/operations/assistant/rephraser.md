@@ -2,6 +2,8 @@
 
 In {{ assistant-api }}, you can enable an additional rephrasing model to make search index queries more accurate. Rephrasing will correct errors and typos and help you out if the response requires massive volumes of indexed data and heavily relies on the conversation context.
 
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
+
 ## Getting started {#before-begin}
 
 To use the examples:

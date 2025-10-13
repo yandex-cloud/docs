@@ -1,6 +1,6 @@
 ---
 title: Uploading an object to a {{ objstorage-full-name }} bucket using a multipart upload
-description: Follow this guide to upload an object to an {{ objstorage-name }} bucket in parts.
+description: Follow this guide to upload an object to an {{ objstorage-name }} bucket in parts and set the conditional writes for the upload.
 ---
 
 # Multipart upload
@@ -271,7 +271,7 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
       * `--bucket`: Name of your bucket.
       * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
       * `--upload-id`: Multipart upload ID obtained in the previous step.
-      * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
+      * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. For example:
 
           ```json
           --multipart-upload \
@@ -307,7 +307,7 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
   * `--bucket`: Name of your bucket.
   * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
   * `--upload-id`: Multipart upload ID obtained in the previous step.
-  * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. Here is an example:
+  * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. For example:
 
       ```json
       --multipart-upload \
@@ -332,3 +332,114 @@ Once all the parts are successfully uploaded, complete the multipart upload and 
 {% endlist %}
 
 An object with the prefix you specified has thus been created from uploaded parts in an {{ objstorage-name }} bucket. View [this guide](./info.md) to get the information about the new object.
+
+
+## Complete your multipart upload with a condition (conditional writes) {#conditional-writes}
+
+You can use [conditions](../../concepts/object.md#conditional-writes) when completing a multipart upload as well as during a regular object [upload](upload.md#conditional-writes).
+
+
+### Completing a multipart upload with an ETag condition {#if-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. To complete a multipart upload only if an object with a certain `ETag` exists, run this command:
+
+      ```bash
+      aws s3api complete-multipart-upload \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --upload-id <multipart_upload_ID> \
+        --multipart-upload \
+          '{"Parts": [{"PartNumber": <part_1_number>, "ETag": "<part_1_etag_value>"}, {"PartNumber": <part_2_number>, "ETag": "<part_2_etag_value>"}, ..., {"PartNumber": <part_n_number>, "ETag": "<part_n_etag_value>"}]}' \
+        --if-match "<object_ETag>"
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
+      * `--upload-id`: Multipart upload ID obtained in the previous step.
+      * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. For example:
+
+          ```json
+          --multipart-upload \
+            '{"Parts": [{"PartNumber": 1, "ETag": "a2c44573954874e1a62a3f59********"}, {"PartNumber": 2, "ETag": "3c0e70e1d05bd4e2500f5a90********"}, {"PartNumber": 3, "ETag": "953ecfff0150fd0970008320********"}]}'
+          ```
+
+      * `--if-match`: Current object `ETag`, e.g., `\"d41d8cd98f00b204e9800998********\"`. The write will only be performed if an object already exists for the specified key and its current `ETag` matches.
+
+      Result:
+
+      ```json
+      {
+        "Location": "https://{{ s3-storage-host }}/first-bucket/video.mp4",
+        "Bucket": "first-bucket",
+        "Key": "video.mp4",
+        "ETag": "\"040d1fe80bd1d4f12728b192********-3\""
+      }
+      ```
+
+- API {#api}
+
+  To complete a multipart upload only if an object with a certain `ETag` exists, use the [completeUpload](../../s3/api-ref/multipart/completeupload.md) S3 API method with the `--if-match` header.
+
+{% endlist %}
+
+
+### Completing a multipart upload with an absence condition {#if-none-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. To complete a multipart upload only if there is no object with a specific key in the bucket, run this command:
+
+      ```bash
+      aws s3api complete-multipart-upload \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --upload-id <multipart_upload_ID> \
+        --multipart-upload \
+          '{"Parts": [{"PartNumber": <part_1_number>, "ETag": "<part_1_etag_value>"}, {"PartNumber": <part_2_number>, "ETag": "<part_2_etag_value>"}, ..., {"PartNumber": <part_n_number>, "ETag": "<part_n_etag_value>"}]}' \
+        --if-none-match "*"
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key) to use for storing it in the bucket.
+      * `--upload-id`: Multipart upload ID obtained in the previous step.
+      * `--multipart-upload`: Object containing the sequential numbers and `etag` values of all uploaded parts in proper order. For example:
+
+          ```json
+          --multipart-upload \
+            '{"Parts": [{"PartNumber": 1, "ETag": "a2c44573954874e1a62a3f59********"}, {"PartNumber": 2, "ETag": "3c0e70e1d05bd4e2500f5a90********"}, {"PartNumber": 3, "ETag": "953ecfff0150fd0970008320********"}]}'
+          ```
+
+      * `--if-none-match`: Type `"*"` to perform the write only if there is no object with the specified key yet.
+
+      Result:
+
+      ```json
+      {
+        "Location": "https://{{ s3-storage-host }}/first-bucket/video.mp4",
+        "Bucket": "first-bucket",
+        "Key": "video.mp4",
+        "ETag": "\"040d1fe80bd1d4f12728b192********-3\""
+      }
+      ```
+
+- API {#api}
+
+  To complete a multipart upload only if there is no object with a specific key in the bucket, use the [completeUpload](../../s3/api-ref/multipart/completeupload.md) S3 API method with the `--if-none-match` header.
+
+{% endlist %}

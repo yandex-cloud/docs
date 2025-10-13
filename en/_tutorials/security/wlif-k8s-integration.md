@@ -1,12 +1,12 @@
-# Getting a {{ lockbox-full-name }} secret value on the {{ k8s }} side
+# Getting the {{ lockbox-full-name }} secret value on the custom {{ k8s }} installation side
 
 {% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 
 This tutorial shows you as an example how to get the [{{ lockbox-full-name }}](../../lockbox/) [secret](../../lockbox/concepts/secret) value from the {{ k8s }} side under a {{ yandex-cloud }} service account. Similarly, you can perform any action via the {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml), or [{{ TF }}]({{ tf-provider-link }}).
 
-{% note warning %}
+{% note info %}
 
-Currently, you cannot set up a link between a workload identity federation and a {{ managed-k8s-full-name }} cluster. Only custom {{ k8s }} installations are supported.
+This tutorial demonstrates an example of integrating a custom {{ k8s }} installation with a workload identity federation. See the {{ managed-k8s-name }} integration guide in [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md)
 
 {% endnote %}
 
@@ -143,7 +143,7 @@ The infrastructure support costs include:
       1. Select **{{ objstorage-name }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
-         1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
+         1. Enter the bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
          
          1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
 
@@ -207,7 +207,7 @@ The infrastructure support costs include:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
-   1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
+   1. Select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**.
    1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID, e.g., `secret`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -314,5 +314,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 ## See also {#see-also}
 
+* [{#T}](../../iam/concepts/workload-identity.md)
+* [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md) 
 * [{#T}](../../tutorials/security/wlif-gitlab-integration.md)
 * [{#T}](../../tutorials/security/wlif-github-integration.md)

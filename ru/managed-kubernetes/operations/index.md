@@ -10,6 +10,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
 * [{#T}](apply-tf-provider.md)
+* [{#T}](apply-helm-provider.md)
 
 ## Подключение к кластеру {#cluster-connect}
 

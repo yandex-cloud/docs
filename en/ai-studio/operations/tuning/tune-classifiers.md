@@ -33,7 +33,7 @@ Create a tuning dataset:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. In the **{{ ui-key.yacloud.common.type }}** field, select the classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
+  1. In the **{{ ui-key.yacloud.common.type }}** field, select a classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
   1. Delete or add dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
@@ -44,7 +44,7 @@ Create a tuning dataset:
 
      {% include [dataset-sdk-cls](../../../_includes/ai-studio/examples/dataset-sdk-cls.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 dataset-create.py
@@ -155,13 +155,13 @@ Create a tuning dataset:
 
          {% include [sdk-auth-details-paragraph](../../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
      * `<dataset_ID>`: The new dataset's ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values range:
 
          * `binary`: Binary classification.
          * `multilabel`: Multi-label classification.
          * `multiclass`: Multi-class classification.
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 start-tuning.py
@@ -219,7 +219,7 @@ Create a tuning dataset:
      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are fine-tuning the model in.
      * `<dataset_ID>`: Dataset ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values range:
 
          * `text_classification_multilabel`: Binary classification or multi-label classification.
          * `text_classification_multiclass`: Multi-class classification.

@@ -11,9 +11,11 @@ description: '{{ sd-name }} is a CNAPP, a comprehensive platform that discovers 
 
 The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
-* **Transparent data handling**. The [{{ atr-name }}](./access-transparency.md) module allows customers to follow what {{ yandex-cloud }} engineers do with the organization's resources.
+* **Monitoring and incident response**: [{{ ycdr-full-name }}](./ycdr.md) enables monitoring and responding to {{ yandex-cloud }} infrastructure incidents. {{ ycdr-name }} is built around {{ yandex-cloud }}'s in-house Security Operations Center (SOC). The module collects data from the cloud infrastructure to detect anomalies. When {{ ycdr-name }} detects an anomaly, it creates [alerts](./alerts.md) indicating a potential incident.
 
 * **Comprehensive data protection**. The [Data Security Posture Management](./dspm.md) (DSPM) module detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks.
+
+* **Containerized application security management**: [{{ k8s }} Security Posture Management (KSPM)](./kspm.md) ensures the security of containerized applications and [images](../../container-registry/concepts/docker-image.md) they use. The KSPM module automatically checks the cloud infrastructure against corporate and industry standards, identifies all {{ k8s }} clusters and containers in the specified [workspace](./workspace.md), and deploys security components in them as defined in the configuration.
 
 * **User access management**. The [Cloud Infrastructure Entitlement Management](./ciem.md) (CIEM) module allows you to manage user [access](../../iam/concepts/access-control/index.md) to diverse corporate resources with full control over who has access to which data, and what actions are allowed with that data.
 
@@ -26,7 +28,14 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
     * Effective management of [user](../../overview/roles-and-resources.md#users) and [service account](../../iam/concepts/users/service-accounts.md) access permissions.
     * Shorter time to investigate security incidents.
 
+* **{{ yandex-cloud }} configuration management**: [Cloud Security Posture Management ({{ cspm-name }})](./cspm.md) checks the {{ yandex-cloud }} infrastructure and applications deployed within the specified [workspace](./workspace.md) for compliance with comprehensive security requirements and best practices. This module helps ensure compliance with the selected security policies and protection against common threats and vulnerabilities in the cloud.
+
+* **Transparent data handling**. The [{{ atr-name }}](./access-transparency.md) module allows customers to follow what {{ yandex-cloud }} engineers do with the organization's resources.
+
 
 Integration between modules simplifies the process of monitoring the actions of {{ yandex-cloud }} engineers and users, allowing you to quickly respond to possible security threats.
 
 Comprehensive use of modules helps reduce the risks associated with unauthorized access, data leaks, and non-compliance with regulatory requirements.
+
+{% include [sd-usage-security-disclaimer](../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
+

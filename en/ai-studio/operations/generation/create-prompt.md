@@ -5,7 +5,7 @@ description: Follow this tutorial to learn how to use {{ gpt-lite }} and {{ gpt-
 
 # Sending a request in prompt mode
 
-To generate text in [prompt mode](../../concepts/index.md#working-mode), send a request to the model using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
+To generate text in [prompt mode](../../concepts/generation/index.md#working-mode), send a request to the model using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Getting started {#before-begin}
 

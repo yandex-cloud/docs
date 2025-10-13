@@ -134,7 +134,7 @@ The notebook code connects to the model, provides it with the relevant functions
 
 1. Open the chat with your bot using the link you got [earlier](#create-bot).
 1. Click **START**.
-1. Enter your query in the message input field. Here is an example:
+1. Enter your query in the message input field. For example:
 
    ```text
    What wine pairs well with white chocolate?

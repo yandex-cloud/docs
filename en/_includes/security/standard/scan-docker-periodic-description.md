@@ -1,0 +1,3 @@
+Scheduled scanning of Docker images is an automated process that checks containerized images for vulnerabilities and compliance with security standards. Such scans are regular and automatic to ensure the consistency of image checks for vulnerabilities and maintain a high security level in the long run. Reports on completed scans provide a brief description of detected vulnerabilities and issues and help you set priorities and eliminate security risks in containerized applications.
+
+We recommend setting up a schedule for scans to be run at least once a week.

@@ -1,6 +1,6 @@
 # Disabling request logging
 
-Models log all request data by default. Disable logging if you provide personal or confidential data or any manner of sensitive information in your requests. To do this, add the `x-data-logging-enabled: false` option to the REST request header or gRPC call meta-information. The requests you submit without logging will not be saved on {{ yandex-cloud }} servers.
+Models log all request data by default. Disable logging if you provide personal or confidential data or any manner of sensitive information in your requests. To do this, add the following option to the REST request header or gRPC call meta-information: `x-data-logging-enabled: false`. Requests with logging off will not be saved on {{ yandex-cloud }} servers.
 
 To disable request logging:
 
@@ -8,9 +8,9 @@ To disable request logging:
 
 - SDK {#sdk}
 
-  When initializing a `YCloudML` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will add `x-data-logging-enabled: false` to the meta-information of each gRPC call.
+  When initializing a `YCloudML` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will be adding `x-data-logging-enabled: false` to the meta-information of each gRPC call.
 
-  Here is an example:
+  For example:
 
   ```python
   ...
@@ -37,7 +37,7 @@ To disable request logging:
 
   {% endnote %}
 
-  Add the `x-data-logging-enabled: false` header to your REST request. Here is an example:
+  Add this header to your REST request: `x-data-logging-enabled: false`. For example:
 
   ```bash
   export FOLDER_ID=<folder_ID>
@@ -58,7 +58,7 @@ To disable request logging:
   * `FOLDER_ID`: ID of the folder for which your account has the required [role](../security/index.md).
   * `IAM_TOKEN`: [IAM token](../../iam/operations/iam-token/create.md) used for authentication.
   * `@<path_to_JSON_file>`: Path to the JSON file containing a request to the model.
-  * `<model_endpoint>`: Endpoint to access the model. Here is an example:
+  * `<model_endpoint>`: Endpoint to access the model. For example:
     * `https://llm.{{ api-host }}/foundationModels/v1/completion`: For synchronous requests to [{{ yagpt-name }}](../concepts/generation/index.md).
     * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync`: For [asynchronous](generation/async-request.md) requests to {{ yagpt-name }}.
     * `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`: For [fine-tuned](../concepts/classifier/index.md#trainable) classifiers.

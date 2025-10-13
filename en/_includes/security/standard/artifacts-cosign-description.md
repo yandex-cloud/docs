@@ -1,0 +1,1 @@
+Signing artifacts enhances security to ensure your software validity, integrity, reliability, and compliance with the requirements.

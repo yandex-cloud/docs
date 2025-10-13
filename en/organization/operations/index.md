@@ -43,23 +43,32 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./setup-federation.md)
 * [{#T}](./federation-group-mapping.md)
 * [{#T}](./renew-yc-certificate.md)
+* [{#T}](./manage-domain-in-federation.md)
 
 ## Managing user pools {#manage-userpools}
 
 * [{#T}](./user-pools/create-userpool.md)
 * [{#T}](./user-pools/edit-userpool.md)
+* [{#T}](./user-pools/manage-domain.md)
+* [{#T}](./user-pools/get-list-userpools.md)
+* [{#T}](./user-pools/get-userpool.md)
 * [{#T}](./user-pools/delete-userpool.md)
 * [{#T}](./user-pools/add-user.md)
 * [{#T}](./user-pools/edit-user.md)
+* [{#T}](./user-pools/set-access-bindings-userpool.md)
 * [{#T}](./user-pools/activate-user.md)
 * [{#T}](./user-pools/deactivate-user.md)
 * [{#T}](./user-pools/reset-user-password.md)
+* [{#T}](./user-pools/get-list-users.md)
+* [{#T}](./user-pools/get-user.md)
 * [{#T}](./user-pools/delete-user.md)
 
 ## Managing domains {#manage-domains}
 
 * [{#T}](./user-pools/add-domain.md)
 * [{#T}](./user-pools/validate-domain.md)
+* [{#T}](./user-pools/list-domain.md)
+* [{#T}](./user-pools/get-domain.md)
 * [{#T}](./user-pools/delete-domain.md)
 
 ## Managing SAML applications {#manage-saml-applications}

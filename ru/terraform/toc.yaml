@@ -4,7 +4,6 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Концепции
-    expanded: false
     items:
       - name: Обзор
         href: concepts/index.md
@@ -19,7 +18,6 @@ items:
       - name: Состояния
         href: concepts/states.md
   - name: Практические руководства
-    expanded: false
     items:
       - name: Все практические руководства
         href: tutorials/index.md
@@ -34,15 +32,15 @@ items:
   - name: Библиотека решений
     href: solution-library.md
   - name: Справочник {{ TF }}
-    expanded: true
+    expanded: false
     items:
-      - name: Обзор
-        href: tf-ref/yandex-cloud/index.md
       - name: История изменений (англ.)
         href: release-notes.md
       - name: Ресурсы (англ.)
         expanded: true
         items:
+          - name: Overview
+            href: index.md
           - name: Application Load Balancer (ALB)
             items:
               - name: Data Sources

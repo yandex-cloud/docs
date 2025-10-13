@@ -12,7 +12,7 @@ messages_1 = [
     },
     {
         "role": "user",
-        "text": """Laminate flooring is sutiable for instalation in the kitchen or in a child's 
+        "text": """Laminate flooring is sutiable for instalation in the kitchen or in a child's room 
 room. It withsatnds moisturre and mechanical dammage thanks to 
 a 0.2 mm thick proctive layer of melamine films and 
 a wax-treated interlocking system.""",

@@ -33,7 +33,7 @@ items:
         href: concepts/services.md
       - name: Release stages
         href: concepts/launch-stages.md
-      - name: Observability (monitoring and logging) tools
+      - name: Observability tools for monitoring and logging
         href: concepts/monitoring-logging-tools.md
       - name: SLA
         href: sla.md

@@ -2,6 +2,16 @@
 
 ### Changes in version {{ security-standard-current-version }} {#current-version}
 
+Publication date: 22/09/2025.
+
+Each item of the standard got a unique ID and criticality level:
+   * High: The violation may lead to serious consequences.
+   * Medium: The violation creates moderate risks, may weaken protection, or complicate incident investigation.
+   * Low: The violation has minimal effect on security.
+   * Informational: Notifications on events that do not represent security violations but may be important in the general context.
+
+### Changes in version 1.4.1 {#version-1-4-1}
+
 Publication date: 16/06/2025.
 
 * **Updated the following items**:
@@ -37,7 +47,7 @@ Publication date: 08/04/24.
     * 3.46 Authorization in the API gateway is configured.
     * 3.47 Authorization context is used.
     * 3.48 Logging is on.
-    * 5.9 {{ sd-name }} {{ atr-name }} is on for inspection of {{ yandex-cloud }} employees actions with your infrastructure.
+    * 5.9 {{ sd-name }} {{ atr-name }} is on for inspection of {{ yandex-cloud }} employees’ actions with your infrastructure.
     * 6.2 When creating a registry in {{ container-registry-full-name }}, keep the safe registry settings by default.
     * 6.14 Trusted and unwanted IP addresses are grouped into lists.
 
@@ -165,7 +175,7 @@ Publication date: 25/09/23.
 * **Updated the following items:**
     * 1.4, 1.14: Added recommendations for using the `{{ roles-auditor }}` role.
     * 1.9: Added recommendations for placing critical service accounts in separate folders.
-    * 1.12: Added `{{ roles-editor }}` to the list of privileged roles assigned at the organization, cloud, and folder levels.
+    * 1.12: Added `{{ roles-editor }}` to the list of privileged roles for the organization, cloud, and folder levels.
     * 4.7: Added a guide on how to encrypt data in {{ mpg-full-name }} and {{ mgp-full-name }} using `pgcrypto` and {{ kms-short-name }}.
     * 4.14: Added recommendations for using {{ lockbox-full-name }} in {{ TF }} without writing the information to `.tfstate`.
 

@@ -1,6 +1,6 @@
 ---
 title: Domains in {{ org-full-name }}
-description: In {{ org-full-name }}, you can associate your domains with user pools. Domains enable users to get authenticated as local users.
+description: In {{ org-full-name }}, you can associate your domains with user pools and federations. Domains enable users to get authenticated as local users.
 ---
 
 # Domains
@@ -8,11 +8,11 @@ description: In {{ org-full-name }}, you can associate your domains with user po
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-In {{ org-full-name }}, you can associate your domains with [user pools](user-pools.md). The domain identifies the user container, e.g., a pool or federation, and the users within it. Such users have names in `<username>@<domain>` format.
+In {{ org-full-name }}, you can [associate](../operations/user-pools/add-domain.md) your domains with [user pools](user-pools.md) or [identity federations](add-federation.md). The domain identifies the user container, e.g., a pool or federation, and the users within it. Such users have names in `<username>@<domain>` format.
 
-Each user pool has one default domain and supports [associating](../operations/user-pools/add-domain.md) additional ones. You can only associate each domain with one user pool or federation.
+You can only associate each domain with one user pool or federation.
 
-To use a domain in a user pool, first, [verify](../operations/user-pools/validate-domain.md) domain ownership with a DNS record.
+To use a domain in a user pool or federation, domain ownership must be [verified](../operations/user-pools/validate-domain.md) via a DNS record.
 
 ## Login Discovery {#login-discovery}
 
@@ -27,5 +27,5 @@ The domain a user specifies must match the domain registered in the user pool, f
 
 #### See also {#see-also}
 
-* [{#T}](../operations/user-pools/add-domain.md)
-* [{#T}](../operations/user-pools/validate-domain.md)
+* [{#T}](../operations/user-pools/manage-domain.md)
+* [{#T}](../operations/manage-domain-in-federation.md)

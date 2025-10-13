@@ -25,7 +25,7 @@ grpcurl \
 
 ### Text generation requests {#text-requests}
 
-Datasets with only the texts of requests in them can be used to run text generation models in [batch mode](../index.md#working-mode). Each line contains a separate JSON request to initiate text generation. A request can contain either a single message with the `user` role or a dialog with the `user` and `assistant` roles and, optionally, also an instruction for the model:
+Datasets with only the texts of requests in them can be used to run text generation models in [batch mode](../generation/index.md#working-mode). Each line contains a separate JSON request to initiate text generation. A request can contain either a single message with the `user` role or a dialog with the `user` and `assistant` roles and, optionally, also an instruction for the model:
 
 ```json
 {"request": [{"role": "user", "text": "<Question>"}]}
@@ -39,7 +39,7 @@ Datasets with questions and answers are used to fine-tune models. The response i
 
 ```json
 {"request": [{"role": "user", "text": "<Question>"}], "response": "<Response>"}
-{"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Question>"}], "response": "<Answer>"}
+{"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Question>"}], "response": "<Response>"}
 {"request": [{"role": "system", "text": "<instruction>"}, {"role": "user", "text": "<Replica_1>"}, {"role": "assistant", "text": "<Replica_2>"}, {"role": "user", "text": "<Replica_3>"}, {"role": "assistant", "text": "<Replica_4>"}], "response": "<Response>"}
 ```
 
@@ -149,7 +149,7 @@ Request datasets for vision language models contain request texts and Base64-enc
 Response datasets for vision language models contain request texts, Base64-encoded images, and a generated response for each request. Each line contains a separate example in JSON format.
 
 ```json
-{"request": [{"role": "user", "content": [{"type": "text", "text": "Question"}, { "type": "image", "image": "Base64 image code"}]}], "response": "this is a picture of a robot"}
+{"request": [{"role": "user", "content": [{"type": "text", "text": "Question"}, {"type": "image", "image": "Base64 image code"}]}], "response": "this is a picture of a robot"}
 ```
 
 #### Use cases {#examples}

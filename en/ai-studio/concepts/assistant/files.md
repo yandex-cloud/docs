@@ -39,7 +39,7 @@ All uploaded files and search indexes are subject to expiration. When uploading 
 
 {% endnote %}
 
-When you create a search index, you define the [type of search](./search-index.md#search-types) it will support. [Full-text](./search-index.md#text-search), [vector](./search-index.md#vector-search), and [hybrid](./search-index.md#hybrid-search) search types are supported. Indexing may take from a few seconds to several hours depending on the file type and size as well as service load. The files are indexed [asynchronously](../index.md#working-mode). The response to the request to create a serach index includes the [operation](../../../api-design-guide/concepts/async.md) ID. You can use it to find out when the search index will be ready.
+When you create a search index, you define the [type of search](./search-index.md#search-types) it will support. [Full-text](./search-index.md#text-search), [vector](./search-index.md#vector-search), and [hybrid](./search-index.md#hybrid-search) search types are supported. Indexing may take from a few seconds to several hours depending on the file type and size as well as service load. The files are indexed [asynchronously](../generation/index.md#working-mode). The response to the request to create a serach index includes the [operation](../../../api-design-guide/concepts/async.md) ID. You can use it to find out when the search index will be ready.
 
 Once a search index is created, you can configure an assistant to utilize it. In this case, the model will consider the contents of that search index and will primarily use information from it to generate responses.
 

@@ -178,6 +178,8 @@ To connect a security profile to a virtual host:
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
 
+{% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
+
 ## Connecting to a domain {#domain}
 
 {% list tabs group=instructions %}

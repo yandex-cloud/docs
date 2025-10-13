@@ -11,7 +11,12 @@ description: In this tutorial, you will learn about reports in {{ datalens-full-
 
 A _report_ is a multi-page document in a specified format you can use as an interactive presentation or export to PDF and print. You can add [charts](../concepts/chart/index.md), [text blocks](../dashboard/widget.md#text), [headers](../dashboard/widget.md#title), and images to report pages.
 
-To see a report example, deploy the [demo dashboard](https://datalens.ru/marketplace/f2eui5ar8omalpcg1j3r) from {{ datalens-short-name }} {{ marketplace-short-name }}. You will see the report example in the expanded notebook. Join [our Telegram community](https://t.me/YandexDataLens/113821/117093) to explore more reports.
+To view a report example, deploy the [DataLens demo dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from {{ datalens-gallery }}:
+1. Click **Use** → **Deploy**.
+1. Select the location to save the workbook to: workbook root, existing collection, or new collection. Navigate to the saving location and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Click **Create**. You will see the report example in the created workbook.
+
+Join [our Telegram community](https://t.me/YandexDataLens/113821/117093) to explore more reports.
 
 ![report-page](../../_assets/datalens/report/demo_report.png)
 

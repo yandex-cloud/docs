@@ -1,20 +1,32 @@
-title: '{{ foundation-models-full-name }}'
+title: '{{ ai-studio-full-name }}'
 description:
   - >-
-    {{ foundation-models-full-name }} provides large generative models for
-    businesses. Yandex Cloud offers YandexGPT Lite, YandexGPT, and YandexART for
-    your business apps and web services. {{ foundation-models-full-name }} will
-    help you boost your business with machine learning.
+    {{ yandex-cloud }} presents the AI agent development platform called {{
+    ai-studio-full-name }} that brings everything you need to create and operate
+    AI-based solutions.
   - >-
-    For terms of use, see the <a href
-    ="https://yandex.com/legal/cloud_terms_yandex_foundation_models">{{
-    foundation-models-full-name }} Terms of Use</a>.
+    Model Gallery provides access to large generative models for business. With
+    Model Gallery, you can use Yandex's YandexGPT Lite, YandexGPT Pro, and
+    YandexART models, as well as the best open-source models out there, and
+    fine-tune models to better answer your needs.
+  - >-
+    Agent Atelier is an AI agent development environment based on an {{ openai
+    }}-compatible API or low-code tools. With its ready-made tools, you can
+    create effective AI agents capable of dialog and concerted action with
+    corporate systems.
+  - >-
+    MCP Hub allows you to build and connect MCP servers for agents to be able to
+    use external tools and become truly efficient in helping you with your work.
+  - >-
+    For terms of use, see the <a
+    href="https://yandex.com/legal/cloud_terms_yandex_foundation_models">{{
+    ai-studio-full-name }}</a> Terms of Use.
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
-    service level is set out in the <a
+    service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_yandex_foundation_models/">{{
-    foundation-models-full-name }} Service Level</a>.
+    ai-studio-full-name }}</a> Service Level.
 links:
   - title: Getting started with {{ yagpt-name }}
     description: Send your first request to {{ yagpt-name }}
@@ -23,32 +35,29 @@ links:
     description: Generate your first image with {{ yandexart-name }}
     href: quickstart/yandexart
   - title: Concepts
-    description: Read about basic concepts
+    description: Read about the basic features
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: API references
-    description: Learn about authorization when working with API
-    href: api-ref/authentication
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
 meta:
-  title: '{{ foundation-models-full-name }}'
+  title: '{{ ai-studio-full-name }}'
   description: >-
-    {{ foundation-models-full-name }} provides large generative models for
-    businesses. Yandex Cloud allows you to use neural networks that enable
-    leveraging generative models in your business apps and web services. {{
-    foundation-models-full-name }} will help you boost your business with
-    machine learning.
+    {{ ai-studio-full-name }} offers large generative models for business.
+    Yandex Cloud provides access to neural networks enabling you to leverage
+    generative models in your business apps and web services. {{
+    ai-studio-full-name }} will benefit anyone looking to boost their business
+    with the help of machine learning technology.
   keywords:
-    - '{{ foundation-models-full-name }}'
-    - '{{ foundation-models-name }}'
-    - '{{ foundation-models-name }}'
+    - '{{ ai-studio-full-name }}'
+    - '{{ ai-studio-name }}'
+    - '{{ ai-studio-name }}'
     - generative models for business
     - neural networks in {{ yandex-cloud }}
     - prompting guide

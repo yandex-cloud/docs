@@ -121,8 +121,10 @@ items:
             href: tutorials/wlif-github-integration.md
           - name: '{{ GL }}'
             href: tutorials/wlif-gitlab-integration.md
-          - name: '{{ k8s }}'
+          - name: Custom installation {{ k8s }}
             href: tutorials/wlif-k8s-integration.md
+          - name: '{{ managed-k8s-name }}'
+            href: tutorials/wlif-managed-k8s-integration.md
       - name: Configuring CI/CD between {{ sf-name }} and GitHub
         href: tutorials/ci-cd-github-functions.md
   - name: Concepts

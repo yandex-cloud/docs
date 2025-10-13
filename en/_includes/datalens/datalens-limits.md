@@ -31,7 +31,9 @@ Maximum number of {{ datalens-short-name }} instances per organization. | 1
 Maximum size of imported CSV file | 200 MB
 Maximum number of tables in a single dataset | 32
 Maximum number of fields in a single dataset | 1200
-Maximum chart export size | 50 MB
+Maximum data size for direct chart export | 50 MB
+Maximum data size for background chart export | 1 GB
+Maximum number of rows for background chart export | 1,000,000 rows
 
 
 #### Chart data limits {#datalens-chart-data-limits}

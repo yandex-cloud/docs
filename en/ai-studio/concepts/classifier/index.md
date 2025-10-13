@@ -7,7 +7,7 @@ There are three types of classification available in {{ foundation-models-name }
 * _Multi-class_ classification puts a request into one (and only one) of more than two classes. For example, a computer CPU can belong to one generation only.
 * _Multi-label_ classification allows you to assign a request to multiple different non-mutually exclusive classes at the same time. For example, a single social media post may have multiple [hashtags](https://en.wikipedia.org/wiki/Hashtag) at the same time.
 
-Classification models are only available in [synchronous mode](../index.md#working-mode).
+Classification models are only available in [synchronous mode](../generation/index.md#working-mode).
 
 {{ foundation-models-name }} provides two types of classifiers: 
 * [Prompt-based](#readymade) classifier built on {{ gpt-lite }} and {{ gpt-pro }}: Binary and multi-class classifications are available.

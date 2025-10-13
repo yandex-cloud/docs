@@ -1,6 +1,6 @@
 # Getting started with {{ gpt-lite }} and {{ gpt-pro }}
 
-In this section, you will learn how to use the {{ yagpt-name }} model to generate texts in [synchronous mode](../concepts/index.md#working-mode) without adding any context. For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api)
+In this section, you will learn how to use the {{ yagpt-name }} model to generate texts in [synchronous mode](../concepts/generation/index.md#working-mode) without adding any context. For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
 
 For information about the {{ foundation-models-full-name }} pricing, see [{#T}](../pricing.md).
 
@@ -59,7 +59,7 @@ To get started in {{ yandex-cloud }}:
 
      ![screen01](../../_assets/ai-studio/quickstart/yandexgpt/screen01.png)
 
-  1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` for the model's response variability. With a higher value, you get a less deterministic result.
+  1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` for the model's response variability: the higher the value, the less predictable will be the result.
   1. Describe the request context under **{{ ui-key.yacloud.yagpt.label_instruction-text }}**.
   1. Enter your prompt to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
   1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The response will appear on the right side of the screen.

@@ -26,7 +26,7 @@ description: Управление доступом в сервисе идент�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/iam/security/service-roles-hierarchy.svg)
+{% include [iam](../../_mermaid/roles/iam.md) %}
 
 ### Сервисные роли {#service-roles}
 

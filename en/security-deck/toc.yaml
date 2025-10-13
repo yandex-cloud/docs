@@ -10,45 +10,77 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: '{{ sd-name }} workspaces'
+        items:
+          - name: Creating a workspace
+            href: operations/workspaces/create.md
+          - name: Viewing the workspace dashboard and operations
+            href: operations/workspaces/view-dashboard.md
+          - name: Updating a workspace
+            href: operations/workspaces/update.md
+          - name: Configuring workspace access permissions
+            href: operations/workspaces/manage-access.md
+          - name: Deleting a workspace
+            href: operations/workspaces/delete.md
       - name: Data Security Posture Management ({{ dspm-name }})
         items:
           - name: Creating a data source
             href: operations/dspm/create-data-source.md
           - name: Creating a scan
             href: operations/dspm/create-scan.md
+      - name: '{{ k8s }}® Security Posture Management (KSPM)'
+        href: operations/kspm.md
       - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
         items:
           - name: Viewing a list of access permissions
             href: operations/ciem/view-permissions.md
           - name: Revoking an access permission
             href: operations/ciem/revoke-permissions.md
+      - name: Cloud Security Posture Management ({{ cspm-name }})
+        items:
+          - name: View control and violation rules
+            href: operations/cspm/view-rules.md
+          - name: Managing exceptions to control rules
+            href: operations/cspm/manage-exceptions.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
-      - name: '{{ atr-name }}'
-        href: concepts/access-transparency.md
-      - name: Data Security Posture Management ({{ dspm-name }})
-        href: concepts/dspm.md
-      - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
-        href: concepts/ciem.md
+      - name: '{{ sd-name }} workspaces'
+        href: concepts/workspace.md
       - name: '{{ alerts-name }} in {{ sd-name }}'
         href: concepts/alerts.md
       - name: '{{ ycdr-full-name }} ({{ ycdr-name }})'
         href: concepts/ycdr.md
+      - name: Data Security Posture Management ({{ dspm-name }})
+        href: concepts/dspm.md
+      - name: '{{ k8s }}® Security Posture Management (KSPM)'
+        href: concepts/kspm.md
+      - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
+        href: concepts/ciem.md
+      - name: Cloud Security Posture Management ({{ cspm-name }})
+        href: concepts/cspm.md
+      - name: '{{ atr-name }}'
+        href: concepts/access-transparency.md
+      - name: AI assistant
+        href: concepts/ai-assistant.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
     items:
       - name: Common {{ sd-name }} roles
         href: security/index.md
-      - name: '{{ atr-name }} roles'
-        href: security/access-transparency-roles.md
-      - name: '{{ dspm-name }} roles'
-        href: security/dspm-roles.md
-      - name: '{{ ciem-name }} roles'
-        href: security/ciem-roles.md
       - name: '{{ ycdr-name }} roles'
         href: security/ycdr-roles.md
+      - name: '{{ dspm-name }} roles'
+        href: security/dspm-roles.md
+      - name: KSPM roles
+        href: security/kspm-roles.md
+      - name: '{{ ciem-name }} roles'
+        href: security/ciem-roles.md
+      - name: '{{ cspm-name }} roles'
+        href: security/cspm-roles.md
+      - name: '{{ atr-name }} roles'
+        href: security/access-transparency-roles.md
   - name: Pricing policy
     href: pricing.md

@@ -62,14 +62,14 @@ You can add, rename, and delete files in the connection.
 
 If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
 
-To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, e.g., `unavailable`, `none`, `unknown`.
+To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values: `unavailable`, `none`, or `unknown`.
 
 To quickly populate empty cells in a Google Sheets spreadsheet:
 1\. Highlight the entire Google Sheets sheet.
 2\. In the spreadsheet menu, select **Data** → **Create a filter**.
 3\. In the right-hand corner of the first column's top cell, click the filter icon.
 4\. Select **Clear** and then select **(Blanks)**.
-5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other.
+5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other value.
 6\. Drag the cell down to fill all the empty cells in the column with the entered value.
 7\. Click the filter icon again and click **Select all**.
 8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
@@ -82,6 +82,9 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 {% endcut %}
 
+## Additional settings {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
 ## Limitations {#restrictions}
 

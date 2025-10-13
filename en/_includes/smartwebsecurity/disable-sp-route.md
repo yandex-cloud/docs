@@ -1,0 +1,3 @@
+The security profile is assigned to a particular virtual host of the L7 load balancer, with all incoming host traffic analyzed. If analysis of traffic to certain host routes is not required, disable the security profile for those routes. You can do this by using the `--disable-security-profile` setting (`disableSecurityProfile`) when [adding](../../application-load-balancer/operations/http-router-update.md#add-virtual-host) or updating a route via the CLI, API, or {{ TF }}.
+
+When adding routes, consider their order: a request will follow the first route with a matching predicate, so place the most specific routes first.
