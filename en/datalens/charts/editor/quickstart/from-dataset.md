@@ -20,11 +20,14 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 ## Deploy a demo workbook {#create-template}
 
 
-1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.ru/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+1. In {{ datalens-gallery }}, open the work named [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
+1. Click **Use** → **Deploy**.
+1. Select the location to save the workbook to: workbook root, existing collection, or new collection. Navigate to the saving location and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Click **Create**.
 
 
 
-1. Go to the workbook you deployed and find a dataset named `00: Sales` on the **Datasets** tab.
+1. Navigate to the new workbook and, on the **Datasets** tab, find a dataset named `00: Sales`.
 
 1. Copy the dataset ID by clicking ![](../../../../_assets/console-icons/ellipsis.svg) → **Copy ID** next to it. The ID will be copied to the clipboard.
 
@@ -32,7 +35,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 1. In the workbook, click **Create** → **Chart in Editor** in the top-right corner. On the page that opens, select the **Table** visualization type.
 
-1. Link the chart with the dataset by navigating to the **Meta** tab and adding the connection ID to `links`:
+1. Link the chart with the dataset by navigating to the **Meta** tab and adding the dataset ID to `links`:
 
    ```javascript
    {
@@ -48,7 +51,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
    {% note info %}
    
-   You need the **Meta** tab to describe service information about the list of related entities. This information is used to detect what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
+   You need the **Meta** tab to describe service information about the list of related entities. This information is used to figure out what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
 
    {% endnote %}
 

@@ -15,6 +15,7 @@ In this section, you will learn how to work with a dataset:
 * [Performing operations with fields](#field-operations)
 * [Adding parameters](#add-parameters)
 * [Adding filters](#add-filters)
+* [Disabling data export](#data-export-disable)
 * [Configuring access](#access)
 * [Deleting a dataset](#delete)
 
@@ -97,7 +98,7 @@ You can use SQL queries for database sources only.
      1. Enter a **Source name** and enter the SQL code in the **Subquery** field.
      1. Click **Create**.
 
-        {% cut "Example of SQL query" %}
+        {% cut "Example of an SQL query" %}
 
         {% include [datalens-sql-join-example](../../_includes/datalens/datalens-sql-join-example.md) %}
 
@@ -224,7 +225,7 @@ You can perform the following operations on dataset fields:
 1. Change the source: If the table schema in the source has changed, you can select a new field from the source to match the dataset field.
 1. Change the field data type: [Data type](./data-types.md) determines how to process data and which [functions](../function-ref/all.md) can apply to the field. To change the data type, click the current type and select a new one from the list of available types.
 1. Select an aggregation type: Aggregation type determines the [aggregation function](./data-model.md#aggregation) to apply to the field. To change the aggregation type, click the current type and select a new one from the list of available aggregation types.
-1. Configure access permissions: You can restrict access to field values for different users or user groups. To do this, click ![icon](../../_assets/console-icons/key.svg) and set the access configuration in `'field_value': user_email` format. For more information, see [{#T}](../security/row-level-security.md).
+1. Configure access permissions: You can restrict access to field values for different users or user groups. To do this, click ![icon](../../_assets/console-icons/key.svg) and set an access configuration in `'field_value': user_email` format. For more information, see [{#T}](../security/row-level-security.md).
 1. Sort fields: You can sort fields by name, data type, aggregation type, and other parameters. To do this, use the sorting buttons at the top of the **Fields** table.
 1. Add a description: You can add a comment to a field in the **Description** column. This can help other users understand what the field is used for or how it is calculated.
 1. Hide fields: You can hide fields you do not need at the moment. Other users will not see these fields in the wizard when creating a chart. To do this, click ![icon](../../_assets/console-icons/eye-slash.svg).
@@ -309,8 +310,8 @@ Parameters added at the dataset level are available in all charts created based 
    * **Default value**. This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
 
    
-   * **Allow use in source settings**. Enable this option if you plan to use the parameter when accessing the [dataset source](./parametrization.md).
-   * **Value validation**. This setting will be available if you enable the **Allow use in source settings** option. The default value vallidation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
+   * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
+   * **Value validation**. This setting will be available if you enable **Allow use in source settings**. The default value validation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
 
 
 1. Click **Add**.
@@ -338,6 +339,13 @@ Default filters are not applied to data in the dataset preview area.
 {% endnote %}
 
 
+## Disabling data export {#data-export-disable}
+
+To disable data export from charts based on a specific dataset, click ![image](../../_assets/console-icons/gear.svg) in the upper right corner of the dataset and uncheck **Allow data export**.
+
+Charts based on this dataset will no longer display the data export option in their ![icon](../../_assets/console-icons/ellipsis.svg) menu, and users will be unable to export data from those charts. However, users will still be able to copy data from the charts and take screenshots.
+
+To enable data export, click ![image](../../_assets/console-icons/gear.svg) in the upper right corner of the dataset and check **Allow data export**.
 
 ## Configuring access {#access}
 

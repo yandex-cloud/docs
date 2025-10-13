@@ -1,11 +1,11 @@
 ---
-title: VectorStore in {{ assistant-api }}
-description: This section describes VectorStore, a {{ assistant-api }} tool which enables you to create personalized assistants capable of generating responses based on information retrieved from search indexes.
+title: Retrieval in {{ assistant-api }}
+description: This section describes Retrieval, an {{ assistant-api }} tool which enables you to create personalized assistants capable of generating responses based on information retrieved from search indexes.
 ---
 
-# VectorStore
+# Retrieval
 
-VectorStore enables an AI assistant to search your own files, i.e., a knowledge base, for information to use in a response. Together with VectorStore, you can use a tailored [paraphrase model](../rephraser.md), which rephrases user queries to improve search quality.
+Retrieval enables an AI assistant to search your own files, i.e., a knowledge base, for information to use in a response. Together with Retrieval, you can use a tailored [paraphrase model](../rephraser.md), which rephrases user queries to improve search quality.
 
 To enable your AI assistant to use your knowledge base:
 
@@ -17,15 +17,15 @@ To enable your AI assistant to use your knowledge base:
 
 {% include [rag-default-strategy-paragraph](../../../../_includes/ai-studio/assistants/rag-default-strategy-paragraph.md) %}
 
-AI assistants do not always need to use a search index to respond to a user’s query: the general information available to the model is often enough to answer most questions. When setting up your assistant, you can define a _strategy for accessing VectorStore_ so that the assistant’s model would decide on its own when it should search for information in the index.
+AI assistants do not always need to use a search index to respond to a user’s query: the general information available to the model is often enough to answer most questions. When setting up your assistant, you can define a _strategy for accessing Retrieval_ so that the assistant’s model would decide on its own when it should search for information in the index.
 
-To enable your AI assistant to use VectorStore according to an access strategy, do the following:
+To enable your AI assistant to use Retrieval according to an access strategy, do the following:
 
 {% list tabs group=programming_language %}
 
 - SDK {#sdk}
 
-  In [{{ ml-sdk-name }}](../../../sdk/index.md), provide search index access instructions to the model in the `call_strategy` parameter when creating the VectorStore tool. Then, when creating your AI assistant, provide the resulting object with VectorStore in the `tools` parameter.
+  In [{{ ml-sdk-name }}](../../../sdk/index.md), provide search index access instructions to the model in the `call_strategy` parameter when creating the Retrieval tool. Then, when creating your AI assistant, provide the resulting object with Retrieval in the `tools` parameter.
 
   ```python
   ...
@@ -77,10 +77,10 @@ To enable your AI assistant to use VectorStore according to an access strategy, 
 
 {% endlist %}
 
-Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. Here is an example:
+Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. For example:
 
 ```json
-"instruction": "Search through the knowledge base only when the user specifically asks you to do so."
+"instruction": "Search through the knowledge base only if the user has specifically asked you to do so."
 ```
 
 #### See also {#see-also}

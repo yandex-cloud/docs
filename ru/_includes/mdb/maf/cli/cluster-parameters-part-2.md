@@ -1,9 +1,9 @@
 * `--security-group-ids` — список идентификаторов [групп безопасности](../../../../managed-airflow/concepts/network.md#security-groups).
-* `--webserver`, `--scheduler`, `--worker`, `--triggerer` — конфигурация [компонентов](../../../../managed-airflow/concepts/index.md#components) {{ maf-name }}:
+* `--webserver`, `--scheduler`, `--worker`, `--triggerer`, `--dag-processor` — конфигурация [компонентов](../../../../managed-airflow/concepts/index.md#components) {{ maf-name }}:
 
-    * `count` — количество экземпляров в кластере для веб-сервера, планировщика и Triggerer.
+    * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
     * `min-count`, `max-count` — минимальное и максимальное количество экземпляров в кластере для воркера.
-    * `resource-preset-id` — [идентификатор вычислительных ресурсов](../../../../managed-airflow/concepts/index.md#presets) веб-сервера, планировщика, воркера и службы Triggerer. Возможные значения:
+    * `resource-preset-id` — [идентификатор вычислительных ресурсов](../../../../managed-airflow/concepts/index.md#presets) веб-сервера, планировщика, DAG-процессора, воркера и службы Triggerer. Возможные значения:
 
         * `c1-m2` — 1 vCPU, 2 ГБ RAM.
         * `c1-m4` — 1 vCPU, 4 ГБ RAM.
@@ -13,7 +13,8 @@
         * `c4-m16` — 4 vCPU, 16 ГБ RAM.
         * `c8-m16` — 8 vCPU, 16 ГБ RAM.
         * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-    
+
+    {% include notitle [dag-processor](../dag-processor.md) %}
 
 * `--deb-packages`, `--pip-packages` — списки deb- и pip-пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
 

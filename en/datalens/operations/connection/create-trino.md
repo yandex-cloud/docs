@@ -102,3 +102,7 @@ You can specify additional connection settings in the **Advanced connection sett
   ![image](../../../_assets/datalens/operations/connection/connection-trino-yc-manwal-additional.png)
 
 {% endlist %}
+
+## Connecting an external database {#external-db-connection}
+
+{% include [connection-external](../../../_includes/datalens/datalens-connection-external.md) %}

@@ -61,6 +61,8 @@ items:
             href: operations/applications/gitlab-agent.md
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
+          - name: Installing Gwin
+            href: alb-ref/gwin-quickstart.md
           - name: Installing HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Installing Ingress NGINX
@@ -73,6 +75,8 @@ items:
             href: operations/applications/istio.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
+          - name: Installing KEDA
+            href: operations/applications/keda.md
           - name: Installing Kruise
             href: operations/applications/kruise.md
           - name: Installing Kyverno & Kyverno Policies
@@ -160,7 +164,7 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
-      - name: Connecting external nodes to the cluster
+      - name: Connecting external nodes to a cluster
         href: operations/external-nodes-connect.md
       - name: Configuring WireGuard gateways to connect external nodes to a cluster
         href: operations/external-nodes-connect-wireguard.md
@@ -194,6 +198,10 @@ items:
           Creating a {{ k8s }} cluster using the {{ yandex-cloud }} provider for
           the {{ k8s }} Cluster API
         href: tutorials/k8s-cluster-api-provider-yandex.md
+      - name: >-
+          Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }}
+          cluster using a workload identity federation
+        href: tutorials/wlif-managed-k8s-integration.md
       - name: Setting up and testing scaling
         items:
           - name: Horizontal application scaling in a cluster
@@ -660,6 +668,42 @@ items:
     items:
       - name: Overview
         href: alb-ref/index.md
+      - name: Gwin
+        items:
+          - name: Overview
+            href: alb-ref/gwin-index.md
+          - name: Gwin policies
+            href: alb-ref/gwin-policies.md
+          - name: Installing Gwin
+            href: alb-ref/gwin-quickstart.md
+          - name: Resource configuration
+            items:
+              - name: Gateway
+                href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
+              - name: GRPCRoute
+                href: gwin-ref/grpcroute.md
+              - name: HTTPRoute
+                href: gwin-ref/httproute.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
+              - name: IngressPolicy
+                href: gwin-ref/ingresspolicy.md
+              - name: RoutePolicy
+                href: gwin-ref/routepolicy.md
+              - name: Service
+                href: gwin-ref/service.md
+              - name: ServicePolicy
+                href: gwin-ref/servicepolicy.md
+              - name: TLSRoute
+                href: gwin-ref/tlsroute.md
+              - name: YCCertificate
+                href: gwin-ref/yccertificate.md
+              - name: YCStorageBucket
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress controller
         items:
           - name: Ingress

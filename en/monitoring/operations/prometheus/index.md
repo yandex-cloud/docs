@@ -19,7 +19,7 @@ description: '{{ managed-prometheus-full-name }} is a monitoring system compatib
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
 1. Click **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
 1. On the page that opens, you will see links to endpoints.
-
+   
    Use these endpoints to configure [writing](ingestion/index.md) and [reading](querying/index.md) the workspace metrics in {{ prometheus-name }} format.
 
 ## Feature comparison {#features}
@@ -60,7 +60,7 @@ If you need more resources, contact support at [{{ link-support-mail }}](mailto:
 
 ### Quotas per endpoint {#quotas-per-endpoint}
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 Maximum data write speed in [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) format | 1,000 requests/s and 80 MB/s
 Number of metrics per write request | 10,000
@@ -78,8 +78,14 @@ Here is what you can do in **{{ ui-key.yacloud_monitoring.aside-navigation.menu-
 
 ### Limits per endpoint {#limits-per-endpoint}
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 Number of unique labels per metric | 29
+
+The data is transferred as a time series defined by its metric and labels. In {{ managed-prometheus-name }}, one metric may contain up to 29 unique labels (including `name`), i.e., up to 28 custom labels. 
+
+There are no restrictions on the number of metric values; it is only limited by the basic {{ monitoring-name }} [quota](../../concepts/limits.md), i.e., the number of metrics per service in the folder. Each new combination of values is a new metric. For example, `http_server_requests_seconds_count{uri="…"}` may have many `uri` values, each creating a new time series and consuming the quota.
+
+Once the quota is depleted, attempts to write to the new time series will fail with an error. Previously written data is not deleted. The quota limits the number of time series but not amount of data. The data will be deleted only if there are no records during the [TTL](../../concepts/ttl.md), so you will be able to create new time series after you free up or increase your quota.
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

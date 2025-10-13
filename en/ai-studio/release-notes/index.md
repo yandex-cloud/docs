@@ -5,6 +5,20 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 24/09/2025 {#240925}
+
+Yandex Foundation Models has evolved into {{ ai-studio-full-name }}, a full-value generative model and AI agent platform. There are some further updates:
+* Our voice assistants and the Realtime API you need to use them are now available at the Preview stage.  
+* {{ mcp-hub-name }} is now available from the management console. The feature is at the Preview stage.
+* Extended compatibility with the {{ openai }} API. Added support for the Responses API, Realtime API, and Vector Store API.
+* {{ agents-atelier-name }}, the agent constructor, is now available from the management console.
+* Added the option to manage Vector Store search indexes and search files from the management console.
+* The AI agents with the main tools for the Responses API and Vector Store API have now entered the General Availability stage. The {{ assistant-api }} is still there but will not be developed further. Use the Responses API for your new projects.
+
+## Release as of 19/09/2025 {#190925}
+
+In the management console, users without a billing account will no longer enjoy free requests to {{ yagpt-name }} and {{ yandexart-name }}. 
+
 ## Release as of 16/09/2025 {#160925}
 
 Added the ability to deploy some models on [dedicated instances](../concepts/generation/dedicated-instance.md).
@@ -42,7 +56,7 @@ New text models of the Qwen3 family are now available in batch mode.
 
 Vision language models are now available in {{ foundation-models-name }}.
 
-Added [batch mode](../concepts/index.md#working-mode) for working with models: now you can process large amounts of data with a single request. The batch mode is supported for [text generation models](../concepts/generation/models.md#batch) and vision language models. Added new types of [datasets](../concepts/resources/dataset.md) to use in batch mode.
+Added the [batch mode](../concepts/generation/index.md#working-mode) for models: now you can process large amounts of data with a single request. The batch mode is supported for [text generation models](../concepts/generation/models.md#batch) and vision language models. Added new types of [datasets](../concepts/resources/dataset.md) to use in batch mode.
 
 ## Release as of 31/03/2025 {#310325}
 
@@ -51,7 +65,7 @@ Added [batch mode](../concepts/index.md#working-mode) for working with models: n
 
 ## Release as of 19/03/2025 {#190325}
 
-Increased some limits for {{ assistant-api }}: now you can add up to 10,000 documents with the total size of 5 million tokens to a search index. You can upload up to 100 documents at a time. Also, increased the maximum number of threads to 10,000 and maximum number of messages per thread to 100,000. For a complete list of limits, see [{#T}](../concepts/limits.md).
+Increased some limits for {{ assistant-api }}: now you can add up to 10,000 documents with the total size of up to 5 million tokens to a search index. You can upload up to 100 documents at a time. Also, increased the maximum number of threads to 10,000 and maximum number of messages per thread to 100,000. For a complete list of limits, see [{#T}](../concepts/limits.md).
 
 ## Release as of 25/02/2025 {#250225}
 

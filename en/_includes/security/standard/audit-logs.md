@@ -23,11 +23,11 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For information on how to start collecting logs, see [this guide](../../../audit-trails/quickstart.md).
 
-{{ at-name }} audit logs may contain two types of events: [management events](../../../audit-trails/concepts/events.md) and [data events](../../../audit-trails/concepts/events-data-plane.md).
+{{ at-name }} events may be of two types: [management events](../../../audit-trails/concepts/events.md) and [data events](../../../audit-trails/concepts/events-data-plane.md).
 
 [Management events](../../../audit-trails/concepts/format.md) are actions you take to configure {{ yandex-cloud }} resources, such as creating, updating, or deleting infrastructure components, users, or policies. [Data events](../../../audit-trails/concepts/format-data-plane.md) are updates and actions performed on data and resources within {{ yandex-cloud }} services. By default, {{ at-name }} does not log data events. You need to [enable](../../../audit-trails/quickstart.md#the-trail-creation) collection of data event audit logs individually for each supported service.
 
-To learn more, see [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
+For more information, see [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
 
  To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/).  For example, it can help you track spikes in {{ compute-name }} workload, {{ alb-name }} RPS, or significant changes in {{ iam-name }} event statistics.
 
@@ -43,6 +43,10 @@ List of important {{ yandex-cloud }}-level events to search for in audit logs:
 
 You can enable {{ at-full-name }} at the folder, cloud, and organization level. We recommend enabling {{ at-full-name }} at the level of the entire organization. Thus you will be able to collect audit logs in a centralized manner, e.g., to a separate security cloud.
 
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT1 | High |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -50,7 +54,7 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
   1. In the management console, select the cloud or folder to check the functions in.
   1. In the list of services, select {{ at-full-name }}.
   1. Make sure the Filter parameter is set to Organization.
-  1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
+  1. In addition, make sure the logs' destination is a {{ objstorage-full-name }} bucket, a [{{ cloud-logging-name }}](../../../logging/) log group, {{ yds-name }} is up and running, and the logs are available for further analysis.
 
 {% endlist %}
 
@@ -77,6 +81,10 @@ You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs
 If you have no SIEM, you can also analyze audit logs manually using {{ yandex-cloud }} [event search](../../../audit-trails/tutorials/search-events-audit-logs/index.md) in {{ yq-full-name }}, {{ cloud-logging-name }}, or {{ objstorage-name }}.
 
 
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT2 | Informational |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -93,6 +101,10 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 
 [Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT3 | Medium |
+
 #### 5.4 The Object Storage bucket that stores the {{ at-full-name }} audit logs has been hardened {#hardering}
 
 If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucket, make sure the bucket is set up using security best practices, such as:
@@ -104,6 +116,10 @@ If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucke
 * [At-rest encryption with a KMS key is enabled in {{ objstorage-full-name }}](../../../security/standard/encryption.md#storage-kms).
 
 You can use a solution for secure {{ objstorage-full-name }} bucket setup with {{ TF }}.
+
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT4 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -132,6 +148,10 @@ To get the exact time of OS- and application-level events, configure clock synch
 
 We additionally recommend to increase the logging level inside virtual machines to at least [`VERBOSE`](https://en.wikipedia.org/wiki/Verbose_mode).
 
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT5 | High |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -152,6 +172,10 @@ Enable audit log collection in your unmanaged DBMS:
 * Record permission and privilege changes.
 * Configure events to track queries.
 
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT6 | Medium |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -163,6 +187,10 @@ Enable audit log collection in your unmanaged DBMS:
 #### 5.7 Logs are collected at the network level {#network-level}
 
 Currently, {{ vpc-short-name }} network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as [NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or [network products](/marketplace?categories=network)) or free software for collecting and transmitting events. You can also collect network-level logs using different agents, e.g., HIDS.
+
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT7 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -194,6 +222,10 @@ We recommend to enable **all events** for [{{ iam-full-name }}](../../../audit-t
 * [{{ sws-full-name }}](../../../audit-trails/concepts/events-data-plane.md#sws)
 * [{{ websql-full-name }}](../../../audit-trails/concepts/events-data-plane.md#websql)
 
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT8 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -207,11 +239,15 @@ We recommend to enable **all events** for [{{ iam-full-name }}](../../../audit-t
 
 {% endlist %}
 
-#### 5.9 {{ atr-name }} {{ sd-name }} is on for inspection of {{ yandex-cloud }} employees actions with the infrastructure {#access-transparency-enabled}
+#### 5.9 {{ atr-name }} {{ sd-name }} is on for inspection of {{ yandex-cloud }} employees' actions with the infrastructure {#access-transparency-enabled}
 
 All {{ yandex-cloud }} employees' actions are logged and monitored with the help of [bastion hosts](../../../tutorials/routing/bastion.md) – recorders of operations with the user data processing resources.
 
 With [{{ atr-name }}](../../../security-deck/concepts/access-transparency.md), you can check why your infrastructure was accessed by the provider's employees. For example, the reasons may include additional IT system diagnostics by support engineers or software updates. ML models analyze these actions. Integrated into {{ atr-name }}, {{ yagpt-name }} generates access event summaries to improve visibility. Suspicious sessions are automatically sent to the {{ yandex-cloud }} security teams for review.
+
+| ID requirements | Severity |
+| --- | --- |
+| AUDIT9 | Low |
 
 {% list tabs group=instructions %}
 

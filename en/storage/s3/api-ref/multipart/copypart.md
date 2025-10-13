@@ -39,8 +39,8 @@ Use the appropriate [common headers](../common-request-headers.md) in your reque
 The `Content-Length` header is required. The headers listed in the table below are also required.
 
 Header | Description
------ | -----
-`X-Amz-Copy-Source` | Name of the bucket and the object key whose data will be copied, separated by `/`.<br/><br/>For example, `X-Amz-Copy-Source: /source_bucket/sourceObject`.
+--- | ---
+`X-Amz-Copy-Source` | Name of the bucket and the object key whose data will be copied, separated by `/`.<br/><br/>Here is an example: `X-Amz-Copy-Source: /source_bucket/sourceObject`.
 `X-Amz-Copy-Source-Range` | Byte range to copy from the source object. For example, if you specify `X-Amz-Copy-Source-Range:bytes=10-36`, then {{ objstorage-name }} will copy the 10th to the 36th bytes of the source object.
 
 The `Content-MD5` header is required if [default object locks](../../../concepts/object-lock.md#default) are configured in the bucket.
@@ -51,10 +51,10 @@ Use the headers from the table below if you need to change the default behavior 
 
 Header | Description
 ----- | -----
-`X-Amz-Copy-Source-If-Match` | Object copy condition.<br/><br/>If `ETag` of an object matches the one specified in the header, the object is copied.<br/><br/>If the condition is not met, {{ objstorage-name }} returns the 412 error.<br/><br/>You can use it with the `X-Amz-Copy-Source-If-Unmodified-Since` header.
-`X-Amz-Copy-Source-If-None-Match` | Object copy condition.<br/><br/>If `ETag` of an object does not match the one specified in the header, the object is copied.<br/><br/>If the condition is not met, {{ objstorage-name }} returns the 412 error.<br/><br/>You can use it with the `X-Amz-Copy-Source-If-Modified-Since` header.
-`X-Amz-Copy-Source-If-Unmodified-Since` | Object copy condition.<br/><br/>The object is copied if it has not been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns the 412 error.<br/><br/>You can use it with the `X-Amz-Copy-Source-If-Match` header.
-`X-Amz-Copy-Source-If-Modified-Since` | Object copy condition.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns the 412 error.<br/><br/>You can use it with the `X-Amz-Copy-Source-If-None-Match` header.
+`X-Amz-Copy-Source-If-Match` | Condition for copying an object.<br/><br/>If the object's `ETag` matches that specified in the header, the object is copied.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used together with the `X-Amz-Copy-Source-If-Unmodified-Since` header.
+`X-Amz-Copy-Source-If-None-Match` | Condition for copying an object.<br/><br/>If the object's `ETag` does not match that specified in the header, the object is copied.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used together with the `X-Amz-Copy-Source-If-Modified-Since` header.
+`X-Amz-Copy-Source-If-Unmodified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has not been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used together with the `X-Amz-Copy-Source-If-Match` header.
+`X-Amz-Copy-Source-If-Modified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used together with the `X-Amz-Copy-Source-If-None-Match` header.
 
 
 ## Response {#response}
@@ -87,7 +87,7 @@ Error | Description | HTTP code
 
 Element | Description
 ----- | -----
-`CopyObjectResult` | It contains response elements.<br/><br/>Path: `/CopyObjectResult`.
+`CopyObjectResult` | Contains response elements.<br/><br/>Path: `/CopyObjectResult`.
 `ETag` | `ETag` of the uploaded part of a multipart upload.<br/><br/>Path: `/CopyObjectResult/ETag`.
 `LastModified` | Date when a part of a multipart upload was last modified.<br/><br/>Path: `/CopyObjectResult/LastModified`.
 

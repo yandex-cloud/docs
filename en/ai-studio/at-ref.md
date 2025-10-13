@@ -7,7 +7,7 @@ description: This page provides a reference for {{ foundation-models-name }} eve
 
 {{ at-name }} supports tracking data plane events for {{ foundation-models-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format-data-plane.md).
 
-The `event_type` value follows this general format:
+The general format of the `event_type` field value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.ai.foundationmodel.<event_name>

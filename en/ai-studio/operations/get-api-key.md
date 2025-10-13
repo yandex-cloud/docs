@@ -66,7 +66,7 @@ To set up authorization with an API key as a service account:
    Where:
    * `<IAM_token>`: Valid authorization token.
    * `<folder_ID>`: ID of the folder hosting the services.
-   * `<service_account_name>`: Service account name, e.g., `sa-api`. The naming requirements are as follows:
+   * `<service_account_name>`: Service account name, e.g., `sa-api`. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -178,7 +178,7 @@ To set up authorization with an API key as a service account:
 
   {% note alert %}
 
-  After you close this dialog, the key value will not be shown again.
+  After you close this dialog, the key value will no longer be available.
 
   {% endnote %}
 

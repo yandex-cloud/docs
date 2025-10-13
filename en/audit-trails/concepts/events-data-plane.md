@@ -151,6 +151,11 @@ Service name: `ai.translate`.
 
 {% include [translate-events-dp](../../_includes/audit-trails/events/translate-events-dp.md) %}
 
+## {{ vpc-full-name }} {#vpc}
+
+Service name: `network`.
+
+{% include [vpc-events-dp](../../_includes/audit-trails/events/vpc-events-dp.md) %}
 
 ## {{ vision-full-name }} {#vision}
 

@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Активируйте {{ backup-name }} {#activate-provider}
 
-Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](security/index.md#backup-editor) `backup.editor` на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
+{% include [activate-provider-roles](../_includes/backup/activate-provider-roles.md) %}
 
 {% include [agent-send-data](../_includes/backup/agent-send-data.md) %}
 

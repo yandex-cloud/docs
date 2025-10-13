@@ -23,7 +23,7 @@ def main():
     base_model = sdk.models.text_embeddings("text-embeddings")
 
     # Starting the tuning
-    # Tuning can last up to several hours
+    # Fine-tuning can last up to several hours.
     tuning_task = base_model.tune_deferred(
         train_dataset, name=str(uuid.uuid4()), embeddings_tune_type=type
     )

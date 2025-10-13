@@ -1,6 +1,6 @@
 {% note info %}
 
-Минимальная роль в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), необходимая для [активации сервиса](../../../backup/concepts/index.md#providers), — `backup.editor` (см. [описание роли](../../../backup/security/index.md#backup-editor)).
+{% include [activate-provider-roles](../../../_includes/backup/activate-provider-roles.md) %}
 
 {% endnote %}
 

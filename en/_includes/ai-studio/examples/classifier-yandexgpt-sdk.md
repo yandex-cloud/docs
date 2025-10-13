@@ -34,7 +34,7 @@ def main():
         samples=[
             {"text": "set an alarm", "label": "alarm"},
             {"text": "weather for tomorrow", "label": "weather"},
-            {"text": "translate the phrase \"set an alarm\"", "label": "translation"},
+            {"text": "translate the phrase 'set an alarm'", "label": "translation"},
         ],
     )
 

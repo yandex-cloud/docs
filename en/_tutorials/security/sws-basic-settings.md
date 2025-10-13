@@ -50,7 +50,7 @@ In this guide, you will set up web resource protection using SWS tools connected
 ## Required paid resources {#paid-resources}
 
 * [Fee for the number of requests](../../smartwebsecurity/pricing.md) to {{ sws-name }}.
-* Fee for the [{{ alb-name }}](../../application-load-balancer/pricing.md) or [{{ api-gw-name }}](../../api-gateway/pricing.md) infrastructure if using one. You will not be charged for the domain infrastructure.
+* Fee for the [{{ alb-name }}](../../application-load-balancer/pricing.md) or [{{ api-gw-name }}](../../api-gateway/pricing.md) infrastructure if using one. You will not be charged for the [domain](../../smartwebsecurity/concepts/domain-protect.md) infrastructure.
 
 ## Get your cloud ready {#before-you-begin}
 
@@ -341,6 +341,8 @@ The `Allow` action is set for the basic default rule, while other rules are in t
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
     You will see the associated virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
+
+  {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
 
 - API gateway {#api-gateway}
   

@@ -149,7 +149,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `AND`: Logical operator **AND**. Conditions combined with this operator must all be met at the same time.
 
-    For example:
+    Here is an example:
     ```
     parameter1: "value1" AND parameter2: "value2"
     ```
@@ -157,7 +157,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `OR`: Logical operator **OR**. At least one of the conditions must be fulfilled.
 
-    For example:
+    Here is an example:
     ```
     parameter1: "value1" OR parameter2 > "value2"
     ```
@@ -165,7 +165,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `NOT`: Logical operator **NOT**, a condition that is inverse of the specified one must be fulfilled.
 
-    For example:
+    Here is an example:
     ```
     NOT parameter1: "value1"
     ```
@@ -189,3 +189,8 @@ You can change the order of computations using parentheses:
 ```
 parameter1: "value1" AND (parameter2 = "value2" OR parameter3 <"value3")
 ```
+
+
+## Use cases {#examples}
+
+* [{#T}](../../postbox/operations/logs-write.md)

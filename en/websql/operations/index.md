@@ -9,5 +9,6 @@ description: This section contains step-by-step guides for {{ websql-name }}.
 * [{#T}](connect.md)
 * [{#T}](view-db-objects-info.md)
 * [{#T}](query-executor.md)
+* [{#T}](ai-assistant.md)
 * [{#T}](templates.md)
 * [{#T}](history.md)

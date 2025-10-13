@@ -47,7 +47,7 @@
       {
         "message": {
           "role": "assistant",
-          "text": "Albert Einstein was an outstanding physicist who studied the fundamentals of the universe, including the theory of relativity, thermodynamics, and electromagnetism.\n\nSome of his well-known discoveries include the following: special and general theories of relativity, quantum theory of the photoelectric effect, and others."
+          "text": "Albert Einstein was an outstanding physicist who studied the fundamentals of the universe, including the theory of relativity, thermodynamics, and electromagnetism.\n\nThe scientist's well-known discoveries: special and general theories of relativity, quantum theory of the photoelectric effect, and others."
         },
         "status": "ALTERNATIVE_STATUS_FINAL"
       }

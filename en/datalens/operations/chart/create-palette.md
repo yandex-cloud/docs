@@ -37,15 +37,15 @@ To create a color palette:
 
    - Color palette
 
-     The color palette is used in charts for discrete values: indicator names, measurement values. 
+     The color palette is used in charts for discrete values: indicator names, measurement values.
 
      1. Go to **Color palettes** and click**+ Add palette**.
      1. In the window that opens, enter the following parameters:
 
         * Enter the **Palette name** at the top.
-        * In the list on the right, click **+ Add color** and enter values for palette colors in hexadecimal format.
+        * In the list on the right, click **+ Add color** and enter values for palette colors, in hex format.
 
-          By default, values for 20 colors are set. You can edit, add, or delete palette colors. To change the order of colors, drag them using the mouse pointer. The changes will be displayed in the preview window.
+          There are 20 default colors. You can edit, add, or delete palette colors. To change the order of colors, drag them using the mouse pointer. The changes will be displayed in the preview window.
 
      1. Click **Save**.
 
@@ -76,3 +76,16 @@ To delete a color palette:
 1. Go to **Palettes** and hover over the name of the palette to delete.
 1. Click ![image](../../../_assets/console-icons/ellipsis.svg) on the right and select **Delete**.
 1. Click **Delete**.
+
+
+## Setting the default color pallete {#default-palette}
+
+For {{ datalens-name }} instances created before September 16, 2025, the default palette is `Classic 20`. For instances created after September 16, 2025, the default palette is `Default 20`.
+
+To set any of the preinstalled or previously added color palletes as default:
+
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Under **Palletes**, select a default pallete from the list. The default pallete will be applied to all charts that use the default pallete. In charts with custom pallete settings, the pallete will not change.
+
+If you delete the default color pallete, the `Default 20` pallete will apply instead. It will be applied to all charts that use the default pallete.

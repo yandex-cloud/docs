@@ -50,7 +50,7 @@ In the example, the `doc_texts` array contains the source data for vectorization
 
       For more information about accessing text vectorization models, see [{#T}](../../concepts/embeddings.md#addressing-models).
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 search-knowledge-base.py
@@ -75,7 +75,7 @@ In the example, the `doc_texts` array contains the source data for vectorization
       * `<folder_ID>`: {{ yandex-cloud }} [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
       * `<IAM_token>`: Service account [IAM token](../../../iam/concepts/authorization/iam-token.md) you got earlier required for [authentication in the API](../../api-ref/authentication.md).
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 search-knowledge-base.py

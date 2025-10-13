@@ -1,6 +1,6 @@
 ---
 title: Other
-description: This page addresses FAQs about {{ datalens-name }}.
+description: This page covers FAQ about {{ datalens-name }}.
 ---
 
 # Other
@@ -41,3 +41,7 @@ Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion
 
 
 {% include [main-page-error](../../_qa/datalens/main-page-error.md) %}
+
+### What browser versions are supported by {{ datalens-short-name }}? {#browser-versions}
+
+{{ datalens-short-name }} supports the two latest major browser versions. For more information, see the [list of versions](https://browsersl.ist/#q=last+2+major+versions+and+last+2+years+and+fully+supports+es6+and+%3E+0.05%25%0Anot+dead%0Anot+op_mini+all%0Anot+and_qq+%3E+0%0Anot+and_uc+%3E+0%0AFirefox+ESR%0AChrome+%3E+0+and+last+2+years+and+%3E+0.05%25%0ASafari+%3E+0+and+last+2+years+and+%3E+0.05%25%0AFirefox+%3E+0+and+last+2+years+and+%3E+0.01%25).

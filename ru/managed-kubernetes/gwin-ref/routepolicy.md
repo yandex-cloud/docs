@@ -63,11 +63,9 @@ spec:
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
       name: example-http-route
-      namespace: route-ns
     - group: gateway.networking.k8s.io
       kind: GRPCRoute
       name: example-grpc-route
-      namespace: route-ns
   # Or use label selector
   selector:
     matchLabels:

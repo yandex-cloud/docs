@@ -20,13 +20,16 @@ Follow this guide to build a table based on an SQL query to the data source in E
 ## Deploy a demo workbook {#create-template}
 
 
-1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.ru/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+1. In {{ datalens-gallery }}, open the work named [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
+1. Click **Use** → **Deploy**.
+1. Select the location to save the workbook to: workbook root, existing collection, or new collection. Navigate to the saving location and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Click **Create**.
 
 
 
-1. Go to the deployed workbook and on the **Connections** tab, find the connection named `00: Demo Dashboard. Connection`.
+1. Navigate to the new workbook and, on the **Connections** tab, find a connection named `00: Demo Dashboard. Connection`.
 
-1. Copy the connection ID by clicking ![](../../../../_assets/console-icons/ellipsis.svg) → **Copy ID** next to it. The ID will be copied to the clipboard.
+1. Copy the connection ID: click ![](../../../../_assets/console-icons/ellipsis.svg) → **Copy ID** next to the connection. The ID will be copied to the clipboard.
 
 ### Create a chart in Editor {#create-chart}
 
@@ -48,11 +51,11 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
    {% note info %}
    
-   You need the **Meta** tab to describe service information about the list of related entities. This information is used to detect what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
+   You need the **Meta** tab to describe service information about the list of related entities. This information is used to figure out what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
 
    {% endnote %}
 
-1. Get data from the data source: to do this, open the **Source** tab and specify:
+1. Get data from the data source by opening the **Source** tab and specifying the following:
 
    ```javascript
    module.exports = {

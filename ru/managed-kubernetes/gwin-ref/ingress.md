@@ -186,8 +186,9 @@ metadata:
     gwin.yandex.cloud/rules.idleTimeout: "300s"  # idle connection timeout
     
     # HTTP specific settings
-    gwin.yandex.cloud/rules.httpUpgradeTypes: "websocket"  # supported upgrade protocols
+    gwin.yandex.cloud/rules.http.upgradeTypes: "websocket"  # supported upgrade protocols
     gwin.yandex.cloud/rules.allowedMethods: "GET,POST,PUT"  # restrict allowed HTTP methods
+    gwin.yandex.cloud/rules.prefixRewrite: "/new-prefix"  # rewrite URL path prefix
     
     # Header modifications
     gwin.yandex.cloud/rules.modifyRequestHeaders.append.X-Custom-Header: "custom-value"  # add request header
@@ -367,8 +368,9 @@ For `discardRule` annotations you can set up any name. It does not affect ALB co
 |------------|
 | `gwin.yandex.cloud/rules.timeout` <br> _(duration)_ <br> Overall timeout for HTTP connection between load balancer and backend. The maximum time the connection is kept alive, regardless of data transfer. Default: 60s. On timeout, returns UNAVAILABLE status. <br> Example: `60s` |
 | `gwin.yandex.cloud/rules.idleTimeout` <br> _(duration)_ <br> Idle timeout for HTTP connection. <br> Example: `300s` |
-| `gwin.yandex.cloud/rules.httpUpgradeTypes` <br> _(comma separated strings)_ <br> Supported HTTP Upgrade header values. <br> Example: `websocket` |
+| `gwin.yandex.cloud/rules.http.upgradeTypes` <br> _(comma separated strings)_ <br> Supported HTTP Upgrade header values. <br> Example: `websocket` |
 | `gwin.yandex.cloud/rules.allowedMethods` <br> _(comma separated strings)_ <br> Restricts which HTTP methods are allowed for this route. If not specified, all methods are allowed. <br> Example: `GET,POST,PUT` |
+| `gwin.yandex.cloud/rules.prefixRewrite` <br> _(string)_ <br> Replaces URL paths in HTTP/gRPC requests. With pathType Exact, the entire path is replaced; with pathType Prefix, only the matching prefix is rewritten. <br> Example: `/new-prefix` |
 
 #### Header modification
 

@@ -16,13 +16,13 @@ In this section, you will learn about:
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can also [assign a role for a separate cluster](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
-## Roles this service has {#roles-list}
+## What roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -191,3 +191,9 @@ To provide more granular access to resources, you can:
     resources: ["nodes"]
     verbs: ["get", "list", "watch"]
   ```
+
+## Workload identity federations {{ iam-full-name }}
+
+{% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
+
+For example, you can configure [{#T}](../tutorials/wlif-managed-k8s-integration.md).

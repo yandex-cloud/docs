@@ -5,7 +5,7 @@ description: Follow this guide to use {{ assistant-api }} to create a personaliz
 
 # Creating an AI assistant for RAG with source file and index metadata preserved
 
-{% include [assistants-preview-stage](../../../_includes/ai-studio/assistants-preview-stage.md) %}
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 {{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants and implement a generative response scenario based on information from external sources (Retrieval Augmented Generation or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) by assigning [metadata](../../concepts/assistant/index.md#labels) sets to source files and search indexes for more efficient navigation through external sources.
 

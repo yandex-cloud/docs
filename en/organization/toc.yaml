@@ -76,12 +76,24 @@ items:
             href: operations/federation-group-mapping.md
           - name: Renewing a {{ yandex-cloud }} SAML certificate
             href: operations/renew-yc-certificate.md
+          - name: Setting up a domain in an identity federation
+            href: operations/manage-domain-in-federation.md
       - name: Managing user pools
         items:
           - name: Creating a user pool
             href: operations/user-pools/create-userpool.md
           - name: Updating a user pool
             href: operations/user-pools/edit-userpool.md
+          - name: Setting up a domain in a user pool
+            href: operations/user-pools/manage-domain.md
+          - name: Getting a list of user pools
+            href: operations/user-pools/get-list-userpools.md
+          - name: Getting information about a user pool
+            href: operations/user-pools/get-userpool.md
+          - name: Getting a list of users in a pool
+            href: operations/user-pools/get-list-users.md
+          - name: Setting up access to a user pool
+            href: operations/user-pools/set-access-bindings-userpool.md
           - name: Deleting a user pool
             href: operations/user-pools/delete-userpool.md
           - name: Managing users
@@ -94,16 +106,22 @@ items:
                 href: operations/user-pools/activate-user.md
               - name: Deactivating a user
                 href: operations/user-pools/deactivate-user.md
-              - name: Resetting a user password
+              - name: Changing a user password
                 href: operations/user-pools/reset-user-password.md
+              - name: Getting pool user info
+                href: operations/user-pools/get-user.md
               - name: Remove user
                 href: operations/user-pools/delete-user.md
       - name: Managing domains
         items:
-          - name: Adding a domain
+          - name: Associating a domain
             href: operations/user-pools/add-domain.md
           - name: Verifying a domain
             href: operations/user-pools/validate-domain.md
+          - name: Getting a list of domains
+            href: operations/user-pools/list-domain.md
+          - name: Viewing information about a domain
+            href: operations/user-pools/get-domain.md
           - name: Deleting a domain
             href: operations/user-pools/delete-domain.md
       - name: Managing apps

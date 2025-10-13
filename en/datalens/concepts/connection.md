@@ -43,6 +43,7 @@ The following connection types are available in {{ datalens-short-name }}:
   * [1C Extractor](../operations/connection/create-extractor1c.md)
   * [Bitrix24](../operations/connection/create-bitrix24.md)
   * [Analystics podcasts](../operations/connection/create-podcasts.md)
+  * [Suggest your partner connector](../operations/marketplace/create-connector-for-partners.md)
 
 
 
@@ -51,7 +52,7 @@ The following connection types are available in {{ datalens-short-name }}:
 
 
 
-You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md).
+You can add other connections from those [available in {{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens).
 
 ## Connecting an external database {#external-db-connection}
 

@@ -56,6 +56,12 @@ description: Следуя данной инструкции, вы научите
 
 {% endlist %}
 
+{% note info %}
+
+Устанавливать приложения из {{ marketplace-name }} также можно [с помощью манифестов {{ TF }}](../apply-helm-provider.md).
+
+{% endnote %}
+
 ## Редактирование приложения {#edit-app}
 
 {% list tabs group=instructions %}

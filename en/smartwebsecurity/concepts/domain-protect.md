@@ -20,7 +20,7 @@ Essentially, to implement protection of web applications or backends, you need t
 
 ### Proxy server {#proxy}
 
-The _proxy server_ acts as an intermediary for all user requests to your website or application. It has a dedicated IP address for receiving requests, so your server’s IP address will be hidden from external users. The proxy server has a preconfigured load balancer, which ensures stable performance in case there are many external requests, and active basic [DDoS protection](../../vpc/ddos-protection/).
+The _proxy server_ acts as an intermediary for all user requests to your website or application. It has a dedicated [public IP address](../../vpc/concepts/address.md#public-addresses) for receiving requests, so your server's public IP address will be hidden from external users. The proxy server has a preconfigured load balancer, which ensures stable performance in case there are many external requests, and active basic [DDoS protection](../../vpc/ddos-protection/).
 
 {% note info %}
 
@@ -28,11 +28,13 @@ The proxy server has an MTU limit of 1,450 bytes for all packets.
 
 {% endnote %}
 
-For the proxy server to receive requests sent to your domain, you need to set up redirection. To do this, add an A record for the DNS in the following format: `<proxy_server_IP_address> : <domain_address>`. The proxy server’s IP address will become available once it is created in the proxy server parameters. You can add an A record via your hosting provider account or domain registrar account. Also, you can delegate domain management to [{{ dns-full-name }}](../../dns/). In which case A records are set up in {{ yandex-cloud }}.
+For the proxy server to receive requests sent to your domain, you need to set up redirection. To do this, add an A record for the DNS in the following format: `<proxy_server_IP_address> : <domain_address>`. The proxy server's IP address will become available once it is created in the proxy server parameters. You can add an A record via your hosting provider account or domain registrar account. Also, you can delegate domain management to [{{ dns-full-name }}](../../dns/). In which case A records are set up in {{ yandex-cloud }}.
 
 It usually takes a few minutes to activate redirection. In some cases, this may take up to 24 hours.
 
-You can add multiple proxy servers, for example, to separate a stable version of an application from a version that is under development.
+A proxy server can only work with public IP addresses; the address of your target resource must be accessible from the external network.
+
+You can add multiple proxy servers, for example, to separate the application's stable version from a version under development.
 
 You can configure logging for each proxy server. You can write all logs or filter them to save space in the storage.
 

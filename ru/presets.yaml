@@ -13723,8 +13723,8 @@ default:
         tag: 1.0.9
     yc_chaos-mesh:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
-        tag: 2.6.1-1b
+        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
+        tag: 2.8.0
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
@@ -13776,7 +13776,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.1
+        tag: v1.0.2
     yc_ingress-nginx:
       helmChart:
         name: >-
@@ -13828,8 +13828,8 @@ default:
         tag: 0.1.1-4
     yc_velero-yc-csi:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 8.5.0-4
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero
+        tag: 8.5.0-5
     yc_victoria-logs:
       helmChart:
         name: >-

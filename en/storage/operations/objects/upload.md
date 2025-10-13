@@ -1,6 +1,6 @@
 ---
 title: Uploading an object to a {{ objstorage-full-name }} bucket
-description: Follow this guide to upload an object to an {{ objstorage-name }} bucket.
+description: Follow this guide to upload an object to an {{ objstorage-name }} bucket and set up conditional writes for the upload.
 ---
 
 # Uploading an object
@@ -358,6 +358,80 @@ If your bucket already has [default retention periods](../../concepts/object-loc
   To upload an object version with a default retention period, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `Content-MD5` header.
 
 {% endlist %}
+
+
+## Object conditional writes {#conditional-writes}
+
+You can use [conditions](../../concepts/object.md#conditional-writes) when uploading an object, as well as when [completing a multipart upload](multipart-upload.md#conditional-writes).
+
+
+### Uploading an object with an ETag condition {#if-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. To upload an object only if an object with a certain `ETag` exists, run this command:
+
+      ```bash
+      aws s3api put-object \
+          --endpoint-url https://{{ s3-storage-host }} \
+          --body <local_file_path> \
+          --bucket <bucket_name> \
+          --key <object_path> \
+          --if-match "<object_ETag>"
+      ```
+
+      Where:
+
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `--body`: Path to the file you need to upload to the bucket. For example: `./my-folder/my-file.txt`.
+      * `--bucket`: Name of your bucket.
+      * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--if-match`: Current object `ETag`, e.g., `\"d41d8cd98f00b204e9800998********\"`. The write will only be performed if an object already exists for the specified key and its current `ETag` matches.
+
+- API {#api}
+
+  To upload an object only if an object with a certain `ETag` exists, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `--if-match` header.
+
+{% endlist %}
+
+
+### Uploading an object with an absence condition {#if-none-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. To upload an object only if there is no object with a specific key in the bucket, run this command:
+
+      ```bash
+      aws s3api put-object \
+          --endpoint-url https://{{ s3-storage-host }} \
+          --body <local_file_path> \
+          --bucket <bucket_name> \
+          --key <object_path> \
+          --if-none-match "*"
+      ```
+
+      Where:
+
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `--body`: Path to the file you need to upload to the bucket. For example: `./my-folder/my-file.txt`.
+      * `--bucket`: Name of your bucket.
+      * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--if-none-match`: Type `"*"` to perform the write only if there is no object with the specified key yet.
+
+- API {#api}
+
+  To upload an object only if the bucket does not contain an object with a specific key, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `--if-none-match` header.
+
+{% endlist %}
+
 
 
 #### See also {#see-also}

@@ -15,6 +15,8 @@ items:
         href: operations/view-db-objects-info.md
       - name: Working with the query editor
         href: operations/query-executor.md
+      - name: Analytics and optimization with AI assistant
+        href: operations/ai-assistant.md
       - name: Working with saved queries
         href: operations/templates.md
       - name: Working with query history

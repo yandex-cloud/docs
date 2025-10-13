@@ -22,7 +22,7 @@ def main():
     base_model = sdk.models.completions("yandexgpt-lite")
 
     # Starting the tuning
-    # Tuning can last up to several hours
+    # Fine-tuning can last up to several hours.
     tuned_model = base_model.tune(
         train_dataset, name=str(uuid.uuid4()), n_samples=10000
     )

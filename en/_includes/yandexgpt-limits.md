@@ -5,8 +5,8 @@ Type of limit | Value
 **[Text vectorization](../ai-studio/concepts/embeddings.md)** |
 Number of text vectorization requests per second | 10
 **[Text generation](../ai-studio/concepts/generation/index.md)** |
-Number of concurrent generations in [synchronous mode](../ai-studio/concepts/index.md#working-mode) | 10
-Number of requests per second, [asynchronous mode](../ai-studio/concepts/index.md#working-mode) (request) | 10
+Number of concurrent generations in [synchronous mode](../ai-studio/concepts/generation/index.md#working-mode) | 10
+Number of concurrent generations in [asynchronous mode](../ai-studio/concepts/generation/index.md#working-mode) (request) | 10
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5,000
 Number of [tokenization](../ai-studio/text-generation/api-ref/grpc/Tokenizer/index.md) requests per second | 50
@@ -26,6 +26,12 @@ Number of fine-tuning runs per hour | 3
 Number of uploaded datasets | 100 
 Maximum size of one dataset | 5 GB
 Total size of datasets | 300 GB
+**[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)**
+Number of MCP servers per cloud | 30 
+Number of [tools](../ai-studio/concepts/assistant/tools/index.md) per server | 50
+**[Voice agents](../ai-studio/concepts/agents/realtime.md)** (`{{ realtime-model }}` [model](../ai-studio/concepts/agents/realtime.md#model)) |
+Number of concurrent sessions with the model | 10
+Number of session creation queries per second | 10
 
 #### Limits {#yandexgpt-limits}
 
@@ -50,5 +56,7 @@ Maximum number of search indexes | 1,000
 Maximum number of indexing operations to run | 10
 **[Image generation](../ai-studio/concepts/generation/index.md)** |
 Maximum [prompt](../ai-studio/concepts/index.md#prompt) length | 500 characters
+**[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)**
+Number of active cloud connections per [availability zone](../overview/concepts/geo-scope.md) | 500
 
 ^1^ {{ meta-disclaimer }}

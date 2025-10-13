@@ -12,6 +12,10 @@ This section recommends customers on how to configure secure {{ yandex-cloud }} 
 Make sure to provide anti-malware protection within your scope of responsibility. You can use a variety of solutions from our partners in [{{ marketplace-full-name }}](/marketplace).
 [Antivirus solution images](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol) are available in {{ marketplace-full-name }}. License types and other required information are available in the product descriptions.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV38 | Medium |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -31,15 +35,19 @@ On VMs, access to the serial console is disabled by default. For risks of using 
 When working with a serial console:
 
 * Make sure that critical data is not output to the serial console.
-* If SSH access to the serial console is enabled, make sure that both the credentials management routine and the password used to log in to the operating system locally are as per the regulatory standards. For example, in an infrastructure for storing payment card data, passwords must meet the PCI DSS requirements: they must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
+* If SSH access to the serial console is enabled, make sure that both the credentials management routine and the password used to log in to the operating system locally are as per the regulatory standards. For example, in an payment card data storage infrastructure, passwords must be PCI DSS compliant: they must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
 
 {% note info %}
 
-According to the PCI DSS standard, access to a VM via a serial console is considered "non-console", and {{ yandex-cloud }} uses TLS encryption for it.
+According to PCI DSS, VM access via a serial console is considered _non-console_, and {{ yandex-cloud }} uses TLS encryption for it.
 
 {% endnote %}
 
 We do not recommend using access to the serial console unless it is absolutely necessary.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV1 | High |
 
 {% list tabs group=instructions %}
 
@@ -88,6 +96,10 @@ When deploying virtual machines, we recommend:
 * Use this image to create a virtual machine or [instance group](../../../compute/concepts/instance-groups/index.md).
 * Look up the virtual machine's information to check that it was created using this image.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV2 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -135,7 +147,7 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend stating private information in your {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 
@@ -151,10 +163,14 @@ When a configuration is deployed, you can delete the configuration file with pri
 
 {% endnote %}
 
-Scan your Terraform manifests using [Checkov](https://github.com/bridgecrewio/checkov) with {{ yandex-cloud }} support.
+Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/checkov) with {{ yandex-cloud }} support.
 
 * [Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
 * [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud-examples/yc-terraform-state).
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV3 | High |
 
 {% list tabs group=instructions %}
 
@@ -166,6 +182,10 @@ Scan your Terraform manifests using [Checkov](https://github.com/bridgecrewio/ch
 
 #### 3.5 Integrity control is performed {#integrity-control}
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV5 | Low |
+
 ##### 3.5.1 File integrity control {#file-integrity-control}
 
 Numerous information security standards require integrity control of critical files. To do this, you can use free host-based solutions:
@@ -173,7 +193,11 @@ Numerous information security standards require integrity control of critical fi
 * [Wazuh](https://documentation.wazuh.com/current/learning-wazuh/detect-fs-changes.html)
 * [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
-Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol).
+{{ yandex-cloud }}'s marketplace also offers paid solutions, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol).
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV5.1 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -185,7 +209,11 @@ Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersk
 
 ##### 3.5.2 VM runtime environment integrity control {#vm-integrity-control}
 
-If you need to control a VM runtime environment (e.g., for access from the VM to a secure repository only when run in the {{ yandex-cloud }} CLI cloud), there is the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document that stores information about the VM is generated. It contains the IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
+If you need to control a VM runtime environment (e.g., for access from the VM to a secure repository only when run in the {{ yandex-cloud }} CLI cloud), there is the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document is generated which stores information about the VM: VM ID, [{{ marketplace-full-name }}](/marketplace) product ID, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV5.2 | Low |
 
 {% list tabs group=instructions %}
 
@@ -206,9 +234,17 @@ We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-
 
 [Learn more](https://www.youtube.com/watch?v=VSP_cp6vDQQ&list=PL1x4ET76A10a9Jr6six11s0kRxeQ3fgom&index=17) about side-channel attack protection in cloud environments.
 
-#### 3.7 {{ yandex-cloud }} users responsible for security have passed the {{ yandex-cloud }} Certified Security Specialist certification {#security-specialist-certificate}
+| ID requirements | Severity |
+| --- | --- |
+| ENV6 | Informational |
+
+#### 3.7 The corporate {{ yandex-cloud }} users have the {{ yandex-cloud }} Certified Security Specialist certification {#security-specialist-certificate}
 
 The {{ yandex-cloud }} Certified Security Specialist certification exam evaluates the competencies of {{ yandex-cloud }} users involved in information security and cloud system protection.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV39 | Informational |
 
 **Guides and solutions to use**:
 
@@ -247,6 +283,10 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
  [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket)
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV7 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -284,6 +324,10 @@ Bucket policy [examples](../../../storage/concepts/policy.md#config-examples):
 * Policy that gives each user and service account full access to a folder named the same as the user ID or service account ID.
 
 We recommend making sure that your {{ objstorage-name }} bucket uses at least one policy.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV8 | High |
 
 {% list tabs group=instructions %}
 
@@ -324,6 +368,10 @@ For more information about lifecycles, see the {{ objstorage-name }} documentati
 In addition, to protect object versions against deletion, use [object locks](../../../storage/concepts/object-lock.md). For more information about object lock types and how to enable them, see the documentation.
 
 The storage period of critical data in a bucket is determined by the customer's information security requirements and the information security standards. For example, the PCI DSS standard states that audit logs should be stored for at least one year and be available online for at least three months.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV9 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -369,6 +417,10 @@ You can request log data [writing](../../../audit-trails/concepts/events.md#objs
 
 You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. For more information, see [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](../../../tutorials/datalens/storage-logs-analysis.md).
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV10 | Low |
+
 **Guides and solutions to use:**
 
 You can check if logging is enabled only via {{ TF }}/API by following [this guide](../../../storage/operations/buckets/enable-logging.md).
@@ -376,6 +428,10 @@ You can check if logging is enabled only via {{ TF }}/API by following [this gui
 #### 3.12 Cross-Origin Resource Sharing (CORS) is configured in {{ objstorage-name }} {#cors}
 
 If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in buckets, you should configure the Cross-Origin Resource Sharing (CORS) policy in accordance with your corporate information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV11 | Low |
 
 {% list tabs group=instructions %}
 
@@ -406,6 +462,10 @@ To set up access permissions for the key, you need an [access policy](../../../s
 
 Temporary {{ sts-name }} keys inherit the access permissions of the service account but are limited by the access policy. If you set up a temporary key's access policy to allow operations not allowed for the service account, such operations will not be performed.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV12 | Low |
+
 **Guides and solutions to use:**
 
 [Create](../../../iam/operations/sa/create-sts-key.md) a temporary access key using {{ sts-name }}.
@@ -423,6 +483,10 @@ With pre-signed URLs, any web user can perform various operations in Object Stor
 
 We recommend using pre-signed URLs to users who are not authorized in the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) but need access to specific objects in the bucket. This way you follow the principle of least privilege and avoid opening access to all the objects in the bucket.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV13 | Low |
+
 **Guides and solutions to use:**
 
 [Create](../../../storage/concepts/pre-signed-urls.md#creating-presigned-url) a pre-signed URL and communicate it to the user.
@@ -432,6 +496,10 @@ We recommend using pre-signed URLs to users who are not authorized in the [cloud
 #### 3.15 A security group is assigned in managed databases {#db-security-group}
 
 We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from particular IP addresses. To do this, follow the steps in [Creating a security group](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV14 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -484,6 +552,10 @@ If any databases without security groups are found, assign them or enable the **
 
 Assigning a public IP to a managed database raises information security risks. We do not recommend assigning an external IP unless it is absolutely necessary.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV15 | High |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -523,7 +595,11 @@ Disable public access if it is not required.
 
 #### 3.17 The deletion protection feature is enabled {#deletetion-protection}
 
-In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete the data.
+In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV16 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -568,6 +644,10 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. The
 #### 3.18 The setting for access from {{ datalens-short-name }} is not active if not needed {#db-datalens-access}
 
 Do not enable access to databases containing critical data from the management console, [{{ datalens-short-name }}](../../../datalens), or other services unless you have to. Access from {{ datalens-short-name }} may be required for data analysis and visualization. For such access, the {{ yandex-cloud }} service network is used, with authentication and TLS encryption. You can enable and disable access from {{ datalens-short-name }} or other services in the cluster settings or when creating it in the advanced settings section.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV17 | High |
 
 {% list tabs group=instructions %}
 
@@ -614,6 +694,10 @@ Do not enable access to databases containing critical data from the management c
 You may need access to the database from the management console to send [SQL queries](../../../managed-postgresql/operations/web-sql-query.md) to the database and visualize the data structure.
 
 We recommend that you enable this type of access only if needed, because it raises information security risks. In normal mode, use a standard DB connection as a DB user.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV18 | Low |
 
 {% list tabs group=instructions %}
 
@@ -738,7 +822,7 @@ Networking between two functions, as well as between functions and user resource
 
 * Incoming connections are not supported. For example, you cannot access the internal components of a function over the network, even if you know the IP address of its instance.
 * Outgoing connections are supported via TCP, UDP, and ICMP. For example, a function can access a {{ compute-full-name }} VM or a {{ ydb-full-name }} DB on the user's network.
-* Function is cross-zoned: you cannot explicitly specify a subnet or select an availability zone to run a function.
+* The function is cross-zonal: you cannot explicitly specify a subnet or select an availability zone to run a function.
 
 If necessary, you can specify a cloud network in the function settings. In which case:
 
@@ -747,7 +831,11 @@ If necessary, you can specify a cloud network in the function settings. In which
 * The function will have access not only to the internet but also to user resources located in the specified network, such as databases, virtual machines, etc. 
 * The function will have an IP address within the `198.19.0.0/16` range when accessing user resources.
 
-You can only specify a single network for functions, containers, and API gateways that reside in the same cloud. 
+You can only specify a single network for functions, containers, and API gateways that reside in the same cloud.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV19 | Informational |
 
 {% list tabs group=instructions %}
 
@@ -794,7 +882,7 @@ In cases where the use of public functions is not explicitly required, we recomm
 
 A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by programs or functions to manage resources in {{ yandex-cloud }}. If the function version was created with a service account, you can [get](../../../functions/operations/function-sa.md) an IAM token for service account from the function invocation context.
 
-Make sure to assign [roles](../../../iam/concepts/access-control/roles.md) to the service account. A role is a set of permissions to perform operations with the cloud's resources. A function automatically inherits roles assigned for a folder, cloud, or organization. However, they do not appear in the list of assigned roles.
+Make sure to assign [roles](../../../iam/concepts/access-control/roles.md) to the service account. A role is a set of permissions that defines the allowed scope of operations with cloud resources. A function automatically inherits roles assigned for a folder, cloud, or organization. However, they do not appear in the list of assigned roles.
 
 Do not store secrets and sensitive data in the function code and environment variables. Use [{{ lockbox-full-name }}](../../../lockbox/index.yaml) to store and rotate secrets. You can transmit a {{ lockbox-name }} secret to a function in the environment variable.
 
@@ -813,6 +901,10 @@ You cannot calculate environment variables. Environment variable values are stri
 
 You can access the DB cluster hosts from the function only via the [SSL protocol](https://ru.wikipedia.org/wiki/SSL), with the help of a [DB connection](../../../functions/operations/database-connection.md#connect), or by specifying a cloud network in the function settings. Use a service account with a role assigned and enable access for functions on the DBMS side.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV20 | Medium |
+
 **Guides and solutions to use:**
 
 * [Disable](../../../functions/operations/function/function-private.md) public access to a function.
@@ -827,6 +919,10 @@ For more information about roles and resources you can assign roles for in {{ sf
 
 {{ sf-name }} does not guarantee time synchronization prior to or during execution of requests by functions. To get a function log with exact timestamps on the {{ sf-name }} side, use a cloud logging service. For more information on function logging, see [{#T}](../../../functions/concepts/logs.md).
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV22 | Informational |
+
 #### 3.23 Aspects of header management in {{ sf-name }} are addressed {#http-functions}
 
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
@@ -834,7 +930,7 @@ If the function is called to process an HTTP request, the returned result should
 You can run a function by specifying the `?integration=raw` string query parameter. When invoked this way, a function cannot parse or set HTTP headers:
 
 * HTTPS request body content is provided as the first argument (without converting to a JSON structure).
-* HTTPS request body content is the same as the function's response (without converting and checking the structure); the HTTP response status is `200`.
+* The contents of the HTTPS response body is identical to the function response (without converting or checking the structure), and the HTTP response status is `200`.
 
 The request must be a JSON structure which contains:
 
@@ -847,21 +943,37 @@ The request must be a JSON structure which contains:
 
 For the purpose of debugging a function, you can use special requests that return the JSON structure of the request and the result you need for debugging. For more information, see [function debugging](../../../functions/concepts/function-invoke.md#example).
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV23 | Informational |
+
 ### {{ ydb-name }} {#ydb-access}
 
 #### 3.24 Recommendations for using confidential data in {{ ydb-short-name }} are followed {#ydb-confidential-data}
 
 It is prohibited to use confidential data for names of databases, tables, columns, folders, and so on. Do not send critical data, e.g., payment card details, to {{ ydb-name }} (both Dedicated and Serverless) in plain text. Prior to sending data, be sure to encrypt it at the application level. For this you can use the KMS service or any other method compliant with the regulator standard. For data where the storage period is known in advance, we recommend that you configure the [Time To Live]({{ ydb.docs }}/concepts/ttl) option.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV24 | High |
+
 #### 3.25 Recommendations for SQL injection protection in {{ ydb-short-name }} are followed {#ydb-sql-injection}
 
 When working with the database, use [parameterized prepared statements]({{ ydb.docs }}/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
 
-#### 3.26 No public access for {{ ydb-short-name }} {#ydb-public}
+| ID requirements | Severity |
+| --- | --- |
+| ENV25 | High |
+
+#### 3.26 There is no public access for {{ ydb-short-name }} {#ydb-public}
 
 When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-short-name }} and disable public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} documentation.
 
 When setting up database permissions, use the principle of least privilege.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV26 | High |
 
 {% list tabs group=instructions %}
 
@@ -907,11 +1019,19 @@ When creating [on-demand backups](../../../ydb/pricing/serverless.md), make sure
 
 When creating backups on demand in {{ objstorage-name }}, follow the recommendations in the {{ objstorage-name }} subsection above (for example, use the built-in bucket encryption feature).
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV27 | Low |
+
 ### {{ container-registry-full-name }} {#container-registry}
 
 #### 3.28 ACL by IP address is set up for {{ container-registry-full-name }} {#acl-container-registry}
 
 We recommend that you limit access to your {{ container-registry-short-name }} to specific IPs.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV28 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -988,9 +1108,19 @@ Specify the IP addresses for registry access.
 
 #### 3.29 Requirements for application protection in {{ container-registry-full-name }} are met {#app-container-registry}
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV40 | Medium |
+
 ##### 3.29.1. Docker images are scanned when uploaded to {{ container-registry-full-name }} {#upload-policy}
 
-{% include [scan-docker-upload.md](scan-docker-upload.md) %}
+{% include [scan-docker-upload.md](scan-docker-upload-description.md) %}
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV41 | Medium |
+
+{% include [scan-docker-upload.md](scan-docker-upload-test.md) %}
 
 **Guides and solutions to use:**
 
@@ -998,17 +1128,33 @@ Specify the IP addresses for registry access.
 
 ##### 3.29.2 Docker images stored in {{ container-registry-name }} are regularly scanned {#periodic-scan}
 
-{% include [scan-docker-periodic](scan-docker-periodic.md) %}
+{% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV42 | High |
+
+{% include [scan-docker-periodic](scan-docker-periodic-test.md) %}
 
 ##### 3.29.3 Artifact integrity is ensured {#pipeline-artifacts-cosign}
 
-{% include [artifacts-cosign](artifacts-cosign.md) %}
+{% include [artifacts-cosign](artifacts-cosign-description.md) %}
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV43 | High |
+
+{% include [artifacts-cosign](artifacts-cosign-test.md) %}
 
 ### {{ cos-full-name }} {#container-solution}
 
 #### 3.30 Privileged containers are not used in {{ cos-full-name }} {#vip-containers}
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers should be used for the purposes of administering VMs or other containers.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV44 | High |
 
 {% list tabs group=instructions %}
 
@@ -1062,6 +1208,10 @@ When using certificate pinning, keep in mind that Let's Encrypt certificates are
 
 We recommend that you update certificates in advance if they are not [updated automatically](../../../certificate-manager/concepts/challenges.md#auto).
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV29 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -1106,6 +1256,10 @@ Update the certificate or set up auto updates.
 
 See the recommendations [here](../../../managed-gitlab/concepts/security.md#secure-instance). 
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV30 | Medium |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -1116,6 +1270,10 @@ See the recommendations [here](../../../managed-gitlab/concepts/security.md#secu
 
 #### 3.33 Requirements for application protection in {{ GL }} are met {#gl-app-container-registry}
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV45 | Medium |
+
 ##### 3.33.1 Protected secure pipeline templates are used {#pipeline-blocks}
 
 When working with {{ mgl-name }}, make sure you use built-in GitLab security mechanisms to secure your pipeline. You can integrate a pipeline into your projects in the [following ways](../../../managed-gitlab/concepts/security.md#security-pipeline-usage):
@@ -1124,6 +1282,10 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 * Using the [`Compliance framework and pipeline`](https://docs.gitlab.com/ee/user/project/settings/index.html#compliance-frameworks) mechanism that you can run in any group project. It is available for the `Ultimate` license.
 * Copying pipeline sections to `.gitlab-ci.yml` files in your projects.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV46 | Informational |
+
 ##### 3.33.2 Approval rules are configured {#setup-code-review}
 
 With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up required [approval rules](../../../managed-gitlab/concepts/approval-rules.md) before the code can be added to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
@@ -1131,6 +1293,10 @@ With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly
 If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. Editing the merge request creates or updates a comment in the thread with its current compliance status. Once all the required approvals are obtained, the thread is closed.
 
 If you close a thread manually, it will be created again. If a merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated code approval workflow.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV47 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -1151,6 +1317,10 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 Check the recommendations in [{#T}](../../../security/standard/kubernetes-security.md).
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV32 | Medium |
+
 #### 3.35 {{ oslogin }} is used for connection to a VM or {{ k8s }} node {#os-login-onto-hosts}
 
 [{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to [VMs](../../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
@@ -1158,6 +1328,10 @@ Check the recommendations in [{#T}](../../../security/standard/kubernetes-securi
 {{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level and then [activate](../../../compute/operations/vm-connect/enable-os-login.md) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
 
 Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users or service accounts. If you revoke the roles from a user or service account, they will lose access to all virtual machines and {{ k8s }} nodes with {{ oslogin }} access enabled.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV33 | Low |
 
 **Guides and solutions to use:**
 
@@ -1181,6 +1355,10 @@ Example of a free scanner operating as an agent on hosts: [Wazuh](https://docume
 
 You can also use a [solution](/marketplace/products/scanfactory/scanfactory-saas) from {{ marketplace-name }}.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV34 | Medium |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -1192,6 +1370,10 @@ You can also use a [solution](/marketplace/products/scanfactory/scanfactory-saas
 #### 3.37 External security scans are performed according to the {{ yandex-cloud }} rules {#external-security-scans}
 
 Customers hosting their own software in {{ yandex-cloud }} can perform external security scans for the hosted software, including penetration tests. You can run your own scans or use contractors. For more information, see [Rules for performing external security scans](../../../security/compliance/pentest.md).
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV35 | Informational |
 
 {% list tabs group=instructions %}
 
@@ -1207,6 +1389,10 @@ Customers must perform security updates themselves within their [scope of respon
 
 {{ yandex-cloud }} publishes [security bulletins](../../../security/security-bulletins/index.md) to notify customers of newly discovered vulnerabilities and security updates.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV36 | Medium |
+
 ### Backups {#backup}
 
 #### 3.39 {{ backup-short-name }} or scheduled snapshots are used {#snapshot}
@@ -1214,6 +1400,10 @@ Customers must perform security updates themselves within their [scope of respon
 Make sure to back up all VMs in your organization using one of these options:
 * Scheduled snapshots
 * {{ backup-short-name }}
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV37 | High |
 
 {% list tabs group=instructions %}
 
@@ -1243,6 +1433,10 @@ Make sure that the {{ yandex-cloud }} user has access to the [{{ api-gw-name }}]
 
 {% include [roles-list](../../../_includes/iam/roles-list.md) %}
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV48 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -1267,6 +1461,10 @@ For the gateway to have access not just to the internet but to the user resource
 {% include [network](../../../_includes/functions/network.md) %}
 
 If you specify a network in the API gateway settings, this will create an auxiliary subnet with addresses from the `198.19.0.0/16` range in each availability zone. The API gateway will get an IP address from the respective subnet and will have access to all network resources.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV49 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -1293,6 +1491,10 @@ If you are using your own domains in {{ api-gw-short-name }} with confirmed perm
 * Use [TLS](../../../storage/concepts/tls.md) version 1.2 or higher.
 * Use [additional protection tools](../../../api-gateway/concepts/extensions/), such as intrusion detection and DDoS protection systems.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV50 | Informational |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -1314,6 +1516,10 @@ We recommend that you use the following when connecting to the API gateway via W
 * OpenAPI 3.0 [authentication and authorization mechanisms](#authorization).
 * [API gateway specification extensions](../../../api-gateway/concepts/extensions/), which can help you enhance your virtual environment security.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV51 | Informational |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -1330,6 +1536,10 @@ For more information, see [{#T}](../../../api-gateway/tutorials/api-gw-websocket
 #### 3.44 API gateway interaction with {yandex-cloud} services is configured {#inter-cloud-services}
 
 Make sure that security enhancement extensions were added to the {{ api-gw-name }} specification.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV52 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -1350,6 +1560,10 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 * [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) sets request number limits, thus reducing workload on web apps and protecting the backend from depleting resources.
 * The [WAF](../../../smartwebsecurity/concepts/waf.md) profile analyzes web app's incoming HTTP requests based on pre-configured rules for DoS/DDoS protection.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV53 | Medium |
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -1366,7 +1580,11 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 We recommend using the OpenAPI 3.0 authentication and authorization mechanisms that are standard for {{ api-gw-name }}. Currently, you can use authorization via a function and via a JWT.
 
 * [Authorization via Cloud Functions](../../../api-gateway/concepts/extensions/function-authorizer.md). For HTTP request authorization, {{ api-gw-name }} calls the `x-yc-apigateway-authorizer:function` extension. Currently these three types are supported: `HTTP Basic`, `HTTP Bearer`, and `API Key`.
-* [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-name }} validates a token and verifies its signature using the following supported public keys: address, place, fields, body, time, caching mode, and cache retention period.
+* [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-name }} validates a token and verifies its signature using these public keys: address, place, fields, body, time, caching mode, and cache retention period.
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV54 | Medium |
 
 {% list tabs group=instructions %}
 
@@ -1383,6 +1601,10 @@ We recommend using the OpenAPI 3.0 authentication and authorization mechanisms t
 
 We recommend using an [authorization context](../../../api-gateway/concepts/extensions/function-authorizer.md#context) in the [request](../../../functions/concepts/function-invoke.md#request) inside the `requestContext.authorizer` field. This helps preserve data integrity and prevents unauthorized access.
 
+| ID requirements | Severity |
+| --- | --- |
+| ENV55 | Medium |
+
 {% list tabs group=instructions %}
 
 - Manual check {#manual}
@@ -1394,6 +1616,10 @@ We recommend using an [authorization context](../../../api-gateway/concepts/exte
 #### 3.48 Logging is on {#api-logs}
 
 We recommend to keep logging enabled when creating an API gateway. For more information, see [{#T}](../../../api-gateway/operations/api-gw-logs-write.md).
+
+| ID requirements | Severity |
+| --- | --- |
+| ENV56 | Medium |
 
 {% list tabs group=instructions %}
 

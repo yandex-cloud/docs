@@ -11,7 +11,7 @@ To use Qwen3-235B-A22B as your Visual Studio Code assistant, proceed as followin
 
 The infrastructure support fee for connecting Qwen3-235B-A22B from Visual Studio Code includes a text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 
-## Set up your infrastructure {#infra}
+## Set up the infrastructure {#infra}
 
 ### Create a folder {#create-folder}
 
@@ -37,7 +37,7 @@ You will need this [service account](../../iam/concepts/users/service-accounts.m
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `qwen-user`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to this service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -53,7 +53,7 @@ You need to create an API key for Visual Studio Code to be able to access the mo
   1. In the [management console]({{ link-console-main }}), navigate to `aistudio`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select the `qwen-user` service account.
+  1. In the list that opens, select `qwen-user`.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select `yc.ai.languageModels.execute`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.

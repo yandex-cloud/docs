@@ -9,9 +9,9 @@ doc_texts = [
     """Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow – January 29 [February 10], 1837, St. Petersburg)
     was a Russian poet, playwright, and novelist, the progenitor of Russian realism,
     a literary critic and theorist, historian, essay writer, and journalist.""",
-    """Matricaria is a genus of annual flowering plants of the aster (composite) family. According to the today's classification, it includes around 70 species of low-rise fragrant herbs that blossom from the first year of life.""",
-    
-    
+    """Matricaria is a genus of annual flowering plants of the aster (composite) family.
+    According to the modern classification, it includes around 70 species of low-rise fragrant herbs
+    that blossom from the first year of life.""",
 ]
 query_text = "when is Pushkin's birthday?"
 

@@ -90,7 +90,8 @@ To update HTTP router parameters:
        name           = "my-virtual-host"
        http_router_id = "${yandex_alb_http_router.tf-router.id}"
        route {
-         name = "my-route"
+         name                     = "my-route"
+         disable_security_profile = <disable_security_profile>
          http_route {
            http_route_action {
              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
@@ -173,7 +174,8 @@ To add a new route to your HTTP router's virtual host:
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
            --request-idle-timeout <request_idle_timeout>s \
-           --rate-limit rps=<rate_limit>,requests-per-ip
+           --rate-limit rps=<request_limit>,requests-per-ip \
+           --disable-security-profile=<disable_security_profile>
          ```
 
          For more information about `yc alb virtual-host append-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
@@ -196,6 +198,7 @@ To add a new route to your HTTP router's virtual host:
                backend_group_id: a5d3e9ko2qf0********
                timeout: 2s
                idle_timeout: 3s
+           disable_security_profile: true
          ```
 
       **Add a route at the beginning of the list**
@@ -217,7 +220,8 @@ To add a new route to your HTTP router's virtual host:
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
            --request-idle-timeout <request_idle_timeout>s \
-           --rate-limit rps=<request_limit>,requests-per-ip
+           --rate-limit rps=<request_limit>,requests-per-ip \
+           --disable-security-profile=<disable_security_profile>
          ```
 
          For more information about `yc alb virtual-host prepend-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
@@ -240,6 +244,7 @@ To add a new route to your HTTP router's virtual host:
                backend_group_id: a5d3e9ko2qf0********
                timeout: 2s
                idle_timeout: 3s
+           disable_security_profile: true
          - name: test-route
          ...
          ```
@@ -264,7 +269,8 @@ To add a new route to your HTTP router's virtual host:
            --backend-group-name <backend_group_name> \
            --request-timeout <request_timeout>s \
            --request-idle-timeout <request_idle_timeout>s \
-           --rate-limit rps=<request_limit>,requests-per-ip
+           --rate-limit rps=<request_limit>,requests-per-ip \
+           --disable-security-profile=<disable_security_profile>
          ```
 
          For more information about `yc alb virtual-host insert-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -289,6 +295,7 @@ To add a new route to your HTTP router's virtual host:
                backend_group_id: a5d3e9ko2qf0********
                timeout: 2s
                idle_timeout: 3s
+           disable_security_profile: true
          - name: test-route
          ...
          ```
@@ -313,7 +320,8 @@ To add a new route to your HTTP router's virtual host:
              --backend-group-name <backend_group_name> \
              --request-timeout <request_timeout>s \
              --request-idle-timeout <request_idle_timeout>s \
-             --rate-limit rps=<request_limit>,requests-per-ip
+             --rate-limit rps=<request_limit>,requests-per-ip \
+             --disable-security-profile=<disable_security_profile>
            ```
 
            For more information about `yc alb virtual-host insert-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -337,6 +345,7 @@ To add a new route to your HTTP router's virtual host:
                  backend_group_id: a5d3e9ko2qf0********
                  timeout: 2s
                  idle_timeout: 3s
+             disable_security_profile: true
            ...
            ```
 
@@ -361,7 +370,8 @@ To add a new route to your HTTP router's virtual host:
            --prefix-fqmn-match /<first_word_of_service_name> \
            --backend-group-name <backend_group_name> \
            --request-max-timeout <timeout>s \
-           --rate-limit rps=<request_limit>,requests-per-ip
+           --rate-limit rps=<request_limit>,requests-per-ip \
+           --disable-security-profile=<disable_security_profile>
          ```
 
          For more information about `yc alb virtual-host append-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
@@ -384,6 +394,7 @@ To add a new route to your HTTP router's virtual host:
                backend_group_id: ds7snban2dvn********
                max_timeout: 60s
                auto_host_rewrite: false
+           disable_security_profile: true
          ```
 
       **Add a route at the beginning of the list**
@@ -403,7 +414,8 @@ To add a new route to your HTTP router's virtual host:
            --prefix-fqmn-match /<first_word_of_service_name> \
            --backend-group-name <backend_group_name> \
            --request-max-timeout <timeout>s \
-           --rate-limit rps=<request_limit>,requests-per-ip
+           --rate-limit rps=<request_limit>,requests-per-ip \
+           --disable-security-profile=<disable_security_profile>
          ```
 
          For more information about `yc alb virtual-host prepend-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
@@ -424,6 +436,7 @@ To add a new route to your HTTP router's virtual host:
                backend_group_id: ds7snban2dvn********
                max_timeout: 60s
                auto_host_rewrite: false
+           disable_security_profile: true
          - name: grpc-route
          ...
          ```
@@ -446,7 +459,8 @@ To add a new route to your HTTP router's virtual host:
            --prefix-fqmn-match /<first_word> \
            --backend-group-name <backend_group_name> \
            --request-max-timeout <timeout>s \
-           --rate-limit rps=<request_limit>,requests-per-ip
+           --rate-limit rps=<request_limit>,requests-per-ip \
+           --disable-security-profile=<disable_security_profile>
          ```
 
           Where:
@@ -457,6 +471,7 @@ To add a new route to your HTTP router's virtual host:
           * `--prefix-fqmn-match`: Service name first word.
           * `--backend-group-name`: Backend group name.
           * `--request-max-timeout`: Timeout in seconds.
+          * `--disable-security-profile`: Flag to disable the security profile.
 
          For more information about `yc alb virtual-host insert-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
@@ -477,6 +492,7 @@ To add a new route to your HTTP router's virtual host:
                backend_group_id: ds7snban2dvn********
                max_timeout: 60s
                auto_host_rewrite: false
+           disable_security_profile: true
          - name: grpc-route
          ...
          ```
@@ -499,7 +515,8 @@ To add a new route to your HTTP router's virtual host:
             --prefix-fqmn-match /<first_word> \
             --backend-group-name <backend_group_name> \
             --request-max-timeout <timeout>s \
-            --rate-limit rps=<request_limit>,requests-per-ip
+            --rate-limit rps=<request_limit>,requests-per-ip \
+            --disable-security-profile=<disable_security_profile>
           ```
 
           Where:
@@ -510,6 +527,7 @@ To add a new route to your HTTP router's virtual host:
           * `--prefix-fqmn-match`: Service name first word.
           * `--backend-group-name`: Backend group name.
           * `--request-max-timeout`: Timeout in seconds.
+          * `--disable-security-profile`: Flag to disable the security profile.
 
           For more information about `yc alb virtual-host insert-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
@@ -524,14 +542,15 @@ To add a new route to your HTTP router's virtual host:
           - name: grpc-route
           ...
           - name: grpc-route-after
-             grpc:
-            match:
-               fqmn:
-               prefix_match: /helloworld
-            route:
-               backend_group_id: ds7snban2dvn********
-               max_timeout: 60s
-               auto_host_rewrite: false
+            grpc:
+              match:
+                 fqmn:
+                 prefix_match: /helloworld
+              route:
+                 backend_group_id: ds7snban2dvn********
+                 max_timeout: 60s
+                 auto_host_rewrite: false
+            disable_security_profile: true
           ...
           ```
 
@@ -546,7 +565,8 @@ To add a new route to your HTTP router's virtual host:
        name           = "my-virtual-host"
        http_router_id = "${yandex_alb_http_router.tf-router.id}"
        route {
-         name = "my-route"
+         name                     = "my-route"
+         disable_security_profile = <disable_security_profile>
          http_route {
            http_route_action {
              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"

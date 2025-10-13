@@ -30,7 +30,7 @@ description: Управление доступом в сервисе для со
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/kms/service-roles-hierarchy.svg)
+{% include [kms](../../_mermaid/roles/kms.md) %}
 
 ### Сервисные роли {#service-roles}
 

@@ -1,4 +1,4 @@
-# Paraphrasing queries
+# Rephrasing queries
 
 {{ assistant-api }} offers a model fine-tuned to correct typos and rephrase a query based on your chat history with the assistant. This is helpful when extensive search index data is used to generate responses in highly context-aware interactions.
 

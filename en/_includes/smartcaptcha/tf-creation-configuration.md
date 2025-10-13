@@ -1,11 +1,12 @@
 
 ```hcl
-resource "yandex_smartcaptcha_captcha" "demo-advanced-smartcaptcha" {
-  name                = "<captcha_name>"
-  style_json          = "<captcha_appearance>"
-  complexity          = "<challenge_difficulty>"
-  pre_check_type      = "<main_challenge_type>"
-  challenge_type      = "<additional_challenge_type>"
+resource "yandex_smartcaptcha_captcha" "<captcha_name>" {
+  name                    = "<captcha_name>"
+  turn_off_hostname_check = True
+  style_json              = "<captcha_appearance>"
+  complexity              = "<challenge_difficulty>"
+  pre_check_type          = "<main_challenge_type>"
+  challenge_type          = "<additional_challenge_type>"
 
   allowed_sites = [
     "<first_host>",
@@ -15,7 +16,7 @@ resource "yandex_smartcaptcha_captcha" "demo-advanced-smartcaptcha" {
   # First challenge variant
   override_variant {
     uuid        = "<variant_1_ID>"
-    description = "<variant_1_description>"
+    description = "<option_1_description>"
 
     complexity     = "<challenge_difficulty>"
     pre_check_type = "<main_challenge>"
@@ -61,7 +62,7 @@ resource "yandex_smartcaptcha_captcha" "demo-advanced-smartcaptcha" {
     condition {
       source_ip {
         geo_ip_match {
-          locations = ["ru", "es"]
+          locations = ["ru", "kz"]
         }
       }
     }

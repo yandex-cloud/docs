@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Включение экранирования источников
 
+{% include [provider-location-id](../../../_includes/cdn/provider-location-id.md) %}
+
 Чтобы включить [экранирование источников](../../concepts/origins-shielding.md) для [ресурса](../../concepts/resource.md):
 
 {% list tabs group=instructions %}

@@ -127,3 +127,5 @@ items:
         href: tls.md
       - name: WAF
         href: waf.md
+      - name: Технология единого входа (SSO)
+        href: sso.md
