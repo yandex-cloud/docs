@@ -49,7 +49,7 @@ The cost of support for the new infrastructure includes:
   1. In the [management console]({{ link-console-main }}), select the folder you will be creating your workflows in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
-      1. Name the [service account](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
+      1. Enter the [service account](../../iam/concepts/users/service-accounts.md) name: `workflow-sa`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`serverless.workflows.executor`](../../iam/concepts/access-control/roles.md).
       1. Repeat the previous step to add the [`postbox.sender`](../../postbox/security/index.md#postbox-sender) and [`ai.languageModels.user`](../../ai-studio/security/index.md#languageModels-user) roles.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -367,7 +367,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
       * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue you created the test issues in.
       * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain. Example: `tracker-robot@example.com` or `noreply@example.com`.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address the workflow will send an email to with a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.
@@ -503,7 +503,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
       * `<secret_ID>`: Previously saved [secret](../../lockbox/concepts/secret.md) ID with the application's OAuth token.
       * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain. Example: `tracker-robot@example.com` or `noreply@example.com`.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `fetch_comments`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.
@@ -570,7 +570,7 @@ To stop paying for the resources you created:
     {% endlist %}
 1. [Delete the secret](../../lockbox/operations/secret-delete.md).
 1. Delete the {{ tracker-name }} [issues]({{ link-tracker-cloudless }}user/ticket-cancel) and the [queue]({{ link-tracker-cloudless }}manager/delete-queue).
-1. Delete the {{ postbox-name }} address if you need to:
+1. Optionally, delete the {{ postbox-name }} address:
 
     {% list tabs group=instructions %}
 

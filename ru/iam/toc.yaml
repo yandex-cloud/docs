@@ -43,6 +43,8 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Настройка прав доступа к сервисному аккаунту
             href: operations/sa/set-access-bindings.md
+          - name: Использование имперсонации
+            href: operations/sa/impersonate-sa.md
           - name: Получение информации о сервисном аккаунте
             href: operations/sa/get-id.md
           - name: Получение ID-токена сервисного аккаунта
@@ -149,6 +151,8 @@ items:
             href: concepts/access-control/public-group.md
           - name: Ресурсы, на которые можно назначать роли
             href: concepts/access-control/resources-with-access-control.md
+          - name: Имперсонация
+            href: concepts/access-control/impersonation.md
       - name: Аутентификация
         items:
           - name: Как выбрать правильный способ аутентификации

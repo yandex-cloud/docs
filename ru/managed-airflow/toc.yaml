@@ -53,8 +53,14 @@ items:
             href: operations/read-file-from-dags-bucket.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
-      - name: Передача логов {{ AF }} в {{ cloud-logging-name }}
-        href: operations/af-logging.md
+      - name: Логи и мониторинг
+        items:
+          - name: Мониторинг состояния кластера
+            href: operations/monitoring.md
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Передача логов {{ AF }} в {{ cloud-logging-name }}
+            href: operations/af-logging.md
   - name: Практические руководства
     items:
       - name: Все руководства

@@ -5,7 +5,7 @@ description: In {{ postbox-full-name }}, you can track clicks in emails. As soon
 
 # Click tracking
 
-In {{ postbox-full-name }}, you can track clicks in emails. As soon as the recipient clicks a link in an email, {{ postbox-name }} [notifies](notification.md#click) you accordingly.
+In {{ postbox-full-name }}, you can track clicks in emails. As soon as the recipient clicks a link in an email, {{ postbox-name }} notifies you accordingly.
 
 ## How it works {#how-it-works}
 
@@ -21,9 +21,14 @@ For details on click notification format, see [{#T}](notification.md#click).
 
 {% endnote %}
 
-## Setting up tracking {#setup}
+## How to enable {#setup}
 
-To receive click notifications, [create a configuration](../operations/create-configuration.md) and select the **Click** notification type.
+You can enable link tracking when [creating](../operations/create-configuration.md) or editing a configuration in the following ways:
+
+Method | [Metric](statistics.md#metrics) collection `Clicks` | Sending notifications to a data stream in {{ yds-name }}
+--- | --- | ---
+Under **{{ ui-key.yacloud.postbox.label_event-destinations }}**, Select the **Click tracking** notification type | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
+Under **Statistics collection settings**, enable **Engagement statistics**. | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
 
 {% note info %}
 
@@ -33,7 +38,7 @@ Tracking links are added only to emails containing the HTML part. You cannot use
 
 {% endnote %}
 
-## Operational aspects {#features}
+## Features {#features}
 
 ### Multiple clicks {#multiple-clicks}
 

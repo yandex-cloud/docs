@@ -1,1 +1,3 @@
+The `cspm.worker` role allows the user to view the [organization](../../organization/concepts/organization.md) info, view the list of [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) and their info as controlled resources of a Security Deck [workspace](../../security-deck/concepts/workspace.md).
 
+The role is issued to the [service account](../../iam/concepts/users/service-accounts.md) to perform checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) configured in [CSPM](../../security-deck/concepts/cspm.md) settings and extends to an organization, cloud, or folder.

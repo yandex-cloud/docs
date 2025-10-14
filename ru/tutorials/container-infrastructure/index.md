@@ -27,6 +27,7 @@ description: Различные сценарии использования ко
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
 * [{#T}](k8s-cluster-api-provider-yandex.md)
+* [{#T}](k8s-connect-bms-as-node.md)
 
 ### Настройка и тестирование масштабирования {#scaling}
 

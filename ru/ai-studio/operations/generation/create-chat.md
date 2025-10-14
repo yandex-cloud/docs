@@ -1,9 +1,9 @@
 ---
 title: Как создать чат с моделью {{ gpt-lite }} в {{ foundation-models-full-name }}
-description: Следуя данной инструкции, вы создадите чат с {{ gpt-lite }} с помощью Responses API.
+description: Следуя данной инструкции, вы создадите чат с {{ gpt-lite }} с помощью {{ responses-api }}.
 ---
 
-# Как реализовать чат с помощью Responses API
+# Как реализовать чат с помощью {{ responses-api }}
 
 ## Перед началом работы {#before-begin}
 

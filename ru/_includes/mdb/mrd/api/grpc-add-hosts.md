@@ -6,6 +6,7 @@
 
 1. Воспользуйтесь вызовом [ClusterService.AddHosts](../../../../managed-redis/api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
+    
     ```bash
     grpcurl \
         -format json \
@@ -28,6 +29,7 @@
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.redis.v1.ClusterService.AddHosts
     ```
+
 
     Где `host_specs` — параметры хоста:
 

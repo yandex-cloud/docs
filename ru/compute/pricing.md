@@ -197,6 +197,7 @@ _{{ price-per-hour-count-per-second }}_
 {% endcut %}
 
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -211,15 +212,14 @@ _{{ price-per-hour-count-per-second }}_
 
 _{{ price-per-hour-count-per-second }}_
 
+
 ## Цены для региона Россия {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 Цена с (CVoS) доступна только для обычных ВМ.
-
 
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}

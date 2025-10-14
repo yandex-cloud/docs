@@ -1,1 +1,3 @@
+The `kspm.admin` role allows the user to engage, set up, and disconnect [KSPM](../../security-deck/concepts/kspm.md), create, modify, and delete exceptions from the rules and exceptions from the scope of control, view info on Managed Service for Kubernetes [clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) connected to KSPM, KSPM users, and KSPM operations.
 
+This role includes the `kspm.editor` permissions.

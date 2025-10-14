@@ -9,7 +9,7 @@ description: В этом разделе описаны инструменты д
 
 {{ foundation-models-name }} предоставляет несколько готовых инструментов, которые вы можете использовать при работе с сервисом:
 
-* [VectorStore](./vector-store.md)
+* [{{ retrieval-tool-name }}](./vector-store.md)
 * [WebSearch](./web-search.md)
 
 К AI-ассистенту можно подключить одновременно несколько инструментов.

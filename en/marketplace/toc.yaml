@@ -24,6 +24,8 @@ items:
             href: operations/license-manager-integration.md
           - name: Creating a configuration for a {{ cloud-apps-name }} product
             href: operations/create-configuration.md
+          - name: Product access requests
+            href: operations/access-requests.md
       - name: Tutorials
         items:
           - name: Creating a demo {{ cloud-apps-name }} product
@@ -314,16 +316,20 @@ items:
         href: operations/users/quickstart.md
       - name: Step-by-step guides
         items:
-          - name: Buying a subscription
-            href: operations/users/buy-subscription.md
-          - name: Linking a subscription
-            href: operations/users/lock-subscription.md
-          - name: Unlinking a subscription
-            href: operations/users/unlock-subscription.md
-          - name: Moving a subscription
-            href: operations/users/move-subscription.md
-          - name: Disabling auto-renewal
-            href: operations/users/cancel-subscription.md
+          - name: Managing a subscription
+            items:
+              - name: Buying a subscription
+                href: operations/users/buy-subscription.md
+              - name: Linking a subscription
+                href: operations/users/lock-subscription.md
+              - name: Unlinking a subscription
+                href: operations/users/unlock-subscription.md
+              - name: Moving a subscription
+                href: operations/users/move-subscription.md
+              - name: Disabling auto-renewal
+                href: operations/users/cancel-subscription.md
+          - name: Requesting product access
+            href: operations/users/access-requests.md
       - name: Tutorials
         items:
           - name: All tutorials

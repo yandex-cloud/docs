@@ -1430,6 +1430,8 @@ items:
         href: serverless/movies-database.md
       - name: Building a CI/CD pipeline in {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Starting {{ GLR }} in {{ serverless-containers-name }}
+        href: serverless/serverless-gitlab-runner.md
       - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
         href: serverless/ci-cd-sourcecraft-functions.md
       - name: Configuring CI/CD between {{ sf-name }} and GitHub

@@ -18,7 +18,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
   1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ ui-key.yc-eventrouter.dynamic-forms.timer_name }}`.
   1. Under **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_base_options_title }}**, specify:
 
-      * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_cron_expression_title }}** field, an event generation schedule, in [cron expression](../../../concepts/eventrouter/connector.md#cron-expression) format.
+      * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_cron_expression_title }}** field, an event generation schedule, in [cron expression](../../../concepts/cron.md) format.
       * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_timezone_title }}** field, a time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
       * In the **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_payload_title }}** field, a message that goes to the bus if the timer goes off in the `payload` field. This is an optional parameter.
 
@@ -31,7 +31,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for creating a [connector](../../../concepts/eventrouter/connector.md):
+  1. View the description of the CLI command to create a [connector](../../../concepts/eventrouter/connector.md):
 
       ```bash
       yc serverless eventrouter connector create timer --help
@@ -54,7 +54,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
       Where:
 
       * `--bus-id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
-      * `--cron-expression`: Schedule for generating events, in [cron expression](../../../concepts/eventrouter/connector.md#cron-expression) format.
+      * `--cron-expression`: Event generation schedule in [cron expression](../../../concepts/cron.md) format.
       * `--time-zone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
       * `--payload`: Message sent to the bus if the timer fires. This is an optional parameter.
       * `--name`: Connector name. Follow these naming requirements:
@@ -98,7 +98,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
   To create a [timer](../../../concepts/eventrouter/connector.md#timer):
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -130,7 +130,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
       * `description`: Connector description. This is an optional parameter.
       * `deletion_protection`: Connector deletion protection, `true` or `false`. You cannot delete a connector with this option enabled. This is an optional parameter.
       * `labels`: List of labels. Provide labels in `<key> = "<value>"` format. This is an optional parameter.
-      * `cron_expression`: Schedule for generating events, in [cron expression](../../../concepts/eventrouter/connector.md#cron-expression) format.
+      * `cron_expression`: Event generation schedule in [cron expression](../../../concepts/cron.md) format.
       * `timezone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional parameter.
       * `payload`: Message sent to the bus if the timer fires. This is an optional parameter.
 

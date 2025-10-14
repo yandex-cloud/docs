@@ -23,6 +23,8 @@ A configuration may contain the following rules:
 
 * **{{ ui-key.yacloud.postbox.label_delivery-options }}**: Mandatory TLS encryption when emails go from {{ postbox-name }} to recipient servers. Ensures extra data transmission security and protects email contents.
 
+* **Statistics collection settings**: Settings for collection of statistics on [email opens](mail-opened.md) and [clicks](click-tracking.md). They enable automatically collecting and analyzing the `Openings` and `Clicks` [metrics](statistics.md#metrics).
+
 ### Applying a configuration to an email {#usage}
 
 You can apply a configuration to an email in the following ways:
