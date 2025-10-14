@@ -22,7 +22,7 @@ def make_silence_chunk(samples: int):
 
 
 async def main():
-    # 1️⃣ Конвертация входного файла в формат, который понимает Realtime API:
+    # 1️⃣ Конвертация входного файла в формат, который понимает {{ realtime-api }}:
     # mono, 24kHz, 16-bit PCM. Без этого модель не примет аудио.
     print("🎧 Конвертация входного файла...")
     subprocess.run([
@@ -32,12 +32,12 @@ async def main():
     ], check=True)
     print(f"✅ Converted {INPUT_FILE} -> {CONVERTED_FILE}")
 
-    # 2️⃣ Устанавливаем WebSocket-соединение с Realtime API.
+    # 2️⃣ Устанавливаем WebSocket-соединение с {{ realtime-api }}.
     async with websockets.connect(
             REALTIME_URL,
             additional_headers=[("Authorization", f"api-key {API_KEY}")]
     ) as ws:
-        print("✅ Connected to Realtime API")
+        print("✅ Connected to {{ realtime-api }}")
 
         # 3️⃣ Ждём первое событие "session.created" с настройками сессии.
         created = json.loads(await ws.recv())

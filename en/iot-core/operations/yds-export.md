@@ -20,7 +20,7 @@ description: Follow this guide to export messages to {{ yds-name }}.
   1. Select the required registry from the list.
   1. Navigate to the **{{ ui-key.yacloud.iot.label_yds-exports }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.iot.button_add-yds-export }}**.
-  1. Fill in the fields as follows:
+  1. Fill out the fields as follows:
 
      * **{{ ui-key.yacloud.common.name }}**: Export name.
      * **{{ ui-key.yacloud.iot.label_mqtt-topic-filter }}**: Specify the topic from which you want to export messages or a filter using [wildcard characters](../concepts/topic/usage.md#wildcards). If you leave this field empty, messages will be exported from all topics within the registry, including topics from all devices within the registry.

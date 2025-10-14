@@ -83,11 +83,13 @@ items:
             href: operations/agents/create-simple-text-agent.md
           - name: Создать текстового агента с вызовом функции
             href: operations/agents/create-function-text-agent.md
+          - name: Управлять поисковым индексом {{ vector-store-name }}
+            href: operations/agents/manage-searchindex.md
           - name: '{{ assistant-api }}'
             items:
               - name: Создать простого ассистента
                 href: operations/assistant/create.md
-              - name: Создать ассистента с инструментом VectorStore
+              - name: Создать ассистента с инструментом {{ retrieval-tool-name }}
                 href: operations/assistant/create-with-searchindex.md
               - name: >-
                   Создать ассистента для поиска с указанием метаданных файлов и
@@ -155,7 +157,7 @@ items:
             items:
               - name: Обзор
                 href: concepts/assistant/tools/index.md
-              - name: Retrieval
+              - name: '{{ retrieval-tool-name }}'
                 href: concepts/assistant/tools/vector-store.md
               - name: WebSearch
                 href: concepts/assistant/tools/web-search.md
@@ -167,8 +169,10 @@ items:
         items:
           - name: Файлы-источники
             href: concepts/assistant/files.md
-          - name: Поисковые индексы
+          - name: Поисковые индексы {{ assistant-api }}
             href: concepts/assistant/search-index.md
+          - name: Поисковые индексы {{ vector-store-name }}
+            href: concepts/search/vectorstore.md
           - name: Коннекторы TBD
             hidden: true
       - name: '{{ mcp-hub-name }}'

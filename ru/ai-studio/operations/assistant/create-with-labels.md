@@ -9,7 +9,7 @@ description: Следуя этой инструкции, с помощью {{ as
 
 {{ assistant-api }} — это функциональность {{ foundation-models-name }} для создания [AI-ассистентов](../../concepts/assistant/index.md). С его помощью можно создать персонализированных помощников, реализовывать сценарий генеративного ответа с учетом информации из внешних источников ([RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском), Retrieval Augmented Generation), присваивая файлам-источникам и поисковым индексам наборы [метаданных](../../concepts/assistant/index.md#labels), которые позволят более эффективно ориентироваться во внешних источниках.
 
-Получать информацию из базы знаний AI-ассистентам позволяет [инструмент](../../concepts/assistant/tools/vector-store.md) VectorStore.
+Получать информацию из базы знаний AI-ассистентам позволяет [инструмент](../../concepts/assistant/tools/vector-store.md) {{ retrieval-tool-name }}.
 
 ## Перед началом работы {#before-begin}
 

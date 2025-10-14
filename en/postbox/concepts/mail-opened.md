@@ -5,11 +5,11 @@ description: In {{ postbox-full-name }}, you can track whether recipients open y
 
 # Tracking email openings
 
-In {{ postbox-full-name }}, you can track whether recipients open your emails. When the recipient opens the email in their email client, {{ postbox-name }} will send a [notification](notification.md#open).
+In {{ postbox-full-name }}, you can track whether recipients open your emails. When the recipient opens the email in their email client, {{ postbox-name }} will send a notification.
 
 ## How it works {#how-it-works}
 
-To track email openings, {{ postbox-name }} uses the invisible `tracking pixel`. When tracking is enabled, {{ postbox-name }} automatically embeds an invisible 1x1 pixel image at the end of the top HTML part of the email.
+To track email openings, {{ postbox-name }} uses a `tracking pixel`. When tracking is enabled, {{ postbox-name }} automatically embeds an invisible 1x1 pixel image at the end of the top HTML part of the email.
 
 As soon as the recipient opens the email in an email client, the client loads the images, including the tracking pixel. {{ postbox-name }} logs the request to load the pixel and sends a notification that the email has been opened.
 
@@ -21,23 +21,28 @@ For a description of the email opening notification format, see [{#T}](notificat
 
 {% endnote %}
 
-## Setting up tracking {#setup}
+## How to enable {#setup}
 
-To receive notifications about opened emails, [create a configuration](../operations/create-configuration.md) and specify the notification type: **Email opening**.
+You can enable tracking for email openings when [creating](../operations/create-configuration.md) or editing a configuration by using the following methods:
+
+Method | `Openings` [metric](statistics.md#metrics) collection | Sending notifications to {{ yds-name }}
+--- | --- | ---
+Select the **Email opened** notification type under **{{ ui-key.yacloud.postbox.label_event-destinations }}**. | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)
+Enable **Engagement statistics** under **Statistics collection settings**. | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)
 
 {% note info %}
 
-Tracking works for emails that have only one recipient.
+Tracking works for emails with one recipient only.
 
 The tracking pixel is added only to emails containing an HTML part. You cannot use tracking if your email contains only a text part.
 
 {% endnote %}
 
-## Operation specifics {#features}
+## Features {#features}
 
 ### Multiple openings {#multiple-opens}
 
-{{ postbox-name }} sends a notification each time a recipient opens your email. If the recipient has opened the email multiple times, you will receive the same number of notifications.
+{{ postbox-name }} sends a notification each time a recipient opens your email. If the recipient has opened the email several times, you will get as many notifications.
 
 Sometimes, you may get more notifications than the actual number of times the recipient has opened your email for the following reasons:
 

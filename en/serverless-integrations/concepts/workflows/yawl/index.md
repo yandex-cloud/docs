@@ -17,7 +17,7 @@ For the workflow JSON schema, visit our [GitHub repo](https://raw.githubusercont
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
-`yawl` | `string` | Yes | Specification language version. The possible value is `1.0`.
+`yawl` | `string` | Yes | Specification language version. The possible values are: `1.0`.
 `start` | `string` | Yes | ID of the [step](#step) to start off the workflow execution.
 `defaultRetryPolicy` | [RetryPolicy](#retrypolicy) | No | Retry policy applied by default to any step throwing an error during execution.
 `steps` | `map<string, Step>` | Yes | Description of workflow steps. Object where key is the step ID selected by the user, and value is the object describing the step parameters.
@@ -28,7 +28,7 @@ Field name | Type | Required | Description
 --- | --- | --- | ---
 `title` | `string` | No | Step name.
 `description` | `string` | No | Step description.
-`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[AIAgent](integration/aiagent.md)\|<br/>[TelegramBot](integration/telegrambot.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
+`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)\|<br/>[Workflow](integration/workflow.md)\|<br/>[AIAgent](integration/aiagent.md)\|<br/>[TelegramBot](integration/telegrambot.md)\|<br/>[AIStudioAgent](integration/aistudioagent.md)\|<br/>[VectorStore](integration/vectorstore.md)\|<br/>[DatabaseQuery](integration/databasequery.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
 
 ## Integration steps {#integration-steps}
 
@@ -47,6 +47,9 @@ Field name | Type | Required | Description
 * [Disk](integration/disk.md)
 * [AIAgent](integration/aiagent.md)
 * [TelegramBot](integration/telegrambot.md)
+* [AIStudioAgent](integration/aistudioagent.md)
+* [VectorStore](integration/vectorstore.md)
+* [DatabaseQuery](integration/databasequery.md)
 
 ### Common fields {#common}
 
@@ -54,7 +57,7 @@ The fields described herein are available for all integration steps.
 
 Field name | Type | Required | Default value | Description
 --- | --- | --- | --- | ---
-`input` | `string` | No | [Overall state of the workflow](../workflow.md#state) | A jq template to filter the workflow state fed into the step.
+`input` | `string` | No | [Overall state of the workflow](../workflow.md#state) | jq template to filter the workflow state fed into the step.
 `output` | `string` | No | Step output data | A jq template to filter the step outputs added into the workflow state.
 `next` | `string` | No | No | ID of the next step.
 `retryPolicy` | [RetryPolicy](#retrypolicy) | No | `defaultRetryPolicy`, if set on the [workflow](#workflow) level | Retry policy applied if a step throws an error during execution.

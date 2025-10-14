@@ -76,6 +76,14 @@ The revocation function was unable to check revocation for the certificate
 
 На Ubuntu 24.04 и выше команда `kafkacat` не работает, используйте вместо нее команду `kcat`.
 
+#### Будет ли доступен Karapace во время технического обслуживания? {#karapace-maintenance}
+
+{% include [karapace-maintenance](../../_includes/mdb/mkf/karapace-maintenance.md) %}
+
+#### Эндпоинт Karapace постоянный или меняется в зависимости от брокера? {#karapace-endpoint}
+
+{% include [karapace](../../_includes/mdb/mkf/karapace.md) %}
+
 #### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mkf-short-name }}? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

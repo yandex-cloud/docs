@@ -449,7 +449,7 @@ Where:
 * `<bucket_name>`: Name of the bucket you [created earlier](#create-bucket).
 * `<secret_ID>`: ID of the secret you [created earlier](#create-secret).
 
-This example uses the {{ gpt-pro }} (`name: yandexgpt`) text model. You can use [another model](../../ai-studio/concepts/generation/models.md#generation) available in synchronous mode in {{ foundation-models-name }}.
+This example uses the {{ gpt-pro }} text model (`name: yandexgpt`). You can use [another model](../../ai-studio/concepts/generation/models.md#generation) available in synchronous mode in {{ foundation-models-name }}.
 
 
 ### Create a workflow {#create-workflow}

@@ -14,6 +14,7 @@ description: На этой странице приведен справочни�
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_mdb_redis_cluster]({{ tf-provider-resources-link }}/mdb_redis_cluster) | [Кластер](./concepts/index.md) |
+| [yandex_mdb_redis_user]({{ tf-provider-resources-link }}/mdb_redis_user) | Пользователь {{ VLK }} |
 
 ## Источники данных {#data-sources}
 

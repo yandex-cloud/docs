@@ -60,10 +60,12 @@ items:
                 href: operations/workflows/constructor/index.md
               - name: Integration steps
                 items:
-                  - name: '{{ foundation-models-name }}'
+                  - name: Models {{ ai-studio-name }}
                     href: operations/workflows/constructor/foundationmodelscall.md
-                  - name: AI agent
-                    href: operations/workflows/constructor/aiagent.md
+                  - name: '{{ ai-studio-name }} agent'
+                    href: operations/workflows/constructor/aistudioagent.md
+                  - name: Vector Store
+                    href: operations/workflows/constructor/vectorstore.md
                   - name: '{{ sf-short-name }}'
                     href: operations/workflows/constructor/functioncall.md
                   - name: '{{ serverless-containers-name }}'
@@ -88,8 +90,12 @@ items:
                     href: operations/workflows/constructor/yadisk.md
                   - name: '{{ sw-name }}'
                     href: operations/workflows/constructor/workflow.md
+                  - name: AI agent
+                    href: operations/workflows/constructor/aiagent.md
                   - name: Telegram bot
                     href: operations/workflows/constructor/telegrambot.md
+                  - name: Database Query
+                    href: operations/workflows/constructor/databasequery.md
               - name: Control steps
                 items:
                   - name: Switch
@@ -124,6 +130,8 @@ items:
             items:
               - name: Starting a workflow
                 href: operations/workflows/execution/start.md
+              - name: Starting a workflow execution on a timer
+                href: operations/workflows/execution/start-by-timer.md
               - name: Stopping a workflow execution
                 href: operations/workflows/execution/stop.md
               - name: Terminating a workflow execution
@@ -318,6 +326,12 @@ items:
                     href: concepts/workflows/yawl/integration/aiagent.md
                   - name: TelegramBot
                     href: concepts/workflows/yawl/integration/telegrambot.md
+                  - name: AIStudioAgent
+                    href: concepts/workflows/yawl/integration/aistudioagent.md
+                  - name: VectorStore
+                    href: concepts/workflows/yawl/integration/vectorstore.md
+                  - name: DatabaseQuery
+                    href: concepts/workflows/yawl/integration/databasequery.md
               - name: Control steps
                 items:
                   - name: Switch
@@ -348,6 +362,8 @@ items:
             href: concepts/eventrouter/rule.md
           - name: Sending events to the bus
             href: concepts/eventrouter/sending-events.md
+      - name: Cron expressions
+        href: concepts/cron.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

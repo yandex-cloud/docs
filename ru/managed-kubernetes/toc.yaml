@@ -166,12 +166,18 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Удаление группы узлов
             href: operations/node-group/node-group-delete.md
-      - name: Подключение внешних узлов к кластеру
-        href: operations/external-nodes-connect.md
-      - name: Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру
-        href: operations/external-nodes-connect-wireguard.md
-      - name: Настройка IPSec-шлюзов для подключения внешних узлов к кластеру
-        href: operations/external-nodes-connect-ipsec.md
+      - name: Работа с внешними узлами
+        items:
+          - name: Подключение внешних узлов к кластеру
+            href: operations/external-nodes-connect.md
+          - name: >-
+              Настройка WireGuard-шлюзов для подключения внешних узлов к
+              кластеру
+            href: operations/external-nodes-connect-wireguard.md
+          - name: Настройка IPSec-шлюзов для подключения внешних узлов к кластеру
+            href: operations/external-nodes-connect-ipsec.md
+          - name: Подключение сервера {{ baremetal-name }} как внешнего узла
+            href: operations/bms-server-connect.md
   - name: Практические руководства
     items:
       - name: Все руководства

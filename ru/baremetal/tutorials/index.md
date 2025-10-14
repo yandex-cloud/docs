@@ -12,3 +12,4 @@ description: Различные сценарии использования {{ b
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)
 * [{#T}](./webapp-on-bms-behind-sws.md)
+* [{#T}](./k8s-connect-bms-as-node.md)

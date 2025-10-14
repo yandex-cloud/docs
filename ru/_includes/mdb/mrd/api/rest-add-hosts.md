@@ -4,6 +4,7 @@
 
 1. Воспользуйтесь методом [Cluster.AddHosts](../../../../managed-redis/api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+    
     ```bash
     curl \
         --request POST \
@@ -22,6 +23,7 @@
                   ]
                 }'
     ```
+
 
     Где `hostSpecs` — параметры хоста:
 
