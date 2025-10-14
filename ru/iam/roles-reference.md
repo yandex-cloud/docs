@@ -2015,6 +2015,30 @@ description: В статье приведен полный справочник 
 
 Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
+### Сервисные роли для модуля Контроль {{ k8s }}® (KSPM) {#kspm-roles}
+
+#### kspm.worker {#kspm-worker}
+
+{% include [kspm.worker](../_roles/kspm/worker.md) %}
+
+#### kspm.auditor {#kspm-auditor}
+
+{% include [kspm.auditor](../_roles/kspm/auditor.md) %}
+
+#### kspm.viewer {#kspm-viewer}
+
+{% include [kspm.viewer](../_roles/kspm/viewer.md) %}
+
+#### kspm.editor {#kspm-editor}
+
+{% include [kspm.editor](../_roles/kspm/editor.md) %}
+
+#### kspm.admin {#kspm-admin}
+
+{% include [kspm.admin](../_roles/kspm/admin.md) %}
+
+Подробнее см. [Управление доступом в KSPM](../security-deck/security/kspm-roles.md).
+
 ### Сервисные роли для модуля Контроль конфигурации ({{ cspm-name }}) {#cspm-roles}
 
 #### cspm.worker {#cspm-worker}

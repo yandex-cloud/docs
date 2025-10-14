@@ -1,6 +1,6 @@
 ---
 title: Как отправить запрос к модели в {{ foundation-models-full-name }}
-description: Следуя данной инструкции, вы научитесь использовать Responses API в {{ foundation-models-full-name }}, чтобы отправить запрос к {{ gpt-lite }}.
+description: Следуя данной инструкции, вы научитесь использовать {{ responses-api }} в {{ foundation-models-full-name }}, чтобы отправить запрос к {{ gpt-lite }}.
 ---
 
 # Отправить запрос в промт-режиме

@@ -28,8 +28,9 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 
 ### Workflow step constructor {#constructor}
 
-* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
-* [AI agent](workflows/constructor/aiagent.md)
+* [{{ ai-studio-name }} models](workflows/constructor/foundationmodelscall.md)
+* [{{ ai-studio-name }} agent](workflows/constructor/aistudioagent.md)
+* [Vector Store](workflows/constructor/vectorstore.md)
 * [{{ sf-short-name }}](workflows/constructor/functioncall.md)
 * [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
 * [{{ postbox-short-name }}](workflows/constructor/postbox.md)
@@ -44,6 +45,7 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{{ sw-name }}](workflows/constructor/workflow.md)
 * [AI agent](workflows/constructor/aiagent.md)
 * [Telegram bot](workflows/constructor/telegrambot.md)
+* [Database Query](workflows/constructor/databasequery.md)
 * [Switch](workflows/constructor/switch.md)
 * [Foreach](workflows/constructor/foreach.md)
 * [While](workflows/constructor/while.md)
@@ -64,6 +66,7 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 ### Managing a workflow execution {#execution-control}
 
 * [{#T}](workflows/execution/start.md)
+* [{#T}](workflows/execution/start-by-timer.md)
 * [{#T}](workflows/execution/stop.md)
 * [{#T}](workflows/execution/terminate.md)
 

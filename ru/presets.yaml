@@ -560,6 +560,8 @@ default:
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
   resmgr-name: Resource Manager
+  responses-api: Responses API
+  retrieval-tool-name: Retrieval
   RMQ: RabbitMQ
   roles-admin: admin
   roles-alb-editor: alb.editor
@@ -873,6 +875,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   vision-full-name: Yandex Vision OCR
@@ -8495,6 +8498,13 @@ default:
           field_interval-between-attempts: Интервал между попытками
           field_lvm-snapshotting-disabled: С помощью агента Cloud Backup
           field_lvm-snapshotting-enabled: С помощью LVM
+          field_post-command-enabled: Выполнение команды после резервного копирования
+          field_pre-command-enabled: Выполнение команды до резервного копирования
+          field_pre-post-commands: Команды до или после
+          field_pre-post-commands-args: Аргументы
+          field_pre-post-commands-cmd: Команда или путь к файлу
+          field_pre-post-commands-stop-on-error: Прерывать резервное копирование при сбое команды
+          field_pre-post-commands-workdir: Рабочий каталог
           field_retention: Хранение копий
           field_run-later: Запуск пропущенных заданий после загрузки
           field_schedule-type: Расписание запуска
@@ -8504,6 +8514,7 @@ default:
           field_validation-enabled: Проверка резервных копий
           field_week-days: Дни недели
           title_additional-section: Дополнительно
+          title_full-backup-card: Всегда полные
           title_incremental-backup-card: Инкрементальные
           title_retention-section: Настройки хранения
           title_schedule-section: Настройки запуска
@@ -10082,6 +10093,7 @@ default:
             label_network-ssd-io-m3: SSD IO
             label_network-ssd-nonreplicated: Нереплицируемый SSD
             label_platform: Платформа
+            label_secret: Секрет с приватным SSH-ключом
             label_tab-nodes: Узлы
             section_placement-policy: Размещение
         node-groups:
@@ -10095,6 +10107,7 @@ default:
             field_disk-type: Тип диска
             field_driverless-gpu: Не устанавливать драйверы GPU
             field_initial-size: Начальное кол-во узлов
+            field_ips: IP-адреса узлов
             field_locations: Расположение
             field_max-expansion: Расширение размера группы, макс.
             field_max-size: Максимальное кол-во узлов
@@ -10121,6 +10134,7 @@ default:
             value_scale-fixed: Фиксированный
         node:
           overview:
+            label_events: События
             label_labels: Метки
             label_monitoring: Мониторинг
         nodes:

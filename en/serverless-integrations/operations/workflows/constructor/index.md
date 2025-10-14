@@ -11,8 +11,9 @@ You can configure the following workflow steps using the constructor:
 
 ## Integration steps {#integration-steps}
 
-* [{{ foundation-models-name }}](./foundationmodelscall.md)
-* [AI agent](./aiagent.md)
+* [{{ ai-studio-name }} models](./foundationmodelscall.md)
+* [{{ ai-studio-name }} agent](./aistudioagent.md)
+* [Vector Store](./vectorstore.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
 * [{{ postbox-short-name }}](./postbox.md)
@@ -27,6 +28,7 @@ You can configure the following workflow steps using the constructor:
 * [{{ sw-name }}](./workflow.md)
 * [AI agent](./aiagent.md)
 * [Telegram bot](./telegrambot.md)
+* [Database Query](./databasequery.md)
 
 ## Control steps {control-steps}
 

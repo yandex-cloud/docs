@@ -1,35 +1,10 @@
 # Файлы-источники
 
-Чтобы модель использовала внешние источники информации для ответов на запросы, необходимо загрузить файлы с дополнительной информацией с помощью [Files API](../../files/api-ref/grpc/index.md) и [создать](../../searchindex/api-ref/grpc/SearchIndex/create.md) для них [_поисковый индекс_](./search-index.md). Загрузить можно до 10 000 файлов, максимальный размер каждого файла — 128 МБ. Один и тот же файл может содержаться в нескольких поисковых индексах сразу. 
+Чтобы модель использовала внешние источники информации для ответов на запросы, необходимо загрузить файлы с дополнительной информацией с помощью [Files API](../../files/api-ref/grpc/index.md) и [создать](../../searchindex/api-ref/grpc/SearchIndex/create.md) для них [_поисковый индекс_](./search-index.md). Загрузить можно до 10 000 файлов, максимальный размер каждого файла — 128 МБ. Один и тот же файл может содержаться в нескольких поисковых индексах одновременно.
 
 Со всеми ограничениями {{ assistant-api }} можно ознакомиться в разделе [{#T}](../limits.md).
 
-Для загрузки поддерживаются следующие [MIME-типы](https://en.wikipedia.org/wiki/Media_type): 
-
-* `application/json`
-* `application/msword`
-* `application/pdf`
-* `application/vnd.ms-excel`
-* `application/vnd.ms-excel.sheet.2`
-* `application/vnd.ms-excel.sheet.3`
-* `application/vnd.ms-excel.sheet.4`
-* `application/vnd.ms-excel.workspace.3`
-* `application/vnd.ms-excel.workspace.4`
-* `application/vnd.ms-outlook`
-* `application/vnd.ms-powerpoint`
-* `application/vnd.ms-project`
-* `application/vnd.ms-word2006ml`
-* `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
-* `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
-* `application/x-latex`
-* `application/x-ms-owner`
-* `application/xhtml+xml`
-* `text/csv`
-* `text/html`
-* `text/markdown`
-* `text/plain`
-* `text/xml`
-* `application/rtf`
+{% include [searchindex-filetypes](../../../_includes/ai-studio/searchindex-filetypes.md) %}
 
 В качестве источника для поискового индекса эффективнее всего использовать формат [Markdown](https://ru.wikipedia.org/wiki/Markdown), так как многие модели обучаются именно на этом формате, и, следовательно, должны понимать его лучше. Вы можете преобразовывать файлы, в том числе содержащие сложное форматирование, в формат Markdown с помощью библиотеки [docling](https://github.com/DS4SD/docling) для [Python](https://www.python.org/). Подробнее см. в разделе [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md).
 

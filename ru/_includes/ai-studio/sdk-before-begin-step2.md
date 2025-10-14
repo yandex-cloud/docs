@@ -1,4 +1,4 @@
-[Получите](../../iam/operations/authentication/manage-api-keys.md#create-api-key) и сохраните API-ключ сервисного аккаунта.
+[Получите](../../ai-studio/operations/get-api-key.md#run-client) и сохраните [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта.
 
 {% include [sdk-auth-details-paragraph](./sdk-auth-details-paragraph.md) %}
 

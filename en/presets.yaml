@@ -8490,6 +8490,13 @@ default:
           field_interval-between-attempts: Time between attempts
           field_lvm-snapshotting-disabled: Via Cloud Backup agent
           field_lvm-snapshotting-enabled: Via LVM
+          field_post-command-enabled: Run the command after backup
+          field_pre-command-enabled: Run the command before backup
+          field_pre-post-commands: Commands before and after
+          field_pre-post-commands-args: Arguments
+          field_pre-post-commands-cmd: Command or path to file
+          field_pre-post-commands-stop-on-error: Terminate backup when a command fails
+          field_pre-post-commands-workdir: Working folder
           field_retention: Copy retention
           field_run-later: Run missed tasks after uploading
           field_schedule-type: Launch schedule
@@ -8499,6 +8506,7 @@ default:
           field_validation-enabled: Backup checks
           field_week-days: Days of the week
           title_additional-section: Additional
+          title_full-backup-card: Always full
           title_incremental-backup-card: Incremental
           title_retention-section: Retention settings
           title_schedule-section: Launch settings
@@ -10071,6 +10079,7 @@ default:
             label_network-ssd-io-m3: SSD IO
             label_network-ssd-nonreplicated: Non-replicated SSD
             label_platform: Platform
+            label_secret: Secret with private SSH key
             label_tab-nodes: Nodes
             section_placement-policy: Placement
         node-groups:
@@ -10084,6 +10093,7 @@ default:
             field_disk-type: Disk type
             field_driverless-gpu: Do not install GPU drivers
             field_initial-size: Initial number of nodes
+            field_ips: Node IP addresses
             field_locations: Location
             field_max-expansion: Max group size expansion
             field_max-size: Maximum number of nodes
@@ -10110,6 +10120,7 @@ default:
             value_scale-fixed: Fixed
         node:
           overview:
+            label_events: Events
             label_labels: Labels
             label_monitoring: Monitoring
         nodes:

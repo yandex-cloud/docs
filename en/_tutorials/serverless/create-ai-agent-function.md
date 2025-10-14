@@ -18,7 +18,7 @@ On the diagram:
 1. The {{ foundation-models-name }} model sends the generated response to the AI agent.
 1. The AI agent returns the response to the user.
 
-The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create resources to arrange access to the {{ foundation-models-name }} model: a [service account](../../iam/concepts/users/service-accounts.md), the service account [API key](../../iam/concepts/authorization/api-key.md), the {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
+The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create the resources you need to access a model in {{ foundation-models-name }}: a [service account](../../iam/concepts/users/service-accounts.md), the service account's [API key](../../iam/concepts/authorization/api-key.md), a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
 
 You can create these resources [automatically](#automatic-setup) or [manually](#manual-setup).
 
@@ -154,7 +154,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `function-sa`.
+  1. Enter a name for the service account: `function-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.languageModels.user` [role](../../ai-studio/security/index.md#languageModels-user).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -430,7 +430,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
              * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../ai-studio/concepts/generation/models.md#generation).
 
-                 Example: `gpt://<folder_ID>/yandexgpt/latest`.
+                 For example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
              * `BASE_URL`: {{ foundation-models-full-name }} URL, `https://{{ api-host-llm }}/v1`.
@@ -535,7 +535,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Navigate to the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. Click ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and check out the testing results.
 
-      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. Here is an example:
+      If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. For example:
 
       ```json
       {

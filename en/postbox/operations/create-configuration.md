@@ -26,6 +26,14 @@ Create a [configuration](../concepts/glossary.md#configuration) to receive [emai
 
         {% endnote %}
 
+    1. Under **Statistics collection settings**, enable the **Engagement statistics** option to collect statistics on email opens and clicks. All other [statistics](../concepts/statistics.md), other than email opens and clicks, are collected by default.
+
+        {% note info %}
+
+        Enabling **Engagement statistics** will modify the email body. For more information, see [{#T}](../concepts/mail-opened.md) and [{#T}](../concepts/click-tracking.md).
+
+        {% endnote %}
+
     1. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
 
 - AWS CLI {#aws-cli}

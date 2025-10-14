@@ -18,4 +18,8 @@
 
 * [Что делать, если возникает ошибка kafkacat: command not found?](#kafkacat-not-found)
 
+* [Будет ли доступен Karapace во время технического обслуживания?](#karapace-maintenance)
+
+* [Эндпоинт Karapace постоянный или меняется в зависимости от брокера?](#karapace-endpoint)
+
 * [Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mkf-short-name }}?](#services)

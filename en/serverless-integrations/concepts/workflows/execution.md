@@ -8,13 +8,16 @@ keywords:
   - Workflow
 ---
 
-# Starting a workflow execution
+# Workflow execution
 
 An execution contains all information about a particular workflow run. Possible execution statuses: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, and `Executed`. Learn more about [possible error codes](#errors).
 
-You can start a workflow using the management console, CLI, API, or {{ er-full-name }}. For more information on how to start a workflow using {{ yandex-cloud }} interfaces, see [{#T}](../../operations/workflows/execution/start.md).
+You can execute a workflow using:
 
-To start a workflow using {{ er-name }}, specify it as a target in a [rule](../eventrouter/rule.md). To learn more about how to create a rule, see [{#T}](../../operations/eventrouter/rule/create-workflows.md). The rule defines the events that should trigger a workflow. The event body is provided to the execution as an input parameter.
+* Management console, the CLI, and the API. For more information, see [{#T}](../../operations/workflows/execution/start.md).
+* {{ er-full-name }}. To do this, you need to specify the workflow as a target in a [rule](../eventrouter/rule.md). To learn more about how to create a rule, see [{#T}](../../operations/eventrouter/rule/create-workflows.md). The rule defines the events that should trigger a workflow. The event body is provided to the execution as an input parameter.
+* Timer. The schedule is set in [cron expression](../cron.md) format. For more information, see [{#T}](../../operations/workflows/execution/start-by-timer.md).
+
 
 ## Possible error codes {#errors}
 
@@ -38,4 +41,4 @@ Error | Description
 `GRPC_CALL_INVALID_REFLECTION_SERVER_RESPONSE` | Unexpected response from gRPC server.
 `FUNCTION_CALL_INVALID_RESPONSE` | Invalid function code or format of returned JSON response. For more information, see [{#T}](../../../functions/concepts/function-invoke.md#http-state).
 `CONTAINER_CALL_400`<br/>`CONTAINER_CALL_401`<br/>`CONTAINER_CALL_402`<br/>`CONTAINER_CALL_403`<br/>`CONTAINER_CALL_404`<br/>`CONTAINER_CALL_405`<br/>`CONTAINER_CALL_406`<br/>`CONTAINER_CALL_407`<br/>`CONTAINER_CALL_408`<br/>`CONTAINER_CALL_409`<br/>`CONTAINER_CALL_410`<br/>`CONTAINER_CALL_411`<br/>`CONTAINER_CALL_412`<br/>`CONTAINER_CALL_413`<br/>`CONTAINER_CALL_414`<br/>`CONTAINER_CALL_415`<br/>`CONTAINER_CALL_416`<br/>`CONTAINER_CALL_417`<br/>`CONTAINER_CALL_418`<br/>`CONTAINER_CALL_419`<br/>`CONTAINER_CALL_420`<br/>`CONTAINER_CALL_421`<br/>`CONTAINER_CALL_422`<br/>`CONTAINER_CALL_423`<br/>`CONTAINER_CALL_424`<br/>`CONTAINER_CALL_425`<br/>`CONTAINER_CALL_426`<br/>`CONTAINER_CALL_427`<br/>`CONTAINER_CALL_428`<br/>`CONTAINER_CALL_429`<br/>`CONTAINER_CALL_431`<br/>`CONTAINER_CALL_449`<br/>`CONTAINER_CALL_451`<br/>`CONTAINER_CALL_499`<br/>`CONTAINER_CALL_500`<br/>`CONTAINER_CALL_501`<br/>`CONTAINER_CALL_505`<br/>`CONTAINER_CALL_502`<br/>`CONTAINER_CALL_503`<br/>`CONTAINER_CALL_504`<br/>`CONTAINER_CALL_506`<br/>`CONTAINER_CALL_507`<br/>`CONTAINER_CALL_508`<br/>`CONTAINER_CALL_509`<br/>`CONTAINER_CALL_510`<br/>`CONTAINER_CALL_511`<br/>`CONTAINER_CALL_520`<br/>`CONTAINER_CALL_521`<br/>`CONTAINER_CALL_522`<br/>`CONTAINER_CALL_523`<br/>`CONTAINER_CALL_524`<br/>`CONTAINER_CALL_525`<br/>`CONTAINER_CALL_526` | HTTP response state codes. For more information, see [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses).
-`YDB_CALL_SERVICE_UNAVAILABLE` | Temporary failure on the server side.
+`YDB_CALL_SERVICE_UNAVAILABLE` | Temporary server failure.

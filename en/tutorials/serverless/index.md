@@ -10,6 +10,7 @@
 * [Developing a custom integration in {{ api-gw-full-name }}](api-gw-integration.md)
 * [Developing CRUD APIs for movie services](movies-database.md)
 * [Building a CI/CD pipeline in {{ GL }}](ci-cd-serverless.md)
+* [Starting {{ GLR }} in {{ serverless-containers-name }}](serverless-gitlab-runner.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](ci-cd-github-functions.md)
 * [{#T}](api-gw-websocket.md)

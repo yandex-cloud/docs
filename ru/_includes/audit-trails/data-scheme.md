@@ -77,7 +77,7 @@
 `authentication.token_info` ^1^ | **object**<br>Данные аутентификации субъекта события.
 `authentication.token_info.masked_iam_token` | **string**<br>Зашифрованное значение IAM-токена, с которым субъект выполнил запрос.
 `authentication.token_info.iam_token_id` | **string**<br>Идентификатор зашифрованного IAM-токена.
-`authentication.token_info.impersonator_id` | **string**<br>Идентификатор субъекта при использовании [имперсонации](../../iam/concepts/access-control/index.md#impersonation).
+`authentication.token_info.impersonator_id` | **string**<br>Идентификатор субъекта при использовании [имперсонации](../../iam/concepts/access-control/impersonation.md).
 `authentication.token_info.impersonator_type` | **string**<br>Тип субъекта-имперсонатора. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
 `authentication.token_info.impersonator_name` | **string**<br>Имя субъекта-имперсонатора.
 `authentication.token_info.impersonator_federation_id` ^2^ | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь-имперсонатор.

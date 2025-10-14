@@ -499,10 +499,10 @@ defaultBackend:
 ### IngressTLS {#tls}
 
 ```yaml
-hosts:
-  - <string>
-  - ...
-secretName: <string>
+- hosts:
+    - <string>
+    - ...
+  secretName: <string>
 ```
 
 #|
@@ -528,12 +528,12 @@ secretName: <string>
 ### IngressRule {#rule}
 
 ```yaml
-host: <string>
-http:
-  paths:
-    - path: <string>
-      pathType: <string>
-      backend: <IngressBackend>
+- host: <string>
+  http:
+    paths:
+      - path: <string>
+        pathType: <string>
+        backend: <IngressBackend>
 ```
 
 В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.

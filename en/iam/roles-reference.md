@@ -1169,6 +1169,29 @@ For more information, see [{#T}](../iot-core/security/index.md).
 
 {% include [ai-models-admin](../_roles/ai/models/admin.md) %}
 
+#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
+
+{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
+
+#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
+
+{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
+
+#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
+
+{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
+
+#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
+
+{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
+
+#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
+
+{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
+
+#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
+
+{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
 For more information, see [{#T}](../ai-studio/security/index.md).
 
@@ -1771,6 +1794,9 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 ### General {{ sd-full-name }} roles {#general-sd-roles}
 
+#### security-deck.worker {#security-deck-worker}
+
+{% include [security-deck.worker](../_roles/security-deck/worker.md) %}
 
 #### security-deck.auditor {#security-deck-auditor}
 
@@ -1818,6 +1844,53 @@ For more information, see [General {{ sd-full-name }} roles](../security-deck/se
 
 For more information, see [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
+### KSPM roles {#kspm-roles}
+
+#### kspm.worker {#kspm-worker}
+
+{% include [kspm.worker](../_roles/kspm/worker.md) %}
+
+#### kspm.auditor {#kspm-auditor}
+
+{% include [kspm.auditor](../_roles/kspm/auditor.md) %}
+
+#### kspm.viewer {#kspm-viewer}
+
+{% include [kspm.viewer](../_roles/kspm/viewer.md) %}
+
+#### kspm.editor {#kspm-editor}
+
+{% include [kspm.editor](../_roles/kspm/editor.md) %}
+
+#### kspm.admin {#kspm-admin}
+
+{% include [kspm.admin](../_roles/kspm/admin.md) %}
+
+For more information, see [Access management in KSPM](../security-deck/security/kspm-roles.md).
+
+### {{ cspm-name }} roles {#cspm-roles}
+
+#### cspm.worker {#cspm-worker}
+
+{% include [cspm.worker](../_roles/cspm/worker.md) %}
+
+#### cspm.auditor {#cspm-auditor}
+
+{% include [cspm.auditor](../_roles/cspm/auditor.md) %}
+
+#### cspm.viewer {#cspm-viewer}
+
+{% include [cspm.viewer](../_roles/cspm/viewer.md) %}
+
+#### cspm.editor {#cspm-editor}
+
+{% include [cspm.editor](../_roles/cspm/editor.md) %}
+
+#### cspm.admin {#cspm-admin}
+
+{% include [cspm.admin](../_roles/cspm/admin.md) %}
+
+For more information, see [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
 ### Access Transparency roles {#access-transparency-roles}
 

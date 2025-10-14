@@ -37,6 +37,8 @@ items:
         href: concepts/unsubscribe.md
       - name: Terms and definitions
         href: concepts/glossary.md
+      - name: Statistics
+        href: concepts/statistics.md
       - name: Limitations on email attachments
         href: concepts/restrictions.md
       - name: Quotas and limits

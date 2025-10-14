@@ -557,6 +557,10 @@ items:
             href: container-infrastructure/migration-to-an-availability-zone.md
           - name: Шифрование секретов
             href: container-infrastructure/kms-k8s.md
+          - name: >-
+              Подключение сервера {{ baremetal-name }} как внешнего узла к
+              кластеру {{ managed-k8s-name }}
+            href: container-infrastructure/k8s-connect-bms-as-node.md
           - name: Настройка и тестирование масштабирования
             items:
               - name: Горизонтальное масштабирование приложения в кластере

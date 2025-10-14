@@ -133,6 +133,8 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик (in-sync replicas, ISR) меньше фактора репликации. |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, миллисекунды | Задержка запросов в {{ ZK }}.<br/>Дополнительные метки: `quantile` |
 | `kafka_shard_count`<br/>`DGAUGE`, штуки | Количество активных шардов. |
+| `kafka_topic_partition_high_water_mark`<br/>`DGAUGE`, штуки | Наибольшее смещение для раздела. |
+| `kafka_topic_partition_low_water_mark`<br/>`DGAUGE`, штуки | Наименьшее смещение для раздела. |
 
 {% note info %}
 

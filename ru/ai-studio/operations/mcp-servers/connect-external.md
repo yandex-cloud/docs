@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы научите
 
 {% include [server-creation-result-phrase](../../../_includes/ai-studio/mcp-hub/server-creation-result-phrase.md) %}
 
-## Использовать Responses API для обращения к внешнему MCP-серверу {#use-responses-api}
+## Использовать {{ responses-api }} для обращения к внешнему MCP-серверу {#use-responses-api}
 
 {% include [use-responses-api-example](../../../_includes/ai-studio/mcp-hub/use-responses-api-example.md) %}
 

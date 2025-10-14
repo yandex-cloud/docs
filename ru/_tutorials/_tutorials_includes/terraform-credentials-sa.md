@@ -113,7 +113,7 @@
 
    {% endlist %}
 
-1. Добавьте аутентификационные данные в переменные окружения. При создании [IAM-токен](../../iam/concepts/authorization/iam-token.md) используйте [имперсонацию](../../iam/concepts/access-control/index.md#impersonation) созданного ранее сервисного аккаунта, указав его идентификатор в параметре `--impersonate-service-account-id`:
+1. Добавьте аутентификационные данные в переменные окружения. При создании [IAM-токен](../../iam/concepts/authorization/iam-token.md) используйте [имперсонацию](../../iam/concepts/access-control/impersonation.md) созданного ранее сервисного аккаунта, указав его идентификатор в параметре `--impersonate-service-account-id`:
 
     {% include [impersonation-role-notice](../../_includes/cli/impersonation-role-notice.md) %}
 

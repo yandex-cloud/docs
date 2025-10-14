@@ -92,11 +92,13 @@
 
 Количество хостов в кластерах {{ mrd-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
+
 {% note info %}
 
 Публичный доступ к хостам можно настроить только для кластеров, созданных с включенной поддержкой TLS.
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 
@@ -128,6 +130,8 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы создать хост:
+
+  
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
      ```bash
@@ -147,7 +151,6 @@
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
-     
      Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
 
@@ -159,6 +162,7 @@
 
   1. Выполните команду добавления хоста:
 
+     
      ```bash
      {{ yc-mdb-rd }} host add \
        --cluster-name=<имя_кластера> \
@@ -168,6 +172,7 @@
          `replica-priority=<приоритет_хоста>,`
          `shard-name=<имя_шарда>
      ```
+     
 
      Где:
      * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -186,6 +191,7 @@
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   1. Добавьте к описанию кластера {{ mrd-name }} блок `host`.
 
+     
      ```hcl
      resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
        ...
@@ -200,6 +206,7 @@
      ```
 
      Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
 
   1. Проверьте корректность настроек.
 
@@ -233,7 +240,9 @@
 
 ## Изменить хост {#update}
 
+
 {% include [mrd-public-access](../../_includes/mdb/mrd/note-public-access.md) %}
+
 
 {% list tabs group=instructions %}
 
@@ -261,12 +270,14 @@
 
   Чтобы изменить параметры хоста, выполните команду:
 
+  
   ```bash
   {{ yc-mdb-rd }} host update <имя_хоста> \
     --cluster-name=<имя_кластера> \
     --assign-public-ip=<публичный_доступ> \
     --replica-priority=<приоритет_хоста>
   ```
+
 
   Где `--assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
@@ -280,6 +291,7 @@
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   1. Измените в описании кластера {{ mrd-name }} атрибуты блока `host`, соответствующего изменяемому хосту.
 
+     
      ```hcl
      resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
        ...
@@ -294,6 +306,7 @@
      ```
 
      Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
 
   1. Проверьте корректность настроек.
 
@@ -315,6 +328,7 @@
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
+        
         ```bash
         curl \
             --request POST \
@@ -332,6 +346,7 @@
                       ]
                     }'
         ```
+
 
         Где `updateHostSpecs` — параметры хоста:
 
@@ -356,6 +371,7 @@
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
+        
         ```bash
         grpcurl \
             -format json \
@@ -379,6 +395,7 @@
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.UpdateHosts
         ```
+
 
         Где `update_host_specs` — параметры хоста:
 

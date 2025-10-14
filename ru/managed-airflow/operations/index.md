@@ -40,10 +40,8 @@ description: Из статьи вы узнаете, как работать с {
 
 * [Работа с интерфейсами {{ AF }}](af-interfaces.md)
 
-## Логи {#logs}
+## Логи и мониторинг {#logs}
 
+* [Мониторинг состояния кластера](monitoring.md)
+* [Просмотр логов кластера](cluster-logs.md)
 * [Передача логов кластера в {{ cloud-logging-full-name }}](af-logging.md)
-
-
-
-

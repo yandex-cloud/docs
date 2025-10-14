@@ -39,6 +39,8 @@ description: Из статьи вы узнаете, как изменить на
 
 * [Миграция хостов в другую зону доступности](host-migration.md).
 
+* [Изменение настроек пользователя {{ VLK }}](user-update.md).
+
 ## Изменить имя и описание кластера {#change-name-and-description}
 
 {% list tabs group=instructions %}

@@ -1,6 +1,6 @@
 ---
 title: Создать текстового агента с вызовом функции в {{ foundation-models-full-name }}
-description: Следуя этой инструкции, вы сможете создать простого текстового агента с помощью Responses API в {{ foundation-models-full-name }}.
+description: Следуя этой инструкции, вы сможете создать простого текстового агента с помощью {{ responses-api }} в {{ foundation-models-full-name }}.
 ---
 
 # Создать простого текстового агента с вызовом функции

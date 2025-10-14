@@ -37,6 +37,16 @@ items:
             href: operations/connect/sharded.md
           - name: Запросы в {{ websql-full-name }}
             href: operations/web-sql-query.md
+      - name: Пользователи
+        items:
+          - name: Получение информации о пользователях
+            href: operations/user-list.md
+          - name: Создание пользователя
+            href: operations/user-create.md
+          - name: Изменение настроек пользователя
+            href: operations/user-update.md
+          - name: Удаление пользователя
+            href: operations/user-delete.md
       - name: Шардирование и отказоустойчивость
         items:
           - name: Управление шардами
