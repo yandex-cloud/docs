@@ -69,6 +69,14 @@ items:
             href: operations/project/delete-user-from-project.md
           - name: '{{ yagpt-name }} training'
             href: operations/project/yandexgpt-training
+      - name: Assistants
+        items:
+          - name: Creating an assistant
+            href: operations/assistant/create.md
+          - name: Editing an assistant
+            href: operations/assistant/edit.md
+          - name: Deleting an assistant
+            href: operations/assistant/delete.md
       - name: Tags
         items:
           - name: Creating a dictionary tag
@@ -118,6 +126,8 @@ items:
     items:
       - name: Resource hierarchy
         href: concepts/resources-hierarchy.md
+      - name: Assistants
+        href: concepts/assistants.md
       - name: Dialogs
         href: concepts/dialogs.md
       - name: Dialog tags

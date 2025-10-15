@@ -6,11 +6,6 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 # Deleting a connection
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -20,6 +15,28 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection you want to delete.
     1. Select **{{ ui-key.yacloud.common.delete }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To delete a connection:
+
+  1. See the description of the CLI command for deleting a connection:
+
+      ```bash
+      yc metadata-hub connection-manager connection delete --help
+      ```
+
+  1. Delete your connection by running this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection delete <connection_ID>
+      ```
+
+      You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 
 - API {#api}
   

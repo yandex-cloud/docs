@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/operations/metric/get.md
+---
 # Выгрузка метрик
 
 Чтобы выгрузить данные метрики, воспользуйтесь методом [read](../../api-ref/MetricsData/read.md).

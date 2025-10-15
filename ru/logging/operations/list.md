@@ -1,6 +1,7 @@
 ---
 title: Как получить список лог-групп {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить список лог-групп.
+sourcePath: ru/logging_includes/operations/list.md
 ---
 
 # Получить список лог-групп

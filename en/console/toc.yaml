@@ -15,6 +15,8 @@ items:
         href: operations/cloud-shell-options.md
       - name: Using search in the management console
         href: operations/search.md
+      - name: Managing {{ yandex-cloud }} resources using an AI assistant
+        href: operations/ai-assistant.md
   - name: Limits in {{ cloud-shell-name }}
     href: concepts/cloud-shell/limits.md
   - name: Pricing policy

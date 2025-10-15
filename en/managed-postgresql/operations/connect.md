@@ -1,5 +1,5 @@
 ---
-title: Connecting to an {{ PG }} cluster in {{ mpg-full-name }}
+title: Connecting to a {{ PG }} cluster in {{ mpg-full-name }}
 description: You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs residing in the same virtual network.
 ---
 
@@ -42,7 +42,7 @@ Rule settings depend on the connection method you select:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-  1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+  1. [Configure the VM's security group](../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and the cluster hosts.
 
      For example, you can set the following rules for a VM:
 
@@ -52,7 +52,7 @@ Rule settings depend on the connection method you select:
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-       This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
+       This rule allows VM [connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
      * For outgoing traffic:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
@@ -68,7 +68,7 @@ Rule settings depend on the connection method you select:
 
 You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
-You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster if the master is switched [manually](hosts.md#update) or [automatically](../concepts/replication.md#replication-auto).
+You must configure security groups correctly for all subnets where the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster if the master is switched [manually](hosts.md#update) or [automatically](../concepts/replication.md#replication-auto).
 
 {% endnote %}
 
@@ -229,7 +229,7 @@ The `libpq` library supports the `read-write` value for this parameter starting 
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using an SSL certificate.
+You can only use graphical IDEs to connect to public cluster hosts with an SSL certificate.
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
@@ -240,7 +240,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
      1. Specify the connection settings on the **General** tab:
-        * **User**, **Password**: DB user's name and password.
+        * **User**, **Password**: DB user name and password.
         * **URL**: Connection string:
 
           ```http
@@ -255,7 +255,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
 
         * Click **Download** to download the connection driver.
      1. On the **SSH/SSL** tab:
-         1. Enable the **Use SSL** setting.
+         1. Enable **Use SSL**.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
   1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
@@ -266,16 +266,16 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
      1. In the **Database** menu, select **New connection**.
      1. Select **{{ PG }}** from the DB list.
      1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
+     1. Specify the connection settings on the **Main** tab:
         * **Host**: [Special master host FQDN](#fqdn-master) or [regular host FQDN](#fqdn).
         * **Port**: `{{ port-mpg }}`.
         * **Database**: DB to connect to.
-        * Under **Authentication**, specify the DB user's name and password.
+        * Under **Authentication**, specify the DB user name and password.
      1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
   1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-  1. Click **Ready** to save the database connection settings.
+  1. Click **Done** to save the database connection settings.
 
 {% endlist %}
 
@@ -326,11 +326,11 @@ You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview)
 
     When creating a certificate, you will be prompted to change some settings. Press **Enter** to use their default values.
 
-    You will see two files in your local directory: `cert.pem` and `private.pem`.
+    You will see two new files in your local directory: `cert.pem` and `private.pem`.
 
 1. On the [{{ google-looker }} navigation page](https://lookerstudio.google.com/navigation/reporting), select **Create** → **Data source**.
 1. Select {{ PG }}.
-1. Fill in the fields as follows:
+1. Fill out the fields as follows:
 
     * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
     * **Port**: `{{ port-mpg }}`.
@@ -363,7 +363,7 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
 
     You can find an example of a connection from {{ serverless-containers-full-name }} in [this tutorial](../../serverless-containers/tutorials/pg-connect.md).
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     ```bash
     RUN apt-get update && \
@@ -396,6 +396,4 @@ You can connect to a cluster using both regular host [FQDNs](../concepts/network
 
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
-If the connection to the cluster and the test query are successful, the {{ PG }} version will be shown. The [userver framework example](#cpp-userver) is one exception, where the `SELECT 1 as ping` test query will be made from time to time to check the {{ PG }} cluster for availability.
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+If the connection to the cluster and the test query are successful, you will see the {{ PG }} version. The [userver framework example](#cpp-userver) is one exception, where the `SELECT 1 as ping` test query will be made from time to time to check the {{ PG }} cluster for availability.

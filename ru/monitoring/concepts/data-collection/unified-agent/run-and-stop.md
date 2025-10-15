@@ -1,6 +1,7 @@
 ---
 title: Как запустить и остановить {{ unified-agent-full-name }}
 description: Из статьи вы узнаете, как запустить и остановить {{ unified-agent-full-name }}.
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/run-and-stop.md
 ---
 
 # Запуск и остановка {{ unified-agent-full-name }}

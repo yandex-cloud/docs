@@ -3,7 +3,7 @@
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -25,5 +25,7 @@
       With this option on, not more than one classification tag can be assigned to any {{ data-catalog-name }} resource.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  {% include [ai-tags](../../../_includes/metadata-hub/data-catalog-ai-markup-tags.md) %}
 
 {% endlist %}

@@ -1,10 +1,10 @@
 # Managing shards in a {{ CH }} cluster
 
-You can enable sharding for a cluster as well as add and configure individual shards.
+You can enable sharding for a cluster, as well as add and configure individual shards.
 
 ## Enabling sharding {#enable}
 
-{{ mch-name }} clusters are created with one shard. To start sharding data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
+{{ mch-name }} clusters are created with a single shard. To start sharding data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
 
 ## Creating a shard {#add-shard}
 
@@ -14,13 +14,13 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
-  1. Specify the shard parameters:
-     * Name and weight
+  1. Specify the following shard properties:
+     * Name and weight.
      * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}** option.
-     * Required number of hosts
+     * Required number of hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
@@ -29,7 +29,7 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a shard, run the command below (not all the supported parameters are listed):
+  To create a shard, run the command below (our example does not use all available parameters):
 
   ```bash
   {{ yc-mdb-ch }} shards add <new_shard_name> \
@@ -41,13 +41,13 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
   Where:
 
   
-  * `<new_shard_name>`: Must be unique within the cluster.
+  * `<new_shard_name>`: New shard name that must be unique within the cluster.
 
-    It may contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
+    It may contain Latin letters, numbers, hyphens, and underscores. The name can be up to 63 characters long.
   * `--cluster-name`: Cluster name.
 
-    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-  * `--host`: Host parameters:
+    You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  * `--host`: Host settings:
     * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
     * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name.
 
@@ -56,14 +56,14 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
   {% note info %}
 
-  {{ TF }} does not allow specifying shard weight.
+  {{ TF }} does not support specifying shard weight.
 
   {% endnote %}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-     For more information about creating this file, see [Creating clusters](cluster-create.md).
-  1. Add the `CLICKHOUSE`-type `host` section with the `shard_name` field filled to the {{ mch-name }} cluster description or change existing hosts:
+     For more information about creating this file, see [this guide](cluster-create.md).
+  1. Add the `CLICKHOUSE`-type `host` section with the `shard_name` field filled to the {{ mch-name }} cluster description or update existing hosts:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -85,19 +85,19 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. Use the [Cluster.AddShard](../api-ref/Cluster/addShard.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-     1. Create a file named `body.json` and add the following contents to it:
+     1. Create a file named `body.json` and paste the following code into it:
 
         ```json
         {
@@ -130,19 +130,19 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
         * `shardName`: Shard name.
         * `configSpec.clickhouse.resources`: Host resources to add to the new shard:
 
-          * `resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
-          * `diskSize`: Disk size in bytes.
+          * `resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
+          * `diskSize`: Disk size, in bytes.
           * `diskTypeId`: [Disk type](../concepts/storage.md).
 
         * `configSpec.clickhouse.weight`: Shard weight.
 
           By default, each shard is assigned a weight of `1`. If you assign a higher weight to a shard, the data will be distributed among the shards according to their weights.
 
-          To calculate the shard priority during data distribution, all shard weights are added up, then the weight of each shard is divided by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard’s priority is `1/4` and the second shard’s priority is `3/4`. The higher the priority, the more data the shard will get.
+          To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-          For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/special/distributed).
+          For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
 
-        * `hostSpecs`: Settings of hosts to add to the shard. The settings are represented as an array of elements, one for each host. Each element has the following structure:
+        * `hostSpecs`: Settings of hosts to add to the shard. The settings appear as an array of elements, one for each host. Each element has the following structure:
 
           * `zoneId`: Availability zone.
           * `type`: Host type. You can only add `CLICKHOUSE` hosts to your shards.
@@ -150,9 +150,9 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
           * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `shardName`: Shard name.
 
-        * `copySchema`: Copying the data schema from a random replica of one of the shards to the hosts of the new shard. The possible values are `true` or `false`.
+        * `copySchema`: Copying the data schema from a random replica of one of the shards to the hosts of the new shard. The possible values are: `true` or `false`.
 
-     1. Run this request:
+     1. Run this query:
 
         ```bash
         curl \
@@ -163,20 +163,20 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
           --data '@body.json'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Use the [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
-     1. Create a file named `body.json` and add the following contents to it:
+     1. Create a file named `body.json` and paste the following code into it:
 
         ```json
         {
@@ -210,17 +210,17 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
         * `shard_name`: Shard name.
         * `config_spec.clickhouse.resources`: Host resources to add to the new shard:
 
-          * `resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method.
-          * `disk_size`: Disk size in bytes.
+          * `resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method.
+          * `disk_size`: Disk size, in bytes.
           * `disk_type_id`: [Disk type](../concepts/storage.md).
 
         * `config_spec.clickhouse.weight`: Shard weight.
 
           By default, each shard is assigned a weight of `1`. If you assign a higher weight to a shard, the data will be distributed among the shards according to their weights.
 
-          To calculate the shard priority during data distribution, all shard weights are added up, then the weight of each shard is divided by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard’s priority is `1/4` and the second shard’s priority is `3/4`. The higher the priority, the more data the shard will get.
+          To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-          For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/special/distributed).
+          For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
 
         * `host_specs`: Settings of hosts to add to the shard. The settings are represented as an array of elements, one for each host. Each element has the following structure:
 
@@ -230,11 +230,11 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
           * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `shard_name`: Shard name.
 
-        * `copy_schema`: Copying the data schema from a random replica of one of the shards to the hosts of the new shard. The possible values are `true` or `false`.
+        * `copy_schema`: Copying the data schema from a random replica of one of the shards to the hosts of the new shard. The possible values are: `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     1. Run this request:
+     1. Run this query:
 
         ```bash
         grpcurl \
@@ -249,24 +249,24 @@ The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM qu
           < body.json
         ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 {% note warning %}
 
-Use the copy data schema option only if the schema is the same on all cluster shards.
+Use the copy schema option only if the schema is the same across all cluster shards.
 
 {% endnote %}
 
-## Listing shards in a cluster {#list-shards}
+## Getting a list of shards in a cluster {#list-shards}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
 
@@ -280,11 +280,11 @@ Use the copy data schema option only if the schema is the same on all cluster sh
   {{ yc-mdb-ch }} shards list --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -297,13 +297,13 @@ Use the copy data schema option only if the schema is the same on all cluster sh
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shards'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -324,22 +324,28 @@ Use the copy data schema option only if the schema is the same on all cluster sh
        yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShards
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing a shard {#shard-update}
+## Updating a shard {#shard-update}
 
-You can change the shard weight as well as [host class](../concepts/instance-types.md) and storage size.
+You can edit the shard weight as well as the [host class](../concepts/instance-types.md), [disk type](../concepts/storage.md), and storage size.
+
+{% note info %}
+
+To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
 - CLI {#cli}
@@ -348,33 +354,38 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change a shard in the cluster:
-  1. View a description of the CLI's shard change command:
+  To update a shard in a cluster:
+
+  1. See the description of the CLI command for updating a shard:
 
      ```bash
      {{ yc-mdb-ch }} shards update --help
      ```
 
-  1. Start an operation, e.g., changing shard weight:
+  1. Provide the parameters you want to edit to the command:
 
      ```bash
      {{ yc-mdb-ch }} shards update <shard_name> \
-       --cluster-name=<cluster_name> \
-       --weight=<shard_weight>
+       --cluster-name <cluster_name> \
+       --weight <shard_weight> \
+       --clickhouse-resource-preset <host_class> \
+       --clickhouse-disk-size <storage_size> \
+       --clickhouse-disk-type <disk_type>
      ```
 
      Where:
-     * `<shard_name>`: Can be requested with a [list of shards in the cluster](#list-shards).
-     * `--cluster-name`: Cluster name.
 
-       You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `--cluster-name`: Cluster name. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
      * `--weight`: Shard weight. The minimum value is `0`.
+     * `--clickhouse-resource-preset`: [Host class](../concepts/instance-types.md).
+     * `--clickhouse-disk-size`: Storage size, in GB.
+     * `--clickhouse-disk-type`: [Disk type](../concepts/storage.md).
 
-     When the operation is complete, the CLI displays information about the changed shard.
+     You can get the shard name with a [list of shards in the cluster](#list-shards).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -415,25 +426,25 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
        * `resources`: Host resources to add to the new shard:
 
-         * `resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
-         * `diskSize`: Disk size in bytes.
+         * `resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
+         * `diskSize`: Disk size, in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
        * `weight`: Shard weight.
 
          By default, each shard is assigned a weight of `1`. If you assign a higher weight to a shard, the data will be distributed among the shards according to their weights.
 
-         To calculate the shard priority during data distribution, all shard weights are added up, then the weight of each shard is divided by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard’s priority is `1/4` and the second shard’s priority is `3/4`. The higher the priority, the more data the shard will get.
+         To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/special/distributed).
+         For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
 
-     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in the cluster](#list-shards).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
 
-  1. View the [server response](../api-ref/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -486,21 +497,21 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
        * `resources`: Host resources to add to the new shard:
 
-         * `resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
-         * `disk_size`: Disk size in bytes.
+         * `resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
+         * `disk_size`: Disk size, in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
        * `weight`: Shard weight.
 
          By default, each shard is assigned a weight of `1`. If you assign a higher weight to a shard, the data will be distributed among the shards according to their weights.
 
-         To calculate the shard priority during data distribution, all shard weights are added up, then the weight of each shard is divided by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard’s priority is `1/4` and the second shard’s priority is `3/4`. The higher the priority, the more data the shard will get.
+         To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-         For more information, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/special/distributed).
+         For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
 
-     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in the cluster](#list-shards).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
 
-  1. View the [server response](../api-ref/grpc/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -510,15 +521,15 @@ You can delete a shard from a {{ CH }} cluster in case:
 * It is not the only shard.
 * It is not the only shard in a [shard group](shard-groups.md).
 
-When you delete a shard, all tables and data that are saved on that shard are deleted.
+Deleting a shard will delete all tables and data stored on that shard.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the host in question and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -526,22 +537,22 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a shard from the cluster, run:
+  To delete a shard from a cluster, run this command:
 
   ```bash
   {{ yc-mdb-ch }} shards delete <shard_name> \
     --cluster-name=<cluster_name>
   ```
 
-  You can request the shard name with a [list of shards in the cluster](#list-shards) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the shard name with the [list of shards in the cluster](#list-shards), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-     For more information about creating this file, see [Creating clusters](cluster-create.md).
+     For more information about creating this file, see [this guide](cluster-create.md).
   1. Remove the `host` section with the shard description from the {{ mch-name }} cluster description.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -549,13 +560,13 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -568,13 +579,13 @@ When you delete a shard, all tables and data that are saved on that shard are de
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shards/<shard_name>'
      ```
 
-     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in the cluster](#list-shards).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name, with the [list of shards in the cluster](#list-shards).
 
-  1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -596,9 +607,9 @@ When you delete a shard, all tables and data that are saved on that shard are de
        yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteShard
      ```
 
-     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in the cluster](#list-shards).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
 
-  1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

@@ -58,7 +58,7 @@ items:
             href: operations/check-bill-history.md
           - name: Viewing usage details in the console
             href: operations/check-charges.md
-          - name: Getting expense details by folder
+          - name: Exporting extended usage details
             href: operations/get-folder-report.md
           - name: Viewing usage details in {{ datalens-full-name }}
             href: operations/dashboard.md

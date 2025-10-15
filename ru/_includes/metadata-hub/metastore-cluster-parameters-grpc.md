@@ -6,9 +6,7 @@
 
   {% include [metastore-version](metastore-version-cluster-create.md) %}
 
-* `config_spec.resources.resource_preset_id` — идентификатор вычислительных ресурсов кластера. Возможные значения:
-  * `c2-m8` — 2 vCPU и 8 ГБ RAM.
-  * `c2-m4` — 2 vCPU и 4 ГБ RAM.
+* `config_spec.resources.resource_preset_id` — [конфигурация вычислительных ресурсов](../../metadata-hub/concepts/metastore.md#presets).
 * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 * `logging` — параметры логирования:
 

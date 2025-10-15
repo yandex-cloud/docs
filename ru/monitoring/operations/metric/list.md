@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/operations/metric/list.md
+---
 # Получение списка метрик
 
 Чтобы получить список метрик, принадлежащих определенному облаку и каталогу, воспользуйтесь методом [listMetrics](../../api-ref/MetricsMeta/listMetrics.md).

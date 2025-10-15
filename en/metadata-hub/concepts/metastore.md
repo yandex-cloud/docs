@@ -5,8 +5,6 @@ description: You can create {{ metastore-full-name }} clusters in {{ metadata-hu
 
 # {{ metastore-full-name }} clusters
 
-{% include [Preview](../../_includes/note-preview.md) %}
-
 {% include [connection](../../_includes/metadata-hub/metastore-definition.md) %}
 
 ## Why use {{ metastore-full-name }} {#metastore-objectives}
@@ -106,3 +104,5 @@ For more information about {{ metastore-name }}, see the [Apache® documentation
 
 * [{#T}](../tutorials/metastore-import.md)
 * [{#T}](../tutorials/sharing-tables.md)
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

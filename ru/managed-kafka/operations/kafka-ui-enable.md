@@ -2,6 +2,8 @@
 
 Для работы с кластерами {{ mkf-name }} можно использовать веб-интерфейс {{ kafka-ui }}. Он помогает отслеживать потоки данных, находить и устранять неисправности, управлять [брокерами](../concepts/brokers.md), кластером, [производителями и потребителями](../concepts/producers-consumers.md). Подробнее о возможностях см. в разделе [{#T}](../concepts/kafka-ui.md).
 
+{% include [roles-for-kafka-ui](../../_includes/mdb/mkf/roles-for-kafka-ui.md) %}
+
 ## Включить веб-интерфейс {#enable-kafka-ui}
 
 {% list tabs group=instructions %}
@@ -140,7 +142,7 @@
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`. Укажите `config_spec.kafka_ui_config.enabled`, чтобы изменить настройку включения веб-интерфейса {{ kafka-ui }}.
         * `config_spec.kafka_ui_config.enabled` — для включения веб-интерфейса {{ kafka-ui }} укажите `true`.
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
@@ -155,6 +157,19 @@
   1. В [консоли управления]({{ link-console-main }}) откройте страницу кластера.
   1. Перейдите на страницу **{{ui-key.yacloud.kafka.field_kafka-ui}}**. 
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  ```
+  {{ yc-mdb-kf }} cluster get <имя_или_идентификатор_кластера>
+  ```
+
+  Ссылку на веб-интерфейс {{ kafka-ui }} можно найти в параметре `kafka_ui.url`.
+  
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -171,7 +186,7 @@
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>'
      ```
   
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster).
 
@@ -201,7 +216,7 @@
           yandex.cloud.mdb.kafka.v1.ClusterService.Get
       ```
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster).
 

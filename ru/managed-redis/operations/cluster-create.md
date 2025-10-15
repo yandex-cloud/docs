@@ -237,8 +237,6 @@ description: Следуя данной инструкции, вы сможете
       
       * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
         Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
@@ -355,6 +353,20 @@ description: Следуя данной инструкции, вы сможете
        Если вы создаёте шардированный кластер с типом диска **local-ssd**, укажите в конфигурационном файле не менее двух хостов на шард.
 
        {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
+
+       
+       Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
+
+         ```hcl
+         resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+           ...
+           disk_encryption_key_id = <идентификатор_ключа_KMS>
+           ...
+         }
+         ```
+
+         Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
 

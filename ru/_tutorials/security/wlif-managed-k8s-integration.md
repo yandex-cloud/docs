@@ -166,7 +166,7 @@
       * `пространство_имен` — значение поля `Namespace` сервисного аккаунта {{ k8s }}, например `default`.
       * `имя_аккаунта` — значение поля `Name` сервисного аккаунта {{ k8s }}, например `wlif`.
 
-   1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect }}**.
 
 {% endlist %}
 

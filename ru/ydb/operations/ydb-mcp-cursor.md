@@ -32,7 +32,7 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 
 **ydb-mcp** — это реализация MCP-сервера, разработанная командой {{ ydb-short-name }}. 
 
-Для разных операций ydb-mcp предлагает разные инструменты, например: ydb_status проверяет подключение, ydb_query выполняет запросы. Эти инструменты похожи на API-функции: вы передаёте им параметры, а в ответ получаете результат.
+Для разных операций ydb-mcp предлагает разные инструменты, например: `ydb_status` проверяет подключение, `ydb_query` выполняет запросы. Эти инструменты похожи на API-функции: вы передаёте им параметры, а в ответ получаете результат.
 
 Аналогично и с разработчиками: при одном и том же API код у каждого будет разный. В случае с LLM результат зависит не только от MCP-сервера, но и от возможностей модели.
 
@@ -42,7 +42,7 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 ### Ресурсы, требующие оплаты {#paid-resources}
 
 1. Учетная запись в [IDE Cursor](https://cursor.com/) (можно использовать пробную версию).
-2. Оплата за использование {{ ydb-short-name }} — операции с базой и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
+1. Оплата за использование {{ ydb-short-name }} — операции с базой и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
 
 {% note info %}
 
@@ -59,9 +59,9 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 ### Склонируйте и откройте проект {#copy-and-open-project}
 
 1. Склонируйте проект из репозитория [ydb-mcp-demo-notes](https://github.com/ydb-platform/ydb-mcp-demo-notes). Если Git не установлен, скачайте и распакуйте архив: [main.zip](https://github.com/ydb-platform/ydb-mcp-demo-notes/archive/refs/heads/main.zip).
-2. Откройте папку проекта в IDE Cursor: в меню **File** выберите **Open Folder** и укажите папку с проектом.
-3. Откройте терминал (меню *View → Terminal* или сочетание клавиш Ctrl/Cmd + Backtick`).
-4. Находясь в папке проекта, выполните команду в терминале `docker compose build` — она соберет контейнеры проекта.
+1. Откройте папку проекта в IDE Cursor: в меню **File** выберите **Open Folder** и укажите папку с проектом.
+1. Откройте терминал (меню *View → Terminal* или сочетание клавиш **Ctrl/Cmd** + **Backtick**).
+1. Находясь в папке проекта, выполните команду в терминале `docker compose build` — она соберет контейнеры проекта.
 
 
 ### Создайте базу данных {{ ydb-name }} {#create-db}
@@ -73,17 +73,17 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания базы.
-     2. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-     3. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-     4. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+     1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-     5. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
-     6. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-     7. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
-     8. Выберите созданную базу данных.
-     9. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_path }}**, сохраните их значения. Они потребуются для настройки подключения к базе.
+     1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+     1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
+     1. Выберите созданную базу данных.
+     1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и **{{ ui-key.yacloud.ydb.overview.label_path }}**, сохраните их значения. Они потребуются для настройки подключения к базе.
 
    - Командная строка (YC CLI) {#cli}
 
@@ -107,14 +107,14 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
-  2. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  3. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  4. В открывшемся списке выберите созданный сервисный аккаунт.
-  5. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
-  6. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
-  7. Выберите алгоритм шифрования.
-  8. Задайте описание [авторизованного ключа](../../iam/concepts/authorization/key.md), чтобы потом было проще найти его в консоли управления.
-  9. Сохраните ключ в файл `authorized_key.json` в папке проекта:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В открывшемся списке выберите созданный сервисный аккаунт.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
+  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
+  1. Выберите алгоритм шифрования.
+  1. Задайте описание [авторизованного ключа](../../iam/concepts/authorization/key.md), чтобы потом было проще найти его в консоли управления.
+  1. Сохраните ключ в файл `authorized_key.json` в папке проекта:
 
      ```json
      {
@@ -151,9 +151,9 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 При работе с локальным Docker-контейнером пропустите этот раздел.
 
 1. Скопируйте файл `ydb-template.env` в `ydb.env`
-2. Заполните параметры для подключения к созданной ранее базе данных
-    - YDB_AUTH_MODE=service-account, имя ключа `authorized_key.json` встроено в пример, и указывать его не нужно
-    - YDB_ENDPOINT и YDB_DATABASE — возьмите значения из информации о созданной базе.
+1. Заполните параметры для подключения к созданной ранее базе данных:
+    - `YDB_AUTH_MODE=service-account`, имя ключа `authorized_key.json` встроено в пример, и указывать его не нужно.
+    - `YDB_ENDPOINT` и `YDB_DATABASE` — возьмите значения из информации о созданной базе.
 
 
 ### Проверьте работу приложения {#check-app}
@@ -172,10 +172,10 @@ docker compose run --rm notes-app list
 Параметры запуска MCP-сервера уже заданы в демонстрационном проекте в файле `.cursor/mcp.json`. Если же вам интересно разобраться и попробовать запустить сервер самостоятельно, подробности есть в [документации ydb-mcp](https://github.com/ydb-platform/ydb-mcp).
 
 1. Откройте меню **Cursor Settings** (не путайте с **VS Code Settings**).
-2. Перейдите в раздел **MCP & Settings**.
-3. Включите переключатель рядом с **ydb**. Если он уже включен, выключите и включите снова — это перезапустит MCP-сервер с новыми настройками.
-4. После запуска рядом с MCP-сервером **ydb** появится список инструментов и значок активности.
-5. Проверьте работу подключения: откройте AI-панель справа (клавиши Ctrl/Cmd + L) и в чате введите: «Проверь подключение к {{ ydb-short-name }}». Должен появиться результат, сообщающий о том, что подключение работает корректно.
+1. Перейдите в раздел **MCP & Settings**.
+1. Включите переключатель рядом с **ydb**. Если он уже включен, выключите и включите снова — это перезапустит MCP-сервер с новыми настройками.
+1. После запуска рядом с MCP-сервером **ydb** появится список инструментов и значок активности.
+1. Проверьте работу подключения: откройте AI-панель справа (клавиши **Ctrl/Cmd** + **L**) и в чате введите: «Проверь подключение к {{ ydb-short-name }}». Должен появиться результат, сообщающий о том, что подключение работает корректно.
 
 
 ### Выберите модель {#select-model}
@@ -203,9 +203,10 @@ docker compose run --rm notes-app list
 ```
 
 Разберем, как это работает:
+
 1. Cursor передает модели описание MCP-сервера и его инструментов.
-2. Через инструмент `ydb_status` LLM проверяет подключение к базе.  
-3. Через `ydb_query` LLM отправляет запросы на добавление строк. Здесь требуется корректный YQL-запрос: иногда он не проходит с первого раза. В этом случае модель переписывает запрос с учетом текста ошибки и пробует снова. Количество попыток зависит от конкретной модели и качества запроса. Процесс не требует вашего вмешательства: модель сама исправляет ошибки и в итоге добавляет нужное число заметок.
+1. Через инструмент `ydb_status` LLM проверяет подключение к базе.  
+1. Через `ydb_query` LLM отправляет запросы на добавление строк. Здесь требуется корректный YQL-запрос: иногда он не проходит с первого раза. В этом случае модель переписывает запрос с учетом текста ошибки и пробует снова. Количество попыток зависит от конкретной модели и качества запроса. Процесс не требует вашего вмешательства: модель сама исправляет ошибки и в итоге добавляет нужное число заметок.
 
 Чтобы убедиться в результате, выполните команду `docker compose run --rm notes-app list`. Вы увидите заметки, созданные LLM. Таким же способом можно наполнять и более сложные базы.
 
@@ -221,8 +222,8 @@ LLM могут помогать не только в написании кода
 
 Чтобы смоделировать ошибку, переименуйте таблицу:
 1. Зайдите в [консоль управления]({{ link-console-main }}).
-2. Перейдите к сервису **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и откройте свою базу.
-3. Нажмите кнопку **{{ ui-key.yacloud.ydb.database.switch_browse }}**, а потом **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** и выполните запрос для [переименования таблицы](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename):
+1. Перейдите к сервису **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и откройте свою базу.
+1. Нажмите кнопку **{{ ui-key.yacloud.ydb.database.switch_browse }}**, а потом **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** и выполните запрос для [переименования таблицы](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename):
 
 ```
 ALTER TABLE notes RENAME TO notes2
@@ -254,6 +255,7 @@ DROP TABLE IF EXISTS notes2
 ```
 
 Теперь снова [переименуйте](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename) основную таблицу:
+
 ```
 ALTER TABLE notes RENAME TO notes_new
 ```

@@ -151,7 +151,14 @@ description: Из статьи вы узнаете, как безопасно в
 
         ```bash
         pip3 install cryptography
+        pip3 install PyJWT
         ```
+
+        {% note info %}
+
+        Для корректной работы используйте PyJWT версии не ниже 2.0.0.
+        
+        {% endnote %}
 
         Выполните код:
 

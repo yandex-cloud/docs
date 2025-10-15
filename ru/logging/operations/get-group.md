@@ -1,6 +1,7 @@
 ---
 title: Как получить информацию о лог-группе {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить информацию о лог-группе.
+sourcePath: ru/logging_includes/operations/get-group.md
 ---
 
 # Получить информацию о лог-группе

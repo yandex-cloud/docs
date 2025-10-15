@@ -7,8 +7,8 @@ To transfer data:
 1. [Get your cloud ready](#prepare-cloud).
 1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,10 +25,18 @@ The infrastructure support costs include:
 * Fee for {{ mgp-name }} cluster computing resources, storage volume, and backups (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
 
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Set up the infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
+- Manually {#manual}
+
+    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) source cluster with your preferred configuration, ensuring its hosts are publicly accessible.
+    1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ mgp-name }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) target cluster in any suitable configuration. When creating a cluster:
+        * Enable public access for the hosts.
+        * Enable **Data Transfer access**.
+    1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) for secure access to the {{ mos-name }} cluster.
+    1. Make sure [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) and [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups) cluster security groups allow inbound internet traffic.
 
 - {{ TF }} {#tf}
 
@@ -41,32 +49,32 @@ The infrastructure support costs include:
 
         This file describes:
 
-        * [Network](../../../vpc/concepts/network.md#network)
+        * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mos-name }} and {{ mgp-name }} clusters.
-        * {{ mos-name }} source cluster with the `admin` user.
+        * [Security group](../../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ mos-name }} and {{ mgp-name }} clusters.
+        * {{ mos-name }} source cluster and its `admin` account.
         * {{ mgp-name }} target cluster.
         * Transfer.
 
     1. In the `opensearch-to-greenplum.tf` file, specify the following settings:
 
         * `mos_cluster_name`: {{ mos-name }} cluster name.
-        * `source_admin_password`: `admin` user password in {{ mos-name }} cluster.
+        * `source_admin_password`: {{ mos-name }} cluster `admin` password.
         * `mgp_cluster_name`: {{ mgp-name }} cluster name.
-        * `mgp_username`: Username in {{ mgp-name }} cluster.
-        * `mgp_user_password`: User password in {{ mgp-name }} cluster.
+        * `mgp_username`: {{ mgp-name }} cluster username.
+        * `mgp_user_password`: {{ mgp-name }} cluster user password.
         * `transfer_name`: {{ data-transfer-name }} transfer name.
         * `profile_name`: Your YC CLI profile name.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -78,7 +86,7 @@ The infrastructure support costs include:
 
 ## Prepare the test data {#prepare-data}
 
-1. In the source cluster, create a test index named `people` and set its schema:
+1. In the source cluster, create a test index named `people` and define its mapping:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
@@ -129,26 +137,27 @@ The infrastructure support costs include:
          --header 'Content-Type: application/json' \
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
-## Prepare and activate your transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the {{ mos-name }} cluster you [created earlier](#before-you-begin) with the following settings:
+## Set up and activate the transfer {#prepare-transfer}
+
+1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for your [pre-configured](#before-you-begin) {{ mos-name }} cluster using the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `OpenSearch`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` user password.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` password.
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the {{ mgp-name }} cluster you [created earlier](#before-you-begin), with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: Select a {{ mgp-name }} cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: Select your {{ mgp-name }} cluster from the list.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `postgres`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: Enter a name for the {{ mgp-name }} cluster user.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: Enter a password for the {{ mgp-name }} cluster user.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: Enter the {{ mgp-name }} cluster username.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: Enter the {{ mgp-name }} cluster user password.
 
 1. Create a transfer:
 
@@ -156,7 +165,7 @@ The infrastructure support costs include:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the created endpoints.
+        1. Create a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type [transfer](../../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
         1. [Activate](../../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
@@ -167,28 +176,28 @@ The infrastructure support costs include:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data from the source {{ mos-name }} cluster has been migrated to the {{ mgp-name }} cluster:
 
-   1. [Get an SSL certificate](../../../managed-greenplum/operations/connect.md#get-ssl-cert) to connect to the {{ mgp-name }} cluster.
+   1. [Obtain an SSL certificate](../../../managed-greenplum/operations/connect.md#get-ssl-cert) for secure access to the {{ mgp-name }} cluster.
    1. Install the dependencies:
 
       ```bash
@@ -196,7 +205,7 @@ The infrastructure support costs include:
       ```
 
    1. Connect to the database in the {{ mgp-name }} cluster.
-   1. Make sure the database contains the `people` table with test data:
+   1. Verify that the database contains the `people` table populated with test data:
 
        ```sql
        SELECT * FROM people;

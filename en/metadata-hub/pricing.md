@@ -6,15 +6,7 @@ editable: false
 
 # {{ metadata-hub-full-name }} pricing policy
 
-{% note info %}
-
-Starting September 22, 2025, {{ metastore-full-name }} cluster usage will be charged according to the [below pricing policy](#metastore).
-
-{% endnote %}
-
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ metadata-hub-full-name }} is free of charge.
-
-Other {{ yandex-cloud }} resources you may employ while using {{ metadata-hub-full-name }} (such as managed database services or [{{ lockbox-name }}](../lockbox/pricing.md)) are charged based on their [pricing plans]({{ link-cloud-calculator }}).
+{{ connection-manager-name }}, {{ schema-registry-name }}, and {{ data-catalog-name }} are free of charge. For other {{ yandex-cloud }} resources consumed while using these services (such as managed database services or [{{ lockbox-name }}](../lockbox/pricing.md)) you pay as per their [pricing plans]({{ link-cloud-calculator }}).
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -26,7 +18,7 @@ Other {{ yandex-cloud }} resources you may employ while using {{ metadata-hub-fu
 
 {% note info %}
 
-This pricing policy will apply starting September 22, 2025.
+These prices apply starting September 22, 2025.
 
 {% endnote %}
 
@@ -50,3 +42,5 @@ A `Stopped` cluster is not charged.
 
 {% include [usd-prices](../_pricing/metastore/usd.md) %}
 
+
+{% include [metastore-trademark](../_includes/metadata-hub/metastore-trademark.md) %}

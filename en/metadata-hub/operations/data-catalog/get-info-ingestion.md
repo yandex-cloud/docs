@@ -7,7 +7,7 @@ description: Follow this guide to get information about an ingestion in {{ data-
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 

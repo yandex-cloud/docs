@@ -1,6 +1,7 @@
 ---
 title: Как добавить виджет на дашборд в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как добавить виджет на дашборд в {{ monitoring-name }}.
+sourcePath: ru/monitoring_includes/operations/dashboard/add-widget.md
 ---
 
 # Добавление виджета на дашборд

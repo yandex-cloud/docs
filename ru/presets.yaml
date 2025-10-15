@@ -846,6 +846,7 @@ default:
   tf-provider-link: https://terraform-provider.yandexcloud.net/
   tf-provider-maf: https://terraform-provider.yandexcloud.net/resources/airflow_cluster
   tf-provider-mch: https://terraform-provider.yandexcloud.net/resources/mdb_clickhouse_cluster
+  tf-provider-metastore: https://terraform-provider.yandexcloud.net/resources/metastore_cluster
   tf-provider-mgp: https://terraform-provider.yandexcloud.net/resources/mdb_greenplum_cluster
   tf-provider-mkf: https://terraform-provider.yandexcloud.net/resources/mdb_kafka_cluster
   tf-provider-mmg: https://terraform-provider.yandexcloud.net/resources/mdb_mongodb_cluster
@@ -7838,11 +7839,18 @@ default:
           action:
             acl: Назначить роли
             delete: Удалить
+            reactivate_1080s: Активировать
             reset-date: Сбросить дату верификации
+            reset-password_jk19s: Сбросить пароль
+            suspend_d90a8: Деактивировать
           caption:
+            email: Электронная почта
             federation: Федерация
+            provider: Поставщик учётных данных
+            status: Статус
             user: Пользователь
             username: Имя пользователя
+          column_last-auth: Дата последней аутентификации
       field-data:
         attributes:
           update_dialog:
@@ -7987,6 +7995,7 @@ default:
           field_active: Учётная запись активна
           field_full-name: Полное имя
           field_password: Пароль
+          field_username: Имя пользователя
           title_personal-info: Персональная информация
           title_userpool_members: Пользователи
         users:
@@ -8001,6 +8010,7 @@ default:
           section:
             certificates: Сертификаты
         user:
+          action_edit-user: Редактировать атрибуты
           field_user-email: Электронная почта
           field_user-familyname: Фамилия
           field_user-givenname: Имя
@@ -9995,6 +10005,9 @@ default:
           action_disable-access: Отключить  доступ
           action_enable-access: Включить доступ
           label_filter-by-service-placeholder: Фильтр по сервису
+        users:
+          popup-add-users-from-federation_field_federation: Федерация
+          popup-add-users-from-federation_field_users: Пользователи
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -11455,6 +11468,7 @@ default:
           button_create: Создать бакет
           button_open-multipart-uploads: Показать список
           button_permissions: Настроить ACL
+          column_count: Кол-во объектов
           create:
             button_create: Создать бакет
           label_title: Бакеты

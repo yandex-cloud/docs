@@ -296,8 +296,6 @@ description: Следуя данной инструкции, вы сможете
       
       1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`.
 
-         {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
       1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -536,6 +534,20 @@ description: Следуя данной инструкции, вы сможете
 
 
           * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
+
+       
+       1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
+
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+            ...
+            disk_encryption_key_id = <идентификатор_ключа_KMS>
+            ...
+          }
+          ```
+
+          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mch }}).
 

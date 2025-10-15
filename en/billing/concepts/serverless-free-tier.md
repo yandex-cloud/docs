@@ -141,7 +141,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ datalens-full-name }} {#datalens}
 
-[{{ datalens-full-name }}](../../datalens/quickstart.md) is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results.
+[{{ datalens-full-name }}](../../datalens/quickstart.md) is a business analytics service. That allows you to connect to various data sources, visualize data, create dashboards, and share your results.
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
 
@@ -238,7 +238,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ sws-full-name }} {#smartwebsecurity}
 
-[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) protects your infrastructure against DDoS attacks and bots at the application level (L7).
+[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) protects your infrastructure against DDoS attacks and bots at the application layer (L7).
 
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
@@ -273,4 +273,3 @@ Usage cost is calculated based on the pricing plans of the relevant service and 
 ### Calculation of {{ iot-full-name }} usage cost {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
-

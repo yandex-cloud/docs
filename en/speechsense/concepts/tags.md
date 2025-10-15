@@ -32,7 +32,7 @@ For more info on creating, updating, and deleting tags, see [these guides](../op
 
 ## Semantic tags {#sense-tags}
 
-Semantic tags rely on dialog analysis with the help of [semantic attributes](reports/sense-attributes.md). When creating a [semantic tag](../operations/project/tag/create-sense-tag.md#new-tag), you select one of the semantic attributes and address a search query to it. {{ speechsense-name }} analyses the dialogs and tags them if the dialog is semantically relevant to the search query in the context of the selected semantic attribute. 
+Semantic tags rely on dialog analysis with the help of [semantic attributes](reports/sense-attributes.md). When creating a [semantic tag](../operations/project/tag/create-sense-tag.md#new-tag), you select one of the semantic attributes and provide a search query. {{ speechsense-name }} analyses the dialogs and tags them if the dialog is semantically relevant to the search query in the context of the selected semantic attribute. 
 
 To manage tagging with more accuracy, set the minimum probability of the dialog satisfying the specified conditions. Only the dialogs for which that probability equals or exceeds the specified level will be tagged.
 
@@ -125,7 +125,7 @@ Dictionary tags are based on scanning dialogs for specified key phrases. You can
 To fine-tune key phrase detection:
 
 * Enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** setting. In this case, related phrases will not be considered in key phrase detection.
-* Set the distance between words. This setting determines the maximum allowable distance between words in a key phrase. Here is an example:
+* Set the distance between words. This setting determines the maximum allowable distance between words in a key phrase. For example:
 
   > {% include [tag-distance-ex.md](../../_includes/speechsense/tag/tag-distance-ex.md) %}
 

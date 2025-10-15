@@ -103,6 +103,96 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [CLI cluster parameters description, part 2](../../../_includes/metadata-hub/metastore-cluster-parameters-cli-part-2.md) %}
 
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+    Чтобы создать кластер {{ metastore-name }}:
+
+    1. Опишите в конфигурационном файле создаваемые ресурсы:
+
+        * Кластер {{ metastore-name }} — описание кластера.
+
+        * {% include [Terraform network description](../../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../../_includes/mdb/terraform/subnet.md) %}
+
+        Пример структуры конфигурационного файла:
+
+        ```hcl
+
+        resource "yandex_metastore_cluster" "<имя_кластера>" {
+          name                = "<имя_кластера>"
+          subnet_ids          = [yandex_vpc_subnet.<имя_подсети>.id]
+          security_group_ids  = [<список_идентификаторов_групп_безопасности>]
+          service_account_id  = "<идентификатор_сервисного_аккаунта>"
+          deletion_protection = <защитить_кластер_от_удаления>
+          version             = "<версия>"
+
+          cluster_config = {
+            resource_preset_id = "<класс_вычислительных_ресурсов>"
+          }
+
+          maintenance_window = {
+            type = "<тип_технического_обслуживания>"
+            day  = "<день_недели>"
+            hour = <час_дня>
+          }
+
+          logging = {
+            enabled   = <включить_логирование>
+            folder_id = "<идентификатор_каталога>"
+            min_level = "<уровень_логирования>"
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
+
+        resource "yandex_vpc_subnet" "<имя_подсети>" {
+          name           = "<имя_подсети>"
+          zone           = "<зона_доступности>"
+          network_id     = "<идентификатор_сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        Где:
+
+        * `name` — имя кластера.
+        * `subnet_ids` — список идентификаторов подсетей.
+        * `security_group_ids` — список идентификаторов [групп безопасности](../../../metadata-hub/operations/metastore/configure-security-group.md).
+        * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+        * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
+        * `version` — версия {{ metastore-name }}.
+
+            {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
+        * `cluster_config.resource_preset_id` — [конфигурация вычислительных ресурсов](../../../metadata-hub/concepts/metastore.md#presets).
+        * {% include [metastore-maintenance-window-terraform](../../../_includes/metadata-hub/metastore-maintenance-window-terraform.md) %}
+        * `logging` — параметры логирования:
+
+            * `enable` — позволяет включить логирование. Логи, сгенерированные компонентами {{ metastore-name }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+            * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../../logging/concepts/log-group.md) по умолчанию для этого каталога.
+            * `group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
+
+                Укажите один из двух параметров: `folder_id` либо `group_id`.
+
+            * `min_level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+    Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-metastore }}).
+
+
 - REST API {#api}
 
     1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:

@@ -163,7 +163,7 @@
 
 {% endnote %}
 
-Проверяйте ваши Terraform-манифесты с помощью [Checkov](https://github.com/bridgecrewio/checkov) с поддержкой {{ yandex-cloud }}.
+Проверяйте ваши {{ TF }}-манифесты с помощью [Checkov](https://github.com/bridgecrewio/checkov) с поддержкой {{ yandex-cloud }}.
 
 * [Пример: сканирование tf-файлов с помощью Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc).
 * [Пример: хранение состояния {{ TF }} в {{ objstorage-name }}](https://github.com/yandex-cloud-examples/yc-terraform-state).

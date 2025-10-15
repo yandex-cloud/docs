@@ -1,6 +1,7 @@
 ---
 title: Инструкция о том, как создать лог-группу в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как создать лог-группу в {{ cloud-logging-name }}.
+sourcePath: ru/logging_includes/operations/create-group.md
 ---
 
 # Создать лог-группу

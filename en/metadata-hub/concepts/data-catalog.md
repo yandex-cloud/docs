@@ -8,7 +8,7 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 {% note info %}
 
-{% include [preview-tp](../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../_includes/preview-pp.md) %}
 
 {% endnote %}
 

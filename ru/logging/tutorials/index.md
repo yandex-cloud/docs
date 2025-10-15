@@ -1,6 +1,7 @@
 ---
 title: Сценарии использования {{ cloud-logging-full-name }}
 description: Различные сценарии использования {{ cloud-logging-full-name }} в {{ yandex-cloud }}.
+sourcePath: ru/logging_includes/tutorials/index.md
 ---
 
 # Практические руководства {{ cloud-logging-name }}

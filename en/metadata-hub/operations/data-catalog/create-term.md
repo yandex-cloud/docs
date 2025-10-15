@@ -3,7 +3,7 @@
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -24,5 +24,7 @@
       {% include [term-properties](../../../_includes/metadata-hub/term-properties.md) %}
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  {% include [ai-terms](../../../_includes/metadata-hub/data-catalog-ai-markup-terms.md) %}
 
 {% endlist %}

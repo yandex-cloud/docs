@@ -16,3 +16,5 @@ Before you can work with the API, you need to get an [IAM token](../../iam/conce
 #### See also {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

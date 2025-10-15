@@ -29,9 +29,9 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
 The support cost for this solution includes:
 
-* Fee for a {{ mos-name }} cluster: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster fee: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Migration using snapshots {#snapshot}
@@ -55,7 +55,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will serve as a snapshot repository.
     1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
 
-    1. If you are migrating data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for this service account.
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 
         {% note warning %}
 
@@ -65,7 +65,6 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     1. [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in your desired configuration with the following settings:
 
-        * Plugin: `repository-s3`.
         * Public access to a group of `DATA` hosts.
 
 - Using {{ TF }} {#tf}
@@ -118,9 +117,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Set up the source {{ ES }} cluster:
 
-    
     {% include [source-3p](es-mos-migration/source-3p.md) %}
-
 
 1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
@@ -130,11 +127,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Connect the bucket as a snapshot repository on the source cluster:
 
-    
     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
-
-    To learn more about connecting the repository, see the [Elastic plugin documentation]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
+    To learn more about connecting the repository, see the [relevant article on the Elastic plugin]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
@@ -142,15 +137,11 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     Example of creating a snapshot named `snapshot_1` for the entire cluster:
 
-    
     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
+    Creating a snapshot may take a while. Track the operation progress [using {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot) tools, such as:
 
-    Creating a snapshot may take a while. Track the operation progress [using {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
-
-    
     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
-
 
 ### Restore a snapshot on the target cluster {#restore-snapshot}
 

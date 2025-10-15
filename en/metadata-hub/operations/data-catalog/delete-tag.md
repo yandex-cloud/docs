@@ -8,7 +8,7 @@ description: Follow this guide to delete a tag for metadata in {{ data-catalog-f
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 

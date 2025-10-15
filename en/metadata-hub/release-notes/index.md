@@ -7,6 +7,18 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### September {#sep25}
+
+#### New features {#new-features-sep25}
+
+* [{{ connection-manager-name }}](../concepts/connection-manager.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); added support for YC CLI.
+
+
+* [{{ metastore-full-name }}](../concepts/metastore.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); the use of clusters is now [charged](../pricing.md).
+
+* [{{ data-catalog-name }}](../concepts/data-catalog.md) has entered the [Public Preview stage](../../overview/concepts/launch-stages.md). The metadata [AI markup](../operations/data-catalog/markup-metadata.md) and [AI search](../operations/data-catalog/search-metadata.md) are now implemented.
+
+
 ### August {#august25}
 
 #### New features {#new-features-august25}
@@ -101,7 +113,7 @@ Now you can manage connections to the following databases:
 
 #### New features {#new-features-october}
 
-* Added a new feature for integrating {{ connection-manager-name }} with [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md): when creating a transfer, you can now use a drop-down list of available connections.
+* Added new features for integrating {{ connection-manager-name }} with [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md): When creating a transfer, you can now use a drop-down list of available connections.
 * {{ schema-registry-name }} now supports authentication with [API keys](../../iam/concepts/authorization/api-key.md) so you no longer need to regularly update your secret for authentication.
 
 #### Fixed issues {#problems-solved-october}
@@ -150,3 +162,6 @@ Added [{{ connection-manager-name }}](../concepts/connection-manager.md) integra
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

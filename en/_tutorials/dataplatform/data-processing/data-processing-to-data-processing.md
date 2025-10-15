@@ -78,11 +78,11 @@ Set up the infrastructure:
         * Buckets for input and output data.
         * Two {{ dataproc-name }} clusters.
 
-    1. Specify the following in the `dataproc-to-dataproc.tf` file:
+    1. Specify the following in `dataproc-to-dataproc.tf`:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
-        * `input-bucket`: Name of the input data bucket.
-        * `output-bucket`: Name of the output data bucket.
+        * `input-bucket`: Input data bucket name.
+        * `output-bucket`: Output data bucket name.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
     1. Validate your {{ TF }} configuration files using this command:
@@ -150,7 +150,7 @@ In the `dataproc-source` cluster, create a test table named `countries` and uplo
 
         1. In the script, specify the name of the output bucket where the file with the `countries` table will be saved.
 
-        1. In the input bucket, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
+        1. Create a folder named `scripts` in the input bucket and [upload](../../../storage/operations/objects/upload.md#simple) the `create-table.py` file to it.
 
     1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/create-table.py`.
 
@@ -185,7 +185,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
             spark.catalog.listDatabases()
 
-            # Getting the countries table metadata from {{ metastore-name }}
+            # Getting the `countries` table metadata from {{ metastore-name }}
             df = spark.sql("describe extended countries")
 
             # Requesting data from the countries table
@@ -230,3 +230,5 @@ Some resources are not free of charge. Delete the resources you no longer need t
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

@@ -6,11 +6,6 @@ description: Follow this guide to configure connection access permissions.
 # Configuring connection access permissions
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

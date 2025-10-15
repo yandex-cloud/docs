@@ -33,7 +33,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 * [{#T}](metastore/cluster-delete.md)
 
 
-## {{ schema-registry-name }} {#instructions-schema-registry}
+## {{ schema-registry-name }} {{ preview-stage }} {#instructions-schema-registry}
 
 * Namespace:
   * [{#T}](create-name-space.md)
@@ -51,9 +51,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
   * [{#T}](delete-subject.md)
 
 
-## {{ data-catalog-name }} {#instructions-data-catalog} 
-
-{% include [preview-tp](../../_includes/preview-tp.md) %}
+## {{ data-catalog-name }} {{ preview-stage }} {#instructions-data-catalog}
 
 * Catalog:
   * [{#T}](data-catalog/catalog-list.md)
@@ -105,3 +103,6 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
   * [{#T}](data-catalog/markup-metadata.md)
   * [{#T}](data-catalog/search-metadata.md)
   * [{#T}](data-catalog/analysis-metadata.md)
+
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

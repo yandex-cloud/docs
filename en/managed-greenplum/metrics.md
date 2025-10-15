@@ -8,3 +8,5 @@ description: This page provides reference info on the {{ mgp-name }} metrics del
 This section describes the {{ mgp-name }} metrics delivered to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-greenplum](../_includes/monitoring/metrics-ref/managed-greenplum.md) %}
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

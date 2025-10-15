@@ -230,6 +230,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](reserved-pools/delete-reserved-pool.md)
 * [{#T}](reserved-pools/manage-pool-vms.md)
 
+
 ## Кластеры GPU {#gpu-cluster}
 
 * [{#T}](gpu-cluster/gpu-cluster-create.md)
@@ -241,6 +242,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
 * [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
 * [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
+
 
 ## Получение дополнительной информации {#get-additional-info}
 

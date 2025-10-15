@@ -3,7 +3,7 @@
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -21,5 +21,7 @@
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify a unique name for the tag.
   1. Optionally, describe the term.
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  {% include [ai-domains](../../../_includes/metadata-hub/data-catalog-ai-markup-domains.md) %}
 
 {% endlist %}

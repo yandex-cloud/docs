@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/api-ref/api-ref-grpc/index.md
+---
 # Обзор
 
 Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, сделайте RPC-вызов. Подробнее см. в документации [Концепции API {{ yandex-cloud }}](../../../api-design-guide/).

@@ -66,5 +66,5 @@ description: Следуя данной инструкции, вы сможете
 
 #### См. также {#see-also}
 
-* [{#T}](add-user.md)
+* [{#T}](../add-account.md#add-local-user)
 * [{#T}](add-domain.md)

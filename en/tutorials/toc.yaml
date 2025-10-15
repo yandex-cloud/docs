@@ -1136,6 +1136,8 @@ items:
           Creating an external table from a {{ objstorage-name }} bucket table
           using a configuration file
         href: dataplatform/mgp-config-server-for-s3.md
+      - name: Getting data from external sources using named queries in {{ GP }}
+        href: dataplatform/pxf-named-queries.md
       - name: >-
           Migrating a database from a third-party {{ VLK }} cluster to {{
           mrd-name }}

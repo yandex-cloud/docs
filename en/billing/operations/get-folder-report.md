@@ -1,4 +1,4 @@
-# Getting expense details by folder
+# Exporting extended usage details
 
 You can get a CSV file with your general or per-resource spending details. You can download the file once or set up regular export.
 
@@ -35,7 +35,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
    {% endnote %}
 
-1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, or `billing.accounts.editor`.
+1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
 
 ### Get the expense details {#download-detail}
 
@@ -48,8 +48,8 @@ You can get a CSV file with your general or per-resource spending details. You c
   1. In the left-hand panel, select **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
   1. Click **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
   1. In the **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** window that opens, specify:
-     * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** field, the name of the bucket to store the CSV file with details.
-     * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** field, the name of the folder for the file. It must end with the `/` character.
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** field, the name of the bucket to store the CSV file with details.
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** field, the name of the folder for the file. It must end with the `/` character.
      * Select the language for product names: English or Russian.
      * Select **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** or **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** as the detailed view type.
 
@@ -58,6 +58,8 @@ You can get a CSV file with your general or per-resource spending details. You c
          If you select **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** for regular export of details, you can also view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id`](#format) field (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
          {% endnote %}
+
+  1. Optionally, to export data for the previous period, enable the relevant option. In the **Export reports starting from** field that appears, select the start date for exporting reports.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -78,9 +80,9 @@ An uploaded file with details is a CSV table with comma-separated columns. Each 
 
 The table contains the following columns:
 
-* `billing_account_id`: [Billing account](../concepts/billing-account) ID.
+* `billing_account_id`: [Billing account](../concepts/billing-account.md) ID.
 * `billing_account_name`: Billing account name.
-* `cloud_id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy#cloud) covered by the details.
+* `cloud_id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) covered by the details.
 * `cloud_name`: Cloud name.
 * `folder_id`: Folder ID.
 * `folder_name`: Name of the folder at the time of exporting the details. This field may be empty if you deleted the folder before exporting the details.
@@ -102,7 +104,7 @@ The table contains the following columns:
 * `sku_id`: Consumed product ID.
 * `sku_name`: Product name.
 * `date`: Consumption charge date. A date is defined as an interval from 0:00 to 23:59 (UTC+3).
-* `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
+* `currency`: Billing account currency. The possible values range `RUB`, `USD`, or `KZT`.
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.

@@ -1,6 +1,7 @@
 ---
 title: Инструкция о том, как удалить лог-группу в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как удалить лог-группу в {{ cloud-logging-name }}.
+sourcePath: ru/logging_includes/operations/delete-group.md
 ---
 
 # Удалить лог-группу

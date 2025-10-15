@@ -5,8 +5,6 @@ description: Follow this guide to request detailed information about existing {{
 
 # Getting information about {{ metastore-full-name }} clusters
 
-{% include [Preview](../../../_includes/note-preview.md) %}
-
 ## Getting a list of clusters in a folder {#list-clusters}
 
 {% list tabs group=instructions %}
@@ -41,6 +39,54 @@ description: Follow this guide to request detailed information about existing {{
   +----------------------+--------------+---------------------+--------+---------+
   ```
 
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.List](../../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters' \
+            --url-query folderId=<folder_ID>
+        ```
+
+        You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
+
+    1. View the [server response](../../api-ref/Cluster/list.md#yandex.cloud.metastore.v1.ListClustersResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.List](../../api-ref/grpc/Cluster/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "folder_id": "<folder_ID>"
+                }' \
+            {{ api-host-metastore }}:{{ port-https }} \
+            yandex.cloud.metastore.v1.ClusterService.List
+        ```
+
+        You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
+
+    1. View the [server response](../../api-ref/grpc/Cluster/list.md#yandex.cloud.metastore.v1.ListClustersResponse) to make sure your request was successful.
+
 {% endlist %}
 
 ## Getting detailed information about a cluster {#get-cluster}
@@ -68,6 +114,53 @@ description: Follow this guide to request detailed information about existing {{
   ```
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Get](../../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<cluster_ID>'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../../api-ref/Cluster/get.md#yandex.cloud.metastore.v1.Cluster) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Get](../../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-metastore }}:{{ port-https }} \
+            yandex.cloud.metastore.v1.ClusterService.Get
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../../api-ref/grpc/Cluster/get.md#yandex.cloud.metastore.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -100,6 +193,53 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
     ```
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.ListOperations](../../api-ref/Cluster/listOperations.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<cluster_ID>/operations'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../../api-ref/Cluster/listOperations.md#yandex.cloud.metastore.v1.ListClusterOperationsResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.ListOperations](../../api-ref/grpc/Cluster/listOperations.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-metastore }}:{{ port-https }} \
+            yandex.cloud.metastore.v1.ClusterService.ListOperations
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.metastore.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -143,6 +283,50 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
           name: metastore2
           ...
         ```
+
+    - REST API {#api}
+
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+            {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+        1. Use the [Operation.Get](../../api-ref/Operation/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
+            ```
+
+        1. View the [server response](../../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+    - gRPC API {#grpc-api}
+
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+            {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+        1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+        1. Use the [OperationService.Get](../../api-ref/grpc/Operation/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                        "operation_id": "<operation_ID>"
+                    }' \
+                {{ api-host-operation }}:{{ port-https }} \
+                yandex.cloud.operation.OperationService.Get
+            ```
+
+        1. View the [server response](../../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
     
     {% endlist %}
 
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

@@ -6,11 +6,6 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 # Viewing connection information
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 ## Getting a list of connections {#connection-list}
 
 
@@ -28,6 +23,44 @@ The connection list only displays those connections to which the user has access
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get a list of connections:
+
+  1. See the description of the CLI command for getting a list of connections:
+
+      ```bash
+      yc metadata-hub connection-manager connection list --help
+      ```
+
+  1. Get the list of connections by running this comand:
+      
+      ```bash
+      yc metadata-hub connection-manager connection list
+      ```
+
+      To get only specific connections, provide one or more flags in the command:
+
+      * `--db-type`: Database type. The possible values range `postgresql`, `mysql`, `clickhouse`, `mongodb`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+
+      * `--is-manual`: Connections created manually.
+
+      * `--mdb-cluster-id`: Cluster ID.
+
+      * `--is-on-premise`: Connections to custom installations.
+      
+      For example, to get the connections to custom `mysql` DB installations, run this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection list \
+        --db-type mysql \
+        --is-on-premise
+      ```
 
 - API {#api}
 
@@ -47,6 +80,28 @@ The connection list only displays those connections to which the user has access
   1. Select **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click the line with the connection to view its details.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get information about a connection:
+  
+  1. See the description of the CLI command for getting information about a connection:
+
+      ```bash
+      yc metadata-hub connection-manager connection get --help
+      ```
+
+  1. Get information about a connection by running this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection get <connection_ID>
+      ```
+
+      You can get the connection ID with the [list of connections](#connection-list) in the folder.
 
 - API {#api}
   
@@ -68,6 +123,34 @@ The connection list only displays those connections to which the user has access
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.connection-manager.label_dependences }}**.
 
      The dependency list shows managed database clusters and service instances that use {{ connection-manager-name }} to store connection information. Click a line in the dependency list to go to a cluster or service instance.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get information about connection dependencies:
+  
+  1. See the description of the CLI command for getting information about command dependencies:
+
+      ```bash
+      yc metadata-hub connection-manager connection resolve-cluster --help
+      ```
+
+  1. Get information about connection dependencies by running this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection resolve-cluster <connection_ID>
+      ```
+
+      You can get the connection ID with the [list of connections](#connection-list) in the folder.
+
+      {% note info %}
+      
+      For connections to managed database clusters, the `resolve-cluster` command returns the cluster topology. For connections to custom database installations, it returns the same information as the [get](#connection-get) command.
+      
+      {% endnote %}
 
 - API {#api}
   

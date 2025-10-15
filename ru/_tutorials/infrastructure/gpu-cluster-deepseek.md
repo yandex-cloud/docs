@@ -82,9 +82,12 @@
 ## Проверьте состояние кластера {#test-cluster-state}
 
 Опционально вы можете:
-   * [Проверить физическое состояние кластера](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md);
-   * [Запустить параллельные задачи в кластере](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md);
-   * [Проверить пропускную способность InfiniBand](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
+
+
+* [Проверить физическое состояние кластера](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md);
+* [Запустить параллельные задачи в кластере](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md);
+* [Проверить пропускную способность InfiniBand](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
+
 
 ## Запустите языковую модель {#launch-llm}
 

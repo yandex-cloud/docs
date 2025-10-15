@@ -1,6 +1,6 @@
 ---
 title: '{{ metadata-hub-full-name }}. Troubleshooting'
-description: How do I fix the error I get when creating a DB in {{ metastore-name }}? Find the answer to this and other common questions below.
+description: How do I fix the error I get when creating a DB in {{ metastore-name }}? Find the answer to this and other questions in this article.
 ---
 
 # Troubleshooting in {{ metadata-hub-name }}
@@ -16,7 +16,7 @@ This section describes issues you may encounter in the service and how to troubl
 
 {% include notitle [create-db-in-hive](../../_qa/metadata-hub/create-db-in-hive.md) %}
 
-### No permission error when connecting a service account to the cluster {#attach-service-account}
+### No permission error when attaching a service account to the cluster {#attach-service-account}
 
 {% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}
 
@@ -25,3 +25,5 @@ This section describes issues you may encounter in the service and how to troubl
 ### Error when adding or deleting optional parameters {#avoid-errors-while-evolving-schema}
 
 {% include notitle [optional-parameter-error](../../_qa/metadata-hub/optional-parameter-error.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
