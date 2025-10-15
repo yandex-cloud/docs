@@ -1,6 +1,7 @@
 ---
 title: Обзор метрик {{ monitoring-full-name }}
 description: Обзор метрик в {{ monitoring-full-name }} — инструмент для построения и просмотра метрик сервисов и приложений в реальном времени.
+sourcePath: ru/monitoring_includes/concepts/visualization/metric-explorer.md
 ---
 
 # Обзор метрик в {{ monitoring-name }}

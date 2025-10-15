@@ -24,6 +24,8 @@ If you plan to use multiple security groups for a cluster, enable all traffic be
 
 {% note info %}
 
-You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
 {% endnote %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

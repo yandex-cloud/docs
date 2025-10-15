@@ -18,7 +18,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. Contact your working cloud or organization administrator for access to the resource catalog the metadata is processed in.
 
@@ -77,6 +77,8 @@ To get started:
      The number of filters you can use depends on the data types you select. If you are working with several data types at the same time, only filters valid for all selected data types will be available.
 
      You can increase the number of available filters by carefully selecting your data types.
+
+  {% include [ai-search-on](../../_includes/metadata-hub/data-catalog-ai-search.md) %}
 
 {% endlist %}
 

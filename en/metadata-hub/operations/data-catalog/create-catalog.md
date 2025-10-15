@@ -8,7 +8,7 @@ description: Follow this guide to create a metadata catalog in {{ data-catalog-f
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -25,7 +25,10 @@ description: Follow this guide to create a metadata catalog in {{ data-catalog-f
 
        * In the **{{ ui-key.yacloud.common.name }}** field, enter a unique name for the catalog.
        * Optionally, describe the catalog.
+       * Optionally, add [{{ yandex-cloud }} labels](../../../resource-manager/concepts/labels.md).
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
+
+    {% include [ai-on](../../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
 
 {% endlist %}

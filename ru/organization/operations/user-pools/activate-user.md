@@ -1,23 +1,39 @@
 ---
-title: Как активировать пользователя пула в {{ org-full-name }}
-description: Следуя данной инструкции, вы сможете активировать пользователя пула в {{ org-name }}.
+title: Как активировать пользователя в {{ org-full-name }}
+description: Следуя данной инструкции, вы сможете активировать пользователя в {{ org-name }}.
 ---
 
 # Активировать пользователя
 
+Вы можете активировать пользователей, которые ранее были [деактивированы](./deactivate-user.md). После активации пользователи вновь получают доступ к тем ресурсам организации, на которые им назначены [права доступа](../../../iam/concepts/access-control/roles.md).
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [activate-deactivate-passport-user-notice](../../../_includes/organization/activate-deactivate-passport-user-notice.md) %}
 
-Активированные пользователи получат доступ к ресурсам организации.
+## Активировать федеративного пользователя {#activate-federated}
+
+Чтобы активировать аккаунт федеративного пользователя:
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-  1. На панели слева нажмите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** и выберите нужный [пул пользователей](../../concepts/user-pools.md).
-  1. На вкладке **{{ ui-key.yacloud_org.organization.userpools.title_userpool_members }}** выберите нужного пользователя.
-  1. В правом верхнем углу нажмите **Сделать активным**.
+  {% include [activate-user-ui](../../../_includes/organization/activate-user-ui.md) %}
+
+{% endlist %}
+
+
+## Активировать локального пользователя {#activate-local}
+
+
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
+Чтобы активировать аккаунт локального пользователя:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  {% include [activate-user-ui](../../../_includes/organization/activate-user-ui.md) %}
 
 - CLI {#cli}
 
@@ -30,13 +46,14 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc organization-manager idp user reactivate --help
      ```
-
-  1. Выполните команду:
+  1. {% include [cli-list-userpools](../../../_includes/organization/cli-list-userpools.md) %}
+  1. {% include [cli-userpool-list-users](../../../_includes/organization/cli-userpool-list-users.md) %}
+  1. Чтобы активировать пользователя, передайте его идентификатор в команде:
 
      ```bash
      yc organization-manager idp user reactivate <идентификатор_пользователя>
      ```
-     
+
 {% endlist %}
 
 #### См. также {#see-also}

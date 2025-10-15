@@ -15,11 +15,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, содержащий частично загруженный объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
-  1. Наведите указатель на желтое поле рядом с количеством объектов. 
-  1. Нажмите появившуюся кнопку **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}**.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В строке с нужным бакетом в колонке **{{ ui-key.yacloud.storage.buckets.column_count }}** наведите указатель на желтое поле с количеством частично загруженных объектов.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}**.
   1. Отметьте незавершенные загрузки, которые нужно удалить.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.

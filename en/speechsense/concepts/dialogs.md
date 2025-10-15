@@ -25,7 +25,7 @@ Analyze dialogs in SpeechSense to evaluate the agents' performance. There are tw
 
 You [can get](../operations/data/manage-dialogs.md#view-dialog) the following information for each dialog:
 
-* Metadata, e.g., full names of agent and customer, call or message date, dialog language, etc. The metadata list is [defined in the connection](../operations/connection/create.md).
+* Metadata. For example: agent and customer namers, call or message date, dialog language, etc. The metadata list is [defined in the connection](../operations/connection/create.md).
 * Conversation audio (only for audio).
 * Conversation contents.
 * [{{ yagpt-name }}](../../ai-studio/concepts/generation/models.md) analysis.
@@ -54,7 +54,7 @@ On the dialog page, you can see the **{{ ui-key.yc-ui-talkanalytics.projects.sum
    * Incoming contact: Agent helped to resolve the customer’s issue.
    * Outgoing contact: Customer purchased the subscription.
 * **{{ ui-key.yc-ui-talkanalytics.statements.problems }}**: Issues reported by the customer.
-* **{{ ui-key.yc-ui-talkanalytics.statements.summary }}**: Reasons for having the conversation and its results. This section also includes information on the evaluation criteria, e.g., the participants’ emotions or objections during the conversation.
+* **{{ ui-key.yc-ui-talkanalytics.statements.summary }}**: Reasons for having the conversation and its results. This section also includes information on important evaluation criteria, e.g., the participants’ emotions or objections during the conversation.
 * **{{ ui-key.yc-ui-talkanalytics.statements.client_keywords }}**: Keywords in the customer's messages.
 * **{{ ui-key.yc-ui-talkanalytics.statements.operator_keywords }}**: Keywords in the agent's messages.
 * **{{ ui-key.yc-ui-talkanalytics.statements.theme }}**: What the customer and agent discussed.

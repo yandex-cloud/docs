@@ -3,12 +3,12 @@ title: How to create a {{ VLK }} cluster
 description: Follow this guide to create a {{ VLK }} cluster with a single or multiple DB hosts.
 ---
 
-# Creating an {{ VLK }} cluster
+# Creating a {{ VLK }} cluster
 
 
-A {{ VLK }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
+A {{ VLK }} cluster is one or more database hosts between which you can configure replication. Replication is on by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously replicates changes on replicas.
 
-For more information about {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
+For more information on the {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
 
 {% note info %}
 
@@ -100,7 +100,7 @@ There are no restrictions for non-sharded clusters.
 
        * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-       To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
   
@@ -186,12 +186,13 @@ There are no restrictions for non-sharded clusters.
               `replica-priority=<host_priority> \
         --security-group-ids <list_of_security_group_IDs> \
         --enable-tls \
-        --persistence-mode <persistence_mode>
+        --persistence-mode <persistence_mode> \
         --resource-preset <host_class> \
         --disk-size <storage_size_in_GB> \
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<user_password> \
         --backup-window-start <time> \
+        --disk-encryption-key-id <KMS_key_ID> \
         --deletion-protection \
         --announce-hostnames <using_FQDNs_instead_of_IP_addresses>
       ```
@@ -204,7 +205,7 @@ There are no restrictions for non-sharded clusters.
       
       * `--host`: Host settings:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if two or more subnets are created in the selected availability zone.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `replica-priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
@@ -221,7 +222,15 @@ There are no restrictions for non-sharded clusters.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      * `--announce-hostnames`: Enables or disables [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
+      
+      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+
+        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
+      * `--announce-hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
@@ -304,7 +313,7 @@ There are no restrictions for non-sharded clusters.
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-       * `announce_hostnames`: Enables or disables [using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting): `true` or `false`.
+       * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 

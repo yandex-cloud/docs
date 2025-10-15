@@ -1,6 +1,7 @@
 ---
 title: Как использовать Prometheus recording rules
 description: Следуя данному руководству, вы сможете создавать и редактировать файлы Prometheus с правилами записи (recording rules).
+sourcePath: ru/monitoring_includes/operations/prometheus/recording-rules.md
 ---
 
 # Правила записи

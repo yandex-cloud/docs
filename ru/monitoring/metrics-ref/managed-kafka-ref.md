@@ -2,6 +2,7 @@
 title: Метрики {{ mkf-full-name }}
 description: Из статьи вы узнаете про метрики {{ mkf-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-kafka-ref.md
 ---
 
 # Метрики {{ mkf-full-name }}

@@ -127,7 +127,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   1. Configure the [{{ KF }}](../concepts/settings-list.md#cluster-settings) settings, if required.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
+  1. Wait until the {{ mkf-name }} cluster is ready for operation: its status on the {{ mkf-name }} dashboard will change to `Running` and its state to `Alive`. This may take some time.
 
 - CLI {#cli}
 
@@ -332,11 +332,11 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
       
-     * `kafka_ui`: This setting defines whether to use [{{ kafka-ui }} for {{ KF }}](../concepts/kafka-ui.md) and can be `true` or `false`. The default value is `false`.
+     * `kafka_ui`: Use of [{{ kafka-ui }} for {{ KF }}](../concepts/kafka-ui.md), `true` or `false`. The default value is `false`.
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -469,7 +469,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 * `version`: {{ KF }} version, {{ versions.cli.str }}.
                 * `kafka`: {{ KF }} configuration:
 
-                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
@@ -488,14 +488,14 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   * `"zoneId": ["<one_availability_zone>"], "brokersCount": "1"`
                   * `"zoneId": ["<one_availability_zone>"], "brokersCount": "3"`
 
-                * `assignPublicIp`: Internet access to the broker hosts, `true` or `false`.
+                * `assignPublicIp`: Access to the broker hosts from the internet, `true` or `false`.
                 * `schemaRegistry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
-                * `restApiConfig`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
+                * `restApiConfig`: {{ KF }} REST API configuration. To be able to send requests to the {{ KF }} REST API, specify `enabled: true`.
                 * `diskSizeAutoscaling`: Set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size), that will trigger an increase in storage size when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-                * `kafkaUiConfig`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
+                * `kafkaUiConfig`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). For access to {{ kafka-ui }}, specify `enabled: true`.
 
             * `topicSpecs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 
@@ -509,7 +509,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
-                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week, in `DDD` format, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
@@ -685,14 +685,14 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   * `"zone_id": ["<one_availability_zone>"], "brokers_count": {"value":"1"}`
                   * `"zone_id": ["<one_availability_zone>"], "brokers_count": {"value":"3"}`
 
-                * `assign_public_ip`: Internet access to the broker hosts, `true` or `false`.
+                * `assign_public_ip`: Access to the broker hosts from the internet, `true` or `false`.
                 * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
-                * `rest_api_config`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
+                * `rest_api_config`: {{ KF }} REST API configuration. To be able to send requests to the {{ KF }} REST API, specify `enabled: true`.
                 * `disk_size_autoscaling`: To prevent the cluster disk space from running out, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger an increase in storage size when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
                 
-                * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
+                * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). For access to {{ kafka-ui }}, specify `enabled: true`.
 
             * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 
@@ -706,7 +706,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
-                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week, in `DDD` format, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.

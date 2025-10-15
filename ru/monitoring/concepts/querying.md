@@ -1,6 +1,7 @@
 ---
 title: Язык запросов в {{ monitoring-full-name }}
 description: В этом разделе описан язык запросов {{monitoring-full-name}}. Он используется для преобразования метрик при настройке дашбордов и алертов, а также в API-методе MetricsData.read.
+sourcePath: ru/monitoring_includes/concepts/querying.md
 ---
 
 # Язык запросов в {{ monitoring-name }}

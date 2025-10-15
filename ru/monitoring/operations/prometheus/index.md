@@ -1,6 +1,7 @@
 ---
 title: '{{ managed-prometheus-full-name }}'
 description: '{{ managed-prometheus-full-name }} — система мониторинга, совместимая с {{ prometheus-name }}. С помощью нее можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов {{ promql-name }}, что позволяет работать с уже существующими дашбордами в {{ grafana-name }}.'
+sourcePath: ru/monitoring_includes/operations/prometheus/index.md
 ---
 
 # Обзор {{ managed-prometheus-full-name }}

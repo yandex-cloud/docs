@@ -136,7 +136,7 @@ keywords:
         * `name` — имя кластера.
         * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups).
+        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
 
             {% note warning %}
 
@@ -272,7 +272,7 @@ keywords:
         * `description` — описание кластера.
         * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `securityGroupIds` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups).
+        * `securityGroupIds` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
 
             {% note warning %}
 
@@ -410,7 +410,7 @@ keywords:
         * `description` — описание кластера.
         * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups).
+        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
 
             {% note warning %}
 
@@ -651,7 +651,7 @@ keywords:
         * `name` — имя кластера.
         * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups).
+        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
 
             {% note warning %}
 
@@ -809,7 +809,7 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `securityGroupIds` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups).
+        * `securityGroupIds` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
 
             {% note warning %}
 
@@ -968,7 +968,7 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups).
+        * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
 
             {% note warning %}
 

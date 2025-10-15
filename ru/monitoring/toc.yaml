@@ -173,10 +173,6 @@ items:
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Управление доступом
     href: security/index.md
-  - name: Правила тарификации
-    href: pricing.md
-  - name: Справочник {{ TF }}
-    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -301,8 +297,6 @@ items:
         href: metrics-ref/smartwebsecurity-ref.md
       - name: '{{ unified-agent-short-name }}'
         href: metrics-ref/unifiedagent-ref.md
-  - name: История изменений
-    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
@@ -317,5 +311,11 @@ items:
         href: qa/alerts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md

@@ -82,7 +82,7 @@ You pay for the storage allocated for DB clusters.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
@@ -100,15 +100,15 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS discount: on vCPUs and on RAM for the hosts you intend to use in your clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -195,12 +195,14 @@ For cost details, contact [technical support]({{ link-console-support }}).
 
 
 
-
 ### Computing resources of {{ kraft-name }} hosts {#prices-kraft}
 
 #### Standard hosts {#prices-kraft-standard}
 
+
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
+
 
 
 
@@ -215,6 +217,7 @@ For cost details, contact [technical support]({{ link-console-support }}).
   {% include [usd-hosts-kraft-standard-month](../_pricing/managed-kafka/usd-hosts-kraft-standard-month.md) %}
 
 {% endlist %}
+
 
 
 

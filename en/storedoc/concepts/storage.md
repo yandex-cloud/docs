@@ -21,7 +21,7 @@ The number of hosts you can create together with a {{ SD }} cluster depends on t
 
    This cluster will be fault-tolerant.
 
-   Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
+   Storage on local SSDs affects cluster pricing: it is charged even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
 * You can add any number of hosts within the current quota when using the following disk types:
 
@@ -41,19 +41,19 @@ For more information about limits on the number of hosts per cluster or [shard](
 
 {% include [mmg-readonly-safeguard.md](../../_includes/mdb/mmg-readonly-safeguard.md) %}
 
-After switching to read-only mode:
+After switching to _read-only_ mode:
 
 * Write queries stop being allowed on the host. You can only make read queries.
-* If the host was a [primary replica](replication.md) before switching to read-only mode, this role will be automatically assigned to another cluster host as the primary replica should be able to write to the disk.
+* If the host was a [primary replica](replication.md) before switching to _read-only_ mode, this role will be automatically assigned to another cluster host, as the primary replica should be able to write to disk.
 
-If the cluster's data volume keeps growing, all hosts will enter read-only mode one by one and the cluster will eventually stop accepting data for writing.
+If the data amount in the cluster keeps growing, all hosts will enter _read-only_ mode one by one and the cluster will eventually stop accepting data for writing.
 
 ### Maintaining a cluster in operable condition {#read-only-solutions}
 
-To keep your cluster up and running as the host is switching over to read-only:
-* [Increase the disk space on the host](../operations/update.md#change-disk-size). Once there is enough space on the host, {{ yandex-cloud }} will clear read-only mode automatically.
-* [Add more shards to the cluster](../operations/shards.md#add-shard). Read-only mode will not be cleared on this host, but the cluster will be able to keep working normally as long as there is free disk space on the other shards.
-* Ask [support]({{ link-console-support }}) to temporarily suspend the read-only mode on this host to manually delete some of the data.
+To keep your cluster up and running as the host is switching over to _read-only_:
+* [Increase the disk space on the host](../operations/update.md#change-disk-size). If there is enough space on the host, {{ yandex-cloud }} will clear _read-only_ mode automatically.
+* [Add more shards to the cluster](../operations/shards.md#add-shard). _Read-only_ mode will not be cleared on this host, but the cluster will be able to keep working normally as long as there is free disk space on the other shards.
+* Ask [support]({{ link-console-support }}) to temporarily suspend _read-only_ mode on this host to manually delete some of the data.
 
    {% note alert %}
 
@@ -62,6 +62,7 @@ To keep your cluster up and running as the host is switching over to read-only:
    {% endnote %}
 
 * [Force data synchronization](../operations/hosts.md#resetup) between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
+* Run the `compact` command. First, [add](../operations/cluster-users.md#updateuser) the [mdbDbAdmin role](users-and-roles.md#mdbdbadmin) to the user. For more information about this command, see [this {{ MG }} guide](https://docs.mongodb.com/manual/reference/command/compact).
 
 ## Use cases {#examples}
 

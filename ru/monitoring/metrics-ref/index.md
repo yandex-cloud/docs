@@ -1,6 +1,7 @@
 ---
 title: Список справочников метрик сервисов {{ yandex-cloud }}
 description: На странице приведен список справочников метрик сервисов {{ yandex-cloud }}, которые автоматически собираются в {{ monitoring-full-name }}.
+sourcePath: ru/monitoring_includes/metrics-ref/index.md
 ---
 
 # Справочники метрик сервисов {{ yandex-cloud }}

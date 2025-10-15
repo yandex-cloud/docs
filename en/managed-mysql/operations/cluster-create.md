@@ -8,7 +8,7 @@ description: Follow this guide to create a {{ MY }} cluster with a single or mul
 
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
 
-For more information about {{ mmy-name }} cluster structure, see [Resource relationships](../concepts/index.md).
+For more information on the {{ mmy-name }} cluster structure, see [Resource relationships](../concepts/index.md).
 
 {% note info %}
 
@@ -38,7 +38,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
-  1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
+  1. Select the environment where you want to create a {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your apps.
      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
   1. Select the DBMS version.
@@ -64,7 +64,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-       To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
@@ -104,7 +104,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
 
-  1. Configure additional {{ mmy-name }} cluster settings, if required:
+  1. Specify additional {{ mmy-name }} cluster settings, if required:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
@@ -129,10 +129,10 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
+     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View the description of the CLI command to create a {{ mmy-name }} cluster:
+  1. See the description of the CLI command for creating a {{ mmy-name }} cluster:
 
      ```bash
      {{ yc-mdb-my }} cluster create --help
@@ -172,8 +172,8 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 
      * `--disk-type`: [Disk type](../concepts/storage.md).
-     * `--priority`: Host priority when selecting a new master host, between `0` and `100`.
-     * `--backup-priority`: Backup priority, between `0` and `100`.
+     * `--priority`: Host priority when selecting a new master host, from `0` to `100`.
+     * `--backup-priority`: Backup priority, from `0` to `100`.
      * `--mysql-version`: {{ MY }} version, `{{ versions.cli.str }}`.
      * `--user`: Contains the {{ MY }} user `name` and `password`.
 
@@ -193,7 +193,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        {% endnote %}
 
-     Configure additional {{ mmy-name }} cluster settings, if required:
+     Specify additional {{ mmy-name }} cluster settings, if required:
 
      
      ```bash
@@ -201,6 +201,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        ...
        --backup-window-start <backup_start_time> \
        --backup-retain-period-days=<backup_retention_period> \
+       --disk-encryption-key-id <KMS_key_ID> \
        --datalens-access=<allow_access_from_{{ datalens-name }}> \
        --websql-access=<allow_access_from_{{ websql-name }}> \
        --yandexquery-access=<allow_access_from_Yandex_Query> \
@@ -215,6 +216,15 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      * `--backup-window-start`: Backup start time.
      * `--backup-retain-period-days`: Automatic backup retention period, in days.
+
+     
+     * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
      * `--datalens-access`: Enables access to the cluster from {{ datalens-full-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
      * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
      * `--yandexquery-access`: Enables YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
@@ -228,7 +238,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-     Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
+     [Configure the DBMS](../concepts/settings-list.md#dbms-cluster-settings), if required.
 
      {% note info %}
 
@@ -243,7 +253,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mmy-name }} cluster:
-  1. In the configuration file, describe the parameters of resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
      * DB cluster: description of the cluster and its hosts.
      * Database: cluster DB description.
 
@@ -317,8 +327,8 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      * `assign_public_ip`: Public access to the host, `true` or `false`.
-     * `priority`: Host priority when selecting a new master host, between `0` and `100`.
-     * `backup_priority`: Backup priority, between `0` and `100`.
+     * `priority`: Host priority when selecting a new master host, from `0` to `100`.
+     * `backup_priority`: Backup priority, from `0` to `100`.
      * `name` and `password`: {{ MY }} username and password, respectively.
 
        {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
@@ -367,7 +377,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        Where `backup_retain_period_days` is automatic backup retention period, in days.
 
-       The valid values range from `7` to `60`. The default value is `7`.
+       The possible values are from `7` to `60`. The default value is `7`.
 
      * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add a `performance_diagnostics` block to your {{ mmy-name }} cluster description:
 
@@ -506,7 +516,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             * `yandexQuery`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently in [Preview](../../overview/concepts/launch-stages.md).
 
 
-            The possible setting values are `true` or `false`.
+            The possible values for these settings are: `true` or `false`.
 
       * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
@@ -524,7 +534,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `password`: User password. The password must be from 8 to 128 characters long.
 
-              You can also generate a password with {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
+              You can also generate a password with {{ connection-manager-name }}. To do this, replace `"password": "<user_password>"` with `"generatePassword": true`.
 
               To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -539,7 +549,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+          * `assignPublicIp`: Permission for [connection](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -659,7 +669,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             * `yandex_query`: YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently in [Preview](../../overview/concepts/launch-stages.md).
 
 
-            The possible setting values are `true` or `false`.
+            The possible values for these settings are: `true` or `false`.
 
       * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
@@ -674,7 +684,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `password`: User password. The password must be from 8 to 128 characters long.
 
-              You can also generate a password with {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+              You can also generate a password with {{ connection-manager-name }}. To do this, replace `"password": "<user_password>"` with `"generate_password": true`.
 
               To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -689,7 +699,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+          * `assign_public_ip`: Permission for [connection](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -954,9 +964,9 @@ To create a {{ MY }} cluster copy:
   * `{{ host-class }}` public hosts: 3.
 
     One host will be added to each subnet of the `default` network:
-    * `subnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.
-    * `subnet-b`: `10.6.0.0/24`, availability zone: `{{ region-id }}-b`.
-    * `subnet-d`: `10.7.0.0/24`, availability zone: `{{ region-id }}-d`.
+    * `subnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
+    * `subnet-b`: `10.6.0.0/24`, the `{{ region-id }}-b` availability zone.
+    * `subnet-d`: `10.7.0.0/24`, the `{{ region-id }}-d` availability zone.
 
     The host residing in `subnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
@@ -1015,9 +1025,9 @@ To create a {{ MY }} cluster copy:
     * `{{ host-class }}` public hosts: 3.
 
       One host will be added to each one of the new subnets:
-       * `mysubnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.
-       * `mysubnet-b`: `10.6.0.0/24`, availability zone: `{{ region-id }}-b`.
-       * `mysubnet-d`: `10.7.0.0/24`, availability zone: `{{ region-id }}-d`.
+       * `mysubnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
+       * `mysubnet-b`: `10.6.0.0/24`, the `{{ region-id }}-b` availability zone.
+       * `mysubnet-d`: `10.7.0.0/24`, the `{{ region-id }}-d` availability zone.
 
       These subnets will belong to the `mynet` network.
 

@@ -34,7 +34,7 @@
         -a <password>
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
@@ -47,6 +47,270 @@
 {% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [after-connect](./connect/bash/after-connect.md) %}
+
+### C# {#csharp}
+
+{% include [Install requirements](./connect/csharp/install-requirements.md) %}
+
+{% list tabs group=connection %}
+
+- Connecting without SSL {#without-ssl}
+
+    **Code example for connecting through Sentinel:**
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<password>";
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var sentinelOptions = new ConfigurationOptions
+                    {
+                        EndPoints = {
+                            "<{{ VLK }}_host_1_FQDN>:{{ port-mrd-sentinel }}",
+                            ...
+                            "<{{ VLK }}_host_N_FQDN>:{{ port-mrd-sentinel }}"
+                        },
+                        CommandMap = CommandMap.Sentinel
+                    };
+
+                    var sentinelConnection = await ConnectionMultiplexer.ConnectAsync(sentinelOptions);
+
+                    var endpoints = sentinelConnection.GetEndPoints();
+                    var sentinelServer = sentinelConnection.GetServer(endpoints[0]);
+                    var masterEndpoint = await sentinelServer.SentinelGetMasterAddressByNameAsync("mymaster");
+                    await sentinelConnection.CloseAsync();
+
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = { masterEndpoint },
+                        User = USERNAME,
+                        Password = PASSWORD,
+                        Ssl = false
+                    };
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}' Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Operation failed: {ex.Message}");
+                    return 1;
+                }
+            }
+        }
+    }
+    ```
+
+    **Code example for connecting directly to the master:**
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<password>";
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = { "<{{ VLK }}_master_host_FQDN>:{{ port-mrd }}" },
+                        User = USERNAME,
+                        Password = PASSWORD
+                    };
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}' Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Operation failed: {ex.Message}");
+                    return 1;
+                }
+            }
+        }
+    }
+    ```
+
+- Connecting with SSL {#with-ssl}
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using System.Net.Security;
+    using System.Security.Authentication;
+    using System.Security.Cryptography.X509Certificates;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<password>";
+            private const string CERT = "/home/<home_directory>/.redis/{{ crt-local-file }}"
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = { "<{{ VLK }}_master_host_FQDN>:{{ port-mrd-tls }}" },
+                        User = USERNAME,
+                        Password = PASSWORD,
+                        Ssl = true,
+                        SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13
+                    };
+                    masterOptions.CertificateValidation += (
+                        object sender,
+                        X509Certificate? certificate,
+                        X509Chain? chain,
+                        SslPolicyErrors sslPolicyErrors) =>
+                    {
+                        if (certificate == null) {
+                            return false;       
+                        }
+                        var ca = new X509Certificate2(CERT);
+                        bool verdict = (certificate.Issuer == ca.Subject);
+                        if (verdict) {
+                            return true;
+                        }
+                        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+                        return false;
+                    }
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    // Send SET command
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    // Send GET command
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}', Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Operation failed: {ex.Message}");
+                    return 1;
+                }
+            }
+        }    
+    }
+    ```
+
+{% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [after-connect](./connect/csharp/after-connect.md) %}
 
 ### Go {#go}
 
@@ -130,7 +394,7 @@
     }
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.go`
 
@@ -265,7 +529,7 @@
     }
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `src/java/com/example/App.java`
 
@@ -389,7 +653,7 @@
     });
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `app.js`
 
@@ -496,7 +760,7 @@
     ?>
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.php`
 
@@ -586,7 +850,7 @@ pip3 install redis
     print(r.get("foo"))
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.py`
 
@@ -668,7 +932,7 @@ pip3 install redis
     conn.close
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.rb`
 

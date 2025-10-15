@@ -8,7 +8,7 @@ description: Follow this guide to update a glossary in a metadata catalog.
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 

@@ -75,6 +75,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](object-storage-to-greenplum.md)
 * [{#T}](opensearch-to-greenplum.md)
 * [{#T}](mgp-config-server-for-s3.md)
+* [{#T}](pxf-named-queries.md)
 
 ## {{ MG }}/{{ SD }} {#mongodb}
 

@@ -336,7 +336,7 @@
 
 Кроме того, созданная в настоящем руководстве инфраструктура расходует [квоты](../../billing/concepts/limits.md) сервиса {{ billing-name }} и некоторых других сервисов. Поэтому неиспользуемую организацию лучше удалить.
 
-Также вы можете отдельно удалить [облака](../../resource-manager/operations/cloud/delete.md), [каталоги](../../resource-manager/operations/folder/delete.md), [группы пользователей](../../organization/operations/delete-group.md), [сервисные аккаунты](../../iam/operations/sa/delete.md) или [исключить](../../organization/operations/edit-account.md#remove-user) пользователей из организации.
+Также вы можете отдельно удалить из организации [облака](../../resource-manager/operations/cloud/delete.md), [каталоги](../../resource-manager/operations/folder/delete.md), [пользователей](../../organization/operations/edit-account.md), [группы пользователей](../../organization/operations/delete-group.md) и [сервисные аккаунты](../../iam/operations/sa/delete.md).
 
 #### См. также {#see-also}
 

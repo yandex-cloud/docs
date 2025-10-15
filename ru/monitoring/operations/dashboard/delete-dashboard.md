@@ -1,6 +1,7 @@
 ---
 title: Как удалить дашборд в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете удалить дашборд.
+sourcePath: ru/monitoring_includes/operations/dashboard/delete-dashboard.md
 ---
 
 # Удаление дашборда

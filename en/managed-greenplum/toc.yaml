@@ -57,7 +57,7 @@ items:
                 href: operations/pxf/create-hive-source.md
           - name: Creating an external table
             href: operations/pxf/create-table.md
-          - name: Editing PXF settings
+          - name: Changing PXF settings
             href: operations/pxf/settings.md
       - name: Connecting to an external file server (gpfdist)
         href: operations/gpfdist/connect.md
@@ -103,6 +103,8 @@ items:
           Creating an external table from an {{ objstorage-name }} bucket table
           using a configuration file
         href: tutorials/config-server-for-s3.md
+      - name: Getting data from external sources using named queries
+        href: tutorials/pxf-named-queries.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
@@ -125,6 +127,8 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Concepts
     items:
+      - name: '{{ GP }} and {{ mgp-full-name }} overview'
+        href: concepts/overview.md
       - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
@@ -133,7 +137,7 @@ items:
         href: concepts/calculate-specs.md
       - name: Networking in {{ mgp-name }}
         href: concepts/network.md
-      - name: '{{ mgp-name }} storage'
+      - name: Storage in {{ mgp-name }}
         items:
           - name: Disk types
             href: concepts/storage.md
@@ -155,7 +159,7 @@ items:
         href: concepts/user-authentication.md
       - name: Command center
         href: concepts/command-center.md
-      - name: Command center settings
+      - name: Command center parameters
         href: concepts/command-center-parameters.md
       - name: External tables
         href: concepts/external-tables.md

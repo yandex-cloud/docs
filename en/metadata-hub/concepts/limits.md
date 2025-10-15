@@ -5,8 +5,6 @@ description: '{{ metadata-hub-full-name }} applies quotas on the number of conne
 
 # Quotas in {{ metadata-hub-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 {{ metadata-hub-full-name }} has the following limits:
 
 * [_Quotas_]({{ link-console-quotas }}) are organizational constraints that can be changed by support on request.
@@ -21,10 +19,16 @@ description: '{{ metadata-hub-full-name }} applies quotas on the number of conne
 
 ## {{ schema-registry-name }} quotas {#schema-registry-quota}
 
+{% include [preview-pp](../../_includes/preview-pp.md) %}
+
 {% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
 
 ## {{ data-catalog-name }} quotas {#data-catalog-quota}
 
+{% include [preview-pp](../../_includes/preview-pp.md) %}
+
 {% include [data-registry-quotas](../../_includes/metadata-hub/data-catalog-quotas.md) %}
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

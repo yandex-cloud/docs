@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/concepts/visualization/index.md
+---
 # Визуализация
 
 {{ monitoring-full-name }} предоставляет инструменты визуализации:

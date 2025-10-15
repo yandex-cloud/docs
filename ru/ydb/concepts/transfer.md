@@ -1,7 +1,8 @@
 # Трансфер данных
+
 Трансфер в YDB — асинхронный механизм переноса данных из [топика]({{ ydb.docs }}/concepts/glossary#topic) в [таблицу]({{ ydb.docs }}/concepts/glossary#table). [Создание]({{ ydb.docs }}/yql/reference/syntax/create-transfer) экземпляра трансфера, его [изменение]({{ ydb.docs }}/yql/reference/syntax/alter-transfer) и [удаление]({{ ydb.docs }}/yql/reference/syntax/drop-transfer) осуществляется с использованием YQL. Трансфер запускается внутри базы данных и работает в фоновом режиме. Трансфер используется для решения задачи поставки данных из топика в таблицу.
 
-В {{ ydb-name }} трансфер доступен только в [dedicated](serverless-and-dedicated.md#dedicated) режиме работы базы данных. Пример создания трансфера, который переносит данные внутри одной базы данных описан в  статье [Трансфер — быстрый старт]({{ ydb.docs }}/recipes/transfer/quickstart).
+В {{ ydb-name }} трансфер доступен только в [dedicated](serverless-and-dedicated.md#dedicated) режиме работы базы данных. Пример создания трансфера, который переносит данные внутри одной базы данных описан в статье [Трансфер — быстрый старт]({{ ydb.docs }}/recipes/transfer/quickstart).
 
 Трансфер может читать данные из топиков, которые находятся как в той же [базе данных]({{ ydb.docs }}/concepts/glossary#database), где он создаётся , так и в другой базе {{ ydb-short-name }} или [кластере]({{ ydb.docs }}/concepts/glossary#cluster) {{ ydb-short-name }}. Если нужно читать топик из другой базы, при создании трансфера нужно указать параметры подключения к ней. При этом целевая таблица всегда должна находиться в базе данных, где создаётся сам трансфер.
 
@@ -17,8 +18,8 @@
 
 {% endnote %}
 
-1. [Создать сервисный аккаунт](../../iam/operations/sa/create), где находится топик.
-1. [Назначить сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa):
+1. [Создать сервисный аккаунт](../../iam/operations/sa/create.md), где находится топик.
+1. [Назначить сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md):
    * Для чтения из потока данных: `ydb.viewer`.
    * Для автоматического добавления [читателя]({{ ydb.docs }}/concepts/glossary#consumer), если применимо: `ydb.admin`.
 1. [Создать API-ключ](../../iam/operations/authentication/manage-api-keys.md) c областью действия `yc.ydb.topics.manage`.
@@ -26,11 +27,13 @@
 ### Создайте секрет для доступа к топику в базе источнике
 
 В облаке, где будет создан трансфер, добавьте секрет:
+
 ```yql
 CREATE OBJECT example_secret (TYPE SECRET) WITH value="ApiKey <your_api_key>";
 ```
 
 Где:
+
 * `<your_api_key>` — API-ключ, созданный выше.
 
 ### Создайте топик
@@ -86,10 +89,12 @@ WITH (
 ```
 
 Где:
+
 * `<endpoint>` — эндпоинт подключения к базе источнику, где находится топик. Имеет вид `grpcs://lb.etn952fh3eo2jd2mrIhK.ydb.mdb.yandexcloud.net:2135/?database=/global/b1gvcqr959dbmi0e5c1B/etn77atb9o1epqUsCGoY`. Эндпоинт отображается в [консоли управления]({{ link-console-main }}), на странице потока данных, на вкладке Обзор, в поле Эндпоинт.
 * `example_secret` — секрет, созданный выше.
 
 ### Проверьте работу трансфера
+
 Для проверки правильной работы трансфера можно записать в топик несколько сообщений.
 
 Через некоторое время после того, как сообщения будут добавлены в топик source_topic, соответствующие записи появятся в таблице transfer_recipe/target_table. Чтобы убедиться в этом, выполните следующий SQL-запрос:
@@ -101,6 +106,7 @@ FROM `transfer_recipe/target_table`;
 
 
 ## Смотрите также
+
 * [Трансфер]({{ ydb.docs }}/concepts/transfer).
 * [Трансфер — быстрый старт]({{ ydb.docs }}/recipes/transfer/quickstart).
 * [Трансфер — поставка access-логов NGINX в таблицу]({{ ydb.docs }}/recipes/transfer/nginx).

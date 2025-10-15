@@ -22,7 +22,7 @@
 
         ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
 
-    1. В правом верхнем углу нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+    1. В правом верхнем углу экрана нажмите на значок ![icon-users](../../_assets/console-icons/ellipsis.svg) и выберите ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 
     1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
 

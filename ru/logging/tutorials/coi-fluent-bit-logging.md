@@ -1,5 +1,6 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/coi-fluent-bit-logging'
+sourcePath: ru/logging_includes/tutorials/coi-fluent-bit-logging.md
 ---
 
 # Передача логов с {{ coi }} в {{ cloud-logging-name }}

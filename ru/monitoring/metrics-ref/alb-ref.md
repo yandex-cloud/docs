@@ -2,6 +2,7 @@
 title: Метрики {{ alb-full-name }}
 description: Из статьи вы узнаете про метрики {{ alb-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/alb-ref.md
 ---
 
 # Метрики {{ alb-full-name }}

@@ -70,3 +70,5 @@ description: Videos of conferences and webinars on {{ mgp-full-name }}.
 * Cloud databases.
 
   * Click [here](https://www.youtube.com/watch?v=xyMN1EA9p5Y) to watch the recording.
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

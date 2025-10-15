@@ -1,6 +1,7 @@
 ---
 title: Создание алерта
 description: Следуя данной инструкции, вы сможете создать алерт.
+sourcePath: ru/monitoring_includes/operations/alert/create-alert.md
 ---
 
 # Создание алерта

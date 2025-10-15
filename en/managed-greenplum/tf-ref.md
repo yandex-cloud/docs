@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mgp-full-name }}'
-description: This page provides information about the {{ TF }} provider's resources and data sources that {{ mgp-name }} supports.
+description: This page provides information about the {{ TF }} provider resources and data sources that {{ mgp-name }} supports.
 ---
 
 # {{ TF }} reference for {{ mgp-full-name }}
@@ -22,3 +22,5 @@ description: This page provides information about the {{ TF }} provider's resour
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
 | [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/mdb_greenplum_cluster) | [Cluster](./concepts/index.md) details |
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

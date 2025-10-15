@@ -12,19 +12,19 @@ yc managed-clickhouse user update <username> \
   --settings="join_use_nulls=1"
 ```
 
-For more information, see the [documentation](../../managed-clickhouse/operations/cluster-users.md#update-settings).
+For more information, see [this guide](../../managed-clickhouse/operations/cluster-users.md#update-settings).
 
 #### Will my cluster be unavailable during an update? {#update-availability}
 
-If it is a multi-host cluster, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
+If it your cluster has more than one host, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
 
 #### How do I change the time zone? {#timezone}
 
-Change the {{ CH }} [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting. Learn how to do this in [this tutorial](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
+Change the {{ CH }} [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting. Learn how to do this in [this guide](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
 
-#### Is a cluster unavailable when adding replicas? {#add-replica-availability}
+#### Will my cluster be unavailable when adding replicas? {#add-replica-availability}
 
-Yes, there is a short downtime when restarting a cluster.
+Yes, the cluster will experience a short downtime during restart.
 
 #### How do I grant read-only permissions to a user? {#readonly}
 
@@ -36,20 +36,16 @@ yc managed-clickhouse user update <username> \
   --settings="readonly=1"
 ```
 
-For more information, see the [documentation](../../managed-clickhouse/operations/cluster-users.md#update-settings).
+For more information, see [this guide](../../managed-clickhouse/operations/cluster-users.md#update-settings).
 
 #### How do I increase the memory limit? {#memory-limit}
 
 [Update the user settings](../../managed-clickhouse/operations/cluster-users.md#update-settings) and set the required `Max memory usage` value.
 
-#### Can I change the disk type? {#disk-type}
-
-No, you can only select the disk type when creating a cluster or [restoring it](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.
-
 #### Can I change a network and subnets? {#network}
 
 No, you can only select a network and subnets for hosts when creating a cluster or [restoring it](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.
 
-#### How to change the distribution of data across shards in a cluster? {#resharding}
+#### How do I change the distribution of data across shards in a cluster? {#resharding}
 
 In an existing cluster, you cannot change the location of data in shards.

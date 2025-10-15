@@ -1,5 +1,6 @@
 ---
 editable: false
+sourcePath: ru/monitoring_includes/api-ref/MetricsData/read.md
 ---
 
 # Метод read

@@ -1,6 +1,7 @@
 ---
 title: Как записать метрики
 description: Следуя данной инструкции, вы сможете записать метрики.
+sourcePath: ru/monitoring_includes/operations/prometheus/ingestion/index.md
 ---
 
 # Запись метрик

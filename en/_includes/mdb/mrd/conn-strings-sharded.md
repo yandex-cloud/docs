@@ -17,7 +17,7 @@
         -a <password>
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
@@ -47,6 +47,190 @@ GET foo
 ```
 
 If the `GET` request returns `nil`, it means that the entry for the `foo` key has been moved to a different shard. Connect to it and repeat the request: it will return `bar`.
+
+### C# {#csharp}
+
+{% include [Install requirements](./connect/csharp/install-requirements.md) %}
+
+{% list tabs group=connection %}
+
+- Connecting without SSL {#without-ssl}
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<password>";
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = {
+                            "<FQDN_of_master_host_in_shard_1>:{{ port-mrd }}",
+                            ...
+                            "<FQDN_of_master_host_in_shard_N>:{{ port-mrd }}"
+                        },
+                        User = USERNAME,
+                        Password = PASSWORD
+                    };
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    // Send SET command
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    // Send GET command
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}', Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Operation failed: {ex.Message}");
+                return 1;
+            }
+            }
+        }    
+    }
+    ```
+
+- Connecting with SSL {#with-ssl}
+
+    `Program.cs`
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using System.Net.Security;
+    using System.Security.Authentication;
+    using System.Security.Cryptography.X509Certificates;
+    using StackExchange.Redis;
+
+    namespace RedisClient
+    {
+        class Program
+        {
+            // Configuration constants
+            private const string TEST_KEY = "test-key";
+            private const string TEST_VALUE = "test-value";
+            private const string USERNAME = "default";
+            private const string PASSWORD = "<password>";
+            private const string CERT = "/home/<home_directory>/.redis/{{ crt-local-file }}"            
+
+            static async Task<int> Main(string[] args)
+            {
+                try
+                {
+                    var masterOptions = new ConfigurationOptions
+                    {
+                        EndPoints = {
+                            "<FQDN_of_master_host_in_shard_1>:{{ port-mrd-tls }}",
+                            ...
+                            "<FQDN_of_master_host_in_shard_N>:{{ port-mrd-tls  }}"
+                        },
+                        User = USERNAME,
+                        Password = PASSWORD,
+                        Ssl = true
+                    };
+                    masterOptions.CertificateValidation += (
+                        object sender,
+                        X509Certificate? certificate,
+                        X509Chain? chain,
+                        SslPolicyErrors sslPolicyErrors) =>
+                    {
+                        if (certificate == null) {
+                            return false;       
+                        }
+                        var ca = new X509Certificate2(CERT);
+                        bool verdict = (certificate.Issuer == ca.Subject);
+                        if (verdict) {
+                            return true;
+                        }
+                        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+                        return false;
+                    }
+
+                    var connection = await ConnectionMultiplexer.ConnectAsync(masterOptions);
+
+                    var db = connection.GetDatabase();
+
+                    // Send SET command
+                    bool setResult = await db.StringSetAsync(TEST_KEY, TEST_VALUE);
+                    if (!setResult)
+                    {
+                        Console.WriteLine($"SET failed for key {TEST_KEY}");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully set {TEST_KEY} = {TEST_VALUE}");
+
+                    // Send GET command
+                    var getResult = await db.StringGetAsync(TEST_KEY);
+                    if (!getResult.HasValue)
+                    {
+                        Console.WriteLine($"GET failed: Key {TEST_KEY} not found");
+                        return 1;
+                    }
+
+                    string retrievedValue = getResult.ToString();
+                    if (retrievedValue != TEST_VALUE)
+                    {
+                        Console.WriteLine($"GET failed. Expected: '{TEST_VALUE}', Actual: '{retrievedValue}'");
+                        return 1;
+                    }
+                    Console.WriteLine($"Successfully retrieved {TEST_KEY} = {retrievedValue}");
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Operation failed: {ex.Message}");
+                return 1;
+            }
+            }
+        }    
+    }
+    ```
+
+{% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [after-connect](./connect/csharp/after-connect.md) %}
 
 ### Go {#go}
 
@@ -103,7 +287,7 @@ go get github.com/redis/go-redis/v9
     }
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.go`
 
@@ -255,7 +439,7 @@ go get github.com/redis/go-redis/v9
     }
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `src/java/com/example/App.java`
 
@@ -359,7 +543,7 @@ go get github.com/redis/go-redis/v9
     });
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `app.js`
 
@@ -455,7 +639,7 @@ go get github.com/redis/go-redis/v9
     ?>
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
    `connect.php`
 
@@ -495,7 +679,7 @@ go get github.com/redis/go-redis/v9
 
 ### Python {#python}
 
-**Before connecting, install the following dependencies**:
+**Before connecting, install the required dependencies**:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
@@ -532,7 +716,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     print(rc.get("foo"))
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.py`
 
@@ -598,7 +782,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     conn.close
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `connect.rb`
 

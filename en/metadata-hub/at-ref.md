@@ -1,6 +1,6 @@
 ---
 title: '{{ metadata-hub-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ metadata-hub-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ metadata-hub-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ metadata-hub-full-name }} event reference
@@ -14,3 +14,5 @@ The general format of the `event_type` field value is as follows:
 ```
 
 {% include [hive-metastore-events](../_includes/audit-trails/events/hive-metastore-events.md) %}
+
+{% include [metastore-trademark](../_includes/metadata-hub/metastore-trademark.md) %}

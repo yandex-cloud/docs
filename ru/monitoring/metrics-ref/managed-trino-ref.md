@@ -2,6 +2,7 @@
 title: Метрики {{ mtr-full-name }}
 description: Из статьи вы узнаете про метрики {{ mtr-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-trino-ref.md
 ---
 
 # Метрики {{ mtr-full-name }}

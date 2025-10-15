@@ -256,8 +256,6 @@ description: Следуя данной инструкции, вы сможете
      
      * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
@@ -382,6 +380,20 @@ description: Следуя данной инструкции, вы сможете
      * {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
   
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+
+     
+     * Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
+
+       ```hcl
+       resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+         ...
+         disk_encryption_key_id = <идентификатор_ключа_KMS>
+         ...
+       }
+       ```
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
@@ -979,7 +991,7 @@ description: Следуя данной инструкции, вы сможете
     name       = "db1"
   }
 
-  resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+  resource "yandex_mdb_mysql_user" "user1" {
     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
     name       = "user1"
     password   = "user1user1"

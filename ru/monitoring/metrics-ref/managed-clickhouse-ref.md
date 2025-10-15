@@ -2,6 +2,7 @@
 title: Метрики {{ mch-full-name }}
 description: Из статьи вы узнаете про метрики {{ mch-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-clickhouse-ref.md
 ---
 
 # Метрики {{ mch-full-name }}

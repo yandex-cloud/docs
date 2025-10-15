@@ -32,7 +32,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a resource folder, create one:
 
@@ -60,6 +60,8 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
   1. Set a **{{ ui-key.yacloud.common.name }}** for the metadata catalog.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the metadata catalog.
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+    {% include [ai-on](../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
 
 {% endlist %}
 

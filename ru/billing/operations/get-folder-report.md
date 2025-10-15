@@ -80,9 +80,9 @@
 
 Таблица содержит следующие столбцы:
 
-* `billing_account_id` — идентификатор [платежного аккаунта](../concepts/billing-account).
+* `billing_account_id` — идентификатор [платежного аккаунта](../concepts/billing-account.md).
 * `billing_account_name` — имя платежного аккаунта.
-* `cloud_id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy#cloud), для которого собрана детализация.
+* `cloud_id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), для которого собрана детализация.
 * `cloud_name` — имя облака.
 * `folder_id` — идентификатор каталога.
 * `folder_name` — имя каталога на момент выгрузки детализации. Значение поля может быть пустым, если вы удалили каталог до выгрузки детализации.

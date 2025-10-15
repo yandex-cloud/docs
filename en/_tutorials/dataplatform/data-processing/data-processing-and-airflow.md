@@ -23,16 +23,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ maf-name }} cluster fee: computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
+* Fee for a {{ maf-name }} cluster: Computing resources of cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
 * Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricin](../../../vpc/pricing.md)g).
+* {{ objstorage-name }} bucket fee: Data storage and operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Fee for a {{ dataproc-name }} cluster: Using VM computing resources, {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 
 
-## Set up your infrastructure {#infra}
+## Set up the infrastructure {#infra}
 
 The example below illustrates two scenarios. Select the one you find most relevant:
 

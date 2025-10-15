@@ -5,8 +5,6 @@ description: Follow this guide to create a {{ metastore-full-name }} cluster.
 
 # Creating an {{ metastore-full-name }} cluster
 
-{% include [Preview](../../../_includes/note-preview.md) %}
-
 To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, see [{#T}](../../concepts/metastore.md).
 
 ## Getting started {#before-you-begin}
@@ -31,7 +29,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.
@@ -77,7 +75,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
          --description <cluster_description> \
          --labels <label_list> \
          --service-account-id <service_account_ID> \
-         --version <version> \
+         --version <Apache_Hive™_Metastore_version> \
          --subnet-ids <subnet_IDs> \
          --security-group-ids <security_group_IDs> \
          --resource-preset-id <ID_of_computing_resources> \
@@ -100,4 +98,140 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
       {% include [CLI cluster parameters description, part 2](../../../_includes/metadata-hub/metastore-cluster-parameters-cli-part-2.md) %}
 
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "description": "<cluster_description>",
+          "labels": { "<label_list>" },
+          "deletionProtection": <deletion_protection>,
+          "version": "<Apache_Hive™_Metastore_version>",
+          "configSpec": {
+            "resources": {
+            "resourcePresetId": "<resource_configuration_ID>"
+            }
+          },
+          "serviceAccountId": "<service_account_ID>",
+          "logging": {
+            "enabled": <use_of_logging>,
+            "folderId": "<folder_ID>",
+            "minLevel": "<logging_level>"
+          },
+          "network": {
+            "subnetIds": [ "<list_of_subnet_IDs>" ],
+            "securityGroupIds": [ "<list_of_security_group_IDs>" ]
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+            "day": "<day_of_week>",
+            "hour": "<hour>"
+            }
+          }
+        }
+        ```
+        Where:
+
+        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
+
+        {% include [REST cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-rest.md) %}
+
+        * `network`: Network settings:
+          * `subnetIds`: List of subnet IDs.
+          * `securityGroupIds`: List of [security group](../../../vpc/concepts/network.md#security-groups) IDs.
+
+        * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
+
+    1. Use the [Cluster.Create](../../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters' \
+            --data '@body.json'
+        ```
+
+    1. View the [server response](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "description": "<cluster_description>",
+          "labels": "{ <label_list> }",
+          "deletion_protection": <deletion_protection>,
+          "version": "<Apache_Hive™_Metastore_version>",
+          "config_spec": {
+            "resources": {
+              "resource_preset_id": "<resource_configuration_ID>"
+            }
+          },
+          "service_account_id": "<service_account_ID>",
+          "logging": {
+            "enabled": <use_of_logging>,
+            "folder_id": "<folder_ID>",
+            "min_level": "<logging_level>"
+          },
+          "network": {
+            "subnet_ids": [ "<list_of_subnet_IDs>" ],
+            "security_group_ids": [ "<list_of_security_group_IDs>" ]
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
+
+        {% include [gRPC cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-grpc.md) %}
+
+        * `network`: Network settings:
+            * `subnet_ids`: List of subnet IDs.
+            * `security_group_ids`: List of [security group](../../../vpc/concepts/network.md#security-groups) IDs.
+
+        * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
+
+    1. Use the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-metastore }}:{{ port-https }} \
+            yandex.cloud.metastore.v1.ClusterService.Create \
+            < body.json
+        ```
+
+    1. View the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 {% endlist %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

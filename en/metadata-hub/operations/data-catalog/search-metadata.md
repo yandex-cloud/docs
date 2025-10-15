@@ -2,7 +2,7 @@
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -33,12 +33,15 @@
 
         To search only for particular data types, select them from the list next to the search bar. The search will return only the selected entity types.
 
+        {% include [ai-search-on](../../../_includes/metadata-hub/data-catalog-ai-search.md) %}
+
       * Click **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}** above the metadata list and select a filter:
          * **Glossary**: Select one or more glossaries and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with terms from the selected glossaries.
          * **Domain**: Select one or more domains and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with the selected domains.
          * **Classification**: Select one or more classifications and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with tags of the selected classifications.
          * **Tag**: Select one or more tags and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with the selected tags.
          * **Term**: Select one or more terms and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with the selected terms.
+         * **AI suggestions**: The search will return metadata marked up with AI, along with domains, glossaries, terms, classifications, and tags suggested by the AI assistant.
 
          You can specify multiple search criteria by clicking **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}** again.
 

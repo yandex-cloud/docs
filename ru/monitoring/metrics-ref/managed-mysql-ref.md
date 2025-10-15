@@ -2,6 +2,7 @@
 title: Метрики {{ mmy-full-name }}
 description: Из статьи вы узнаете про метрики {{ mmy-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-mysql-ref.md
 ---
 
 # Метрики {{ mmy-full-name }}

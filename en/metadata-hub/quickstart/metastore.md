@@ -5,19 +5,17 @@ description: In {{ metadata-hub-name }}, you can create {{ metastore-full-name }
 
 # Getting started with {{ metastore-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](#create-metastore-cluster) and [use them](#connect-metastore-to-dataproc) to work with {{ dataproc-full-name }} clusters.
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../../_includes/create-folder.md) %}
 
-1. To link your [service account](../../iam/concepts/users/service-accounts.md) to a {{ metastore-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+1. To link a [service account](../../iam/concepts/users/service-accounts.md) to an {{ metastore-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
     {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
 
@@ -42,7 +40,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 
 1. Add {{ dataproc-name }} cluster rules to the security group:
 
-   * One rule for inbound and another one for outbound service traffic:
+   * One inbound and one outbound rule for service traffic:
 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
@@ -71,7 +69,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 
    * `SPARK` and `YARN` services.
    * Service account you created earlier.
-   * `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
+   * `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value. It is required for PySpark jobs and integration with {{ metastore-name }}.
    * Bucket you created earlier.
    * Security group you configured earlier.
 
@@ -83,7 +81,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 
     1. In the management console, go to the folder you created earlier.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select the ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Select a [service account](../../iam/concepts/users/service-accounts.md) under which the {{ metastore-name }} cluster will interact with other {{ yandex-cloud }} services, or [create](../../iam/operations/sa/create.md) a new one.
@@ -106,7 +104,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
         spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}
         ```
 
-        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select the ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster.
+        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
 
     1. Add the following outgoing traffic rule to the security group:
 
@@ -123,3 +121,5 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 * [Use {{ metastore-name }} to move data between {{ dataproc-name }} clusters](../tutorials/metastore-import.md).
 * [Store tabular data in {{ metastore-name }} when using {{ AF }}](../../data-proc/tutorials/airflow-automation.md).
 * [Export and import Hive metadata in a {{ metastore-name }} cluster](../operations/metastore/export-and-import.md).
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

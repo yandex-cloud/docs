@@ -22,6 +22,28 @@
      * `Update version references`: Updated the connection version references used when creating or deleting an MDB cluster backup.
      * `Delete version`: Connection version deleted after removing the most recent MDB cluster backup.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get information about completed operations for a specific connection:
+  
+  1. See the description of the CLI command for getting information about completed operations:
+
+      ```bash
+      yc connection-manager connection list-operations --help
+      ```
+
+  1. Get information about completed operations by running this command:
+      
+      ```bash
+      yc connection-manager connection list-operations <connection_ID>
+      ```
+
+      You can get the connection ID with the [list of connections](#connection-list) in the folder.
+
 - API {#api}
   
   To get information about operations performed for a specific {{ connection-manager-name }} connection, use the [Connection.ListOperations](../../metadata-hub/connection-manager/api-ref/Connection/listOperations.md) REST API method or the [ConnectionService.ListOperations](../../metadata-hub/connection-manager/api-ref/grpc/Connection/listOperations.md) gRPC API method and provide the connection ID in the request.

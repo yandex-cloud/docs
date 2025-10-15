@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/operations/dashboard/api-examples.md
+---
 # Примеры работы с gRPC API
 
 Примеры использования написаны с помощью утилиты `grpcurl`.

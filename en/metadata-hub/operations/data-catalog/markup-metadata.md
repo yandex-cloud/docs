@@ -2,7 +2,7 @@
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -36,6 +36,8 @@ You can assign [domains](../../concepts/data-catalog.md#domains-and-subdomains) 
 
   {% include [search-tip](../../../_includes/metadata-hub/tip-search.md) %}
 
+  {% include [ai-domains](../../../_includes/metadata-hub/data-catalog-ai-markup-domains.md) %}
+
 {% endlist %}
 
 ## Changing terms {#change-terms}
@@ -60,6 +62,8 @@ You can change [terms](../../concepts/data-catalog.md#glossaries-and-terms) for 
      1. Select the required terms from the list in the pop-up window and click **{{ ui-key.yacloud.common.save }}**.
 
   {% include [search-tip](../../../_includes/metadata-hub/tip-search.md) %}
+
+  {% include [ai-terms](../../../_includes/metadata-hub/data-catalog-ai-markup-terms.md) %}
 
 {% endlist %}
 
@@ -86,6 +90,8 @@ You can change [tags](../../concepts/data-catalog.md#classifications-and-tags) f
 
   {% include [search-tip](../../../_includes/metadata-hub/tip-search.md) %}
 
+  {% include [ai-tags](../../../_includes/metadata-hub/data-catalog-ai-markup-tags.md) %}
+
 {% endlist %}
 
 ## Changing metadata descriptions {#change-metadata-description}
@@ -106,5 +112,13 @@ You can change [tags](../../concepts/data-catalog.md#classifications-and-tags) f
 
      To edit the description of a table column (**Dataset** object type), go to the **Schema** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the column name, and select **{{ ui-key.yacloud.common.edit }}**.
   1. Enter the description and click **{{ ui-key.yacloud.common.save-changes }}**.
+
+  {% note info %}
+
+  If the metadata AI markup on, the AI assistant creates AI descriptions automatically. You can confirm, edit, or reject the descriptions suggested by your AI assistant by hovering over the **{{ ui-key.yacloud.data-catalog.label_ai-label }}** icon next to the suggestion and selecting the action.
+
+  You can enable the AI markup when [updating](update-catalog.md) the metadata catalog or on its page, **{{ ui-key.yacloud.common.overview }}**.
+
+  {% endnote %}
 
 {% endlist %}

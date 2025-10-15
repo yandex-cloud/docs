@@ -1,9 +1,18 @@
 ---
 title: Access management in {{ schema-registry-name }}
-description: Access management in {{ schema-registry-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ schema-registry-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Service roles for managing data schemas using {{ schema-registry-name }}
+
+
+
+{% note info %}
+
+{% include [preview-pp](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 
 
 With {{ schema-registry-name }} service roles, you can view namespaces, subjects, and schemas in a schema registry, as well as create, edit, and delete namespaces and schemas.

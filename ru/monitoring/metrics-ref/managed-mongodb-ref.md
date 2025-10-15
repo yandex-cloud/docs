@@ -2,6 +2,7 @@
 title: Метрики {{ mmg-full-name }}
 description: Из статьи вы узнаете про метрики {{ mmg-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-mongodb-ref.md
 ---
 
 # Метрики {{ mmg-full-name }}
