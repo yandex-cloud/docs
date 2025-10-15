@@ -298,9 +298,9 @@ resource yandex_vpc_security_group vm_group_sg {
 * [Консоль управления]({{ link-console-main }}/folders/{folder-id}/vpc/security-groups/)
 * [Интерфейс командной строки (CLI)](../../cli/cli-ref/vpc/cli-ref/security-group/index.md)
 * {{ TF }}:
-  * [Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group)
-  * [Security Group Rule](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group_rule)
-  * [Default Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_default_security_group)
+  * [Security Group](https://terraform-provider.yandexcloud.net/resources/vpc_security_group)
+  * [Security Group Rule](https://terraform-provider.yandexcloud.net/resources/vpc_security_group_rule)
+  * [Default Security Group](https://terraform-provider.yandexcloud.net/resources/vpc_default_security_group)
 
 ## Пошаговые инструкции по работе с группами безопасности {#security-group-howto}
 
