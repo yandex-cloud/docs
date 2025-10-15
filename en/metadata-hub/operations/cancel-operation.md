@@ -5,19 +5,9 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
 # Canceling an operation
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
 {% list tabs group=instructions %}
 
 - API {#api}
-  
-  {% note alert %}
-
-  {{ objstorage-full-name }} does not support canceling operations via API.
-  
-  {% endnote %}
 
   To cancel an operation for a specific connection, use the [Operation.Cancel](../connection-manager/api-ref/Operation/cancel.md) REST API method or the [OperationService.Cancel](../connection-manager/api-ref/grpc/Operation/cancel.md) gRPC API method and provide the operation ID in the request.
 

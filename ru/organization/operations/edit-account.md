@@ -1,60 +1,66 @@
 ---
-title: Удалить аккаунт пользователя в {{ org-full-name }}
-description: Из этой статьи вы узнаете, как удалить аккаунт пользователя в {{ org-name }}.
+title: Удалить аккаунт пользователя из организации {{ org-full-name }}
+description: Из этой статьи вы узнаете, как удалить аккаунт пользователя из организации {{ org-full-name }}.
 ---
 
 # Удалить аккаунт пользователя
 
-Чтобы удалить аккаунт пользователя, [исключите](#remove-user) или [удалите](#delete-user) его из организации. Пользователя [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) можно только исключить. [Федеративного пользователя](../../iam/concepts/users/accounts.md#saml-federation) можно исключить или удалить из организации.
+Удалить аккаунт из организации может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [{#T}](../security/index.md#add-role).
 
-{% note info %}
+{% note tip %}
 
-Удалить или исключить аккаунт может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#add-role).
+Отменить удаление аккаунта пользователя из [организации](../concepts/organization.md) невозможно. Чтобы вернуть пользователя, который ранее был удален, повторно [добавьте](add-account.md) его в организацию.
 
 {% endnote %}
 
-Отменить исключение или удаление пользователя из организации нельзя. Чтобы вернуть пользователя, повторно [добавьте](add-account.md) его в организацию.
+## Удалить пользователя с аккаунтом на Яндексе или федеративного пользователя {#yandex-and-federated} 
 
-## Исключить пользователя из организации {#remove-user}
-
-После исключения пользователь с аккаунтом на Яндексе потеряет доступ ко всем ресурсам организации и лишится возможности выполнять вход. У федеративного пользователя также отзываются все права в организации, но он остается в федерации, может выполнять вход в организацию и продолжает потреблять [квоту](../concepts/limits.md) на количество субъектов. Чтобы запретить исключенному федеративному пользователю вход в организацию, удалите или заблокируйте его в IdP. 
-
-Чтобы исключить пользователя из организации:
+Чтобы удалить из организации пользователя [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) или [федеративного](../../iam/concepts/users/accounts.md#saml-federation) пользователя:
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-
-  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
-
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска или фильтром вверху страницы.
-
-  1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud.common.delete }}**.
-
-  1. В открывшемся окне подтвердите исключение пользователя из организации.
+  {% include [delete-user-ui](../../_includes/organization/delete-user-ui.md) %}
 
 {% endlist %}
 
-## Удалить пользователя из организации {#delete-user}
+{% note info %}
 
-Удалить из организации можно только федеративного пользователя. После удаления федеративного пользователя из организации, он удаляется из федерации и высвобождает использованные квоты. Если в федерации включено автоматическое создание пользователей, удаленный пользователь может выполнить вход в [организацию](../concepts/organization.md) и вновь [стать ее членом](../concepts/membership.md). Чтобы исключить такую возможность, удалите или заблокируйте этого пользователя в IdP.
+После удаления из организации [федеративного пользователя](../../iam/concepts/users/accounts.md#saml-federation) он удаляется из федерации и высвобождает использованные квоты. Если в федерации включено автоматическое создание пользователей, удаленный пользователь может выполнить вход в [организацию](../concepts/organization.md) и вновь [стать ее членом](../concepts/membership.md). Чтобы исключить такую возможность, удалите или заблокируйте этого пользователя в IdP.
 
-Чтобы удалить пользователя из организации:
+{% endnote %}
+
+## Удалить локального пользователя {#local}
+
+Чтобы удалить из организации [локального](../../iam/concepts/users/accounts.md#local) пользователя:
+
+
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  {% include [delete-user-ui](../../_includes/organization/delete-user-ui.md) %}
 
-  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+- CLI {#cli}
 
-  1. Выберите пользователя из списка или воспользуйтесь строкой поиска или фильтром вверху страницы.
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.user.action.delete }}**.
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. В открывшемся окне подтвердите удаление пользователя из организации.
+  1. Посмотрите описание команды CLI для удаления пользователя из [пула](../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp user delete --help
+     ```
+  1. {% include [cli-list-userpools](../../_includes/organization/cli-list-userpools.md) %}
+  1. {% include [cli-userpool-list-users](../../_includes/organization/cli-userpool-list-users.md) %}
+  1. Чтобы удалить из организации локального пользователя, передайте его идентификатор в команде:
+
+     ```bash
+     yc organization-manager idp user delete <идентификатор_пользователя>
+     ```
 
 {% endlist %}

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/logging_includes/operations/access-rights.md
+---
 # Управление правами доступа к лог-группе
 
 Вы можете посмотреть, какие роли [назначены](#list) на лог-группу, [отозвать](#revoke) их или [назначить](#add-access) новые.

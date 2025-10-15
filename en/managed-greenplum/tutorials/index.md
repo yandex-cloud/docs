@@ -1,12 +1,13 @@
 ---
 title: '{{ mgp-full-name }} use cases'
-description: Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ mgp-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ mgp-name }} tutorials
 
 * [{#T}](./data-migration.md)
 * [{#T}](./config-server-for-s3.md)
+* [{#T}](pxf-named-queries.md)
 * [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./greenplum-to-clickhouse.md)
 * [{#T}](mmy-to-mgp.md)

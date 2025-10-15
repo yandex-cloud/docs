@@ -1,6 +1,7 @@
 ---
 title: Вопросы и ответы про {{ monitoring-full-name }}
 description: На странице представлены вопросы и ответы про {{ monitoring-name }}.
+sourcePath: ru/monitoring_includes/qa/all.md
 ---
 
 # Вопросы и ответы про {{ monitoring-name }}

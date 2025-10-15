@@ -30,5 +30,6 @@ Sources enable you to do the following:
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/config-server-for-s3.md)
+* [{#T}](../tutorials/pxf-named-queries.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

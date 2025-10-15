@@ -1,6 +1,7 @@
 ---
 title: Пошаговые инструкции для {{ monitoring-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ monitoring-name }}.
+sourcePath: ru/monitoring_includes/operations/index.md
 ---
 
 # Пошаговые инструкции для {{ monitoring-full-name }}

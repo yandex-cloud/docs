@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/outputs.md
+---
 # Выходы
 
 Выход можно описать в секции `routes` внутри элемента `channel`:`output`. Либо в секции именованных каналов `channels`.

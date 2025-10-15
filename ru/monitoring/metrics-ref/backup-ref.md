@@ -2,6 +2,7 @@
 title: Метрики {{ backup-full-name }}
 description: Из статьи вы узнаете про метрики {{ backup-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/backup-ref.md
 ---
 
 # Метрики {{ backup-full-name }}

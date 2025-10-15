@@ -5,7 +5,7 @@ description: Различные сценарии использования {{ s
 
 # Практические руководства {{ metadata-hub-full-name }}
 
-## {{ schema-registry-name }} {#schema-registry} {{ preview-stage }}
+## {{ schema-registry-name }} {{ preview-stage }} {#schema-registry}
 
 * [{#T}](./schema-registry-cdc-debezium-kafka.md)
 

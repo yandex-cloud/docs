@@ -1,6 +1,7 @@
 ---
 title: Прореживание данных в {{ monitoring-full-name }}
 description: В статье описывается прореживание метрик при чтении данных из {{ monitoring-name }} и прореживание исторических метрик, которое выполняется для оптимизации хранения данных в {{ monitoring-name }}.
+sourcePath: ru/monitoring_includes/concepts/decimation.md
 ---
 
 # Прореживание данных

@@ -44,3 +44,5 @@ You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud 
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

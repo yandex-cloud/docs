@@ -7,9 +7,9 @@ description: Follow this guide to change {{ CH }} cluster settings.
 
 After creating a cluster, you can:
 
-* [Change service account settings](#change-service-account).
+* [Change the service account settings](#change-service-account).
 * [Change the host class](#change-resource-preset).
-* [Increase storage size](#change-disk-size).
+* [Change the disk type and increase the storage size](#change-disk-size).
 * [Enable user and database management via SQL](#SQL-management).
 * [Change additional cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
@@ -26,7 +26,7 @@ Learn more about other cluster updates:
 ## Changing service account settings {#change-service-account}
 
 
-To link your service account to a {{ mch-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
+To link a service account to a {{ mch-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 
 
 {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
@@ -58,7 +58,7 @@ When changing the host class:
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
-We recommend changing the host class only when your cluster has no active workload.
+{% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
 The host class affects the RAM amount {{ CH }} can use. For more information, see [Memory management](../concepts/memory-management.md).
 
@@ -82,13 +82,13 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+  1. Get the list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
      
      ```bash
@@ -121,7 +121,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, change the value of the `resource_preset_id` parameter in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
+    1. In the {{ mch-name }} cluster description, change the `resource_preset_id` value in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -159,7 +159,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Request a list of available host classes:
+    1. Get the list of available host classes:
 
         1. Use the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -209,7 +209,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
                 * `configSpec.clickhouse.resources.resourcePresetId`: To change the {{ CH }} host class.
                 * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
 
-                In our request example, we are changing both {{ CH }} and {{ ZK }} host classes.
+                In our request example, we are changing the host class for both {{ CH }} and {{ ZK }} hosts.
 
             * `configSpec.clickhouse.resources.resourcePresetId`: {{ CH }} host class ID.
             * `configSpec.zookeeper.resources.resourcePresetId`: {{ ZK }} host class ID.
@@ -226,7 +226,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Request a list of available host classes:
+    1. Get the list of available host classes:
 
         1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -289,7 +289,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
                 * `config_spec.clickhouse.resources.resource_preset_id`: To change the {{ CH }} host class.
                 * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
 
-                In our request example, we are changing both {{ CH }} and {{ ZK }} host classes.
+                In our request example, we are changing the host class for both {{ CH }} and {{ ZK }} hosts.
 
             * `config_spec.clickhouse.resources.resource_preset_id`: {{ CH }} host class ID.
             * `config_spec.zookeeper.resources.resource_preset_id`: {{ ZK }} host class ID.
@@ -300,7 +300,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 {% endlist %}
 
-## Increasing your storage size {#change-disk-size}
+## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% note info %}
 
@@ -310,15 +310,22 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% note info %}
+
+To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To increase your cluster storage size:
+  To change the disk type and increase the storage size for a cluster:
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the value you need.
+  1. To change the disk type and increase the storage size for your {{ CH }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -327,32 +334,39 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase your cluster storage size:
+  To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Specify the required storage size in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+  1. Specify the required [disk type](../concepts/storage.md) and storage size in the update cluster command:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-       --clickhouse-disk-size <storage_size_in_GB>
+       --clickhouse-disk-size <storage_size_in_GB> \
+       --clickhouse-disk-type <disk_type>
      ```
 
-  1. To increase the storage size of {{ ZK }} hosts, provide the value you need in the `--zookeeper-disk-size` parameter.
+          
+     The new storage size must be at least as large as the `disk_size` in the cluster properties.
+
+
+     You can request the cluster name and ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
 
 - {{ TF }} {#tf}
 
-  To increase the storage size:
+  To change the [disk type](../concepts/storage.md) and increase the storage size, do the following:
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
+    1. In the {{ mch-name }} cluster description, change the `disk_size` and `disk_type_id` values in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -360,12 +374,14 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
           clickhouse {
             resources {
               disk_size = <storage_size_in_GB>
+              disk_type_id = "<disk_type>"
               ...
             }
           }
           zookeeper {
             resources {
               disk_size = <storage_size_in_GB>
+              disk_type_id = "<disk_type>"
               ...
             }
           }
@@ -401,16 +417,18 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.zookeeper.resources.diskSize",
+                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId",
                       "configSpec": {
                         "clickhouse": {
                           "resources": {
-                            "diskSize": "<storage_size_in_bytes>"
+                            "diskSize": "<storage_size_in_bytes>",
+                            "diskTypeId": "<disk_type>"
                           }
                         },
                         "zookeeper": {
                           "resources": {
-                            "diskSize": "<storage_size_in_bytes>"
+                            "diskSize": "<storage_size_in_bytes>",
+                            "diskTypeId": "<disk_type>"
                           }
                         }
                       }
@@ -423,13 +441,15 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
             Specify the relevant parameters:
 
-            * `configSpec.clickhouse.resources.diskSize`: To increase the storage size of {{ CH }} hosts.
-            * `configSpec.zookeeper.resources.diskSize`: To increase the storage size of {{ ZK }} hosts.
+            * `configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId`: To change the disk type and increase the storage size for your {{ CH }} hosts.
+            * `configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId`: To change the disk type and increase the storage size for your {{ ZK }} hosts.
 
-            In our request example, we are increasing the storage size for both {{ CH }} and {{ ZK }} hosts.
+            In our request example, we are resizing the storage and updating the disk type for both {{ CH }} and {{ ZK }} hosts.
 
         * `configSpec.clickhouse.resources.diskSize`: {{ CH }} host storage size, in bytes.
+        * `configSpec.clickhouse.resources.diskTypeId`: [Disk type](../concepts/storage.md) of {{ CH }} hosts.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size, in bytes.
+        * `configSpec.zookeeper.resources.diskTypeId`: Disk type of {{ ZK }} hosts.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -459,18 +479,22 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
                   "update_mask": {
                     "paths": [
                       "config_spec.clickhouse.resources.disk_size",
-                      "config_spec.zookeeper.resources.disk_size"
+                      "config_spec.clickhouse.resources.disk_type_id",
+                      "config_spec.zookeeper.resources.disk_size",
+                      "config_spec.zookeeper.resources.disk_type_id"
                     ]
                   },
                   "config_spec": {
                     "clickhouse": {
                       "resources": {
-                        "disk_size": "<storage_size_in_bytes>"
+                        "disk_size": "<storage_size_in_bytes>",
+                        "disk_type_id": "<disk_type>"
                       }
                     },
                     "zookeeper": {
                       "resources": {
-                        "disk_size": "<storage_size_in_bytes>"
+                        "disk_size": "<storage_size_in_bytes>",
+                        "disk_type_id": "<disk_type>"
                       }
                     }
                   }
@@ -485,12 +509,16 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
             Specify the relevant parameters:
 
             * `config_spec.clickhouse.resources.disk_size`: To increase the storage size of {{ CH }} hosts.
+            * `config_spec.clickhouse.resources.disk_type_id`: To change the disk type for {{ CH }} hosts.
             * `config_spec.zookeeper.resources.disk_size`: To increase the storage size of {{ ZK }} hosts.
+            * `config_spec.zookeeper.resources.disk_type_id`: To change the disk type for {{ ZK }} hosts.
 
-            In our request example, we are increasing the storage size for both {{ CH }} and {{ ZK }} hosts.
+            In our request example, we are resizing the storage and updating the disk type for both {{ CH }} and {{ ZK }} hosts.
 
         * `config_spec.clickhouse.resources.disk_size`: {{ CH }} host storage size, in bytes.
+        * `config_spec.clickhouse.resources.disk_type_id`: [Disk type](../concepts/storage.md) of {{ CH }} hosts.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size, in bytes.
+        * `config_spec.zookeeper.resources.disk_type_id`: Disk type of {{ ZK }} hosts.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -504,7 +532,7 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
 {% note alert %}
 
-This disables user and database management through native {{ yandex-cloud }} interfaces, such as management console, CLI, {{ TF }}, and API.
+This disables user and database management through the native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, and API.
 
 You cannot disable settings for user or database management via SQL once they are enabled.
 
@@ -562,7 +590,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. {% include [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -612,7 +640,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             In our request example, both user and database management via SQL are enabled.
 
-        * `configSpec.adminPassword`: `admin` password.
+        * `configSpec.adminPassword`: `admin` user password.
         * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
         * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
@@ -702,7 +730,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-ch }} cluster update --help
@@ -744,7 +772,7 @@ You cannot disable settings for user or database management via SQL once they ar
     
     * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see [{{ sf-name }}this  article](../../functions/operations/database-connection.md).
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see [this {{ sf-name }} article](../../functions/operations/database-connection.md).
 
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
@@ -920,7 +948,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
-                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week, in `DDD` format, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
@@ -1029,7 +1057,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
-                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week, in `DDD` format, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
@@ -1073,7 +1101,7 @@ The following resources will be created for each database user:
 
   {% note info %}
 
-  You can use {{ connection-manager-name }} and secrets you create there free of charge.
+  {{ connection-manager-name }} and secrets created with it are free of charge.
 
   {% endnote %}
 
@@ -1118,7 +1146,7 @@ The following resources will be created for each database user:
 
         For more information about creating this file, see [this guide](./cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, edit or add the `folder_id` parameter value:
+    1. In the {{ mch-name }} cluster description, edit or add the `folder_id` value:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -1216,7 +1244,7 @@ The following resources will be created for each database user:
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -1374,7 +1402,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
   To change [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -1399,7 +1427,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
           --cloud-storage-prefer-not-to-merge=<merging_data_parts>
       ```
 
-      You can change the following settings:
+      You can update the following settings:
 
       {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
 

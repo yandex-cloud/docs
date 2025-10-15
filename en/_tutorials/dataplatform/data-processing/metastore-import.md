@@ -151,7 +151,7 @@ Set up the infrastructure:
         * Bucket.
         * Two {{ dataproc-name }} clusters.
 
-    1. Specify the following in the `metastore-import.tf` file:
+    1. Specify the following in `metastore-import.tf`:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
@@ -318,3 +318,5 @@ Some resources are not free of charge. Delete the resources you no longer need t
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

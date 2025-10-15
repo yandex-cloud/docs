@@ -18,6 +18,7 @@ editable: false
 **Тарифный план**  | **Community** | **Business**
 ------------------ |---------------|---------------
 Создание [чартов в визарде](./chart/dataset-based-charts.md), [QL-чартов](./chart/ql-charts.md) и [дашбордов](./dashboard.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)   
+[Нейроаналитик](./neuroanalyst.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 JavaScript-кастомизации в [Editor](../charts/editor/index.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)   
 [Подключение к внешним API через Editor](../operations/connection/create-api-connector.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)   
 [Описание модели данных](../dataset/data-model.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)   
@@ -29,7 +30,7 @@ JavaScript-кастомизации в [Editor](../charts/editor/index.md) | ![i
 [Фоновый экспорт данных из чартов](../concepts/chart/data-export.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Стилизация интерфейса {{ datalens-name }}](../settings/ui-customization.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Безопасное встраивание чартов и дашбордов](../security/private-embedded-objects.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
-[Контроль публикаций](./datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)   
+[Контроль публикаций](./datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](./datalens-usage-analytics.md#detailed-dash)) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)  
 Техническая поддержка | [Базовый тариф](../../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../../support/pricing.md#business) или [Премиум](../../support/pricing.md#premium)) | [Тариф Бизнес](../../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community

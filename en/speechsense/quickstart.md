@@ -20,7 +20,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
 ## Set up your environment {#set-space}
 
-1. Create a [space](concepts/resources-hierarchy.md#space) to store all your [projects](concepts/resources-hierarchy.md#project): select **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, enter a name, add a description if required, and click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+1. Create a [space](concepts/resources-hierarchy.md#space) for all your [projects](concepts/resources-hierarchy.md#project): select **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, enter a name, add an optional description, and click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
 1. [Link a billing account](operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
 
    {% include [manage-ba-note](../_includes/speechsense/manage-ba-note.md) %}
@@ -57,7 +57,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
 {{ speechsense-name }} uses the [gRPC API](api-ref/grpc/index.md) to upload data.
 
-To upload data:
+To transfer data:
 
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).

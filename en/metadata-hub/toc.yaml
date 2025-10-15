@@ -10,16 +10,16 @@ items:
         href: quickstart/connection-manager.md
       - name: Step-by-step guides
         items:
-          - name: Creating a connection
-            href: operations/create-connection.md
           - name: Viewing a connection
             href: operations/view-connection.md
+          - name: Creating a connection
+            href: operations/create-connection.md
           - name: Editing a connection
             href: operations/update-connection.md
-          - name: Deleting a connection
-            href: operations/delete-connection.md
           - name: Configuring connection access permissions
             href: operations/connection-access.md
+          - name: Deleting a connection
+            href: operations/delete-connection.md
           - name: Getting operation info
             href: operations/operation-connection.md
           - name: Canceling an operation
@@ -32,6 +32,8 @@ items:
             href: concepts/secret.md
       - name: Service roles for access management
         href: security/connection-manager-roles.md
+      - name: CLI reference
+        href: ../cli/cli-ref/metadata-hub/cli-ref/connection-manager/index.md
       - name: API reference
         items:
           - name: API authentication

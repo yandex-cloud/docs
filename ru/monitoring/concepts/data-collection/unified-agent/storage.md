@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/storage.md
+---
 # Хранилища
 
 Хранилища перечисляются в секции `storages`, ссылки на хранилища добавляются в секцию `pipe`. Количество хранилищ не ограничено, но сослаться на одно хранилище можно только один раз.

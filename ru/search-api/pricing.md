@@ -34,7 +34,7 @@ editable: false
 
 - Цены в тенге {#prices-kzt}
 
-  {% include notitle[kzt](../_pricing/search-api/kzt.md) %}
+  {% include notitle [kzt](../_pricing/search-api/kzt.md) %}
 
 {% endlist %}
 

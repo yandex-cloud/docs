@@ -7,8 +7,6 @@ description: A secret is a set of versions that store the connection's secure da
 
 
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 A secret is a set of versions that store the connection's secure data. A version contains sets of _keys_ and _values_. A key is a non-secret name that identifies a value. A value is secret information about a connection.
 You can set up access to secrets using [{{ iam-full-name }}](../../iam/index.yaml). The roles available for different use cases are described in the [{#T}](../security/index.md) section.
 

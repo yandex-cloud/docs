@@ -5,10 +5,6 @@ description: In this tutorial, you will learn about connection and schema regist
 
 # About {{ metadata-hub-full-name }}
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
 {{ metadata-hub-full-name }} is a service that provides data management capabilities in {{ yandex-cloud }}:
 
 * Automatic creation and management of database connection parameters.
@@ -35,6 +31,9 @@ description: In this tutorial, you will learn about connection and schema regist
 ## Data schema registry {#schema-registry}
 
 
+{% include [preview-pp](../../_includes/preview-pp.md) %}
+
+
 {% include [connection](../../_includes/metadata-hub/schema-registry-definition.md) %}
 
 With a schema registry, you can define schemas for your data formats and versions and register them in the registry. After registering a schema, you can use it jointly in various systems and applications. When a supplier sends data to a message recipient, the data schema is included in the message title, and the schema registry ensures that the schema is valid and compatible with the expected one for the subject.
@@ -47,9 +46,7 @@ With a schema registry, you can define schemas for your data formats and version
 ## Metadata collection and markup {#data-catalog}
 
 
-
-{% include [preview-tp](../../_includes/preview-tp.md) %}
-
+{% include [preview-pp](../../_includes/preview-pp.md) %}
 
 
 [{{ data-catalog-name }}](data-catalog.md) allows you to collect, analyze, and mark up metadata drawn from various sources. You can upload structural metadata, e.g., list of tables in a managed database cluster, their schemas, links between tables.
@@ -64,3 +61,5 @@ You can use {{ data-catalog-name }} to:
 * Find data owners, including passive ownership through subscription.
 * Build a schema for data consumer.
 
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

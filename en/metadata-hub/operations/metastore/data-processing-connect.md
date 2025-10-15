@@ -22,7 +22,7 @@ To use a {{ metastore-name }} cluster, your [{{ dataproc-full-name }} cluster](.
         spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}
         ```
 
-        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster.
+        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
 
     1. If the {{ metastore-name }} cluster and {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
 
@@ -38,3 +38,5 @@ To use a {{ metastore-name }} cluster, your [{{ dataproc-full-name }} cluster](.
 {% endlist %}
 
 For an example of using {{ dataproc-name }} with a {{ metastore-name }} cluster connected, see the [{#T}](../../tutorials/sharing-tables.md) tutorial.
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

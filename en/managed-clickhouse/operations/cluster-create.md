@@ -13,7 +13,7 @@ A {{ CH }} cluster consists of one or more database hosts with replication suppo
 
 To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) roles or higher.
 
-To link your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+To link a service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
 For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
@@ -80,7 +80,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-        To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
 
@@ -91,7 +91,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         Otherwise, select **{{ ui-key.yacloud.common.disabled }}**.
 
 
-      * If you want to manage databases via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** field. This disables database management through other interfaces. The field is inactive if user management via SQL is disabled.
+      * If you want to manage databases via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** field. This disables database management through other interfaces. This field is inactive if user management via SQL is disabled.
 
         Otherwise, select **{{ ui-key.yacloud.common.disabled }}**.
 
@@ -119,9 +119,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% endnote %}
 
-      * Configure the [DBMS settings](../concepts/settings-list.md#server-level-settings), if required. You can specify them later.
+      * [Configure the DBMS](../concepts/settings-list.md#server-level-settings), if required. You can specify them later.
 
-        Using {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
+        Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
@@ -159,7 +159,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       yc vpc subnet list
       ```
 
-     If your folder has no subnets, [create the required ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. See the description of the CLI command for creating a cluster:
@@ -197,7 +197,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * `--environment`: Cluster environment, `prestable` or `production`.
       * `--host`: Host settings:
-        * `type`: Host type: `clickhouse` or `zookeeper`.
+        * `type`: Host type, `clickhouse` or `zookeeper`.
         * `zone-id`: Availability zone.
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
@@ -231,7 +231,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can manager cluster users and databases via SQL.
+      You can manage cluster users and databases via SQL.
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
@@ -262,7 +262,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          ```
 
       
-      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see [{{ sf-name }}](../../functions/operations/database-connection.md) this  article.
+      1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`.
+
+         {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+         To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} article](../../functions/operations/database-connection.md).
 
 
       1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -301,7 +307,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          Where:
          * `--cloud-storage-data-cache`: Defines whether to store files in a cluster storage, `true` or `false`.
-         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
+         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in cluster and object storages, `true` or `false`.
 
       1. To set up automatic increase of storage size for {{ CH }} and {{ ZK }} subclusters, use the `--disk-size-autoscaling` flag:
         
@@ -339,8 +345,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            * `anytime`: Any time (default).
            * `weekly`: On a schedule. To use this value, you need to provide `hour` and `day`.
         
-         * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
-         * `day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+         * `hour`: Time of day (UTC). The possible values are from `1` to `24`.
+         * `day`: Day of week. The possible values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
 
 - {{ TF }} {#tf}
 
@@ -382,7 +388,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * Database: Cluster DB description.
        * User: Cluster user description. Optionally, specify the [DBMS user-level settings](../concepts/settings-list.md#dbms-user-settings) here. You can also provide them later.
 
-          Using {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
+          Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
        Below is an example structure of a configuration file describing a cluster with a single host:
 
@@ -654,8 +660,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `clickhouse`: {{ CH }} configuration:
 
-                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
-                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
                     * `diskSizeAutoscaling`: Automatic storage size increase settings for a {{ CH }} subcluster:
@@ -688,7 +694,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
 
-                    * `adminPassword`: `admin` password.
+                    * `adminPassword`: `admin` user password.
                     * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
                     * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
 
@@ -705,7 +711,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
 
-                    If you enabled {{ CK }} by setting `embeddedKeeper: true`, specify only {{ CH }} host settings in `hostSpecs`.
+                    If you enable {{ CK }} through the `embeddedKeeper: true` setting, you only need to specify the {{ CH }} host settings in `hostSpecs`.
 
                 * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
                 * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -722,8 +728,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `maintenanceWindow`: Maintenance window settings:
               
-                * `weeklyMaintenanceWindow.day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
-                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+                * `weeklyMaintenanceWindow.day`: Day of week. The possible values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The possible values are from `1` to `24`.
               
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -884,8 +890,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `clickhouse`: {{ CH }} configuration:
 
-                    * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
-                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
 
                     * `disk_size_autoscaling`: Automatic storage size increase settings for a {{ CH }} subcluster:
@@ -900,7 +906,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                     
                     {% endnote %}
                     
-                    * `resources.resource_preset_id`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.resource_preset_id`: Host class ID. You can get the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.disk_size`: Disk size, in bytes.
                     * `resources.disk_type_id`: Disk type.
 
@@ -918,7 +924,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
 
-                    * `admin_password`: `admin` password.
+                    * `admin_password`: `admin` user password.
                     * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
                     * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
 
@@ -935,7 +941,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
 
-                    If you enabled {{ CK }} by setting `embedded_keeper: true`, specify only {{ CH }} host settings in `host_specs`.
+                    If you enable {{ CK }} through the `embedded_keeper: true` setting, then, in `host_specs`, you only need to specify the {{ CH }} host settings.
 
                 * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
                 * `subnet_id`: Subnet [ID](../../vpc/concepts/network.md#subnet).
@@ -952,8 +958,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `maintenance_window`: Maintenance window settings:
               
-              * `weekly_maintenance_window.day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
-              * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
+              * `weekly_maintenance_window.day`: Day of week. The possible values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+              * `weekly_maintenance_window.hour`: Time of day (UTC). The possible values are from `1` to `24`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -1175,9 +1181,9 @@ To create a {{ CH }} cluster copy:
   * Three {{ CH }} `{{ host-class }}` hosts and three {{ ZK }} `{{ zk-host-class }}` hosts (for [replication](../concepts/replication.md)).
 
     One host of each class will be added to the new subnets:
-    * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, availability zone: `{{ region-id }}-a`.
-    * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone: `{{ region-id }}-b`.
-    * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, availability zone: `{{ region-id }}-d`.
+    * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, the `{{ region-id }}-a` availability zone.
+    * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, the `{{ region-id }}-b` availability zone.
+    * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, the `{{ region-id }}-d` availability zone.
 
     These subnets will belong to the `cluster-net` network.
 

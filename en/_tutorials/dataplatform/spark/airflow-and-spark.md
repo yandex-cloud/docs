@@ -23,11 +23,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ AF }} cluster fee: computing resources of the cluster components (see [{{ maf-full-name }} pricing](../../../managed-airflow/pricing.md)).
-* Fee for computing resources in a {{ metastore-name }} cluster (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
-* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ AF }} cluster fee: Computing resources of cluster components (see [{{ maf-full-name }} pricing](../../../managed-airflow/pricing.md)).
+* Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
+* {{ objstorage-name }} bucket fee: Data storage and operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * Fee for collecting and storing logs (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
 
 
@@ -65,8 +65,8 @@ The example below illustrates two scenarios. Select the one you find most releva
      * [logging.editor](../../../iam/roles-reference.md#logging-editor): To work with log groups.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader): To read logs.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer): To get operation statuses.
-     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about Hive Metastore clusters. ||
-     || `metastore-agent` for a {{ metastore-name }} cluster |
+     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about {{ metastore-name }} clusters. ||
+     || `metastore-agent` for an {{ metastore-name }} cluster |
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md). ||
      || `spark-agent` for an {{ SPRK }} cluster |
      * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ SPRK }} cluster to interact with other resources. ||
@@ -158,7 +158,7 @@ The example below illustrates two scenarios. Select the one you find most releva
      * [logging.editor](../../../iam/roles-reference.md#logging-editor): To work with log groups.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader): To read logs.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer): To get operation statuses.
-     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about {{ metastore-full-name }} clusters.
+     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about {{ metastore-name }} clusters.
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md).
      * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ SPRK }} cluster to interact with other resources. 
 
@@ -259,7 +259,7 @@ To prepare a DAG:
      SERVICE_ACCOUNT_ID = '<spark-agent_service_account_ID>'
      SUBNET_IDS = [<subnet_ID>]
      SECURITY_GROUP_IDS = [<security_group_ID>]
-     METASTORE_CLUSTER_ID = '<Metastore_cluster_ID>'
+     METASTORE_CLUSTER_ID = '<Apache_Hive™_Metastore_cluster_ID>'
 
      JOB_NAME = 'job_with_table'
      JOB_SCRIPT = 's3a://<bucket_for_PySpark_job_source_code>/scripts/job_with_table.py'
@@ -304,7 +304,7 @@ To prepare a DAG:
 
 
      @task(trigger_rule="all_done")
-     # Step 3: Deleting the {{ SPRK }} cluster
+     # Step 3: Deleting an {{ SPRK }} cluster
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -367,7 +367,7 @@ To prepare a DAG:
 
      {% endcut %}
 
-  1. Upload the DAG to the {{ AF }} cluster: in `<bucket_for_Airflow_DAG_source_code>`, create a folder named `dags` and upload the `dag.py` file to it.
+  1. Upload the DAG file into the {{ AF }} cluster: In `<bucket_for_Airflow_DAG_source_code>`, create a folder named `dags` and upload the `dag.py` file to it.
   1. Open the {{ AF }} web interface.
   1. Make sure the new `example_spark` DAG has appeared in the **DAGs** section.
 
@@ -398,7 +398,7 @@ To prepare a DAG:
      SERVICE_ACCOUNT_ID = '<integration-agent_service_account_ID>'
      SUBNET_IDS = [<subnet_ID>]
      SECURITY_GROUP_IDS = [<security_group_ID>]
-     METASTORE_CLUSTER_ID = '<Metastore_cluster_ID>'
+     METASTORE_CLUSTER_ID = '<Apache_Hive™_Metastore_cluster_ID>'
 
      JOB_NAME = 'job_with_table'
      JOB_SCRIPT = 's3a://<bucket_for_jobs_and_data>/scripts/job_with_table.py'
@@ -443,7 +443,7 @@ To prepare a DAG:
 
 
      @task(trigger_rule="all_done")
-     # Step 3: Deleting the {{ SPRK }} cluster
+     # Step 3: Deleting an {{ SPRK }} cluster
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -506,7 +506,7 @@ To prepare a DAG:
 
      { % endcut %}
 
-  1. Upload the DAG to the {{ AF }} cluster: in `<bucket_for_jobs_and_data>`, create a folder named `dags` and upload the `dag.py` file to it.
+  1. Upload the DAG file into the {{ AF }} cluster: In `<bucket_for_jobs_and_data>`, create a folder named `dags` and upload the `dag.py` file to it.
   1. Open the {{ AF }} web interface.
   1. Make sure the new `example_spark` DAG has appeared in the **DAGs** section.
 

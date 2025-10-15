@@ -1,6 +1,7 @@
 ---
 title: Рекомендации по использованию агента
 description: В статье вы ознакомитесь с рекомендациями по использованию агента.
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/best-practices.md
 ---
 
 # Рекомендации по использованию агента

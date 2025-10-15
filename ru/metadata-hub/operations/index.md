@@ -33,7 +33,7 @@ description: Пошаговые инструкции по работе с {{ met
 * [{#T}](metastore/cluster-delete.md)
 
 
-## {{ schema-registry-name }} {#instructions-schema-registry} {{ preview-stage }}
+## {{ schema-registry-name }} {{ preview-stage }} {#instructions-schema-registry}
 
 * Пространство имен:
   * [{#T}](create-name-space.md)
@@ -51,7 +51,7 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](delete-subject.md)
 
 
-## {{ data-catalog-name }} {#instructions-data-catalog} {{ preview-stage }}
+## {{ data-catalog-name }} {{ preview-stage }} {#instructions-data-catalog}
 
 * Каталог:
   * [{#T}](data-catalog/catalog-list.md)

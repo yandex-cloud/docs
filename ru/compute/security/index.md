@@ -147,6 +147,7 @@ description: Управление доступом в сервисе предо�
 Использование [образов](../concepts/image.md) | `compute.images.user` или `compute.editor` на образ
 **Управление ресурсами** |
 [Создание](../operations/vm-create/create-linux-vm.md) виртуальной машины | `compute.editor` на каталог
+Создание виртуальной машины с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) | `compute.editor` и `vpc.publicAdmin` на каталог
 [Запуск](../operations/vm-control/vm-stop-and-start.md#start), [остановка](../operations/vm-control/vm-stop-and-start.md#stop) и [перезапуск](../operations/vm-control/vm-stop-and-start.md#restart) виртуальных машин | `compute.operator` на ВМ
 [Изменение](../operations/vm-control/vm-update.md) и [удаление](../operations/vm-control/vm-delete.md) виртуальной машины | `compute.editor` на ВМ
 [Привязка](../operations/vm-control/vm-connect-sa.md) сервисного аккаунта к ВМ | `compute.editor` на ВМ

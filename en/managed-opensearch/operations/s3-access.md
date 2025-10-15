@@ -11,7 +11,7 @@ description: In this tutorial, you will learn how to configure access to {{ objs
 
 To access {{ objstorage-name }} bucket data from a cluster:
 
-1. [Connect the service account to the cluster](#connect-service-account).
+1. [Attach the service account to the cluster](#connect-service-account).
 1. [Configure access permissions](#configure-acl).
 1. [Connect a snapshot repository](#register-snapshot-repository).
 
@@ -19,10 +19,10 @@ To access {{ objstorage-name }} bucket data from a cluster:
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
 
 
-* To create or modify a cluster and link it to a service account.
+* To create or update a cluster and link it to a service account.
 * To restore a cluster linked to a service account from its backup.
 
-## Connect the service account to the cluster {#connect-service-account}
+## Assign the service account to the cluster {#connect-service-account}
 
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
@@ -43,8 +43,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the **{{ ui-key.yacloud.storage.buckets.label_title }}** tab.
     1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
-        1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
-        1. Select the `READ and WRITE` permissions for the selected service account.
+        1. In the **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** drop-down list, specify the service account [assigned to the cluster](#connect-service-account).
+        1. Set the `READ and WRITE` permissions for this service account.
         1. Click **{{ ui-key.yacloud.common.add }}** and **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -57,7 +57,6 @@ If a bucket is registered in an {{ OS }} cluster as a snapshot repository, do no
 
 {% endnote %}
 
-1. [Install](plugins.md#update) the `repository-s3` plugin.
 1. [Connect](connect.md) to the cluster.
 1. Register the bucket as a snapshot repository using the public [{{ OS }} API]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 

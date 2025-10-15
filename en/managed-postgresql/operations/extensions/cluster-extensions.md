@@ -14,14 +14,15 @@ For some extensions, you need to enable shared libraries. To link a library when
 
 You can install the following libraries in {{ mpg-short-name }}:
 
-* `auto_explain`: Required for the [auto_explain extension]({{ pg-docs }}/auto-explain.html) to function.
-* `pgaudit`: Required for the [pgaudit extension](https://www.pgaudit.org/) to function.
-* `pg_cron`: Required for the [pg_cron extension](https://github.com/citusdata/pg_cron) to function.
-* `pg_hint_plan`: Required for the [pg_hint_plan extension](https://github.com/ossc-db/pg_hint_plan) to function.
-* `pg_qualstats`: Required for the [pg_qualstats extension](https://github.com/powa-team/pg_qualstats) to function.
-* `pg_stat_query_plans`: Required for the [pg_stat_query_plans extension](https://github.com/postgredients/pg_stat_query_plans) to function.
-* `timescaledb`: Required to use the [TimescaleDB extension](https://github.com/timescale/timescaledb).
-* `anon`: Required to use the [postgresql_anonymizer extension](https://postgresql-anonymizer.readthedocs.io/en/stable/).
+* `age`: Required for [age](https://age.apache.org) to function.
+* `anon`: Required for [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) to function.
+* `auto_explain`: Required for [auto_explain]({{ pg-docs }}/auto-explain.html) to function.
+* `pgaudit`: Required for [pgaudit](https://www.pgaudit.org/) to function.
+* `pg_cron`: Required for [pg_cron](https://github.com/citusdata/pg_cron) to function.
+* `pg_hint_plan`: Required for [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) to function.
+* `pg_qualstats`: Required for [pg_qualstats](https://github.com/powa-team/pg_qualstats) to function.
+* `pg_stat_query_plans`: Required for [pg_stat_query_plans](https://github.com/postgredients/pg_stat_query_plans) to function.
+* `timescaledb`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
 
 {% note warning %}
 
@@ -69,7 +70,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>'
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
   1. View the [server response](../../api-ref/Database/get.md#responses) to make sure your request was successful.
 
@@ -99,7 +100,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Get
      ```
 
-     You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
   1. View the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure your request was successful.
 
@@ -201,7 +202,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
        Specify the name from the [list of supported {{ PG }} extensions and utilities](#postgresql).
 
-     You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
   1. View the [server response](../../api-ref/Database/update.md#responses) to make sure your request was successful.
 
@@ -256,7 +257,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
        Specify the name from the [list of supported {{ PG }} extensions and utilities](#postgresql).
 
-     You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
+     You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
   1. View the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -268,7 +269,13 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || **Extension** \ **{{ PG }} version** | **11** | **12** | **13** | **14** | **15** | **16** | **17** ||
 || <p>[address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer)</p><p>Provides normalization functions for postal addresses provided as a string.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[address_standardizer_data_us](https://postgis.net/docs/manual-3.1/postgis_installation.html#make_install_postgis_extensions)</p><p>Contains normalization rules for the US and Canadian mailing addresses for the `address_standardizer` extension.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
-|| <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Provides functions that allow you to verify the logical consistency of the relation structure.</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser).</p> | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 ||
+|| <p>[age](https://age.apache.org)</p><p>Adds support for [graph databases](https://en.wikipedia.org/wiki/Graph_database), including:
+* Graph DB storage
+* Graph DB management  
+* Operations on graphs</p>
+
+Requires [enabling the `age` shared library](#libraries-connection). | - | - | - | - | - | 1.5.0 | 1.5.0 ||
+|| <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Provides functions that allow you to verify the logical consistency of the relation structure.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role or the [`mdb_superuser`](../../concepts/roles.md#mdb-superuser).</p> | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 ||
 || <p>[autoinc]({{ pg-docs }}/contrib-spi.html#id-1.11.7.47.6)</p><p>Contains the `autoinc()` function. It stores the next value of a sequence into an integer field. Unlike the built-in types that control sequences, `autoinc()`:
 * Overrides attempts to insert a different field value from a query.
 * Allows modifying field values during updates.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
@@ -280,7 +287,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[cube]({{ pg-docs }}/static/cube.html)</p><p>Contains the `cube` data type used for representing multidimensional cubes.</p> | 1.4 | 1.4 | 1.4 | 1.5 | 1.5 | 1.5 | 1.5 ||
 || <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Allows connecting to other {{ PG }} databases from the current session.</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role]../../concepts/roles.md#mdb-superuser).</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an add-on dictionary template for full-text search. It allows preventing excessive growth of a list of unique words and speeding up search.</p><p>In addition to extensions, you can also use [Hunspell dictionaries](hunspell.md) for full-text search.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>(Extended Synonym Dictionary) contains an example of an add-on dictionary template for full-text search. It allows searching for a word using any of its synonyms.</p><p>In addition to extensions, you can also use [Hunspell dictionaries](hunspell.md) for full-text search.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | - ||
+|| <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>Contains an example of an add-on dictionary (Extended Synonym Dictionary) template for full-text search: when you search for a word, the results will also return all its synonyms.</p><p>In addition to extensions, you can also use [Hunspell dictionaries](hunspell.md) for full-text search.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | - ||
 || <p>[earthdistance]({{ pg-docs }}/static/earthdistance.html)</p><p>Provides a module for calculating distances between geographical points. There are two ways to calculate them:
 * Using the `cube` data type (you need to enable the `cube` extension).
 * Using the built-in `point` data type.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
@@ -299,7 +306,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[orafce](https://github.com/orafce/orafce)</p><p>Adds functions and operators that emulate Oracle functionality and packages.</p> | 3.18 | 3.18 | 3.18 | 3.18 | 3.25 | 4.6 | 4.13 ||
 || <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for monitoring the shared buffer cache.</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 ||
 || <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to add scheduled jobs to a database and execute SQL commands directly from a job.</p><p>Requires [enabling the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser).</p><p>Enabling the extension causes all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.5 | 1.6 ||
-|| <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Requires [enabling the `pg_hint_plan` shared library](#libraries-connection).</p> | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 | - | 1.6.0 | 1.7.0 ||
+|| <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Requires [enabling the `pg_hint_plan` shared library](#libraries-connection).</p> | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 | 1.5 | 1.6.0 | 1.7.0 ||
 || <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Extends support for table partitioning, including time-based and serial-based.</p>  | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 | 4.7.0 | 4.7.4 | 5.1.0 ||
 || <p>[pg_qualstats](https://github.com/powa-team/pg_qualstats)</p><p>Allows collecting statistics on predicates found in `WHERE` expressions and `JOIN` clauses.</p><p>Requires [enabling the `pg_qualstats` shared library](#libraries-connection).</p> | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.4 | 2.1.0 | 2.1.1 ||
 || <p>[pg_prewarm]({{ pg-docs }}/pgprewarm.html)</p><p>Allows loading relation data into either the operating system buffer cache or the {{ PG }} buffer cache.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||

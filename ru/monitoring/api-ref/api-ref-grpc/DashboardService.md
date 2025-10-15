@@ -1,5 +1,6 @@
 ---
 editable: false
+sourcePath: ru/monitoring_includes/api-ref/api-ref-grpc/DashboardService.md
 ---
 
 # Monitoring API, gRPC: DashboardService

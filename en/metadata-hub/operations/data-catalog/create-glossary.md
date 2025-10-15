@@ -8,7 +8,7 @@ description: Follow this guide to create a glossary in a metadata catalog.
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -29,5 +29,7 @@ description: Follow this guide to create a glossary in a metadata catalog.
       * Optionally, describe the glossary.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  {% include [ai-terms](../../../_includes/metadata-hub/data-catalog-ai-markup-terms.md) %}
 
 {% endlist %}

@@ -22,9 +22,13 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./add-account.md)
 * [{#T}](./users-get.md)
+* [{#T}](./user-pools/edit-user.md)
+* [{#T}](./user-pools/reset-user-password.md)
 * [{#T}](./add-role.md)
-* [{#T}](./edit-account.md)
 * [{#T}](./get-users-groups.md)
+* [{#T}](./user-pools/deactivate-user.md)
+* [{#T}](./user-pools/activate-user.md)
+* [{#T}](./edit-account.md)
 * [{#T}](./leave-organization.md)
 
 ## Управление группами пользователей {#manage-groups}
@@ -53,15 +57,8 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./user-pools/get-list-userpools.md)
 * [{#T}](./user-pools/get-userpool.md)
 * [{#T}](./user-pools/delete-userpool.md)
-* [{#T}](./user-pools/add-user.md)
-* [{#T}](./user-pools/edit-user.md)
 * [{#T}](./user-pools/set-access-bindings-userpool.md)
-* [{#T}](./user-pools/activate-user.md)
-* [{#T}](./user-pools/deactivate-user.md)
-* [{#T}](./user-pools/reset-user-password.md)
 * [{#T}](./user-pools/get-list-users.md)
-* [{#T}](./user-pools/get-user.md)
-* [{#T}](./user-pools/delete-user.md)
 
 ## Управление доменами {#manage-domains}
 

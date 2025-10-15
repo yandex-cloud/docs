@@ -1,6 +1,7 @@
 ---
 title: Как установить и обновить {{ unified-agent-full-name }}
 description: Из статьи вы узнаете, как установить и обновить {{ unified-agent-full-name }}.
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/installation.md
 ---
 
 # Установка и обновление {{ unified-agent-full-name }}

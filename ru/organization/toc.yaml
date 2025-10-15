@@ -38,12 +38,20 @@ items:
             href: operations/manage-users.md
           - name: Добавить пользователя
             href: operations/add-account.md
-          - name: Получить идентификатор или почту пользователя
+          - name: Получить информацию о пользователе
             href: operations/users-get.md
-          - name: Удалить аккаунт пользователя
-            href: operations/edit-account.md
+          - name: Изменить данные пользователя
+            href: operations/user-pools/edit-user.md
+          - name: Сбросить пароль локального пользователя
+            href: operations/user-pools/reset-user-password.md
           - name: Посмотреть группы пользователя
             href: operations/get-users-groups.md
+          - name: Активировать пользователя
+            href: operations/user-pools/activate-user.md
+          - name: Деактивировать пользователя
+            href: operations/user-pools/deactivate-user.md
+          - name: Удалить аккаунт пользователя
+            href: operations/edit-account.md
           - name: Покинуть организацию
             href: operations/leave-organization.md
       - name: Управление группами пользователей
@@ -96,22 +104,6 @@ items:
             href: operations/user-pools/set-access-bindings-userpool.md
           - name: Удалить пул пользователей
             href: operations/user-pools/delete-userpool.md
-          - name: Управление пользователями
-            items:
-              - name: Добавить пользователя
-                href: operations/user-pools/add-user.md
-              - name: Изменить данные пользователя
-                href: operations/user-pools/edit-user.md
-              - name: Активировать пользователя
-                href: operations/user-pools/activate-user.md
-              - name: Деактивировать пользователя
-                href: operations/user-pools/deactivate-user.md
-              - name: Изменить пароль пользователя
-                href: operations/user-pools/reset-user-password.md
-              - name: Получить информацию о пользователе пула
-                href: operations/user-pools/get-user.md
-              - name: Удалить пользователя
-                href: operations/user-pools/delete-user.md
       - name: Управление доменами
         items:
           - name: Привязать домен

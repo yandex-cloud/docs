@@ -2,7 +2,32 @@ title: Yandex Managed Service for Greenplum®
 description:
   - >-
     Yandex Managed Service for Greenplum<sup>®</sup> helps you deploy and
-    maintain Greenplum clusters<sup>®</sup> in the Yandex Cloud infrastructure.
+    maintain Greenplum<sup>®</sup> clusters version 6 in the Yandex Cloud
+    infrastructure.
+  - >-
+    Greenplum<sup>®</sup> is an analytical, column-oriented massively parallel
+    processing (<a
+    href="https://en.wikipedia.org/wiki/Massively_parallel">MPP</a>) DBMS. With
+    the MPP architecture, you can store and process data on multiple nodes in
+    parallel. This sets Greenplum<sup>®</sup> apart from symmetric
+    multiprocessing (<a
+    href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing">SMP</a>)
+    systems, where scaling is limited to a single node.
+  - >-
+    Yandex Managed Service for Greenplum<sup>®</sup> also provides access to the
+    <a href="https://cloudberry.apache.org">Cloudberry</a> DBMS. Based on
+    Greenplum<sup>®</sup> version 7, it and will be the basic distribution for
+    new major versions of the core.
+  - >-
+    Learn more about Greenplum<sup>®</sup> and Yandex Managed Service for
+    Greenplum<sup>®</sup> in <a
+    href="/docs/managed-greenplum/concepts/overview">Overview</a>.
+  - >-
+    This service is subject to a <a
+    href="https://yandex.ru/legal/cloud_sla/ru">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_greenplum/ru">Managed Service for
+    Greenplum<sup>®</sup> Service Level</a>.
   - >-
     The Yandex Cloud infrastructure is <a
     href="/docs/security/conform">protected</a> under the following standards:
@@ -11,7 +36,7 @@ description:
     <li>ISO 27017</li> <li>ISO 27018</li> <li>GOST 57580.1-2017</li></ul>
   - >-
     <em>Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are registered
-    trademarks or trademarks of VMware, Inc. in the United States and/or other
+    trademarks or trademarks of Broadcom Inc. in the United States and/or other
     countries.</em>
 links:
   - title: Getting started
@@ -43,7 +68,6 @@ meta:
   keywords:
     - '{{ mgp-name }}'
     - '{{ mgp-full-name }}'
-    - Service {{ mgp-name }}
     - '{{ GP }} in {{ yandex-cloud }}'
     - '{{ GP }} cluster'
     - '{{ GP }}'

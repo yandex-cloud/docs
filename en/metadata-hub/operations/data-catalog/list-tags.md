@@ -8,7 +8,7 @@ description: Follow this guide to get a list of tags for metadata in a classific
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 

@@ -1,12 +1,11 @@
 title: Yandex MetaData Hub
-description:
-  - >-
-    <em>Yandex MetaData Hub is currently at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
-    Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
-    database connections, store data exchange schemas and dataset descriptions,
-    as well as manage metadata.
+description: >-
+  Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
+  database connections, store data exchange schemas and dataset descriptions, as
+  well as manage metadata. - >- <em>Apache® and <a
+  href="https://hive.apache.org/">Apache Hive™</a> are either registered
+  trademarks or trademarks of the Apache Software Foundation in the United
+  States and/or other countries.</em>
 links:
   - title: '{{ connection-manager-name }}'
     description: Automatically creating and managing database connection settings.

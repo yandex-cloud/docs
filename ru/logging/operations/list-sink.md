@@ -1,6 +1,7 @@
 ---
 title: Как получить список приемников логов {{ cloud-logging-full-name }}
 description: Следуя данной инструкции, вы сможете получить список приемников логов.
+sourcePath: ru/logging_includes/operations/list-sink.md
 ---
 
 # Получить список приемников логов

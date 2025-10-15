@@ -8,7 +8,7 @@ description: Follow this guide to create a tag for metadata in {{ data-catalog-f
 
 {% note info %}
 
-{% include [preview-tp](../../../_includes/preview-tp.md) %}
+{% include [preview-pp](../../../_includes/preview-pp.md) %}
 
 {% endnote %}
 
@@ -30,5 +30,7 @@ description: Follow this guide to create a tag for metadata in {{ data-catalog-f
      * Optionally, describe the tag.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  {% include [ai-tags](../../../_includes/metadata-hub/data-catalog-ai-markup-tags.md) %}
 
 {% endlist %}

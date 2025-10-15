@@ -39,6 +39,7 @@ default:
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   api-host-mdb-operation: operation.api.cloud.yandex.net
+  api-host-metastore: metastore.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
   api-host-quota-manager: quota-manager.api.cloud.yandex.net
@@ -7830,11 +7831,18 @@ default:
           action:
             acl: Assign bindings
             delete: Delete
+            reactivate_1080s: Activate
             reset-date: Reset verification date
+            reset-password_jk19s: Reset password
+            suspend_d90a8: Deactivate
           caption:
+            email: Email
             federation: Federation
+            provider: Credential provider
+            status: Status
             user: User
             username: Username
+          column_last-auth: Last authentication
       field-data:
         attributes:
           update_dialog:
@@ -7979,6 +7987,7 @@ default:
           field_active: Account is active
           field_full-name: Full name
           field_password: Password
+          field_username: Username
           title_personal-info: Personal information
           title_userpool_members: Users
         users:
@@ -7993,6 +8002,7 @@ default:
           section:
             certificates: Certificates
         user:
+          action_edit-user: Edit attributes
           field_user-email: Email
           field_user-familyname: Surname
           field_user-givenname: Name
@@ -9981,6 +9991,9 @@ default:
           action_disable-access: Disable access
           action_enable-access: Enable access
           label_filter-by-service-placeholder: Filter by service
+        users:
+          popup-add-users-from-federation_field_federation: Federation
+          popup-add-users-from-federation_field_users: Users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -11441,6 +11454,7 @@ default:
           button_create: Create bucket
           button_open-multipart-uploads: Show uploads
           button_permissions: Configure ACL
+          column_count: Number of objects
           create:
             button_create: Create bucket
           label_title: Buckets

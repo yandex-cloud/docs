@@ -1,6 +1,7 @@
 ---
 title: Как скопировать дашборд в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете скопировать дашборд.
+sourcePath: ru/monitoring_includes/operations/dashboard/copy.md
 ---
 
 # Копирование дашборда

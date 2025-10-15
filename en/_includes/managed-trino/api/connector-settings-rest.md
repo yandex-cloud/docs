@@ -8,6 +8,6 @@
         * `awsEndpoint`: File storage endpoint, e.g., `storage.yandexcloud.net`.
         * `awsRegion`: File storage region, e.g., `ru-central1`.
 
-* `metastore.hive.uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:<port>` format.
+* `metastore.hive.uri`: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:9083` format.
 
     To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel.

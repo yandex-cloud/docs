@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/filters.md
+---
 # Фильтры
 
 Фильтр можно описать в секции `routes` внутри элемента `channel`:`pipe`:`filter`. Либо в секции именованных цепочек преобразований `pipes`. 

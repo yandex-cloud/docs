@@ -207,8 +207,6 @@ keywords:
       
       * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-          {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
           Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
@@ -249,11 +247,12 @@ keywords:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
-        name                = "<имя_кластера>"
-        environment         = "<окружение>"
-        network_id          = "<идентификатор_сети>"
-        security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
-        deletion_protection = "<защитить_кластер_от_удаления>"
+        name                   = "<имя_кластера>"
+        environment            = "<окружение>"
+        network_id             = "<идентификатор_сети>"
+        security_group_ids     = ["<список_идентификаторов_групп_безопасности>"]
+        disk_encryption_key_id = <идентификатор_ключа_KMS>
+        deletion_protection    = "<защитить_кластер_от_удаления>"
 
         config {
 
@@ -316,6 +315,13 @@ keywords:
       Где:
 
       * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
+
+      
+      * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.

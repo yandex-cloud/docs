@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of analytics for [text](https://yandex.cloud/en/prices?state=5d33b1fb1362#calculator) and [audio](https://yandex.cloud/en/prices?state=b22c4c9e4f90#calculator) dialogues, use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
+To estimate the cost of analytics for [text](https://yandex.cloud/en/prices?state=5d33b1fb1362#calculator) and [audio](https://yandex.cloud/en/prices?state=b22c4c9e4f90#calculator) dialogues, use the calculator on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -52,21 +52,21 @@ Automatic recalculation of modified and newly created dictionary and semantic [t
 {% include [usd.md](../_pricing/speechsense/usd-text-dialogs.md) %}
 
 
-### Cost of model usage in the assistant {#price-model-assistant}
+### Cost of using models in the assistant {#price-model-assistant}
 
 
 
 {% include [usd-model.md](../_pricing/speechsense/usd-model-assistant.md) %}
 
 
-### Example of calculating the cost of audio analysis {#price-example-speech}
+### Cost calculation example for audio analysis {#price-example-speech}
 
 
 
 {% include [usd-speechsense](../_pricing_examples/speechsense/usd-speechsense.md) %}
 
 
-### Example of calculating the cost of text dialog analysis {#price-example-text}
+### Cost calculation example for text dialog analysis {#price-example-text}
 
 #### Example 1 {#example-1}
 
@@ -93,5 +93,16 @@ Let's assume that 685,000,000 characters, or 685,000 thousand characters, were a
 
 
 {% include [usd-speechsense-text-1M](../_pricing_examples/speechsense/usd-speechsense-text-1M.md) %}
+
+
+### Cost calculation example for audio analysis using the assistant {#price-example}
+
+The filter captured audio recordings totaling 115,000 minutes. The assistant supports 3,000 characters, counted across the **Instruction** and **Result** sections.
+
+{{ speechsense-name }} recognized and analyzed audio recordings totaling 115,000 minutes. The instruction, result fields, and audio recordings were fed into YandexGPT Pro. One minute of audio equals roughly 1,000 characters (this value may vary depending on the speech rate).
+
+
+
+{% include [usd-assistant](../_pricing_examples/speechsense/usd-assistant.md) %}
 
 

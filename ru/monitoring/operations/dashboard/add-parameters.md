@@ -1,6 +1,7 @@
 ---
 title: Как добавить параметр дашборда в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как добавить параметр дашборда в {{ monitoring-name }}.
+sourcePath: ru/monitoring_includes/operations/dashboard/add-parameters.md
 ---
 
 # Добавление параметра дашборда

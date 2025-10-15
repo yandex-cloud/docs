@@ -5,7 +5,7 @@ description: Follow this guide to create a {{ SD }} cluster.
 
 # Creating an {{ SD }} cluster
 
-A {{ SD }} cluster is one or more database hosts between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host, where the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
+A {{ SD }} cluster is one or more database hosts between which you can configure [replication](../concepts/replication.md). Replication is on by default in any cluster consisting of more than one host: the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
 
 
 {% note info %}
@@ -64,7 +64,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-        To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
@@ -149,6 +149,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         --database name=<DB_name> \
         --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <storage_size_in_GB> \
+        --disk-encryption-key-id <KMS_key_ID> \
         --performance-diagnostics=<enable_diagnostics> \
         --deletion-protection
       ```
@@ -170,6 +171,11 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
          * `priority`: [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
 
       * `--mongod-disk-type`: Disk type.
+      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+
+         {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+         To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
@@ -287,7 +293,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mmg }}).
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -415,7 +421,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
             * `day`: Day of week, in `DDD` format.
-            * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
+            * `hour`: Hour, in `HH` format. The possible values are: Between `1` and `24` hours.
 
         * `configSpec`: Cluster settings:
 
@@ -599,7 +605,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
             * `day`: Day of week, in `DDD` format.
-            * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
+            * `hour`: Hour, in `HH` format. The possible values are: Between `1` and `24` hours.
 
         * `config_spec`: Cluster settings:
 

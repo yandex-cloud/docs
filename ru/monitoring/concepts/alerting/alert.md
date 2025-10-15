@@ -1,6 +1,7 @@
 ---
 title: Алерт в {{ monitoring-full-name }}
 description: Алерт в {{ monitoring-short-name }} — периодически вычисляемый набор последовательных именованных запросов. Более подробно об алертах, их статусах, настройке и использовании вы узнаете из данной статьи.
+sourcePath: ru/monitoring_includes/concepts/alerting/alert.md
 ---
 
 # Алерт

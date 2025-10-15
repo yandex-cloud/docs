@@ -2,6 +2,7 @@
 title: Метрики {{ cloud-logging-full-name }}
 description: Из статьи вы узнаете про метрики {{ cloud-logging-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/logging-ref.md
 ---
 
 # Метрики {{ cloud-logging-full-name }}

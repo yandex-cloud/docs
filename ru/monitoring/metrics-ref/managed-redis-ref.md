@@ -2,6 +2,7 @@
 title: Метрики {{ mrd-full-name }}
 description: Из статьи вы узнаете про метрики {{ mrd-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-redis-ref.md
 ---
 
 # Метрики {{ mrd-full-name }}
