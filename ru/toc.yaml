@@ -119,8 +119,6 @@ items:
     href: microsoft/index.yaml
   - name: Monitoring
     href: monitoring/index.yaml
-  - name: Monium
-    href: monium/index.yaml
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
   - name: Neurosupport

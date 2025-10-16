@@ -6,7 +6,7 @@
 * просматривать информацию о [шардах](../../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc;
 * просматривать информацию о базах данных Yandex StoreDoc;
 * просматривать информацию о [пользователях](../../storedoc/concepts/users-and-roles.md) Yandex StoreDoc;
-* просматривать информацию о [резервных копиях](../../storedoc/concepts/backup.md) Yandex StoreDoc;
+* просматривать информацию о [резервных копиях](../../storedoc/concepts/backup.md) кластеров Yandex StoreDoc;
 * просматривать информацию об алертах Yandex StoreDoc;
 * просматривать [логи](../../storedoc/operations/cluster-logs.md) работы кластеров Yandex StoreDoc;
 * просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;

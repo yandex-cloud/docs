@@ -171,9 +171,6 @@ links:
   - title: Monitoring
     description: Сбор и визуализация метрик
     href: monitoring/
-  - title: Monium
-    description: Платформа Observabality
-    href: monium/
   - title: Network Load Balancer
     description: Сетевые балансировщики нагрузки
     href: network-load-balancer/

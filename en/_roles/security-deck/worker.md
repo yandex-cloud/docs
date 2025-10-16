@@ -18,3 +18,4 @@ This role includes the `dspm.worker`, `kspm.worker`, and `cspm.worker` permissio
 The role cannot guarantee access to a bucket with a Yandex Object Storage [access policy](../../storage/security/policy.md) applied.
 
 {% endnote %}
+

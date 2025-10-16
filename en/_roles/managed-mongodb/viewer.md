@@ -6,7 +6,7 @@ Users with this role can:
 * View information about Yandex StoreDoc cluster [shards](../../storedoc/concepts/sharding.md).
 * View information about Yandex StoreDoc databases.
 * View information about Yandex StoreDoc [users](../../storedoc/concepts/users-and-roles.md).
-* View information about Yandex StoreDoc [backups](../../storedoc/concepts/backup.md).
+* View information about Yandex StoreDoc cluster [backups](../../storedoc/concepts/backup.md).
 * View information about Yandex StoreDoc alerts.
 * View Yandex StoreDoc cluster [logs](../../storedoc/operations/cluster-logs.md).
 * View information about the results of Yandex StoreDoc cluster performance diagnostics.

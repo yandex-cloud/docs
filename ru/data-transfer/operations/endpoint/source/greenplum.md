@@ -155,7 +155,8 @@ SELECT COUNT(*) FROM gp_segment_configuration WHERE role='p' AND content >= 0;
 
 * [{{ PG }}](../target/postgresql.md);
 * [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md).
+* [{{ GP }}](../target/greenplum.md);
+* [{{ ytsaurus-name }}](../source/yt.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

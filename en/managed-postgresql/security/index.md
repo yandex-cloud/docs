@@ -40,6 +40,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-postgresql.viewer](../../_roles/managed-postgresql/viewer.md) %}
 
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../../_roles/managed-postgresql/restorer.md) %}
+
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
 {% include [managed-postgresql.editor](../../_roles/managed-postgresql/editor.md) %}
@@ -59,6 +63,10 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

@@ -3,6 +3,7 @@ The `managed-opensearch.admin` role allows you to manage OpenSearch clusters and
 Users with this role can:
 * Manage access to OpenSearch clusters.
 * View information on OpenSearch [clusters](../../managed-opensearch/concepts/index.md), as well as create, modify, delete, run, and stop them.
+* Restore OpenSearch clusters from backups.
 * View OpenSearch cluster logs.
 * View information on [quotas](../../managed-opensearch/concepts/limits.md#quotas) of Managed Service for OpenSearch.
 * View information on resource operations for Managed Service for OpenSearch.

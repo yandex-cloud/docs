@@ -7,7 +7,7 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
-### Версия 0.170.0 (13.10.25) {#version0.170.0}
+### Версия 0.170.0 (16.10.25) {#version0.170.0}
 ####  Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mpg-name }}
@@ -18,6 +18,31 @@ description: На странице представлены релизы CLI, а
 
 Добавлено конфигурирование dag-processor для Airflow 3.0 и выше.
 
+##### {{ interconnect-name }}
+
+* Добавлена команда получения информации о ресурсе по его идентификатору.
+* Добавлены команды `get-by-vpc-network-id` и `get-by-cic-private-connection-id`
+
+##### {{ org-name }}
+
+* Добавлена команда `yc organization-manager group list-effective` для вывода групп внутри организации, в которых состоит пользователь.
+* Добавлена возможность управления парольными политиками при создании и обновлении пула пользователей.
+* Добавлена группа команд `yc organization-manager idp application oauth application` для управления OAuth-приложениями:
+  * yc organization-manager idp application oauth application get
+  * yc organization-manager idp application oauth application list
+  * yc organization-manager idp application oauth application create
+  * yc organization-manager idp application oauth application update
+  * yc organization-manager idp application oauth application delete
+  * yc organization-manager idp application oauth application suspend
+  * yc organization-manager idp application oauth application reactivate
+  * yc organization-manager idp application oauth application list-operations
+  * yc organization-manager idp application oauth application list-assignments
+  * yc organization-manager idp application oauth application add-assignments
+  * yc organization-manager idp application oauth application remove-assignments
+  * yc organization-manager idp application oauth application list-access-bindings
+  * yc organization-manager idp application oauth application set-access-bindings
+  * yc organization-manager idp application oauth application update-access-bindings
+
 ##### {{ mgp-name }}
 
 * Для команды создания кластера `yc managed-greenplum cluster create` версия по умолчанию изменена на 6.28.
@@ -27,10 +52,28 @@ description: На странице представлены релизы CLI, а
 
 Добавлена проверка на максимальный размер объекта в команде `yc storage s3 cp`.
 
-##### {{ org-name }}
+##### {{ baremetal-name }}
 
-* Добавлена команда `yc organization-manager group list-effective` для вывода групп внутри организации, в которых состоит пользователь.
-* Добавлена возможность управления парольными политиками при создании и обновлении пула пользователей.
+Добавлена команда `yc baremetal rental-period list`, возвращающая доступные периоды аренды для сервера.
+
+##### {{ cr-name }}
+
+Уточнено описание команд `yc cloudrouter routing-instance create`, `yc cloudrouter routing-instance upsert-prefixes` и `yc cloudrouter routing-instance remove-prefixes`, добавлены примеры.
+
+##### {{ mtr-name }}
+Добавлены команды для создания и обновления Hudi каталогов для {{ mtr-name }}
+  * yc managed trino create hudi
+  * yc managed trino catalog update hudi
+
+##### {{ myt-name }}
+
+Добавлены команды для управления кластерами {{ myt-name }}:
+  * yc managed-ytsaurus cluster get
+  * yc managed-ytsaurus cluster start
+  * yc managed-ytsaurus cluster stop
+  * yc managed-ytsaurus cluster delete
+  * yc managed-ytsaurus cluster list
+  * yc managed-ytsaurus cluster get-configuration
 
 ## Предыдущие релизы {#previous-release}
 

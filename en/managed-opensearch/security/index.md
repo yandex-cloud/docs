@@ -42,6 +42,10 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [opensearch.viewer](../../_roles/managed-opensearch/viewer.md) %}
 
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [opensearch.restorer](../../_roles/managed-opensearch/restorer.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../../_roles/managed-opensearch/editor.md) %}
@@ -61,6 +65,10 @@ The chart below shows which roles are available in the service and how they inhe
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

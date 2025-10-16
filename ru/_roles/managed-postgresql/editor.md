@@ -5,13 +5,13 @@
 * просматривать информацию о [хостах](../../managed-postgresql/concepts/instance-types.md) кластеров PostgreSQL, а также создавать, изменять и удалять их;
 * просматривать информацию о базах данных PostgreSQL, а также создавать, изменять и удалять их;
 * просматривать информацию о [пользователях](../../managed-postgresql/concepts/roles.md) PostgreSQL, а также создавать, изменять и удалять их;
-* просматривать информацию о [резервных копиях](../../managed-postgresql/concepts/backup.md) БД PostgreSQL, а также создавать и удалять их;
+* просматривать информацию о [резервных копиях](../../managed-postgresql/concepts/backup.md) кластеров PostgreSQL, создавать и удалять резервные копии, а также восстанавливать кластеры из резервных копий;
 * просматривать информацию об алертах PostgreSQL, а также создавать, изменять и удалять их;
 * просматривать логи работы кластеров PostgreSQL;
 * просматривать информацию о результатах диагностики производительности кластеров PostgreSQL;
 * просматривать информацию о [квотах](../../managed-postgresql/concepts/limits.md#mpg-quotas) сервиса Managed Service for PostgreSQL;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for PostgreSQL.
 
-Включает разрешения, предоставляемые ролью `managed-postgresql.viewer`.
+Включает разрешения, предоставляемые ролями `managed-postgresql.viewer` и `managed-postgresql.restorer`.
 
 Для создания кластеров PostgreSQL дополнительно необходима роль `vpc.user`.

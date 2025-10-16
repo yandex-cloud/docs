@@ -9,3 +9,9 @@
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | {{ sku|KZT|mdb.cluster.greenplum.highfreq-v3.cpu.c100.dedicated|string }} |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.greenplum.highfreq-v3.ram.dedicated|string }} |
+| **AMD Zen 4**                                                                    |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.greenplum.v4a.cpu.c100.dedicated|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.greenplum.v4a.ram.dedicated|string }}      |
+| **AMD Zen 4 HighFreq** |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.greenplum.highfreq-v4a.cpu.c100.dedicated|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.greenplum.highfreq-v4a.ram.dedicated|string }} |

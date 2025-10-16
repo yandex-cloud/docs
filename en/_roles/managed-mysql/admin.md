@@ -6,7 +6,7 @@ Users with this role can:
 * View information on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md), as well as create, modify, and delete them.
 * View information on MySQL® databases, as well as create, modify, and delete them.
 * View information on MySQL® [users](../../managed-mysql/concepts/user-rights.md), as well as create, modify, and delete them.
-* View information on MySQL® DB [backups](../../managed-mysql/concepts/backup.md), as well as create and delete them.
+* View information on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
 * View information on MySQL® alerts, as well as create, modify, and delete them.
 * View MySQL® cluster logs.
 * View information on the results of MySQL® cluster performance diagnostics.

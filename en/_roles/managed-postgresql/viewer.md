@@ -5,7 +5,7 @@ Users with this role can:
 * View information on PostgreSQL cluster [hosts](../../managed-postgresql/concepts/instance-types.md).
 * View information on PostgreSQL databases.
 * View information on PostgreSQL [users](../../managed-postgresql/concepts/roles.md).
-* View information on PostgreSQL DB [backups](../../managed-postgresql/concepts/backup.md).
+* View information on PostgreSQL cluster [backups](../../managed-postgresql/concepts/backup.md).
 * View information on PostgreSQL alerts.
 * View PostgreSQL cluster logs.
 * View information on the results of PostgreSQL cluster performance diagnostics.

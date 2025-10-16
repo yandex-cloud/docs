@@ -40,6 +40,10 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [managed-redis.viewer](../../_roles/managed-redis/viewer.md) %}
 
+#### managed-redis.restorer {#managed-redis-restorer}
+
+{% include [managed-redis.restorer](../../_roles/managed-redis/restorer.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../../_roles/managed-redis/editor.md) %}
@@ -59,6 +63,10 @@ The chart below shows which roles are available in the service and how they inhe
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

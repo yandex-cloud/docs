@@ -96,8 +96,8 @@ items:
           load balancer
         href: tutorials/mssql-alwayson-lb.md
       - name: >-
-          Migrating services from an NLB to L7 ALB for DDoS protection using {{
-          sws-name }}
+          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          protection
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md

@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы научите
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть [роль](../../security/index.md#serverless-mcpGateways-editor) `serverless.mcpGateways.editor` или выше.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
-  1. На панели слева выберите ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP-серверы** и в открывшемся окне:
+  1. На панели слева выберите ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP-серверы** и нажмите кнопку **Создать MCP-сервер**. В открывшемся окне:
 
       1. В блоке **Способ добавления** выберите опцию ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **Создать**.
       1. В блоке **Инструменты** выберите [тип](../../concepts/mcp-hub/index.md#brand-new) добавляемого в MCP-сервер инструмента — `HTTPS-запросы`, `{{ sf-name }}` или `{{ sw-name }}`:
@@ -45,8 +45,8 @@ description: Следуя данной инструкции, вы научите
             1. В поле **URL** укажите эндпоинт, на который будет отправляться HTTPS-запрос.
 
                 Чтобы указать query-параметры в URL, используйте синтаксис [OpenAPI](https://www.openapis.org/). Например: `{{ link-console-main }}/folders/{folder-id}`.
-            1. В поле **Метод** выберите метод запроса: `Get` или `Post`.
-            1. Разверните блок **Дополнительно** и укажите аутентификационные данные, которые будут передаваться в HTTPS-запросах:
+            1. В поле **Метод** выберите метод запроса: `GET`, `POST`, `DELETE`, `PATCH`, `OPTIONS` или `HEAD`.
+            1. Разверните блок **Дополнительные параметры** и укажите аутентификационные данные, которые будут передаваться в HTTPS-запросах:
 
                 {% include [create-server-console-auth-params](../../../_includes/ai-studio/mcp-hub/create-server-console-auth-params.md) %}
 
@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы научите
 
                     Параметры поддерживают шаблонизацию — их значения могут генерироваться динамически. Язык шаблонизации — `jq`. Подробнее см. в [документации jq](https://jqlang.github.io/jq/manual/).
 
-                    Например: значение `\(.city)` параметра HTTPS-запроса будет взято из параметра инструмента `city`. Также при помощи конструкции `Bearer \(lockboxPayload("<идентфикатор_секрета>"; "<идентификатор_ключа>"))` или `Bearer \(.token)` для заголовка `Authorization` вы сможете настроить авторизацию с использованием токена, полученного из секрета {{ lockbox-name }} или переданного в параметре инструмента.
+                    Например: значение `\(.city)` параметра HTTPS-запроса будет взято из параметра инструмента `city`. Также при помощи конструкции `Bearer \(.token)` для заголовка `Authorization` вы сможете настроить авторизацию с использованием токена, переданного в параметре инструмента.
 
           - {{ sf-name }}
 
@@ -75,18 +75,7 @@ description: Следуя данной инструкции, вы научите
                 Инструмент распознает текст на изображении, передаваемом в кодировке base64. В распознанном 
                 тексте инструмент выделяет пары "артикул":"количество" и возвращает в формате JSON-структуры.
                 ```
-            1. В поле **Функция** выберите [функцию](../../../functions/concepts/function.md) {{ sf-name }}, которая будет выполнять обработку запросов.
-            1. В поле **Тип авторизации** выберите способ авторизации при вызове функции:
-
-                * `Сервисный аккаунт` — чтобы вызывать функцию от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), привязанного к MCP-серверу.
-
-                    {% note info %}
-
-                    [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, привязанному к MCP-серверу, [роль](../../../functions/security/index.md#functions-functionInvoker) `functions.functionInvoker` на нужную функцию.
-
-                    {% endnote %}
-
-                * `Без авторизации` — чтобы не использовать авторизацию, если вы вызываете публичную функцию.
+            1. В поле **Функция** выберите [функцию](../../../functions/concepts/function.md) {{ sf-name }}, которая будет выполнять обработку запросов, и ее [версию](../../../functions/concepts/function.md#version).
             1. {% include [create-server-console-tool-params](../../../_includes/ai-studio/mcp-hub/create-server-console-tool-params.md) %}
 
             {% include [empty-request-body](../../../_includes/ai-studio/mcp-hub/empty-request-body.md) %}
@@ -104,17 +93,6 @@ description: Следуя данной инструкции, вы научите
                 исходный текст, максимальную длину суммаризации и язык.
                 ```
             1. В поле **Рабочий процесс** выберите [рабочий процесс](../../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-name }}, который будет выполнять обработку запросов.
-            1. В поле **Тип авторизации** выберите способ авторизации при запуске рабочего процесса:
-
-                * `Сервисный аккаунт` — чтобы запускать рабочий процесс от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), привязанного к MCP-серверу.
-
-                    {% note info %}
-
-                    [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, привязанному к MCP-серверу, [роль](../../../serverless-integrations/security/workflows.md#serverless-workflows-executor) `serverless.workflows.executor` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) {{ yandex-cloud }}, в котором находится нужный рабочий процесс.
-
-                    {% endnote %}
-
-                * `Без авторизации` — чтобы не использовать авторизацию при запуске рабочего процесса.
             1. {% include [create-server-console-tool-params](../../../_includes/ai-studio/mcp-hub/create-server-console-tool-params.md) %}
 
             {% include [empty-request-body](../../../_includes/ai-studio/mcp-hub/empty-request-body.md) %}
@@ -131,8 +109,9 @@ description: Следуя данной инструкции, вы научите
           1. {% include [create-server-console-general-params-ss2](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss2.md) %}
           1. {% include [create-server-console-general-params-ss3](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss3.md) %}
           1. {% include [create-server-console-general-params-ss4](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss4.md) %}
+          1. {% include [create-server-console-general-params-ss4-1](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss4-1.md) %}
           1. {% include [create-server-console-general-params-ss5](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss5.md) %}
-      1. Нажмите кнопку **Добавить**
+      1. Нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
