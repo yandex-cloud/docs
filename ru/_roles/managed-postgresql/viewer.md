@@ -5,7 +5,7 @@
 * просматривать информацию о [хостах](../../managed-postgresql/concepts/instance-types.md) кластеров PostgreSQL;
 * просматривать информацию о базах данных PostgreSQL;
 * просматривать информацию о [пользователях](../../managed-postgresql/concepts/roles.md) PostgreSQL;
-* просматривать информацию о [резервных копиях](../../managed-postgresql/concepts/backup.md) БД PostgreSQL;
+* просматривать информацию о [резервных копиях](../../managed-postgresql/concepts/backup.md) кластеров PostgreSQL;
 * просматривать информацию об алертах PostgreSQL;
 * просматривать логи работы кластеров PostgreSQL;
 * просматривать информацию о результатах диагностики производительности кластеров PostgreSQL;

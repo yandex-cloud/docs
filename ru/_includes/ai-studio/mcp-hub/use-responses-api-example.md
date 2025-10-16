@@ -8,7 +8,7 @@ from openai import OpenAI
 # Создаем клиента
 client = openai.OpenAI(
     api_key="<API-ключ>",
-    base_url="https://{{ api-host-llm }}/v1",
+    base_url="https://rest-assistant.{{ api-host }}/v1",
     project="<идентификатор_каталога>"
 )
 # Пример вызова MCP через {{ responses-api }}
@@ -23,7 +23,7 @@ response = client.responses.create(
     # MCP-инструменты, доступные модели
     tools=[
         {
-            "name": "crm_lookup",
+            "server_label": "crm_lookup",
             "server_url": "<URL_MCP-сервера>",
             "type": "mcp",
             "metadata": {

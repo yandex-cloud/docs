@@ -5,7 +5,7 @@ Users with this role can:
 * View information on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md).
 * View information on MySQL® databases.
 * View information on MySQL® [users](../../managed-mysql/concepts/user-rights.md).
-* View information on MySQL® DB [backups](../../managed-mysql/concepts/backup.md).
+* View information on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md).
 * View information on MySQL® alerts.
 * View MySQL® cluster logs.
 * View information on the results of MySQL® cluster performance diagnostics.

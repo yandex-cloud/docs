@@ -230,7 +230,8 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ objstorage-full-name }}](../target/object-storage.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ mmg-name }} (Managed Service for MongoDB)](../target/mongodb.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

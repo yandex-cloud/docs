@@ -4,18 +4,18 @@
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Install {{ TF }}](#install-terraform).
-1. [Get the authentication data](#get-credentials)
+1. [Get the authentication data](#get-credentials).
 1. [Create a {{ TF }} configuration file](#configure-terraform).
-1. [Configure a provider](#configure-provider).
+1. [Configure your provider](#configure-provider).
 1. [Prepare an infrastructure plan](#prepare-plan).
 1. [Check and format your configuration files](#check-resources).
 1. [Create resources](#create-resources).
 
 If you no longer need the resources, [delete them](#delete-resources).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -33,7 +33,7 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 {% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
-{% cut "Managing resources on behalf of a Yandex account or a federated account" %}
+{% cut "Managing resources under a Yandex account or a federated account" %}
 
 {% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
@@ -43,13 +43,13 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 {% include [terraform-configure](../../_tutorials/_tutorials_includes/terraform-configure.md) %}
 
-## Configure a provider {#configure-provider}
+## Configure your provider {#configure-provider}
 
 {% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-With {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type: VMs, [disks](../../compute/concepts/disk.md), [images](../../compute/concepts/image.md), etc. For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+With {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type: VMs, [disks](../../compute/concepts/disk.md), [images](../../compute/concepts/image.md), etc. For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up the infrastructure plan.
 

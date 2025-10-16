@@ -6,3 +6,6 @@
 | **Intel Ice Lake**                                                                                                            |
 | 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c100|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.cpu.c100|month|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v3|month|number }} %} |
 | RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.ram|number }} + {{ sku|KZT|compute.hostgroup.ram.v3|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v3.ram|month|number }} + {{ sku|KZT|compute.hostgroup.ram.v3|month|number }} %} |
+| **AMD Zen 4** |
+| 100% vCPU              | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v4a.cpu.c100|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v4a|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v4a.cpu.c100|month|number }} + {{ sku|KZT|compute.hostgroup.cpu.c100.v4a|month|number }} %} |
+| RAM (за 1 ГБ)          | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v4a.ram|number }} + {{ sku|KZT|compute.hostgroup.ram.v4a|number }} %} | {% calc [currency=KZT] {{ sku|KZT|mdb.dataproc.v4a.ram|month|number }} + {{ sku|KZT|compute.hostgroup.ram.v4a|month|number }} %} |

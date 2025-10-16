@@ -1390,6 +1390,8 @@ default:
           v3|number: 6.387
           v3|string: ₸6.3870
           v4|string: ₸10.4760
+          v4a|month|number: 4082.4
+          v4a|number: 5.67
       localssd:
         v1|month|string: ₸47.52
         v1|number: 0.066
@@ -1402,6 +1404,8 @@ default:
         v3|number: 1.6918
         v3|string: ₸1.6918
         v4|string: ₸1.89
+        v4a|month|number: 1088.64
+        v4a|number: 1.512
     image|month|string: ₸16.8479
     snapshot|month|string: ₸16.8479
     vm:
@@ -1436,6 +1440,8 @@ default:
           v3|month|number: 4082.4
           v3|number: 5.67
           v3|string: ₸5.67
+          v4a|month|number: 4082.4
+          v4a|number: 5.67
           v4a|string: ₸5.67
         c100|month|number: 4152.96
         c100|number: 5.768
@@ -1496,6 +1502,8 @@ default:
         v3|month|number: 1088.64
         v3|number: 1.512
         v3|string: ₸1.5120
+        v4a|month|number: 1088.64
+        v4a|number: 1.512
         v4a|string: ₸1.5120
       ram|month|number: 1446.12
       ram|number: 2.0085
@@ -1744,6 +1752,12 @@ default:
             c100|string: ₸14.85
           ram|month|string: ₸2099.52
           ram|string: ₸2.9160
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸12993.84
+            c100|string: ₸18.0470
+          ram|month|string: ₸2551.68
+          ram|string: ₸3.5440
         v1:
           cpu:
             c100|month|string: ₸8454.24
@@ -1778,6 +1792,12 @@ default:
           ram|month|string: ₸1827.36
           ram|number: 2.538
           ram|string: ₸2.5380
+        v4a:
+          cpu:
+            c100|month|string: ₸6687.36
+            c100|string: ₸9.2880
+          ram|month|string: ₸1827.36
+          ram|string: ₸2.5380
       greenplum:
         highfreq-v3:
           cpu:
@@ -1789,6 +1809,16 @@ default:
             dedicated|string: ₸1.7280
           ram|month|string: ₸2566.08
           ram|string: ₸3.5640
+        highfreq-v4a:
+          cpu:
+            c100:
+              dedicated|string: ₸11.3530
+            c100|month|string: ₸16254.00
+            c100|string: ₸22.5750
+          ram:
+            dedicated|string: ₸2.10
+          ram|month|string: ₸3118.68
+          ram|string: ₸4.3315
         v2:
           cpu:
             c100:
@@ -1813,6 +1843,16 @@ default:
           ram|month|string: ₸2216.16
           ram|number: 3.078
           ram|string: ₸3.0780
+        v4a:
+          cpu:
+            c100:
+              dedicated|string: ₸5.8320
+            c100|month|string: ₸8359.20
+            c100|string: ₸11.61
+          ram:
+            dedicated|string: ₸1.5120
+          ram|month|string: ₸2216.16
+          ram|string: ₸3.0780
       kafka:
         highfreq-v3:
           cpu:
@@ -1820,6 +1860,12 @@ default:
             c100|string: ₸13.0680
           ram|month|string: ₸1788.48
           ram|string: ₸2.4840
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸11434.68
+            c100|string: ₸15.8815
+          ram|month|string: ₸2173.68
+          ram|string: ₸3.0190
         v2:
           cpu:
             c100|month|string: ₸6531.84
@@ -1838,6 +1884,12 @@ default:
           ram|month|string: ₸1555.20
           ram|number: 2.16
           ram|string: ₸2.16
+        v4a:
+          cpu:
+            c100|month|string: ₸5870.88
+            c100|string: ₸8.1540
+          ram|month|string: ₸1555.20
+          ram|string: ₸2.16
       local-nvme:
         ch|month|string: ₸70.2540
         greenplum:
@@ -1854,6 +1906,11 @@ default:
         redis|month|string: ₸70.2540
       mongodb:
         backup|month|string: ₸10.3680
+        mongocfg:
+          v4a:
+            cpu:
+              c100|month|string: ₸6220.80
+              c100|string: ₸8.64
         v1:
           cpu:
             c100|month|string: ₸5932.80
@@ -1888,6 +1945,9 @@ default:
           ram|month|string: ₸3499.20
           ram|number: 4.86
           ram|string: ₸4.86
+        v4a:
+          ram|month|string: ₸3499.20
+          ram|string: ₸4.86
       mysql:
         backup|month|string: ₸10.3680
         highfreq-v3:
@@ -1900,6 +1960,16 @@ default:
             dedicated|string: ₸0.9180
           ram|month|string: ₸2060.64
           ram|string: ₸2.8620
+        highfreq-v4a:
+          cpu:
+            c100:
+              dedicated|string: ₸5.9065
+            c100|month|string: ₸12710.16
+            c100|string: ₸17.6530
+          ram:
+            dedicated|string: ₸1.1155
+          ram|month|string: ₸2504.16
+          ram|string: ₸3.4780
         v1:
           cpu:
             c100|month|string: ₸7008.12
@@ -1941,6 +2011,16 @@ default:
             dedicated|string: ₸0.81
           ram|month|string: ₸1788.48
           ram|number: 2.484
+          ram|string: ₸2.4840
+        v4a:
+          cpu:
+            c100:
+              dedicated|string: ₸2.70
+            c100|month|string: ₸6531.84
+            c100|string: ₸9.0720
+          ram:
+            dedicated|string: ₸0.81
+          ram|month|string: ₸1788.48
           ram|string: ₸2.4840
       network-hdd:
         ch|month|number: 17.28
@@ -1993,6 +2073,12 @@ default:
             c100|string: ₸14.5260
           ram|month|string: ₸3149.28
           ram|string: ₸4.3740
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸12710.16
+            c100|string: ₸17.6530
+          ram|month|string: ₸3827.16
+          ram|string: ₸5.3155
         v2:
           cpu:
             c100|month|string: ₸6531.84
@@ -2011,6 +2097,12 @@ default:
           ram|month|string: ₸2721.60
           ram|number: 3.78
           ram|string: ₸3.78
+        v4a:
+          cpu:
+            c100|month|string: ₸6531.84
+            c100|string: ₸9.0720
+          ram|month|string: ₸2721.60
+          ram|string: ₸3.78
       pg:
         backup|month|string: ₸10.3680
         highfreq-v3:
@@ -2019,6 +2111,12 @@ default:
             c100|string: ₸14.0940
           ram|month|string: ₸1982.88
           ram|string: ₸2.7540
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸12332.16
+            c100|string: ₸17.1280
+          ram|month|string: ₸2409.84
+          ram|string: ₸3.3470
         v1:
           cpu:
             c100|month|string: ₸7935.12
@@ -2053,6 +2151,12 @@ default:
           ram|month|string: ₸1710.72
           ram|number: 2.376
           ram|string: ₸2.3760
+        v4a:
+          cpu:
+            c100|month|string: ₸6337.44
+            c100|string: ₸8.8020
+          ram|month|string: ₸1710.72
+          ram|string: ₸2.3760
       redis:
         backup|month|string: ₸10.3680
         highfreq-v3:
@@ -2061,6 +2165,12 @@ default:
             c100|string: ₸13.0680
           ram|month|string: ₸1788.48
           ram|string: ₸2.4840
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸11434.68
+            c100|string: ₸15.8815
+          ram|month|string: ₸2173.68
+          ram|string: ₸3.0190
         v1:
           cpu:
             c100|month|string: ₸7416.00
@@ -2091,6 +2201,12 @@ default:
           ram|month|string: ₸1555.20
           ram|number: 2.16
           ram|string: ₸2.16
+        v4a:
+          cpu:
+            c100|month|string: ₸5870.88
+            c100|string: ₸8.1540
+          ram|month|string: ₸1555.20
+          ram|string: ₸2.16
     dataproc:
       v1:
         cpu:
@@ -2118,6 +2234,12 @@ default:
           c50|number: 0.324
         ram|month|number: 116.64
         ram|number: 0.162
+      v4a:
+        cpu:
+          c100|month|number: 466.56
+          c100|number: 0.648
+        ram|month|number: 116.64
+        ram|number: 0.162
     kafka:
       kraft:
         highfreq-v3:
@@ -2126,6 +2248,12 @@ default:
             c100|string: ₸13.0680
           ram|month|string: ₸1788.48
           ram|string: ₸2.4840
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸11434.68
+            c100|string: ₸15.8815
+          ram|month|string: ₸2173.68
+          ram|string: ₸3.0190
         v2:
           cpu:
             c100|month|string: ₸6531.84
@@ -2142,6 +2270,12 @@ default:
             c50|string: ₸3.6720
           ram|month|string: ₸1555.20
           ram|string: ₸2.16
+        v4a:
+          cpu:
+            c100|month|string: ₸5870.88
+            c100|string: ₸8.1540
+          ram|month|string: ₸1555.20
+          ram|string: ₸2.16
       ui:
         cluster:
           v1|string: ₸21000.00
@@ -2153,6 +2287,12 @@ default:
             c100|string: ₸9.3960
           ram|month|string: ₸1244.16
           ram|string: ₸1.7280
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸8221.68
+            c100|string: ₸11.4190
+          ram|month|string: ₸1512.00
+          ram|string: ₸2.10
         v1:
           cpu:
             c100|month|string: ₸5265.36
@@ -2187,6 +2327,12 @@ default:
           ram|month|string: ₸1088.64
           ram|number: 1.512
           ram|string: ₸1.5120
+        v4a:
+          cpu:
+            c100|month|string: ₸4237.92
+            c100|string: ₸5.8860
+          ram|month|string: ₸1088.64
+          ram|string: ₸1.5120
       kafka:
         highfreq-v3:
           cpu:
@@ -2194,6 +2340,12 @@ default:
             c100|string: ₸9.3960
           ram|month|string: ₸1244.16
           ram|string: ₸1.7280
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₸8221.68
+            c100|string: ₸11.4190
+          ram|month|string: ₸1512.00
+          ram|string: ₸2.10
         v2:
           cpu:
             c100|month|string: ₸4704.48
@@ -2211,6 +2363,12 @@ default:
             c50|string: ₸3.78
           ram|month|string: ₸1088.64
           ram|number: 1.512
+          ram|string: ₸1.5120
+        v4a:
+          cpu:
+            c100|month|string: ₸4237.92
+            c100|string: ₸5.8860
+          ram|month|string: ₸1088.64
           ram|string: ₸1.5120
   sku|KZT|mk8s:
     master:
@@ -2591,9 +2749,13 @@ default:
                 c100:
                   v3|month|string: ₸7105.32
                   v3|string: ₸9.8685
+                  v4a|month|string: ₸7105.32
+                  v4a|string: ₸9.8685
               ram:
                 v3|month|string: ₸1883.7360
                 v3|string: ₸2.6163
+                v4a|month|string: ₸1883.88
+                v4a|string: ₸2.6165
             kafka:
               cpu:
                 c100:
@@ -2601,6 +2763,8 @@ default:
                   v2|string: ₸7.7112
                   v3|month|string: ₸4990.2480
                   v3|string: ₸6.9309
+                  v4a|month|string: ₸4990.32
+                  v4a|string: ₸6.9310
               kraft:
                 cpu:
                   c100:
@@ -2608,16 +2772,22 @@ default:
                     v2|string: ₸8.1650
                     v3|month|string: ₸5283.72
                     v3|string: ₸7.3385
+                    v4a|month|string: ₸5283.72
+                    v4a|string: ₸7.3385
                 ram:
                   v2|month|string: ₸1574.64
                   v2|string: ₸2.1870
                   v3|month|string: ₸1400.04
                   v3|string: ₸1.9445
+                  v4a|month|string: ₸1400.04
+                  v4a|string: ₸1.9445
               ram:
                 v2|month|string: ₸1487.16
                 v2|string: ₸2.0655
                 v3|month|string: ₸1321.92
                 v3|string: ₸1.8360
+                v4a|month|string: ₸1321.92
+                v4a|string: ₸1.8360
             mysql:
               cpu:
                 c100:
@@ -2625,19 +2795,27 @@ default:
                   v2|string: ₸8.5833
                   v3|month|string: ₸5552.0640
                   v3|string: ₸7.7112
+                  v4a|month|string: ₸5551.92
+                  v4a|string: ₸7.7110
               ram:
                 v2|month|string: ₸1685.4480
                 v2|string: ₸2.3409
                 v3|month|string: ₸1520.2080
                 v3|string: ₸2.1114
+                v4a|month|string: ₸1520.28
+                v4a|string: ₸2.1115
             opensearch:
               cpu:
                 c100:
                   v3|month|string: ₸5552.0640
                   v3|string: ₸7.7112
+                  v4a|month|string: ₸5551.92
+                  v4a|string: ₸7.7110
               ram:
                 v3|month|string: ₸2313.36
                 v3|string: ₸3.2130
+                v4a|month|string: ₸2313.36
+                v4a|string: ₸3.2130
             pg:
               cpu:
                 c100:
@@ -2645,11 +2823,15 @@ default:
                   v2|string: ₸8.3079
                   v3|month|string: ₸5386.8240
                   v3|string: ₸7.4817
+                  v4a|month|string: ₸5386.68
+                  v4a|string: ₸7.4815
               ram:
                 v2|month|string: ₸1619.3520
                 v2|string: ₸2.2491
                 v3|month|string: ₸1454.1120
                 v3|string: ₸2.0196
+                v4a|month|string: ₸1454.04
+                v4a|string: ₸2.0195
             redis:
               cpu:
                 c100:
@@ -2657,11 +2839,15 @@ default:
                   v2|string: ₸7.7112
                   v3|month|string: ₸4990.2480
                   v3|string: ₸6.9309
+                  v4a|month|string: ₸4990.32
+                  v4a|string: ₸6.9310
               ram:
                 v2|month|string: ₸1487.16
                 v2|string: ₸2.0655
                 v3|month|string: ₸1321.92
                 v3|string: ₸1.8360
+                v4a|month|string: ₸1321.92
+                v4a|string: ₸1.8360
           ydb:
             cpu:
               c100:
@@ -2690,19 +2876,27 @@ default:
                   v2|string: ₸8.0870
                   v3|month|string: ₸5216.1408
                   v3|string: ₸7.2446
+                  v4a|month|string: ₸5216.04
+                  v4a|string: ₸7.2445
               ram:
                 v2|month|string: ₸1576.9728
                 v2|string: ₸2.1902
                 v3|month|string: ₸1425.3408
                 v3|string: ₸1.9796
+                v4a|month|string: ₸1425.24
+                v4a|string: ₸1.9795
             greenplum:
               cpu:
                 c100:
                   v3|month|string: ₸6520.1760
                   v3|string: ₸9.0558
+                  v4a|month|string: ₸6520.32
+                  v4a|string: ₸9.0560
               ram:
                 v3|month|string: ₸1728.6048
                 v3|string: ₸2.4008
+                v4a|month|string: ₸1728.72
+                v4a|string: ₸2.4010
             kafka:
               cpu:
                 c100:
@@ -2710,6 +2904,8 @@ default:
                   v2|string: ₸7.0762
                   v3|month|string: ₸4579.2864
                   v3|string: ₸6.3601
+                  v4a|month|string: ₸4579.20
+                  v4a|string: ₸6.36
               kraft:
                 cpu:
                   c100:
@@ -2717,16 +2913,22 @@ default:
                     v2|string: ₸7.7110
                     v3|month|string: ₸4990.32
                     v3|string: ₸6.9310
+                    v4a|month|string: ₸4990.32
+                    v4a|string: ₸6.9310
                 ram:
                   v2|month|string: ₸1487.16
                   v2|string: ₸2.0655
                   v3|month|string: ₸1321.56
                   v3|string: ₸1.8355
+                  v4a|month|string: ₸1321.56
+                  v4a|string: ₸1.8355
               ram:
                 v2|month|string: ₸1364.6880
                 v2|string: ₸1.8954
                 v3|month|string: ₸1213.0560
                 v3|string: ₸1.6848
+                v4a|month|string: ₸1213.20
+                v4a|string: ₸1.6850
             mysql:
               cpu:
                 c100:
@@ -2734,19 +2936,27 @@ default:
                   v2|string: ₸7.8764
                   v3|month|string: ₸5094.8352
                   v3|string: ₸7.0762
+                  v4a|month|string: ₸5094.72
+                  v4a|string: ₸7.0760
               ram:
                 v2|month|string: ₸1546.6464
                 v2|string: ₸2.1481
                 v3|month|string: ₸1395.0144
                 v3|string: ₸1.9375
+                v4a|month|string: ₸1395.00
+                v4a|string: ₸1.9375
             opensearch:
               cpu:
                 c100:
                   v3|month|string: ₸5094.8352
                   v3|string: ₸7.0762
+                  v4a|month|string: ₸5094.72
+                  v4a|string: ₸7.0760
               ram:
                 v3|month|string: ₸2122.8480
                 v3|string: ₸2.9484
+                v4a|month|string: ₸2122.92
+                v4a|string: ₸2.9485
             pg:
               cpu:
                 c100:
@@ -2754,11 +2964,15 @@ default:
                   v2|string: ₸7.6237
                   v3|month|string: ₸4943.2032
                   v3|string: ₸6.8656
+                  v4a|month|string: ₸4943.16
+                  v4a|string: ₸6.8655
               ram:
                 v2|month|string: ₸1485.9936
                 v2|string: ₸2.0639
                 v3|month|string: ₸1334.3616
                 v3|string: ₸1.8533
+                v4a|month|string: ₸1334.52
+                v4a|string: ₸1.8535
             redis:
               cpu:
                 c100:
@@ -2766,11 +2980,15 @@ default:
                   v2|string: ₸7.0762
                   v3|month|string: ₸4579.2864
                   v3|string: ₸6.3601
+                  v4a|month|string: ₸4579.20
+                  v4a|string: ₸6.36
               ram:
                 v2|month|string: ₸1364.6880
                 v2|string: ₸1.8954
                 v3|month|string: ₸1213.0560
                 v3|string: ₸1.6848
+                v4a|month|string: ₸1213.20
+                v4a|string: ₸1.6850
           ydb:
             cpu:
               c100:
@@ -3394,6 +3612,8 @@ default:
           v3|number: 1.2774
           v3|string: ₽1.2774
           v4|string: ₽2.0952
+          v4a|month|number: 816.48
+          v4a|number: 1.134
       localssd:
         v1|month|string: ₽9.5040
         v1|number: 0.0132
@@ -3406,6 +3626,8 @@ default:
         v3|number: 0.3384
         v3|string: ₽0.3384
         v4|string: ₽0.3780
+        v4a|month|number: 217.728
+        v4a|number: 0.3024
     image|month|string: ₽3.3696
     snapshot|month|string: ₽3.3696
     vm:
@@ -3440,6 +3662,8 @@ default:
           v3|month|number: 816.48
           v3|number: 1.134
           v3|string: ₽1.1340
+          v4a|month|number: 816.48
+          v4a|number: 1.134
           v4a|string: ₽1.1340
         c100|month|number: 830.592
         c100|number: 1.1536
@@ -3500,6 +3724,8 @@ default:
         v3|month|number: 217.728
         v3|number: 0.3024
         v3|string: ₽0.3024
+        v4a|month|number: 217.728
+        v4a|number: 0.3024
         v4a|string: ₽0.3024
       ram|month|number: 289.224
       ram|number: 0.4017
@@ -3752,6 +3978,12 @@ default:
             c100|string: ₽2.97
           ram|month|string: ₽419.9040
           ram|string: ₽0.5832
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2598.7680
+            c100|string: ₽3.6094
+          ram|month|string: ₽510.3360
+          ram|string: ₽0.7088
         v1:
           cpu:
             c100|month|string: ₽1690.8480
@@ -3786,6 +4018,12 @@ default:
           ram|month|string: ₽365.4720
           ram|number: 0.5076
           ram|string: ₽0.5076
+        v4a:
+          cpu:
+            c100|month|string: ₽1337.4720
+            c100|string: ₽1.8576
+          ram|month|string: ₽365.4720
+          ram|string: ₽0.5076
       greenplum:
         highfreq-v3:
           cpu:
@@ -3797,6 +4035,16 @@ default:
             dedicated|string: ₽0.3456
           ram|month|string: ₽513.2160
           ram|string: ₽0.7128
+        highfreq-v4a:
+          cpu:
+            c100:
+              dedicated|string: ₽2.2706
+            c100|month|string: ₽3250.80
+            c100|string: ₽4.5150
+          ram:
+            dedicated|string: ₽0.42
+          ram|month|string: ₽623.7360
+          ram|string: ₽0.8663
         v2:
           cpu:
             c100:
@@ -3821,6 +4069,16 @@ default:
           ram|month|string: ₽443.2320
           ram|number: 0.6156
           ram|string: ₽0.6156
+        v4a:
+          cpu:
+            c100:
+              dedicated|string: ₽1.1664
+            c100|month|string: ₽1671.84
+            c100|string: ₽2.3220
+          ram:
+            dedicated|string: ₽0.3024
+          ram|month|string: ₽443.2320
+          ram|string: ₽0.6156
       kafka:
         highfreq-v3:
           cpu:
@@ -3828,6 +4086,12 @@ default:
             c100|string: ₽2.6136
           ram|month|string: ₽357.6960
           ram|string: ₽0.4968
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2286.9360
+            c100|string: ₽3.1763
+          ram|month|string: ₽434.7360
+          ram|string: ₽0.6038
         v2:
           cpu:
             c100|month|string: ₽1306.3680
@@ -3846,6 +4110,12 @@ default:
           ram|month|string: ₽311.04
           ram|number: 0.432
           ram|string: ₽0.4320
+        v4a:
+          cpu:
+            c100|month|string: ₽1174.1760
+            c100|string: ₽1.6308
+          ram|month|string: ₽311.04
+          ram|string: ₽0.4320
       local-nvme:
         ch|month|string: ₽14.0508
         greenplum:
@@ -3862,6 +4132,11 @@ default:
         redis|month|string: ₽14.0508
       mongodb:
         backup|month|string: ₽2.0736
+        mongocfg:
+          v4a:
+            cpu:
+              c100|month|string: ₽1244.16
+              c100|string: ₽1.7280
         v1:
           cpu:
             c100|month|string: ₽1186.56
@@ -3896,6 +4171,9 @@ default:
           ram|month|string: ₽699.84
           ram|number: 0.972
           ram|string: ₽0.9720
+        v4a:
+          ram|month|string: ₽699.84
+          ram|string: ₽0.9720
       mysql:
         backup|month|string: ₽2.0736
         highfreq-v3:
@@ -3908,6 +4186,16 @@ default:
             dedicated|string: ₽0.1836
           ram|month|string: ₽412.1280
           ram|string: ₽0.5724
+        highfreq-v4a:
+          cpu:
+            c100:
+              dedicated|string: ₽1.1813
+            c100|month|string: ₽2542.0320
+            c100|string: ₽3.5306
+          ram:
+            dedicated|string: ₽0.2231
+          ram|month|string: ₽500.8320
+          ram|string: ₽0.6956
         v1:
           cpu:
             c100|month|string: ₽1401.6240
@@ -3949,6 +4237,16 @@ default:
             dedicated|string: ₽0.1620
           ram|month|string: ₽357.6960
           ram|number: 0.4968
+          ram|string: ₽0.4968
+        v4a:
+          cpu:
+            c100:
+              dedicated|string: ₽0.54
+            c100|month|string: ₽1306.3680
+            c100|string: ₽1.8144
+          ram:
+            dedicated|string: ₽0.1620
+          ram|month|string: ₽357.6960
           ram|string: ₽0.4968
       network-hdd:
         ch|month|number: 3.456
@@ -4001,6 +4299,12 @@ default:
             c100|string: ₽2.9052
           ram|month|string: ₽629.8560
           ram|string: ₽0.8748
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2542.0320
+            c100|string: ₽3.5306
+          ram|month|string: ₽765.4320
+          ram|string: ₽1.0631
         v2:
           cpu:
             c100|month|string: ₽1306.3680
@@ -4019,6 +4323,12 @@ default:
           ram|month|string: ₽544.32
           ram|number: 0.756
           ram|string: ₽0.7560
+        v4a:
+          cpu:
+            c100|month|string: ₽1306.3680
+            c100|string: ₽1.8144
+          ram|month|string: ₽544.32
+          ram|string: ₽0.7560
       pg:
         backup|month|string: ₽2.0736
         highfreq-v3:
@@ -4027,6 +4337,12 @@ default:
             c100|string: ₽2.8188
           ram|month|string: ₽396.5760
           ram|string: ₽0.5508
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2466.4320
+            c100|string: ₽3.4256
+          ram|month|string: ₽481.9680
+          ram|string: ₽0.6694
         v1:
           cpu:
             c100|month|string: ₽1587.0240
@@ -4061,6 +4377,12 @@ default:
           ram|month|string: ₽342.1440
           ram|number: 0.4752
           ram|string: ₽0.4752
+        v4a:
+          cpu:
+            c100|month|string: ₽1267.4880
+            c100|string: ₽1.7604
+          ram|month|string: ₽342.1440
+          ram|string: ₽0.4752
       redis:
         backup|month|string: ₽2.0736
         highfreq-v3:
@@ -4069,6 +4391,12 @@ default:
             c100|string: ₽2.6136
           ram|month|string: ₽357.6960
           ram|string: ₽0.4968
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2286.9360
+            c100|string: ₽3.1763
+          ram|month|string: ₽434.7360
+          ram|string: ₽0.6038
         v1:
           cpu:
             c100|month|string: ₽1483.20
@@ -4099,6 +4427,12 @@ default:
           ram|month|string: ₽311.04
           ram|number: 0.432
           ram|string: ₽0.4320
+        v4a:
+          cpu:
+            c100|month|string: ₽1174.1760
+            c100|string: ₽1.6308
+          ram|month|string: ₽311.04
+          ram|string: ₽0.4320
     dataproc:
       v1:
         cpu:
@@ -4126,6 +4460,12 @@ default:
           c50|number: 0.0648
         ram|month|number: 23.328
         ram|number: 0.0324
+      v4a:
+        cpu:
+          c100|month|number: 93.312
+          c100|number: 0.1296
+        ram|month|number: 23.328
+        ram|number: 0.0324
     kafka:
       kraft:
         highfreq-v3:
@@ -4134,6 +4474,12 @@ default:
             c100|string: ₽2.6136
           ram|month|string: ₽357.6960
           ram|string: ₽0.4968
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽2286.9360
+            c100|string: ₽3.1763
+          ram|month|string: ₽434.7360
+          ram|string: ₽0.6038
         v2:
           cpu:
             c100|month|string: ₽1306.3680
@@ -4150,6 +4496,12 @@ default:
             c50|string: ₽0.7344
           ram|month|string: ₽311.04
           ram|string: ₽0.4320
+        v4a:
+          cpu:
+            c100|month|string: ₽1174.1760
+            c100|string: ₽1.6308
+          ram|month|string: ₽311.04
+          ram|string: ₽0.4320
       ui:
         cluster:
           v1|string: ₽4200.00
@@ -4161,6 +4513,12 @@ default:
             c100|string: ₽1.8792
           ram|month|string: ₽248.8320
           ram|string: ₽0.3456
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽1644.3360
+            c100|string: ₽2.2838
+          ram|month|string: ₽302.40
+          ram|string: ₽0.42
         v1:
           cpu:
             c100|month|string: ₽1053.0720
@@ -4195,6 +4553,12 @@ default:
           ram|month|string: ₽217.7280
           ram|number: 0.3024
           ram|string: ₽0.3024
+        v4a:
+          cpu:
+            c100|month|string: ₽847.5840
+            c100|string: ₽1.1772
+          ram|month|string: ₽217.7280
+          ram|string: ₽0.3024
       kafka:
         highfreq-v3:
           cpu:
@@ -4202,6 +4566,12 @@ default:
             c100|string: ₽1.8792
           ram|month|string: ₽248.8320
           ram|string: ₽0.3456
+        highfreq-v4a:
+          cpu:
+            c100|month|string: ₽1644.3360
+            c100|string: ₽2.2838
+          ram|month|string: ₽302.40
+          ram|string: ₽0.42
         v2:
           cpu:
             c100|month|string: ₽940.8960
@@ -4219,6 +4589,12 @@ default:
             c50|string: ₽0.7560
           ram|month|string: ₽217.7280
           ram|number: 0.3024
+          ram|string: ₽0.3024
+        v4a:
+          cpu:
+            c100|month|string: ₽847.5840
+            c100|string: ₽1.1772
+          ram|month|string: ₽217.7280
           ram|string: ₽0.3024
   sku|RUB|mk8s:
     master:
@@ -4599,9 +4975,13 @@ default:
                 c100:
                   v3|month|string: ₽1421.0640
                   v3|string: ₽1.9737
+                  v4a|month|string: ₽1421.0640
+                  v4a|string: ₽1.9737
               ram:
                 v3|month|string: ₽376.7472
                 v3|string: ₽0.5233
+                v4a|month|string: ₽376.7760
+                v4a|string: ₽0.5233
             kafka:
               cpu:
                 c100:
@@ -4609,6 +4989,8 @@ default:
                   v2|string: ₽1.5422
                   v3|month|string: ₽998.0496
                   v3|string: ₽1.3862
+                  v4a|month|string: ₽998.0640
+                  v4a|string: ₽1.3862
               kraft:
                 cpu:
                   c100:
@@ -4616,16 +4998,22 @@ default:
                     v2|string: ₽1.6330
                     v3|month|string: ₽1056.7440
                     v3|string: ₽1.4677
+                    v4a|month|string: ₽1056.7440
+                    v4a|string: ₽1.4677
                 ram:
                   v2|month|string: ₽314.9280
                   v2|string: ₽0.4374
                   v3|month|string: ₽280.0080
                   v3|string: ₽0.3889
+                  v4a|month|string: ₽280.0080
+                  v4a|string: ₽0.3889
               ram:
                 v2|month|string: ₽297.4320
                 v2|string: ₽0.4131
                 v3|month|string: ₽264.3840
                 v3|string: ₽0.3672
+                v4a|month|string: ₽264.3840
+                v4a|string: ₽0.3672
             mysql:
               cpu:
                 c100:
@@ -4633,19 +5021,27 @@ default:
                   v2|string: ₽1.7167
                   v3|month|string: ₽1110.4128
                   v3|string: ₽1.5422
+                  v4a|month|string: ₽1110.3840
+                  v4a|string: ₽1.5422
               ram:
                 v2|month|string: ₽337.0896
                 v2|string: ₽0.4682
                 v3|month|string: ₽304.0416
                 v3|string: ₽0.4223
+                v4a|month|string: ₽304.0560
+                v4a|string: ₽0.4223
             opensearch:
               cpu:
                 c100:
                   v3|month|string: ₽1110.4128
                   v3|string: ₽1.5422
+                  v4a|month|string: ₽1110.3840
+                  v4a|string: ₽1.5422
               ram:
                 v3|month|string: ₽462.6720
                 v3|string: ₽0.6426
+                v4a|month|string: ₽462.6720
+                v4a|string: ₽0.6426
             pg:
               cpu:
                 c100:
@@ -4653,11 +5049,15 @@ default:
                   v2|string: ₽1.6616
                   v3|month|string: ₽1077.3648
                   v3|string: ₽1.4963
+                  v4a|month|string: ₽1077.3360
+                  v4a|string: ₽1.4963
               ram:
                 v2|month|string: ₽323.8704
                 v2|string: ₽0.4498
                 v3|month|string: ₽290.8224
                 v3|string: ₽0.4039
+                v4a|month|string: ₽290.8080
+                v4a|string: ₽0.4039
             redis:
               cpu:
                 c100:
@@ -4665,11 +5065,15 @@ default:
                   v2|string: ₽1.5422
                   v3|month|string: ₽998.0496
                   v3|string: ₽1.3862
+                  v4a|month|string: ₽998.0640
+                  v4a|string: ₽1.3862
               ram:
                 v2|month|string: ₽297.4320
                 v2|string: ₽0.4131
                 v3|month|string: ₽264.3840
                 v3|string: ₽0.3672
+                v4a|month|string: ₽264.3840
+                v4a|string: ₽0.3672
           ydb:
             cpu:
               c100:
@@ -4698,19 +5102,27 @@ default:
                   v2|string: ₽1.6174
                   v3|month|string: ₽1043.2282
                   v3|string: ₽1.4489
+                  v4a|month|string: ₽1043.2080
+                  v4a|string: ₽1.4489
               ram:
                 v2|month|string: ₽315.3946
                 v2|string: ₽0.4380
                 v3|month|string: ₽285.0682
                 v3|string: ₽0.3959
+                v4a|month|string: ₽285.0480
+                v4a|string: ₽0.3959
             greenplum:
               cpu:
                 c100:
                   v3|month|string: ₽1304.0352
                   v3|string: ₽1.8112
+                  v4a|month|string: ₽1304.0640
+                  v4a|string: ₽1.8112
               ram:
                 v3|month|string: ₽345.7210
                 v3|string: ₽0.4802
+                v4a|month|string: ₽345.7440
+                v4a|string: ₽0.4802
             kafka:
               cpu:
                 c100:
@@ -4718,6 +5130,8 @@ default:
                   v2|string: ₽1.4152
                   v3|month|string: ₽915.8573
                   v3|string: ₽1.2720
+                  v4a|month|string: ₽915.84
+                  v4a|string: ₽1.2720
               kraft:
                 cpu:
                   c100:
@@ -4725,16 +5139,22 @@ default:
                     v2|string: ₽1.5422
                     v3|month|string: ₽998.0640
                     v3|string: ₽1.3862
+                    v4a|month|string: ₽998.0640
+                    v4a|string: ₽1.3862
                 ram:
                   v2|month|string: ₽297.4320
                   v2|string: ₽0.4131
                   v3|month|string: ₽264.3120
                   v3|string: ₽0.3671
+                  v4a|month|string: ₽264.3120
+                  v4a|string: ₽0.3671
               ram:
                 v2|month|string: ₽272.9376
                 v2|string: ₽0.3791
                 v3|month|string: ₽242.6112
                 v3|string: ₽0.3370
+                v4a|month|string: ₽242.64
+                v4a|string: ₽0.3370
             mysql:
               cpu:
                 c100:
@@ -4742,19 +5162,27 @@ default:
                   v2|string: ₽1.5753
                   v3|month|string: ₽1018.9670
                   v3|string: ₽1.4152
+                  v4a|month|string: ₽1018.9440
+                  v4a|string: ₽1.4152
               ram:
                 v2|month|string: ₽309.3293
                 v2|string: ₽0.4296
                 v3|month|string: ₽279.0029
                 v3|string: ₽0.3875
+                v4a|month|string: ₽279.00
+                v4a|string: ₽0.3875
             opensearch:
               cpu:
                 c100:
                   v3|month|string: ₽1018.9670
                   v3|string: ₽1.4152
+                  v4a|month|string: ₽1018.9440
+                  v4a|string: ₽1.4152
               ram:
                 v3|month|string: ₽424.5696
                 v3|string: ₽0.5897
+                v4a|month|string: ₽424.5840
+                v4a|string: ₽0.5897
             pg:
               cpu:
                 c100:
@@ -4762,11 +5190,15 @@ default:
                   v2|string: ₽1.5247
                   v3|month|string: ₽988.6406
                   v3|string: ₽1.3731
+                  v4a|month|string: ₽988.6320
+                  v4a|string: ₽1.3731
               ram:
                 v2|month|string: ₽297.1987
                 v2|string: ₽0.4128
                 v3|month|string: ₽266.8723
                 v3|string: ₽0.3707
+                v4a|month|string: ₽266.9040
+                v4a|string: ₽0.3707
             redis:
               cpu:
                 c100:
@@ -4774,11 +5206,15 @@ default:
                   v2|string: ₽1.4152
                   v3|month|string: ₽915.8573
                   v3|string: ₽1.2720
+                  v4a|month|string: ₽915.84
+                  v4a|string: ₽1.2720
               ram:
                 v2|month|string: ₽272.9376
                 v2|string: ₽0.3791
                 v3|month|string: ₽242.6112
                 v3|string: ₽0.3370
+                v4a|month|string: ₽242.64
+                v4a|string: ₽0.3370
           ydb:
             cpu:
               c100:
@@ -5390,6 +5826,8 @@ default:
           v3|number: 0.010645
           v3|string: $0.010645
           v4|string: $0.017460
+          v4a|month|number: 6.803997
+          v4a|number: 0.00945
       localssd:
         v1|month|string: $0.079200
         v1|number: 0.00011
@@ -5402,6 +5840,8 @@ default:
         v3|number: 0.00282
         v3|string: $0.002820
         v4|string: $0.003150
+        v4a|month|number: 1.814399
+        v4a|number: 0.00252
     image|month|string: $0.028080
     snapshot|month|string: $0.028080
     vm:
@@ -5436,6 +5876,8 @@ default:
           v3|month|number: 6.803997
           v3|number: 0.00945
           v3|string: $0.009450
+          v4a|month|number: 6.803997
+          v4a|number: 0.00945
           v4a|string: $0.009450
         c100|month|number: 6.921597
         c100|number: 0.009613
@@ -5496,6 +5938,8 @@ default:
         v3|month|number: 1.814399
         v3|number: 0.00252
         v3|string: $0.002520
+        v4a|month|number: 1.814399
+        v4a|number: 0.00252
         v4a|string: $0.002520
       ram|month|number: 2.410199
       ram|number: 0.003347
@@ -5742,6 +6186,9 @@ default:
             c100|string: $0.024750
           ram|month|string: $3.499199
           ram|string: $0.004860
+        highfreq-v4a:
+          ram|month|string: $4.252798
+          ram|string: $0.005907
         v1:
           cpu:
             c100|month|string: $14.090394
@@ -5776,6 +6223,12 @@ default:
           ram|month|string: $3.045599
           ram|number: 0.00423
           ram|string: $0.004230
+        v4a:
+          cpu:
+            c100|month|string: $11.145596
+            c100|string: $0.015480
+          ram|month|string: $3.045599
+          ram|string: $0.004230
       greenplum:
         highfreq-v3:
           cpu:
@@ -5787,6 +6240,16 @@ default:
             dedicated|string: $0.002880
           ram|month|string: $4.276799
           ram|string: $0.005940
+        highfreq-v4a:
+          cpu:
+            c100:
+              dedicated|string: $0.018922
+            c100|month|string: $27.089989
+            c100|string: $0.037625
+          ram:
+            dedicated|string: $0.003500
+          ram|month|string: $5.197798
+          ram|string: $0.007219
         v2:
           cpu:
             c100:
@@ -5811,6 +6274,16 @@ default:
           ram|month|string: $3.693599
           ram|number: 0.00513
           ram|string: $0.005130
+        v4a:
+          cpu:
+            c100:
+              dedicated|string: $0.009720
+            c100|month|string: $13.931994
+            c100|string: $0.019350
+          ram:
+            dedicated|string: $0.002520
+          ram|month|string: $3.693599
+          ram|string: $0.005130
       kafka:
         highfreq-v3:
           cpu:
@@ -5818,6 +6291,12 @@ default:
             c100|string: $0.021780
           ram|month|string: $2.980799
           ram|string: $0.004140
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $19.057792
+            c100|string: $0.026469
+          ram|month|string: $3.622799
+          ram|string: $0.005032
         v2:
           cpu:
             c100|month|string: $10.886396
@@ -5836,6 +6315,12 @@ default:
           ram|month|string: $2.591999
           ram|number: 0.0036
           ram|string: $0.003600
+        v4a:
+          cpu:
+            c100|month|string: $9.784796
+            c100|string: $0.013590
+          ram|month|string: $2.591999
+          ram|string: $0.003600
       local-nvme:
         ch|month|string: $0.117090
         greenplum:
@@ -5852,6 +6337,11 @@ default:
         redis|month|string: $0.117090
       mongodb:
         backup|month|string: $0.017280
+        mongocfg:
+          v4a:
+            cpu:
+              c100|month|string: $10.367996
+              c100|string: $0.014400
         v1:
           cpu:
             c100|month|string: $9.887996
@@ -5886,6 +6376,9 @@ default:
           ram|month|string: $5.831998
           ram|number: 0.0081
           ram|string: $0.008100
+        v4a:
+          ram|month|string: $5.831998
+          ram|string: $0.008100
       mysql:
         backup|month|string: $0.017280
         highfreq-v3:
@@ -5898,6 +6391,16 @@ default:
             dedicated|string: $0.001530
           ram|month|string: $3.434399
           ram|string: $0.004770
+        highfreq-v4a:
+          cpu:
+            c100:
+              dedicated|string: $0.009844
+            c100|month|string: $21.183592
+            c100|string: $0.029422
+          ram:
+            dedicated|string: $0.001859
+          ram|month|string: $4.173598
+          ram|string: $0.005797
         v1:
           cpu:
             c100|month|string: $11.680196
@@ -5939,6 +6442,16 @@ default:
             dedicated|string: $0.001350
           ram|month|string: $2.980799
           ram|number: 0.00414
+          ram|string: $0.004140
+        v4a:
+          cpu:
+            c100:
+              dedicated|string: $0.004500
+            c100|month|string: $10.886396
+            c100|string: $0.015120
+          ram:
+            dedicated|string: $0.001350
+          ram|month|string: $2.980799
           ram|string: $0.004140
       network-hdd:
         ch|month|number: 0.0288
@@ -5991,6 +6504,12 @@ default:
             c100|string: $0.024210
           ram|month|string: $5.248798
           ram|string: $0.007290
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $21.183592
+            c100|string: $0.029422
+          ram|month|string: $6.378597
+          ram|string: $0.008859
         v2:
           cpu:
             c100|month|string: $10.886396
@@ -6009,6 +6528,12 @@ default:
           ram|month|string: $4.535998
           ram|number: 0.0063
           ram|string: $0.006300
+        v4a:
+          cpu:
+            c100|month|string: $10.886396
+            c100|string: $0.015120
+          ram|month|string: $4.535998
+          ram|string: $0.006300
       pg:
         backup|month|string: $0.017280
         highfreq-v3:
@@ -6017,6 +6542,12 @@ default:
             c100|string: $0.023490
           ram|month|string: $3.304799
           ram|string: $0.004590
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $20.553592
+            c100|string: $0.028547
+          ram|month|string: $4.016398
+          ram|string: $0.005578
         v1:
           cpu:
             c100|month|string: $13.225195
@@ -6051,6 +6582,12 @@ default:
           ram|month|string: $2.851199
           ram|number: 0.00396
           ram|string: $0.003960
+        v4a:
+          cpu:
+            c100|month|string: $10.562396
+            c100|string: $0.014670
+          ram|month|string: $2.851199
+          ram|string: $0.003960
       redis:
         backup|month|string: $0.017280
         highfreq-v3:
@@ -6059,6 +6596,12 @@ default:
             c100|string: $0.021780
           ram|month|string: $2.980799
           ram|string: $0.004140
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $19.057792
+            c100|string: $0.026469
+          ram|month|string: $3.622799
+          ram|string: $0.005032
         v1:
           cpu:
             c100|month|string: $12.359995
@@ -6089,6 +6632,12 @@ default:
           ram|month|string: $2.591999
           ram|number: 0.0036
           ram|string: $0.003600
+        v4a:
+          cpu:
+            c100|month|string: $9.784796
+            c100|string: $0.013590
+          ram|month|string: $2.591999
+          ram|string: $0.003600
     dataproc:
       v1:
         cpu:
@@ -6116,6 +6665,12 @@ default:
           c50|number: 0.00054
         ram|month|number: 0.1944
         ram|number: 0.00027
+      v4a:
+        cpu:
+          c100|month|number: 0.7776
+          c100|number: 0.00108
+        ram|month|number: 0.1944
+        ram|number: 0.00027
     kafka:
       kraft:
         highfreq-v3:
@@ -6124,6 +6679,12 @@ default:
             c100|string: $0.021780
           ram|month|string: $2.980799
           ram|string: $0.004140
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $19.057792
+            c100|string: $0.026469
+          ram|month|string: $3.622799
+          ram|string: $0.005032
         v2:
           cpu:
             c100|month|string: $10.886396
@@ -6140,6 +6701,12 @@ default:
             c50|string: $0.006120
           ram|month|string: $2.591999
           ram|string: $0.003600
+        v4a:
+          cpu:
+            c100|month|string: $9.784796
+            c100|string: $0.013590
+          ram|month|string: $2.591999
+          ram|string: $0.003600
       ui:
         cluster:
           v1|string: $34.999986
@@ -6151,6 +6718,12 @@ default:
             c100|string: $0.015660
           ram|month|string: $2.073599
           ram|string: $0.002880
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $13.702794
+            c100|string: $0.019032
+          ram|month|string: $2.519999
+          ram|string: $0.003500
         v1:
           cpu:
             c100|month|string: $8.775596
@@ -6185,6 +6758,12 @@ default:
           ram|month|string: $1.814399
           ram|number: 0.00252
           ram|string: $0.002520
+        v4a:
+          cpu:
+            c100|month|string: $7.063197
+            c100|string: $0.009810
+          ram|month|string: $1.814399
+          ram|string: $0.002520
       kafka:
         highfreq-v3:
           cpu:
@@ -6192,6 +6771,12 @@ default:
             c100|string: $0.015660
           ram|month|string: $2.073599
           ram|string: $0.002880
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $13.702794
+            c100|string: $0.019032
+          ram|month|string: $2.519999
+          ram|string: $0.003500
         v2:
           cpu:
             c100|string: $0.010890
@@ -6203,6 +6788,10 @@ default:
             c50|number: 0.0063
             c50|string: $0.006300
           ram|number: 0.00252
+          ram|string: $0.002520
+        v4a:
+          cpu:
+            c100|string: $0.009810
           ram|string: $0.002520
   sku|USD|mk8s:
     master:
@@ -6585,9 +7174,13 @@ default:
                 c100:
                   v3|month|string: $11.842195
                   v3|string: $0.016447
+                  v4a|month|string: $11.842195
+                  v4a|string: $0.016447
               ram:
                 v3|month|string: $3.139559
                 v3|string: $0.004360
+                v4a|month|string: $3.139799
+                v4a|string: $0.004361
             kafka:
               cpu:
                 c100:
@@ -6595,6 +7188,8 @@ default:
                   v2|string: $0.012852
                   v3|month|string: $8.317076
                   v3|string: $0.011551
+                  v4a|month|string: $8.317197
+                  v4a|string: $0.011552
               kraft:
                 cpu:
                   c100:
@@ -6602,16 +7197,22 @@ default:
                     v2|string: $0.013608
                     v3|month|string: $8.806196
                     v3|string: $0.012231
+                    v4a|month|string: $8.806196
+                    v4a|string: $0.012231
                 ram:
                   v2|month|string: $2.624399
                   v2|string: $0.003645
                   v3|month|string: $2.333399
                   v3|string: $0.003241
+                  v4a|month|string: $2.333399
+                  v4a|string: $0.003241
               ram:
                 v2|month|string: $2.478599
                 v2|string: $0.003442
                 v3|month|string: $2.203199
                 v3|string: $0.003060
+                v4a|month|string: $2.203199
+                v4a|string: $0.003060
             mysql:
               cpu:
                 c100:
@@ -6619,19 +7220,27 @@ default:
                   v2|string: $0.014305
                   v3|month|string: $9.253436
                   v3|string: $0.012852
+                  v4a|month|string: $9.253197
+                  v4a|string: $0.012852
               ram:
                 v2|month|string: $2.809079
                 v2|string: $0.003901
                 v3|month|string: $2.533679
                 v3|string: $0.003519
+                v4a|month|string: $2.533799
+                v4a|string: $0.003519
             opensearch:
               cpu:
                 c100:
                   v3|month|string: $9.253436
                   v3|string: $0.012852
+                  v4a|month|string: $9.253197
+                  v4a|string: $0.012852
               ram:
                 v3|month|string: $3.855599
                 v3|string: $0.005355
+                v4a|month|string: $3.855599
+                v4a|string: $0.005355
             pg:
               cpu:
                 c100:
@@ -6639,11 +7248,13 @@ default:
                   v2|string: $0.013846
                   v3|month|string: $8.978036
                   v3|string: $0.012469
+                  v4a|string: $0.012469
               ram:
                 v2|month|string: $2.698919
                 v2|string: $0.003748
                 v3|month|string: $2.423519
                 v3|string: $0.003366
+                v4a|string: $0.003366
             redis:
               cpu:
                 c100:
@@ -6651,11 +7262,15 @@ default:
                   v2|string: $0.012852
                   v3|month|string: $8.317076
                   v3|string: $0.011551
+                  v4a|month|string: $8.317197
+                  v4a|string: $0.011552
               ram:
                 v2|month|string: $2.478599
                 v2|string: $0.003442
                 v3|month|string: $2.203199
                 v3|string: $0.003060
+                v4a|month|string: $2.203199
+                v4a|string: $0.003060
           ydb:
             cpu:
               c100:
@@ -6684,19 +7299,27 @@ default:
                   v2|string: $0.013478
                   v3|month|string: $8.693564
                   v3|string: $0.012074
+                  v4a|month|string: $8.693397
+                  v4a|string: $0.012074
               ram:
                 v2|month|string: $2.628287
                 v2|string: $0.003650
                 v3|month|string: $2.375567
                 v3|string: $0.003299
+                v4a|month|string: $2.375399
+                v4a|string: $0.003299
             greenplum:
               cpu:
                 c100:
                   v3|month|string: $10.866956
                   v3|string: $0.015093
+                  v4a|month|string: $10.867195
+                  v4a|string: $0.015093
               ram:
                 v3|month|string: $2.881007
                 v3|string: $0.004001
+                v4a|month|string: $2.881199
+                v4a|string: $0.004002
             kafka:
               cpu:
                 c100:
@@ -6704,6 +7327,8 @@ default:
                   v2|string: $0.011794
                   v3|month|string: $7.632141
                   v3|string: $0.010600
+                  v4a|month|string: $7.631997
+                  v4a|string: $0.010600
               kraft:
                 cpu:
                   c100:
@@ -6711,16 +7336,22 @@ default:
                     v2|string: $0.012852
                     v3|month|string: $8.317197
                     v3|string: $0.011552
+                    v4a|month|string: $8.317197
+                    v4a|string: $0.011552
                 ram:
                   v2|month|string: $2.478599
                   v2|string: $0.003442
                   v3|month|string: $2.202599
                   v3|string: $0.003059
+                  v4a|month|string: $2.202599
+                  v4a|string: $0.003059
               ram:
                 v2|month|string: $2.274479
                 v2|string: $0.003159
                 v3|month|string: $2.021759
                 v3|string: $0.002808
+                v4a|month|string: $2.021999
+                v4a|string: $0.002808
             mysql:
               cpu:
                 c100:
@@ -6728,19 +7359,27 @@ default:
                   v2|string: $0.013127
                   v3|month|string: $8.491388
                   v3|string: $0.011794
+                  v4a|month|string: $8.491197
+                  v4a|string: $0.011793
               ram:
                 v2|month|string: $2.577743
                 v2|string: $0.003580
                 v3|month|string: $2.325023
                 v3|string: $0.003229
+                v4a|month|string: $2.324999
+                v4a|string: $0.003229
             opensearch:
               cpu:
                 c100:
                   v3|month|string: $8.491388
                   v3|string: $0.011794
+                  v4a|month|string: $8.491197
+                  v4a|string: $0.011793
               ram:
                 v3|month|string: $3.538079
                 v3|string: $0.004914
+                v4a|month|string: $3.538199
+                v4a|string: $0.004914
             pg:
               cpu:
                 c100:
@@ -6748,11 +7387,13 @@ default:
                   v2|string: $0.012706
                   v3|month|string: $8.238668
                   v3|string: $0.011443
+                  v4a|string: $0.011442
               ram:
                 v2|month|string: $2.476655
                 v2|string: $0.003440
                 v3|month|string: $2.223935
                 v3|string: $0.003089
+                v4a|string: $0.003089
             redis:
               cpu:
                 c100:
@@ -6760,11 +7401,15 @@ default:
                   v2|string: $0.011794
                   v3|month|string: $7.632141
                   v3|string: $0.010600
+                  v4a|month|string: $7.631997
+                  v4a|string: $0.010600
               ram:
                 v2|month|string: $2.274479
                 v2|string: $0.003159
                 v3|month|string: $2.021759
                 v3|string: $0.002808
+                v4a|month|string: $2.021999
+                v4a|string: $0.002808
           ydb:
             cpu:
               c100:
@@ -12726,6 +13371,16 @@ default:
                     YDSTargetAdvancedSettings:
                       save_tx_order:
                         title: Save transaction order
+            yt:
+              console:
+                form:
+                  yt:
+                    YTSource:
+                      paths:
+                        title: Tables and directories
+                    YTTarget:
+                      path:
+                        title: Path
         endpoint:
           airbyte:
             aws_cloud_trail_source:

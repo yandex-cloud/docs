@@ -35,6 +35,10 @@ description: Управление доступом в сервисе по соз
 
 {% include [managed-spqr.viewer](../_roles/managed-spqr/viewer.md) %}
 
+#### managed-spqr.restorer {#managed-spqr-restorer}
+
+{% include [managed-spqr.restorer](../_roles/managed-spqr/restorer.md) %}
+
 #### managed-spqr.editor {#managed-spqr-editor}
 
 {% include [managed-spqr.editor](../_roles/managed-spqr/editor.md) %}
@@ -54,6 +58,10 @@ description: Управление доступом в сервисе по соз
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

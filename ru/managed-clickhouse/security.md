@@ -40,6 +40,10 @@ description: Управление доступом в сервисе созда�
 
 {% include [managed-clickhouse.viewer](../_roles/managed-clickhouse/viewer.md) %}
 
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -59,6 +63,10 @@ description: Управление доступом в сервисе созда�
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

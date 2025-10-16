@@ -1317,6 +1317,9 @@ For more information, see [{#T}](../lockbox/security/index.md).
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
 
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
@@ -1357,6 +1360,10 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 
 {% include [managed-kafka.viewer](../_roles/managed-kafka/viewer.md) %}
 
+#### managed-kafka.restorer {#managed-kafka-restorer}
+
+{% include [managed-kafka.restorer](../_roles/managed-kafka/restorer.md) %}
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../_roles/managed-kafka/editor.md) %}
@@ -1364,6 +1371,10 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 #### managed-kafka.admin {#managed-kafka-admin}
 
 {% include [managed-kafka.admin](../_roles/managed-kafka/admin.md) %}
+
+#### managed-kafka.interfaceUser {#managed-kafka-interface-user}
+
+{% include [managed-kafka.interfaceUser](../_roles/managed-kafka/interfaceUser.md) %}
 
 For more information, see [{#T}](../managed-kafka/security/index.md).
 
@@ -1377,6 +1388,10 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 #### managed-clickhouse.viewer {#managed-clickhouse-viewer}
 
 {% include [managed-clickhouse.viewer](../_roles/managed-clickhouse/viewer.md) %}
+
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
@@ -1419,6 +1434,10 @@ For more information, see [{#T}](../managed-gitlab/security/index.md).
 #### managed-greenplum.viewer {#managed-greenplum-viewer}
 
 {% include [managed-greenplum.viewer](../_roles/managed-greenplum/viewer.md) %}
+
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
@@ -1478,6 +1497,10 @@ For more information, see [{#T}](../managed-kubernetes/security/index.md).
 
 {% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
 
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
@@ -1498,6 +1521,10 @@ For more information, see [{#T}](../storedoc/security/index.md).
 #### managed-mysql.viewer {#managed-mysql-viewer}
 
 {% include [managed-mysql.viewer](../_roles/managed-mysql/viewer.md) %}
+
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
 #### managed-mysql.editor {#managed-mysql-editor}
 
@@ -1520,6 +1547,10 @@ For more information, see [{#T}](../managed-mysql/security/index.md).
 
 {% include [opensearch.viewer](../_roles/managed-opensearch/viewer.md) %}
 
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../_roles/managed-opensearch/editor.md) %}
@@ -1541,6 +1572,10 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 
 {% include [managed-postgresql.viewer](../_roles/managed-postgresql/viewer.md) %}
 
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
+
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
 {% include [managed-postgresql.editor](../_roles/managed-postgresql/editor.md) %}
@@ -1552,6 +1587,31 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 For more information, see [{#T}](../managed-postgresql/security/index.md).
 
 
+## {{ mspqr-full-name }} {#mspqr-roles}
+
+#### managed-spqr.auditor {#managed-spqr-auditor}
+
+{% include [managed-spqr.auditor](../_roles/managed-spqr/auditor.md) %}
+
+#### managed-spqr.viewer {#managed-spqr-viewer}
+
+{% include [managed-spqr.viewer](../_roles/managed-spqr/viewer.md) %}
+
+#### managed-spqr.restorer {#managed-spqr-restorer}
+
+{% include [managed-spqr.restorer](../_roles/managed-spqr/restorer.md) %}
+
+#### managed-spqr.editor {#managed-spqr-editor}
+
+{% include [managed-spqr.editor](../_roles/managed-spqr/editor.md) %}
+
+#### managed-spqr.admin {#managed-spqr-admin}
+
+{% include [managed-spqr.admin](../_roles/managed-spqr/admin.md) %}
+
+For more information, see [{#T}](../managed-spqr/security.md).
+
+
 ## {{ mrd-full-name }} {#mrd-roles}
 
 #### managed-redis.auditor {#managed-redis-auditor}
@@ -1561,6 +1621,10 @@ For more information, see [{#T}](../managed-postgresql/security/index.md).
 #### managed-redis.viewer {#managed-redis-viewer}
 
 {% include [managed-redis.viewer](../_roles/managed-redis/viewer.md) %}
+
+#### managed-redis.restorer {#managed-redis-restorer}
+
+{% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
 
 #### managed-redis.editor {#managed-redis-editor}
 
@@ -1584,6 +1648,10 @@ For more information, see [{#T}](../managed-redis/security/index.md).
 #### managed-sqlserver.viewer {#managed-sqlserver-viewer}
 
 {% include [managed-sqlserver.viewer](../_roles/managed-sqlserver/viewer.md) %}
+
+#### managed-sqlserver.restorer {#managed-sqlserver-restorer}
+
+{% include [managed-sqlserver-restorer](../_roles/managed-sqlserver/restorer.md) %}
 
 #### managed-sqlserver.editor {#managed-sqlserver-editor}
 

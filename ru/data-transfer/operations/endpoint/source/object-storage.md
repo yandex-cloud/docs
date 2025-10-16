@@ -144,6 +144,7 @@ description: Следуя данной инструкции, вы сможете
 * [{{ MY }}](../target/mysql.md);
 * [{{ CH }}](../target/clickhouse.md);
 * [{{ ydb-full-name }}](../target/yandex-database.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ GP }}](../target/greenplum.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

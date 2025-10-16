@@ -40,6 +40,10 @@ The chart below shows service’s roles and their permission inheritance. For ex
 
 {% include [managed-mysql.viewer](../../_roles/managed-mysql/viewer.md) %}
 
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../../_roles/managed-mysql/restorer.md) %}
+
 #### managed-mysql.editor {#managed-mysql-editor}
 
 {% include [managed-mysql.editor](../../_roles/managed-mysql/editor.md) %}
@@ -59,6 +63,10 @@ The chart below shows service’s roles and their permission inheritance. For ex
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

@@ -16,3 +16,6 @@
 | 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c50|string }}  | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c50|month|string }}  |
 | 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c100|string }} | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c100|month|string }} |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v3.ram|string }}      | {{ sku|KZT|mdb.cluster.mongodb.v3.ram|month|string }}      |
+| **AMD Zen 4** |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.mongocfg.v4a.cpu.c100|string }} | {{ sku|KZT|mdb.cluster.mongodb.mongocfg.v4a.cpu.c100|month|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v4a.ram|string }}      | {{ sku|KZT|mdb.cluster.mongodb.v4a.ram|month|string }}      |

@@ -47,6 +47,10 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [managed-greenplum.viewer](../../_roles/managed-greenplum/viewer.md) %}
 
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../../_roles/managed-greenplum/restorer.md) %}
+
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
 {% include [managed-greenplum.editor](../../_roles/managed-greenplum/editor.md) %}
@@ -66,6 +70,10 @@ The chart below shows which roles are available in the service and how they inhe
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
 

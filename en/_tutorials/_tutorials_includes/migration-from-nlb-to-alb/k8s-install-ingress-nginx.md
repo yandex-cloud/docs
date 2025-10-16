@@ -29,7 +29,7 @@
 
     1. Create a YAML file and describe the `Ingress` resource in it:
 
-        * Complete the [annotations](../../../managed-kubernetes/alb-ref/ingress.md#annotations) section for the L7 load balancer settings:
+        1. Complete the [annotations](../../../managed-kubernetes/alb-ref/ingress.md#annotations) section for the L7 load balancer settings:
 
             * `ingress.alb.yc.io/subnets`: IDs of the subnets in the three availability zones for the L7 load balancer nodes. Specify the IDs separated by commas with no spaces.
             * `ingress.alb.yc.io/security-groups`: ID of one or more security groups for the L7 load balancer. For multiple groups, specify their IDs separated by commas with no spaces.
@@ -39,27 +39,20 @@
 
                 {% note warning %}
 
-                The security profile will be linked to the virtual host of the L7 load balancer. Specifying your security profile is the key step to connecting {{ sws-name }}.
+                The security profile will be linked to the virtual host of the L7 load balancer. {{ sws-name }} cannot be made operational without linking a security profile to the L7 load balancer's virtual host.
 
                 {% endnote %}
 
             * `ingress.alb.yc.io/autoscale-min-zone-size`: [Minimum number of resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings) per availability zone, based on expected load.
 
-                We recommend selecting the number of resource units based on the load expressed in:
+        1. For the `ingressClassName` field, enter the name of the `IngressClass` resource you created earlier.
 
-                * Number of requests per second (RPS)
-                * Number of concurrent active connections
-                * Number of new connections per second
-                * Traffic processed per second
-
-        * For the `ingressClassName` field, enter the name of the `IngressClass` resource you created earlier.
-
-        * When using HTTPS, complete the [tls](../../../managed-kubernetes/alb-ref/ingress.md#tls) section:
+        1. When using HTTPS, complete the [tls](../../../managed-kubernetes/alb-ref/ingress.md#tls) section:
 
             * `hosts`: Your service domain name the TLS certificate corresponds to.
             * `secretName`: TLS certificate of your service in {{ certificate-manager-full-name }}, in `yc-certmgr-cert-id-<certificate_ID>` format.
 
-        * Complete the [rules](../../../managed-kubernetes/alb-ref/ingress.md#rule) section in line with your rules for distribution of incoming traffic among backends depending on the domain name (`host` field) and requested resource (`http.paths` field).
+        1. Complete the [rules](../../../managed-kubernetes/alb-ref/ingress.md#rule) section in line with your rules for distribution of incoming traffic among backends depending on the domain name (`host` field) and requested resource (`http.paths` field).
 
             * `host`: Your service domain name.
             * `pathType`: Type of reference to the requested resource:

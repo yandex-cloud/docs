@@ -107,6 +107,12 @@ items:
                 href: operations/endpoint/source/ydb.md
               - name: Приемник
                 href: operations/endpoint/target/yandex-database.md
+          - name: '{{ ytsaurus-name }}'
+            items:
+              - name: Источник
+                href: operations/endpoint/source/yt.md
+              - name: Приемник
+                href: operations/endpoint/target/yt.md
       - name: Управление трансфером
         href: operations/transfer.md
       - name: Работа с базами данных во время трансфера

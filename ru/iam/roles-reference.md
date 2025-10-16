@@ -1386,6 +1386,9 @@ description: В статье приведен полный справочник 
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
 
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
@@ -1426,6 +1429,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-kafka.viewer](../_roles/managed-kafka/viewer.md) %}
 
+#### managed-kafka.restorer {#managed-kafka-restorer}
+
+{% include [managed-kafka.restorer](../_roles/managed-kafka/restorer.md) %}
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../_roles/managed-kafka/editor.md) %}
@@ -1433,6 +1440,10 @@ description: В статье приведен полный справочник 
 #### managed-kafka.admin {#managed-kafka-admin}
 
 {% include [managed-kafka.admin](../_roles/managed-kafka/admin.md) %}
+
+#### managed-kafka.interfaceUser {#managed-kafka-interface-user}
+
+{% include [managed-kafka.interfaceUser](../_roles/managed-kafka/interfaceUser.md) %}
 
 Подробнее см. [{#T}](../managed-kafka/security/index.md).
 
@@ -1476,6 +1487,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-clickhouse.viewer](../_roles/managed-clickhouse/viewer.md) %}
 
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -1517,6 +1532,10 @@ description: В статье приведен полный справочник 
 #### managed-greenplum.viewer {#managed-greenplum-viewer}
 
 {% include [managed-greenplum.viewer](../_roles/managed-greenplum/viewer.md) %}
+
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
@@ -1576,6 +1595,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
 
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
@@ -1596,6 +1619,10 @@ description: В статье приведен полный справочник 
 #### managed-mysql.viewer {#managed-mysql-viewer}
 
 {% include [managed-mysql.viewer](../_roles/managed-mysql/viewer.md) %}
+
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
 #### managed-mysql.editor {#managed-mysql-editor}
 
@@ -1618,6 +1645,10 @@ description: В статье приведен полный справочник 
 
 {% include [opensearch.viewer](../_roles/managed-opensearch/viewer.md) %}
 
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../_roles/managed-opensearch/editor.md) %}
@@ -1638,6 +1669,10 @@ description: В статье приведен полный справочник 
 #### managed-postgresql.viewer {#managed-postgresql-viewer}
 
 {% include [managed-postgresql.viewer](../_roles/managed-postgresql/viewer.md) %}
+
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
 
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
@@ -1660,6 +1695,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-spqr.viewer](../_roles/managed-spqr/viewer.md) %}
 
+#### managed-spqr.restorer {#managed-spqr-restorer}
+
+{% include [managed-spqr.restorer](../_roles/managed-spqr/restorer.md) %}
+
 #### managed-spqr.editor {#managed-spqr-editor}
 
 {% include [managed-spqr.editor](../_roles/managed-spqr/editor.md) %}
@@ -1681,6 +1720,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-redis.viewer](../_roles/managed-redis/viewer.md) %}
 
+#### managed-redis.restorer {#managed-redis-restorer}
+
+{% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../_roles/managed-redis/editor.md) %}
@@ -1701,6 +1744,10 @@ description: В статье приведен полный справочник 
 #### managed-sqlserver.viewer {#managed-sqlserver-viewer}
 
 {% include [managed-sqlserver.viewer](../_roles/managed-sqlserver/viewer.md) %}
+
+#### managed-sqlserver.restorer {#managed-sqlserver-restorer}
+
+{% include [managed-sqlserver-restorer](../_roles/managed-sqlserver/restorer.md) %}
 
 #### managed-sqlserver.editor {#managed-sqlserver-editor}
 

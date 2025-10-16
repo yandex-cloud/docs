@@ -20,5 +20,11 @@
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | {{ sku|KZT|mdb.cluster.pg.highfreq-v3.cpu.c100|month|string }} | - | - |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.highfreq-v3.ram|month|string }} | - | - |
+| **AMD Zen 4** |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v4a.cpu.c100|month|string }} | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.pg.cpu.c100.v4a|month|string }} (-15%) | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.pg.cpu.c100.v4a|month|string }} (-22%) |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v4a.ram|month|string }}      | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.pg.ram.v4a|month|string }} (-15%)      | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.pg.ram.v4a|month|string }} (-22%)      |
+| **AMD Zen 4 HighFreq** |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.pg.highfreq-v4a.cpu.c100|month|string }} | - | - |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.highfreq-v4a.ram|month|string }} | - | - |
 
 

@@ -4,7 +4,7 @@ Users with this role can:
 * View information on Valkey™ [clusters](../../managed-redis/concepts/index.md).
 * View information on Valkey™ cluster [hosts](../../managed-redis/concepts/instance-types.md).
 * View information on Valkey™ cluster [shards](../../managed-redis/concepts/sharding.md).
-* View information on Valkey™ DB [backups](../../managed-redis/concepts/backup.md).
+* View information on Valkey™ cluster [backups](../../managed-redis/concepts/backup.md).
 * View information on Valkey™ alerts.
 * View Valkey™ cluster logs.
 * View information on [quotas](../../managed-redis/concepts/limits.md#mrd-quotas) of Yandex Managed Service for Valkey™.

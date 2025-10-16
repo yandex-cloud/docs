@@ -21,7 +21,7 @@ To set up a link aggregation group:
 
 - Ubuntu/Debian (Netplan) {#ubuntu}
 
-  1. Install the `ethtool` utility:
+  1. Install `ethtool`:
 
       ```bash
       apt install ethtool
@@ -234,8 +234,8 @@ To set up a link aggregation group:
       If aggregation groups are inactive (`DOWN`), activate them:
 
       ```bash
-      ifconfig bond1 up
-      ifconfig bond2 up
+      ip link set bond1 up
+      ip link set bond2 up
       ```
 
       {% endnote %}
@@ -272,7 +272,7 @@ To set up a link aggregation group:
   1. Simulate an incident where a link in the `bond1` public network aggregation group fails. To do this, disable one of the group’s network interfaces:
 
       ```bash
-      ifconfig etx3 down
+      ip link set etx3 down
       ```
   1. View the group information again:
 
@@ -306,7 +306,7 @@ To set up a link aggregation group:
   1. Activate the interface you disabled earlier and make sure the aggregation group is running again at the maximum speed:
 
       ```bash
-      ifconfig etx3 up
+      ip link set etx3 up
       ethtool bond1
       ```
 

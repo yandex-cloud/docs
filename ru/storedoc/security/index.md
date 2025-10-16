@@ -40,6 +40,10 @@ description: Управление доступом в сервисе по соз
 
 {% include [managed-mongodb.viewer](../../_roles/managed-mongodb/viewer.md) %}
 
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../../_roles/managed-mongodb/restorer.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../../_roles/managed-mongodb/editor.md) %}
@@ -59,6 +63,10 @@ description: Управление доступом в сервисе по соз
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

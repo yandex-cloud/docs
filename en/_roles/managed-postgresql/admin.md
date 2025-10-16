@@ -6,7 +6,7 @@ Users with this role can:
 * View information on PostgreSQL cluster [hosts](../../managed-postgresql/concepts/instance-types.md), as well as create, modify, and delete them.
 * View information on PostgreSQL databases, as well as create, modify, and delete them.
 * View information on PostgreSQL [users](../../managed-postgresql/concepts/roles.md), as well as create, modify, and delete them.
-* View information on PostgreSQL DB [backups](../../managed-postgresql/concepts/backup.md), as well as create and delete them.
+* View information on PostgreSQL cluster [backups](../../managed-postgresql/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
 * View information on PostgreSQL alerts, as well as create, modify, and delete them.
 * View PostgreSQL cluster logs.
 * View information on the results of PostgreSQL cluster performance diagnostics.
