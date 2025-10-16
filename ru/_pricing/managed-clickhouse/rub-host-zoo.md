@@ -19,3 +19,9 @@
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v3.cpu.c100|string }} | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v3.cpu.c100|month|string }} |
 | RAM (за 1 ГБ) | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v3.ram|string }} | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v3.ram|month|string }} |
+| **AMD Zen 4** |
+| 100% vCPU     | {{ sku|RUB|mdb.zk.clickhouse.v4a.cpu.c100|string }} | {{ sku|RUB|mdb.zk.clickhouse.v4a.cpu.c100|month|string }} |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.zk.clickhouse.v4a.ram|string }}      | {{ sku|RUB|mdb.zk.clickhouse.v4a.ram|month|string }}      |
+| **AMD Zen 4 HighFreq** |
+| 100% vCPU | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v4a.cpu.c100|string }} | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v4a.cpu.c100|month|string }} |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v4a.ram|string }} | {{ sku|RUB|mdb.zk.clickhouse.highfreq-v4a.ram|month|string }} |

@@ -9,3 +9,9 @@
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.mysql.highfreq-v3.cpu.c100.dedicated|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.highfreq-v3.ram.dedicated|string }} |
+| **AMD Zen 4**                                                           |
+| 100% vCPU     | {{ sku|USD|mdb.cluster.mysql.v4a.cpu.c100.dedicated|string }} |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.v4a.ram.dedicated|string }}      |
+| **AMD Zen 4 HighFreq** |
+| 100% vCPU | {{ sku|USD|mdb.cluster.mysql.highfreq-v4a.cpu.c100.dedicated|string }} |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.highfreq-v4a.ram.dedicated|string }} |

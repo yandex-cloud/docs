@@ -40,6 +40,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
+#### managed-kafka.restorer {#managed-kafka-restorer}
+
+{% include [managed-kafka.restorer](../../_roles/managed-kafka/restorer.md) %}
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../../_roles/managed-kafka/editor.md) %}
@@ -63,6 +67,10 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

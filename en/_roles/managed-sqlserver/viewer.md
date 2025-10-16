@@ -5,7 +5,7 @@ Users with this role can:
 * View info on SQL Server cluster hosts.
 * View info on SQL Server users.
 * View info on SQL Server databases.
-* View info on SQL Server DB backups.
+* View info on SQL Server cluster backups.
 * View SQL Server cluster logs.
 * View info on resource operations for Managed Service for SQL Server.
 * View info on the quotas for Managed Service for SQL Server.

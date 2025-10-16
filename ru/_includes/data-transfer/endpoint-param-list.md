@@ -16,6 +16,7 @@
     * [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md)
     * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/source/ydb.md)
+    * [{{ ytsaurus-name }}](../../data-transfer/operations/endpoint/target/yt.md)
 * Приемники:
     * [{{ KF }}](../../data-transfer/operations/endpoint/target/kafka.md)
     * [{{ CH }}](../../data-transfer/operations/endpoint/target/clickhouse.md)
@@ -27,3 +28,6 @@
     * [{{ PG }}](../../data-transfer/operations/endpoint/target/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/target/data-streams.md)
     * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/target/yandex-database.md)
+    * {{ ytsaurus-name }}:
+        * [YTSaurus Dynamic](../../data-transfer/operations/endpoint/target/yt.md)
+        * [YTSaurus Static](../../data-transfer/operations/endpoint/target/yt.md)

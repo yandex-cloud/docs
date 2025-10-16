@@ -1,0 +1,1 @@
+**Отбрасывать большие значения** — включите для игнорирования некритичных данных, не удовлетворяющих ограничениям. Если размер значения колонки нарушает [ограничения {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/dynamic-tables/overview#limitations), это значение будет заменено на `BigStringValueStub`.

@@ -70,6 +70,9 @@ links:
   - title: '{{ mpg-name }}'
     description: Решения для {{ mpg-name }}
     href: managed-postgresql/
+  - title: '{{ mkf-name }}'
+    description: Решения для {{ mkf-name }}
+    href: managed-kafka/
   - title: '{{ ydb-name }}'
     description: Решения для {{ ydb-name }}
     href: managed-ydb/

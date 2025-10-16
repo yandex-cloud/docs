@@ -3,7 +3,7 @@
 Пользователи с этой ролью могут:
 * просматривать информацию о [кластерах Greenplum®](../../managed-greenplum/concepts/index.md);
 * просматривать информацию о [хостах](../../managed-greenplum/concepts/instance-types.md) кластеров Greenplum®;
-* просматривать информацию о [резервных копиях](../../managed-greenplum/concepts/backup.md) Greenplum®;
+* просматривать информацию о [резервных копиях](../../managed-greenplum/concepts/backup.md) кластеров Greenplum®;
 * просматривать логи работы кластеров Greenplum®;
 * просматривать информацию о результатах диагностики производительности кластеров Greenplum®;
 * просматривать информацию о [квотах](../../managed-greenplum/concepts/limits.md#quotas) сервиса Managed Service for Greenplum®;

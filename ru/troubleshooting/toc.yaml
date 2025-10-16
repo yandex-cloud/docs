@@ -777,6 +777,8 @@ items:
       - name: Примеры конфигураций и сценариев {{ mkf-name }}
         href: managed-kafka/how-to/index.md
         hidden: true
+      - name: Как отслеживать процесс чтения топиков
+        href: managed-kafka/how-to/process-read-topic.md
       - name: Решения для известных проблем {{ mkf-name }}
         href: managed-kafka/known-issues/index.md
         hidden: true
@@ -990,6 +992,14 @@ items:
           managed-postgresql/known-issues/error-unrecognized-configuration-parameter.md
       - name: Устранение ошибки `max_connections сonn_limit is too high`
         href: managed-postgresql/known-issues/conn-limit-is-too-high.md
+      - name: Устранение ошибки `Must be superuser to create this extension`
+        href: >-
+          managed-postgresql/known-issues/must-be-superuser-to-create-this-extension.md
+      - name: >-
+          Устранение ошибки `terminating connection due to administrator
+          command` и `ERROR: odyssey: remote server read/write error`
+        href: >-
+          managed-postgresql/known-issues/terminating-connection-due-to-administrator-command.md
       - name: >-
           Устранение ошибки `422 UNPROCESSABLE ENTITY The specified extension
           <'ext_name'> is not present in shared_preload_libraries`

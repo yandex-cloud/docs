@@ -2,10 +2,11 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [кластерах Apache Kafka®](../../managed-kafka/concepts/index.md), а также создавать, изменять, удалять, запускать и останавливать их;
+* восстанавливать кластеры Apache Kafka® из резервных копий;
 * просматривать логи работы кластеров Apache Kafka®;
 * просматривать информацию о [квотах](../../managed-kafka/concepts/limits.md#mkf-quotas) сервиса Managed Service for Apache Kafka®;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for Apache Kafka®.
 
-Включает разрешения, предоставляемые ролями `managed-kafka.viewer` и `managed-kafka.interfaceUser`.
+Включает разрешения, предоставляемые ролями `managed-kafka.viewer`, `managed-kafka.restorer` и `managed-kafka.interfaceUser`.
 
 Для создания кластеров Apache Kafka® дополнительно необходима роль `vpc.user`.

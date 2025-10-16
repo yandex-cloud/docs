@@ -42,6 +42,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ PG }}](../source/postgresql.md);
 * [{{ OS }}](../source/opensearch.md).
 
