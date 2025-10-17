@@ -6,7 +6,7 @@
 При выполнении запроса в {{ CH }} возникает ошибка:
 
 ```
-DB::Exception: Memory limit (total) exceeded: would use XX.XX GiB (attempt to allocate chunk of XXXXXXXX bytes), maximum: XX.X GiB. (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
+DB::Exception: Memory limit (total) exceeded: would use XX.XX GiB (attempt to allocate chunk of ******** bytes), maximum: **.* GiB. (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
 ```
 
 ## Решение {#issue-resolution}
