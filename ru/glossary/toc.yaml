@@ -127,5 +127,7 @@ items:
         href: tls.md
       - name: WAF
         href: waf.md
+      - name: JSON Web Token (JWT)
+        href: jwt.md
       - name: Технология единого входа (SSO)
         href: sso.md

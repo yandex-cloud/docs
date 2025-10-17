@@ -3,12 +3,13 @@
 {{ ai-studio-full-name }} предоставляет библиотеку инструментов и примеров готового кода для разработки продуктов на языке Python — {{ ml-sdk-full-name }}. {{ ml-sdk-name }} обеспечивает стандартизированный способ взаимодействия с фундаментальными моделями и упрощает интеграцию с другими сервисами {{ yandex-cloud }}.
 
 Библиотека {{ ml-sdk-name }} реализует синхронный и асинхронный интерфейсы Python на основе gRPC-вызовов API сервисов {{ ai-studio-name }}. В {{ ml-sdk-name }} доступны следующие возможности:
+
 * [генерация текста и изображений](../concepts/generation/index.md) с помощью всех поддерживаемых [моделей](../concepts/generation/models.md);
 * работа с [эмбеддингами](../concepts/embeddings.md);
 * работа с [классификаторами на базе {{ yagpt-name }}](../concepts/classifier/index.md);
 * создание [AI-ассистентов](../concepts/assistant/index.md);
 * [дообучение](../concepts/tuning/index.md) моделей генерации текста и классификаторов;
-* интеграция с [LangСhain](https://www.langchain.com/).
+* интеграция с [LangChain](https://www.langchain.com/).
 
 Полный перечень поддерживаемых функций, исходный код библиотеки и примеры использования доступны на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
 
@@ -34,22 +35,36 @@ pip install yandex-cloud-ml-sdk
       Заданное явно значение поля `auth` может принимать одно из значений:
 
       * `string` — в форме строки можно передать:
+
           * [IAM-токен](../../iam/concepts/authorization/iam-token.md) пользовательского или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md);
           * секретную часть [API-ключа](../../iam/concepts/authorization/api-key.md) сервисного аккаунта;
           * [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) пользовательского аккаунта.
 
           SDK автоматически определит тип аутентификационных данных.
-      * Объект одного из следующих классов:
+      * Объект одного из следующих [классов](../sdk-ref/auth.md#authentication-methods-classes):
 
-          * `APIKeyAuth` — позволяет явно задать аутентификацию по передаваемому API-ключу. Например: `auth = APIKeyAuth('<API_ключ>')`.
-          * `IAMTokenAuth` — позволяет явно задать аутентификацию по передаваемому IAM-токену. Например: `auth = IAMTokenAuth('<IAM-токен>')`.
-          * `OAuthTokenAuth` — позволяет явно задать аутентификацию по передаваемому OAuth-токену. Например: `auth = OAuthTokenAuth('<OAuth-токен>')`.
-          * `MetadataAuth` — позволяет явно задать аутентификацию от имени сервисного аккаунта, заданного в [метаданных](../../compute/concepts/vm-metadata.md) виртуальной машины {{ compute-full-name }}. Например: `auth = MetadataAuth()`.
-          * `EnvIAMTokenAuth` — позволяет явно задать аутентификацию по IAM-токену, заданному в переменной окружения `YC_TOKEN` или любой другой. Например: `auth = EnvIAMTokenAuth()` или `auth = EnvIAMTokenAuth("ENV_VAR")`.
+          * [APIKeyAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.APIKeyAuth) — позволяет явно задать аутентификацию по передаваемому API-ключу.
+             Например: `auth = APIKeyAuth('<api_ключ>')`.
 
-              SDK при каждом запросе заново получает IAM-токен из этой переменной окружения, поэтому вы можете вне SDK самостоятельно периодически обновлять IAM-токен в переменной окружения. Этот вариант аутентификации является оптимальным для использования с [сервисным агентом](../../datasphere/operations/community/create-ssa.md) в {{ ml-platform-full-name }}, если для этого сервиса включен [доступ](../../iam/concepts/service-control.md) к другим ресурсам в облаке пользователя.                
-          * `YandexCloudCLIAuth` — позволяет явно задать аутентификацию от имени [пользователя](../../iam/concepts/users/accounts.md) или сервисного аккаунта, [заданного](../../cli/operations/index.md#auth) в профиле [{{ yandex-cloud }} CLI](../../cli/index.yaml) на компьютере пользователя. Например: `auth = YandexCloudCLIAuth()`.
-          * `NoAuth` — позволяет указать, что аутентификационные данные не будут передаваться. Например: `auth = NoAuth()`.
+          * [EnvIAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.EnvIAMTokenAuth) — позволяет явно задать аутентификацию по IAM-токену, заданному в переменной окружения `YC_TOKEN` или любой другой.
+             Например: `auth = EnvIAMTokenAuth()` или `auth = EnvIAMTokenAuth("env_var")`.
+
+            SDK при каждом запросе заново получает IAM-токен из этой переменной окружения, поэтому вы можете вне SDK самостоятельно периодически обновлять IAM-токен в переменной окружения. Этот вариант аутентификации является оптимальным для использования с [сервисным агентом](../../datasphere/operations/community/create-ssa.md) в {{ ml-platform-full-name }}, если для этого сервиса включен [доступ](../../iam/concepts/service-control.md) к другим ресурсам в облаке пользователя.
+
+          * [IAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.IAMTokenAuth) — позволяет явно задать аутентификацию по передаваемому IAM-токену.
+             Например: `auth = IAMTokenAuth('<iam_токен>')`.
+
+          * [MetadataAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.MetadataAuth) — позволяет явно задать аутентификацию от имени сервисного аккаунта, заданного в [метаданных](../../compute/concepts/vm-metadata.md) виртуальной машины {{ compute-full-name }}.
+             Например: `auth = MetadataAuth()`.
+
+          * [NoAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.NoAuth) — позволяет указать, что аутентификационные данные не будут передаваться.
+             Например: `auth = NoAuth()`.
+
+          * [OAuthTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.OAuthTokenAuth) — позволяет явно задать аутентификацию по передаваемому OAuth-токену.
+             Например: `auth = OAuthTokenAuth('<oauth_токен>')`.
+
+          * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.YandexCloudCLIAuth) — позволяет явно задать аутентификацию от имени [пользователя](../../iam/concepts/users/accounts.md) или сервисного аккаунта, [заданного](../../cli/operations/index.md#auth) в профиле [{{ yandex-cloud }} CLI](../../cli/index.yaml) на компьютере пользователя.
+             Например: `auth = YandexCloudCLIAuth()`.
 
           Эти классы вы можете получить, импортировав из библиотеки ML SDK. Например:
 

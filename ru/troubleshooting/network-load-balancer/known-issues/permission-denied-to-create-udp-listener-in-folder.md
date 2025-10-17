@@ -6,7 +6,7 @@
 Попытка создания нового балансировщика нагрузки сетевого уровня завершается ошибкой:
 
 ```
-Error syncing load balancer: failed to ensure load balancer: failed to ensure cloud loadbalancer: failed to start cloud lb creation: rpc error: code = PermissionDenied desc = Permission denied to create UDP listener in folder b1gXXXXXXXXXXXXXXXXX
+Error syncing load balancer: failed to ensure load balancer: failed to ensure cloud loadbalancer: failed to start cloud lb creation: rpc error: code = PermissionDenied desc = Permission denied to create UDP listener in folder b1g*****************
 ```
 
 ## Решение {#issue-resolution}

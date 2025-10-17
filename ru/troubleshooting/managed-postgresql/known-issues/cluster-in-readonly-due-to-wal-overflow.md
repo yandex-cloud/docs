@@ -24,7 +24,7 @@
     ```sql
     SELECT * FROM pg_replication_slots WHERE slot_type = 'logical';
     -[ RECORD 1 ]-------+---------------------
-    slot_name           | dttXXXXXXXXXXXXXXXXX
+    slot_name           | dtt*****************
     plugin              | wal2json
     slot_type           | logical
     ```
@@ -33,7 +33,7 @@
 
 * Если для поля `plugin` в слоте логической репликации указано значение `wal2json`, это означает, что с базами данных этого кластера в настоящий момент работает {{ data-transfer-name }};
 
-* Если процессе работы трансфера для одного или нескольких слотов репликации ошибка, удалите его командой `SELECT pg_drop_replication_slot('$REPLICATION_SLOT_NAME');`, где `$REPLICATION_SLOT_NAME` – наименование залипшего порта репликации. Для  примера выше это `dttXXXXXXXXXXXXXXXXX`;
+* Если процессе работы трансфера для одного или нескольких слотов репликации ошибка, удалите его командой `SELECT pg_drop_replication_slot('$REPLICATION_SLOT_NAME');`, где `$REPLICATION_SLOT_NAME` – наименование залипшего порта репликации. Для  примера выше это `dtt*****************`;
 
 * Если в результате удаления слота репликации возникает ошибка `replication slot "$REPLICATION_SLOT_NAME" is active for PID $PID_NUM`, остановите выполнение трансфера на стороне {{ data-transfer-name }} или удалите из параметров трансфера задействованный эндпоинт.
 

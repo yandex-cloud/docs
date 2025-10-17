@@ -4,18 +4,16 @@ description: Следуя данной инструкции, вы сможете
 ---
 # Передача данных из эндпоинта-источника {{ objstorage-full-name }}
 
-{% note info %}
 
-{% include [note-preview](../../../../_includes/preview-pp.md) %}
+{% include [storage-preview-disclaimer](../../../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
-{% endnote %}
 
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из хранилища {{ objstorage-full-name }} в управляемые базы данных {{ yandex-cloud }} и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
-1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
+1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с хранилищем и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../../data-transfer/troubleshooting/index.md) по их устранению.
 
@@ -72,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.queue_name.title }}** — имя очереди, настроенной в бакете S3, для получения событий `s3:ObjectCreated`.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.owner_id.title }}** — идентификатор аккаунта AWS для аккаунта, создавшего очередь. Оставьте поле пустым, если бакет S3 и очередь созданы в одном и том же аккаунте.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** — идентификатор ключа AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте поле пустым, если можно использовать те же учетные данные, что и для бакета S3.
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — cекрет AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте пустым, если можно использовать те же учетные данные, что и для бакета S3.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — секрет AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте пустым, если можно использовать те же учетные данные, что и для бакета S3.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}** — эндпоинт для S3-совместимого сервиса. Оставьте поле пустым, чтобы использовать AWS.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — регион AWS для отправки запросов. Оставьте поле пустым, если он совпадает с регионом бакета.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
@@ -88,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — символ-разделитель.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.quote_char.title }}** — символ для обозначения начала и конца строки.
-     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.escape_char.title }}** — Еscape-символ, используемый для экранирования специальных символов.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.escape_char.title }}** — Escape-символ, используемый для экранирования специальных символов.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.encoding.title }}** — [кодировка](https://docs.python.org/3/library/codecs.html#standard-encodings).
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.double_quote.title }}** — выберите, чтобы заменять двойные кавычки на одинарные.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.newlines_in_values.title }}** — выберите, если значения текстовых данных могут содержать символы переноса строки.

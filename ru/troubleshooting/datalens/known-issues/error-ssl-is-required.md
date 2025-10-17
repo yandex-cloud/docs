@@ -8,7 +8,7 @@
 ```
 ERR.CHARTS.DATA_FETCHING_ERROR
 ERR.DS_API.DB
-db_message": "odyssey: xxxxxxxxxxx: SSL is required"
+db_message": "odyssey: ***********: SSL is required"
 ```
 
 ## Решение {#issue-resolution}
