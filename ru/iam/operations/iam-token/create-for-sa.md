@@ -190,6 +190,7 @@ yc iam create-token
   ```
 
 
+
 - Java {#java}
 
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
@@ -459,6 +460,7 @@ yc iam create-token
   ```
 
 
+
 - Node.js {#node}
 
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
@@ -496,7 +498,8 @@ yc iam create-token
           });
   }
   ```
-
+  
+  
   
 
 - PHP {#php}
@@ -714,6 +717,7 @@ yc iam create-token
 
   1. Обменяйте JWT на IAM-токен:
 
+  
       ```go
       import yandexcloud
 
@@ -739,7 +743,7 @@ yc iam create-token
       def create_iam_token():
         jwt = create_jwt()
         
-        sdk = yandexcloud.SDK(service_account_key=sa_key, endpoint="api.yandexcloud.kz")
+        sdk = yandexcloud.SDK(service_account_key=sa_key)
         iam_service = sdk.client(IamTokenServiceStub)
         iam_token = iam_service.Create(
             CreateIamTokenRequest(jwt=jwt)
@@ -750,6 +754,8 @@ yc iam create-token
 
         return iam_token.iam_token
       ```
+  
+
 
 - Go {#go}
 
@@ -762,6 +768,7 @@ yc iam create-token
 
   1. Обменяйте JWT на IAM-токен:
 
+  
       ```go
       import (
         "context"
@@ -781,7 +788,6 @@ yc iam create-token
 
         sdk, err := ycsdk.Build(ctx, ycsdk.Config{
           Credentials: credentials,
-          Endpoint: "api.yandexcloud.kz:443",
         })
         if err != nil {
           panic(err)
@@ -801,6 +807,8 @@ yc iam create-token
         return newKey.IamToken
       }
       ```
+
+
 
 - Node.js {#node}
 

@@ -39,6 +39,13 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `{{ roles-functions-editor }}` на ваш каталог.
 1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
+1. Извлеките из архива бинарные файлы `ffmpeg`, `ffprobe` и сделайте их исполняемыми, выполнив команды:
+
+    ```bash
+    chmod +x ffmpeg
+    chmod +x ffprobe
+    ```
+
 1. Подготовьте ZIP-архив с кодом функции:
 
    1. Создайте файл `index.py` и добавьте в него указанный ниже код.
@@ -195,8 +202,9 @@
       yandex-speechkit==1.5.0
       ```
 
-   1. Добавьте в ZIP-архив `index.zip` файлы `index.py` и `requirements.txt`, а также бинарные файлы `ffmpeg` и `ffprobe` из скачанного архива с пакетом FFmpeg.
-   1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }} и [загрузите в него](../../storage/operations/objects/upload.md) созданный ZIP-архив.
+   1. Добавьте в ZIP-архив `index.zip` файлы `index.py`, `requirements.txt`, `ffmpeg` и `ffprobe`.
+
+1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }} и [загрузите в него](../../storage/operations/objects/upload.md) созданный ZIP-архив.
 
 ## Зарегистрируйте Telegram-бота {#bot-register}
 

@@ -96,7 +96,6 @@ description: Из этой статьи вы узнаете, какие вирт
 - Сервер {{ baremetal-name }} {#baremetal-server}
 
   * CentOS 7
-  * Debian 10
   * Debian 11
   * Ubuntu 18.04 LTS
   * Ubuntu 20.04 LTS

@@ -96,7 +96,6 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 - {{ baremetal-name }} server {#baremetal-server}
 
   * CentOS 7
-  * Debian 10
   * Debian 11
   * Ubuntu 18.04 LTS
   * Ubuntu 20.04 LTS

@@ -28,8 +28,8 @@ Eсли версия кластера или группы узлов устар�
   ```
 
   NAME                       READY   STATUS    RESTARTS   AGE   IP              NODE                        NOMINATED NODE   READINESS GATES
-  coredns-85fd96f799-2zzvw   1/1     Running   5          21d   10.96.138.252   cl1XXXXXXXXXXXXXXXXX-yxeg   <none>           <none>
-  coredns-85fd96f799-9lz6b   1/1     Running   3          20d   10.96.140.90    cl1XXXXXXXXXXXXXXXXX-icos   <none>           <none>
+  coredns-85fd96f799-2zzvw   1/1     Running   5          21d   10.96.138.252   cl1*****************-yxeg   <none>           <none>
+  coredns-85fd96f799-9lz6b   1/1     Running   3          20d   10.96.140.90    cl1*****************-icos   <none>           <none>
   ```
 
   {% endcut %}

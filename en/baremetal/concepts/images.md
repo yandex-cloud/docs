@@ -19,7 +19,6 @@ In {{ baremetal-full-name }}, you install each [server](./servers.md) OS from an
 * Ubuntu 20.04 LTS
 * Ubuntu 22.04 LTS
 * Ubuntu 24.04 LTS
-* Debian 10
 * Debian 11
 * CentOS 7
 
