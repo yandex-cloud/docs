@@ -7,7 +7,7 @@
 
 {% endnote %}
 
-You can install the [UI for {{ KF }}](https://docs.kafka-ui.provectus.io/overview/readme) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
+You can install the [UI for {{ KF }}]({{ kafka-ui-provectus }}) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
 
 
 You can deploy the UI for {{ KF }} in two ways:

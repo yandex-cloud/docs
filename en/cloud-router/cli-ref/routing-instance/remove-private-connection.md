@@ -20,7 +20,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>RoutingInstance id.|
 |`--name`|<b>`string`</b><br/>RoutingInstance name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--cic-prc`|<b>`string`</b><br/>CIC private connection to add to the routing-instance.|
+|`--cic-prc`|<b>`string`</b><br/>CIC private connection to remove from the routing-instance.|
 
 #### Global Flags
 

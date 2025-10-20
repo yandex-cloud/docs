@@ -1,11 +1,11 @@
 ---
-title: Viewing details of service usage by customers
+title: Viewing details of service consumption by customers
 description: Follow this guide to view detailed information on how the customers are using the services.
 ---
 
-# Viewing details of service usage by customers
+# Viewing details of service consumption by customers
 
-You can view details of how customers use services:
+You can view detailed information on how the customers are using the services:
 
 * In the management console
 * On the partner portal
@@ -18,9 +18,9 @@ You can view details of how customers use services:
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **All services**.
   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-  1. Click the account of interest and select ![image](../../_assets/console-icons/layout-cells-large.svg) **Usage details**.
+  1. Click the account you need and select ![image](../../_assets/console-icons/layout-cells-large.svg) **Usage details**.
 
-     For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
+     For more information about the settings of the **Usage details** page, see the [relevant guide on {{ billing-name }}](../../billing/operations/check-charges.md).
 
 - Partner portal {#partner}
 
@@ -39,7 +39,7 @@ You can view details of how customers use services:
 
        {% note info %}
 
-       The maximum statistics period is 92 days.
+       You can view statistics for up to 92 days.
 
        {% endnote %}
 

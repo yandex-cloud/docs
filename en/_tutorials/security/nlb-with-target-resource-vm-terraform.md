@@ -1,4 +1,4 @@
-# Migrating services from an NLB with VMs as targets to L7 ALB using {{ TF }}
+# Migrating services from an NLB with VMs as targets to an L7 ALB using {{ TF }}
 
 
 To migrate a service from a network load balancer to an L7 load balancer using {{ TF }}:
@@ -78,13 +78,13 @@ To migrate a service from a network load balancer to an L7 load balancer using {
         }
         ```
 
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
     ```bash
     terraform validate
     ```
 
-    {{ TF }} will show any errors found in your configuration files.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -92,19 +92,19 @@ To migrate a service from a network load balancer to an L7 load balancer using {
 
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
+1. In the management console, select the folder where you created the L7 load balancer.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. Wait until the L7 load balancer goes `Active`.
 1. Specify the autoscaling settings in the L7 load balancer:
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you created the L7 load balancer.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-    1. Click your load balancer’s name.
+    1. In the management console, click the load balancer's name.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set the [resource unit](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) limit.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Test the L7 load balancer {#test}
 
-1. Wait until the L7 load balancer goes `Active`.
-
-1. Navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
+1. In the [management console]({{ link-console-main }}), navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 

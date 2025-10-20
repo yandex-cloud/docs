@@ -36,7 +36,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   {% endnote %}
 
+
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 
 {% list tabs group=instructions %}
 
@@ -52,7 +54,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
   
@@ -101,6 +103,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
+      
       * Specify a user password:
 
         * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select to enter your own password. The password must be from 8 to 128 characters long.
@@ -108,6 +111,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select to generate a password with {{ connection-manager-name }}.
 
         To view the password, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab after you create the cluster and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+
 
       * Specify a DB name. The DB name may contain Latin letters, numbers, and underscores. It can be up to 63 characters long. You cannot create a database named `default`.
 
@@ -213,6 +217,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         The password must be from 8 to 128 characters long.
 
+        
         {% note info %}
 
         You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command and specify the user parameters as follows:
@@ -224,6 +229,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
 
         {% endnote %}
+
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
@@ -307,7 +313,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          Where:
          * `--cloud-storage-data-cache`: Defines whether to store files in a cluster storage, `true` or `false`.
-         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in cluster and object storages, `true` or `false`.
+         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
       1. To set up automatic increase of storage size for {{ CH }} and {{ ZK }} subclusters, use the `--disk-size-autoscaling` flag:
         
@@ -345,8 +351,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            * `anytime`: Any time (default).
            * `weekly`: On a schedule. To use this value, you need to provide `hour` and `day`.
         
-         * `hour`: Time of day (UTC). The possible values are from `1` to `24`.
-         * `day`: Day of week. The possible values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+         * `hour`: Time of day (UTC). The valid values range from `1` to `24`.
+         * `day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
 
 - {{ TF }} {#tf}
 
@@ -456,6 +462,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           The password must be from 8 to 128 characters long.
 
+          
           {% note info %}
 
           You can also generate a password with {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
@@ -464,9 +471,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           {% endnote %}
 
-       * `permission`: List of DBs the user should have access to.
-
-       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
        1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add a section named `access` with the settings you need:
 
@@ -694,7 +698,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
 
-                    * `adminPassword`: `admin` user password.
+                    * `adminPassword`: `admin` password.
                     * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
                     * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
 
@@ -711,7 +715,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
 
-                    If you enable {{ CK }} through the `embeddedKeeper: true` setting, you only need to specify the {{ CH }} host settings in `hostSpecs`.
+                    If you enabled {{ CK }} by setting `embeddedKeeper: true`, specify only {{ CH }} host settings in `hostSpecs`.
 
                 * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
                 * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -728,8 +732,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `maintenanceWindow`: Maintenance window settings:
               
-                * `weeklyMaintenanceWindow.day`: Day of week. The possible values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
-                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The possible values are from `1` to `24`.
+                * `weeklyMaintenanceWindow.day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+                * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
               
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -924,7 +928,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
 
-                    * `admin_password`: `admin` user password.
+                    * `admin_password`: `admin` password.
                     * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
                     * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
 
@@ -941,7 +945,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
 
-                    If you enable {{ CK }} through the `embedded_keeper: true` setting, then, in `host_specs`, you only need to specify the {{ CH }} host settings.
+                    If you enabled {{ CK }} by setting `embedded_keeper: true`, specify only {{ CH }} host settings in `host_specs`.
 
                 * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
                 * `subnet_id`: Subnet [ID](../../vpc/concepts/network.md#subnet).
@@ -958,8 +962,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `maintenance_window`: Maintenance window settings:
               
-              * `weekly_maintenance_window.day`: Day of week. The possible values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
-              * `weekly_maintenance_window.hour`: Time of day (UTC). The possible values are from `1` to `24`.
+              * `weekly_maintenance_window.day`: Day of week. Valid values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+              * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
 
             
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
@@ -1181,9 +1185,9 @@ To create a {{ CH }} cluster copy:
   * Three {{ CH }} `{{ host-class }}` hosts and three {{ ZK }} `{{ zk-host-class }}` hosts (for [replication](../concepts/replication.md)).
 
     One host of each class will be added to the new subnets:
-    * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, the `{{ region-id }}-a` availability zone.
-    * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, the `{{ region-id }}-b` availability zone.
-    * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, the `{{ region-id }}-d` availability zone.
+    * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, availability zone: `{{ region-id }}-a`.
+    * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone: `{{ region-id }}-b`.
+    * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, availability zone: `{{ region-id }}-d`.
 
     These subnets will belong to the `cluster-net` network.
 

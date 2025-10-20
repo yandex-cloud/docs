@@ -21,7 +21,7 @@ You can see the solution architecture in the diagram below:
 
 1. In the main network, [create](kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster with a [highly available](../../managed-kubernetes/concepts/index.md#master) master.
 
-    To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy.md#cilium). This mode can be enabled only when creating the cluster.
+    To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy.md#cilium). You can only enable this mode when creating the cluster.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -49,9 +49,9 @@ You can see the solution architecture in the diagram below:
       --- | --- | --- | --- | ---
       `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ssh` | `22` | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-      `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_2_public_address>/32`
-      `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_2_public_address>/32`
-      `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_2_subnet_CIDR>`
+      `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-2_public_address>/32`
+      `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-2_public_address>/32`
+      `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-2_subnet_CIDR>`
 
     {% endlist %}
 
@@ -71,8 +71,8 @@ You can see the solution architecture in the diagram below:
       --- | --- | --- | --- | --- 
       `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ssh` | `22`   | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-      `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_1_public_address>/32`
-      `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_1_public_address>/32`
+      `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-1_public_address>/32`
+      `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-1_public_address>/32`
       `k8s-VM-1-subnets` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<main_subnet1_CIDR>`, `<main_subnet2_CIDR>`, `<<main_subnet3_CIDR>`
       `cluster&services` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<cluster_CIDR>`, `<CIDRs_of_services>`
 
@@ -86,7 +86,7 @@ You can see the solution architecture in the diagram below:
 
       {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | ---
-      `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM_2_subnet_CIDR>` 
+      `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-2_subnet_CIDR>` 
 
     {% endlist %}
 
@@ -96,8 +96,8 @@ You can see the solution architecture in the diagram below:
 
    1. In the main network, [create a route table and add a static route to it](../../vpc/operations/static-route-create.md):
 
-      * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}**: Specify the CIDR of the `VM-2`'s subnet.
-      * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}**: Specify the `VM-1`'s internal IP address.
+      * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}**: Specify the CIDR of the subnet hosting `VM-2`.
+      * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}**: Specify the `VM-1` internal IP address.
 
    1. Associate the route table with all subnets in your main network.
 
@@ -107,12 +107,12 @@ You can see the solution architecture in the diagram below:
 
    1. Add a static route for the route table:
 
-      * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}**: Specify the CIDR of the `VM-1`'s subnet.
-      * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}**: Specify the `VM-2`'s internal IP address.
+      * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}**: Specify the CIDR of the subnet hosting `VM-1`.
+      * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}**: Specify the `VM-2` internal IP address.
 
       Repeat this step for each subnet in your main network.
 
-   1. Associate the route table to the `VM-2`'s subnet.
+   1. Associate the route table with the `VM-2` subnet.
 
 ## Setting up IPSec gateways {#gw}
 
@@ -148,18 +148,18 @@ You can see the solution architecture in the diagram below:
           ike=aes256-sha2_256-modp2048!
           esp=aes256-sha2_256!
           authby=secret
-          left=<VM_1_internal_address>
+          left=<VM-1_internal_address>
           leftsubnet=<main_subnet1_CIDR>,<main_subnet2_CIDR>,<main_subnet3_CIDR>
-          leftsourceip=<VM_1_internal_address>
-          leftid=<VM_1_public_address>
-          right=<VM_2_public_address>
-          rightsubnet=<VM_2_subnet_CIDR>
+          leftsourceip=<VM-1_internal_address>
+          leftid=<VM-1_public_address>
+          right=<VM-2_public_address>
+          rightsubnet=<VM-2_subnet_CIDR>
           aggressive=no
           keyingtries=%forever
           ikelifetime=86400s
         ```
 
-        For more information about parameters, see the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
+        For more information about parameters, see the [strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 
     1. Open the `ipsec.secrets` file that is used for authentication:
 
@@ -170,10 +170,10 @@ You can see the solution architecture in the diagram below:
     1. Replace the file contents with this text:
 
        ```text
-       <VM_1_public_address> <VM_2_public_address> : PSK "<password>"
+       <VM-1_public_address> <VM-2_public_address> : PSK "<password>"
        ```
 
-       To learn more about the `ipsec.secrets` file format, see the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets).
+       Learn more about the `ipsec.secrets` file format in the [strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets).
 
 1. Set up the additional IPSec gateway:
 
@@ -206,12 +206,12 @@ You can see the solution architecture in the diagram below:
           ike=aes256-sha2_256-modp2048!
           esp=aes256-sha2_256!
           authby=secret
-          left=<VM_2_internal_address>
-          leftid=<VM_2_public_address>
-          leftsubnet=<VM_2_subnet_CIDR>
-          right=<VM_1_public_address>
+          left=<VM-2_internal_address>
+          leftid=<VM-2_public_address>
+          leftsubnet=<VM-2_subnet_CIDR>
+          right=<VM-1_public_address>
           rightsubnet=<main_subnet1_CIDR>,<main_subnet2_CIDR>,<main_subnet3_CIDR>
-          rightsourceip=<VM_1_internal_address>
+          rightsourceip=<VM-1_internal_address>
           aggressive=no
           keyingtries=%forever
           ikelifetime=86400s
@@ -220,9 +220,9 @@ You can see the solution architecture in the diagram below:
           dpddelay=30s
         ```
 
-        For more information about parameters, see the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
+        For more information about parameters, see the [strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 
-    1. Open the `ipsec.secrets` file required for authentication:
+    1. Open the `ipsec.secrets` file that is used for authentication:
 
        ```bash
        sudo nano /etc/ipsec.secrets
@@ -231,12 +231,12 @@ You can see the solution architecture in the diagram below:
     1. Replace the file contents with this text:
 
        ```text
-       <VM_2_public_address> <VM_1_public_address> : PSK "<password>"
+       <VM-2_public_address> <VM-1_public_address> : PSK "<password>"
        ```
 
        Passwords must be the same for both VMs.
 
-       To learn more about the `ipsec.secrets` file format, see the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets). 
+       Learn more about the `ipsec.secrets` file format in the [strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/Ipsecsecrets). 
 
 1. Restart strongSwan on both VMs:
 
@@ -259,7 +259,7 @@ You can see the solution architecture in the diagram below:
    ...
    ```
 
-   If the connection was not established, try establishing it manually. On the `VM-1` VM, run the following command:
+   If the connection was not established, try establishing it manually. On `VM-1`, run this command:
 
     ```bash
     sudo ipsec up VM-1

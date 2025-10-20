@@ -26,33 +26,23 @@ description: Доступ к платежному аккаунту предос�
 
 #### billing.accounts.owner {#billing-accounts-owner}
 
-
 {% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
-
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
-
 {% include [billing.accounts.viewer](../../_roles/billing/accounts/viewer.md) %}
-
 
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
-
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
-
 
 #### billing.accounts.editor {#billing-accounts-editor}
 
-
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
-
 
 #### billing.accounts.admin {#billing-accounts-admin}
 
-
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
-
 
 #### billing.accounts.member {#billing-accounts-member}
 
@@ -60,9 +50,7 @@ description: Доступ к платежному аккаунту предос�
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
-
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
-
 
 #### billing.partners.editor {#billing-partners-editor}
 

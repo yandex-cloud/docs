@@ -7,13 +7,8 @@ description: Videos of conferences and webinars on {{ mch-full-name }}.
 
 ## Articles, announcements, and videos {#articles}
 
-### 2025 {#2025}
-
-* {{ CH }}: Introducing a column-oriented DBMS for big data analytics.
-
-  * Read [our article](https://yandex.cloud/ru/blog/clickhouse-overview).
-
 ## Conferences and webinars {#conf-and-webinars}
+
 
 ### 2023: Data Open Source Day {#data-open-source-day-2023}
 
@@ -31,7 +26,7 @@ description: Videos of conferences and webinars on {{ mch-full-name }}.
 
 * Data platform updates and future plans.
 
-  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) for the video.
+  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the recording.
 
 ### 2021: Yandex for Developers {#yfd-2021}
 

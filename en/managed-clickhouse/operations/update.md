@@ -640,7 +640,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             In our request example, both user and database management via SQL are enabled.
 
-        * `configSpec.adminPassword`: `admin` user password.
+        * `configSpec.adminPassword`: `admin` password.
         * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
         * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
@@ -948,7 +948,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
-                    * `day`: Day of week, in `DDD` format, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
@@ -1057,7 +1057,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
-                    * `day`: Day of week, in `DDD` format, `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                     * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
@@ -1085,6 +1085,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 {% endlist %}
 
+
 ### {{ connection-manager-name }} {#conn-man}
 
 If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. It is only available in the [management console]({{ link-console-main }}).
@@ -1101,9 +1102,10 @@ The following resources will be created for each database user:
 
   {% note info %}
 
-  {{ connection-manager-name }} and secrets created with it are free of charge.
+  You can use {{ connection-manager-name }} and secrets you create there free of charge.
 
   {% endnote %}
+
 
 ## Moving a cluster {#move-cluster}
 

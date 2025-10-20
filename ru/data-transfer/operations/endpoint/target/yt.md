@@ -115,7 +115,7 @@ description: Из статьи вы узнаете, как задать наст
 
         * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
         * {% include [big-value](../../../../_includes/data-transfer/fields/yt/ui/big-value.md) %}
-        * {% include [сopy-via-static-table](../../../../_includes/data-transfer/fields/yt/ui/сopy-via-static-table.md) %}
+        * {% include [сopy-via-static-table](../../../../_includes/data-transfer/fields/yt/ui/copy-via-static-table.md) %}
         * {% include [computing-pool](../../../../_includes/data-transfer/fields/yt/ui/computing-pool.md) %}
 
 {% endlist %}

@@ -3,7 +3,7 @@
 
 _The partner program_ is a program where a partner company resells {{ yandex-cloud }} services and earns a partner [bonus](#premium).
 
-Partners pay for the services consumed by their customers. Under the VAR program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpayment). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
+Partners pay for the services consumed by their customers. Under the partner program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpayment). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
 
 Program participants:
 
@@ -26,7 +26,7 @@ A partner bonus is a discount on {{ yandex-cloud }} services applied to the paym
 
 {% note info %}
   
-For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_grant/?lang=ru).
+For the effective conditions, see our [offer]((https://yandex.ru/legal/cloud_grant/?lang=ru)).
   
 {% endnote %}
 
@@ -51,6 +51,7 @@ The discount does not apply to:
 
 You can view the absolute and relative discounts for a reporting month under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
 
+
 ### Withdrawing your commission {#bonus}
 
 You can withdraw your commissions credited as rebates through the partner portal:
@@ -61,10 +62,11 @@ You can withdraw your commissions credited as rebates through the partner portal
 1. Specify the amount to withdraw.
 1. Select the destination for the withdrawal:
 
-   * **Bonus**. These funds will reduce the amount payable for the consumption of your customer subaccounts in the current month.
-   * **Bank account**. The funds will be transferred to the bank account specified in the partner agreement.
+   * **Bonus**: These funds will reduce the amount payable for the consumption of your customer subaccounts in the current month.
+   * **Bank account**: The funds will be transferred to the bank account specified in the partner agreement.
 
 1. Click **Withdraw**.
+
 
 ## How to quit the program {#end}
 

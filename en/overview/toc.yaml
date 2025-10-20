@@ -24,6 +24,8 @@ items:
         href: concepts/public-ips.md
       - name: User interaction with resources
         href: roles-and-resources.md
+      - name: Zones of control in MDB
+        href: concepts/mdb-responsibilities.md
       - name: Deleting user data
         href: concepts/data-deletion.md
   - name: '{{ yandex-cloud }} services'

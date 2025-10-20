@@ -8,6 +8,8 @@ Event name | Description
 `BucketVersioningUpdate` | Updating bucket versioning settings
 `BucketHttpsUpdate` | Updating the HTTPS configuration for a bucket
 `BucketLifecycleUpdate` | Changing the lifecycle of an object in a bucket
+`BucketLoggingUpdate` | Updating the bucket actions logging mechanism
+`BucketObjectLockUpdate` | Reconfiguring object version locks in a bucket
 `BucketPolicyUpdate` | Updating the access policies for a bucket
 `BucketTagsUpdate` | Updating bucket tags
 `BucketUpdate` | Updating a bucket

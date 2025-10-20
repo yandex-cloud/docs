@@ -177,7 +177,7 @@ metadata:
     gwin.yandex.cloud/rules.idleTimeout: "300s"  # idle connection timeout
     
     # HTTP specific settings
-    gwin.yandex.cloud/rules.httpUpgradeTypes: "websocket"  # supported upgrade protocols
+    gwin.yandex.cloud/rules.http.upgradeTypes: "websocket"  # supported upgrade protocols
     
     # Security
     gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
@@ -287,7 +287,7 @@ metadata:
 |------------|
 | `gwin.yandex.cloud/rules.timeout` <br> _(duration)_ <br> Overall timeout for HTTP connection between load balancer and backend. The maximum time the connection is kept alive, regardless of data transfer. Default: 60s. On timeout, returns UNAVAILABLE status. _NOTE_: In HTTPRoute you can use rules[].timeouts.backendRequest field instead, it overrides annotation value. <br> Example: `60s` |
 | `gwin.yandex.cloud/rules.idleTimeout` <br> _(duration)_ <br> Idle timeout for HTTP connection. <br> Example: `300s` |
-| `gwin.yandex.cloud/rules.httpUpgradeTypes` <br> _(comma separated strings)_ <br> Supported HTTP Upgrade header values. <br> Example: `websocket` |
+| `gwin.yandex.cloud/rules.http.upgradeTypes` <br> _(comma separated strings)_ <br> Supported HTTP Upgrade header values. <br> Example: `websocket` |
 
 #### Security configuration
 

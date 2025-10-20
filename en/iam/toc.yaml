@@ -125,8 +125,8 @@ items:
             href: tutorials/wlif-k8s-integration.md
           - name: '{{ managed-k8s-name }}'
             href: tutorials/wlif-managed-k8s-integration.md
-      - name: Configuring CI/CD between {{ sf-name }} and GitHub
-        href: tutorials/ci-cd-github-functions.md
+          - name: Configuring CI/CD between {{ sf-name }} and GitHub
+            href: tutorials/ci-cd-github-functions.md
   - name: Concepts
     items:
       - name: Overview
@@ -192,6 +192,12 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: access-analyzer
+        items:
+          - name: Overview
+            href: cli-ref/access-analyzer/index.md
+          - name: list-subject-access-bindings
+            href: cli-ref/access-analyzer/list-subject-access-bindings.md
       - name: access-key
         items:
           - name: Overview

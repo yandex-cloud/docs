@@ -39,6 +39,8 @@ items:
             href: operations/waf-profile-delete.md
           - name: Configuring rule sets
             href: operations/configure-set-rules.md
+          - name: Getting information about a rule set
+            href: operations/get-set-rules.md
           - name: Adding an exclusion rule
             href: operations/exclusion-rule-add.md
           - name: Updating an exclusion rule
@@ -124,8 +126,8 @@ items:
       - name: Centralized online publication and DDoS protection of applications
         href: tutorials/different-folders-services.md
       - name: >-
-          Migrating services from an NLB to an L7 ALB for DDoS protection using
-          {{ sws-name }}
+          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          protection
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md

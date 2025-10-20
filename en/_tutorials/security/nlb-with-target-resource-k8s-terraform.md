@@ -1,10 +1,10 @@
-# Migrating services from an NLB with a {{ managed-k8s-full-name }} cluster as a target to L7 ALB using {{ TF }}
+# Migrating services from an NLB with a {{ managed-k8s-full-name }} cluster as a target to an L7 ALB using {{ TF }}
 
 
 To migrate a service from a network load balancer to an L7 load balancer:
 
 1. [See the service migration recommendations](#recommendations).
-1. [Create your infrastructure](#deploy). At this step, you will associate the {{ sws-name }} profile with a virtual host of the L7 load balancer.
+1. [Create your infrastructure](#deploy).
 1. [Install an {{ alb-name }} ingress controller and create resources in your {{ managed-k8s-name }} cluster](#install-ingress-nginx). At this step, you will associate your {{ sws-name }} profile with the L7 load balancer.
 1. [Test the L7 load balancer](#test).
 1. [Migrate user traffic from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
@@ -12,6 +12,10 @@ To migrate a service from a network load balancer to an L7 load balancer:
 ## Service migration recommendations {#recommendations}
 
 {% include [k8s-recommendations](../_tutorials_includes/migration-from-nlb-to-alb/k8s-recommendations.md) %}
+
+## Getting started {#before-you-begin}
+
+The {{ managed-k8s-name }} services used as backends must be of the `NodePort` type. If your service type is different, change it to `NodePort`. For more information about this type, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 ## Create your infrastructure {#deploy}
 
@@ -45,7 +49,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
     terraform validate
     ```
 
-    {{ TF }} will show any errors found in your configuration files.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -125,22 +129,4 @@ Select one of these migration options:
 
 ### Do not keep the public IP address for your service {#not-save-public-ip}
 
-1. To migrate user traffic from a network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, update the `A` record value for the service domain name to point to the public IP address of the L7 load balancer. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), update the record using [this guide](../../dns/operations/resource-record-update.md).
-
-    {% note info %}
-
-    The propagation of DNS record updates depends on the time-to-live (TTL) value and the number of links in the DNS request chain. This process can take a while.
-
-    {% endnote %}
-
-1. As the DNS record updates propagate, monitor the increase in requests to the L7 load balancer:
-
-    1. In the [management console]({{ link-console-main }}), navigate to the folder with the {{ managed-k8s-name }} cluster.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Select the cluster.
-    1. Select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}** on the left and then the **{{ ui-key.yacloud.k8s.network.label_ingress }}** tab on the right. For your `Ingress` resource, follow the L7 load balancer link in the **Load balancer** column.
-    1. Monitor the L7 load balancer's user traffic on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
-
-1. Monitor the decrease in traffic on the network load balancer using the `processed_bytes` and `processed_packets` [load balancer metrics](../../monitoring/metrics-ref/network-load-balancer-ref.md). You can [create a dashboard](../../monitoring/operations/dashboard/create.md) to visualize these metrics. No traffic on the external network load balancer over time indicates the L7 load balancer is now handling all user traffic.
-
-1. Optionally, [delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating user traffic to the L7 load balancer.
+{% include [k8s-not-save-public-ip](../_tutorials_includes/migration-from-nlb-to-alb/k8s-not-save-public-ip.md) %}

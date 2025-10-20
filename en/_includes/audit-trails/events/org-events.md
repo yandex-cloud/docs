@@ -1,24 +1,29 @@
 Event name | Description
 --- | ---
 `AcceptInvitation` | Accepting an invitation
+`ActivateMfaEnforcement` | Activating an [MFA](../../../organization/concepts/mfa.md) policy
 `AttachRegion` | Connecting a region
 `CreateGroup` | Creating a user group
 `CreateGroupMapping` | Configuring a federated user group mapping
 `CreateInvitations` | Creating an invitation
 `CreateMembership` | Adding a user to an organization
+`CreateMfaEnforcement` | Creating an MFA policy
 `CreateOrganization` | Creating an organization
 `CreateOsLoginProfile` | Creating a profile {{ oslogin }}
 `CreateUserSshKey` | Creating an SSH user key
+`DeactivateMfaEnforcement` | Deactivating an MFA policy
 `DeleteFederatedUserAccounts` | Deleting a user from a federation
 `DeleteGroup` | Deleting a user group
 `DeleteGroupMapping` | Deleting a federated user group mapping
 `DeleteInvitation` | Deleting an invite
 `DeleteMembership` | Deleting a user from an organization
+`DeleteMfaEnforcement` | Deleting an MFA policy
 `DeleteOrganization` | Deleting an organization
 `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
 `DeleteUserSshKey` | Deleting an SSH user key
 `idp.AddUserpoolDomain` | Associating a domain with a user pool
 `idp.ChangeOneTimePassword` | Updating a one-time password
+`idp.ConvertUserToExternal` | Assigning a user an external folder synchronization flag
 `idp.CreateUser` | Creating a local user
 `idp.CreateUserpool` | Creating a user pool
 `idp.DeleteUser` | Deleting a local user
@@ -65,6 +70,8 @@ Event name | Description
 `UpdateGroupAccessBindings` | Updating access permissions for a user group
 `UpdateGroupMapping` | Updating a federated user group mapping
 `UpdateGroupMembers` | Changing user group members
+`UpdateMfaEnforcement` | Updating an MFA policy
+`UpdateMfaEnforcementAudience` | Updating target users for an MFA policy
 `UpdateOrganization` | Updating an organization
 `UpdateOrganizationAccessBindings` | Updating access permissions for an organization
 `UpdateOsLoginProfile` | Updating an {{ oslogin }} profile

@@ -8,45 +8,33 @@ description: In this article, you will learn what service and primitive roles ar
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
-## What roles this service has {#roles-list}
+## What roles partner program has {#roles-list}
 
 ### Service roles {#service-roles}
 
 #### billing.accounts.owner {#billing-accounts-owner}
 
-
 {% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
-
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
-
 {% include [billing.accounts.viewer](../../_roles/billing/accounts/viewer.md) %}
-
 
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
-
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
-
 
 #### billing.accounts.editor {#billing-accounts-editor}
 
-
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
-
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
-
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
-
 
 #### billing.accounts.admin {#billing-accounts-admin}
 
-
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
-
 
 #### billing.accounts.partnerViewer {#billing-accounts-partnerViewer}
 
@@ -121,7 +109,7 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) ||
-|| Deleting a billing account |
+|| Delete a billing account |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |

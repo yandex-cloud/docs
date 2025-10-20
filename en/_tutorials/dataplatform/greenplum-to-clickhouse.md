@@ -30,7 +30,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 - Manually {#manual}
 
-    1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration.
+    1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) with any suitable configuration.
 
     1. [Create a {{ mch-full-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with a database named `db1` using any suitable configuration.
 
@@ -132,9 +132,9 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
    └────┴───────┘
    ```
 
-## Test the copy function upon re-activation {#example-check-copy}
+## Verify replication after reactivation {#example-check-copy}
 
-1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md); in the `x_tab` table, delete one row and update one:
+1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md). Then, in the `x_tab` table, delete one row and update another:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
@@ -142,7 +142,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
     ```
 
 1. [Reactivate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Check the changes in the `x_tab` table of the {{ CH }} target:
+1. Make sure the changes have been applied to the `x_tab` table on the {{ CH }} target:
 
     ```sql
     SELECT id, name FROM db1.x_tab;
@@ -159,11 +159,11 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-1. Make sure the transfer has the **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** status and [delete](../../data-transfer/operations/transfer.md#delete) it.
+1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the method matching their creation method:
+1. Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 

@@ -2,9 +2,9 @@
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter a name and description for your {{ managed-k8s-name }} cluster. The {{ managed-k8s-name }} cluster name must be unique within {{ yandex-cloud }}.
-1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** to be used to create your resources.
-1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** to be used by the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) to access the [{{ container-registry-full-name }}](../../container-registry/) [Docker image registry](../../container-registry/concepts/registry.md).
-1. (Optional) Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** that will be used for [encrypting secrets](../../managed-kubernetes/concepts/encryption.md).
+1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** to use to create your resources.
+1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) will use to access the [Docker image registry](../../container-registry/concepts/registry.md) in [{{ container-registry-full-name }}](../../container-registry/).
+1. Optionally, specify the **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** for [secret encryption](../../managed-kubernetes/concepts/encryption.md).
 
    {% include [write-once-settings](write-once-setting.md) %}
 
@@ -15,25 +15,23 @@
 1. Add [cloud labels](../../managed-kubernetes/concepts/index.md#cluster-labels) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field.
 
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
-   * (Optional) Expand the **Compute resources** section and select a [resource configuration](../../managed-kubernetes/concepts/index.md#master-resources) for the master.
+   * Optionally, expand the **Compute resources** section and select a [resource configuration](../../managed-kubernetes/concepts/index.md#master-resources) for the master.
 
-     {% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
+     {% include [master-autoscale](master-autoscale.md) %}
 
-     To allow further changes to the master's resource configuration, select **Allow resource volume to increase in response to loads**.
-
-     {% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+     {% include [master-default-config](master-default-config.md) %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to be installed on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select an [IP address](../../vpc/concepts/address.md) assignment method:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Not to assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
 
      {% include [nat-instance-restriction](nat-instance-restriction.md) %}
 
      {% include [write-once-settings](write-once-setting.md) %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** field, select the {{ managed-k8s-name }} master type:
-     * `Basic`: Contains one master host in one availability zone. This type of master is cheaper but not fault-tolerant. Its former name is _zonal_.
+     * `Basic`: Contains one master host in one availability zone. This type of master is cheaper, but it is not fault-tolerant. Its former name is _zonal_.
 
        {% note warning %}
 
@@ -41,7 +39,7 @@
 
        {% endnote %}
 
-     * `Highly available`: Contains three master hosts. Its former name is _regional_.
+     * `Highly available`: Contains three master hosts. It's former name was _regional_.
 
        {% note warning %}
 
@@ -92,5 +90,5 @@
 
    * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**, which is a range of IP addresses to allocate [pod](../../managed-kubernetes/concepts/index.md#pod) IPs from.
    * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**, which is a range of IP addresses to allocate [service](../../managed-kubernetes/concepts/index.md#service) IPs from.
-   * Set the {{ managed-k8s-name }} node subnet mask and the maximum number of pods per node.
+   * Set the subnet mask for the {{ managed-k8s-name }} nodes and the maximum number of pods per node.
 1. Click **{{ ui-key.yacloud.common.create }}**.

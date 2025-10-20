@@ -1,5 +1,5 @@
 ---
-title: Connecting to an {{ CH }} cluster in {{ mch-full-name }}
+title: Connecting to a {{ CH }} cluster in {{ mch-full-name }}
 description: Follow this guide to connect to a database in a {{ CH }} cluster using command line tools, browser, graphical IDEs, and Docker container.
 ---
 
@@ -7,18 +7,18 @@ description: Follow this guide to connect to a database in a {{ CH }} cluster us
 
 This section provides settings for connecting to {{ mch-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-You can connect to public {{ CH }} cluster hosts only if you use [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
+You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
-* Located in the `{{ crt-local-dir }}` folder (for Ubuntu).
+* Located in the `{{ crt-local-dir }}` directory (for Ubuntu).
 * Imported to the trusted root certificate store (for Windows).
 
-Connecting without SSL certificates is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
+Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted for database connections.
 
 Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
 
 The examples for Linux were tested in the following environment:
 
-* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
+* {{ yandex-cloud }} VM running Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
 
 The examples for Windows were tested in the following environment:
@@ -68,7 +68,7 @@ The examples for Windows were tested in the following environment:
     ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   {% include [default-connstring](../../../_includes/mdb/mch/default-connstring.md) %}
 
@@ -76,7 +76,56 @@ The examples for Windows were tested in the following environment:
 
 To learn how to get host FQDN, see [this guide](fqdn.md).
 
-After running the command, enter the user password to complete the connection process.
+After you run the command, enter the user password to complete the connection process.
+
+After connecting to the DBMS, run the `SELECT version();` command.
+
+### mysql-client {#mysql-client}
+
+{% note warning %}
+
+Use the {{ MY }} client connection interface only if using the standard {{ CH }} interfaces is not possible for any reason.
+
+{% endnote %}
+
+Before connecting, install the `mysql` utility:
+
+```bash
+sudo apt update && sudo apt install --yes mysql-client
+```
+
+{% list tabs group=connection %}
+
+
+- Connecting without SSL {#without-ssl}
+
+    ```bash
+    mysql --host=<FQDN_of_any_{{ CH }}_host> \
+          --port={{ port-mmy }} \
+          --ssl-mode=DISABLED \
+          --user <username> \
+          --password \
+          <DB_name>
+    ```
+
+
+- Connecting with SSL {#with-ssl}
+
+    ```bash
+    mysql --host=<FQDN_of_any_{{ CH }}_host> \
+          --port={{ port-mmy }} \
+          --ssl-ca={{ crt-local-dir }}{{ crt-local-file-root }} \
+          --ssl-mode=VERIFY_IDENTITY \
+          --user=<username> \
+          --password \
+          <DB_name>
+    ```
+
+{% endlist %}
+
+To learn how to get host FQDN, see [this guide](fqdn.md).
+
+After you run the command, enter the user password to complete the connection process.
 
 After connecting to the DBMS, run the `SELECT version();` command.
 
@@ -96,7 +145,7 @@ After connecting to the DBMS, run the `SELECT version();` command.
     ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     ```bash
     curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
@@ -124,7 +173,7 @@ To learn how to get host FQDN, see [this guide](fqdn.md).
     ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     ```powershell
     curl.exe `
@@ -141,7 +190,7 @@ To learn how to get host FQDN, see [this guide](fqdn.md).
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using an SSL certificate.
+You can only use graphical IDEs to connect to public cluster hosts with an SSL certificate.
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -150,16 +199,16 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
 1. Create a data source:
     1. Select **File** → **New** → **Data Source** → **{{ CH }}**.
     1. On the **General** tab:
-        1. Specify the connection settings:
-            * **Host**: [Any {{ CH }} host FQDN](fqdn.md) or a [special FQDN](fqdn.md#auto).
+        1. Configure the connection as follows:
+            * **Host**: [FQDN of any {{ CH }}](fqdn.md) host or a [special FQDN](fqdn.md#auto).
             * **Port**: `{{ port-mch-http }}`.
-            * **User**, **Password**: DB user's name and password.
+            * **User**, **Password**: DB user name and password.
             * **Database**: Name of the DB to connect to.
         1. Click **Download** to download the connection driver.
     1. On the **SSH/SSL** tab:
-        1. Enable the **Use SSL** setting.
+        1. Enable **Use SSL**.
         1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](index.md#get-ssl-cert).
-1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
@@ -168,18 +217,18 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
     1. In the **Database** menu, select **New connection**.
     1. Select **{{ CH }}** from the DB list.
     1. Click **Next**.
-    1. Specify the connection parameters on the **Main** tab:
+    1. Specify the connection settings on the **Main** tab:
         * **Host**: [FQDN of any {{ CH }}](fqdn.md) host or a [special FQDN](fqdn.md#auto).
         * **Port**: `{{ port-mch-http }}`.
         * **DB/Schema**: Name of the DB to connect to.
-        * Under **Authentication**, specify the DB user's name and password.
+        * Under **Authentication**, specify the DB user name and password.
     1. On the **Driver properties** tab:
-        1. Click **Download** in a new window with an invitation to download the driver files.
+        1. Click **Download** in the new window where the system prompts you to download the driver files.
         1. Specify the [SSL connection](index.md#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`
             * `sslrootcert:<path_to_saved_SSL_certificate_file>`.
-1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-1. Click **Ready** to save the database connection settings.
+1. Click **Test connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Done** to save the database connection settings.
 
 {% endlist %}
 
@@ -206,15 +255,15 @@ https://<FQDN_of_any_{{ CH }}_host>:8443/play
 
 You can only connect to public cluster hosts. To learn how to get host FQDN, see [this guide](fqdn.md).
 
-To connect to a cluster by [selecting an available host automatically](fqdn.md#auto), use the following URL:
+To connect to a cluster with [automatic selection of an available host](fqdn.md#auto), use the following URL:
 
-* `https://c-<cluster_ID>.rw.{{ dns-zone }}:8443/play`: To connect to the available cluster host.
-* `https://<shard_name>.c-<cluster_ID>.rw.{{ dns-zone }}:8443/play`: To connect to the available [shard](../../concepts/sharding.md) host.
+* `https://c-<cluster_ID>.rw.{{ dns-zone }}:8443/play`: To connect to an available cluster host.
+* `https://<shard_name>.c-<cluster_ID>.rw.{{ dns-zone }}:8443/play`: To connect to an available [shard](../../concepts/sharding.md) host.
 
-To make a query to the database, specify the username and password in the upper-right corner.
+To run database queries, enter your username and password in the top right corner of the page.
 
 
-When connecting from the built-in editor, SQL queries run separately without creating a shared session with the {{ CH }} server. Therefore, queries running within the session, such as `USE` or `SET`, will have no effect.
+When you connect from the built-in editor, SQL queries run separately without creating a shared session with the {{ CH }} server. Therefore, queries running within the session, such as `USE` or `SET`, have no effect.
 
 
 
@@ -255,7 +304,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
    ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
    ```bash
    # Connecting the DEB repository

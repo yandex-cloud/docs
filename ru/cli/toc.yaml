@@ -457,6 +457,12 @@ items:
                 href: cli-ref/baremetal/cli-ref/public-subnet/remove-labels.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/public-subnet/update.md
+          - name: rental-period
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/rental-period/index.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/rental-period/list.md
           - name: server
             items:
               - name: Overview
@@ -750,6 +756,12 @@ items:
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/delete.md
               - name: get
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/get.md
+              - name: get-by-cic-private-connection-id
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md
+              - name: get-by-vpc-network-id
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/get-by-vpc-network-id.md
               - name: list
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/list.md
               - name: list-operations
@@ -1756,6 +1768,8 @@ items:
                 href: cli-ref/dns/cli-ref/zone/list-operations.md
               - name: list-records
                 href: cli-ref/dns/cli-ref/zone/list-records.md
+              - name: move
+                href: cli-ref/dns/cli-ref/zone/move.md
               - name: remove-access-binding
                 href: cli-ref/dns/cli-ref/zone/remove-access-binding.md
               - name: remove-labels
@@ -1774,6 +1788,13 @@ items:
         items:
           - name: Overview
             href: cli-ref/iam/cli-ref/index.md
+          - name: access-analyzer
+            items:
+              - name: Overview
+                href: cli-ref/iam/cli-ref/access-analyzer/index.md
+              - name: list-subject-access-bindings
+                href: >-
+                  cli-ref/iam/cli-ref/access-analyzer/list-subject-access-bindings.md
           - name: access-key
             items:
               - name: Overview
@@ -3526,6 +3547,8 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/cluster/update.md
               - name: update-config
                 href: cli-ref/managed-postgresql/cli-ref/cluster/update-config.md
+          - name: connect
+            href: cli-ref/managed-postgresql/cli-ref/connect.md
           - name: database
             items:
               - name: Overview
@@ -3843,6 +3866,8 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/create/delta-lake.md
                   - name: hive
                     href: cli-ref/managed-trino/cli-ref/catalog/create/hive.md
+                  - name: hudi
+                    href: cli-ref/managed-trino/cli-ref/catalog/create/hudi.md
                   - name: iceberg
                     href: cli-ref/managed-trino/cli-ref/catalog/create/iceberg.md
                   - name: oracle
@@ -3871,6 +3896,8 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/update/delta-lake.md
                   - name: hive
                     href: cli-ref/managed-trino/cli-ref/catalog/update/hive.md
+                  - name: hudi
+                    href: cli-ref/managed-trino/cli-ref/catalog/update/hudi.md
                   - name: iceberg
                     href: cli-ref/managed-trino/cli-ref/catalog/update/iceberg.md
                   - name: oracle
@@ -3909,6 +3936,26 @@ items:
                 href: cli-ref/managed-trino/cli-ref/cluster/stop.md
               - name: update
                 href: cli-ref/managed-trino/cli-ref/cluster/update.md
+      - name: managed-ytsaurus
+        items:
+          - name: Overview
+            href: cli-ref/managed-ytsaurus/cli-ref/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/index.md
+              - name: delete
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/delete.md
+              - name: get
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/get.md
+              - name: get-configuration
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/get-configuration.md
+              - name: list
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/list.md
+              - name: start
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/managed-ytsaurus/cli-ref/cluster/stop.md
       - name: marketplace
         items:
           - name: Overview
@@ -4151,6 +4198,8 @@ items:
               - name: list-access-bindings
                 href: >-
                   cli-ref/organization-manager/cli-ref/group/list-access-bindings.md
+              - name: list-effective
+                href: cli-ref/organization-manager/cli-ref/group/list-effective.md
               - name: list-members
                 href: cli-ref/organization-manager/cli-ref/group/list-members.md
               - name: list-operations
@@ -4169,6 +4218,66 @@ items:
             items:
               - name: Overview
                 href: cli-ref/organization-manager/cli-ref/idp/index.md
+              - name: application
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/application/index.md
+                  - name: oauth
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/application/oauth/index.md
+                      - name: application
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/index.md
+                          - name: add-access-bindings
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/add-access-bindings.md
+                          - name: add-assignments
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/add-assignments.md
+                          - name: create
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/create.md
+                          - name: delete
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/delete.md
+                          - name: get
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/get.md
+                          - name: list
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/list.md
+                          - name: list-access-bindings
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/list-access-bindings.md
+                          - name: list-assignments
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/list-assignments.md
+                          - name: list-operations
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/list-operations.md
+                          - name: reactivate
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/reactivate.md
+                          - name: remove-access-bindings
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/remove-access-bindings.md
+                          - name: remove-assignments
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/remove-assignments.md
+                          - name: set-access-bindings
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/set-access-bindings.md
+                          - name: suspend
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/suspend.md
+                          - name: update
+                            href: >-
+                              cli-ref/organization-manager/cli-ref/idp/application/oauth/application/update.md
               - name: user
                 items:
                   - name: Overview
@@ -4193,6 +4302,9 @@ items:
                   - name: reactivate
                     href: >-
                       cli-ref/organization-manager/cli-ref/idp/user/reactivate.md
+                  - name: reset-password
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/reset-password.md
                   - name: resolve-external-ids
                     href: >-
                       cli-ref/organization-manager/cli-ref/idp/user/resolve-external-ids.md

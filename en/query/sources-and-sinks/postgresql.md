@@ -72,11 +72,15 @@ Some limitations apply when working with {{ PG }} clusters.
 Limitations:
 1. {% include [!](_includes/supported_requests.md) %}
 1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
-Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (`Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Supported data types for filter pushdown:
 
 |Data type {{ yq-full-name }}|
 |----|

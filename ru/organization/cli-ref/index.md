@@ -24,6 +24,7 @@ Syntax:
 	- [yc organization-manager group get](group/get.md) — Show information about the specified group
 	- [yc organization-manager group list](group/list.md) — List groups
 	- [yc organization-manager group list-access-bindings](group/list-access-bindings.md) — List access bindings for the specified group
+	- [yc organization-manager group list-effective](group/list-effective.md) — List groups that the subject belongs to within a specific organization.
 	- [yc organization-manager group list-members](group/list-members.md) — List members of the specified group
 	- [yc organization-manager group list-operations](group/list-operations.md) — List operations for the specified group
 	- [yc organization-manager group remove-access-binding](group/remove-access-binding.md) — Remove access binding for the specified group

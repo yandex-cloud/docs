@@ -25,7 +25,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
     1. Optionally, enter a description for the cluster.
     1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
     1. Select the {{ GP }} version.
 
     
@@ -70,7 +70,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
-    1. Configure additional cluster settings, if required:
+    1. Specify additional cluster settings, if required:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
         * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
@@ -83,7 +83,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           If you enable this option, configure the logging settings:
 
-          * Specify logging destination:
+          * Specify the logging destination:
 
              * **{{ ui-key.yacloud.common.folder }}**: Log to the default log group for the selected folder.
              * **{{ ui-key.yacloud.logging.label_group }}**: Log either to a new [log group](../../logging/concepts/log-group.md) or one selected from the list.
@@ -91,7 +91,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           * Select the logs you need:
 
              * **Command Center logs**: Enables [Command Center](../concepts/command-center.md) logs.
-             * **Greenplum logs**: Enables {{ GP }} logs. Use [Log min messages](../concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
+             * **Greenplum logs**: Enables {{ GP }} logging. Use [Log min messages](../concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
 
 
         
@@ -154,7 +154,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         yc vpc subnet list
         ```
 
-        If your folder has no subnets, [create the required ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
     1. View the description of the CLI command to create a cluster:
@@ -197,7 +197,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
         * `--environment`: Environment:
             * `PRODUCTION`: For stable versions of your apps.
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
@@ -297,7 +297,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         Where:
 
         * `--service-account`: Service account ID.
-        * `--log-enabled`: Enables log transfer.
+        * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
         * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
         * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
@@ -449,7 +449,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `service_account_id`: Service account ID.
       * `logging`: Log transfer settings:
 
-          * `enabled`: Enables log transfer, `true` or `false`.
+          * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
           * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
           * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
           * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
@@ -619,7 +619,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `serviceAccountId`: Service account ID.
         * `logging`: Settings for [transferring logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
-            * `enabled`: Enables log transfer, `true` or `false`.
+            * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
@@ -794,7 +794,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `service_account_id`: Service account ID.
         * `logging`: Settings for [transferring logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
-            * `enabled`: Enables log transfer, `true` or `false`.
+            * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.

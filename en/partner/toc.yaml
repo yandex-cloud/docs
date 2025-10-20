@@ -7,7 +7,7 @@ items:
   - name: Partner programs
     expanded: true
     items:
-      - name: Direct partnership program
+      - name: Partner program
         items:
           - name: Overview
             href: program/var.md
@@ -51,7 +51,7 @@ items:
         href: qa/bonuses.md
       - name: Initial grant
         href: qa/start-grant.md
-      - name: Additional grants in the partner program
+      - name: Additional grants within the partner program
         href: qa/additional-grants.md
       - name: All questions on a single page
         href: qa/all.md

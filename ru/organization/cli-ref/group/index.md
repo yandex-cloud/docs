@@ -26,6 +26,7 @@ Aliases:
 - [yc organization-manager group get](get.md) — Show information about the specified group
 - [yc organization-manager group list](list.md) — List groups
 - [yc organization-manager group list-access-bindings](list-access-bindings.md) — List access bindings for the specified group
+- [yc organization-manager group list-effective](list-effective.md) — List groups that the subject belongs to within a specific organization.
 - [yc organization-manager group list-members](list-members.md) — List members of the specified group
 - [yc organization-manager group list-operations](list-operations.md) — List operations for the specified group
 - [yc organization-manager group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified group

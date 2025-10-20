@@ -7,7 +7,33 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.171.0 (20.10.25) {#version0.171.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ dns-name }}
+
+Добавлена команда `yc dns zone move` для перемещения зоны DNS в другой каталог.
+
+##### {{ org-name }}
+
+* Для команды `yc organization-manager idp user create` добавлена новая возможность: теперь можно не указывать пароль при создании пользователя. Пароль будет сгенерирован автоматически.
+* Добавлена команда сброса пароля пользователя `yc organization-manager idp user reset-password`.
+
+##### {{ iam-name }}
+
+Добавлена команда `yc iam access-analyzer list-subject-access-bindings` для получения access-bindings по субъекту.
+
+##### {{ mtr-name }}
+
+* В команды `yc managed-trino cluster create` и `yc managed-trino cluster update` добавлены флаги для настройки доверенных сертификатов кластера {{ mtr-name }}:
+  * `--trusted-certs-from-files` — для передачи списка файлов с доверенными сертификатами.
+  * `--remove-trusted-certs` — для удаления всех доверенных сертификатов.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.170.0 (16.10.25) {#version0.170.0}
+
 ####  Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mpg-name }}
@@ -21,27 +47,29 @@ description: На странице представлены релизы CLI, а
 ##### {{ interconnect-name }}
 
 * Добавлена команда получения информации о ресурсе по его идентификатору.
-* Добавлены команды `get-by-vpc-network-id` и `get-by-cic-private-connection-id`
+* Добавлены команды `get-by-vpc-network-id` и `get-by-cic-private-connection-id`.
 
 ##### {{ org-name }}
 
 * Добавлена команда `yc organization-manager group list-effective` для вывода групп внутри организации, в которых состоит пользователь.
 * Добавлена возможность управления парольными политиками при создании и обновлении пула пользователей.
 * Добавлена группа команд `yc organization-manager idp application oauth application` для управления OAuth-приложениями:
-  * yc organization-manager idp application oauth application get
-  * yc organization-manager idp application oauth application list
-  * yc organization-manager idp application oauth application create
-  * yc organization-manager idp application oauth application update
-  * yc organization-manager idp application oauth application delete
-  * yc organization-manager idp application oauth application suspend
-  * yc organization-manager idp application oauth application reactivate
-  * yc organization-manager idp application oauth application list-operations
-  * yc organization-manager idp application oauth application list-assignments
-  * yc organization-manager idp application oauth application add-assignments
-  * yc organization-manager idp application oauth application remove-assignments
-  * yc organization-manager idp application oauth application list-access-bindings
-  * yc organization-manager idp application oauth application set-access-bindings
-  * yc organization-manager idp application oauth application update-access-bindings
+  * `yc organization-manager idp application oauth application get`;
+  * `yc organization-manager idp application oauth application list`;
+  * `yc organization-manager idp application oauth application create`;
+  * `yc organization-manager idp application oauth application update`;
+  * `yc organization-manager idp application oauth application delete`;
+  * `yc organization-manager idp application oauth application suspend`;
+  * `yc organization-manager idp application oauth application reactivate`;
+  * `yc organization-manager idp application oauth application list-operations`;
+  * `yc organization-manager idp application oauth application list-assignments`;
+  * `yc organization-manager idp application oauth application add-assignments`;
+  * `yc organization-manager idp application oauth application remove-assignments`;
+  * `yc organization-manager idp application oauth application list-access-bindings`;
+  * `yc organization-manager idp application oauth application add-access-bindings`;
+  * `yc organization-manager idp application oauth application set-access-bindings`;
+  * `yc organization-manager idp application oauth application update-access-bindings`;
+  * `yc organization-manager idp application oauth application remove-access-bindings`.
 
 ##### {{ mgp-name }}
 
@@ -61,21 +89,20 @@ description: На странице представлены релизы CLI, а
 Уточнено описание команд `yc cloudrouter routing-instance create`, `yc cloudrouter routing-instance upsert-prefixes` и `yc cloudrouter routing-instance remove-prefixes`, добавлены примеры.
 
 ##### {{ mtr-name }}
-Добавлены команды для создания и обновления Hudi каталогов для {{ mtr-name }}
-  * yc managed trino create hudi
-  * yc managed trino catalog update hudi
+
+Добавлены команды для создания и обновления Hudi каталогов для {{ mtr-name }}:
+  * `yc managed-trino catalog create hudi`;
+  * `yc managed trino catalog update hudi`.
 
 ##### {{ myt-name }}
 
 Добавлены команды для управления кластерами {{ myt-name }}:
-  * yc managed-ytsaurus cluster get
-  * yc managed-ytsaurus cluster start
-  * yc managed-ytsaurus cluster stop
-  * yc managed-ytsaurus cluster delete
-  * yc managed-ytsaurus cluster list
-  * yc managed-ytsaurus cluster get-configuration
-
-## Предыдущие релизы {#previous-release}
+  * `yc managed-ytsaurus cluster get`;
+  * `yc managed-ytsaurus cluster start`;
+  * `yc managed-ytsaurus cluster stop`;
+  * `yc managed-ytsaurus cluster delete`;
+  * `yc managed-ytsaurus cluster list`;
+  * `yc managed-ytsaurus cluster get-configuration`.
 
 ### Версия 0.169.0 (01.10.25) {#version0.169.0}
 

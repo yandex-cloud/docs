@@ -1,13 +1,13 @@
 ---
-title: How to enable and disable traffic transfer from an availability zone in an L7 load balancer to {{ alb-full-name }}
-description: Follow this guide to enable and disable traffic transfer from an availability zone in an L7 load balancer.
+title: How to enable and disable an availability zone and initiate zonal shift on an L7 {{ alb-full-name }}
+description: Follow this guide to disable/enable availability zones and test traffic redistribution on the L7 load balancer.
 ---
 
-# Enabling and disabling traffic transfer from an availability zone
+# Enabling and disabling an availability zone
 
 {% include [about-zonal-shift](../../../_includes/application-load-balancer/about-zonal-shift.md) %}
 
-## Enabling traffic transfer {#start}
+## Disabling an availability zone {#disable-zones}
 
 {% list tabs group=instructions %}
 
@@ -17,35 +17,38 @@ description: Follow this guide to enable and disable traffic transfer from an av
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the command to enable traffic transfer from an availability zone:
+  1. View the command description:
 
       ```bash
       yc application-load-balancer load-balancer disable-zones --help
       ```
 
-  1. Get a list of all L7 load balancers in the default folder:
-
-      ```bash
-      yc application-load-balancer load-balancer list
-      ```
-
-      Result:
-
-      ```text
-      +----------------------+-----------------------+-------------+----------------+---------+
-      |          ID          |         NAME          |  REGION ID  | LISTENER COUNT | STATUS  |
-      +----------------------+-----------------------+-------------+----------------+---------+
-      | ds70q425egoe******** |      my-balancer      | {{ region-id }} |              1 |  ACTIVE |
-      | f3da23i86n2v******** |      new-balancer     | {{ region-id }} |              1 |  ACTIVE |
-      +----------------------+-----------------------+-------------+----------------+---------+
-      ```
-
-  1. Enable traffic transfer:
+  1. To start redistributing traffic, disable the availability zone and specify the deactivation time:
 
       ```bash
       yc application-load-balancer load-balancer disable-zones \
         <load_balancer_name_or_ID> \
         --zones <availability_zones>
+        --duration <deactivation_time>
+      ```
+
+      Where:
+
+      * `<load_balancer_name_or_ID>`: Load balancer ID or name.
+      * `--zones`: Availability zones to disable, separated by commas.
+      * `--duration`: Time from `1m` to `72h` when the zone will be disabled.
+      
+         After the specified time elapses, the zone will automatically return to its initial state (enabled) for the CLI and API. These settings will be applied without your intervention.
+         
+         If this parameter is not specified, the zone will remain disabled until you [enable](#enable-zones) it manually.
+  
+      Here is an example:
+
+      ```bash
+      yc application-load-balancer load-balancer disable-zones \
+        my-balancer \
+        --zones {{ region-id }}-a \
+        --duration 1h
       ```
 
       Result:
@@ -56,22 +59,36 @@ description: Follow this guide to enable and disable traffic transfer from an av
       ...
       allocation_policy:
         locations:
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2lptlobccu6********
           - zone_id: {{ region-id }}-a
-            subnet_id: e9bo5ir5prfi********
+            subnet_id: e2lptlobccu6********
             zonal_shift_active: true
+            zonal_traffic_disabled: true
+          - zone_id: {{ region-id }}-b
+            subnet_id: e9bo5ir5prfi********
       ...
       ```
 
 - API {#api}
 
-  To enable traffic transfer, use the [startZonalShift](../../api-ref/LoadBalancer/startZonalShift.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/StartZonalShift](../../api-ref/grpc/LoadBalancer/startZonalShift.md) gRPC API call.
+  To disable an availability zone, use the [DisableZones](../../api-ref/LoadBalancer/disableZones.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/DisableZones](../../api-ref/grpc/LoadBalancer/disableZones.md) gRPC API call.
 
 {% endlist %}
 
+## Viewing the availability zone activation time {#view-zone-status}
 
-## Disabling traffic transfer {#cancel}
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and then select the load balancer you need.
+  1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, next to the availability zone, view its status.
+
+      If you set the deactivation duration, you will see the end time next to the zone.
+
+{% endlist %}
+
+## Enabling an availability zone {#enable-zones}
 
 {% list tabs group=instructions %}
 
@@ -81,30 +98,13 @@ description: Follow this guide to enable and disable traffic transfer from an av
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the command to disable traffic transfer from an availability zone:
+  1. See the description of the command to enable an availability zone:
 
       ```bash
       yc application-load-balancer load-balancer enable-zones --help
       ```
 
-  1. Get a list of all L7 load balancers in the default folder:
-
-      ```bash
-      yc application-load-balancer load-balancer list
-      ```
-
-      Result:
-
-      ```text
-      +----------------------+-----------------------+-------------+----------------+---------+
-      |          ID          |         NAME          |  REGION ID  | LISTENER COUNT | STATUS  |
-      +----------------------+-----------------------+-------------+----------------+---------+
-      | ds70q425egoe******** |      my-balancer      | {{ region-id }} |              1 |  ACTIVE |
-      | f3da23i86n2v******** |      new-balancer     | {{ region-id }} |              1 |  ACTIVE |
-      +----------------------+-----------------------+-------------+----------------+---------+
-      ```
-
-  1. Disable traffic transfer:
+  1. Enable an availability zone:
 
       ```bash
       yc application-load-balancer load-balancer enable-zones \
@@ -112,6 +112,14 @@ description: Follow this guide to enable and disable traffic transfer from an av
         --zones <availability_zones>
       ```
 
+      Here is an example:
+
+      ```bash
+      yc application-load-balancer load-balancer enable-zones \
+        my-balancer \
+        --zones {{ region-id }}-a
+      ```
+
       Result:
 
       ```text
@@ -120,15 +128,21 @@ description: Follow this guide to enable and disable traffic transfer from an av
       ...
       allocation_policy:
         locations:
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2lptlobccu6********
           - zone_id: {{ region-id }}-a
             subnet_id: e9bo5ir5prfi********
+          - zone_id: {{ region-id }}-b
+            subnet_id: e2lptlobccu6******** 
       ...
       ```
 
 - API {#api}
 
-  To disable traffic transfer, use the [cancelZonalShift](../../api-ref/LoadBalancer/cancelZonalShift.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/CancelZonalShift](../../api-ref/grpc/LoadBalancer/cancelZonalShift.md) gRPC API call.
+  To enable an availability zone, use the [EnableZones](../../api-ref/LoadBalancer/enableZones.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/EnableZones](../../api-ref/grpc/LoadBalancer/enableZones.md) gRPC API call.
 
 {% endlist %}
+
+{% note info %}
+
+Previously, the `start-zonal-shift` and `cancel-zonal-shift` CLI commands and the `StartZonalShift` and `CancelZonalShift` API methods were used to enable and disable availability zones. They are now deprecated and will soon be removed.
+
+{% endnote %}

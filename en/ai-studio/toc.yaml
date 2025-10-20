@@ -31,6 +31,24 @@ items:
         href: operations/generation/yandexart-request.md
       - name: Batch processing
         href: operations/batch/create.md
+      - name: Using dedicated instances
+        items:
+          - name: Creating an instance
+            href: operations/resources/create-instance.md
+          - name: Getting instance info
+            href: operations/resources/get-instance.md
+          - name: Updating an instance
+            href: operations/resources/edit-instance.md
+          - name: Cloning an instance
+            href: operations/resources/clone-instance.md
+          - name: Stopping and starting an instance
+            href: operations/resources/start-stop-instance.md
+          - name: Managing instance labels
+            href: operations/resources/labels-instance.md
+          - name: Sending a request to an instance
+            href: operations/resources/request-instance.md
+          - name: Deleting an instance
+            href: operations/resources/delete-instance.md
       - name: Classification
         items:
           - name: Using prompt-based classifiers
@@ -61,6 +79,10 @@ items:
         items:
           - name: Creating a voice agent
             href: operations/agents/create-voice-agent.md
+          - name: Creating a simple text agent
+            href: operations/agents/create-simple-text-agent.md
+          - name: Creating a text agent with a function call
+            href: operations/agents/create-function-text-agent.md
           - name: '{{ assistant-api }}'
             items:
               - name: Creating a simple assistant
@@ -79,7 +101,7 @@ items:
         items:
           - name: Connecting an external MCP server
             href: operations/mcp-servers/connect-external.md
-          - name: Creating an MCP server from a template
+          - name: Building an MCP server from a template
             href: operations/mcp-servers/create-from-template.md
           - name: Creating an MCP server from scratch
             href: operations/mcp-servers/create-brand-new.md

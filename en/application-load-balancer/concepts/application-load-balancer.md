@@ -31,10 +31,6 @@ When creating a load balancer, specify a [network](../../vpc/concepts/network.md
 
 See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
 
-You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
-
-You can also [allow or disallow](../operations/manage-zone/allow-and-deny-shift.md) automatic traffic transfer from an availability zone. Such transfer is performed by {{ yandex-cloud }} technicians if one of the zones becomes unavailable. This keeps your services up and running. After the zone is recovered, traffic is routed back to the zones configured for the load balancer.
-
 ### Internal IP addresses {#internal-ips}
 
 The load balancer reserves internal IP addresses in the specified networks and assigns addresses to its nodes. These addresses are used for communication between the load balancer nodes and backends. Node IP addresses are shown in the list of internal IP addresses.
@@ -98,6 +94,20 @@ You can set autoscaling for a group of resource units of your load balancer when
 For {{ alb-name }} to provide load balancer availability as specified in the [service level agreement](https://yandex.com/legal/cloud_sla_apploadbalancer/), load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per each [resource unit](../pricing.md) at peak load.
 
 > For example, if a load balancer uses eight resource units in each availability zone, as shown in this [example](#lcu-scaling-example), each subnet should have at least 8 × 2 = 16 free addresses. For the load balancer, we recommend specifying subnets at least /27 in size.
+
+### Zonal shift mechanism {#zonal-shift}
+
+You can configure your load balancer to temporarily deny one or more availability zones. You can disable zones [manually](../operations/manage-zone/start-and-cancel-shift.md) or [allow](../operations/manage-zone/allow-and-deny-shift.md) the system to auto-disable zones during incidents. If a zone is unavailable, {{ yandex-cloud }} technicians disable it. As soon as the zone is back on track, it gets re-enabled, and uniform traffic distribution is resumed.
+
+Once a zone is disabled, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
+
+When manually disabling an availability zone, you can set a time from 1 minute to 72 hours, after which the zone will automatically return to work and the load balancer settings will be updated without your intervention. If no time is specified, the zone will remain disabled until manually enabled.
+
+By manually disabling an availability zone, you can:
+
+* Reduce its traffic load during localized issues, e.g., after a faulty app release on your backend or an incident caused by high traffic or misconfiguration. This helps prevent service disruption or quickly restore app functionality for your users.
+
+* Test the resilience of your load balancer and traffic failover mechanisms. This way, you can proactively identify potential weaknesses, apply fixes, and optimize your load balancer settings in advance.
 
 ## Listener {#listener}
 
@@ -265,6 +275,7 @@ Possible rules:
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/index.md)
 * [{#T}](../tutorials/balancer-with-sws-profile/index.md)
+* [{#T}](../tools/gwin/ingress-gwin-migration.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
 * [{#T}](../tutorials/application-load-balancer-website/console.md)

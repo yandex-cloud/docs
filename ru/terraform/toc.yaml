@@ -39,8 +39,6 @@ items:
       - name: Ресурсы (англ.)
         expanded: true
         items:
-          - name: Overview
-            href: index.md
           - name: Application Load Balancer (ALB)
             items:
               - name: Data Sources

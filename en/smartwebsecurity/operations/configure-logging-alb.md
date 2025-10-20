@@ -5,9 +5,9 @@ description: Follow this guide to configure logging in {{ sws-full-name }}.
 
 # Configuring logging via {{ alb-name }}
 
-There are two options for collecting logs: via {{ sws-name }} and via an L7 {{ alb-name }} the security profile is connected to.
+You can write logs using either [{{ cloud-logging-full-name }}](../../logging/) or [{{ at-full-name }}](../../audit-trails/). For {{ cloud-logging-name }}, there are two log collection options available: via {{ sws-name }} and via the L7 {{ alb-name }} the security profile is connected to.
 
-This section provides information on logging via {{ alb-name }}. For information on logging via {{ sws-name }}, see [this section](configure-logging.md).
+This section provides info on log collection via {{ alb-name }}. For information on logging via {{ sws-name }}, see [this section](configure-logging.md).
 
 Analyzing {{ sws-full-name }} logs enables you to:
 
@@ -19,13 +19,13 @@ Analyzing {{ sws-full-name }} logs enables you to:
 * View detailed request information and and identify false positives.
 * Investigate security incidents.
 
-You can set up logging in {{ sws-full-name }} using either [{{ cloud-logging-full-name }}](../../logging/) or [{{ at-full-name }}](../../audit-trails/).
+Features of log collection services:
 
 * {{ cloud-logging-short-name }}: Collects basic logs for traffic and rule matches from security profiles, WAF, and ARL.
 
-   {{ sws-name }} logs are routed through an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) linked to a security profile and are written to a [log group](../../logging/concepts/log-group.md).
+   {{ sws-name }} logs are sent through the [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) your security profile is connected to and are written to a [log group](../../logging/concepts/log-group.md).
 
-* {{ at-name }}: Collects more detailed audit logs (events) for WAF and ARL rules.
+* {{ at-name }}: Records security events and collects more detailed audit logs on WAF and ARL rules.
 
    In {{ at-name }}, events are delivered directly from {{ sws-name }} without using an L7 load balancer. There are two types of events in {{ at-name }}:
 
@@ -110,7 +110,7 @@ To get started with {{ sws-name }} logs:
     json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
     ```
     
-  * Show requests which triggered [Smart Protection](../concepts/rules.md##smart-protection-rules) rules with a CAPTCHA challenge:
+  * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
     ```
     json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
     ```
@@ -125,19 +125,41 @@ To get started with {{ sws-name }} logs:
     json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
     ```
 
-  ### Filters for rules in logging mode {#dry-run-filters}
-
-  * Show requests which triggered [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
-    ```
-    json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-    ```
-
   * Show requests which triggered a specific ARL rule, `arl-rule-1`:
     ```
     json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
     ```
 
   You can similarly add other conditions to the filters and adjust them to fit your traffic flow.
+
+  ### Filters for rules in logging mode {#dry-run-filters}
+
+  * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
+    
+    ```
+    json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
+    ```
+
+  * View requests that have triggered the ARL rules (limits on requests).
+    
+    For the **Logging only** mode, you cannot use a request filtered by the `DENY` verdict, because this mode does not block requests. The rule verdict will be `ALLOW` even after the limit is exceeded. To debug the rules, use the `dry_run_exceeded_quota_names` parameter. This parameter shows which ARL rules were triggered by the request. If this parameter contains no rules, no limits were exceeded.
+
+    Here is an example of a log fragment with the `dry_run_exceeded_quota_names` parameter:
+
+    ```text
+    "smartwebsecurity": {
+      "advanced_rate_limiter": {
+        "applied_quota_name": "",
+        "dry_run_exceeded_quota_names": [
+          "<rule_name_1>",
+          "<rule_name_2>"
+        ],
+        "profile_id": "<profile_id>",
+        "verdict": "ALLOW"
+      },
+    ```
+
+  In this fragment, limits were exceeded for the `<rule_name_1>` and `<rule_name_2>` rules in the `<profile_id>` profile.
 
 - {{ at-name }} {#at}
 

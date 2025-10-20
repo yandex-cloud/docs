@@ -60,6 +60,7 @@ The following constraints apply to labels and their values:
 * Name length: 32 characters or less.
 * Label name must start with an uppercase or lowecase letter and may contain letters, digits, `.`, and `_`.
 * Label names and metric values must not contain any non-Latin letters.
+* The `labels` field cannot contain the `project`, `cluster`, `service`, `name` labels because these are reserved. You should provide them in the POST request URL parameters.
 
 ### Metric types {#metric-types}
 {{ monitoring-full-name }} offers the following metric types:

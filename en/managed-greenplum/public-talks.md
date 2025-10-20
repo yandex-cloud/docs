@@ -7,6 +7,7 @@ description: Videos of conferences and webinars on {{ mgp-full-name }}.
 
 ## Conferences and webinars {#conf-and-webinars}
 
+
 ### 2023: Data Open Source Day {#data-open-source-day-2023}
 
 * {{ yandex-cloud }} engineers' incredible ideas for {{ GP }} development.

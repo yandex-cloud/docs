@@ -266,6 +266,7 @@ default:
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
+  kafka-ui-provectus: https://github.com/provectus/kafka-ui-docs
   keycloak: Keycloak
   KF: Apache Kafka®
   kf:
@@ -833,31 +834,31 @@ default:
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
   tf-cloud-id: b1gq90dgh25********
-  tf-docs-link: https://terraform-provider.yandexcloud.net
+  tf-docs-link: https://yandex.cloud/ru/docs/terraform
   tf-folder-id: b1gia87mbaom********
   TF-full: HashiCorp Terraform
-  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/resources/alb_backend_group
-  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/resources/alb_target_group
-  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/data-sources
-  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/resources/kubernetes_node_group
-  tf-provider-link: https://terraform-provider.yandexcloud.net/
-  tf-provider-maf: https://terraform-provider.yandexcloud.net/resources/airflow_cluster
-  tf-provider-mch: https://terraform-provider.yandexcloud.net/resources/mdb_clickhouse_cluster
-  tf-provider-metastore: https://terraform-provider.yandexcloud.net/resources/metastore_cluster
-  tf-provider-mgp: https://terraform-provider.yandexcloud.net/resources/mdb_greenplum_cluster
-  tf-provider-mkf: https://terraform-provider.yandexcloud.net/resources/mdb_kafka_cluster
-  tf-provider-mmg: https://terraform-provider.yandexcloud.net/resources/mdb_mongodb_cluster
-  tf-provider-mmy: https://terraform-provider.yandexcloud.net/resources/mdb_mysql_cluster
-  tf-provider-mos: https://terraform-provider.yandexcloud.net/resources/mdb_opensearch_cluster
-  tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
-  tf-provider-msp: https://terraform-provider.yandexcloud.net/resources/spark_cluster
-  tf-provider-mtr: https://terraform-provider.yandexcloud.net/resources/trino_cluster
-  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
-  tf-provider-ytsaurus: https://terraform-provider.yandexcloud.net/resources/ytsaurus_cluster
+  tf-provider-alb-backendgroup: https://yandex.cloud/ru/docs/terraform/resources/alb_backend_group
+  tf-provider-alb-targetgroup: https://yandex.cloud/ru/docs/terraform/resources/alb_target_group
+  tf-provider-datasources-link: https://yandex.cloud/ru/docs/terraform/data-sources
+  tf-provider-dt-endpoint: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_node_group
+  tf-provider-link: https://yandex.cloud/ru/docs/terraform/
+  tf-provider-maf: https://yandex.cloud/ru/docs/terraform/resources/airflow_cluster
+  tf-provider-mch: https://yandex.cloud/ru/docs/terraform/resources/mdb_clickhouse_cluster
+  tf-provider-metastore: https://yandex.cloud/ru/docs/terraform/resources/metastore_cluster
+  tf-provider-mgp: https://yandex.cloud/ru/docs/terraform/resources/mdb_greenplum_cluster
+  tf-provider-mkf: https://yandex.cloud/ru/docs/terraform/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://yandex.cloud/ru/docs/terraform/resources/mdb_mongodb_cluster
+  tf-provider-mmy: https://yandex.cloud/ru/docs/terraform/resources/mdb_mysql_cluster
+  tf-provider-mos: https://yandex.cloud/ru/docs/terraform/resources/mdb_opensearch_cluster
+  tf-provider-mpg: https://yandex.cloud/ru/docs/terraform/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://yandex.cloud/ru/docs/terraform/resources/mdb_redis_cluster
+  tf-provider-msp: https://yandex.cloud/ru/docs/terraform/resources/spark_cluster
+  tf-provider-mtr: https://yandex.cloud/ru/docs/terraform/resources/trino_cluster
+  tf-provider-resources-link: https://yandex.cloud/ru/docs/terraform/resources
+  tf-provider-ytsaurus: https://yandex.cloud/ru/docs/terraform/resources/ytsaurus_cluster
   TF-version: '0.90'
   TR: Trino
   tr:
@@ -7705,20 +7706,26 @@ default:
     sourcecraft:
       ui_lib:
         home: Домой
+        organizations: Организации
         repositories: Репозитории
+        settings: Настройки
         tab_secrets: Секреты
+        value_role-org-owner: Владелец организации
       ui_modules_cicd:
         value_status-created: В очереди
         value_succeeded: Успех
       ui_modules_mainApp:
         route_create-repository: Создать репозиторий
+        route_service-connections: Сервисные подключения
       ui_modules_orgCommon:
         link_your-craftspace: Ваша мастерская
       ui_modules_repo:
         action_cicd: Автоматизации
         action_commit: Сохранить изменения
         action_create-file: Создать файл
+        button_commit: Сохранить изменения
         button_commit-and-go-to-read-mode: Сохранить и вернуться в режим чтения
+        button_use-template: Использовать шаблон
         field_after-commit-action: Действие после сохранения изменений
         field_commit-branch: Ветка изменений
         field_text_commit-directly-to-the-branch: 'Сохранить непосредственно в ветку:'
@@ -7727,7 +7734,10 @@ default:
         title_navigation-code: Код
         title_navigation-repository-settings: Настройки репозитория
       ui_modules_repoCreate:
+        button_browse-templates: Просмотр шаблонов
         button_create-repo: Создать репозиторий
+        button_preview-template: Предварительный просмотр
+        section_template: Шаблон репозитория
         title_create-blank: Пустой репозиторий
         title_new-repo-details: Сведения о новом репозитории
         title_owner-field: Владелец
@@ -7741,6 +7751,13 @@ default:
         action_new-secrete: Новый секрет
         field_name: Название
         field_secret: Секрет
+      ui_modules_serviceConnections:
+        button_add-connection: Новое сервисное подключение
+        button_create-connection: Создать сервисное подключение
+        section_basic: Базовая информация
+        section_cloud-settings: Настройки Yandex Cloud
+        section_scope: Область применения
+        title_oidc-federation: Федерация cервисных аккаунтов
     support-center:
       billing-account:
         common:
@@ -8168,7 +8185,6 @@ default:
           save: Сохранить
           setup: Настроить виджет
         settings:
-          dashboard-settings: Настройки дашборда
           general:
             labels:
               title: Лейблы
@@ -14394,7 +14410,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.25
+        tag: v0.2.26
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -14459,7 +14475,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.2
+        tag: v1.0.3
     yc_ingress-nginx:
       helmChart:
         name: >-
@@ -14508,7 +14524,7 @@ default:
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
-        tag: 0.1.1-4
+        tag: 0.1.2-9
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero

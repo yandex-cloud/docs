@@ -9,13 +9,6 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cdn_resource.md
 
 Allows management of [Yandex Cloud CDN Resource](https://yandex.cloud/docs/cdn/concepts/resource).
 
-{% note warning %}
-
-CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
-
-{% endnote %}
-
-
 ## Example usage
 
 ```terraform
@@ -38,25 +31,25 @@ output "resource_cname" {
 
 ### Optional
 
-- `active` (Boolean) Flag to create Resource either in active or disabled state. `True` - the content from CDN is available to clients.
 - `cname` (String) CDN endpoint CNAME, must be unique among resources.
-- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `options` (Block List, Max: 1) CDN Resource settings and options to tune CDN edge behavior. (see [below for nested schema](#nestedblock--options))
-- `origin_group_id` (Number) The ID of a specific origin group.
-- `origin_group_name` (String) The name of a specific origin group.
-- `origin_protocol` (String) Protocol of origin resource. `http` or `https`.
-- `provider_type` (String) CDN provider is a content delivery service provider. Possible values: "ourcdn" (default) or "gcore"
 - `resource_id` (String) The ID of a specific resource.
-- `secondary_hostnames` (Set of String) List of secondary hostname strings.
-- `ssl_certificate` (Block Set, Max: 1) SSL certificate of CDN resource. (see [below for nested schema](#nestedblock--ssl_certificate))
-- `updated_at` (String) Last update timestamp. Computed value for read and update operations.
 
 ### Read-Only
 
+- `active` (Boolean) Flag to create Resource either in active or disabled state. `True` - the content from CDN is available to clients.
 - `created_at` (String) The creation timestamp of the resource.
+- `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String) The ID of this resource.
+- `labels` (Map of String) A set of key/value label pairs which assigned to resource.
+- `origin_group_id` (String) The ID of a specific origin group.
+- `origin_group_name` (String) The name of a specific origin group.
+- `origin_protocol` (String) Protocol of origin resource. `http` or `https`.
 - `provider_cname` (String) Provider CNAME of CDN resource, computed value for read and update operations.
+- `provider_type` (String) CDN provider is a content delivery service provider.
+- `secondary_hostnames` (Set of String) List of secondary hostname strings.
+- `ssl_certificate` (Set of Object) SSL certificate of CDN resource. (see [below for nested schema](#nestedatt--ssl_certificate))
+- `updated_at` (String) Last update timestamp. Computed value for read and update operations.
 
 <a id="nestedblock--options"></a>
 ### Nested Schema for `options`
@@ -126,20 +119,14 @@ Optional:
 
 
 
-<a id="nestedblock--ssl_certificate"></a>
+<a id="nestedatt--ssl_certificate"></a>
 ### Nested Schema for `ssl_certificate`
-
-Required:
-
-- `type` (String) SSL certificate type. SSL certificate type.
-
-
-Optional:
-
-- `certificate_manager_id` (String) Certificate Manager ID. Certificate Manager ID.
-
 
 Read-Only:
 
-- `status` (String) SSL certificate status. SSL certificate status.
+- `certificate_manager_id` (String) Certificate Manager ID.
+
+- `status` (String) SSL certificate status.
+
+- `type` (String) SSL certificate type.
 

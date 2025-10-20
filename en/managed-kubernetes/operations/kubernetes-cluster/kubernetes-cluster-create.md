@@ -16,7 +16,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
+  1. Go to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../../../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
   1. Make sure that the [account](../../../iam/concepts/users/accounts.md) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
@@ -38,6 +38,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 {% endlist %}
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
+
+{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
 {% list tabs group=instructions %}
 
@@ -68,6 +70,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --master-location zone={{ region-id }}-a,subnet-id=mysubnet \
+       --master-scale-policy policy=auto,min-resource-preset-id=<master_host_class> \
        --daily-maintenance-window start=22:00,duration=10h
        --labels <cloud_label_name=cloud_label_value>
      ```
@@ -105,6 +108,18 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
         * For the basic master, provide one `--master-location` parameter.
         * For a highly available master hosted across three availability zones, provide three `--master-location` parameters. In each one, specify different availability zones and subnets.
         * For a highly available master hosted in a single availability zone, provide three `--master-location` parameters. In each one, specify the same availability zone and subnet.
+
+     * `--master-scale-policy`: [Master's computing resource](../../concepts/index.md#master-resources) configuration.
+
+        {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+        {% note info %}
+
+        If you do not provide the `--master-scale-policy` parameter, the minimum available master configuration will be applied.
+
+        {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+        {% endnote %}
 
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
      * `--labels`: [Cloud labels](../../concepts/index.md#cluster-labels) for the cluster.
@@ -179,7 +194,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a {{ managed-k8s-name }} cluster:
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
      * {{ managed-k8s-name }} cluster: Cluster description.
      * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a suitable network, you do not need to describe it again.
 
@@ -246,8 +261,34 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      >```
 
      {% note info %}
-     
+
       Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
+
+     {% endnote %}
+
+     To configure the [master's computing resources](../../concepts/index.md#master-resources), add the following section to the {{ managed-k8s-name }} cluster description:
+
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<cluster_name>" {
+     >  ...
+     >  master {
+     >    ...
+     >    scale_policy {
+     >      auto_scale  {
+     >        min_resource_preset_id = "<master_host_class>"
+     >      }
+     >    }
+     >  }
+     >}
+     >```
+
+     {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+     {% note info %}
+
+     If you do not provide the `scale_policy` parameter, the minimum available master configuration will be applied.
+
+     {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
 
      {% endnote %}
 
@@ -279,7 +320,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
 
-     For more information, see the [{{ TF }}]({{ tf-provider-k8s-cluster }}) provider documentation.
+     For more information, see [this {{ TF }} provider article]({{ tf-provider-k8s-cluster }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -298,9 +339,21 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   * For a highly available master hosted across three availability zones, provide three `masterSpec.locations` parameters in the request. In each one, specify different availability zones and subnets.
   * For a highly available master hosted in a single availability zone, provide three `masterSpec.locations` parameters in the request. In each one, specify the same availability zone and subnet.
 
+  {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+
   When providing the `masterSpec.locations` parameter, you do not need to specify `masterSpec.zonalMasterSpec` or `masterSpec.regionalMasterSpec`.
 
-  {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+  To specify the [master's computing resource configuration](../../concepts/index.md#master-resources), provide its value in `masterSpec.scalePolicy.autoScale.minResourcePresetId`.
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  {% note info %}
+
+  If you do not provide the `masterSpec.scalePolicy` parameter, the minimum available master configuration will be applied.
+
+  {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+  {% endnote %}
 
   To use a [{{ kms-full-name }}](../../concepts/encryption.md) encryption key to protect secrets, provide its ID in the `kmsProvider.keyId` parameter.
 

@@ -22,7 +22,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of routing-instance labels as key-value pairs.|
 |`--region`|<b>`string`</b><br/>Region of the routing-instance.|
 |`--cic-prc`|<b>`value[,value]`</b><br/>CIC private connection ids of the routing-instance.|
-|`--vpc-net`|<b>`value[,value]`</b><br/>VPC network info of the routing-instance.|
+|`--vpc-net`|<b>`value[,value]`</b><br/>VPC network information.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
