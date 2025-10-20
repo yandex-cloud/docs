@@ -37,6 +37,7 @@
      Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0
      Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
      Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0
+     Входящий | ext-ssh | 22 | TCP | CIDR | 0.0.0.0/0
 
      1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
