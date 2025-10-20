@@ -31,6 +31,8 @@ Syntax:
 |`--retry-policy-additional-properties`|<b>`key=value[,key=value...]`</b><br/>Map entries for RetryPolicyConfig.additional_properties.|
 |`--retry-policy-exchange-manager-service-s3`|Use service-side S3 bucket for the Exchange Manager storage.|
 |`--retry-policy-exchange-manager-additional-properties`|<b>`key=value[,key=value...]`</b><br/>Map entries for ExchangeManagerConfig.additional_properties.|
+|`--trusted-certs-from-files`|<b>`value[,value]`</b><br/>Trusted CA-certificates files. Empty list makes no effect. Each file should contain single self-signed CA-certificate or chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.|
+|`--remove-trusted-certs`|Whether to remove all trusted certificates from cluster TLS configuration.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Trino cluster.|
 |`--service-account-id`|<b>`string`</b><br/>A service account id used to access Cloud resources.|
 |`--version`|<b>`string`</b><br/>Trino version.|

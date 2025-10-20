@@ -37,10 +37,10 @@ The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-If a backed up resource is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their total size. Such backup size depends on the following:
-* VM disk usage or {{ baremetal-name }} server disk usage
-* Amount of data changes during regular backups
-* Data compression option
+If a resource to back up is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their total size. Such backup size depends on the following:
+* VM disk usage or {{ baremetal-name }} server disk usage.
+* Amount of data changes during regular backups.
+* Data compression option.
 
 {% note info %}
 

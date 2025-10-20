@@ -95,7 +95,7 @@ description: Videos of conferences and webinars on {{ mpg-full-name }}.
 
   * Click [here](https://www.youtube.com/watch?v=5OcUo3J4Wdc) to watch the recording.
 
-* Database platform structure in {{ yandex-cloud }}.
+* The database platform structure in {{ yandex-cloud }}.
 
   * Click [here](https://www.youtube.com/watch?v=Cwdg425a_cw) to watch the recording.
 

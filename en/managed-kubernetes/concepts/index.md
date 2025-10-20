@@ -1,6 +1,6 @@
 ---
 title: Resource relationships in {{ k8s }}
-description: The main entity {{ k8s }} operates is a {{ k8s }} cluster. {{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes.
+description: The main entity {{ k8s }} operates is a cluster. {{ k8s }} clusters consist of a master and one or multiple node groups. The master manages a {{ k8s }} cluster. Containerized user applications run on nodes.
 ---
 
 # Resource relationships in {{ managed-k8s-name }}
@@ -8,11 +8,11 @@ description: The main entity {{ k8s }} operates is a {{ k8s }} cluster. {{ k8s }
 
 [{{ k8s }}](https://kubernetes.io/) is a containerized application management system. {{ k8s }} provides tools for working with clusters to automate deployment, scaling, and management of applications in containers.
 
-The main entity {{ k8s }} operates is a _{{ k8s }} cluster_.
+The main entity {{ k8s }} leverages is a _{{ k8s }} cluster_.
 
 ## {{ k8s }} cluster {#kubernetes-cluster}
 
-{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications run on nodes.
+{{ k8s }} clusters consist of a master and one or multiple node groups. The master manages a {{ k8s }} cluster. Containerized user applications run on nodes.
 
 {{ k8s }} fully manages the master and monitors the state and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
@@ -78,9 +78,9 @@ For more information about master settings, see [{#T}](../operations/kubernetes-
 
 When [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) a cluster, you can select a master configuration suitable for your tasks.
 
-{% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+{% include [master-autoscale](../../_includes/managed-kubernetes/master-autoscale.md) %}
 
-At the Preview stage, you can select a master configuration in the [management console]({{ link-console-main }}).
+{% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
 The following master configurations are available for Intel Cascade Lake with a guaranteed vCPU share of 100%:
 
@@ -116,8 +116,6 @@ The following master configurations are available for Intel Cascade Lake with a 
   32 | 256
 
 You can update the master configuration without stopping the {{ managed-k8s-name }} cluster.
-
-You can also prohibit master configuration updates.
 
 ## Node group {#node-group}
 

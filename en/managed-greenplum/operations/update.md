@@ -43,7 +43,7 @@ After creating a cluster, you can:
      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command to update the cluster configuration:
+  1. See the description of the CLI command for updating a cluster configuration:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -181,7 +181,7 @@ After creating a cluster, you can:
 
   To change the public access setting {{ GP }}:
 
-  1. View the description of the CLI command to update the cluster configuration:
+  1. See the description of the CLI command for updating a cluster configuration:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -338,7 +338,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -362,7 +362,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-    You can change the following settings:
+    You can update the following settings:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
@@ -431,7 +431,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-        You can change the following settings:
+        You can update the following settings:
 
         * `backup_window_start.hours`: Start of the period for initiating cluster [backup](../concepts/backup.md). It is set in UTC in `HH` format: from `0` to `23`.
 
@@ -470,7 +470,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `pool_size`: Maximum number of client connections.
             * `pool_client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -554,7 +554,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two parameters:
 
-            * `anytime`: Maintenance can take place at any time.
+            * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
@@ -682,7 +682,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two parameters:
 
-            * `anytime`: Maintenance can take place at any time.
+            * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
@@ -892,19 +892,19 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
   To change the [{{ GP }}](../concepts/settings-list.md) DBMS settings:
 
-  1. View the full list of settings specified for the cluster:
+  1. View the full list of settings for the cluster:
 
      ```bash
      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command to update the cluster configuration:
+  1. See the description of the CLI command for updating a cluster configuration:
 
       ```bash
       {{ yc-mdb-gp }} cluster update-config --help
       ```
 
-  1. Set the required parameter values:
+  1. Set the parameter values as needed:
 
       All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `greenplumConfig_<Greenplum_version>` field. To specify a parameter name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, convert the `maxConnections` parameter from an API request to `max_connections` for the CLI command:
 
@@ -1063,7 +1063,7 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1075,7 +1075,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the [host class](../concepts/instance-types.md) for a cluster:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -1261,7 +1261,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select the cluster you need.
+  1. Select the cluster in question.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -1278,7 +1278,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To increase your cluster storage size:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -1448,7 +1448,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Select the cluster you need.
+    1. Select the cluster in question.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select a service account from the list or [create a new one](../../iam/operations/sa/create.md).
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -1461,7 +1461,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
     To change the ID of the cluster service account:
 
-    1. View the description of the CLI command to update the cluster configuration:
+    1. See the description of the CLI command for updating a cluster configuration:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -1589,7 +1589,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Select the cluster you need.
+    1. Select the cluster in question.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional}}**, enable or disable logging using the **{{ ui-key.yacloud.logging.field_logging }}** option. If you turn logging on, configure it:
 
@@ -1612,7 +1612,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
     To change logging settings:
 
-    1. View the description of the CLI command to update the cluster configuration:
+    1. See the description of the CLI command for updating a cluster configuration:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -1631,7 +1631,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `--log-enabled`: Enables log transfer.
+        * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
         * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
         * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
@@ -1665,7 +1665,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `enabled`: Enables log transfer, `true` or `false`.
+        * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
         * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
         * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
         * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
@@ -1674,7 +1674,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
             Specify either `folder_id` or `log_group_id`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1718,7 +1718,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         * `logging`: Logging settings:
 
-            * `enabled`: Enables log transfer, `true` or `false`.
+            * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
@@ -1778,7 +1778,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         * `logging`: Logging settings:
 
-            * `enabled`: Enables log transfer, `true` or `false`.
+            * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.

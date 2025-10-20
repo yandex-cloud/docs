@@ -18,6 +18,11 @@ To get a list of services whose access in the cloud can be managed:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the relevant cloud.
+  1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -37,7 +42,7 @@ To get a list of services whose access in the cloud can be managed:
         --limit <number_of_services>
       ```
 
-      Where `--limit` is the number of services to list. This is an optional parameter.
+      Where `--limit` is the number of services you need to list. This is an optional parameter.
 
       Result:
 
@@ -64,6 +69,12 @@ To get a list of services whose access in the cloud can be managed:
 To get information about the [status](../../concepts/service-control.md#access-status) of a service in a cloud:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the relevant cloud.
+  1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
+  1. Enter the service name in the **{{ ui-key.yacloud.iam.ssa.label_filter-by-service-placeholder }}** field.
 
 - CLI {#cli}
 

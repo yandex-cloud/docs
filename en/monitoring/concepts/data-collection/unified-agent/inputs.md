@@ -25,7 +25,7 @@ Parameter descriptions:
       # Data source polling frequency.
       poll_period: 15s  # optional, the default value is 15 seconds
 
-      # Namespace to accommodate metrics.
+      # Namespace to place metrics into.
       # If specified, it will be added as a prefix to every metric name.
       namespace: null  # optional, not set by default
 ```
@@ -47,12 +47,14 @@ Parameter descriptions:
         format:  # Required.
           # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md).
           prometheus: {}
+        
+        metric_name_label:  my_name  # optional, allows you to rename your application's name label because this name is reserved by the agent
 
         # Data source polling frequency.
         # Start times are aligned to the grid of the poll_period size starting from the Unix epoch.
         poll_period: 15s  # optional, the default value is 15 seconds
 
-        # Namespace to accommodate metrics.
+        # Namespace to place metrics into.
         # If specified, it will be added as a prefix followed by a dot to every metric name.
         namespace: null  # optional, not set by default
 
@@ -96,6 +98,14 @@ Parameter descriptions:
               file: file_token
 ```
 
+`metric_name_label`: Decides which label the agent should write the metric name into for the {{ prometheus-name }} data. By default, the `name` label is used, which may cause a conflict if your app already uses this label. In which case you get this error when writing metrics:
+
+```bash
+label name 'name' is reserved
+```
+
+To avoid the error, specify any other unique name.
+
 ## linux_metrics input {#linux_metrics_input}
 
 An input to collect system usage statistics (CPU, RAM, network, disk) for Linux-compatible operating systems. The input collects metric values from [procfs](https://ru.wikipedia.org/wiki/Procfs) and [sysfs](https://ru.wikipedia.org/wiki/Sysfs).
@@ -134,7 +144,7 @@ Parameter descriptions:
 
     # Directory where sysfs is mounted and counters will be taken from.
     # If the agent is running in a Docker container, provide the host's /sys into the container using the -v parameter in order to monitor the host.
-    sys_directory: "/sys"  # optional, the default value is “/sys"
+    sys_directory: "/sys"  # optional, the default value is "/sys"
 
     # List of resources to collect statistics from.
     # Key: One out of the following: `cpu`, `memory`, `network`, `storage`, `io`, `kernel`.
@@ -287,7 +297,7 @@ Parameter descriptions:
             priority_emerg: "EMERG"                   # optional, the default value is "EMERG"
 ```
 
-## HTTP input { #http_input }
+## HTTP input {#http_input}
 
 HTTP input for sending logs to Unified Agent. Logs are sent in the body of an HTTP request to the specified address. The input supports configuring the server host and port, the path for the handler, capturing request headers, and adding session metadata.
 

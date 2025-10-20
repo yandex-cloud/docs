@@ -19,6 +19,8 @@ Syntax:
 - [yc iam create-token](create-token.md) — Create IAM token and print to STDOUT
 - [yc iam revoke-token](revoke-token.md) — Revoke IAM token
 - [yc iam whoami](whoami.md) — Print currently authenticated subject to STDOUT
+- [yc iam access-analyzer](access-analyzer/index.md) — Manage access analyzer
+	- [yc iam access-analyzer list-subject-access-bindings](access-analyzer/list-subject-access-bindings.md) — List access bindings for the specified subject
 - [yc iam access-key](access-key/index.md) — Manage service account access keys
 	- [yc iam access-key create](access-key/create.md) — Create an access key for the specified service account
 	- [yc iam access-key delete](access-key/delete.md) — Delete the specified access key

@@ -48,6 +48,8 @@ Syntax:
 	- [yc baremetal public-subnet list-operations](public-subnet/list-operations.md) — List operations for the specified public subnet
 	- [yc baremetal public-subnet remove-labels](public-subnet/remove-labels.md) — Remove labels from specified public subnet
 	- [yc baremetal public-subnet update](public-subnet/update.md) — Update the specified public subnet
+- [yc baremetal rental-period](rental-period/index.md) — Manage rental periods
+	- [yc baremetal rental-period list](rental-period/list.md) — List rental periods
 - [yc baremetal server](server/index.md) — Manage servers
 	- [yc baremetal server add-labels](server/add-labels.md) — Add labels to specified server
 	- [yc baremetal server create](server/create.md) — Create an server

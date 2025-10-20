@@ -4,16 +4,17 @@
 To migrate a service from a network load balancer to an L7 load balancer using the management console:
 
 1. [See the service migration recommendations](#recommendations).
-1. [Complete the prerequisite steps](#before-you-begin).
+1. [Create a migration infrastructure](#before-you-begin).
 1. [Create a {{ sws-name }} profile](#create-profile-sws).
 1. [Create an L7 load balancer](#create-alb). At this step, you will associate the {{ sws-name }} profile with a virtual host of the L7 load balancer.
+1. [Test the L7 load balancer](#test).
 1. [Migrate user traffic from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
 
 ## Service migration recommendations {#recommendations}
 
 {% include [recommendations](../_tutorials_includes/migration-from-nlb-to-alb/recommendations.md) %}
 
-## Getting started {#before-you-begin}
+## Create your infrastructure {#before-you-begin}
 
 1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones for the L7 load balancer.
 
@@ -21,18 +22,11 @@ To migrate a service from a network load balancer to an L7 load balancer using t
 
 1. When using HTTPS, [add the TLS certificate](../../certificate-manager/operations/import/cert-create.md#create-certificate) of your service to [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
-1. [Reserve an L3-L4 DDoS-protected static public IP address](../../vpc/operations/get-static-ip.md) for the L7 load balancer. See the [service migration recommendations](#recommendations).
+1. Optionally, [reserve an L3-L4 DDoS-protected static public IP address](../../vpc/operations/get-static-ip.md) for the L7 load balancer.
 
 ## Create a {{ sws-name }} profile {#create-profile-sws}
 
-[Create a {{ sws-name }} profile](../../smartwebsecurity/operations/profile-create.md) by selecting **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
-
-Use these settings when creating the profile:
-
-* In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-* For the **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** rule, enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
-
-These settings are limited to logging info about traffic without applying any actions to it. This will reduce the risk of disconnecting users due to profile configuration issues. As you move along, you will have the option to disable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** and configure deny rules for your use case in the security profile.
+{% include [create-profile-sws](../_tutorials_includes/migration-from-nlb-to-alb/create-profile-sws.md) %}
 
 ## Create an L7 load balancer {#create-alb}
 
@@ -47,8 +41,8 @@ These settings are limited to logging info about traffic without applying any ac
         * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_target-group }}`.
         * **{{ ui-key.yacloud.alb.label_target-groups }}**: Target group you created earlier.
         * **{{ ui-key.yacloud.alb.label_port }}**: TCP port on which your service's VMs accept inbound traffic.
-        * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**, select a protocol, `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, depending on your service.
-        * Under **HTTP health check**, configure the health check using [these recommendations](../../application-load-balancer/concepts/best-practices.md).
+        * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**, select `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}` depending on the protocol used by your service.
+        * Under **HTTP health check**, set the check up according to these [recommended practices](../../application-load-balancer/concepts/best-practices.md#health-checks-recommendations).
         * Optionally, configure other settings as per [this guide](../../application-load-balancer/operations/backend-group-create.md).
 
 1. [Create an HTTP router](../../application-load-balancer/operations/http-router-create.md).
@@ -60,7 +54,7 @@ These settings are limited to logging info about traffic without applying any ac
 
         {% note warning %}
 
-        Associating your security profile with a virtual host of the L7 load balancer is the key step for enabling {{ sws-name }}.
+        {{ sws-name }} cannot be made operational without linking a security profile to the L7 load balancer's virtual host.
 
         {% endnote %}
 
@@ -72,33 +66,28 @@ These settings are limited to logging info about traffic without applying any ac
 
 1. [Create an L7 load balancer](../../application-load-balancer/operations/application-load-balancer-create.md) by selecting **{{ ui-key.yacloud.alb.label_alb-create-form }}**:
 
-    * Specify the security group you created earlier.
-    * Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select subnets in three availability zones for the load balancer nodes. Enable traffic in these subnets.
-    * Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, specify the [minimum number of resource units](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings) per availability zone based on expected load.
+    1. Specify the security group you created earlier.
+    1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select subnets in three availability zones for the load balancer nodes. Enable traffic in these subnets.
+    1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, specify the [minimum number of resource units](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings) per availability zone based on expected load.
+    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
 
-        We recommend selecting the number of resource units based on load expressed in:
-
-        * Number of requests per second (RPS)
-        * Number of concurrent active connections
-        * Number of new connections per second
-        * Traffic processed per second
-
-    * Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
-
-        * Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, specify:
+        1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, specify:
 
             * **{{ ui-key.yacloud.alb.label_port }}**: TCP port on which your service's VMs accept inbound traffic.
-            * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select an L3–L4 DDoS-protected public IP address from the list. For more information, see the [service migration recommendations](#recommendations).
-        * Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, specify:
+            * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_address-list }}`. Select a public IP address from the list. If you plan to enable DDoS protection at levels L3-L4, select a static public IP address with DDoS protection installed.
+
+        1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, specify:
 
             * **{{ ui-key.yacloud.alb.label_listener-type }}**: `{{ ui-key.yacloud.alb.label_listener-type-http }}`.
-            * **{{ ui-key.yacloud.alb.label_protocol-type }}**: Depending on your service, select `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
+            * **{{ ui-key.yacloud.alb.label_protocol-type }}**: Select `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}` depending on the protocol your service uses.
             * If you select `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, specify the TLS certificate you added to {{ certificate-manager-name }} earlier in the **{{ ui-key.yacloud.alb.label_certificate }}** field.
-            * **{{ ui-key.yacloud.alb.label_http-router }}**: HTTP router you created earlier.
+            * **{{ ui-key.yacloud.alb.label_http-router }}**: Select the HTTP router you created earlier.
+
+## Test the L7 load balancer {#test}
 
 1. Wait until the L7 load balancer goes `Active`.
 
-1. Navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
+1. Navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all checks.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 

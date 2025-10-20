@@ -16,10 +16,7 @@ To use the `billing.accounts.viewer` role, you need to assign it for a billing a
 
 * View the list of [subaccounts](../../../partner/terms.md#sub-account) and info on them.
 * [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
-* View assigned [specializations](../../../partner/specializations/index.md).
 * View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
-* View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
-* View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
-* View the list of referral links.
 
 {% endcut %}
+

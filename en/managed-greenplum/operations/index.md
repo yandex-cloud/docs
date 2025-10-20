@@ -19,6 +19,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 ## Databases {#databases}
 
 * [{#T}](connect.md)
+* [{#T}](databases.md)
 
 ## Users and sessions {#users-and-sessions}
 

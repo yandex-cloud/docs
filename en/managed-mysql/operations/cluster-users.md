@@ -25,11 +25,11 @@ You can add and remove users, as well as manage their settings.
   {{ yc-mdb-my }} user list --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -42,13 +42,13 @@ You can add and remove users, as well as manage their settings.
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/users'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -69,9 +69,9 @@ You can add and remove users, as well as manage their settings.
           yandex.cloud.mdb.mysql.v1.UserService.List
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -82,21 +82,23 @@ You can add and remove users, as well as manage their settings.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-  1. Enter a database user name.
+  1. Enter a DB username.
 
      {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
+  
   1. Select how to set a password:
 
       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter your own password. The password must be from 8 to 128 characters long.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using {{ connection-manager-name }}.
+      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password with {{ connection-manager-name }}.
 
-      To view the password, select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab on the cluster page and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+      To view the password, select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab on the cluster page and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
 
-  1. Select one or more databases that the user should have access to:
+
+  1. Select one or more databases the user should have access to:
       1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
@@ -115,7 +117,7 @@ You can add and remove users, as well as manage their settings.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a user in a cluster, run the command:
+  To create a user in a cluster, run this command:
 
   ```bash
   {{ yc-mdb-my }} user create <username> \
@@ -130,21 +132,23 @@ You can add and remove users, as well as manage their settings.
 
   * `password`: User password. The password must be from 8 to 128 characters long.
 
-    You can also generate a password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<password>`.
+    
+    You can also generate a password with {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<password>`.
 
-    To view the password, select the cluster you need in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+    To view the password, select the cluster you need in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
 
-  * `permissions`: List of DBs the user must have access to.
+
+  * `permissions`: List of DBs the user should have access to.
 
   {% include [username-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. Add the `yandex_mdb_mysql_user` resource:
 
@@ -170,11 +174,13 @@ You can add and remove users, as well as manage their settings.
 
       The password must be from 8 to 128 characters long.
 
+      
       You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<password>"`.
 
-      To view the password, select the cluster you need in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+      To view the password, select the cluster you need in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the new user row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
 
-  1. Make sure the settings are correct.
+
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -182,15 +188,15 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
       ```json
       {
@@ -217,9 +223,11 @@ You can add and remove users, as well as manage their settings.
 
       * `password`: User password. The password must be from 8 to 128 characters long.
 
-          You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
+          
+          You can also generate a password with {{ connection-manager-name }}. To do this, specify `"generatePassword": true` instead of `"password": "<user_password>"`.
 
-          To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+          To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+
 
       * `permissions`: User permission settings:
 
@@ -239,18 +247,18 @@ You can add and remove users, as well as manage their settings.
           --data "@body.json"
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
       ```json
       {
@@ -278,9 +286,11 @@ You can add and remove users, as well as manage their settings.
 
       * `password`: User password. The password must be from 8 to 128 characters long.
 
-        You can also generate a password using {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
+        
+        You can also generate a password with {{ connection-manager-name }}. To do this, specify `"generate_password": true` instead of `"password": "<user_password>"`.
 
-        To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
+        To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+
 
       * `permissions`: User permission settings:
 
@@ -289,7 +299,7 @@ You can add and remove users, as well as manage their settings.
 
           For each database, add a separate element with permission settings to the `permissions` array.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Use the [UserService/Create](../api-ref/grpc/User/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -306,7 +316,7 @@ You can add and remove users, as well as manage their settings.
           < body.json
       ```
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -317,19 +327,24 @@ You can add and remove users, as well as manage their settings.
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+
+  
   1. Select how to set a new password:
 
       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter your own password. The password must be from 8 to 128 characters long.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using {{ connection-manager-name }}.
+      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password with {{ connection-manager-name }}.
+
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
-  To view the new password, select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab on the cluster page and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+  
+  To view the new password, select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab on the cluster page and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
   To view passwords, you need the `lockbox.payloadViewer` role.
+
 
 - CLI {#cli}
 
@@ -337,7 +352,7 @@ You can add and remove users, as well as manage their settings.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the user password, run this command:
+  To change a user password, run this command:
 
   ```bash
   {{ yc-mdb-my }} user update <username> \
@@ -347,19 +362,21 @@ You can add and remove users, as well as manage their settings.
 
   The password must be from 8 to 128 characters long.
 
-  You can also generate a new password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<new_password>`.
+  
+  You can also generate a new password with {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<new_password>`.
 
-  To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+  To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
   To view passwords, you need the `lockbox.payloadViewer` role.
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. Locate the user's `yandex_mdb_mysql_user` resource.
 
@@ -376,9 +393,10 @@ You can add and remove users, as well as manage their settings.
 
       The password must be from 8 to 128 characters long.
 
-      You can also generate a new password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
+      
+      You can also generate a new password with {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
 
-      To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+      To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
       {% note info %}
 
@@ -386,7 +404,8 @@ You can add and remove users, as well as manage their settings.
 
       {% endnote %}
 
-  1. Make sure the settings are correct.
+
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -394,11 +413,11 @@ You can add and remove users, as well as manage their settings.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -426,7 +445,8 @@ You can add and remove users, as well as manage their settings.
 
       * `password`: New password. The password must be from 8 to 128 characters long.
 
-        You can also generate a password using {{ connection-manager-name }}. To do this, edit the contents of the `data` field:
+        
+        You can also generate a password with {{ connection-manager-name }}. To do this, edit the contents of the `data` field:
 
         ```bash
         {
@@ -435,17 +455,18 @@ You can add and remove users, as well as manage their settings.
         }
         ```
 
-        To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+        To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
         To view passwords, you need the `lockbox.payloadViewer` role.
 
+
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -483,7 +504,8 @@ You can add and remove users, as well as manage their settings.
 
       * `password`: New password. The password must be from 8 to 128 characters long.
 
-        You can also generate a password using {{ connection-manager-name }}. To do this, edit the contents of the `d` parameter:
+        
+        You can also generate a password with {{ connection-manager-name }}. To do this, edit the contents of the `d` parameter:
 
         ```bash
         {
@@ -498,13 +520,14 @@ You can add and remove users, as well as manage their settings.
         }
         ```
 
-        To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+        To view the new password, select the cluster in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. The new password version is labeled as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
         To view passwords, you need the `lockbox.payloadViewer` role.
 
+
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -521,7 +544,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
@@ -553,13 +576,13 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
   * `max-connections-per-hour`: Maximum number of connections per hour.
   * `max-user-connections`: Maximum number of concurrent connections.
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](./cluster-create.md).
+      For more information about creating this file, see [this guide](./cluster-create.md).
 
   1. Locate the user's `yandex_mdb_mysql_user` resource.
 
@@ -602,11 +625,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -655,11 +678,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -720,7 +743,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -731,7 +754,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Click the name of the cluster you need and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
@@ -740,23 +763,23 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To remove a user, run:
+  To delete a user, run this command:
 
   ```
   {{ yc-mdb-my }} user delete <username> --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about creating this file, see [this guide](cluster-create.md).
 
-  1. Delete the `yandex_mdb_mysql_user` resource with the user's description.
+  1. Delete the `yandex_mdb_mysql_user` resource with the user description.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -764,11 +787,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_user).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -783,11 +806,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -811,7 +834,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

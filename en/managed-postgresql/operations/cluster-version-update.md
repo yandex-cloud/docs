@@ -200,7 +200,7 @@ Cluster upgrade time depends on the database size.
 
 {% note tip %}
 
-Contact [support](../../support/overview.md) if you have issues upgrading to version 17.
+Contact [support]({{ link-console-support }}) if you have issues upgrading to version 17.
 
 {% endnote %}
 

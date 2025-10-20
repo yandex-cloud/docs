@@ -21,6 +21,8 @@ Syntax:
 	- [yc cloudrouter routing-instance create](routing-instance/create.md) — Create a routingInstance.
 	- [yc cloudrouter routing-instance delete](routing-instance/delete.md) — Delete a routingInstance.
 	- [yc cloudrouter routing-instance get](routing-instance/get.md) — Get information about a routingInstance.
+	- [yc cloudrouter routing-instance get-by-cic-private-connection-id](routing-instance/get-by-cic-private-connection-id.md) — Get information about a routingInstance by a cic private connection id.
+	- [yc cloudrouter routing-instance get-by-vpc-network-id](routing-instance/get-by-vpc-network-id.md) — Get information about a routingInstance by a vpc network id.
 	- [yc cloudrouter routing-instance list](routing-instance/list.md) — List routingInstances in a folder.
 	- [yc cloudrouter routing-instance list-operations](routing-instance/list-operations.md) — List operations for a routingInstance.
 	- [yc cloudrouter routing-instance move-prefix](routing-instance/move-prefix.md) — Move VPC network prefixes within the routingInstance.

@@ -17,13 +17,13 @@ description: You can track the state of a {{ mpg-name }} cluster and its individ
 To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze and monitor the cluster state.
 
 
-## Monitoring cluster state {#monitoring-cluster}
+## Monitoring the cluster state {#monitoring-cluster}
 
-To view detailed info on the state of a {{ mpg-name }} cluster:
+To view detailed information on the state of a {{ mpg-name }} cluster:
 
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
-1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
+1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -31,7 +31,7 @@ The following charts will appear on the page:
 
 * **Age of oldest transaction/statement**: Oldest transaction processing and operator execution time.
 * **Average transaction/statement time**: Average transaction processing and operator execution time.
-* **CPU usage**: Usage of processor cores.
+* **CPU usage**: Processor core workload.
 * **Disk read/write bytes**: Disk read and write speed (bytes per second).
 * **Disk read/write IOPS**: Disk read and write activity (ops per second).
 * **Disk usage by DB**: Disk usage by database (bytes).
@@ -48,6 +48,13 @@ The following charts will appear on the page:
 * **Pooler is alive, [boolean]**: Connection pooler health for each host either as a master or as a replica.
 * **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
 * **Replication lag**: Replication delay.
+
+    {% note warning %}
+
+    The replication lag is calculated with one-second accuracy. A lag of less than one second cannot be tracked using this metric.
+
+    {% endnote %}
+
 * **Session CPU usage cores**: Number of utilized processor cores by session type.
 * **Sessions per wait event**: Number of waiting sessions by wait type.
 * **Sessions read bytes**: Amount of data read by session type (bytes).
@@ -62,7 +69,7 @@ The following charts will appear on the page:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed info on the state of individual {{ mpg-name }} hosts:
+To view detailed information on the state of individual {{ mpg-name }} hosts:
 
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
@@ -70,12 +77,12 @@ To view detailed info on the state of individual {{ mpg-name }} hosts:
 
 This page displays charts showing the load on an individual host in the cluster:
 
-* **CPU usage**: Usage of processor cores. As the load goes up, the **Idle** value goes down.
+* **CPU usage**: Processor core workload. As the load goes up, the **Idle** value goes down.
 * **Disk IOPS**: Number of disk operations per second.
 * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
 * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
-* **Network bytes**: Speed of data exchange over the network, in bytes per second.
-* **Network packets**: Number of packets exchanged over the network, per second.
+* **Network bytes**: Speed of network data exchange, in bytes per second.
+* **Network packets**: Number of network packets exchange per second.
 
 The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
@@ -88,14 +95,14 @@ For hosts with the **Replica** role, **Received** is normally greater than **Sen
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
     1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
         * **{{ mpg-name }} — Host Overview** to configure host alerts.
     1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
     1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` threshold values to trigger the alert.
+    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
@@ -123,7 +130,7 @@ You can view the current storage size in the [detailed information about the clu
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a cluster's state and status:
+To view a state and status of a cluster:
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.

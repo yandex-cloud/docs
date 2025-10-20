@@ -1,17 +1,17 @@
 ---
-title: How to allow or deny traffic transfer between availability zones in an L7 load balancer within {{ alb-full-name }}
-description: Follow this guide to allow and deny traffic transfer between availability zones in an L7 load balancer.
+title: How to allow/deny auto-disabling an L7 load balancer's availability zone in {{ alb-full-name }}
+description: Follow this guide to allow or deny zonal shift between availability zones in an L7 load balancer.
 ---
 
-# Allowing or denying traffic transfer between availability zones
+# Allowing and denying availability zone shutdown
 
-If an [availability zone](../../../overview/concepts/geo-scope.md) is under maintenance or fails, {{ yandex-cloud }} technicians may redirect traffic to other zones. This will ensure your services stay operational. Once the zone is recovered, traffic will be routed back to the zones configured for the load balancer.
+If an [availability zone](../../../overview/concepts/geo-scope.md) is under maintenance or shows signs of failure, {{ yandex-cloud }} technicians may temporarily shut down that zone. In which case the load balancer will automatically redistribute traffic among the remaining zones. As soon as the zone is back on track, it gets re-enabled, and uniform traffic distribution is resumed.
 
-You can allow or deny such traffic transfer between availability zones. You can also [test traffic transfer](start-and-cancel-shift.md) from any availability zone yourself and allow traffic transfer only for specific load balancers.
+You can allow or deny auto-disabling an availability zone. However, you cannot select a particular zone to disable. Before allowing the automatic mode, you can try [disabling different availability zones](start-and-cancel-shift.md).
 
-By default, traffic transfer between availability zones is not allowed.
+By default, availability zone shutdown is not allowed.
 
-## Allowing traffic transfer {#allow}
+## Allowing availability zone shutdown {#allow}
 
 {% list tabs group=instructions %}
 
@@ -64,14 +64,14 @@ By default, traffic transfer between availability zones is not allowed.
 
 - API {#api}
 
-  To allow traffic transfer when creating an L7 load balancer, use the [create](../../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and specify `"allowZonalShift": "true"`, or use the [LoadBalancerService/Create](../../api-ref/grpc/LoadBalancer/create.md) gRPC API call with `"allow_zonal_shift": "true"`.
+  To allow zonal shift when creating an L7 load balancer, use the [create](../../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and set `"allowZonalShift": "true"`, or use the [LoadBalancerService/Create](../../api-ref/grpc/LoadBalancer/create.md) gRPC API call and set `"allow_zonal_shift": "true"`.
 
-  To allow traffic transfer when updating an L7 load balancer, use the [update](../../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and specify `"allowZonalShift": "true"`, or use the [LoadBalancerService/Update](../../api-ref/grpc/LoadBalancer/update.md) gRPC API call with `"allow_zonal_shift": "true"`.
+  To allow zonal shift when updating an L7 load balancer, use the [update](../../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and specify `"allowZonalShift": "true"`, or use the [LoadBalancerService/Update](../../api-ref/grpc/LoadBalancer/update.md) gRPC API call with `"allow_zonal_shift": "true"`.
 
 {% endlist %}
 
 
-## Denying traffic transfer {#deny}
+## Denying availability zone shutdown {#deny}
 
 {% list tabs group=instructions %}
 
@@ -123,9 +123,9 @@ By default, traffic transfer between availability zones is not allowed.
 
 - API {#api}
 
-  To deny traffic transfer when creating an L7 load balancer, use the [create](../../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and specify `"allowZonalShift": "false"`, or use the [LoadBalancerService/Create](../../api-ref/grpc/LoadBalancer/create.md) gRPC API call with `"allow_zonal_shift": "false"`.
+  To deny zonal shift when creating an L7 load balancer, use the [create](../../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and set `"allowZonalShift": "false"`, or use the [LoadBalancerService/Create](../../api-ref/grpc/LoadBalancer/create.md) gRPC API call and set `"allow_zonal_shift": "false"`.
 
-  To deny traffic transfer when updating an L7 load balancer, use the [update](../../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and specify `"allowZonalShift": "false"`, or use the [LoadBalancerService/Update](../../api-ref/grpc/LoadBalancer/update.md) gRPC API call with `"allow_zonal_shift": "false"`.
+  To deny zonal shift when updating an L7 load balancer, use the [update](../../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../../api-ref/LoadBalancer/index.md) resource and specify `"allowZonalShift": "false"`, or use the [LoadBalancerService/Update](../../api-ref/grpc/LoadBalancer/update.md) gRPC API call with `"allow_zonal_shift": "false"`.
 
 {% endlist %}
 

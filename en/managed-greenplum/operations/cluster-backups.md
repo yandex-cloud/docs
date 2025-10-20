@@ -394,7 +394,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `--name`: Cluster name.
         * `--environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -444,7 +444,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
           "config": {
             "zoneId": "<availability_zone>",
             "subnetId": "<subnet_ID>",
-            "assignPublicIp": "<allow_public_access_to_cluster_hosts>"
+            "assignPublicIp": "<enable_public_access_to_cluster_hosts>"
           },
           "masterResources": {
             "resourcePresetId": "<host_class>",
@@ -490,7 +490,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -523,7 +523,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `serviceAccountId`: Service account ID.
         * `logging`: Settings for [transferring logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
-            * `enabled`: Enables log transfer, `true` or `false`.
+            * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
@@ -568,7 +568,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
           "config": {
             "zone_id": "<availability_zone>",
             "subnet_id": "<subnet_ID>",
-            "assign_public_ip": "<allow_public_access_to_cluster_hosts>"
+            "assign_public_ip": "<enable_public_access_to_cluster_hosts>"
           },
           "master_resources": {
             "resource_preset_id": "<host_class>",
@@ -607,7 +607,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -639,6 +639,16 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
 
         * `service_account_id`: Service account ID.
 
+        * `logging`: Settings for [transferring logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+
+            * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
+            * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
+            * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
+            * `folder_id`: Specify the ID of the folder whose log group you want to use.
+            * `log_group_id`: ID of the log group to write logs to.
+
+                Specify either `folder_id` or `log_group_id`.
 
 
     1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:

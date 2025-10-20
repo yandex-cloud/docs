@@ -14,7 +14,7 @@ You can also use this method to deliver metrics from any custom applications tha
 
    1. [Create a service account](../../../iam/operations/sa/create.md) in the folder for metric storage and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
-   1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM where {{unified-agent-short-name}} will be deployed.
+   1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM where {{ unified-agent-short-name }} will be deployed.
 
 1. Run a test Python app that provides metrics in {{ prometheus-name }} format.
 
@@ -117,6 +117,7 @@ You can also use this method to deliver metrics from any custom applications tha
               plugin: metrics_pull
               config:
                 url: http://<VM_public_address>:8000/metrics
+                metric_name_label:  my_name  # optional, allows you to rename your application's name label because this name is reserved by the agent
                 format:
                   prometheus: {}
                 namespace: app
@@ -142,6 +143,13 @@ You can also use this method to deliver metrics from any custom applications tha
 
        * `folder_id`: ID of the folder to which you want to write metrics.
        * `url`: Public address of the VM hosting the test app that delivers metrics.
+       * `metric_name_label`: Decides which label the agent should write the metric name into for the {{ prometheus-name }} data. By default, the `name` label is used, which may cause a conflict if your app already uses this label. In which case you get this error when writing metrics:
+
+         ```bash
+         label name 'name' is reserved
+         ```
+
+       To avoid the error, specify any other unique name.
 
    1. Install {{ unified-agent-short-name }} by running the following command in your home directory:
 

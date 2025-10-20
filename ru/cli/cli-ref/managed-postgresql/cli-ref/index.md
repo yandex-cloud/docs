@@ -11,7 +11,7 @@ Manage PostgreSQL clusters, hosts, databases, backups and users.
 
 Syntax: 
 
-`yc managed-postgresql <group>`
+`yc managed-postgresql <group|command>`
 
 Aliases: 
 
@@ -20,6 +20,7 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-postgresql connect](connect.md) — Connect to Postgresql cluster with iam-auth
 - [yc managed-postgresql backup](backup/index.md) — Manage PostgreSQL backups
 	- [yc managed-postgresql backup delete](backup/delete.md) — Delete the specified PostgreSQL backup
 	- [yc managed-postgresql backup get](backup/get.md) — Show information about the specified PostgreSQL backup

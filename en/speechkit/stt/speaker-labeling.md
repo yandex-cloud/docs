@@ -32,7 +32,9 @@ To enable speaker labeling, use the following session parameters:
 
 {% endlist %}
 
-You will see `channel_tag` labels in recognition results, set to 0 or 1. Each value refers to a single speaker. You can process the results as follows:
+You will see `channel_tag` labels in recognition results, set to 0 or 1. Usually, `0` stands for the left channel and `1`, for the right one; however, the numbering may differ.
+
+Each value refers to a single speaker. You can process the results as follows:
 
 {% list tabs group=programming_language %}
 

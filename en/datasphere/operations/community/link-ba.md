@@ -17,11 +17,7 @@ If the selected billing account has an outstanding balance or suspended status, 
 
 Only a community user with the `datasphere.communities.editor` role or higher can link a billing account to a community. To manage billing accounts, you also [need the `billing.accounts.editor` role](../../../billing/security/) or higher. If you are a community admin but have no access to billing accounts in your organization, contact your organization's admin in {{ yandex-cloud }}.
 
-{% note tip %}
-
-To manage a billing account, you must have a [Yandex account](../../../iam/concepts/users/accounts.md#passport). If using {{ yandex-cloud }} through an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
-
-{% endnote %}
+You cannot unlink a community from a billing account, but you can change the account for with a different one, if required.
 
 ## Changing a community billing account {#change-ba}
 

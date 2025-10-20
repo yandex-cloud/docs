@@ -63,9 +63,9 @@ Requests with less than one billing unit are rounded up to the next integer. Lar
 
 The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
-### Assistants {#rules-assistant}
+### Using assistants and text agents {#rules-assistant}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, you can use {{ assistant-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
+You can use {{ assistant-api }}, {{ responses-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
 
 ### Using voice agents {#rules-voice-assistant}
 
@@ -131,7 +131,7 @@ _{{ price-per-hour-count-per-second }}_
 
 ### Using voice agents {#voice-assistant}
 
-_The prices are per minute. Billing is per second._
+_The cost is specified for one minute of use. Billing occurs per second._
 
 
 
@@ -152,7 +152,7 @@ _The prices are per minute. Billing is per second._
 
 #### Example 1 {#example-generating-1}
 
-Cost of using {{ gpt-lite }} for text generation with the following parameters:
+Cost of using {{ gpt-lite }} for text generation with the following properties:
 
 * Number of prompt tokens: 225
 * Number of response tokens: 525
@@ -164,7 +164,7 @@ Cost of using {{ gpt-lite }} for text generation with the following parameters:
 
 #### Example 2 {#example-generating-2}
 
-Cost of using {{ gpt-pro }} for text generation with the following parameters:
+Cost of using {{ gpt-pro }} for text generation with the following properties:
 
 * Number of prompt tokens: 115
 * Number of response tokens: 1,500
@@ -178,7 +178,7 @@ Cost of using {{ gpt-pro }} for text generation with the following parameters:
 
 #### Example 3 {#example-generating-3}
 
-Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with the following parameters:
+Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with the following properties:
 
 * Number of prompt tokens: 1,020
 * Number of response tokens: 30
@@ -192,9 +192,9 @@ Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with 
 
 ### Calculating the text vectorization cost {#price-example-embedding}
 
-Cost of using {{ foundation-models-full-name }} for text vectorization with the following parameter:
+Cost of using {{ foundation-models-full-name }} for text vectorization with the following property:
 
-* Number of tokens per request: 2,000
+* Number of tokens in the request: 2,000
 
 
 
@@ -202,13 +202,13 @@ Cost of using {{ foundation-models-full-name }} for text vectorization with the 
 
 
 
-## Voice agent cost calculation example {#price-example-voice-assistant}
+## Examples of voice agent usage cost calculation {#price-example-voice-assistant}
 
-Cost of using the speech-realtime-250923 voice agent with the following parameters:
+Cost of using speech-realtime-250923 voice agent with the following parameters:
 
 * Input audio: 30 seconds.
 * Output audio: 1 minute.
-* Number of tokens per request: 2,000.
+* Number of tokens in the request: 2,000.
 
 
 

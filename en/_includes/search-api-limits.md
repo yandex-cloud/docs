@@ -12,7 +12,12 @@
 | Number of synchronous requests per second to get a generative response | 1 |
 | Number of deferred requests per hour | 35,000 |
 | Number of deferred requests per second | 10 |
-| Number of requests, per second, for results of a deferred request | 10 |
+| Number of requests per second for results of a deferred request | 10 |
+| Number of requests per hour for search with generative response| 1,000 |
+| Number of requests per hour for image search by text description |10,000 |
+| Number of requests per second for image search by text description | 10 |
+| Number of requests per hour for image search by image | 36,000 |
+| Number of requests per second for image search by image | 10 |
 
 ^1^ The time zone is [UTC+3](https://en.wikipedia.org/wiki/UTC%2B03:00).
 

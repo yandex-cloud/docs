@@ -196,6 +196,12 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: access-analyzer
+        items:
+          - name: Overview
+            href: cli-ref/access-analyzer/index.md
+          - name: list-subject-access-bindings
+            href: cli-ref/access-analyzer/list-subject-access-bindings.md
       - name: access-key
         items:
           - name: Overview

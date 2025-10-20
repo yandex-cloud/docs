@@ -20,7 +20,6 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Greenplum cluster id.|
 |`--name`|<b>`string`</b><br/>Greenplum cluster name.|
 |`--db`|<b>`string`</b><br/>The name of the database to connect to.|
-|`--user`|<b>`string`</b><br/>Connect to the database as the user username instead of the default.|
 
 #### Global Flags
 

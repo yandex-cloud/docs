@@ -5,6 +5,12 @@ description: This section contains {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## August 2025 {#august-2025}
+
+### Updates {#updates}
+
+* Added support for [click tracking](concepts/click-tracking.md) in emails.
+
 ## July 2025 {#july-2025}
 
 ### Updates {#updates}

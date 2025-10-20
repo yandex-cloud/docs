@@ -77,7 +77,11 @@ Therefore, {{ yq-short-name }} returns date and time values read from {{ GP }} a
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Supported data types for filter pushdown:
 
 |Data type {{ yq-full-name }}|
 |----|

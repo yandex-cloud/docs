@@ -6,9 +6,12 @@ Event name | Description
 `gcore.OriginDelete` | Deleting an origin
 `gcore.OriginGroupCreate` | Creating an origin group
 `gcore.OriginGroupDelete` | Deleting an origin group
-`gcore.OriginGroupUpdate` | Editing an origin group
+`gcore.OriginGroupUpdate` | Updating an origin group
 `gcore.OriginUpdate` | Changing an origin
 `gcore.ProviderActivate` | Activating a provider
+`gcore.RawLogsActivate` | Enabling log export
+`gcore.RawLogsDeactivate` | Disabling log export
+`gcore.RawLogsUpdate` | Updating log export settings
 `gcore.ResourceCreate` | Creating a resource
 `gcore.ResourceDelete` | Deleting a resource
 `gcore.ResourceRuleCreate` | Creating a Rewrite rule

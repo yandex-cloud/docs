@@ -28,8 +28,8 @@ items:
       - name: Emergency DDoS protection in {{ alb-name }}, L7
         href: security/sws-protection-ongoing-ddos.md
       - name: >-
-          Migrating services from NLB to L7 ALB for DDoS protection using {{
-          sws-name }}
+          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          protection
         items:
           - name: Overview
             href: security/migration-from-nlb-to-alb/index.md
@@ -1133,7 +1133,7 @@ items:
           data-transfer-full-name }}
         href: dataplatform/opensearch-to-greenplum.md
       - name: >-
-          Creating an external table from a {{ objstorage-name }} bucket table
+          Creating an external table from an {{ objstorage-name }} bucket table
           using a configuration file
         href: dataplatform/mgp-config-server-for-s3.md
       - name: Getting data from external sources using named queries in {{ GP }}
@@ -1432,7 +1432,7 @@ items:
         href: serverless/movies-database.md
       - name: Building a CI/CD pipeline in {{ GL }}
         href: serverless/ci-cd-serverless.md
-      - name: Starting {{ GLR }} in {{ serverless-containers-name }}
+      - name: '{{ GLR }} execution in {{ serverless-containers-name }}'
         href: serverless/serverless-gitlab-runner.md
       - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
         href: serverless/ci-cd-sourcecraft-functions.md

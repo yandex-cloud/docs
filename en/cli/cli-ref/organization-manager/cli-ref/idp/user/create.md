@@ -28,6 +28,7 @@ Syntax:
 |`--password`|<b>`string`</b><br/>Password for the user|
 |`--external-id`|<b>`string`</b><br/>External identifier for the user|
 |`--is-active`|Whether the user is active|
+|`--generation-proof`|<b>`string`</b><br/>Proof of generated password|
 
 #### Global Flags
 

@@ -4,7 +4,7 @@ Filters and returns the contents of an {{ objstorage-name }} object using an [S3
 
 {% note warning %}
 
-To be able to make S3 Select requests, contact [support](../../../../support/overview.md). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
+To be able to make S3 Select requests, contact [support]({{ link-console-support }}). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
 
 {% endnote %}
 

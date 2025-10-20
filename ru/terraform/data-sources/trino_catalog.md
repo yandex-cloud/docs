@@ -48,6 +48,7 @@ data "yandex_trino_catalog" "trino_catalog_by_id" {
 - `delta_lake` (Attributes) Configuration for Delta Lake connector. (see [below for nested schema](#nestedatt--delta_lake))
 - `description` (String) The resource description.
 - `hive` (Attributes) Configuration for Hive connector. (see [below for nested schema](#nestedatt--hive))
+- `hudi` (Attributes) Configuration for Hudi connector. (see [below for nested schema](#nestedatt--hudi))
 - `iceberg` (Attributes) Configuration for Iceberg connector. (see [below for nested schema](#nestedatt--iceberg))
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `oracle` (Attributes) Configuration for Oracle connector. (see [below for nested schema](#nestedatt--oracle))
@@ -171,6 +172,48 @@ Read-Only:
 
 <a id="nestedatt--hive--metastore"></a>
 ### Nested Schema for `hive.metastore`
+
+Read-Only:
+
+- `uri` (String) The resource description.
+
+
+
+<a id="nestedatt--hudi"></a>
+### Nested Schema for `hudi`
+
+Read-Only:
+
+- `additional_properties` (Map of String) Additional properties.
+- `file_system` (Attributes) File system configuration. (see [below for nested schema](#nestedatt--hudi--file_system))
+- `metastore` (Attributes) Metastore configuration. (see [below for nested schema](#nestedatt--hudi--metastore))
+
+<a id="nestedatt--hudi--file_system"></a>
+### Nested Schema for `hudi.file_system`
+
+Read-Only:
+
+- `external_s3` (Attributes) Describes External S3 compatible file system. (see [below for nested schema](#nestedatt--hudi--file_system--external_s3))
+- `s3` (Attributes) Describes YandexCloud native S3 file system. (see [below for nested schema](#nestedatt--hudi--file_system--s3))
+
+<a id="nestedatt--hudi--file_system--external_s3"></a>
+### Nested Schema for `hudi.file_system.external_s3`
+
+Read-Only:
+
+- `aws_access_key` (String, Sensitive) AWS access key ID for S3 authentication.
+- `aws_endpoint` (String) AWS S3 compatible endpoint URL.
+- `aws_region` (String) AWS region for S3 storage.
+- `aws_secret_key` (String, Sensitive) AWS secret access key for S3 authentication.
+
+
+<a id="nestedatt--hudi--file_system--s3"></a>
+### Nested Schema for `hudi.file_system.s3`
+
+
+
+<a id="nestedatt--hudi--metastore"></a>
+### Nested Schema for `hudi.metastore`
 
 Read-Only:
 

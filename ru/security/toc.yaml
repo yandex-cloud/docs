@@ -67,6 +67,8 @@ items:
         href: standard-360/encryption-data-protection.md
       - name: Интеграции и сторонние сервисы
         href: standard-360/integrations.md
+  - name: Фреймворк безопасной работы с агентами AI-SAFE
+    href: ai-safe.md
   - name: Практические руководства
     items:
       - name: Все руководства

@@ -57,13 +57,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the host class for a cluster:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
       ```
 
-  1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
+  1. Get the list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
      
      ```bash
@@ -98,7 +98,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       For more information about creating this file, see [this guide](./cluster-create.md).
 
-  1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
+  1. In the {{ mmy-name }} cluster description, edit the `resource_preset_id` parameter under `resources`:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -236,7 +236,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -279,7 +279,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -553,6 +553,8 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Change additional cluster settings:
 
+     - **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**
+
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
 - CLI {#cli}
@@ -563,7 +565,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -579,6 +581,9 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
           --datalens-access=<true_or_false> \
           --websql-access=<true_or_false> \
           --yandexquery-access=<true_or_false> \
+          --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_GB>,`
+                                 `planned-usage-threshold=<threshold_for_scheduled_increase_in_percent>,`
+                                 `emergency-usage-threshold=<threshold_for_immediate_increase_in_percent> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
                               `hour=<hour> \
@@ -589,7 +594,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
         ```
 
 
-    You can change the following settings:
+    You can update the following settings:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
@@ -610,7 +615,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, the valid values range from `1` to `86400` seconds.
+    * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
 
     You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -681,9 +686,9 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
       }
       ```
 
-      For `sessions_sampling_interval` and `statements_sampling_interval`, the valid values range from `1` to `86400` seconds.
+      For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -726,6 +731,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                   "enabled": <enable_statistics_collection>,
                   "sessionsSamplingInterval": "<session_sampling_interval>",
                   "statementsSamplingInterval": "<statement_sampling_interval>"
+              },
+              "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<threshold_for_scheduled_increase_in_percent>",
+                  "emergencyUsageThreshold": "<threshold_for_immediate_increase_in_percent>",
+                  "diskSizeLimit": "<maximum_storage_size_in_bytes>"
               }
           },
           "maintenanceWindow": {
@@ -769,14 +779,6 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `enabled`: Enables statistics collection, `true` or `false`.
               * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
               * `statementsSamplingInterval`: Statement sampling interval, from `1` to `86400` seconds.
-
-      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
-
-          * `anytime`: Maintenance can take place at any time.
-          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
-
-              * `day`: Day of week, in `DDD` format.
-              * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
       * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
@@ -839,6 +841,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                   "enabled": <enable_statistics_collection>,
                   "sessions_sampling_interval": "<session_sampling_interval>",
                   "statements_sampling_interval": "<statement_sampling_interval>"
+              },
+              "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<threshold_for_scheduled_increase_in_percent>",
+                  "emergency_usage_threshold": "<threshold_for_immediate_increase_in_percent>",
+                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
               }
           },
           "maintenance_window": {
@@ -883,14 +890,6 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
               * `statements_sampling_interval`: Statement sampling interval, from `1` to `86400` seconds.
 
-      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
-
-          * `anytime`: Maintenance can take place at any time.
-          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
-
-              * `day`: Day of week, in `DDD` format.
-              * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
-
       * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -916,6 +915,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 {% endlist %}
 
+
 ### {{ connection-manager-name }} {#conn-man}
 
 If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. It is only available in the [management console]({{ link-console-main }}).
@@ -935,6 +935,7 @@ The following resources will be created for each database user:
   You can use {{ connection-manager-name }} and secrets you create there free of charge.
 
   {% endnote %}
+
 
 ## Moving a cluster {#move-cluster}
 
@@ -977,7 +978,7 @@ The following resources will be created for each database user:
 
         For more information about creating this file, see [this guide](./cluster-create.md).
 
-    1. In the {{ mmy-name }} cluster description, edit or add the `folder_id` parameter value:
+    1. In the {{ mmy-name }} cluster description, edit or add the `folder_id` value:
 
         ```hcl
         resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -1074,7 +1075,7 @@ The following resources will be created for each database user:
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command to update a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -1093,7 +1094,7 @@ The following resources will be created for each database user:
 
       For more information about creating this file, see [this guide](./cluster-create.md).
 
-  1. In the {{ mmy-name }} cluster description, change the `security_group_ids` parameter value:
+  1. Edit the `security_group_ids` parameter in the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {

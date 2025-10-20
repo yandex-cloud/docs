@@ -28,24 +28,31 @@
     * With an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
       ```bash
+      export FOLDER_ID=<folder_ID>
       export IAM_TOKEN=<service_account_IAM_token> && \
       curl \
         --insecure \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --header "x-folder-id: ${FOLDER_ID}" \
         --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
-      Where `IAM_TOKEN` is the IAM token of the service account.
+      Where:
+      
+      * `FOLDER_ID`: ID of the folder your service account was created in.
+      * `IAM_TOKEN`: Service account IAM token.
 
     * With an [API key](../../iam/concepts/authorization/api-key).
 
       {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 
       ```bash
+      export FOLDER_ID=<folder_ID>
       export API_KEY=<service_account_API_key> && \
       curl \
         --insecure \
         --header "Authorization: Api-Key ${API_KEY}" \
+        --header "x-folder-id: ${FOLDER_ID}" \
         --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
@@ -77,6 +84,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://operation.{{ api-host-sk }}/operations/<recognition_operation_ID>
         ```
 
@@ -87,6 +95,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://operation.{{ api-host-sk }}/operations/<recognition_operation_ID>
         ```
 
@@ -113,6 +122,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 
@@ -123,6 +133,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
+          --header "x-folder-id: ${FOLDER_ID}" \
           https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 

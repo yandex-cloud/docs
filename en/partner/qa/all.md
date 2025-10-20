@@ -1,9 +1,9 @@
 ---
-title: FAQ about the {{ yandex-cloud }} partner program
+title: '{{ yandex-cloud }} partner program: FAQs'
 description: This page provides answers to questions about the {{ yandex-cloud }} partner program.
 ---
 
-# FAQ about the {{ yandex-cloud }} partner program
+# {{ yandex-cloud }} partner program: FAQs
 
 ## General questions {#general}
 
@@ -21,7 +21,6 @@ description: This page provides answers to questions about the {{ yandex-cloud }
 
 {% include notitle [start-grant](../../_qa/partner/start-grant.md) %}
 
-## Additional grants in the partner program {#additional-grants}
+## Additional grants within the partner program {#additional-grants}
 
 {% include notitle [additional-grants](../../_qa/partner/additional-grants.md) %}
-

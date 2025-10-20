@@ -1,33 +1,32 @@
-В этом руководстве вы настроите [CI/CD]({{ link-src-docs }}/sourcecraft/concepts/ci-cd) между {{ sf-name }} и {{ src-name }}. Для этого вы создадите репозиторий, настроите развертывание функции и проверите результат.
+В этом руководстве вы настроите [CI/CD]({{ link-src-docs }}/sourcecraft/concepts/ci-cd) между {{ sf-name }} и {{ src-name }}. Для этого вы создадите репозиторий, настроите развертывание функции и проверите результат. Интеграция между {{ src-name }} и {{ yandex-cloud }} будет выполнена с помощью [сервисного подключения]({{ link-src-docs }}/sourcecraft/concepts/service-connections).
 
-Чтобы настроить CI/CD:
+{% include [service-connection-role-warning](../../_includes/sourcecraft/service-connection-role-warning.md) %}
 
-1. [Создайте сервисный аккаунт и авторизованный ключ](#iam).
+Чтобы настроить CI/CD для развертывания функции {{ sf-name }} из репозитория {{ src-name }}:
+1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте репозиторий](#repository).
-1. [Создайте секрет в репозитории](#create-secret).
-1. [Внесите изменения в репозиторий](#push-changes).
-1. [Проверьте CI/CD-процесс](#check-ci-cd).
+1. [Создайте сервисное подключение](#create-service-connection).
+1. [Отредактируйте конфигурацию CI/CD](#push-changes).
+1. [Проверьте выполнение CI/CD](#check-ci-cd).
 1. [Проверьте изменения в функции](#check-function).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
 
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
 
+## Создайте сервисный аккаунт {#create-sa}
 
-## Создайте сервисный аккаунт и авторизованный ключ {#iam}
-
-От имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) {{ src-name }} будет создавать функцию и ее версии.
-
-### Создайте сервисный аккаунт {#create-sa}
+От имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) будет создаваться функция и ее версии.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
+  1. В левой части экрана нажмите на строку с именем каталога, в котором вы хотите развернуть функцию {{ sf-name }}.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `functions-cicd-sa`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../functions/security/index.md#functions-admin) `{{ roles-functions-admin }}`.
@@ -79,94 +78,73 @@
 
 {% endlist %}
 
-
-### Создайте авторизованный ключ {#create-key}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Выберите сервисный аккаунт `functions-cicd-sa`.
-  1. На верхней панели нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
-  1. Выберите алгоритм шифрования.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**. Убедитесь, что файл сохранился на компьютере. Его содержимое понадобится при [создании секрета](#create-secret). Открытый ключ нельзя будет посмотреть в консоли управления.
-
-- CLI {#cli}
-
-  Выполните команду:
-
-  ```bash
-  yc iam key create --service-account-name sa-function -o functions-cicd-sa_key_file.json
-  ```
-
-  В случае успеха в файл `functions-cicd-sa_key_file.json` будут записаны данные авторизованного ключа. Например:
-
-  ```json
-  {
-    "id": "ajek6nubd5g3********",
-    "service_account_id": "ajelprpohp7r********",
-    "created_at": "2025-05-28T16:17:17.721526532Z",
-    "key_algorithm": "RSA_2048",
-    "public_key": "-----BEGIN PUBLIC KEY-----\nMI...QAB\n-----END PUBLIC KEY-----\n",
-    "private_key": "PLEASE DO NOT REMOVE THIS LINE! Yandex.Cloud SA Key ID \u003cajek6nubd5g3********\u003e\n-----BEGIN PRIVATE KEY-----\nMI...WdQ=\n-----END PRIVATE KEY-----\n"
-  }
-  ```
-
-- API {#api}
-
-  Чтобы создать авторизованный ключ доступа, воспользуйтесь методом REST API [create](../../iam/api-ref/Key/create.md) для ресурса [Key](../../iam/api-ref/Key/index.md) или вызовом gRPC API [Key/Create](../../iam/api-ref/grpc/Key/create.md).
-
-{% endlist %}
-
-
 ## Создайте репозиторий {#repository}
 
-В репозитории будут храниться параметры и код функции, а также настройки CI/CD-процесса.
+Репозиторий будет создан из шаблона [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template). В репозитории будут храниться примеры кода функций для разных языков программирования и фреймворков, а также настройки CI/CD-процесса.
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ src-name }} {#src}
 
-  1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
+  1. Откройте [главную страницу сервиса]({{ link-src-main }}).
   1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_create-repository }}**.
   1. В открывшемся окне выберите **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_create-blank }}**.
-  1. {% include [repo-create-details](../../_includes/sourcecraft/repo-create-details.md) %}
+  1. В блоке **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_new-repo-details }}**:
+      * В поле **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_owner-field }}** выберите [организацию]({{ link-src-docs }}/sourcecraft/concepts/#org), в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
+      * В поле **{{ ui-key.sourcecraft.ui_modules_repoCreate.title_repo-field }}** укажите название репозитория. 
+
+        Название должно быть уникальным в пределах организации и может содержать следующие [ASCII-символы](https://ru.wikipedia.org/wiki/ASCII): строчные и заглавные буквы латинского алфавита, цифры, запятые, дефисы и подчеркивания.
+
+        Под названием отображается адрес, по которому репозиторий будет доступен.
+
+      * (опционально) В поле **{{ ui-key.sourcecraft.ui_modules_repoSettings.field_description }}** укажите описание репозитория.
+
+  1. В блоке **{{ ui-key.sourcecraft.ui_modules_repoCreate.section_template }}** нажмите **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_browse-templates }}**, выберите шаблон [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) и нажмите **{{ ui-key.sourcecraft.ui_modules_repo.button_use-template }}**.
+
+      Чтобы посмотреть содержимое шаблона, нажмите **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_preview-template }}**.
+
+      В шаблоне содержатся:
+      * файл [.sourcecraft/ci.yaml]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template/browse/.sourcecraft/ci.yaml) с предустановленной конфигурацией CI/CD-процесса, который может быть запущен [вручную]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) для публикации функции в конкретной [среде выполнения](../../functions/concepts/runtime/index.md#runtimes) или автоматически для среды выполнения `nodejs22` при создании коммита в основную ветку репозитория.
+      * директории с примерами кода функций для разных языков программирования и фреймворков.
   1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repoCreate.button_create-repo }}**.
 
 {% endlist %}
 
-
-## Создайте секрет в репозитории {#create-secret}
-
-В [секрете]({{ link-src-docs }}/sourcecraft/operations/secrets) в зашифрованном виде будет храниться авторизованный ключ сервисного аккаунта для доступа к функции.
+## Создайте сервисное подключение {#create-service-connection}
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
-  1. Выберите созданный ранее репозиторий.
-  1. На странице репозитория в разделе ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-repository-settings }}** перейдите в секцию ![image](../../_assets/console-icons/vault.svg) **{{ ui-key.sourcecraft.ui_lib.tab_secrets }}**.
-  1. На странице с секретами нажмите **{{ ui-key.sourcecraft.ui_modules_secrets.action_new-secrete }}**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.ui_lib.organizations }}**.
+  1. Выберите организацию, в которой вы создали сервисный аккаунт в {{ yandex-cloud }}.
+  1. На странице организации в разделе ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.ui_lib.settings }}** перейдите в секцию ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_service-connections }}**.
+  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_serviceConnections.button_add-connection }}**.
   1. В открывшемся окне:
+      * В блоке **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_basic }}** укажите имя сервисного подключения, например `default-service-connection`, опционально добавьте описание.
+      * В блоке **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_scope }}** выберите, для каких репозиториев и веток будет доступно сервисное подключение, например, выберите репозиторий, созданный ранее.
+      * В блоке **{{ ui-key.sourcecraft.ui_modules_serviceConnections.section_cloud-settings }}** выберите:
+        * Каталог, на который вы назначили роль сервисному аккаунту.
+        * Сервисный аккаунт, созданный ранее.
 
-      * В поле **{{ ui-key.sourcecraft.ui_modules_secrets.field_name }}** введите название секрета — `authorized-key`.
-      * В поле **{{ ui-key.sourcecraft.ui_modules_secrets.field_secret }}** вставьте содержимое файла с авторизованным ключом, [сохраненное ранее](#create-key).
+        {% note tip %}
 
-  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_secrets.action_add-secret }}**.
+        Чтобы повторно запросить список облаков, каталогов и сервисных аккаунтов из {{ yandex-cloud }}, нажмите  ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Синхронизировать**. Это может быть полезно, если параллельно с созданием сервисного подключения вы создали каталог или сервисный аккаунт.
+
+        {% endnote %}
+
+  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_serviceConnections.button_create-connection }}**.
+
+      Дождитесь окончания операции. На открывшейся странице будут представлены детали сервисного подключения.
+
+      В {{ yandex-cloud }} будет автоматически создана [федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) {{ iam-full-name }}.
+
+      Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.ui_modules_serviceConnections.title_oidc-federation }}** нажмите на имя федерации.
 
 {% endlist %}
 
-
-## Внесите изменения в репозиторий {#push-changes}
-
-Создайте в репозитории следующие файлы:
-
-* `index.js` с кодом функции;
-* `.sourcecraft/ci.yaml` с параметрами функции и настройками CI/CD-процесса.
+## Отредактируйте конфигурацию CI/CD {#push-changes}
 
 {% list tabs group=instructions %}
 
@@ -175,98 +153,142 @@
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
   1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Выберите созданный ранее репозиторий.
-  1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repoMain.action_go-to-browse }}**.
-  1. Справа от имени ветки нажмите ![image](../../_assets/console-icons/square-plus.svg) → ![image](../../_assets/console-icons/file.svg) **{{ ui-key.sourcecraft.ui_modules_repo.file }}**.
-  1. Введите название файла `index.js` и нажмите **{{ ui-key.sourcecraft.ui_modules_repo.action_create-file }}**.
-  1. Вставьте в файл `index.js` следующий код:
+  1. Выберите файл `.sourcecraft/ci.yaml`.
+  1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В [рабочем процессе]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#workflows) `deploy-nodejs-function` отредактируйте параметры создаваемой функции:
+      * `YC_FUNCTION_NAME` — имя функции, например `test-function-nodejs`.
+      * `YC_FUNCTION_RUNTIME` — [среда выполнения](../../functions/concepts/runtime/index.md#runtimes), например `nodejs22`.
+      * `YC_FUNCTION_ENTRYPOINT` — точка входа функции, например `index.handler`. Задается в соответствии со средой выполнения согласно [документации](../../functions/quickstart/create-function/index.md).
+      * `SOURCE_PATH` — путь в репозитории к коду функции, например `./nodejs`.
 
-      ```javascript
-      module.exports.handler = async function (event, context) {
-          return {
-              statusCode: 200,
-              body: 'Hello from SourceCraft!',
-          };
-      };
-      ```
-
-  1. Аналогичным образом создайте файл `.sourcecraft/ci.yaml`. Вставьте в него следующий код, указав идентификатор каталога, в котором хотите создать функцию:
-
-      ```yaml
-      on:
-        push:
-          - workflows: cicd
-            filter:
-              branches: [ main ]
-      workflows:
-        cicd:
-          tasks:
-            - name: deploy-latest
-              env:
-                TMP_PATH: ./tmp
-                YC_AUTHORIZED_KEY_JSON: ${{ secrets.<название_секрета> }}
-                YC_FOLDER_ID: <идентификатор_каталога>
-                YC_FUNCTION_NAME: cicd-test
-                YC_FUNCTION_RUNTIME: nodejs22
-                YC_FUNCTION_ENTRYPOINT: index.handler
-                YC_FUNCTION_MEMORY: 128m
-              cubes:
-                - name: install-and-configure-yc
-                  script:
-                    - curl -o ./yc-install.sh -L https://storage.yandexcloud.net/yandexcloud-yc/install.sh
-                    - chmod +x ./yc-install.sh && ./yc-install.sh -i /tmp/yc -n && mv /tmp/yc/bin/yc /usr/bin/yc
-                    - echo "$YC_AUTHORIZED_KEY_JSON" > key.json
-                    - yc config profile create sa-profile
-                    - yc config set service-account-key key.json
-                    - yc config set format json
-                    - yc config set folder-id $YC_FOLDER_ID
-
-                - name: check-and-create-function
-                  script:
-                    - |
-                      echo "Checking if function exists..."
-                      if ! yc serverless function get --name=$YC_FUNCTION_NAME; then
-                        echo "Function does not exist. Creating new function..."
-                        yc serverless function create --name=$YC_FUNCTION_NAME
-                      else
-                        echo "Function already exists. Proceeding to version deployment..."
-                      fi
-
-                - name: deploy-function-version
-                  script:
-                    - mkdir -p $TMP_PATH
-                    - cp ./*.js* $TMP_PATH
-                    - echo "Deploying new function version..."
-                    - |
-                      yc serverless function version create \
-                        --function-name=$YC_FUNCTION_NAME \
-                        --runtime $YC_FUNCTION_RUNTIME \
-                        --entrypoint $YC_FUNCTION_ENTRYPOINT \
-                        --memory $YC_FUNCTION_MEMORY \
-                        --execution-timeout 5s \
-                        --source-path $TMP_PATH
-      ```
-
-      Где:
-
-      * `YC_FOLDER_ID` — идентификатор каталога, в котором вы хотите создать функцию.
-      * `YC_FUNCTION_NAME` — имя функции.
-      * `YC_FUNCTION_RUNTIME` — среда выполнения.
-      * `YC_FUNCTION_ENTRYPOINT` — точка входа.
-      * `YC_FUNCTION_MEMORY` — объем RAM.
+      Также вы можете добавить дополнительные параметры:
+      * `ENVIRONMENT` — переменные окружения для функции, например `MY_ENV=SOURCECRAFT`. Аналог параметра `--environment` для команды {{ yandex-cloud }} CLI [yc serverless function version create](../../cli/cli-ref/serverless/cli-ref/function/version/create.md).
+      * `PUBLIC` — сделать функцию доступной публично. Значение — `true`. Аналог команды {{ yandex-cloud }} CLI [yc serverless function allow-unauthenticated-invoke](../../cli/cli-ref/serverless/cli-ref/function/allow-unauthenticated-invoke.md).
 
   1. В правом верхнем углу нажмите **{{ ui-key.sourcecraft.ui_modules_repo.action_commit }}**.
   1. Сделайте коммит:
+
       1. Введите сообщение об изменениях.
       1. В блоке **{{ ui-key.sourcecraft.ui_modules_repo.field_commit-branch }}** выберите **{{ ui-key.sourcecraft.ui_modules_repo.field_text_commit-directly-to-the-branch }} main**.
       1. В блоке **{{ ui-key.sourcecraft.ui_modules_repo.field_after-commit-action }}** выберите **{{ ui-key.sourcecraft.ui_modules_repo.option_just-commit }}**.
-      1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repo.button_commit-and-go-to-read-mode }}**.
+      1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repo.button_commit }}**.
 
 {% endlist %}
 
+После сохранения изменений запустится рабочий процесс `deploy-nodejs-function`.
 
-## Проверьте CI/CD-процесс {#check-ci-cd}
+Аналогичным образом вы можете отредактировать код функции в файле `nodejs/index.js`. После этого также запустится рабочий процесс публикации новой версии функции.
 
-Убедитесь, что CI/CD-процесс прошел успешно.
+{% note tip %}
+
+В примере рассмотрен автоматический запуск рабочего процесса для среды выполнения `nodejs22`. Для других сред выполнения используйте [ручной]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) запуск или отредактируйте блок `on` в файле `.sourcecraft/ci.yaml`.
+
+{% cut "Пример автоматического запуска для python312" %}
+
+```yaml
+on:
+  push:
+    - workflows: [deploy-python-function] 
+      filter: 
+        branches: ["master", "main"]
+```
+
+{% endcut %}
+
+{% endnote %}
+
+Для развертывания функции {{ sf-name }} в конфигурации CI/CD используется готовый [кубик]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cubes) {{ src-name }} `yc-function`, подходящий для базовых сценариев.
+
+Для более сложных сценариев развертывания функции {{ sf-name }} со всеми возможностями [{{ yandex-cloud }} CLI](../../cli/cli-ref/serverless/cli-ref/function/index.md) вы можете использовать готовые кубики `yc-iam` и `yc-cli`.
+
+{% cut "Пример конфигурации CI/CD готовыми кубиками yc-iam и yc-cli" %}
+
+```yaml
+on:
+  push:
+    - workflows: [cicd]
+      filter:
+        branches: ["master", "main"]
+
+tokens:
+  # Произвольное имя токена.
+  <имя_токена>:
+    service_connection: default-service-connection
+    # Область запроса доступа:
+    # org — все репозитории.
+    # repo — конкретный репозиторий.
+    # ref — ветка или тег.
+    scope: repo
+
+workflows:
+  cicd:
+    tasks:
+      - name: deploy-latest
+        env:
+          SOURCE_PATH: "./nodejs"
+          YC_FUNCTION_NAME: "test-function-nodejs"
+          YC_FUNCTION_RUNTIME: "nodejs22"
+          YC_FUNCTION_ENTRYPOINT: "index.handler"
+          # Кубик обменивает токен {{ src-name }} на IAM-токен {{ yandex-cloud }}
+          # и сохраняет его в переменную IAM_TOKEN в блоке outputs.
+        cubes:
+          - name: get-iam-token
+            env:
+              ID_TOKEN: ${{ tokens.<имя_токена>.id_token}}
+              YC_SA_ID: ${{ tokens.<имя_токена>.service_account_id }}
+            image: {{ registry }}/sourcecraft/yc-iam:latest
+
+          # Кубик с предустановленным {{ yandex-cloud }} CLI забирает из outputs 
+          # переменную IAM_TOKEN и использует ее для проверки наличия функции {{ sf-name }}
+          # с определенным именем, в случае отсутствия — создает ее.
+          - name: check-and-create-function
+            env:
+              # Подставьте в блок для получения значений outputs имя кубика с
+              # IAM-токеном, например get-iam-token.
+              YC_IAM_TOKEN: ${{ cubes.<имя_кубика_с_IAM-токеном>.outputs.IAM_TOKEN }}
+              YC_FOLDER_ID: ${{ tokens.<имя_токена>.folder_id }}
+            image:
+              name: {{ registry }}/sourcecraft/yc-cli:latest
+              entrypoint: ""
+            script:
+              - |
+                yc config set folder-id $YC_FOLDER_ID
+                echo "Checking if function exists..."
+                if ! yc serverless function get --name=$YC_FUNCTION_NAME; then
+                  echo "Function does not exist. Creating new function..."
+                  yc serverless function create --name=$YC_FUNCTION_NAME
+                else
+                  echo "Function already exists. Proceeding to version deployment..."
+                fi
+
+          # Кубик с предустановленным {{ yandex-cloud }} CLI забирает из outputs 
+          # переменную IAM_TOKEN и использует ее для создания новой версии функции {{ sf-name }}.
+          - name: deploy-function-version
+            env:
+              # Подставьте в блок для получения значений outputs имя кубика с
+              # IAM-токеном, например get-iam-token.
+              YC_IAM_TOKEN: ${{ cubes.<имя_кубика_с_IAM-токеном>.outputs.IAM_TOKEN }}
+              YC_FOLDER_ID: ${{ tokens.<имя_токена>.folder_id }}
+            image:
+              name: {{ registry }}/sourcecraft/yc-cli:latest
+              entrypoint: ""
+            script:
+              - mkdir -p ./tmp
+              - cp "$SOURCE_PATH"/*.js* ./tmp
+              - echo "Deploying new function version..."
+              - |
+                yc config set folder-id $YC_FOLDER_ID
+                yc serverless function version create \
+                  --function-name=$YC_FUNCTION_NAME \
+                  --runtime $YC_FUNCTION_RUNTIME \
+                  --entrypoint $YC_FUNCTION_ENTRYPOINT \
+                  --execution-timeout 5s \
+                  --source-path ./tmp
+```
+
+{% endcut %}
+
+## Проверьте выполнение CI/CD {#check-ci-cd}
 
 {% list tabs group=instructions %}
 
@@ -280,57 +302,74 @@
 
 {% endlist %}
 
-
 ## Проверьте, что функция создалась {#check-function}
 
-Убедитесь, что в сервисе {{ sf-name }} создалась функция с именем `cicd-test`.
+Убедитесь, что в сервисе {{ sf-name }} создалась функция с именем, которое вы задали в `.sourcecraft/ci.yaml`, например `test-function-nodejs`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, который указали в файле `.sourcecraft/ci.yaml`.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы ранее создали сервисный аккаунт.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. В списке должна появиться функция `cicd-test`, выберите ее.
+  1. В списке должна появиться функция `test-function-nodejs`, выберите ее.
   1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** должна появиться версия функции, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
   1. В редакторе кода в файле `index.js` должен отобразиться код:
 
       ```javascript
-      module.exports.handler = async function (event, context) {
-          return {
-              statusCode: 200,
-              body: 'Hello from SourceCraft!',
+      // Example Node.js function handler
+          export const handler = async function (event, context) {
+              // Log the incoming event for debugging
+              console.log('Received event:', event);
+
+              // Access request body (if it's a POST request)
+              const requestBody = event.body ? JSON.parse(event.body) : {};
+
+              // Access query parameters
+              const name = event.queryStringParameters ? event.queryStringParameters.name : 'World';
+
+              return {
+                  statusCode: 200,
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      message: `Hello, ${name}! Your request body was:`,
+                      data: requestBody,
+                  }),
+              };
           };
-      };
       ```
 
 - CLI {#cli}
 
   1. Получите список функций в каталоге, указанном в файле `.sourcecraft/ci.yaml`:
-      ```
+
+      ```bash
       yc serverless function list
       ```
 
       Результат:
-      ```
-      +----------------------+-----------+----------------------+--------+
-      |          ID          |   NAME    |      FOLDER ID       | STATUS |
-      +----------------------+-----------+----------------------+--------+
-      | b097d9ous3ge******** | cicd-test | aoek49ghmknn******** | ACTIVE |
-      +----------------------+-----------+----------------------+--------+
+
+      ```text
+      +----------------------+----------------------+----------------------+--------+
+      |          ID          |         NAME         |      FOLDER ID       | STATUS |
+      +----------------------+----------------------+----------------------+--------+
+      | b097d9ous3ge******** | test-function-nodejs | aoek49ghmknn******** | ACTIVE |
+      +----------------------+----------------------+----------------------+--------+
       ```
 
-      В выводе команды должна отобразиться функция `cicd-test`.
+      В выводе команды должна отобразиться функция `test-function-nodejs`.
 
-  1. Получите список версий функции `cicd-test`:
+  1. Получите список версий функции `test-function-nodejs`:
 
       ```bash
       yc serverless function version list --function-id <идентификатор_функции>
       ```
 
       Результат:
-    
+
       ```text
       +----------------------+----------------------+----------+---------------+---------+---------------------+
       |          ID          |     FUNCTION ID      | RUNTIME  |  ENTRYPOINT   |  TAGS   |     CREATED AT      |
@@ -345,14 +384,13 @@
 
   Чтобы получить список функций, воспользуйтесь методом REST API [list](../../functions/functions/api-ref/Function/list.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/List](../../functions/functions/api-ref/grpc/Function/list.md).
 
-  В списке должна отобразиться функция `cicd-test`.
-  
+  В списке должна отобразиться функция `test-function-nodejs`.
+
   Чтобы получить список версий функции, воспользуйтесь методом REST API [listVersions](../../functions/functions/api-ref/Function/listVersions.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/Function/listVersions.md).
 
   В списке должна появиться новая версия функции, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).
 
 {% endlist %}
-
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -360,3 +398,11 @@
 
 1. [Удалите функцию](../../functions/operations/function/function-delete.md).
 1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
+
+## См. также {#see-also}
+
+* [Настроить CI/CD для развертывания приложения в {{ serverless-containers-full-name }} с помощью GitHub Actions]({{ link-src-docs }}/sourcecraft/tutorials/ci-cd-sourcecraft-github-actions)
+* [Настроить в {{ src-name }} сервисное подключение к {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
+* [Интеграция с GitHub Actions в {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
+* Репозиторий [yc-cloud-functions-template]({{ link-src-main }}/sourcecraft/yc-cloud-functions-template) в {{ src-name }}
+* Репозиторий [yc-ci-cd-serverless]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless) в {{ src-name }}

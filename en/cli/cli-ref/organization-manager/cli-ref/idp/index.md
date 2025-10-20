@@ -19,6 +19,7 @@ Aliases:
 
 #### Command Tree
 
+- [yc organization-manager idp application](application/index.md) — Manage idp applications
 - [yc organization-manager idp user](user/index.md) — Manage users
 	- [yc organization-manager idp user convert-to-external](user/convert-to-external.md) — Convert a user to use external authentication
 	- [yc organization-manager idp user create](user/create.md) — Create a user in the specified user pool
@@ -28,6 +29,7 @@ Aliases:
 	- [yc organization-manager idp user get-password-metadata](user/get-password-metadata.md) — Get metadata about the authenticated user's password
 	- [yc organization-manager idp user list](user/list.md) — List users in the specified user pool
 	- [yc organization-manager idp user reactivate](user/reactivate.md) — Reactivate a previously suspended user
+	- [yc organization-manager idp user reset-password](user/reset-password.md) — Reset the password for the specified user
 	- [yc organization-manager idp user resolve-external-ids](user/resolve-external-ids.md) — Resolve external IDs to internal user IDs
 	- [yc organization-manager idp user set-own-password](user/set-own-password.md) — Set the password for the authenticated user
 	- [yc organization-manager idp user set-password](user/set-password.md) — Set the password for the specified user

@@ -53,7 +53,7 @@ In addition, thanks to its integration with Odyssey, a {{ mgp-name }} cluster:
 
     {% note tip %}
 
-    If you have issues connecting to a {{ mgp-name }} cluster, [contact support](../../support/overview.md). To have your issue resolved faster, provide the full text of the error message, including the connection ID.
+    If you have issues connecting to a {{ mgp-name }} cluster, [contact support]({{ link-console-support }}). To have your issue resolved faster, provide the full text of the error message, including the connection ID.
 
     {% endnote %}
 

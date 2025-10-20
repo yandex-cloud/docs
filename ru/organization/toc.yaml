@@ -359,6 +359,8 @@ items:
             href: cli-ref/group/list.md
           - name: list-access-bindings
             href: cli-ref/group/list-access-bindings.md
+          - name: list-effective
+            href: cli-ref/group/list-effective.md
           - name: list-members
             href: cli-ref/group/list-members.md
           - name: list-operations
@@ -375,6 +377,57 @@ items:
         items:
           - name: Overview
             href: cli-ref/idp/index.md
+          - name: application
+            items:
+              - name: Overview
+                href: cli-ref/idp/application/index.md
+              - name: oauth
+                items:
+                  - name: Overview
+                    href: cli-ref/idp/application/oauth/index.md
+                  - name: application
+                    items:
+                      - name: Overview
+                        href: cli-ref/idp/application/oauth/application/index.md
+                      - name: add-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/add-access-bindings.md
+                      - name: add-assignments
+                        href: >-
+                          cli-ref/idp/application/oauth/application/add-assignments.md
+                      - name: create
+                        href: cli-ref/idp/application/oauth/application/create.md
+                      - name: delete
+                        href: cli-ref/idp/application/oauth/application/delete.md
+                      - name: get
+                        href: cli-ref/idp/application/oauth/application/get.md
+                      - name: list
+                        href: cli-ref/idp/application/oauth/application/list.md
+                      - name: list-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/list-access-bindings.md
+                      - name: list-assignments
+                        href: >-
+                          cli-ref/idp/application/oauth/application/list-assignments.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/idp/application/oauth/application/list-operations.md
+                      - name: reactivate
+                        href: >-
+                          cli-ref/idp/application/oauth/application/reactivate.md
+                      - name: remove-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/remove-access-bindings.md
+                      - name: remove-assignments
+                        href: >-
+                          cli-ref/idp/application/oauth/application/remove-assignments.md
+                      - name: set-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/set-access-bindings.md
+                      - name: suspend
+                        href: cli-ref/idp/application/oauth/application/suspend.md
+                      - name: update
+                        href: cli-ref/idp/application/oauth/application/update.md
           - name: user
             items:
               - name: Overview
@@ -395,6 +448,8 @@ items:
                 href: cli-ref/idp/user/list.md
               - name: reactivate
                 href: cli-ref/idp/user/reactivate.md
+              - name: reset-password
+                href: cli-ref/idp/user/reset-password.md
               - name: resolve-external-ids
                 href: cli-ref/idp/user/resolve-external-ids.md
               - name: set-own-password

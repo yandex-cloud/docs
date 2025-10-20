@@ -187,7 +187,6 @@ For more information, see [{#T}](encryption.md).
 
 #### See also {#see-also}
 
-* [Disks in {{ yandex-cloud }}: How to select the right type for your needs](https://yandex.cloud/ru/blog/posts/2025/04/vm-disks)
 * [Guides on creating disks](../operations/index.md#disk-create)
 * [Guides on managing disks](../operations/index.md#disk-control)
 * [Guides on disk snapshots and schedules](../operations/index.md#snapshots)

@@ -1,11 +1,9 @@
-# Migrating services from an external NLB to L7 ALB with an internal NLB as a target
+# Migrating services from an external NLB to an L7 ALB with an internal NLB as a target
 
 
-A [{{ network-load-balancer-full-name }}](../../network-load-balancer/) can distribute traffic across your load balancer pods deployed in a [{{ managed-k8s-full-name }}](../../managed-kubernetes/) cluster. If [{{ alb-full-name }}](../../application-load-balancer/) does not support your load balancer configuration, you can add an [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) for distributing traffic to your load balancer pods and use it as a target for an L7 {{ alb-name }} with a [{{ sws-full-name }}](../../smartwebsecurity/) profile.
+You can migrate the load from a [{{ network-load-balancer-full-name }}](../../network-load-balancer/) load balancer to a [{{ alb-full-name }}](../../application-load-balancer/) L7 load balancer. A network load balancer distributes traffic across your load balancer pods deployed in a [{{ managed-k8s-full-name }}](../../managed-kubernetes/) cluster. If the L7 load balancer does not support your load balancer configuration, you can add an [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) as a target for your L7. The internal network load balancer will be distributing traffic across [NGINX Ingress Controller](../../managed-kubernetes/operations/applications/ingress-nginx.md) pods deployed in a {{ managed-k8s-name }} cluster; the internal network load balancer's IP address will be specified in the L7 load balancer's target group.
 
-This tutorial features a scenario where you create an internal network load balancer to distribute traffic across [NGINX Ingress Controller](../../managed-kubernetes/operations/applications/ingress-nginx.md) pods deployed in a {{ managed-k8s-name }} cluster and specify the internal network load balancer’s IP address in the L7 load balancer’s target group.
-
-Here is how an L7 load balancer with a {{ sws-name }} profile works:
+During the migration process, the L7 load balancer will have a [{{ sws-full-name }}](../../smartwebsecurity/) security profile connected to it. An L7 load balancer with a connected security profile operates as follows:
 
 ![image](../../_assets/tutorials/security/nlb-as-target-resource-alb.svg)
 

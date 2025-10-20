@@ -1,4 +1,4 @@
-The metric name goes into the `name` label.
+The `name` label contains the metric name.
 
 Labels shared by all {{ mpg-name }} metrics:
 
@@ -46,7 +46,7 @@ These metrics show processor core workload.
 | `pg_backend_read_bytes`<br>`DGAUGE`, bytes per second | {{ PG }} process data read rate |
 | `pg_backend_write_bytes`<br>`DGAUGE`, bytes per second | {{ PG }} process data write rate |
 
-## Disk I/O metrics {#managed-postgresql-diskio-metrics}
+## Disk operation metrics {#managed-postgresql-diskio-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -104,14 +104,14 @@ These metrics show processor core workload.
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
-| `postgres-is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. |
+| `postgres-is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. |
 | `postgres-is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>It can be either `1` if a DB host is a master or `0` if it is not. |
 | `postgres-is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>It can be either `1` if a DB host is a replica or `0` if it is not. |
 | `postgres-log_errors`<br/>`DGAUGE`, messages per second| Number of errors logged per second |
 | `postgres-log_fatals`<br/>`DGAUGE`, messages per second| Number of fatal errors logged per second |
 | `postgres-log_slow_queries`<br/>`DGAUGE`, queries per second| Number of slow queries logged per second |
 | `postgres-log_warnings`<br/>`DGAUGE`, messages per second| Number of warnings logged per second |
-| `postgres-replication_lag`<br/>`DGAUGE`, seconds | Replication lag |
+| `postgres-replication_lag`<br/>`DGAUGE`, seconds | Replication lag.<br/>Calculated with one-second accuracy. A lag of less than one second cannot be tracked using this metric. |
 | `postgres_max_connections`<br/>`DGAUGE`, count | Maximum number of connections  |
 | `postgres-oldest_inactive_replication_slot_duration`<br/>`DGAUGE`, seconds | Duration of the oldest inactive replication slot |
 | `postgres_oldest_prepared_xact_duration`<br/>`DGAUGE`, seconds | Duration of the oldest prepared transaction |

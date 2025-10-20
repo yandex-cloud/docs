@@ -1,11 +1,11 @@
-# Migrating services from an external NLB to L7 ALB, with an internal NLB as a target, using {{ TF }}
+# Migrating services from an external NLB to an L7 ALB with an internal NLB as a target using {{ TF }}
 
 
 To migrate a service from a network load balancer to an L7 load balancer:
 
 1. [See the service migration recommendations](#recommendations).
-1. [Create your infrastructure](#deploy). At this step, you will associate the {{ sws-name }} profile with a virtual host of the L7 load balancer.
 1. [Create an internal network load balancer for the NGINX Ingress Controller](#create-internal-nlb).
+1. [Create your infrastructure](#deploy). At this step, you will associate the {{ sws-name }} profile with a virtual host of the L7 load balancer.
 1. [Test the L7 load balancer](#test).
 1. [Migrate user traffic from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
 
@@ -38,15 +38,13 @@ To migrate a service from a network load balancer to an L7 load balancer:
     * Target group, backend group, and HTTP router for the L7 load balancer.
     * L7 load balancer.
 
-1. In the configuration file, set the following custom properties:
+1. Specify the following variables in the configuration file:
 
-    1. Specify the values for the following variables:
-
-        * `domain_name`: Your service domain name.
-        * `network_id`: ID of the network containing the VMs from the network load balancer's target group.
-        * `ip_address_int_nlb`: Internal IP address of the internal load balancer you [created earlier](#create-internal-nlb).
-        * `certificate` (for `HTTPS`): Path to the self-signed custom certificate.
-        * `private_key` (for `HTTPS`): Path to the private key file.
+    * `domain_name`: Your service domain name.
+    * `network_id`: ID of the network containing the VMs from the network load balancer's target group.
+    * `ip_address_int_nlb`: Internal IP address of the internal load balancer you [created earlier](#create-internal-nlb).
+    * `certificate` (for `HTTPS`): Path to the self-signed custom certificate.
+    * `private_key` (for `HTTPS`): Path to the private key file.
 
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -54,7 +52,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
     terraform validate
     ```
 
-    {{ TF }} will show any errors found in your configuration files.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -62,19 +60,19 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
+1. In the management console, select the folder where you created the L7 load balancer.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. Wait until the L7 load balancer goes `Active`.
 1. Specify the autoscaling settings in the L7 load balancer:
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you created the L7 load balancer.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-    1. Click your load balancer’s name.
+    1. In the management console, click the load balancer's name.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set the [resource unit](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) limit.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Test the L7 load balancer {#test}
 
-1. Wait until the L7 load balancer goes `Active`.
-
-1. Navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
+1. In the [management console]({{ link-console-main }}), navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 
@@ -183,58 +181,4 @@ Select one of these migration options:
 
 ### Do not keep the public IP address for your service {#not-save-public-ip}
 
-1. To migrate user traffic from an external network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, update the `A` record value for the service domain name to point to the L7 load balancer’s public IP address. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), update the record using [this guide](../../dns/operations/resource-record-update.md).
-
-    {% note info %}
-
-    The propagation of DNS record updates depends on the time-to-live (TTL) value and the number of links in the DNS request chain. This process can take a while.
-
-    {% endnote %}
-
-1. As the DNS record updates propagate, monitor the increase in requests to the L7 load balancer on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
-
-1. Monitor the decrease in traffic on the external network load balancer using the `processed_bytes` and `processed_packets` [load balancer metrics](../../monitoring/metrics-ref/network-load-balancer-ref.md). You can [create a dashboard](../../monitoring/operations/dashboard/create.md) to visualize these metrics. No traffic on the external network load balancer over time indicates the L7 load balancer is now handling all user traffic.
-
-1. Optionally, once migration is complete, [delete the external network load balancer](../../network-load-balancer/operations/load-balancer-delete.md). Select an option that agrees with the method you initially used to deploy your NGINX Ingress Controller:
-
-    {% list tabs %}
-
-    * Using a Helm chart
-
-        1. In the `values.yaml` file you used to initially configure the NGINX Ingress Controller, under `controller.service.external`, set `enabled: false`. Leave the other parameters in the file unchanged.
-
-            ```bash
-            controller:
-              service:
-                external:
-                  enabled: false
-                ...
-            ```
-
-        1. Use this command to apply the configuration changes for the NGINX Ingress Controller:
-
-            ```bash
-            helm upgrade <NGINX_Ingress_Controller_name> -f values.yaml <chart_for_NGINX_Ingress_Controller> -n <namespace>
-            ```
-
-        {% note warning %}
-
-        When you update the NGINX Ingress Controller configuration, your service will be temporarily unavailable.
-
-        {% endnote %}
-
-    * Using a manifest
-
-        Delete the `Service` resource for the external network load balancer using this command:
-
-        ```bash
-        kubectl delete service <name_of_Service_resource_for_external_network_load_balancer>
-        ```
-
-    {% endlist %}
-
-1. Wait until the external network load balancer for the NGINX Ingress Controller and its respective `Service` object are deleted. You can use this command to view information about the services:
-
-    ```bash
-    kubectl get service
-    ```
+{% include [nlb-alb-not-save-public-ip](../_tutorials_includes/migration-from-nlb-to-alb/nlb-alb-not-save-public-ip.md) %}

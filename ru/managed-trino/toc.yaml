@@ -71,6 +71,8 @@ items:
                 href: cli-ref/catalog/create/delta-lake.md
               - name: hive
                 href: cli-ref/catalog/create/hive.md
+              - name: hudi
+                href: cli-ref/catalog/create/hudi.md
               - name: iceberg
                 href: cli-ref/catalog/create/iceberg.md
               - name: oracle
@@ -99,6 +101,8 @@ items:
                 href: cli-ref/catalog/update/delta-lake.md
               - name: hive
                 href: cli-ref/catalog/update/hive.md
+              - name: hudi
+                href: cli-ref/catalog/update/hudi.md
               - name: iceberg
                 href: cli-ref/catalog/update/iceberg.md
               - name: oracle

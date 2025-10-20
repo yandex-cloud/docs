@@ -11,7 +11,7 @@ You can mount [buckets](../../storage/concepts/bucket.md) and one ephemeral disk
 
 ## Mounting buckets {#mount-backet}
 
-Mounting buckets allows you to access them through the file system interface. In the container revision settings, the user can specify one or more mount paths. Use this path to access the directory the bucket will be mounted to. Do not use this path for anything other than an empty directory; otherwise, container initialization may result in an error, and the mounted buckets will become unavailable.
+Mounting buckets allows you to access them through the file system interface. In the container revision settings, the user can specify one or more mount paths. Use this path to access the directory the bucket will be mounted to. Do not use this path for anything other than an empty directory; otherwise, the container initialization may result in an error, and the mounted buckets will become unavailable.
 
 You can mount the whole bucket or a specific [folder](../../storage/concepts/object.md#folder).
 

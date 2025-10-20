@@ -7,13 +7,102 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.169.0 (01/10/25) {#version0.169.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ container-registry-name }} {#container-registry-name-0.169.0}
+
+Added the `--page-token` parameter to the following commands for paginated presentation of the list of resources:
+* `yc container registry list`
+* `yc container registry list-access-bindings`
+* `yc container repository list`
+* `yc container repository lifecycle-policy list`
+* `yc container repository lifecycle-policy list-dry-run-results`
+* `yc container image list-scan-results`
+* `yc container image list-vulnerabilities`
+
+##### {{ cloud-registry-name }} {#cloud-registry-name-0.169.0}
+
+Added the `--page-token` parameter to the following commands for paginated presentation of the list of resources:
+* `yc cloud-registry registry list-access-binding`
+* `yc cloud-registry registry list`
+* `yc cloud-registry registry list-artifact`
+
+##### {{ org-name }} {#org-name-0.169.0}
+
+The following commands now allow you to specify domain not just in the command itself, e.g., `yc organization-manager idp userpool domain get <user_pool_ID> <domain>` but also using the `--domain` parameter:
+* `yc organization-manager idp userpool domain get`
+* `yc organization-manager idp userpool domain list`
+* `yc organization-manager idp userpool domain add`
+* `yc organization-manager idp userpool domain validate`
+* `yc organization-manager idp userpool domain delete`
+
+##### {{ mrd-name }} {#mrd-name-0.169.0}
+
+Added the `--valkey-modules` parameter to the `yc managed-redis cluster update` command to manage Valkey™ modules.
+
+##### {{ baremetal-name }} {#baremetal-name-0.169.0}
+
+Fixed the display of processor info in the `yc baremetal configuration list` command output.
+
+## Previous releases {#previous-release}
+
+### Version 0.168.0 (29/09/25) {#version0.168.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ container-registry-name }} {#cr-0.168.0}
+
+Added the `--page-token` parameter to the `yc container image list` for paginated presentation of the list of images.
+
+##### {{ baremetal-name }} {#baremetal-0.168.0}
+
+Fixed the display of the number of cores and added the processor frequency value in the `yc baremetal configuration list` command output.
+
+### Version 0.167.0 (25/09/25) {#version0.167.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ connection-manager-name }}
+
+* Added connection-manager commands within the `metadata-hub` command group:
+  * `yc metadata-hub connection-manager connection create`
+  * `yc metadata-hub connection-manager connection update`
+  * `yc metadata-hub connection-manager connection delete`
+  * `yc metadata-hub connection-manager connection get`
+  * `yc metadata-hub connection-manager connection resolve-cluster`
+  * `yc metadata-hub connection-manager connection list`
+  * `yc metadata-hub connection-manager connection list-operations`
+
+* Added support for {{ KF }}, {{ CH }} shard groups, and the `auth_source` MG (SD) field in the `yc metadata-hub connection-manager connection create kafka` command.
+
+##### {{ at-name }}
+
+* Added the `--destination-eventrouter-connector-id` parameter to assign {{ er-name }} to trail creation and modification commands:
+  * `yc audit-trails trail create`
+  * `yc audit-trails trail update`
+
+##### {{ mpg-short-name }}
+
+* Added support for {{ PG}} 18 for the following commands:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster update`
+  * `yc managed-postgresql cluster restore`
+
+* Fixed the `ERROR: Unsupported PostgreSQL version` error when updating a {{ PG }} 17 and 18 cluster in the `yc managed-postgresql cluster update` command.
+
+##### {{ org-name }}
+
+* Fixed the `yc organization-manager idp` commands.
+
 ### Version 0.166.0 (18/09/25) {#version0.166.0}
 
 #### Changes in {{ yandex-cloud }} services
 
 ##### {{ cr-name }} {#cloud-routing}
 
-Added a command for routing instance management: `yc cloudrouter routing-instance update-networks`.
+Added a command for Routing Instance management: `yc cloudrouter routing-instance update-networks`.
 
 ##### {{ compute-name }} {#compute}
 
@@ -45,17 +134,15 @@ Added the `mysql_no_login` and `mdb_iamproxy_auth` authentication plugins into t
 
 ##### {{ mtr-name }} {#mtr}
 
-Added the following commands for setting up access control in a {{ mtr-name }} cluster:
+Added the following commands for setting up access to a {{ mtr-name }} cluster:
 * `yc managed-trino cluster create`
 * `yc managed-trino cluster get-access-control`
 * `yc managed-trino cluster set-access-control`
 * `yc managed-trino cluster remove-access-control`
 
-## Previous releases {#previous-release}
-
 ### Version 0.165.0 (15/09/25) {#version0.165.0}
 
-####  Changes in {{ yandex-cloud }} services
+#### Changes in {{ yandex-cloud }} services
 
 ##### {{ iam-name }} {#iam}
 
@@ -141,7 +228,7 @@ Added the `yc quota-manager quota-request` command group for managing quota requ
 
 ##### {{ serverless-containers-name }}
 
-In the `yc serverless container revision deploy` command, added a parameter for specifying a service account for asynchronous calls: `--async-service-account-id`.
+Added the `--async-service-account-id` parameter to the `yc serverless container revision deploy` command for specifying a service account for asynchronous calls.
 
 ##### {{ objstorage-name }}
 
@@ -458,11 +545,11 @@ The `postgresql database` command no longer includes the deprecated `version` ar
 **{{ mch-name }}**
 
 * Added the `yc managed-clickhouse cluster update-external-dictionary` command to edit dictionaries created in a cluster.
-* In the `yc managed-clickhouse cluster list-logs` command, the `--service-type` parameter now supports a new valid value: `clickhouse-keeper`.
+* In the `yc managed-clickhouse cluster list-logs` command, the `--service-type` parameter now supports `clickhouse-keeper` as a new valid value.
 
 **{{ mkf-name }}**
 
-* In the `role` key, the `--permission` parameter now supports new valid values: `topic_producer`, `topic_consumer`, `schema_reader`, `schema_writer`. This applies to the following commands:
+* In the `role` key, the `--permission` parameter now supports new valid values: `topic_producer`, `topic_consumer`, `schema_reader`, and `schema_writer`. This applies to the following commands:
   * `yc managed-kafka user create`
   * `yc managed-kafka user update`
   * `yc managed-kafka user grant-permission`
@@ -614,7 +701,7 @@ Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc m
 
 * Added support for the `--user generate-password` argument in the `yc managed-clickhouse cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
 
-* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Here is an example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
 
 * Added support for the `--shard` repeatable composite parameter in the `yc managed-clickhouse shard add` command.
   * The command will create as many shards as there are `--shard` parameters.
@@ -941,7 +1028,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ##### {{ cloud-registry-name }} {#cloud-registry}
 
 * Added the `yc cloud-registry artifact get` and `yc cloud-registry artifact delete` commands you can use to manage artifacts.
-* Added commands for registry management: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
+* Added these registry management commands: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
 
 ##### {{ data-transfer-name }} {#data-transfer}
 
@@ -1157,7 +1244,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Changes to the CLI {#cli}
 
-* Fixed the error that caused real error messages to be superseded with this text: `ERROR: Failed to retrieve data`. Affected versions: 0.131.0–0.132.1.
+* Fixed the error that caused real error messages to be superseded with the `ERROR: Failed to retrieve data` text. Affected versions: 0.131.0–0.132.1.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1205,7 +1292,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ maf-name }}**
 
-* Added commands to work with {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
+* Added the following commands for {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
 
 ### Version 0.132.1 (28/08/24) {#version0.132.1}
 
@@ -1717,7 +1804,7 @@ Added the `yc loadtesting` command tree to manage the load testing service:
 
 ##### {{ compute-name }} {#compute}
 
-* For the `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, and `yc compute gpu-cluster` commands, supported displaying and managing access permissions with `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+* `yc compute instance`, `yc compute disk`, `yc compute image`, `yc compute snapshot`, `yc compute snapshot-schedule`, `yc compute placement-group`, `yc compute host-group`, `yc compute disk-placement-group`, `yc compute filesystem`, and `yc compute gpu-cluster` commands: Now you can display and manage access permissions using `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
 * Added the `yc compute instance simulate-maintenance-event` command.
 
 ### Version 0.114.0 (05/12/23) {#version0.114.0}
@@ -1781,7 +1868,7 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 
 **{{ mkf-name }}**
 
-* `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands: the `--unmanaged-topics` flag is marked as `deprecated`.  The relevant field is no longer sent in API requests, but the flag remains for backward compatibility.
+* `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands: the `--unmanaged-topics` flag is marked as `deprecated`. The relevant field is no longer sent in API requests, but the flag is kept for backward compatibility.
 
 **{{ mos-name }}**
 
@@ -2327,7 +2414,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 **{{ mpg-name }}**
 
-* In the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands, added new `--postgresql-version string` parameter values, `11-1c`, `12-1c`, `13-1c`, and `14-1c`, to create a {{ PG }} cluster of versions 11-1c, 12-1c, 13-1c, and 14-1c.
+* The `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands: added new `--postgresql-version string` parameter values `11-1c`, `12-1c`, `13-1c`, and `14-1c` to create a {{ PG }} cluster of versions 11-1c, 12-1c, 13-1c, and 14-1c.
 
 
 ##### {{ iot-name }} {#iot}
@@ -2530,7 +2617,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 * Added the `--deletion-protection` flag to the `yc certificate-manager certificate request` command to enable certificate deletion protection.
 
-* In the `yc certificate-manager certificate update` command, added flags which enable/disable certificate deletion protection: `--deletion-protection` and `--no-deletion-protection`.
+* Added the `--deletion-protection` and `--no-deletion-protection` flags to the `yc certificate-manager certificate update` command to enable/disable certificate deletion protection.
 
 
 ##### Managed database services {#managed-db}
@@ -3649,7 +3736,7 @@ Added UI Proxy support:
 * `yc compute instance-group` command
 
   * Added the ability to set and view the list of instance group roles: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
-  * Added commands for deleting and stopping instance group VMs: `stop-instances`, `delete-instances`.
+  * Added commands for deleting and stopping instance group VMs: `stop-instances` and `delete-instances`.
 
 
 #### Managed database services {#managed-db}
@@ -3670,7 +3757,7 @@ Added UI Proxy support:
 * Added support for creating a cluster with {{ MG }} version 4.4.
 * `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster enable-sharding` commands.
 
-  For [sharded](../storedoc/concepts/sharding.md) clusters, you can now set the host type: `mongoinfra`.
+  For [sharded](../storedoc/concepts/sharding.md) clusters, you can now set the `mongoinfra` host type.
 
 
 #### {{ certificate-manager-name }} {#certificate-manager}
@@ -3875,7 +3962,7 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc managed-kubernetes node-group create` command
 
-  Changed the default platform and number of cores used when creating a node group. Now this is Intel Cascade Lake (`standard-v2`) in a dual-core configuration: `cores: 2`.
+  Changed the default platform and number of cores used when creating a node group. The Intel Cascade Lake (`standard-v2`) platform is now used in a dual-core (`cores: 2`) configuration.
 
 
 #### Managed database services {#managed-db}
@@ -4164,7 +4251,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ kms-name }} {#kms}
 
-Supported the cryptographic key management service, {{ kms-full-name }}.
+Support for the cryptographic key management service: {{ kms-full-name }}.
 
 {{ kms-name }} allows you to create encryption keys and implement data protection schemas in your applications and services.
 
@@ -4480,7 +4567,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `yc managed-kubernetes node-group update` command.
 
   Added parameters to edit existing node group parameters: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
-* Added the following label management commands: `yc managed-kubernetes node-group add-labels` and `yc managed-kubernetes node-group remove-labels`.
+* Added commands to manage labels: `yc managed-kubernetes node-group add-labels` and `yc managed-kubernetes node-group remove-labels`.
 * Added commands to manage node group metadata: `yc managed-kubernetes node-group add-metadata` and `yc managed-kubernetes node-group remove-metadata`.
 
 
@@ -4518,7 +4605,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc <managed DB service name> cluster create` command.
 
-  Renamed the default disk types as follows: `network-nvme` to `network-ssd`, and `local-nvme` to `local-ssd`.
+  Renamed the default disk types as follows: `network-nvme` to `network-ssd`, `local-nvme` to `local-ssd`.
 
 ### Version 0.35.0 (09/08/19) {#version0.35.0}
 
@@ -4536,7 +4623,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-pg }} cluster create` command.
 
-  Added the following properties for the `--user` parameter: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
+  Added the `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement` properties for the `--user` parameter.
 
 ### Version 0.34.0 (26/07/19) {#version0.34.0}
 
@@ -4645,7 +4732,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
   Added the `--service-account-id` and `--service-account-name` parameters to add or change a service account for an existing VM.
 * `yc compute instance create` command
 
-  Changed the default number of cores used when creating a VM based on Intel Cascade Lake (`standard-v2`). It is now `cores: 2`.
+  Changed the default number of cores used when creating a VM based on Intel Cascade Lake (`standard-v2`). Now it is `cores: 2`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
@@ -4690,7 +4777,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `{{ yc-mdb-ch }} cluster add-zookeeper` command.
 
   Added the ability to add {{ ZK }} hosts.
-* Command: `{{ yc-mdb-ch }} shards add`.
+* `{{ yc-mdb-ch }} shards add` command.
 
   Changed the logic of creating shards:
   * If the `--host` parameter is not specified, the shard parameters are copied from the oldest shard.

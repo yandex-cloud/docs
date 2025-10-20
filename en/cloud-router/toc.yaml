@@ -108,6 +108,10 @@ items:
             href: cli-ref/routing-instance/delete.md
           - name: get
             href: cli-ref/routing-instance/get.md
+          - name: get-by-cic-private-connection-id
+            href: cli-ref/routing-instance/get-by-cic-private-connection-id.md
+          - name: get-by-vpc-network-id
+            href: cli-ref/routing-instance/get-by-vpc-network-id.md
           - name: list
             href: cli-ref/routing-instance/list.md
           - name: list-operations

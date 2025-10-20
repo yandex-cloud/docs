@@ -46,7 +46,7 @@ Rule settings depend on the connection method you select:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
         * Security group: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
-    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+    1. [Configure the VM's security group](../../vpc/operations/security-group-add-rule.md) to allow VM connections and traffic between the VM and the cluster hosts.
 
         For example, you can set the following rules for a VM:
 
@@ -56,7 +56,7 @@ Rule settings depend on the connection method you select:
            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-            This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
+            This rule allows [VM connections](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
         * For outgoing traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
@@ -72,7 +72,7 @@ Rule settings depend on the connection method you select:
 
 You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
-You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster.
+You must configure security groups correctly for all subnets where the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster.
 
 {% endnote %}
 
@@ -99,7 +99,7 @@ Example of the host FQDN:
 
 ### Getting a host FQDN {#get-fqdn}
 
-You can obtain the {{ MY }} host FQDN by doing one of the following:
+There are several ways to get a {{ MY }} host FQDN:
 
 * Look up the FQDN in the management console:
 
@@ -119,7 +119,7 @@ Alongside [regular FQDNs](connect.md#fqdn), {{ mmy-name }} provides several spec
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master or the most recent replica, you will not be able to access this host from the internet. To avoid this, [enable public access](hosts.md#update) for all the cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master or the most recent replica, you will not be able to access this host from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
 
 {% endnote %}
 
@@ -145,7 +145,7 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../co
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using an SSL certificate.
+You can only use graphical IDEs to connect to public cluster hosts with an SSL certificate.
 
 {% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
@@ -157,13 +157,13 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
      1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
      1. On the **General** tab:
         1. Configure the connection as follows:
-           * **Host**: [Any {{ MY }}](#fqdn) host FQDN or a [special FQDN](#fqdn-master).
+           * **Host**: [FQDN of any {{ MY }}](#fqdn) host or a [special FQDN](#fqdn-master).
            * **Port**: `{{ port-mmy }}`.
-           * **User**, **Password**: DB user's name and password.
+           * **User**, **Password**: DB user name and password.
            * **Database**: Name of the DB to connect to.
         1. Click **Download** to download the connection driver.
      1. On the **SSH/SSL** tab:
-         1. Enable the **Use SSL** setting.
+         1. Enable **Use SSL**.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
   1. To test the connection, click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
@@ -174,7 +174,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
      1. In the **Database** menu, select **New connection**.
      1. Select **{{ MY }}** from the DB list.
      1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
+     1. Specify the connection settings on the **Main** tab:
         * **Server**: [FQDN of any {{ MY }}](#fqdn) host or a [special FQDN](#fqdn-master).
         * **Port**: `{{ port-mmy }}`.
         * **Database**: DB to connect to.
@@ -185,8 +185,8 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
          1. Under **Advanced**:
             1. Enable **Require SSL**.
             1. Enable **Verify server certificate**.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
-  1. Click **Ready** to save the database connection settings.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Done** to save the database connection settings.
 
 {% endlist %}
 
@@ -212,7 +212,7 @@ To connect to a {{ mmy-name }} cluster from a Docker container, add the followin
   ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   ```bash
   RUN apt-get update && \
@@ -232,5 +232,3 @@ To connect to a {{ mmy-name }} cluster from a Docker container, add the followin
 You can only connect to public {{ MY }} hosts using an SSL certificate.
 
 {% include [mmy-connection-strings](../../_includes/mdb/mmy/code-examples.md) %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
