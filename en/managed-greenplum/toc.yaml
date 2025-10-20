@@ -25,10 +25,14 @@ items:
             href: operations/cluster-backups.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: Connecting to a database
-        href: operations/connect.md
-      - name: Queries in {{ websql-full-name }}
-        href: operations/web-sql-query.md
+      - name: Databases
+        items:
+          - name: Connecting to a database
+            href: operations/connect.md
+          - name: Managing databases
+            href: operations/databases.md
+          - name: Queries in {{ websql-full-name }}
+            href: operations/web-sql-query.md
       - name: Users and sessions
         items:
           - name: Role and user management
@@ -57,7 +61,7 @@ items:
                 href: operations/pxf/create-hive-source.md
           - name: Creating an external table
             href: operations/pxf/create-table.md
-          - name: Changing PXF settings
+          - name: Editing PXF settings
             href: operations/pxf/settings.md
       - name: Connecting to an external file server (gpfdist)
         href: operations/gpfdist/connect.md
@@ -159,7 +163,7 @@ items:
         href: concepts/user-authentication.md
       - name: Command center
         href: concepts/command-center.md
-      - name: Command center parameters
+      - name: Command center settings
         href: concepts/command-center-parameters.md
       - name: External tables
         href: concepts/external-tables.md

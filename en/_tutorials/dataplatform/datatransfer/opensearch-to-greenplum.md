@@ -59,7 +59,8 @@ The infrastructure support costs include:
     1. In the `opensearch-to-greenplum.tf` file, specify the following settings:
 
         * `mos_cluster_name`: {{ mos-name }} cluster name.
-        * `source_admin_password`: {{ mos-name }} cluster `admin` password.
+        * `mos_version`: {{ OS }} version.
+        * `mos_admin_password`: {{ mos-name }} cluster `admin` password.
         * `mgp_cluster_name`: {{ mgp-name }} cluster name.
         * `mgp_username`: {{ mgp-name }} cluster username.
         * `mgp_user_password`: {{ mgp-name }} cluster user password.
@@ -84,7 +85,7 @@ The infrastructure support costs include:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. In the source cluster, create a test index named `people` and define its mapping:
 

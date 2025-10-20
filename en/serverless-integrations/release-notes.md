@@ -5,6 +5,12 @@ description: This section contains {{ si-name }} release notes.
 
 # {{ si-full-name }} release notes
 
+## August 2025 {#august-2025}
+
+### Updates {#updates}
+
+* In the {{ sw-name }} constructor, added support for [error transition rules](operations/workflows/constructor/setup-catch-rule.md) in integration steps.
+
 ## July 2025 {#july-2025}
 
 ### Updates {#updates}

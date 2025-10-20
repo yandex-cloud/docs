@@ -47,7 +47,10 @@ See below for a list of common issues and their fixes:
   
   `unauthorized: Authentication problem ; requestId = <request_ID>`
 
-  **Why you got this error**: You are trying to pull or push a Docker image to {{ container-registry-name }}, but you are not authenticated. To perform operations with images in {{ container-registry-name }}, you need to get authenticated first.
+  **Why you got this error**:
+  * You are trying to pull or push a Docker image to {{ container-registry-name }}, but you are not authenticated. To perform operations with images in {{ container-registry-name }}, you need to get authenticated first.
+  * Docker cannot invoke the [docker-credential-yc](../operations/authentication.md#cred-helper) utility, e.g., because the path to the executable is missing from the `PATH` environment variable.
 
-  **How to fix it**: [Get authenticated](../operations/authentication.md) in {{ container-registry-name }}.
-
+  **How to fix it**:
+  * [Get authenticated](../operations/authentication.md) in {{ container-registry-name }}.
+  * Make sure that the `yc` file path has been added to the `PATH` environment variable.

@@ -19,14 +19,14 @@ This section contains the following guides:
 1. [Creating configuration files and connecting to {{ ydb-short-name }}](configure.md).
 1. [Creating and editing parameters of a serverless database](serverless-database.md).
 1. [Creating and editing parameters of a dedicated database](dedicated-database.md).
-1. [Creating row-oriented tables in a database](row-tables.md).
+1. [Creating row-oriented and column-oriented tables in a database](tables.md).
 1. [Creating a table changefeed](cdc.md).
 1. [Creating secondary indexes in row-oriented tables](row-tables-secondary-index.md).
 1. [Creating topics](topic.md).
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ ydb-name }}:
+{{ ydb-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |

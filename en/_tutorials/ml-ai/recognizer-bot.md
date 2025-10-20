@@ -38,7 +38,7 @@ The cost of Telegram bot support includes:
 ## Set up resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
-1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linuxarm64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
+1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
 1. Create a ZIP archive with the function code:
 
    1. Create a file named `index.py` and paste the code below to it.
@@ -55,16 +55,19 @@ The cost of Telegram bot support includes:
       from speechkit import model_repository, configure_credentials, creds
       from speechkit.stt import AudioProcessingType
 
+
+      folder_id = ""
+      iam_token = ''
       
-      # Service endpoints and authentication credentials
+      # Image recognition service endpoint and authentication data
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
       vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
-      folder_id = ""
-      iam_token = ''
+
+      # Adding the folder with ffmpeg to the system PATH
+
       path = os.environ.get("PATH")
       os.environ["PATH"] = path + ':/function/code'
-
 
       logger = telebot.logger
       telebot.logger.setLevel(logging.INFO)
@@ -73,7 +76,6 @@ The cost of Telegram bot support includes:
       # Getting the folder ID
 
       def get_folder_id(iam_token, version_id):
-
           headers = {'Authorization': f'Bearer {iam_token}'}
           function_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/versions/{version_id}',
                                          headers=headers)
@@ -86,7 +88,6 @@ The cost of Telegram bot support includes:
           return folder_id
 
       def process_event(event):
-
           request_body_dict = json.loads(event['body'])
           update = telebot.types.Update.de_json(request_body_dict)
 
@@ -115,14 +116,14 @@ The cost of Telegram bot support includes:
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
           bot.reply_to(message,
-                       "The bot can do the following:\n*Recognize text from images.\n* Generate voice messages from text.\n* Convert voice messages to text.")
+                       "The bot can do the following:\n* Recognize text from images.\n* Generate voice messages from text.\n* Convert voice messages to text.")
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
           export_path = '/tmp/audio.ogg'
           synthesize(message.text, export_path)
-          voice = open(export_path, 'rb')
-          bot.send_voice(message.chat.id, voice)
+          with open(export_path, 'rb') as voice:
+              bot.send_voice(message.chat.id, voice)
 
       @bot.message_handler(func=lambda message: True, content_types=['voice'])
       def echo_audio(message):
@@ -169,16 +170,13 @@ The cost of Telegram bot support includes:
           model.language = 'ru-RU'
           model.audio_processing_type = AudioProcessingType.Full
 
-          try:
-              result = model.transcribe(audio_data)
-              speech_text = [res.normalized_text for res in result]
-              return ' '.join(speech_text)
-          except:
-              return 'Cannot recognize message'
+          result = model.transcribe(audio_data)
+          speech_text = [res.normalized_text for res in result]
+          return ' '.join(speech_text)
       
       # Speech synthesis
 
-      def synthesize(folder_id, iam_token, text):
+      def synthesize(text, export_path):
           model = model_repository.synthesis_model()
 
           # Synthesis settings
@@ -193,12 +191,12 @@ The cost of Telegram bot support includes:
    1. Create a file named `requirements.txt`. In this file, specify a library to use for the bot and the Python SDK library.
 
       ```text
-      telebot
-      yandex-speechkit
+      pyTelegramBotAPI==4.27
+      yandex-speechkit==1.5.0
       ```
 
-   1. Add the `index.py` and `requirements.txt` files and the `ffmpeg` and `ffprobe` binary files from the FFMpeg utility into the `index.zip` ZIP archive.
-   1. Create an [{{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) and [upload the created ZIP archive into it](../../storage/operations/objects/upload.md).
+   1. Add the `index.py` and `requirements.txt` files, and the `ffmpeg` and `ffprobe` binary files from the downloaded archive with the FFmpeg package into the `index.zip` archive.
+   1. Create an {{ objstorage-name }} [bucket](../../storage/operations/buckets/create.md) and [upload the created ZIP archive into it](../../storage/operations/objects/upload.md).
 
 ## Register your Telegram bot {#bot-register}
 
@@ -239,7 +237,7 @@ Create a function to process user actions in the chat.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `30`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `256 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `recognizer-bot-sa`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
@@ -248,6 +246,10 @@ Create a function to process user actions in the chat.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Create a function named `for-recognizer-bot`:
 
@@ -272,7 +274,7 @@ Create a function to process user actions in the chat.
      ```bash
      yc serverless function version create \
        --function-name for-recognizer-bot \
-       --memory=128m \
+       --memory=256m \
        --execution-timeout=30s \
        --runtime=python312 \
        --entrypoint=index.handler \
@@ -304,7 +306,7 @@ Create a function to process user actions in the chat.
      runtime: python312
      entrypoint: index.handler
      resources:
-       memory: "134217728"
+       memory: "268435456"
      execution_timeout: 30s
      service_account_id: aje20nhregkc********
      image_size: "4096"
@@ -320,6 +322,12 @@ Create a function to process user actions in the chat.
 
 - {{ TF }} {#tf}
 
+  
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+
   1. In the configuration file, describe the function settings:
 
      ```hcl
@@ -328,7 +336,7 @@ Create a function to process user actions in the chat.
        user_hash          = "first function"
        runtime            = "python312"
        entrypoint         = "index.handler"
-       memory             = "128"
+       memory             = "256"
        execution_timeout  = "30"
        service_account_id = "aje20nhregkcvu******"
        environment = {

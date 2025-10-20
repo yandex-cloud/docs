@@ -24,7 +24,7 @@ The cost of using {{ search-api-name }} is calculated based on the number of sea
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Special prices apply to certain types of requests during night hours from 00:00:00 to 07:59:59 [UTC+3](https://en.wikipedia.org/wiki/UTC%2B03:00).
+During night hours from 00:00:00 to 07:59:59 [UTC+3](https://en.wikipedia.org/wiki/UTC%2B03:00), reduced rates apply for some types of queries.
 
 
 
@@ -33,12 +33,12 @@ Special prices apply to certain types of requests during night hours from 00:00:
 
 Users are subject to quotas. For more information, see [Quotas and limits](concepts/limits.md). To have your quotas revised, contact [support]({{ link-console-support }}) or your account manager.
 
-## Examples of cost calculation {#price-example}
+## Cost calculation examples {#price-example}
 
 Cost of using {{ search-api-name }} for initiating search queries through [API v2](./concepts/index.md#api-v2) with the following parameters:
 
-* **Number of synchronous requests per month**: 250,000.
-* **Number of deferred requests per month**: 50,000.
+* **Number of daytime synchronous requests per month**: 250,000.
+* **Number of daytime deferred requests per month**: 50,000.
 * **Number of synchronous requests with a generative response per month**: 10,000.
 
 

@@ -264,6 +264,7 @@ default:
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
+  kafka-ui-provectus: https://github.com/provectus/kafka-ui-docs
   keycloak: Keycloak
   KF: Apache Kafka®
   kf:
@@ -298,7 +299,7 @@ default:
   link-cloud-oauth: >-
     https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.yandex.cloud/
-  link-cloud-partners-landing: https://yandex.cloud/ru/partners/
+  link-cloud-partners-landing: https://yandex.cloud/en/partners/
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-console-access-management: https://console.yandex.cloud/iam
@@ -558,6 +559,7 @@ default:
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
   resmgr-name: Resource Manager
+  responses-api: Responses API
   RMQ: RabbitMQ
   roles-admin: admin
   roles-alb-editor: alb.editor
@@ -828,29 +830,29 @@ default:
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
   tf-cloud-id: b1gq90dgh25bebiu75o
-  tf-docs-link: https://terraform-provider.yandexcloud.net
+  tf-docs-link: https://yandex.cloud/en/docs/terraform
   tf-folder-id: b1gia87mbaomkfvsleds
   TF-full: Hashicorp Terraform
-  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/resources/alb_backend_group
-  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/resources/alb_target_group
-  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/data-sources
-  tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/resources/kubernetes_node_group
-  tf-provider-link: https://terraform-provider.yandexcloud.net/
-  tf-provider-maf: https://terraform-provider.yandexcloud.net/resources/airflow_cluster
-  tf-provider-mch: https://terraform-provider.yandexcloud.net/resources/mdb_clickhouse_cluster
-  tf-provider-mgp: https://terraform-provider.yandexcloud.net/resources/mdb_greenplum_cluster
-  tf-provider-mkf: https://terraform-provider.yandexcloud.net/resources/mdb_kafka_cluster
-  tf-provider-mmg: https://terraform-provider.yandexcloud.net/resources/mdb_mongodb_cluster
-  tf-provider-mmy: https://terraform-provider.yandexcloud.net/resources/mdb_mysql_cluster
-  tf-provider-mos: https://terraform-provider.yandexcloud.net/resources/mdb_opensearch_cluster
-  tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
-  tf-provider-msp: https://terraform-provider.yandexcloud.net/resources/spark_cluster
-  tf-provider-mtr: https://terraform-provider.yandexcloud.net/resources/trino_cluster
-  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
+  tf-provider-alb-backendgroup: https://yandex.cloud/en/docs/terraform/resources/alb_backend_group
+  tf-provider-alb-targetgroup: https://yandex.cloud/en/docs/terraform/resources/alb_target_group
+  tf-provider-datasources-link: https://yandex.cloud/en/docs/terraform/data-sources
+  tf-provider-dt-endpoint: https://yandex.cloud/en/docs/terraform/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://yandex.cloud/en/docs/terraform/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://yandex.cloud/en/docs/terraform/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://yandex.cloud/en/docs/terraform/resources/kubernetes_node_group
+  tf-provider-link: https://yandex.cloud/en/docs/terraform/
+  tf-provider-maf: https://yandex.cloud/en/docs/terraform/resources/airflow_cluster
+  tf-provider-mch: https://yandex.cloud/en/docs/terraform/resources/mdb_clickhouse_cluster
+  tf-provider-mgp: https://yandex.cloud/en/docs/terraform/resources/mdb_greenplum_cluster
+  tf-provider-mkf: https://yandex.cloud/en/docs/terraform/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://yandex.cloud/en/docs/terraform/resources/mdb_mongodb_cluster
+  tf-provider-mmy: https://yandex.cloud/en/docs/terraform/resources/mdb_mysql_cluster
+  tf-provider-mos: https://yandex.cloud/en/docs/terraform/resources/mdb_opensearch_cluster
+  tf-provider-mpg: https://yandex.cloud/en/docs/terraform/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://yandex.cloud/en/docs/terraform/resources/mdb_redis_cluster
+  tf-provider-msp: https://yandex.cloud/en/docs/terraform/resources/spark_cluster
+  tf-provider-mtr: https://yandex.cloud/en/docs/terraform/resources/trino_cluster
+  tf-provider-resources-link: https://yandex.cloud/en/docs/terraform/resources
   TF-version: '0.90'
   TR: Trino
   tr:
@@ -7697,20 +7699,26 @@ default:
     sourcecraft:
       ui_lib:
         home: Home
+        organizations: Organizations
         repositories: Repositories
+        settings: Settings
         tab_secrets: Secrets
+        value_role-org-owner: Organization owner
       ui_modules_cicd:
         value_status-created: Queued
         value_succeeded: Success
       ui_modules_mainApp:
         route_create-repository: Create repository
+        route_service-connections: Service connections
       ui_modules_orgCommon:
         link_your-craftspace: Your craftspace
       ui_modules_repo:
         action_cicd: CI/CD
         action_commit: Commit changes
         action_create-file: Create file
+        button_commit: Commit changes
         button_commit-and-go-to-read-mode: Commit and back to read mode
+        button_use-template: Use template
         field_after-commit-action: After commit action
         field_commit-branch: Commit branch
         field_text_commit-directly-to-the-branch: 'Commit directly to the branch:'
@@ -7719,7 +7727,10 @@ default:
         title_navigation-code: Code
         title_navigation-repository-settings: Repository settings
       ui_modules_repoCreate:
+        button_browse-templates: Browse templates
         button_create-repo: Create repository
+        button_preview-template: Preview
+        section_template: Repository template
         title_create-blank: Blank repository
         title_new-repo-details: Your new repository details
         title_owner-field: Owner
@@ -7733,6 +7744,13 @@ default:
         action_new-secrete: New secret
         field_name: Name
         field_secret: Secret
+      ui_modules_serviceConnections:
+        button_add-connection: New service connection
+        button_create-connection: Create service connection
+        section_basic: Basic information
+        section_cloud-settings: Yandex Cloud settings
+        section_scope: Scope
+        title_oidc-federation: Workload identity federation
     support-center:
       billing-account:
         common:
@@ -8160,7 +8178,6 @@ default:
           save: Save
           setup: Setup widget
         settings:
-          dashboard-settings: Dashboard settings
           general:
             labels:
               title: Labels
@@ -14380,7 +14397,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.25
+        tag: v0.2.26
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -14445,7 +14462,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.2
+        tag: v1.0.3
     yc_ingress-nginx:
       helmChart:
         name: >-
@@ -14494,7 +14511,7 @@ default:
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
-        tag: 0.1.1-4
+        tag: 0.1.2-9
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero

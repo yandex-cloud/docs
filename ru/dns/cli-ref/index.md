@@ -29,6 +29,7 @@ Syntax:
 	- [yc dns zone list-access-bindings](zone/list-access-bindings.md) — List access bindings of the specified dns zone.
 	- [yc dns zone list-operations](zone/list-operations.md) — List operations of the specified dns zone.
 	- [yc dns zone list-records](zone/list-records.md) — List dns zone records.
+	- [yc dns zone move](zone/move.md) — Move a dns zone to the specified folder.
 	- [yc dns zone remove-access-binding](zone/remove-access-binding.md) — Remove access binding from the specified dns zone
 	- [yc dns zone remove-labels](zone/remove-labels.md) — Remove labels from the specified dns zone
 	- [yc dns zone replace-records](zone/replace-records.md) — Replace all records specified by name and type in dns zone with new ones.

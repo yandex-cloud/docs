@@ -53,7 +53,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 - {{ TF }} {#tf}
 
-   To learn how to create a row-oriented table using {{ TF }}, see [{#T}](../terraform/row-tables.md).
+   To learn how to create a row-oriented table using {{ TF }}, see [{#T}](../terraform/tables.md).
 
 {% endlist %}
 
@@ -78,8 +78,8 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
   1. Add columns:
      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
-     * **{{ ui-key.yacloud.ydb.table.form.column_shard }}**: Simple primary key that consists of one attribute. {{ ydb-short-name }} uses the partition key value as an input for the internal hashing function. The result of calculating the hash function determines the partition where the item will be stored.
-     * **{{ ui-key.yacloud.ydb.table.form.column_sort }}**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key but must contain different values for the sort key.
+     * **{{ ui-key.yacloud.ydb.table.form.column_shard }}**: Simple primary key that consists of one attribute. {{ ydb-short-name }} uses the partitioning key value as an input for the internal hashing function. The result of the hash function calculation decides the partition the element will be stored in.
+     * **{{ ui-key.yacloud.ydb.table.form.column_sort }}**. The primary key can be composite and consist of a partitioning key and a sorting key. All elements with the same partitioning key will be stored together, sorted based on the sorting key. If a document table features a partitioning key and a sorting key, any two elements may contain the same partitioning key value but must contain different sorting key values.
   1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
 - {{ TF }} {#tf}
@@ -104,11 +104,11 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
   1. Add columns:
      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**.
-     * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
+     * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. A primary index is automatically created based on the primary key.
 
         {% note info %}
 
-        The order of columns in the primary key depends on the order of columns in the table you are creating.
+        The order of columns in the primary key depends on the order of columns in the table being created.
 
         {% endnote %}
 
@@ -117,7 +117,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
   1. Configure the table TTL parameters:
      * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Select the column whose value will be used to calculate the lifetime of the rows.
      * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Specify the lifetime of the table rows.
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a measurement unit for the table row lifetime you specified.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a unit of measurement for the table row lifetime you specified.
   1. Configure partitioning:
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-key }}**: Specify a column to partition the table by.
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-count }}**: Specify the number of partitions for the table.
@@ -125,15 +125,10 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
   To create column-oriented tables, you can also use the [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table) command.
 
+
 - {{ TF }} {#tf}
 
-   <!-- To learn how to create a column-oriented table using {{ TF }}, see [{#T}](../terraform/column-oriented-tables.md). -->
-
-   {% note warning %}
-
-   Creating column-oriented tables using {{ TF }} is currently not supported.
-
-   {% endnote %}
+   To learn how to create a column-oriented table using {{ TF }}, see [{#T}](../terraform/tables.md).
 
 {% endlist %}
 
@@ -166,7 +161,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 - {{ TF }} {#tf}
 
-   See [{#T}](../terraform/row-tables.md) for the description of the table entities that you can change using {{ TF }}.
+   See [{#T}](../terraform/tables.md) for the description of the table entities that you can change using {{ TF }}.
 
 {% endlist %}
 
@@ -215,19 +210,20 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
         -  Configure the table TTL parameters:
             * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Select the column whose value will be used to calculate the lifetime of the rows.
             * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Specify the lifetime of the table rows.
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a measurement unit for the table row lifetime you specified.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select a unit of measurement for the table row lifetime you specified.
 
    1. Click **{{ ui-key.yacloud.ydb.table.edit.button_update }}**.
 
   To update column-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table) command.
 
+
 - {{ TF }} {#tf}
 
-   <!-- To learn how to create a row-oriented table using {{ TF }}, see [{#T}](../terraform/row-tables.md). -->
+   See [{#T}](../terraform/tables.md) for the description of the table entities that you can change using {{ TF }}.
 
-   {% note warning %}
+   {% note info %}
 
-   Updating column-oriented table structure using {{ TF }} is currently not supported.
+   Updating the `store` and `partition_by` parameters of the column-oriented table will result in recreating the table.
 
    {% endnote %}
 
@@ -282,11 +278,7 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
 
 - {{ TF }} {#tf}
 
-   {% note warning %}
-
-   Deleting column-oriented tables using {{ TF }} is currently not supported.
-
-   {% endnote %}
+   To delete a column-oriented table, delete the `yandex_ydb_table` resource.
 
 {% endlist %}
 

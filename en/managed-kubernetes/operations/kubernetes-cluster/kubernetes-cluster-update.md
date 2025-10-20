@@ -60,7 +60,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   To update a {{ managed-k8s-name }} cluster:
-  1. View a description of the update {{ managed-k8s-name }} cluster CLI command:
+  1. View the description of the CLI command for updating a {{ managed-k8s-name }} cluster:
 
      ```bash
      {{ yc-k8s }} cluster update --help
@@ -134,7 +134,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
 
 - API {#api}
 
-  To update {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
+  To update {{ managed-k8s-name }} cluster parameters, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
   To edit the settings for sending logs to {{ cloud-logging-name }}, configure their `masterSpec.masterLogging` parameter values.
 
@@ -158,7 +158,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
     1. Click the name of the {{ managed-k8s-name }} cluster.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ui-key.yacloud.component.label-set.button_add-label }}**.
-    1. Enter the key and the value, and press **Enter**.
+    1. Enter the key and value, and press **Enter**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -259,6 +259,8 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 ## Updating the master resource configuration {#manage-resources}
 
+{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -268,10 +270,80 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, expand the **Compute resources** section and select a [resource configuration](../../concepts/index.md#master-resources) for the master.
 
+      {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
       {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
 
-      {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
-
   1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Specify the required master resource configuration in the cluster modification command:
+
+  ```bash
+  {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
+    --master-scale-policy policy=auto,min-resource-preset-id=<master_host_class>
+  ```
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  Result:
+
+  ```text
+  done (1s)
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
+  ...
+  description: My test {{ k8s }} cluster
+  master:
+    scale_policy:
+      auto_scale:
+        min_resource_preset_id: <master_host_class>
+  ...
+  ```
+
+- {{ TF }} {#tf}
+
+  1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
+
+     For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
+
+  1. Add or update [the master computing resource](../../concepts/index.md#master-resources) configuration in the {{ managed-k8s-name }} cluster description in the `scale_policy` section:
+
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<cluster_name>" {
+     >  ...
+     >  master {
+     >    ...
+     >    scale_policy {
+     >      auto_scale  {
+     >        min_resource_preset_id = "<master_host_class>"
+     >      }
+     >    }
+     >  }
+     >}
+     >```
+
+     {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
+
+- API {#api}
+
+  To update the master resource configuration, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource and provide the `masterSpec.scalePolicy.autoScale.minResourcePresetId` parameter in the request.
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 
 {% endlist %}

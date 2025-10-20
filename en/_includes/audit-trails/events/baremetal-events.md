@@ -12,6 +12,7 @@ Event name | Description
 `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
 `DeletePrivateSubnet` | Deleting a private subnet
 `DeletePublicSubnet` | Deleting a public subnet
+`DeleteServer` | Completely removing the {{ baremetal-name }} server, wiping disks and all user data
 `DeleteVRF` | Deleting a virtual network segment (VRF)
 `PowerOffServer` | Powering off a {{ baremetal-name }} server
 `PowerOnServer` | Powering on a {{ baremetal-name }} server

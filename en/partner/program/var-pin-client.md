@@ -17,7 +17,7 @@ To add a new customer:
 
 - Partner portal {#partner}
 
-  1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}. If you have no access, it means the account you use to log in has no partner status assigned.
+  1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}. If you have no access, it means the account you are using to log in has no partner status assigned.
   1. In the top-right corner, click **Add customer**.
   1. Complete the **New customers** form with your customer's information.
   1. Click **Add**. A new customer record with the `Verification required` status will appear on the partner portal.
@@ -30,7 +30,7 @@ To add a new customer:
 
 {% endlist %}
 
-When creating a customer record on the partner portal, a [subaccount](../terms.md#sub-account), and then, after confirming the partnership, a new [organization](../../organization/) named `For subaccount 'Customer_name'` are created. You can delete the subaccount if the customer has not [confirmed](#confirm-partnership) it on time.
+When creating a customer record on the partner portal, a [subaccount](../terms.md#sub-account), and then, after confirming the partnership, a new [organization](../../organization/) named `For 'Customer_name' subaccount` are created. You can delete the subaccount if the customer has not [confirmed](#confirm-partnership) it on time.
 
 In this case, users are assigned different roles for accessing the created subaccount and organization by default.
 
@@ -54,17 +54,17 @@ Only users with a Yandex account receive roles at the organization level, this d
 
 ## Confirming partnership {#confirm-partnership}
 
-A customer with the `Verification required` status must confirm their readiness to work with the partner. This happens in several stages:
+A customer with the `Verification required` status must confirm their readiness to work with the partner. This is a multiple-step process:
 
-1. An email with the subject line saying <q>Confirm that you are ready to work with the integrator in {{ yandex-cloud }}</q> is automatically sent to the customer's `@yandex.ru` email address their {{ yandex-cloud }} account is registered to.
+1. An email with the subject line saying _Confirm that you are ready to work with the integrator in {{ yandex-cloud }}_ is automatically sent to the customer's `@yandex.ru` email address that refers to their {{ yandex-cloud }} account.
 
-1. As soon as the customer confirms their readiness to work with the partner by answering this email, the customer's status on the partner portal changes to `Active`.
+1. As soon as the customer confirms their readiness to work with the partner by replying to this email, the customer's status on the partner portal changes to `Active`.
 
 {% note warning %}
 
 If the customer fails to follow the link provided in the email or cannot find the email, you can:
 
-* Resend to the customer the partnership confirmation link email.
+* Resend the partnership confirmation email to the customer.
 * Copy the link on the subaccount page and send it to the customer. The partnership will be confirmed when the customer logs in to their account using this link.
 
 {% endnote %}
@@ -83,7 +83,7 @@ The [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will c
   1. Select the customer's account from the list and click it.
   1. Under **Clouds**, click ![icon](../../_assets/console-icons/plus.svg) **Create cloud**.
   1. Enter a name for the cloud.
-  1. In the **Organization** field, select the [organization](../../organization/quickstart.md) named `For subaccount 'Customer_name'`.
+  1. In the **Organization** field, select the [organization](../../organization/quickstart.md) named `For 'Customer_name' subaccount`.
   1. Click **Create**.
 
 {% endlist %}

@@ -5,7 +5,19 @@ description: Follow this guide to configure HTTPS for hosting in {{ objstorage-n
 
 # Configuring HTTPS
 
-If you are using your bucket to [host a static website](../../concepts/hosting.md), you need to upload your own security certificate and the respective secret key to access the website over HTTPS.
+If you use a bucket without a period in its name to [host a static website](../../concepts/hosting.md), that website will be accessible by default over HTTP and HTTPS at the following URLs:
+
+* `http(s)://example.website.yandexcloud.net`
+* `http(s)://website.yandexcloud.net/example`
+
+This bucket does not require uploading your own security certificate, but it also does not support your own domains.
+
+If you use a bucket with a period in its name to host a static website, that website will be accessible by default over HTTP and HTTPS at the following URLs:
+
+* `http://example.com.website.yandexcloud.net`
+* `http(s)://website.yandexcloud.net/example.com`
+
+This bucket also [supports your own domains](./own-domain.md). By default, when addressing the website by domain name, it is only accessible over HTTP, e.g., at `http://example.com`. To make your website accessible by its domain name over HTTPS, upload your own security certificate and the applicable secret key.
 
 
 {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
@@ -120,9 +132,9 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
      terraform plan
      ```
   
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
      ```bash
      terraform apply

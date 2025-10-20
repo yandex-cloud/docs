@@ -30,6 +30,7 @@ Aliases:
 - [yc dns zone list-access-bindings](list-access-bindings.md) — List access bindings of the specified dns zone.
 - [yc dns zone list-operations](list-operations.md) — List operations of the specified dns zone.
 - [yc dns zone list-records](list-records.md) — List dns zone records.
+- [yc dns zone move](move.md) — Move a dns zone to the specified folder.
 - [yc dns zone remove-access-binding](remove-access-binding.md) — Remove access binding from the specified dns zone
 - [yc dns zone remove-labels](remove-labels.md) — Remove labels from the specified dns zone
 - [yc dns zone replace-records](replace-records.md) — Replace all records specified by name and type in dns zone with new ones.

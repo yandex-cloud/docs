@@ -15,7 +15,7 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
 * **Comprehensive data protection**. The [Data Security Posture Management](./dspm.md) (DSPM) module detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks.
 
-* **Containerized application security management**: [{{ k8s }} Security Posture Management (KSPM)](./kspm.md) ensures the security of containerized applications and [images](../../container-registry/concepts/docker-image.md) they use. The KSPM module automatically checks the cloud infrastructure against corporate and industry standards, identifies all {{ k8s }} clusters and containers in the specified [workspace](./workspace.md), and deploys security components in them as defined in the configuration.
+* **Containerized application security management**: [{{ k8s }} Security Posture Management (KSPM)](./kspm.md) ensures the security of containerized applications and [images](../../container-registry/concepts/docker-image.md) they use. The KSPM module automatically checks cloud infrastructure against corporate and industry standards, identifies all {{ k8s }} clusters and containers in the specified [workspace](./workspace.md), and deploys security components in them as defined in the configuration.
 
 * **User access management**. The [Cloud Infrastructure Entitlement Management](./ciem.md) (CIEM) module allows you to manage user [access](../../iam/concepts/access-control/index.md) to diverse corporate resources with full control over who has access to which data, and what actions are allowed with that data.
 

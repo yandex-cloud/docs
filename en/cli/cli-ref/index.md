@@ -54,6 +54,7 @@ Syntax:
 - [yc managed-spark](managed-spark/cli-ref/index.md) — Manage Spark clusters.
 - [yc managed-sqlserver](managed-sqlserver/cli-ref/index.md) — Manage SQLServer clusters, databases, backups and users.
 - [yc managed-trino](managed-trino/cli-ref/index.md) — Manage Trino clusters.
+- [yc managed-ytsaurus](managed-ytsaurus/cli-ref/index.md) — Manage YTsaurus clusters.
 - [yc marketplace](marketplace/cli-ref/index.md) — Manage Yandex Marketplace resources
 - [yc metadata-hub](metadata-hub/cli-ref/index.md) — Manage Metadata Hub resources.
 - [yc operation](operation/cli-ref/index.md) — Manage operations

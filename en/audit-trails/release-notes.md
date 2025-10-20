@@ -5,6 +5,172 @@ description: This section contains {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+Added new events for the services:
+
+  {% cut "{{ foundation-models-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `CancelBatchInference` | Stopping a model in batch mode
+  `DeleteBatchInference` | Deleting a processing result in batch mode
+  `StartBatchInference` | Running a model in batch mode
+
+  {% endcut %}
+  
+  {% cut "{{ baremetal-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteServer` | Completely removing the {{ baremetal-name }} server, wiping disks and all user data
+
+  {% endcut %}
+  
+  {% cut "{{ cdn-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `gcore.RawLogsActivate` | Enabling log export
+  `gcore.RawLogsDeactivate` | Disabling log export
+  `gcore.RawLogsUpdate` | Updating log export settings
+
+  {% endcut %}
+
+  {% cut "{{ cloud-desktop-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CopyDesktopImage` | Creating a desktop image by copying a {{ compute-name }} image
+  `CopyDesktopImageFromDesktop` | Creating a desktop image by copying an image of an existing desktop
+  `DeleteDesktopImage` | Deleting a desktop image
+  `SetDesktopGroupAccessBindings` | Assigning access permissions for a group of desktops
+  `StartDesktop` | Starting a desktop
+  `StopDesktop` | Stopping a desktop
+  `UpdateDesktop` | Updating a desktop
+  `UpdateDesktopGroup` | Updating a desktop group
+  `UpdateDesktopGroupAccessBindings` | Updating desktop group access permissions
+  `UpdateDesktopImage` | Updating a desktop image
+  `UpdateDesktopProperties ` | Updating desktop properties
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GenerateDesktopRDPFile` | Generating an RDP file for a desktop connection
+  `ResetDesktopPassword` | Resetting desktop password
+
+  {% endcut %}
+
+  {% cut "{{ datalens-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SwitchAiAssistantProhibition` | Updating the restriction on using Neuroanalyst
+
+  {% endcut %}
+  
+  {% cut "{{ ml-platform-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateCluster` | Creating an {{ SPRK }} cluster
+  `DeleteCluster` | Deleting an {{ SPRK }} cluster
+  `StartCluster` | Starting an {{ SPRK }} cluster
+  `StopCluster` | Stopping an {{ SPRK }} cluster
+  `UpdateCluster` | Updating an {{ SPRK }} cluster
+  
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `mfa.CreateUserCredential` | Creating user credentials during verification of additional [MFA factors](../organization/concepts/mfa.md)
+  `mfa.DeleteUserCredential` | Deleting user credentials during verification of additional [MFA factors](../organization/concepts/mfa.md)
+  `mfa.UpdateUserCredential` | Updating user credentials during verification of additional [MFA factors](../organization/concepts/mfa.md)
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `mfa.VerifyUserCredential` | Confirming user credentials when verifying additional [MFA factors](../organization/concepts/mfa.md)
+
+  {% endcut %}
+
+  {% cut "{{ org-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `idp.ChangeOneTimePassword` | Updating a one-time password
+  `idp.ConvertUserToExternal` | Assigning a user a synchronization flag from an external folder
+  `saml.ReactivateFederatedUserAccounts` | Activating a federated user
+  `saml.SuspendFederatedUserAccounts` | Deactivating a federated user
+
+  {% endcut %}
+
+  {% cut "{{ network-load-balancer-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DisableNetworkLoadBalancerZones` | Disabling an availability zone 
+  `EnableNetworkLoadBalancerZones` | Enabling an availability zone
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BucketLoggingUpdate` | Updating the logging mechanism for bucket actions 
+  `BucketObjectLockUpdate` | Reconfiguring object version locks in a bucket
+
+  {% endcut %}
+
+  {% cut "{{ sws-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateMatchList` | Creating an address list
+  `DeleteMatchList` | Deleting an address list
+  `UpdateMatchList` | Updating an address list
+
+  {% endcut %}
+
+  {% cut "{{ vpc-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `CreateIpfix` | Reserving a fixed IP address
+  `DeleteIpfix` | Deleting a fixed IP address
+  `ExternalFlow` | Outgoing network traffic
+
+  {% endcut %}
+
 ## Q2 2025 {#q2-2025}
 
 * Added new events for the services:
@@ -617,7 +783,7 @@ description: This section contains {{ at-name }} release notes.
   Event | Description
   --- | ---
   `CreateCluster` | Creating a {{ metastore-full-name }} [cluster](../metadata-hub/concepts/metastore.md)
-  `DeleteCluster` | Deleting a {{ metastore-full-name }} cluster
+  `DeleteCluster` | Deleting an {{ metastore-full-name }} cluster
   `StartCluster` | Starting a {{ metastore-full-name }} cluster
   `StopCluster` | Stopping a {{ metastore-full-name }} cluster
   `UpdateCluster` | Updating a {{ metastore-full-name }} cluster
@@ -638,7 +804,7 @@ description: This section contains {{ at-name }} release notes.
 
 ## Q4 2024 {#q4-2024}
 
-* Added new events for the services:
+Added new events for the services:
 
   {% cut "{{ org-name }}" %}
 

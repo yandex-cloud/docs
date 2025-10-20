@@ -9,13 +9,6 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cdn_origin_group.md
 
 Allows management of [Yandex Cloud CDN Origin Groups](https://yandex.cloud/docs/cdn/concepts/origins).
 
-{% note warning %}
-
-CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
-
-{% endnote %}
-
-
 ## Example usage
 
 ```terraform
@@ -78,7 +71,7 @@ Optional:
 
 Read-Only:
 
-- `origin_group_id` (Number) The ID of a specific origin group.
+- `origin_group_id` (String) The ID of a specific origin group.
 
 
 <a id="nestedblock--timeouts"></a>

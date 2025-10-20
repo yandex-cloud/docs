@@ -105,6 +105,13 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
 
 ## Creating a dictionary {#add-dictionary}
 
+{% note info %}
+
+* Dictionaries created through the {{ yandex-cloud }} interfaces are located in the {{ CH }} cluster's global namespace. When using SQL, you can only create a dictionary in the specified database and resides in that database's namespace.
+* When creating an external dictionary via SQL, more sources and settings are available. For example, dictionaries with a Redis or Cassandra source can only be created via SQL.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -371,7 +378,7 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
           * `complex_key_hashed`
           * `complex_key_cache`
 
-    For more information about the settings, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict/).
+    For more information about the settings, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/dictionaries/#dbms).
 
 {% endlist %}
 
@@ -385,6 +392,29 @@ The number of dictionaries you can connect to a cluster is limited. To learn mor
     1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dictionary in question and select **{{ ui-key.yacloud.common.edit }}**.
     1. Change the [dictionary settings](#settings) as needed.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To update an external dictionary in a {{ CH }} cluster, do the following:
+
+    1. View the description of the CLI command for updating dictionaries:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update-external-dictionary --help
+        ```
+
+    1. Run the command to add a dictionary and specify the [dictionary settings](#settings):
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update-external-dictionary \
+           --name <{{ CH }}_cluster_name> \
+           --dict-name <dictionary_name> \
+           ...
+        ```
 
 - REST API {#api}
 
@@ -807,7 +837,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endcut %}
 
-    {% cut "`--mongodb-source`: {{ MG }} source" %}
+    {% cut "`--mongodb-source`: {{ SD }} source" %}
 
     * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
     * `port`: Port for connecting to the source.
@@ -945,7 +975,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-      {% cut "`mongodbSource`: {{ MG }} source" %}
+      {% cut "`mongodbSource`: {{ SD }} source" %}
 
       * `db`: Source database name.
       * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
@@ -1072,7 +1102,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-      {% cut "`mongodb_source`: {{ MG }} source" %}
+      {% cut "`mongodb_source`: {{ SD }} source" %}
 
       * `db`: Source database name.
       * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
@@ -1193,7 +1223,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
     * Database: `db1`.
     * Table name: `table1`.
     * Port for connection: `{{ port-mpg }}`.
-    * DB user name: `user1`.
+    * DB username: `user1`.
     * DB access password: `user1user1`.
     * Mode of secure SSL TCP/IP connection to the database: `verify-full`.
     * Master host's special FQDN: `c-c9qash3nb1v9********.rw.{{ dns-zone }}`.
@@ -1259,7 +1289,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
             "fixedLifetime": "300",
             "postgresqlSource": {
               "db": "db1",
-              "table": "table",
+              "table": "table1",
               "port": "5432",
               "user": "user1",
               "password": "user1user1",
@@ -1318,7 +1348,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
             "fixed_lifetime": "300",
             "postgresql_source": {
               "db": "db1",
-              "table": "table",
+              "table": "table1",
               "port": "5432",
               "user": "user1",
               "password": "user1user1",
@@ -1342,6 +1372,29 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.CreateExternalDictionary \
             < body.json
+        ```
+
+- SQL {#sql}
+
+    1. [Connect](connect/clients.md) to the required database of the {{ mch-name }} cluster using `clickhouse-client`.
+    1. Run this [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/):
+
+        ```sql
+        CREATE DICTIONARY mychdict(
+          `id` UInt64,
+          `field1` String
+        )
+        PRIMARY KEY id
+        SOURCE(POSTGRESQL(
+           port 5432
+           host 'c-c9qash3nb1v9********.rw.{{ dns-zone }}'
+           user 'user1'
+           password 'user1user1'
+           db 'db1'
+           table 'table1'
+        ))
+        LIFETIME(300)
+        LAYOUT(CASHE(SIZE_IN_CELLS 1024));
         ```
 
 {% endlist %}

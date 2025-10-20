@@ -58,7 +58,19 @@ Where:
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+|Description|Example|I/O|
+|---|---|---|
+|Filters like `IS NULL`/`IS NOT NULL`|`WHERE column1 IS NULL` or `WHERE column1 IS NOT NULL`||
+|The `OR`, `NOT`, or `AND` logical conditions or parentheses to prioritize calculations |`WHERE column1 IS NULL OR (column2 IS NOT NULL AND column3 > 10)`.||
+|Comparison operators (`=`, `==`, `!=`, `<>`, `>`, `<`, `>=`, or `<=`) against other columns or constants|`WHERE column1 > column2 OR column3 <= 10`.||
+|The `LIKE` string pattern matching operator|`WHERE column1 LIKE '_abc%'`|Currently, pushdown only supports simple patterns based on prefixes (`'abc_'` or `'abc%'`), suffixes (`'_abc'` or `'%abc'`), or searching for a substring in a string (`'_abc_'`, `'%abc%'`, `'_abc%'`, or `'%abc_'`). Use `REGEXP` to push down more complex patterns.|
+|The `REGEXP` string pattern matching operator|`WHERE column1 REGEXP '.*abc.*'`||
+
+Other filter types do not support any pushdown on the source side: the external table rows will be filtered on the federated {{ yq-full-name }} side, i.e., {{ yq-full-name }} will perform a full scan of the external table when processing the query.
+
+Supported data types for filter pushdown:
 
 |Data type {{ yq-full-name }}|
 |----|

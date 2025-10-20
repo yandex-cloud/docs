@@ -38,4 +38,4 @@ description: Сетевой балансировщик нагрузки (NLB) п
 Сетевой балансировщик можно развернуть в {{ yandex-cloud }} с помощью следующих инструментов:
 * [Облачная консоль]({{ link-console-main }})
 * [CLI](../../cli/quickstart.md) 
-* [Terraform](https://terraform-provider.yandexcloud.net/Resources/lb_network_load_balancer) 
+* [Terraform]({{ tf-provider-resources-link }}/lb_network_load_balancer) 

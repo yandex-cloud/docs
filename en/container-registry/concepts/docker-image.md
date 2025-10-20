@@ -38,3 +38,4 @@ A Docker image and all its versions are stored in a repository.
 * [{#T}](../tutorials/cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](../tutorials/deploy-app-container.md)
 * [{#T}](../tutorials/fault-tolerance.md)
+

@@ -78,6 +78,12 @@ items:
         href: cli-ref/public-subnet/remove-labels.md
       - name: update
         href: cli-ref/public-subnet/update.md
+  - name: rental-period
+    items:
+      - name: Overview
+        href: cli-ref/rental-period/index.md
+      - name: list
+        href: cli-ref/rental-period/list.md
   - name: server
     items:
       - name: Overview

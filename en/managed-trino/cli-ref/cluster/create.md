@@ -28,6 +28,7 @@ Syntax:
 |`--retry-policy-exchange-manager-service-s3`|Use service-side S3 bucket for the Exchange Manager storage.|
 |`--retry-policy-exchange-manager-additional-properties`|<b>`key=value[,key=value...]`</b><br/>Map entries for ExchangeManagerConfig.additional_properties.|
 |`--access-control-from-file`|<b>`string`</b><br/>YAML file with access control rules.|
+|`--trusted-certs-from-files`|<b>`value[,value]`</b><br/>Trusted CA-certificates files. Each file should contain single self-signed CA-certificate or chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.|
 |`--subnet-ids`|<b>`value[,value]`</b><br/>List of IDs of VPC network subnets where instances of the cluster are attached.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Trino cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|

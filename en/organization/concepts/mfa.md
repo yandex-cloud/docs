@@ -1,5 +1,5 @@
 ---
-title: Multi-factor authentication (MFA) in {{ org-name }}
+title: Multi-factor authentication (MFA) in {{ org-full-name }}
 description: In {{ org-full-name }}, you can configure MFA for federated and local users to enhance the protection level of their accounts.
 ---
 

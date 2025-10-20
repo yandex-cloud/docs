@@ -29,7 +29,7 @@ items:
             href: operations/metric/prometheusExport.md
       - name: Working with dashboards
         items:
-          - name: Creating a dashboard
+          - name: Creating and managing dashboards
             href: operations/dashboard/create.md
           - name: Copying dashboards
             href: operations/dashboard/copy.md

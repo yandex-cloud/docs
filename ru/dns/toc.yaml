@@ -133,6 +133,8 @@ items:
             href: cli-ref/zone/list-operations.md
           - name: list-records
             href: cli-ref/zone/list-records.md
+          - name: move
+            href: cli-ref/zone/move.md
           - name: remove-access-binding
             href: cli-ref/zone/remove-access-binding.md
           - name: remove-labels

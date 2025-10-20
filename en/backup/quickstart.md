@@ -1,5 +1,5 @@
 ---
-title: How to get started with {{ backup-full-name }}
+title: Getting started with {{ backup-full-name }}
 description: This guide describes how you can get started with {{ backup-name }}.
 ---
 
@@ -111,7 +111,7 @@ For more information, see [{#T}](../vpc/operations/security-group-create.md).
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM connected to {{ backup-name }}.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the [service account](../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
+  1. Enter a name for the [service account](../iam/concepts/users/service-accounts.md). Follow these naming requirements:
 
       {% include [name-format](../_includes/name-format.md) %}
 

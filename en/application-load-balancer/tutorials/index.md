@@ -8,6 +8,7 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](virtual-hosting.md)
 * [{#T}](alb-with-ddos-protection/index.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
+* [{#T}](../tools/gwin/ingress-gwin-migration.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [{#T}](cdn-storage-integration.md)
 * [{#T}](blue-green-canary-deployment.md)

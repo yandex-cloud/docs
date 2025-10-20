@@ -121,7 +121,7 @@ The support cost for this solution includes:
             * {{ mch-name }} target endpoint.
             * Transfer.
 
-        1. In the `ya-direct-to-mch.tf` file, specify these variables:
+        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `folder_id`: Cloud folder ID matching the one in your provider settings.
             * `app_token`: Application debug token.
@@ -193,7 +193,7 @@ The support cost for this solution includes:
 
     - {{ TF }} {#tf}
 
-        1. In the `ya-direct-to-mch.tf` file, specify these variables:
+        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
             * `create_function`: `1` to create a function.
@@ -222,19 +222,19 @@ You will see a Parquet file in the bucket.
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Yandex Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}**: Select the service account [you created earlier](#before-you-begin) from the list.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.schema.title }}**: `{"Id": "int64", "Name": "string"}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}**: Name of the Parquet file in the bucket, e.g., `ac05e4fe818e463f88a8a299d290734d.snappy.parquet`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify field names and data types:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` and specify the following field names and data types:
 
         * `Id`: `Int64`
         * `Name`: `String`
 
-    Leave the default values for the other properties.
+    Keep the default values for all other settings.
 
 1. Create an endpoint for the target and transfer:
 
@@ -248,10 +248,10 @@ You will see a Parquet file in the bucket.
 
     - {{ TF }} {#tf}
 
-        1. In the `ya-direct-to-mch.tf` file, specify these variables:
+        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: `1` (create a transfer).
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -271,7 +271,7 @@ You will see a Parquet file in the bucket.
 
 1. Make sure the {{ objstorage-name }} source data was transferred to the {{ mch-name }} database:
 
-    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
+    1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) via `clickhouse-client`.
 
     1. Run this query:
 
@@ -295,13 +295,13 @@ You will see a Parquet file in the bucket.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
 
-Delete other resources using the method matching their creation method:
+Delete other resources using the same method used for their creation:
 
 {% list tabs group=resources %}
 

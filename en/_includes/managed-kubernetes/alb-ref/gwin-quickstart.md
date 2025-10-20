@@ -2,12 +2,12 @@
 
 Gwin is a tool for managing {{ alb-full-name }} in {{ managed-k8s-full-name }} clusters.
 
-Follow this guide to install the Gwin controller in a {{ managed-k8s-full-name }} cluster. Based on the Ingress or Gateway API resource configurations, the controller automatically deploys an {{ alb-name }} that:
+Follow this guide to install the Gwin controller in a {{ managed-k8s-name }} cluster. Based on the Ingress or Gateway API resource configurations, the controller automatically deploys an {{ alb-name }} that:
 
   * Automatically gets a dynamic public IP address.
   * Accepts HTTP traffic on port `80`.
   * Accepts HTTPS traffic on port `443` using a certificate in {{ certificate-manager-name }}.
-  * Sends GET requests to a test service named `example-service`.
+  * Sends GET requests to the test service named `example-service`.
 
 ## Required paid resources {#paid-resources}
 
@@ -36,7 +36,7 @@ The infrastructure support cost includes:
 
 1. {% include [kubectl-install](../kubectl-install.md) %}
 
-1. [Create a service account](../../../iam/operations/sa/create.md) the controller will use to create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
+1. [Create a service account](../../../iam/operations/sa/create.md) the controller will use create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
 
    * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create the {{ alb-name }} resources.
    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
@@ -62,7 +62,7 @@ The infrastructure support cost includes:
 
     ```bash
     helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-      --version v1.0.0 \
+      --version v1.0.1 \
       --untar \
     helm install \
       --namespace <namespace> \
@@ -72,7 +72,7 @@ The infrastructure support cost includes:
       gwin ./gwin-chart
     ```
 
-      If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all existing namespaces, e.g., `gwin-space`.
+      If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `gwin-space`.
 
       You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
 
@@ -87,7 +87,7 @@ To test the Gwin controller, create a test application named `example-app`:
     "/C=RU/ST=Moscow/L=Moscow/O=Example/OU=IT/CN=example.com"
     ```
 
-    This command generates a self-signed certificate along with a matching private key. As a result, you will have two files:
+    This command generates a self-signed certificate along with the matching private key. As a result, you will have two files:
     
       * `example-com.crt` with the certificate.
       * `example-com.key` with the private key.

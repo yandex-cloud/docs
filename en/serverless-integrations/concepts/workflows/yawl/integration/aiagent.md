@@ -16,9 +16,9 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- |--- | --- | --- | ---
-`goal`| `string` | Yes | No | Yes | Individual goal that guides the AI agent's decision-making. For example: "help with the choice of parts for the specified vehicle".
-`role`| `string` | Yes | No | Yes | Role that defines the AI agent's functions and experience. For example: "car parts consultant".
-`backstory`| `string` | No | No | Yes | Backstory defining the AI agent's personality and enriching the context. For example: "you find the best value for money car parts and briefly explain your choice".
+`goal`| `string` | Yes | No | Yes | Individual goal that guides the AI agent's decision-making, e.g., _help with choice of parts for the specified vehicle_.
+`role`| `string` | Yes | No | Yes | Role that defines the AI agent's functions and experience, e.g., _car parts consultant_.
+`backstory`| `string` | No | No | Yes | Backstory defining the AI agent's personality and enriching the context, e.g., _you find the best value for money car parts and briefly explain your choice_.
 `model`| [AIAgentModel](#AIAgentModel) | No | No | No | LLM the AI agent will use.
 `knowledgeSources` | [KnowledgeSource[]](#KnowledgeSource) | No | No | No | AI agent’s knowledge sources.
 `tools` | [AIAgentTool[]](#AIAgentTool) | No | No | No | Tools for your AI ​agent to use for obtaining external data when generating a response.
@@ -27,8 +27,8 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- |--- | --- | --- | ---
-`description`| `string` | Yes | No | Yes | Description of the task you want the AI agent to perform. For example: "find an oil filter for a BMW 320i".
-`result`| `string` | No | No | Yes | Description of what you expect to get. For example: "a list of addresses of stores selling the car parts you need".
+`description`| `string` | Yes | No | Yes | Description of the task you want the AI agent to perform, e.g., _find an oil filter for a BMW 320i_.
+`result`| `string` | No | No | Yes | Description of what you expect to get, e.g., _a list of addresses of stores selling the car parts you need_.
 
 ## AIAgentModel object {#AIAgentModel}
 

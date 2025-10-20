@@ -7,7 +7,7 @@ description: This article describes the syntax of the S3 Select query language.
 
 {% note info %}
 
-To be able to make S3 Select requests, contact [support](../../support/overview.md).
+To be able to make S3 Select requests, contact [support]({{ link-console-support }}).
 
 {% endnote %}
 

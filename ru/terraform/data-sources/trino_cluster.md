@@ -50,6 +50,7 @@ data "yandex_trino_cluster" "tirno_cluster_by_id" {
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `service_account_id` (String) [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource. For more information, see [documentation](https://yandex.cloud/docs/managed-trino/concepts/impersonation).
 - `subnet_ids` (Set of String) The list of VPC subnets identifiers which resource is attached.
+- `tls` (Attributes) Configuration for TLS. (see [below for nested schema](#nestedatt--tls))
 - `version` (String) Trino version. Format: "Number".
 - `worker` (Attributes) Configuration of worker instances. (see [below for nested schema](#nestedatt--worker))
 
@@ -111,6 +112,14 @@ Read-Only:
 ### Nested Schema for `retry_policy.exchange_manager.service_s3`
 
 
+
+
+<a id="nestedatt--tls"></a>
+### Nested Schema for `tls`
+
+Read-Only:
+
+- `trusted_certificates` (List of String) Trusted CA-certificates. Each element should contain single self-signed CA-certificate or chain of CA-certificates where first certificate if leaf and last certificate is self-signed root.
 
 
 <a id="nestedatt--worker"></a>

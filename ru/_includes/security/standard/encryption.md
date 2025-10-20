@@ -739,7 +739,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 {% note info %}
 
-При работе в {{ TF }} рекомендуем [заполнять](https://terraform-provider.yandexcloud.net/Resources/lockbox_secret_version) содержимое секрета скриптом. В таком случае содержимое не останется в файле `.tfstate`.
+При работе в {{ TF }} рекомендуем [заполнять]({{ tf-provider-resources-link }}/lockbox_secret_version) содержимое секрета скриптом. В таком случае содержимое не останется в файле `.tfstate`.
 
 {% endnote %}
 

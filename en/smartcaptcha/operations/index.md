@@ -5,10 +5,10 @@ description: This page provides a list of step-by-step guides for {{ captcha-nam
 
 # Step-by-step guides for {{ captcha-full-name }}
 
-- [{#T}](create-captcha.md)
-- [{#T}](delete-captcha.md)
-- [{#T}](get-keys.md)
-- [{#T}](advanced-method.md)
+* [{#T}](create-captcha.md)
+* [{#T}](delete-captcha.md)
+* [{#T}](get-keys.md)
+* [{#T}](advanced-method.md)
 
 
 ## Getting information about a CAPTCHA {#get-info}

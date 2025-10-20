@@ -20,8 +20,8 @@ items:
       - name: Monitoring DB status
         href: operations/monitoring.md
       - name: >-
-          Using {{ ydb-short-name }} via the ydb-mcp server with the Cursor IDE
-          as an example
+          Working with {{ ydb-short-name }} via the ydb-mcp server using the
+          Cursor IDE as an example
         href: operations/ydb-mcp-cursor.md
   - name: Tutorials
     items:
@@ -495,8 +495,8 @@ items:
         href: ./terraform/serverless-database.md
       - name: Creating and editing parameters of a dedicated database
         href: ./terraform/dedicated-database.md
-      - name: Creating row tables in a database
-        href: ./terraform/row-tables.md
+      - name: Creating row-oriented and column-oriented tables in a database
+        href: ./terraform/tables.md
       - name: Creating document tables in a database
         href: ./terraform/dynamodb-tables.md
       - name: Creating a changefeed for a table

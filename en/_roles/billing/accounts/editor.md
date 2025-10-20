@@ -30,17 +30,7 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 * Re-activate subaccounts.
 * Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to subaccounts.
 * [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
-* View [rebate credit](../../../partner/terms.md#rebate) history.
-* Withdraw rebate.
-* View assigned [specializations](../../../partner/specializations/index.md).
 * View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
-* View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
-* Withdraw referral program [bonuses](../../../partner/program/referral.md#premium).
-* View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
-* View the list of referral links.
-* Create referral links.
-* Activate referral links.
-* Modify referral links.
 
 {% endcut %}
 

@@ -72,6 +72,8 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
@@ -138,15 +140,17 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           * `service_account_id`: ID of the service account you [created earlier](#before-you-begin).
 
-          * `greenplum-enabled`: Transferring {{ GP }} logs.
+          * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
+
+          * `greenplum_enabled`: Transferring {{ GP }} logs.
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
+          * `command_center_enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
-          * `folder-id`: Specify the ID of the folder whose log group you want to use.
+          * `folder_id`: Specify the ID of the folder whose log group you want to use.
 
       1. Validate your {{ TF }} configuration files using this command:
 
@@ -181,6 +185,8 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
       Where:
 
       * `serviceAccountId`: ID of the service account you [created earlier](#before-you-begin).
+
+      * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
 
       * `greenplumEnabled`: Transferring {{ GP }} logs.
 
@@ -314,6 +320,8 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
@@ -380,11 +388,13 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           * `service_account_id`: ID of the service account you [created earlier](#before-you-begin).
 
-          * `greenplum-enabled`: Transferring {{ GP }} logs.
+          * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
+
+          * `greenplum_enabled`: Transferring {{ GP }} logs.
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
+          * `command_center_enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -423,6 +433,8 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
       Where:
 
       * `serviceAccountId`: ID of the service account you [created earlier](#before-you-begin).
+
+      * `enabled`: Manages log transferring. To enable parameters responsible for transferring specific logs, provide the `true` value.
 
       * `greenplumEnabled`: Transferring {{ GP }} logs.
 

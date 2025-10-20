@@ -9,9 +9,15 @@ The main entity used in {{ mmy-name }} is a _cluster_.
 
 Each cluster consists of one or more _DB hosts_, which are virtual machines with DBMS servers deployed. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
 
-* A cluster with multiple hosts is natively [highly available](high-availability.md) because hosts can step in for one another as the cluster’s primary replica.
+A cluster with two or more hosts is natively [highly available](high-availability.md) because hosts can step in for one another as the cluster’s primary replica. To learn more about how the number of hosts affects cluster availability, see [this section](high-availability.md#host-configuration).
 
-* A single-host cluster will cost less, yet high availability will not be guaranteed.
+The minimum number of hosts in a cluster depends on the selected [disk type](storage.md). The default cluster configuration offered in the management console includes two hosts.
+
+{% note warning %}
+
+We do not recommend creating a single-host cluster. While being cheaper, such a cluster will not ensure high availability.
+
+{% endnote %}
 
 
 VMs for cluster hosts can be hosted on:
@@ -35,7 +41,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
     * `PRODUCTION`: For stable versions of your apps.
-    * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+    * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
 
 A cluster created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../vpc/).
