@@ -181,7 +181,7 @@
    ```bash
    kubectl --namespace ns get secret k8s-secret \
      --output=json | \
-     jq --raw-output ."data"."password" | \
+     jq --raw-output '."data"."password"' | \
      base64 --decode
    ```
 
