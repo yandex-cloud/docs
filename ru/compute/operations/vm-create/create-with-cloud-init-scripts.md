@@ -235,7 +235,8 @@ description: Следуя данной инструкции, вы сможете
     - <публичный_SSH-ключ>
   write_files:
     - path: "/usr/local/etc/yc-install.sh"
-      permissions: "755"
+      permissions: "0755"
+      owner: <имя_пользователя>:<имя_пользователя>
       content: |
         #!/bin/bash
 
@@ -251,6 +252,9 @@ description: Следуя данной инструкции, вы сможете
         # Save YC params
         echo "Saving YC params to the ~/.bashrc"
         cat << EOF >> $HOME/.bashrc
+          export PATH="$HOME/yandex-cloud/bin:$PATH"
+          export YC_CLI_VM_ID="${VM_ID:-unknown}"
+        EOF
       defer: true
   runcmd:
     - [su, <имя_пользователя>, -c, "/usr/local/etc/yc-install.sh"]
