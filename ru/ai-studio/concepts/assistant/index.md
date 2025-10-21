@@ -6,6 +6,7 @@ keywords:
   - keyword: AI ассистент
   - keyword: ИИ ассистент
   - keyword: чат-бот
+noIndex: true
 ---
 
 # {{ assistant-api }}

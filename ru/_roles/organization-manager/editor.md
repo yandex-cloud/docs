@@ -43,3 +43,5 @@
 {% endcut %}
 
 Включает разрешения, предоставляемые ролями `organization-manager.viewer`, `organization-manager.federations.editor`, `organization-manager.userpools.editor`, `organization-manager.samlApplications.editor`, `organization-manager.oauthApplications.editor` и `organization-manager.groups.editor`.
+
+Для настройки сопоставления групп пользователей роль должна быть назначена на те группы в Identity Hub, которые вы будете сопоставлять.

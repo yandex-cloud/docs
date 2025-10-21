@@ -72,15 +72,15 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
           These restrictions do not apply to [signed parameters](#signed-parameters) from the token.
 
-        * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want disabled when embedding a chart. Available in **Enable all** mode.
-        * (Optional) **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
-        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: `XLSX`, `CSV`, or `Markdown`.
+        * Optionally, **Disabled parameters**: Specify the names of unsigned parameters you want disabled when embedding a chart. Available in **Enable all** mode.
+        * Optionally, **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
+        * Optionally, **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, hover over the chart, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in its top-right corner, and select the format: `XLSX`, `CSV`, or `Markdown`.
 
       - For a dashboard {#dashboard}
 
         * **Name**: Enter a name for the embedding.
         * **Key**: Select a previously created key for embedding.
-        * (Optional) **Disabled parameters**: Specify the names of [unsigned parameters](#unsigned-parameters) you want disabled when embedding a dashboard. These restrictions do not apply to [signed parameters](#signed-parameters) from the token. By default, you can provide any parameters in the embedding link. If they are [specified](../operations/dashboard/add-parameters.md) in the dashboard settings, they can affect charts and selectors.
+        * Optionally, **Disabled parameters**: Specify the names of [unsigned parameters](#unsigned-parameters) you want disabled when embedding a dashboard. These restrictions do not apply to [signed parameters](#signed-parameters) from the token. By default, you can provide any parameters in the embedding link. If they are [specified](../operations/dashboard/add-parameters.md) in the dashboard settings, they can affect charts and selectors.
 
           {% note info %}
 
@@ -88,7 +88,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
           {% endnote %}
 
-        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: `XLSX`, `CSV`, or `Markdown`.
+        * Optionally, **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, hover over the chart, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in its top-right corner, and select the format: `XLSX`, `CSV`, or `Markdown`.
 
       {% endlist %}
 

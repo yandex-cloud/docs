@@ -3,11 +3,34 @@
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+
+- CLI {#cli}
+    
+    {% include [cli-install](../../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    
+    To get a list of cluster jobs:
+
+    1. See the description of the CLI command for getting a list of jobs:
+
+        ```bash
+        yc managed-spark job list --help
+        ```
+    
+    1. Get the list of jobs by running this command:
+
+        ```bash
+        yc managed-spark job list \
+          --cluster-id <cluster_ID>
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-spark/operations/cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../managed-spark/api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../managed-spark/api-ref/authentication.md) and save it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -29,8 +52,8 @@
             yandex.cloud.spark.v1.JobService.List
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](../../managed-spark/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-spark/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../managed-spark/api-ref/grpc/Job/list.md#yandex.cloud.spark.v1.ListJobsResponse) to make sure the request was successful.
+    1. View the [server response](../../managed-spark/api-ref/grpc/Job/list.md#yandex.cloud.spark.v1.ListJobsResponse) to make sure your request was successful.
 
 {% endlist %}

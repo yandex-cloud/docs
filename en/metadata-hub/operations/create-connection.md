@@ -87,7 +87,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -162,7 +162,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -237,7 +237,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -310,7 +310,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -384,7 +384,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -457,7 +457,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -566,7 +566,7 @@ You can create connections of the following types:
 
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
 
       * `--password`: User password.
       
@@ -721,7 +721,7 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
       
       * `--password`: User password.
       
@@ -731,7 +731,7 @@ You can create connections of the following types:
       
         Make sure the user has the required access permissions.
         
-      * `--ca-certificate`: Path to your CA TLS certificate file.
+      * `--ca-certificate`: Path to your TLS CA certificate file.
         
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
 
@@ -872,7 +872,7 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
       
       * `--password`: User password.
       
@@ -882,7 +882,7 @@ You can create connections of the following types:
       
         Make sure the user has the required access permissions.
         
-      * `--ca-certificate`: Path to your CA TLS certificate file.
+      * `--ca-certificate`: Path to your TLS CA certificate file.
       
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
 
@@ -1019,13 +1019,13 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
       
       * `--password`: User password.
       
       * `--coordinator`: Coordinator parameters in `<host>:<port>` format.
       
-      * `--ca-certificate`: Path to your CA TLS certificate file.
+      * `--ca-certificate`: Path to your TLS CA certificate file.
       
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
 
@@ -1098,13 +1098,13 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username for connection to the cluster.
+      * `--user`: Username to connect to the cluster.
       
       * `--password`: User password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
-      * `--ca-certificate`: Path to your CA TLS certificate file.
+      * `--ca-certificate`: Path to your TLS CA certificate file.
       
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
 

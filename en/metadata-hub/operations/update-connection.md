@@ -36,7 +36,7 @@ To change connection settings:
           yc metadata-hub connection-manager connection update <database_type> --help
           ```
 
-          Possible database types: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `opensearch`, `valkey`, `greenplum`.
+          Supported database types: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `opensearch`, `valkey`, and `greenplum`.
 
       1. Update your connection by running this command:
       
@@ -60,7 +60,7 @@ To change connection settings:
 
           You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 
-      1. You can update the list of databases for all connections except {{ mos-name }} connections by running this comand:
+      1. You can update the list of databases for all connections except {{ mos-name }} connections by running this command:
 
           ```bash
           yc metadata-hub connection-manager connection update <database_type> <connection_ID> \
@@ -79,7 +79,7 @@ To change connection settings:
           yc metadata-hub connection-manager connection update <database_type> --help
           ```
 
-          Possible database types: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+          Supported database types: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `redis`, `opensearch`, `trino`, `valkey`, and `greenplum`.
 
       1. Update your connection by running this command:
       
@@ -109,7 +109,7 @@ To change connection settings:
 
       1. You can also update the following:
 
-          * List of hosts for all connections except {{ mos-name }} connections, by running this comand:
+          * List of hosts for all connections except {{ TR }} connections by running this command:
 
             ```bash
             yc metadata-hub connection-manager connection update <database_type> <connection_ID> \
@@ -124,7 +124,7 @@ To change connection settings:
 
             {% endnote %}
 
-          * Coordinator parameters for connecting to {{ TR }}, by running this command:
+          * Coordinator parameters for connecting to {{ TR }} by running this command:
 
             ```bash
             yc metadata-hub connection-manager connection update trino <connection_ID> \
@@ -133,7 +133,7 @@ To change connection settings:
 
             Where `--coordinator` stands for coordinator parameters in `<host>:<port>` format.
 
-          * List of databases for all connections except {{ TR }} and {{ OS }} connections, by running this comand:
+          * List of databases for all connections except {{ TR }} and {{ OS }} connections by running this command:
 
             ```bash
             yc metadata-hub connection-manager connection update <database_type> <connection_ID> \

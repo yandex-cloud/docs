@@ -60,7 +60,7 @@
     * `spark.sql.extensions` в значение `io.delta.sql.DeltaSparkSessionExtension`;
     * `spark.sql.catalog.spark_catalog` в значение `org.apache.spark.sql.delta.catalog.DeltaCatalog`;
     * `spark.delta.logStore.s3a.impl` в значение `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`;
-    * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` в значение Document API эндпоинта, доступное на вкладке **{{ ui-key.yacloud.ydb.database.switch_overview}}** вашей базы данных в [консоли управления]({{ link-console-cloud }});
+    * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` в значение Document API эндпоинта, доступное на вкладке **{{ ui-key.yacloud.common.overview }}** вашей базы данных в [консоли управления]({{ link-console-cloud }});
     * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` в значение идентификатора секрета {{ lockbox-short-name }}, который доступен на вкладке **{{ ui-key.yacloud.lockbox.label_section-overview}}** вашего {{ lockbox-short-name }} в [консоли управления]({{ link-console-cloud }}).
 
 Теперь вы можете использовать Delta Lake в мультикластерном режиме.
@@ -186,7 +186,7 @@
     * `sa_name` — имя сервисного аккаунта, который будет создан для работы функций.
     * `cf_ddb_name` — имя Serverless-функции для очистки базы данных, должно быть уникальным в каталоге.
     * `cf_s3_name` — имя Serverless-функции для очистки бакетов, должно быть уникальным в каталоге.
-    * `docapi_endpoint` — Document API эндпоинт. Доступен на вкладке **{{ ui-key.yacloud.ydb.database.switch_overview}}** вашей базы данных {{ ydb-short-name }} в [консоли управления]({{ link-console-cloud }}).
+    * `docapi_endpoint` — Document API эндпоинт. Доступен на вкладке **{{ ui-key.yacloud.common.overview }}** вашей базы данных {{ ydb-short-name }} в [консоли управления]({{ link-console-cloud }}).
     * `docapi_table` — имя таблицы Delta Lake для которой будет выполняться очистка.
     * `s3_prefix_file` — путь к файлу `delta-prefixes.txt` в бакете {{ objstorage-name }}, например `s3://<имя_бакета>/delta-prefixes.txt`.
 

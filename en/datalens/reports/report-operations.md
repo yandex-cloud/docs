@@ -12,6 +12,7 @@ description: Follow this guide to learn how to work with a report.
 In this section, you will learn how to work with a report:
 
 * [Creating a report](#create-report)
+* [Adding a description](#report-add-description)
 * [Adding, moving, or deleting pages](#report-pages)
 * [Configuring widgets](#report-widget-settings)
 * [Configuring a report](#report-settings)
@@ -58,6 +59,31 @@ There is a number of ways to create a report:
 
 
 You can [export](#report-export) the report you created.
+
+## Adding a description {#report-add-description}
+
+To add a description to a report:
+
+1. Click ![image](../../_assets/console-icons/circle-info.svg) at the top of the screen.
+1. Enter the description and click **Save**.
+
+   {% cut "Adding a description to a report" %}
+
+   ![add-description](../../_assets/datalens/report/report-add-description.png)
+   
+   {% endcut %}
+
+1. In the top-right corner, click **Save**.
+
+Now all users will see the ![image](../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the report. Clicking it will open the **Report info** window with the description.
+
+{% cut "Viewing a report description" %}
+
+![description](../../_assets/datalens/report/report-description.png)
+
+{% endcut %}
+
+To remove a report description, save an empty description in the **Report info** window. Users will no longer see the ![image](../../_assets/console-icons/circle-info.svg) icon.
 
 ## Adding, moving, or deleting pages {#report-pages}
 

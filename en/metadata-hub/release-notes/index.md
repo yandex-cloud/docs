@@ -11,7 +11,7 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 #### New features {#new-features-sep25}
 
-* [{{ connection-manager-name }}](../concepts/connection-manager.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); added support for YC CLI.
+* [{{ connection-manager-name }}](../concepts/connection-manager.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); added support for YC CLI and Terraform.
 
 
 * [{{ metastore-full-name }}](../concepts/metastore.md) has entered the [General Availability stage](../../overview/concepts/launch-stages.md); the use of clusters is now [charged](../pricing.md).
@@ -113,7 +113,7 @@ Now you can manage connections to the following databases:
 
 #### New features {#new-features-october}
 
-* Added new features for integrating {{ connection-manager-name }} with [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md): When creating a transfer, you can now use a drop-down list of available connections.
+* Added a new feature for integrating {{ connection-manager-name }} with [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md): when creating a transfer, you can now use a drop-down list of available connections.
 * {{ schema-registry-name }} now supports authentication with [API keys](../../iam/concepts/authorization/api-key.md) so you no longer need to regularly update your secret for authentication.
 
 #### Fixed issues {#problems-solved-october}

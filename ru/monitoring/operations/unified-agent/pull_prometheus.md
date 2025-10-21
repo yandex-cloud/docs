@@ -3,7 +3,7 @@ sourcePath: ru/monitoring_includes/operations/unified-agent/pull_prometheus.md
 ---
 # Поставка метрик пользовательских приложений
 
-{{unified-agent-full-name}} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
+{{ unified-agent-full-name }} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
 Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
 
@@ -17,7 +17,7 @@ sourcePath: ru/monitoring_includes/operations/unified-agent/pull_prometheus.md
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен {{unified-agent-short-name}}.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен {{ unified-agent-short-name }}.
 
 1. Запустите тестовое Python-приложение, предоставляющее метрики в формате {{ prometheus-name }}.
 
@@ -148,9 +148,9 @@ sourcePath: ru/monitoring_includes/operations/unified-agent/pull_prometheus.md
        * `url` — публичный адрес ВМ с тестовым приложением, предоставляющим метрики.
        * `metric_name_label` — определяет, в какую метку агент записывает название метрики для данных {{ prometheus-name }}. По умолчанию используется метка `name`, что может вызвать конфликт, если ваше приложение уже использует эту метку. В этом случае при записи метрик появляется ошибка:
 
-       ```bash
-       label name 'name' is reserved
-       ```
+         ```bash
+         label name 'name' is reserved
+         ```
 
        Чтобы избежать ошибки, укажите любое другое уникальное имя.
 

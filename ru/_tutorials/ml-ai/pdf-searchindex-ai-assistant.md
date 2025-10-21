@@ -1,6 +1,6 @@
 # Создать AI-ассистента с RAG по PDF-файлам со сложным форматированием
 
-{% include [assistants-preview-stage](../../_includes/ai-studio/assistants-preview-stage.md) %}
+{% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 В этом практическом руководстве приведен пример создания [AI-ассистента](../../ai-studio/concepts/assistant/index.md), который выполняет поиск по информации в источнике, содержащем сложное форматирование и табличные данные, и анализирует полученные данные с помощью [модели генерации текста](../../ai-studio/concepts/generation/models.md) {{ gpt-pro }} RC.
 

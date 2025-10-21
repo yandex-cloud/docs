@@ -45,6 +45,7 @@ When [creating a pivot table](#create-diagram), you can use these advanced setti
 * [Adding a tooltip to table headers](#hint-column).
 * [Setting the width of table columns and rows](#set-column-width).
 * [Freezing table columns](#column-fixation).
+* [Managing the number of rows](#pagination-limit).
 * [Adding rows with subtotals](#add-totals).
 * [Setting field fill color](#set-field-color).
 * [Adding a linear indicator to a column with a measure](#add-linear-indicator).
@@ -137,6 +138,27 @@ You can only freeze columns generated from dimensions in the **Rows** section.
 1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
 1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
 1. Click **Apply**.
+
+### Managing the number of rows {#pagination-limit}
+
+Use the **Pagination** and **Limit** [settings](../concepts/chart/settings.md#common-settings) to manage the number of rows displayed on the screen and exported from the chart. To edit the number of rows:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable pagination and set the number of rows per page or disable pagination.
+1. Click **Apply**.
+
+By default, tables come with pagination on and a limit of `100` rows per page. With pagination off, the whole table will be displayed within the [display limits](../concepts/limits.md#datalens-chart-data-limits). Pagination is not available if only one page is displayed or there is no data.
+
+With pagination on, only table data from the current page will be exported. To save the whole table within the [chart export size limit](../concepts/limits.md#datalens-common-limits), disable pagination.
+
+### Enabling pagination {#pagination}
+
+Enable pagination if your table has many rows:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable **Pagination** and click **Apply**.
+
+This option is not available if only one page is displayed or there is no data.
 
 ### Adding rows with subtotals {#add-totals}
 

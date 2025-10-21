@@ -37,6 +37,7 @@ To simplify the comparison of different values and make the information easier t
 * [Setting up table data sorting by multiple columns](#sorting-columns)
 * [Setting up column width](#set-column-width)
 * [Freezing table columns](#column-fixation)
+* [Managing the number of rows](#pagination-limit)
 * [Adding a row with totals](#add-totals)
 * [Preserving spaces and line breaks](#spaces-and-line-breaks)
 * [Adding row color](#add-column-color)
@@ -47,7 +48,7 @@ To simplify the comparison of different values and make the information easier t
 
 Wizard<br/> section| Description
 ----- | ----
-Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
+Columns | Dimensions and measures that will be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
 Colors | Measure. Affects color fill of all cells within a row. It may only contain one measure.
 Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Filters | Dimension or measure. Used as a filter.
@@ -140,6 +141,31 @@ To set the width of any column to `Auto`, click **Reset**.
 1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
+### Managing the number of rows {#pagination-limit}
+
+Use the **Pagination** and **Limit** [settings](../concepts/chart/settings.md#common-settings) to manage the number of rows displayed on the screen and exported from the chart. To edit the number of rows:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable pagination and set the number of rows per page or disable pagination.
+1. Click **Apply**.
+
+By default, tables come with pagination on and a limit of `100` rows per page. With pagination off, the whole table will be displayed within the [display limits](../concepts/limits.md#datalens-chart-data-limits). Pagination is not available if only one page is displayed or there is no data.
+
+With pagination on, only table data from the current page will be exported. To save the whole table within the [chart export size limit](../concepts/limits.md#datalens-common-limits), disable pagination.
+
+
+If you need to export a large amount of data, use [background export](../concepts/chart/data-export.md#background-export).
+
+
+### Enabling pagination {#pagination}
+
+Enable pagination if your table has many rows:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable **Pagination** and click **Apply**.
+
+This option is not available if only one page is displayed or there is no data.
+
 ### Adding a row with totals {#add-totals}
 
 1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
@@ -152,7 +178,7 @@ The **Total** row will now appear in the table. Values in the row are calculated
 * Values in the **Total** row are calculated only for measures. For dimensions, the row is empty.
 * If the **Pagination** option is selected, the **Total** row is placed on the last page.
 * If a table consists of a single entry, the **Total** row is not displayed.
-* The results calculated using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) are not displayed in the row with totals.
+* The row with totals does not display results calculated using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md).
 
 {% endnote %}
 

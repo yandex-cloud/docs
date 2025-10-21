@@ -20,7 +20,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -41,7 +41,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
       If you make no assignment, by default the disk will get the same generation assigned as the source snapshot.
 
-  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 

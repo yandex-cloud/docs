@@ -43,7 +43,4 @@ description: In this article, you will learn how to work with {{ billing-name }}
 ## Analyzing {{ yandex-cloud }} service usage {#details}
 
 * [{#T}](check-bill-history.md)
-* [{#T}](check-charges.md)
-* [{#T}](get-folder-report.md)
-* [{#T}](dashboard.md)
-* [{#T}](query-integration.md)
+* [{#T}](charges-index.md)

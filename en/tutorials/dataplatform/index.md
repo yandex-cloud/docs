@@ -39,7 +39,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
 * [{#T}](airflow-test-smtp-notification.md)
-
+* [{#T}](airflow-spark-min.md)
 
 ## {{ CH }} {#clickhouse}
 
@@ -216,6 +216,9 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ msp-full-name }} {#spark}
 
 * [{#T}](airflow-and-spark.md)
+* [{#T}](spark-simple-rw-job.md)
+* [{#T}](metastore-and-spark.md)
+* [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -128,7 +128,7 @@ To use the AWS tools, follow these steps:
     ```
 
     This will create the `~/.aws/credentials` and `~/.aws/config` files (`C:\Users\USERNAME\.aws\credentials` and `C:\Users\USERNAME\.aws\config` on Windows).
-1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. For `--endpoint`, specify the Document API endpoint available in the **{{ ui-key.yacloud.ydb.database.switch_overview }}** tab of your database in the [management console]({{ link-console-main }}).
+1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. For `--endpoint`, specify the Document API endpoint available in the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-main }}).
 
     ```bash
     aws dynamodb list-tables \

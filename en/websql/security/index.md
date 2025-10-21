@@ -32,6 +32,8 @@ You can use {{ websql-full-name }} roles (_service roles_) and {{ yandex-cloud }
 
 The list below shows all roles used for access control in {{ websql-name }}.
 
+{% include [mermaid websql roles](../../_mermaid/roles/websql.md) %}
+
 #### websql.executedQueries.auditor {#websql-executedQueries-auditor}
 
 {% include [websql.executedQueries.auditor](../../_roles/websql/executedQueries/auditor.md) %}

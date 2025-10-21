@@ -1208,6 +1208,12 @@ items:
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
       - name: Automating operations using {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
+      - name: Working with an {{ objstorage-name }} table from a PySpark job
+        href: dataplatform/spark-simple-rw-job.md
+      - name: '{{ msp-full-name }} integration with {{ metastore-full-name }}'
+        href: dataplatform/metastore-and-spark.md
+      - name: Running a PySpark job using {{ maf-full-name }}
+        href: dataplatform/airflow-spark-min.md
       - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
   - name: Microsoft products in {{ yandex-cloud }}

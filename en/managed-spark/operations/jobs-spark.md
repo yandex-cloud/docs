@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ msp
 
 # Managing Spark jobs
 
-## Create a job {#create}
+## Creating a job {#create}
 
 {% note warning %}
 
@@ -20,11 +20,11 @@ To create a job:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
     1. Enter the job name.
     1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_spark-job-type }}`.
-    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** field, specify the path to the main JAR application file in the following format:
+    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** field, specify the path to the application's main JAR file in the following format:
 
         {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
@@ -33,8 +33,8 @@ To create a job:
 
         {% include [job-properties-requirements](../../_includes/managed-spark/job-properties-requirements.md) %}
 
-    1. (Optional) Specify the paths to the JAR files, if any.
-    1. (Optional) Configure advanced settings:
+    1. Optionally, specify the paths to JAR files, if any.
+    1. Optionally, configure advanced settings:
 
         * Specify paths to the required files and archives.
         * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify component properties as `key-value` pairs.
@@ -44,7 +44,7 @@ To create a job:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -105,9 +105,9 @@ To create a job:
             * `file_uris`: Paths to files.
             * `file_uris`: Paths to archives.
             * `properties`: Component properties as `key:value` pairs.
-            * `main_jar_file_uri`: Path to the main JAR application file in the following format:
+            * `main_jar_file_uri`: Path to the application's main JAR file in the following format:
 
-                {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
+                {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
             * `main_class`: Main class name.
             * `packages`: Maven coordinates of the JAR files in `groupId:artifactId:version` format.
@@ -116,7 +116,7 @@ To create a job:
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -128,7 +128,7 @@ To create a job:
 
 {% include [jobs-list](../../_includes/managed-spark/jobs-list.md) %}
 
-## Get general information about the job {#get-info}
+## Get general info about a job {#get-info}
 
 {% include [jobs-get-info](../../_includes/managed-spark/jobs-get-info.md) %}
 

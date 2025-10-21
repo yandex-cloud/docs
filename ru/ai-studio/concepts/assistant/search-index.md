@@ -1,3 +1,9 @@
+---
+title: Поисковые индексы в {{ assistant-api }}
+description: В этом разделе описаны виды поисковых индексов и их применение в {{ assistant-api }}.
+noIndex: true
+---
+
 # Поисковые индексы
 
 {% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}

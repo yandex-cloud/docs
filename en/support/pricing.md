@@ -1,6 +1,6 @@
 ---
 title: Technical support pricing
-description: This article discusses the support pricing policy.
+description: This article covers the support pricing policy.
 editable: false
 ---
 
@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}
@@ -32,7 +32,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-The cost depends on the service plan selected. The plan you choose covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans activated. For the services available under various plans, see [Requesting technical support](overview.md).
+The cost depends on the service plan you choose, which covers your organization and can only be changed by its owner or administrator. You can use one billing account to pay for technical support of multiple organizations that may have different support service plans. For the services available under various plans, see [Requesting technical support](overview.md).
 
 
 
@@ -42,11 +42,11 @@ Service plan | Basic           | Business                       | Premium
  **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Upon request
 
 
-The cost of support is calculated based on the [cost of paid resources consumed](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
+The support cost is calculated based on the [cost of consumed paid resources](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
 
 ### Basic {#base}
 
-The basic service plan is provided to all {{ yandex-cloud }} users at no separate charge. It is suitable for personal and research projects.
+The basic service plan is provided to all {{ yandex-cloud }} users at no charge. It is suitable for personal and research projects.
 
 ### Business {#business}
 
@@ -63,7 +63,7 @@ The price is calculated based on the amount of resources consumed over the curre
 
 {% note warning %}
 
-Starting October 1, 2025, calculating the support fee (5% of the cost of consumed resources) will include your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. Calculating the support fee (5% of the cost of consumed resources) will not include the cost of {{ marketplace-name }} products. See [this example of cost calculation](#business-example-one-ba-cvos).
+Starting October 1, 2025, calculating the support fee (5% of the cost of consumed resources) will include your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products will be excluded. See [this example of cost calculation](#business-example-one-ba-cvos).
 
 {% endnote %}
 
@@ -103,9 +103,9 @@ Starting October 1, 2025, calculating the support fee will include a committed v
 
 ### Premium {#premium}
 
-The [Premium plan](/support) covers all services of other plans and can be further enhanced to best suit your requirements. It may include troubleshooting recommendations for interactions of {{ yandex-cloud }} services with third-party software, consulting sessions with a dedicated support engineer based on your {{ yandex-cloud }} usage scenario, and services of a personal technical manager.
+The [Premium plan](/support) includes all features of other plans and can be further enhanced to best suit your requirements. It may include troubleshooting tips for using {{ yandex-cloud }} services with third-party software, advice of a dedicated support engineer based on your {{ yandex-cloud }} usage scenario, and services of a personal technical manager.
 
-For a cost estimate for the _Premium_ plan, contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).
+To learn how much the _Premium_ plan may cost, contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).
 
 
 ## How to change your service plan {#change-service-plan}

@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
   
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
   1. Задайте нужный размер диска.
 
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
   

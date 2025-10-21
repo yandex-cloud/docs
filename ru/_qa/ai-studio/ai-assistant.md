@@ -66,7 +66,9 @@
 
 #### Тарифицируются ли создание поисковых индексов, загрузка файлов через Files API, хранение файлов и индексов? {#is-until-ttl-expires-charged}
 
-{{ assistant-api }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Создание и хранение файлов, тредов и индексов не тарифицируется.
+{% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
+
+Создание и хранение файлов, тредов и индексов не тарифицируется.
 
 ## Работа с индексами {#indexes}
 

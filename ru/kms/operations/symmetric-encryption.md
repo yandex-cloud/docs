@@ -1,12 +1,18 @@
 # Симметричное шифрование данных
 
-В этом разделе вы узнаете, как в {{ kms-short-name }} шифровать и расшифровывать данные небольшого размера (до 32 КБ) с помощью CLI и API по схеме [симметричного шифрования](../concepts/symmetric-encryption.md). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../tutorials/encrypt/index.md)
+В этом разделе вы узнаете, как в {{ kms-short-name }} шифровать и расшифровывать данные небольшого размера (до 32 КБ) с помощью CLI, {{ TF }} и API по схеме [симметричного шифрования](../concepts/symmetric-encryption.md). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../tutorials/encrypt/index.md)
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 ## Зашифруйте данные {#encryption}
+
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../concepts/consistency.md), становятся применимыми для шифрования с задержкой до трех часов.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -55,6 +61,12 @@
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
+
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../concepts/consistency.md), становятся применимыми для расшифрования с задержкой до трех часов.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

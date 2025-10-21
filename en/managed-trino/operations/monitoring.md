@@ -1,9 +1,9 @@
 ---
-title: Monitoring cluster state {{ mtr-name }}
+title: Monitoring the cluster state {{ mtr-name }}
 description: In this tutorial, you will learn how to monitor the state of {{ mtr-name }} clusters.
 ---
 
-# Monitoring cluster state {{ mtr-name }}
+# Monitoring the cluster state {{ mtr-name }}
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,9 +13,9 @@ Charts are updated every 15 seconds.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster state {#monitoring-cluster}
+## Monitoring the cluster state {#monitoring-cluster}
 
-To view detailed info on the state of a {{ mtr-name }} cluster:
+To view detailed information on the state of a {{ mtr-name }} cluster:
 
 {% list tabs group=instructions %}
 
@@ -77,7 +77,7 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ mtr-name }} — Cluster Overview**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -89,4 +89,4 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-kafka-ref.md).
+For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-trino-ref.md).

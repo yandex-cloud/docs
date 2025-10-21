@@ -1,6 +1,6 @@
 ---
 title: '{{ maf-full-name }} use cases'
-description: Various {{ maf-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ maf-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ maf-name }} tutorials
@@ -10,6 +10,7 @@ description: Various {{ maf-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](data-processing-automation.md)
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](spark-automation.md)
+* [{#T}](airflow-spark-min.md)
 
 ## Other tutorials {#other}
 

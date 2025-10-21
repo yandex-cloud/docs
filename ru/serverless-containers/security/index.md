@@ -23,6 +23,8 @@
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ serverless-containers-name }}.
 
+{% include [serverless-containers](../../_mermaid/roles/serverless-containers.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### serverless-containers.auditor {#serverless-containers-auditor}

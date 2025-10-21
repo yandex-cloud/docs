@@ -143,7 +143,7 @@ ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 Чтобы устранить ошибки:
 
 1. [Добавьте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) в кластере-приемнике с доступом к базе данных для переноса и таким же именем, что и у пользователя, с помощью которого был создан логический дамп в кластере-источнике.
-1. [Восстанавливайте логической дамп](../../managed-postgresql/tutorials/data-migration.md#restore) с помощью этого пользователя или [выдайте его привилегии](../../managed-postgresql/operations/grant.md#grant-privilege) пользователю, с помощью которого вы восстанавливаете логической дамп.
+1. [Восстанавливайте логический дамп](../../managed-postgresql/tutorials/data-migration.md#restore) с помощью этого пользователя или [выдайте его привилегии](../../managed-postgresql/operations/grant.md#grant-privilege) пользователю, с помощью которого вы восстанавливаете логический дамп.
 
 #### Что делать, если при выполнении логической репликации возникает ошибка `replication slot already exists`? {#repl-slot-exists}
 
@@ -230,3 +230,29 @@ ERROR: cannot execute INSERT in a read-only transaction
 #### Что делать, если в логах отображается ошибка `too many connections for role "monitor"`? {#monitor-role-error}
 
 Пользователь `monitor` зарезервирован для нужд мониторинга в кластере {{ mpg-name }}. Сообщения об исчерпании лимита подключений для этого пользователя можно игнорировать.
+
+#### Почему установка нескольких расширений в CLI заканчивается ошибкой? {#cli-extensions-errors}
+
+Установка нескольких расширений в CLI может завершиться одной из ошибок:
+
+* `ERROR: accepts 1 arg(s), received 2`
+
+   Ошибка может возникать из-за неправильного формата команды.
+
+   Решение: проверьте, что все расширения перечислены без пробела, например:
+
+   ```bash
+   {{ yc-mdb-pg }} database update db1 --cluster-id {{ cluster-id }} --extensions cube,pg_logic,timescaledb
+   ```
+
+* `ERROR: rpc error: code = InvalidArgument desc = Invalid extensions '<имя_расширения>', allowed extension: <список_расширений>`
+
+  Ошибка может возникать при несовместимости одного из расширений в списке с версией {{ PG }} в кластере.
+
+  Решение: проверьте совместимость указанных в команде расширений в [списке поддерживаемых расширений](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql).
+
+* `ERROR: rpc error: code = InvalidArgument desc = The specified extension '<имя_расширения>' is not present in shared_preload_libraries`
+
+  Ошибка может возникать при отсутствии необходимой библиотеки общего пользования в кластере.
+
+  Решение: проверьте требования к библиотекам общего пользования в [списке поддерживаемых расширений](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql). Чтобы подключить нужную библиотеку, при [изменении настроек кластера {{ PG }}](../../managed-postgresql/operations/update.md#change-postgresql-config) укажите ее имя в [параметре Shared preload libraries](../../managed-postgresql/concepts/settings-list.md#setting-shared-libraries).

@@ -1,5 +1,5 @@
 ---
-title: Creating a {{ SPRK }} cluster
+title: Creating an {{ SPRK }} cluster
 description: Each {{ SPRK }} cluster contains computing resources to run Spark applications.
 keywords:
   - creating an {{ SPRK }} cluster
@@ -7,7 +7,7 @@ keywords:
   - '{{ SPRK }}'
 ---
 
-# Creating a {{ SPRK }} cluster
+# Creating an {{ SPRK }} cluster
 
 Each {{ SPRK }} cluster contains computing resources to run Spark applications.
 
@@ -17,7 +17,7 @@ To create a {{ SPRK }} cluster, your {{ yandex-cloud }} account needs the follow
 
 * [managed-spark.admin](../security.md#managed-spark-admin): To create a cluster.
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To assign a service account to a cluster.
 
 Make sure to assign the `managed-spark.integrationProvider` and `storage.editor` roles to the cluster service account. The cluster will thus get the permissions it needs to work with user resources.
 
@@ -46,7 +46,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         1. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 
-            Make sure to assign the `managed-spark.integrationProvider` role to the service account.
+            Make sure to assign the `managed-spark.integrationProvider` role to this service account.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
 
@@ -55,7 +55,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
        * Driver configuration: Number of driver hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
        * Executor configuration: Number of executor hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
 
-    1. Configure additional cluster settings, if required:
+    1. Specify additional cluster settings, if required:
         
         1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** and **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}**: Pip and deb package names for installing additional libraries and applications.
            
@@ -103,7 +103,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
     
         {% include [Terraform cluster additional parameters description](../../_includes/mdb/msp/terraform/cluster-parameters-additional.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -113,7 +113,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-msp }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-msp }}).
 
 - gRPC API {#grpc-api}
 
@@ -123,7 +123,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
     
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
     
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
        ```json
        {
@@ -169,7 +169,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
          "deletion_protection": <deletion_protection>,
          "service_account_id": "<service_account_ID>",
          "logging": {
-           "enabled": <use of_logging>,
+           "enabled": <use_of_logging>,
            "folder_id": "<folder_ID>"
          }
        }
@@ -199,7 +199,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                            * `min_size`: Minimum number of driver hosts.
                            * `max_size`: Maximum number of driver hosts.
 
-                           Specify one of the two parameters: `fixed_scale` or `auto_scale`.
+                           Specify either `fixed_scale` or `auto_scale`.
 
                * `executor`: Host configuration to run {{ SPRK }} executors.
 
@@ -215,7 +215,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                            * `min_size`: Minimum number of executor hosts.
                            * `max_size`: Maximum number of executor hosts.
 
-                           Specify one of the two parameters: `fixed_scale` or `auto_scale`. 
+                           Specify either `fixed_scale` or `auto_scale`. 
 
                * `history_server`: History server parameters.
 
@@ -234,21 +234,21 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
            * `network`: Network settings:
 
-               * `subnet_ids`: Subnet IDs list.
+               * `subnet_ids`: List of subnet IDs.
                * `security_group_ids`: List of security group IDs.
 
-           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
+           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are: `true` or `false`.
 
               Even if it is enabled, one can still connect to the cluster manually and delete it.
 
            * `service_account_id`: Service account ID.
 
            * `logging`: Logging parameters:
-               * `enabled`: Enables logging. Logs generated by Spark applications will go to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
+               * `enabled`: Enables logging. Logs generated by Spark applications will go to {{ cloud-logging-full-name }}. The possible values are: `true` or `false`.
                * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
                * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-               Specify one of the two parameters: `folder_id` or `log_group_id`.
+               Specify either `folder_id` or `log_group_id`.
 
     1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

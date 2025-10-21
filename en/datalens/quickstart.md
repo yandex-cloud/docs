@@ -32,10 +32,10 @@ To create a connection:
 
    1. In the window that opens, select `Specify manually` for the connection type and provide the following connection parameters:
 
-      * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`
-      * HTTP interface port: `8443` (default)
-      * Username: `samples_ro`
-      * Password: `MsgfcjEhJk`
+      * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`.
+      * HTTP interface port: `8443` (default).
+      * Username: `samples_ro`.
+      * Password: `MsgfcjEhJk`.
 
    1. Enable **Allow subqueries in datasets and queries from charts**.
    1. Click **Check connection** and make sure you get a green check mark.
@@ -200,7 +200,7 @@ To create a dashboard:
 
 Add [filtering](./dashboard/chart-chart-filtration.md) by the `Sales map` chart to the dashboard to filter other charts:
 
-1. Click ![image](../_assets/console-icons/gear.svg) in the top-right corner of the `Sales map` chart.
+1. Hover over the `Sales map` chart and click ![image](../_assets/console-icons/gear.svg) in its top-right corner.
 
    ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)
 

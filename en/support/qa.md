@@ -36,6 +36,19 @@ Technical support is there 24/7.
 
 The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
 
+#### How do I find my request in {{ yandex-cloud }}? {#how-to-find-request}
+
+{% include [where-is-requests](../_includes/support/where-is-requests.md) %}
+
+You can also find a link to your request in:
+* {{ yandex-cloud }} support emails you get at the mailbox specified in your Yandex account.
+* {{ yandex-cloud }} notifications. In the {{ yandex-cloud }} management console, click ![image](../_assets/console-icons/bell.svg)**{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** in the left-hand panel. To quickly jump to your request, follow the link in the notification.
+* SMS and Telegram bot messages, if these notification methods are available and properly [configured](../console/operations/update.md#notifications).
+
+For more information on how to get notifications, see [this guide](../support/notify.md#notification-settings).
+
+If you have the {{ yandex-cloud }} [mobile app](../overview/mobile-app/) installed, you can track your case there. You will see all your requests on the **Support** tab.  
+
 #### How quickly can technical support solve an identified problem? {#resolution-time}
 
 The resolution time will vary case by case depending on the nature of the problem. Problems with apps and services can have various causes. This makes it difficult to estimate how long it will take. The technical support team will work closely with you to troubleshoot your issues as quickly as possible.

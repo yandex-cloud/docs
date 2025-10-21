@@ -19,7 +19,7 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
     1. Перейдите в [консоль управления]({{ link-console-main }}).
     1. Выберите нужный каталог и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Выберите базу данных, к которой планируете сделать запрос.
-    1. В меню слева перейдите в раздел **{{ ui-key.yacloud.ydb.database.switch_overview }}**.
+    1. В меню слева перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
     1. Значение эндпоинта указано в строке **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.
 
         Пример значения эндпоинта `{{ ydb.aws-ep }}`.

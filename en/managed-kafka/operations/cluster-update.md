@@ -11,6 +11,7 @@ After creating a {{ mkf-name }} cluster, you can:
 * [Change the cluster name and description](#change-name-and-description)
 * [Change the class and number of broker hosts](#change-brokers)
 * [Change the {{ ZK }} host class](#change-zookeeper)
+* [Change the {{ kraft-short-name }} host class](#change-kraft)
 * [Change security group and public access settings](#change-sg-set)
 * [Change additional cluster settings](#change-additional-settings)
 * [Change {{ KF }} settings](#change-kafka-settings)
@@ -40,9 +41,9 @@ Learn more about other cluster updates:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change the name and description of a cluster:
+    To change cluster name and description:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -72,7 +73,7 @@ Learn more about other cluster updates:
 
         For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, change the `description` parameter value:
+    1. Edit the `description` parameter in the {{ mkf-name }} cluster's description:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -185,7 +186,7 @@ Learn more about other cluster updates:
 
 You can increase the number of [broker hosts](../concepts/brokers.md) if the following conditions are met:
 
-* The cluster uses {{ KF }} 3.5. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }}](../concepts/kraft.md) protocol; therefore, such clusters always have three {{ KF }} hosts.
+* The cluster uses {{ KF }} with {{ ZK }}. You cannot change the number of broker hosts in clusters with {{ KF }} and the [{{ kraft-short-name }} protocol](../concepts/kraft.md).
 * The cluster contains at least two broker hosts in different availability zones.
 
 You cannot have fewer broker hosts. To comply with cluster [high availability conditions](../concepts/ha-cluster.md), at least three broker hosts are required.
@@ -226,7 +227,7 @@ We recommend changing broker host class only when there is no active workload on
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -354,7 +355,7 @@ We recommend changing broker host class only when there is no active workload on
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Request a list of available host classes:
+    1. Get the list of available host classes:
 
         1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -423,12 +424,6 @@ We recommend changing broker host class only when there is no active workload on
 
 ## Changing the {{ ZK }} host class {#change-zookeeper}
 
-{% note info %}
-
-The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -453,7 +448,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command to update a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -550,7 +545,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
                 Specify the relevant parameters:
                 * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -562,7 +557,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Request a list of available host classes:
+    1. Get the list of available host classes:
 
         1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -624,6 +619,209 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
 {% endlist %}
 
+## Changing the {{ kraft-short-name }} host class {#change-kraft}
+
+{% note info %}
+
+The {{ kraft-short-name }} host class is used only in clusters with {{ KF }} 3.6 or higher.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg), then select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Select a new [**{{ ui-key.yacloud.kafka.section_kraft-resources }}**](../concepts/instance-types.md).
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change the class of {{ kraft-short-name }} hosts:
+
+  1. Get information about the cluster:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster list
+     {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
+     ```
+
+  1. View the description of the CLI command for updating a cluster:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster update --help
+     ```
+
+  1. To change the {{ kraft-short-name }} [host class](../concepts/instance-types.md), run this command:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+       --controller-resource-preset <host_class>
+     ```
+
+  To find out the cluster name or ID, [get a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `kraft.resources` to specify a [new {{ kraft-short-name }} host class](../concepts/instance-types.md):
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
+          ...
+          kraft {
+            resources {
+              resource_preset_id = "<{{ kraft-short-name }}_host_class>"
+              ...
+            }
+          }
+         }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Request a list of available host classes:
+
+        1. Use the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/resourcePresets'
+            ```
+
+        1. View the [server response](../api-ref/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse) to make sure your request was successful.
+
+    1. Change the host class as appropriate:
+
+        1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+            {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+            ```bash
+            curl \
+                --request PATCH \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+                --data '{
+                          "updateMask": "configSpec.kraft.resources.resourcePresetId",
+                          "configSpec": {
+                            "kraft": {
+                              "resources": {
+                                "resourcePresetId": "<{{ kraft-short-name }}_host_class_ID>"
+                              }
+                            }
+                          }
+                        }'
+            ```
+
+            Where:
+
+            * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+                Specify the relevant parameters:
+                * `configSpec.kraft.resources.resourcePresetId`: To change the {{ kraft-short-name }} host class.
+
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+
+        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Get the list of available host classes:
+
+        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/resource_preset_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ResourcePresetService.List
+            ```
+
+        1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse) to make sure your request was successful.
+
+    1. Change the host class as appropriate:
+
+        1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>",
+                      "update_mask": {
+                        "paths": [
+                          "config_spec.kraft.resources.resource_preset_id"
+                        ]
+                      },
+                      "config_spec": {
+                        "kraft": {
+                          "resources": {
+                            "resource_preset_id": "<{{ kraft-short-name }}_host_class_ID>"
+                          }
+                        }
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ClusterService.Update
+            ```
+
+            Where:
+
+            * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+                Specify the relevant parameters:
+                * `config_spec.kraft.resources.resource_preset_id`: To change the {{ kraft-short-name }} host class.
+
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+
+        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
 
 ## Changing security group and public access settings {#change-sg-set}
 
@@ -645,7 +843,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -690,7 +888,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
         * `security_group_ids`: List of cluster security group IDs.
         * `assign_public_ip`: Public access to the cluster, `true` or `false`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -746,7 +944,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
             {% endnote %}
 
-        * `assignPublicIp`: Internet access to the broker hosts, `true` or `false`.
+        * `assignPublicIp`: Access to broker hosts from the internet, `true` or `false`.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -807,7 +1005,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
             {% endnote %}
 
-        * `assign_public_ip`: Internet access to the broker hosts, `true` or `false`.
+        * `assign_public_ip`: Access to broker hosts from the internet, `true` or `false`.
 
         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -842,7 +1040,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     To change additional cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help

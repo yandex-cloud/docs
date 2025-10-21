@@ -8,9 +8,12 @@ Users with this role can:
 * Revoke federated users’ [refresh tokens](../../../iam/concepts/authorization/refresh-token.md).
 * Delete [MFA factors](../../../iam/concepts/users/accounts.md#saml-federation) for federated and [local](../../../iam/concepts/users/accounts.md#saml-federation) user accounts.
 * Reset the verification date for federated and local user accounts.
-* View the list of [user group mappings](../../../organization/concepts/add-federation.md#group-mapping) and info on them.
+* Configure [federated user](../../../iam/concepts/users/accounts.md#saml-federation) group [mapping](../../../organization/concepts/add-federation.md#group-mapping).
+* View the lists of federated user group mappings and info on them, as well as create, edit, and delete such lists.
 * View the list of the organization’s [users](../../../overview/roles-and-resources.md#users), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../../organization/concepts/mfa.md).
 * View the list of [groups](../../../organization/concepts/groups.md) that users are members of.
 * View the [attributes](../../../organization/operations/setup-federation.md#claims-mapping) of federated and local users.
 
 This role includes the `organization-manager.federations.editor` permissions.
+
+To configure user group mapping, the role must be assigned for those Identity Hub groups, which you want to configure mapping for.

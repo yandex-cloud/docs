@@ -5,7 +5,7 @@ description: You can stop and restart a {{ SPRK }} cluster as needed. When stopp
 
 # Stopping and starting a {{ SPRK }} cluster
 
-You can stop and restart a {{ SPRK }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+You can stop and restart an {{ SPRK }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 
 ## Stopping a cluster {#stop-cluster}
 
@@ -13,14 +13,14 @@ You can stop and restart a {{ SPRK }} cluster as needed. When stopped, a cluster
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Find the cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. In the dialog box that opens, confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -42,9 +42,9 @@ You can stop and restart a {{ SPRK }} cluster as needed. When stopped, a cluster
            yandex.cloud.spark.v1.ClusterService.Stop
        ```
 
-       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -56,14 +56,14 @@ You can restart clusters with the `Stopped` status.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
-    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Find the stopped cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+    1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -85,8 +85,8 @@ You can restart clusters with the `Stopped` status.
            yandex.cloud.spark.v1.ClusterService.Start
        ```
 
-       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

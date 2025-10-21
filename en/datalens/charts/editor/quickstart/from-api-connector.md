@@ -67,7 +67,7 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 
    {% note info %}
    
-   You need the **Meta** tab to describe service information about the list of related entities. This information is used to detect what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
+   You need the **Meta** tab to describe service information about the list of related entities. This information is used to figure out what connections and datasets the chart is related to, as well as for the related objects dialog, when copying a workbook and when publishing to Public.
 
    {% endnote %}
 

@@ -60,7 +60,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
     * Set `spark.sql.extensions` to `io.delta.sql.DeltaSparkSessionExtension`.
     * Set `spark.sql.catalog.spark_catalog` to `org.apache.spark.sql.delta.catalog.DeltaCatalog`.
     * Set `spark.delta.logStore.s3a.impl` to `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`.
-    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value available on the **{{ ui-key.yacloud.ydb.database.switch_overview}}** tab of your database in the [management console]({{ link-console-cloud }}).
+    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value available on the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-cloud }}).
     * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value available on the **{{ ui-key.yacloud.lockbox.label_section-overview}}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
 
 You can now use Delta Lake in multi-cluster mode.
@@ -186,7 +186,7 @@ To add these cleanup functions to your cloud:
     * `sa_name`: Name of the service account that will be created to use the functions.
     * `cf_ddb_name`: Name of the serverless database cleanup function; it must be unique within the folder.
     * `cf_s3_name`: Name of the serverless bucket cleanup function; it must be unique within the folder.
-    * `docapi_endpoint`: Document API endpoint. You can find it on the **{{ ui-key.yacloud.ydb.database.switch_overview}}** tab of your {{ ydb-short-name }} database in the [management console]({{ link-console-cloud }}).
+    * `docapi_endpoint`: Document API endpoint. You can find it on the **{{ ui-key.yacloud.common.overview }}** tab of your {{ ydb-short-name }} database in the [management console]({{ link-console-cloud }}).
     * `docapi_table`: Name of the Delta Lake table to clean.
     * `s3_prefix_file`: Path to the `delta-prefixes.txt` file in the {{ objstorage-name }} bucket, e.g., `s3://<bucket_name>/delta-prefixes.txt`.
 

@@ -8,6 +8,12 @@
 
 ## Зашифруйте данные {#encryption}
 
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../../../kms/concepts/consistency.md), становятся применимыми для шифрования с задержкой до трех часов.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -35,6 +41,12 @@
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
+
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../../../kms/concepts/consistency.md), становятся применимыми для расшифрования с задержкой до трех часов.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

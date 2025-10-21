@@ -7,7 +7,7 @@ description: This section contains {{ msp-name }} release notes.
 
 ## September 2025 {#september-2025}
 
-On September 22, 2025, {{ msp-full-name }} moved to the [General Availability](../overview/concepts/launch-stages.md) stage, and started charging for its use according to the [pricing policy](pricing.md).
+On September 22, 2025, {{ msp-full-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md).
 
 ## August 2025 {#august-2025}
 

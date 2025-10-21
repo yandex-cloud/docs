@@ -46,7 +46,7 @@ The connection list only displays those connections to which the user has access
 
       To get only specific connections, provide one or more flags in the command:
 
-      * `--db-type`: Database type. The possible values range `postgresql`, `mysql`, `clickhouse`, `mongodb`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+      * `--db-type`: Database type. Possible values: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
 
       * `--is-manual`: Connections created manually.
 
@@ -89,7 +89,7 @@ The connection list only displays those connections to which the user has access
 
   To get information about a connection:
   
-  1. See the description of the CLI command for getting information about a connection:
+  1. See the description of the CLI command for getting information about a command:
 
       ```bash
       yc metadata-hub connection-manager connection get --help

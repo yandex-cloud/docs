@@ -6,7 +6,7 @@ editable: false
 
 # {{ msp-full-name }} pricing policy
 
-In this section, you can find the {{ msp-full-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ msp-full-name }} are charged based on their pricing plans.
+In this section, you can find the {{ msp-full-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
 
 
@@ -32,7 +32,7 @@ Cluster operation cost is charged per hour. The minimum billing unit is one hour
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 

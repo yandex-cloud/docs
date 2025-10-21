@@ -69,17 +69,7 @@ This will open a form with the ticket ID and a QR code for configuring push noti
 
 To monitor your ticket status, click ![image](../_assets/console-icons/bell.svg) **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** in the left-hand panel. To quickly navigate to the ticket you need, follow the link in the notification.
 
-You can view all submitted tickets you have access to on the {{ support-center-name }} [home page]({{ link-console-support }}) under **{{ ui-key.support-center.tickets.list.title_ticket_table }}**. 
-
-To quickly find the ticket you need, use filters and sorting by:
-* Ticket subject or ID
-* Ticket reporter
-* Ticket status
-* Service specified in the ticket
-* Response status
-* Ticket type 
-
-To clear the ticket filters, click **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.
+{% include [where-is-requests](../_includes/support/where-is-requests.md) %}
 
 ## Changing your service plan {#change-pricing}
 

@@ -13,7 +13,7 @@ You can view charts and tables with information about {{ yandex-cloud }} service
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the account you want to get details for.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
   1. Select the detail depth. 
 
 {% endlist %}
@@ -62,7 +62,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 {% endlist %}
 
-By default, you get data for the current month. To change this period, click ![image](../../_assets/console-icons/calendar.svg) and set the **{{ ui-key.yacloud_billing.billing.account.detail.label_from }}** and **{{ ui-key.yacloud_billing.billing.account.detail.label_to }}** dates or select a period, e.g., three days. A date is defined as an interval from 0:00 to 23:59 (UTC+3). Data may be updated with a slight delay (up to several hours).
+By default, you get data for the current month. To change this period, click ![image](../../_assets/console-icons/calendar.svg) and set the **{{ ui-key.yacloud_billing.billing.account.detail.label_from }}** and **{{ ui-key.yacloud_billing.billing.account.detail.label_to }}** dates or select a period, e.g., three days. A date is set as an interval from 0:00 to 23:59 (UTC+3). Data may be updated with a slight delay (up to several hours).
 
 You can configure the charts to display the following:
 
@@ -83,11 +83,11 @@ Hover over a chart lines to bring up the tooltip. Each cloud, service, and produ
 
 Chart | Measures
 :-----: | -----
-![image](../../_assets/billing/graph-icon.svg) | - Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product. <br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
-![image](../../_assets/billing/gistogram-icon.svg) | - Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
-![image](../../_assets/billing/norm-gistogram-icon.svg) | - Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product. <br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: chart.
-![image](../../_assets/billing/diagram-icon.svg) | - Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
-![image](../../_assets/billing/norm-diagram-icon.svg) | - Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: diagram.
+![image](../../_assets/billing/graph-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product. <br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
+![image](../../_assets/billing/gistogram-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
+![image](../../_assets/billing/norm-gistogram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product. <br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: chart.
+![image](../../_assets/billing/diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.
+![image](../../_assets/billing/norm-diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: diagram.
 
 
 ## Interpret the table {#tab}
@@ -98,10 +98,10 @@ The number of columns in the table depends on the selected detail depth. See a d
 
 Name | Description
 ----- | -----
-{{ ui-key.yacloud_billing.billing.account.detail.column_cloud-name }} | Name of the cloud the resources were consumed in. <br/>Only shown if by cloud usage details are selected.
-{{ ui-key.yacloud_billing.billing.account.detail.column_service }} | Name of the service the resources were consumed in. <br/>Only shown if by service/product usage details are selected.
-{{ ui-key.yacloud_billing.billing.account.detail.column_product }} | Product name. <br/>Only shown if by product usage details are selected.
-{{ ui-key.yacloud_billing.billing.account.detail.column_unit }} | Units and amount of resources consumed. <br/>Only shown if by product usage details are selected.
+{{ ui-key.yacloud_billing.billing.account.detail.column_cloud-name }} | Name of the cloud the resources were consumed in. <br/>Shown only if you select details by cloud.
+{{ ui-key.yacloud_billing.billing.account.detail.column_service }} | Name of the service the resources were consumed in. <br/>Shown only if you select details by service/product.
+{{ ui-key.yacloud_billing.billing.account.detail.column_product }} | Product name. <br/>Shown only if you select details by product.
+{{ ui-key.yacloud_billing.billing.account.detail.column_unit }} | Units and amount of resources consumed. <br/>Shown only if you select details by product.
 {{ ui-key.yacloud_billing.billing.account.detail.column_cost }} | Cost of consumed resources before discount. 
 {{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees).
 {{ ui-key.yacloud_billing.billing.account.detail.column_expense }} | Total cost of consumed resources after discount.

@@ -1,11 +1,11 @@
 ---
-title: How to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}.
+title: How to set up a {{ KF }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up a {{ KF }} target endpoint in {{ data-transfer-full-name }}.
 ---
 
-# Transferring data to an {{ KF }} target endpoint
+# Transferring data to a {{ KF }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to an {{ KF }} queue and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ KF }} queue and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
@@ -63,7 +63,7 @@ To create or edit an endpoint of a managed database, you will need the [`{{ role
 {% endnote %}
 
 
-Connection with the cluster ID specified in {{ yandex-cloud }}.
+Connection with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -110,7 +110,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 ### Custom installation {#on-premise}
 
-Connection with the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
+Connection to the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
 
 {% list tabs group=instructions %}
 
