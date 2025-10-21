@@ -5,7 +5,7 @@ description: Follow this guide to create a connection to managed database cluste
 
 # Creating a connection
 
-In {{ websql-full-name }}, you can create a connection to:
+In {{ websql-full-name }}, you can create a [connection](../concepts/index.md#connection) to:
 
 * [Managed database clusters](#connect-cluster) in {{ yandex-cloud }}
 * [Custom DB installation](#connect-db)
@@ -33,3 +33,5 @@ To connect to a custom DB installation over the internet:
 {% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
 
 If the connection is successful, you will see the database structure in the connection tree.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

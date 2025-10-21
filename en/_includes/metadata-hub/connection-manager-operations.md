@@ -33,13 +33,13 @@
   1. See the description of the CLI command for getting information about completed operations:
 
       ```bash
-      yc connection-manager connection list-operations --help
+      yc metadata-hub connection-manager connection list-operations --help
       ```
 
   1. Get information about completed operations by running this command:
       
       ```bash
-      yc connection-manager connection list-operations <connection_ID>
+      yc metadata-hub connection-manager connection list-operations <connection_ID>
       ```
 
       You can get the connection ID with the [list of connections](#connection-list) in the folder.

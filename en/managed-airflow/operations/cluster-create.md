@@ -124,7 +124,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
   
       * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., `api.maximum_page_limit` as a key and `150` as its value.
 
-        Fill in the fields manually or import the settings from a configuration file (see [a configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+        Fill in the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
       * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
@@ -282,7 +282,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
               "debPackages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <usage_of_secrets>
             }
           },
           "network": {
@@ -469,7 +469,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <usage_of_secrets>
             }
           },
           "network": {

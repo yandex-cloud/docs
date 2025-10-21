@@ -2,6 +2,9 @@ default:
   360-standard-current-version: 1.0.0
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   AB: Airbyte®
+  ad-sync-agent: Identity Hub AD Sync Agent
+  ad-sync-agent-linuxlink: https://storage.yandexcloud.net/yc-identityhub-sync/install.sh
+  ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
@@ -8384,6 +8387,9 @@ default:
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
           oauth_service_section_title: Конфигурация поставщика услуг (SP)
+          saml_field_issuer: Issuer / IdP EntityID
+          saml_field_login: Login URL
+          saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
           secret_section_add_new_secret_action: Добавить секрет
           secret_section_title: Секреты приложения
@@ -8631,7 +8637,7 @@ default:
           mfa-overview-action-suspend: Деактивировать
           mfa-policies-create-policy-action: Создать политику
           MfaPolicyPageLayout:
-            tab_groups: Целевые пользователи и группы
+            tab_groups: Пользователи и группы
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Настройки аутентификации
             required_mfa_6P4xN: >-
@@ -9821,7 +9827,6 @@ default:
           button_action-detach: Отсоединить
           button_action-image: Создать образ
           button_action-snapshot: Создать снимок
-          button_create: Создать диск
           create:
             button_create: Создать диск
           edit:
@@ -10086,6 +10091,8 @@ default:
         snapshots:
           list:
             button_action-image: Создать образ
+        storage:
+          button_create-disk: Создать диск
         value_disk-type-network-hdd_cw9XD: HDD
         value_disk-type-network-ssd_4Mmub: SSD
         value_disk-type-network-ssd-io-m3_pPfnG: SSD IO
@@ -10645,7 +10652,6 @@ default:
             popup-robot_button_save: Сохранить
             popup-robot_field_name: Имя
             popup-robot_field_roles: Роли в каталоге
-            switch_overview: Обзор
           service-accounts:
             button_action-delete: Удалить
             button_action-edit: Редактировать
@@ -11404,8 +11410,6 @@ default:
         cluster:
           shards:
             button_enable_sharding: Включить шардирование
-            label_custom: Расширенный
-            label_standard: Стандартный
           switch_backups: Резервные копии
           switch_databases: Базы данных
           switch_diagnostics: Диагностика производительности
@@ -11414,6 +11418,9 @@ default:
           switch_monitoring: Мониторинг
           switch_shards: Шарды
           switch_users: Пользователи
+        EnableShardingForm:
+          option_sharding-type-extended_8Vip4: Расширенное
+          option_sharding-type-standard_ezqnu: Стандартное
         hosts:
           action_stepdown-host: Сменить мастер
         switch_list: Кластеры
@@ -12361,8 +12368,6 @@ default:
           menu_edit: Изменить
         database:
           switch_browse: Навигация
-          switch_monitoring: Мониторинг
-          switch_overview: Обзор
         databases:
           button_create: Создать базу данных
           label_title: Базы данных
@@ -12900,7 +12905,7 @@ default:
                         title: Пользователь
                     MongoConnectionType:
                       mdb_cluster_id:
-                        title: Кластер Managed Service for MongoDB
+                        title: Кластер Yandex StoreDoc
                       on_premise:
                         title: Пользовательская инсталляция
                     MongoSource:
@@ -14013,7 +14018,7 @@ default:
         community-resources: Ресурсы сообщества
         configurations: Конфигурации вычислительных ресурсов
         data-processing-sa:
-          title: Yandex Data Processing
+          title: Кластеры Spark
         ssa:
           add-service-account:
             button: Добавить сервисный аккаунт

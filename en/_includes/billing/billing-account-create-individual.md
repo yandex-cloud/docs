@@ -39,4 +39,4 @@ To create a billing account:
 
       Note that for individuals an established verification procedure applies, which may result in the account activation being declined.
       
-      {% endnote %} 
+      {% endnote %}

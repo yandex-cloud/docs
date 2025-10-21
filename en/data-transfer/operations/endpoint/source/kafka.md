@@ -3,7 +3,7 @@ title: How to set up a {{ KF }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to configure a {{ KF }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
 
-# Transferring data from an {{ KF }} source endpoint
+# Transferring data from a {{ KF }} source endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data from an {{ KF }} queue and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
@@ -21,7 +21,7 @@ description: In this tutorial, you will learn how to configure a {{ KF }} source
 
    Mirroring data across queues is a separate migration task.
 
-    * [{{ KF }} mirroring](../../../tutorials/mkf-to-mkf.md).
+    * [{{ KF }}](../../../tutorials/mkf-to-mkf.md) mirroring.
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -57,7 +57,7 @@ To create or edit an endpoint of a managed database, you will need the [`{{ role
 {% endnote %}
 
 
-Connection with the cluster ID specified in {{ yandex-cloud }}.
+Connection with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -104,7 +104,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 ### Custom installation {#on-premise}
 
-Connection with the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
+Connection to the {{ KF }} cluster with explicitly specified network addresses and broker host ports.
 
 {% list tabs group=instructions %}
 

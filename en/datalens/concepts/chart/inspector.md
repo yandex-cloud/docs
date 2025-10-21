@@ -9,7 +9,7 @@ Multiple charts that are slow to load and process data may slow down the dashboa
 
 Chart inspector is a {{ datalens-short-name }} tool that helps you diagnose issues when loading data and rendering them in your browser. You can use it to learn why your chart is slow or optimize data fetching and chart rendering.
 
-​To open the chart inspector, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Inspector**.
+​To open the chart inspector, hover over the chart, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right of the chart, and select **Inspector**.
 
 {% cut "Sample chart inspector" %}
 

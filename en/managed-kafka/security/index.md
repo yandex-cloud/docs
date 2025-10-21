@@ -28,7 +28,7 @@ To allow access to {{ mkf-name }} resources (clusters, hosts, cluster backups, p
 
 The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
-![image](../../_assets/mdb/roles-managed-kafka.svg)
+{% include [roles-managed-kafka](../../_mermaid/roles/managed-kafka.md) %}
 
 ### Service roles {#service-roles}
 

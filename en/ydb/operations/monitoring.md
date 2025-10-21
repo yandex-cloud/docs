@@ -5,7 +5,7 @@ description: You can track the status of the Managed Service for YDB database wi
 
 # Monitoring DB status
 
-DB status details are available in the management console. You can view them on the **{{ ui-key.yacloud.ydb.database.switch_monitoring }}** tab of the DB management page or in {{ monitoring-full-name }}.
+DB status details are available in the management console. You can view them on the **{{ ui-key.yacloud.common.monitoring }}** tab of the DB management page or in {{ monitoring-full-name }}.
 
 Diagnostic information about the DB status is presented as charts. The chart update period is 1 minute.
 
@@ -20,7 +20,7 @@ You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }
 To view detailed information about the {{ ydb-name }} database status:
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-1. Click the database name and open the **{{ ui-key.yacloud.ydb.database.switch_monitoring }}** tab.
+1. Click the database name and open the **{{ ui-key.yacloud.common.monitoring }}** tab.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 On the page that opens, you will see the DB status charts.

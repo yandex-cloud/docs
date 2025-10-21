@@ -137,7 +137,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
   1. [Создайте](../../../compute/operations/disk-control/create-snapshot.md) снимок диска.
   1. Создайте из полученного снимка новый зашифрованный диск:
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
       1. В открывшейся форме:
           1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** задайте имя диска.
           1. В поле **{{ ui-key.yacloud.compute.disk-form.field_zone }}** укажите нужную [зону доступности](../../../overview/concepts/geo-scope.md).

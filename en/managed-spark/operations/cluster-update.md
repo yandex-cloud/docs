@@ -17,7 +17,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Navigate to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
@@ -58,7 +58,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. To change cluster settings, change the required fields' values in the configuration file.
+    1. To change cluster settings, change the required field values in the configuration file.
 
         {% note alert %}
 
@@ -100,7 +100,7 @@ After creating a cluster, you can edit its basic and advanced settings.
               enabled = <use_of_Apache_Spark_History_Server>
             } 
             metastore = {
-              cluster_id = "<Metastore_cluster_ID>"
+              cluster_id = "<Apache_Hive™_Metastore_cluster_ID>"
             }
             dependencies = {
               deb_packages = ["<list_of_deb_packages>"]
@@ -142,10 +142,10 @@ After creating a cluster, you can edit its basic and advanced settings.
         * `maintenance_window`: Maintenance window settings (including for disabled clusters). In this section, specify:
 
           * Maintenance type in the `type` parameter. The possible values include:
-            * `ANYTIME`: Anytime.
+            * `ANYTIME`: Any time.
             * `WEEKLY`: On a schedule.
           * Day of week for the `WEEKLY` maintenance type in the `day` parameter, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * UTC hour from `1` to `24` for the `WEEKLY` maintenance type in the `hour` parameter.
+          * UTC hour for the `WEEKLY` maintenance type in the `hour` parameter, from `1` to `24`.
 
         * `history_server`: Connecting {{ SPRK }} History Server. To use the service, set the `enabled` parameter to `true`.
 
@@ -163,7 +163,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
              * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -183,7 +183,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         ```json
         {
@@ -220,7 +220,7 @@ After creating a cluster, you can edit its basic and advanced settings.
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "metastore": {
-              "cluster_id": "<Metastore_cluster_ID>"
+              "cluster_id": "<Apache_Hive™_Metastore_cluster_ID>"
             }
           },
           "network_spec": {
@@ -238,7 +238,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         Where:
 
-        * `cluster_id`: Cluster ID. You can request it with the [list of clusters in a folder](cluster-list.md#list-clusters).
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
             {% cut "Format for listing settings" %}
@@ -282,7 +282,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                            * `min_size`: Minimum number of driver hosts.
                            * `max_size`: Maximum number of driver hosts.
 
-                       Specify one of the two parameters: `fixed_scale` or `auto_scale`.
+                       Specify either `fixed_scale` or `auto_scale`.
 
                * `executor`: Host configuration to run {{ SPRK }} executors.
 
@@ -298,7 +298,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                            * `min_size`: Minimum number of executor hosts.
                            * `max_size`: Maximum number of executor hosts.
 
-                       Specify one of the two parameters: `fixed_scale` or `auto_scale`.
+                       Specify either `fixed_scale` or `auto_scale`.
 
                * `history_server`: History server parameters.
 
@@ -309,7 +309,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                    * `pip_packages`: List of pip packages.
                    * `deb_packages`: List of deb packages.
 
-                   If required, you can set version restrictions for the installed packages, for example:
+                   You can set version restrictions for the installed packages, e.g.:
 
                    ```bash
                    "dependencies": {
@@ -331,18 +331,18 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                * `security_group_ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
 
-           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
+           * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are: `true` or `false`.
 
               Even if it is enabled, one can still connect to the cluster manually and delete it.
 
-           * `service_account_id`: ID of the service account for access to {{ yandex-cloud }} services. Make sure to assign the `managed-spark.integrationProvider` role to the service account:
+           * `service_account_id`: ID of the service account for access to {{ yandex-cloud }} services. Make sure to assign the `managed-spark.integrationProvider` role to this service account:
 
            * `logging`: Logging parameters:
-               * `enabled`: Enables logging. The possible values are `true` or `false`. Logs generated by {{ SPRK }} will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
+               * `enabled`: Enables logging. The possible values are: `true` or `false`. Logs generated by {{ SPRK }} components will be sent to {{ cloud-logging-full-name }}. The possible values are: `true` or `false`.
                * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
                * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-               Specify one of the two parameters: `folder_id` or `log_group_id`.
+               Specify either `folder_id` or `log_group_id`.
 
     1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

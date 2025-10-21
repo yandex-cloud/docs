@@ -24,6 +24,8 @@ To enable source parameterization:
 1. To define a dataset, use the **Insert parameter** button.
 
 
+
 For an example of using parameters in a source, see [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
+
    
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

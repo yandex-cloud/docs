@@ -83,9 +83,10 @@ To configure webhooks:
 1. Click **{{ ui-key.yacloud_components.settings.button_add-empty }}** in the **{{ ui-key.yacloud_components.settings.label_add-empty-webhookOutgoing }}** section under **{{ ui-key.yacloud_components.settings.section_transports }}**.
 1. In the window that opens, specify the webhook name and URL configured in the messenger, then click **{{ ui-key.yacloud_components.settings.button_send-code }}**.
 1. After clicking the button, you will receive a confirmation code in the messenger channel specified when setting up the webhook. Copy and paste it to the clipboard.
-1. Paste the confirmation code from the clipboard into the field in the confirmation window in the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}). After confirmation, the URL and specified webhook name will be displayed in the **{{ ui-key.yacloud_components.settings.section_transports }}** section.
+1. Paste the confirmation code from the clipboard into the field in the confirmation window in the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}). 
+After confirmation, the URL and specified webhook name will be displayed in the **{{ ui-key.yacloud_components.settings.section_transports }}** section.
 
-Your webhook is configured. From now on, you will receive notifications about maintenance and other activities in {{ yandex-cloud }} in the specified channel of your messenger installation. They will have this format:
+Your webhook is configured. From now on, you will receive notifications about maintenance and other activities in {{ yandex-cloud }} through the specified channel of your messenger installation. They will have this format:
 
 ```json
 {

@@ -25,6 +25,8 @@ description: Управление доступом в сервисе для бе
 
 Для управления правами доступа в {{ cloud-registry-name }} можно использовать как сервисные, так и примитивные роли.
 
+{% include [cloud-registry](../../_mermaid/roles/cloud-registry.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### cloud-registry.auditor {#cloud-registry-auditor}

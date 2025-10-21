@@ -7,12 +7,13 @@ keywords:
   - '{{ TR }}'
 ---
 
-# Updating an cluster {{ TR }}
+# Updating a {{ TR }} cluster
 
 After you create a cluster, you can update its settings:
 
 * [Cluster name and description](#change-basic-settings)
 * [Service account](#change-sa)
+* [Version](#change-version)
 * [Security groups](#change-sg)
 * [Fault-tolerant query execution parameters](#change-retry-policy)
 * [Coordinator and worker configuration](#change-configuration)
@@ -367,6 +368,185 @@ After you create a cluster, you can update its settings:
             {% endnote %}
 
         * `service_account_id`: Service account ID.
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Switching versions {#change-version}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}. You can either upgrade or downgrade the version.
+    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the {{ TR }} version:
+
+    1. View the description of the CLI command for updating a cluster:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update --help
+        ```
+
+    1. Change the version by running this command:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <cluster_name_or_ID> \
+          --version <version>
+        ```
+
+        Where `--version` is the {{ TR }} version. You can either upgrade or downgrade the version.
+
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.   
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [this guide](cluster-create.md).
+        
+    1. Edit the `version` parameter in the cluster's description:
+      
+        ```hcl
+        resource "yandex_trino_cluster" "<cluster_name>" {
+          ...
+          version = "<version>"
+          ...
+        }
+        ```
+
+        Where `version` is the {{ TR }} version. You can either upgrade or downgrade the version.
+
+    1. Validate your configuration.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "updateMask": "trino.version",
+          "trino": {
+            "version": "<version>"
+          }
+        }
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated list of parameters to update.
+
+            {% note warning %}
+
+            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+
+            {% endnote %}
+
+        * `version`: {{ TR }} version. You can either upgrade or downgrade the version.
+
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
+          --data '@body.json'
+        ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "cluster_id": "<cluster_ID>",
+          "update_mask": {
+            "paths": [
+              "trino.version"
+            ]
+          },
+          "trino": {
+            "version": "<version>"
+          }
+        }
+        ```
+
+        Where:
+
+        * `cluster_id`: Cluster ID.
+            
+            You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            {% cut "Format for listing settings" %}
+
+            ```yaml
+            "update_mask": {
+              "paths": [
+                "<setting_1>",
+                "<setting_2>",
+                ...
+                "<setting_N>"
+              ]
+            }
+            ```
+
+            {% endcut %}
+
+            {% note warning %}
+
+            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+
+            {% endnote %}
+
+        * `version`: {{ TR }} version. You can either upgrade or downgrade the version.
 
     1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -1236,7 +1416,6 @@ After you create a cluster, you can update its settings:
             "minLevel": "<logging_level>"
           },
           "maintenanceWindow": {
-            "anytime": {},
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
               "hour": "<hour>"
@@ -1318,7 +1497,6 @@ After you create a cluster, you can update its settings:
             "min_level": "<logging_level>"
           },
           "maintenance_window": {
-            "anytime": {},
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
               "hour": "<hour>"

@@ -138,6 +138,10 @@ items:
               Transferring metadata between {{ dataproc-name }} clusters using
               {{ metastore-name }}
             href: tutorials/metastore-import.md
+          - name: Working with an {{ objstorage-name }} table from a PySpark job
+            href: tutorials/spark-simple-rw-job.md
+          - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
+            href: tutorials/metastore-and-spark.md
       - name: Concepts
         items:
           - name: '{{ metastore-name }} clusters'

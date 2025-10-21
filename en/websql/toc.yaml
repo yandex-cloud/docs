@@ -10,9 +10,21 @@ items:
       - name: Creating a connection
         href: operations/create-connection.md
       - name: Connection management
-        href: operations/connect.md
-      - name: Viewing information about database objects
-        href: operations/view-db-objects-info.md
+        items:
+          - name: All guides
+            href: operations/connect.md
+          - name: Viewing information about resources
+            href: operations/view-resources-info.md
+          - name: Viewing information about database objects
+            href: operations/view-db-objects-info.md
+          - name: Changing connection settings
+            href: operations/change-connection-settings.md
+          - name: Updating a connection
+            href: operations/update-connection.md
+          - name: Adding a connection to a DB in a cluster
+            href: operations/add-connection-to-db-in-cluster.md
+          - name: Deleting a connection
+            href: operations/delete-connection.md
       - name: Working with the query editor
         href: operations/query-executor.md
       - name: Analytics and optimization with AI assistant

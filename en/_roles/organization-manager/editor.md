@@ -43,3 +43,5 @@ The `organization-manager.editor` role enables managing organization settings, i
 {% endcut %}
 
 This role includes the `organization-manager.viewer`, `organization-manager.federations.editor`, `organization-manager.userpools.editor`, `organization-manager.samlApplications.editor`, `organization-manager.oauthApplications.editor`, and `organization-manager.groups.editor` permissions.
+
+To configure user group mapping, the role must be assigned for those Identity Hub groups, which you want to configure mapping for.

@@ -20,6 +20,8 @@ items:
         href: operations/cluster-delete.md
   - name: Concepts
     items:
+      - name: Authentication
+        href: concepts/authentication.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Configuration options for cluster components

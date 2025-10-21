@@ -8,3 +8,4 @@ description: Настройка интеграции {{ org-full-name }} со с
 * Grafana Cloud
    * [{#T}](./grafana/saml-grafana.md)
    * [{#T}](./grafana/oidc-grafana.md)
+* [Zabbix](./saml-zabbix.md)

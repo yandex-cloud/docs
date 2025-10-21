@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен исходный образ.
       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
       1. Введите имя диска.
 
           {% include [name-format](../../../_includes/name-format.md) %}
@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
       1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже отметьте нужный образ. Для поиска образа воспользуйтесь фильтром.
       1. В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}** включите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** и в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** выберите [ключ](../../../kms/concepts/key.md), созданный ранее.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
       {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 

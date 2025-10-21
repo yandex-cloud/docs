@@ -32,6 +32,8 @@ Regardless of your service plan, you can request the following:
 * [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
 * [Your personal data](request.md#personal) stored by Yandex.
 
+For more information on finding your request in {{ yandex-cloud }}, see [How do I find my request in {{ yandex-cloud }}](../support/qa.md#how-to-find-request).
+
 ## Types of requests to support {#request-types}
 
 The types of requests available depend on the selected plan and are shown in the table below.

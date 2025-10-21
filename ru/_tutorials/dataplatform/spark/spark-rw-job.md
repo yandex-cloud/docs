@@ -44,7 +44,7 @@
 
 ## Подготовьте инфраструктуру {#infra}
 
-  Подготовьте инфраструктуру:
+Подготовьте инфраструктуру:
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `spark-agent` и выдайте ему роль [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider).
 

@@ -98,7 +98,6 @@ description: Follow this guide to request detailed information about existing {{
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-
   1. Click the cluster name.
 
 - CLI {#cli}

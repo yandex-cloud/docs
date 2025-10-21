@@ -10,8 +10,8 @@ You can get a CSV file with your general or per-resource spending details. You c
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the account you want to get details for.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Click **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. At the top right, click **More** and select **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
   1. Select the time period to get the details for.
   1. Click **{{ ui-key.yacloud_billing.billing.account.detail.popup-csv_button_download }}**.
 
@@ -35,7 +35,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
    {% endnote %}
 
-1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
+1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, or `billing.accounts.editor`.
 
 ### Get the expense details {#download-detail}
 
@@ -47,15 +47,15 @@ You can get a CSV file with your general or per-resource spending details. You c
   1. Select the account you want to get details for.
   1. In the left-hand panel, select **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
   1. Click **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
-  1. In the **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** window that opens, specify:
-     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** field, the name of the bucket to store the CSV file with details.
-     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** field, the name of the folder for the file. It must end with the `/` character.
-     * Select the language for product names: English or Russian.
-     * Select **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** or **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** as the detailed view type.
+  1. In the **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** window that opens:
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** field, enter the name of the bucket to store the CSV file with details.
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** field, enter the directory name for the file. It must end with the `/` character.
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_locale }}** field, select the display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_detail-type }}** field, select the type of details: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 
-         If you select **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** for regular export of details, you can also view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id`](#format) field (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+         If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for regular export of details, you can also view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id`](#format) field (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
          {% endnote %}
 
@@ -103,8 +103,8 @@ The table contains the following columns:
 * `service_name`: Name of the service the consumed product belongs to.
 * `sku_id`: Consumed product ID.
 * `sku_name`: Product name.
-* `date`: Consumption charge date. A date is defined as an interval from 0:00 to 23:59 (UTC+3).
-* `currency`: Billing account currency. The possible values range `RUB`, `USD`, or `KZT`.
+* `date`: Consumption charge date. A date is set as an interval from 0:00 to 23:59 (UTC+3).
+* `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.

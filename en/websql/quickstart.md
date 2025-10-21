@@ -9,11 +9,11 @@ Once connected to a database, you will be able to view DB schemas, tables, and v
 
 {{ websql-full-name }} supports the following DB versions:
 
-* {{ PG }}: 12 or higher
-* {{ MY }}: 5 or higher
-* {{ CH }}: 23 or higher
-* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher
-* {{ SD }}: 6 or higher
+* {{ PG }}: 12 or higher.
+* {{ MY }}: 5 or higher.
+* {{ CH }}: 23 or higher.
+* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher.
+* {{ SD }}: 6 or higher.
 * [{{ mtr-full-name }}](../managed-trino/) (currently at the [Preview](../overview/concepts/launch-stages.md) stage): 454 or higher
 * {{ GP }}: 6 or higher
 

@@ -26,7 +26,7 @@ description: Управление доступом в сервисе для ра
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/managed-kubernetes/security/service-roles-hierarchy.svg)
+{% include [managed-kubernetes](../../_mermaid/roles/managed-kubernetes.md) %}
 
 ### Роли для доступа к {{ k8s }} API {#k8s-api}
 

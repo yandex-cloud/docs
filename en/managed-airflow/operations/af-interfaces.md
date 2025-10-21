@@ -39,7 +39,7 @@ You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stabl
     curl \
         --request GET \
         'https://c-<cluster_ID>.airflow.yandexcloud.net/api/v1/dags' \
-        --user 'admin:<admin_user_password>' \
+        --user 'admin:<admin_password>' \
         --header 'Content-Type: application/json' \
         --header 'X-Cloud-Authorization: Bearer <IAM_token>'
     ```

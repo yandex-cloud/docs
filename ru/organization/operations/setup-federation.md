@@ -15,7 +15,7 @@
 
 Примеры настройки аутентификации для отдельных поставщиков удостоверений приведены в практических руководствах:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
@@ -460,7 +460,7 @@
 
 Чтобы получить более подробную информацию о настройке SAML-приложения, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений. Также примеры настройки для отдельных поставщиков удостоверений приведены в практических руководствах:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).

@@ -1,11 +1,11 @@
 # Working with query history
 
 {{ websql-full-name }} features [query history](../concepts/index.md#query-log). You can:
-* [View executed queries](#view-executed-queries).
-* [Rerun a query](#re-run-query).
-* [Publish a query](#publish-query).
-* [Configure access permissions for a published query](#set-access-rights-to-published-query).
-* [Delete a historical query](#remove-query-from-history).
+   * [View executed queries](#view-executed-queries).
+   * [Rerun a query](#re-run-query).
+   * [Publish a query](#publish-query).
+   * [Configure access permissions for a published query](#set-access-rights-to-published-query).
+   * [Delete a historical query](#remove-query-from-history).
 
 ## Viewing an executed query {#view-executed-query}
 
@@ -27,7 +27,7 @@ To rerun an executed query:
 
 1. Click **Open in editor**.
 
-1. (Optional) Update query parameters.
+1. Optionally, update the query parameters.
 
 1. Click **Execute**.
 
@@ -63,6 +63,6 @@ To configure [access permissions](../security/index.md):
 
 1. Go to the ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **Query history** section.
 
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the query you need and select **Delete**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the query and select **Delete**.
 
 1. In the window that opens, click **Apply**.

@@ -22,7 +22,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 1. In {{ datalens-gallery }}, open the work named [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
 1. Click **Use** → **Deploy**.
-1. Select the location to save the workbook to: workbook root, existing collection, or new collection. Navigate to the saving location and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving location and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.
 
 
@@ -35,7 +35,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 1. In the workbook, click **Create** → **Chart in Editor** in the top-right corner. On the page that opens, select the **Table** visualization type.
 
-1. Link the chart with the dataset by navigating to the **Meta** tab and adding the dataset ID to `links`:
+1. Link the chart with the dataset by navigating to the **Meta** tab and adding the connection ID to `links`:
 
    ```javascript
    {
