@@ -86,7 +86,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Выберите сервисный аккаунт `forms-integration`.
-  1. Перейдите в раздел **{{ ui-key.yacloud.iam.folder.service-account.switch_overview }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.  
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. В открывшемся окне **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}** отобразятся **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** и **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Сохраните их — они понадобятся в дальнейшем.

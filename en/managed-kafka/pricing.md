@@ -50,10 +50,12 @@ The {{ mkf-name }} usage cost includes:
 
 The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
+You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-short-name }} hosts based on the expected replication load. Adding {{ ZK }} or {{ kraft-short-name }} hosts depends on the cluster configuration:
 
-* {{ ZK }} hosts are added to the cluster if it contains more than one {{ KF }} host and uses {{ KF }} 3.5.
-* {{ ZK }} hosts are not added to the cluster if it contains a broker host or uses {{ KF }} 3.6 or higher.
+* {{ ZK }} hosts are added to the cluster if it contains more than one {{ KF }} host and uses {{ ZK }} as the coordination service.
+* {{ ZK }} hosts are not added to the cluster if it contains a broker host.
+* {{ kraft-short-name }} hosts are added to the cluster if its {{ KF }} version is 3.6 or higher and if it contains more than one {{ KF }} host and uses {{ kraft-short-name }} as the coordination service (on separate hosts).
+* {{ kraft-short-name }} hosts are not added to the cluster if its {{ KF }} version is 3.6 or higher and if it uses {{ kraft-short-name }} as the coordination service (combined mode). 
 
 
 There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
@@ -69,7 +71,7 @@ There are different ways to calculate the cost depending on the [host type](./co
 
 
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You are not paying for the time when a broker host or {{ ZK }} is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -80,9 +82,9 @@ You pay for the storage allocated for DB clusters.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more broker hosts in increments of 93 GB.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
-### Cluster cost calculation example {#example}
+### Example of cluster cost calculation {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
@@ -104,11 +106,11 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS discount: on vCPUs and on RAM for the hosts you intend to use in your clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-A CVoS discount is only available for certain resource types. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

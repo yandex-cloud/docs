@@ -1,6 +1,6 @@
 # About {{ websql-full-name }}
 
-{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters. 
+{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters.
 
 Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. A web-based tool, {{ websql-full-name }} simplifies writing queries with relevant suggestions.
 
@@ -14,13 +14,13 @@ You can connect to {{ yandex-cloud }} managed database clusters from {{ yandex-c
 
 {{ websql-full-name }} supports the following DB versions:
 
-* {{ PG }}: 12 or higher
-* {{ MY }}: 5 or higher
-* {{ CH }}: 23 or higher
-* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher
-* {{ SD }}: 6 or higher
-* [{{ mtr-full-name }}](../../managed-trino/) (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): 454 or higher
-* {{ GP }}: 6 or higher
+* {{ PG }}: 12 or higher.
+* {{ MY }}: 5 or higher.
+* {{ CH }}: 23 or higher.
+* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher.
+* {{ SD }}: 6 or higher.
+* [{{ mtr-full-name }}](../../managed-trino/) (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): 454 or higher.
+* {{ GP }}: 6 or higher.
 
 ## GUI {#user-interface}
 
@@ -32,7 +32,7 @@ To work with {{ websql-full-name }}, use:
 
 In the {{ websql-full-name }} interface, the URL of the current page is automatically appended with the IDs of the {{ websql-full-name }} entities you open. This enables you to share a direct link to a cluster, connection, database, saved query, or historical query in {{ websql-full-name }} with other users.
 
-> For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar. 
+> For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar.
 > The URL will look like this:
 > ```
 > https://websql.yandex.cloud/folders/<your_folder_ID>/saved-queries/<saved_query_ID>`
@@ -47,17 +47,17 @@ In {{ websql-full-name }}, you can create, use, and manage DB connections. In th
 
 The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}/{{ VLK }}, {{ SD }}, {{ mtr-full-name }}, and {{ GP }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
-For each cluster, all database connections are grouped into a drop-down list under the cluster name. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update. 
+For each cluster, all database connections are grouped into a drop-down list under the cluster name. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update.
 
 External connections are not grouped together even if database hosts share the same address.
 
 {{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name }} automatically appear in {{ metadata-hub-full-name }} {{ connection-manager-name }} and vice versa.
 
-You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [view schemas, tables, and views](../operations/view-db-objects-info.md). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
+You can also [edit connection settings](../operations/change-connection-settings.md) and [delete connections you no longer need](../operations/delete-connection.md). After you connect to a DB, you can [monitor schemas, tables, and views](../operations/view-db-objects-info.md) (`VIEW`). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
 
 ## Queries {#queries}
 
-For each database, you can run queries using tooltips: start typing a query command and select the suitable one from the drop-down list. You can also use ready-made _templates_ or [save your queries](../operations/templates.md#save-query) as [custom templates](#saved-queries). 
+For each database, you can run queries using tooltips: start typing a query command and select the suitable one from the drop-down list. You can also use ready-made _templates_ or [save your queries](../operations/templates.md#save-query) as [custom templates](#saved-queries).
 
 [Query history](#query-log) allows you to [see](../operations/history.md) and repeat your previous queries.
 
@@ -78,4 +78,3 @@ _Historical queries_ are queries executed in your {{ yandex-cloud }} [organizati
 * ![image](../../_assets/websql/unknown.svg): Unexpected error on the {{ websql-full-name }} side.
 
 To learn more about handling historical queries, see [this guide](../operations/history.md).
-

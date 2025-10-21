@@ -61,11 +61,11 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the [`viewer`](../../../../iam/roles-reference.md#viewer) primitive role assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
-Connection with the cluster ID specified in {{ yandex-cloud }}.
+Connection with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -78,7 +78,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 ### Custom installation {#on-premise}
 
-Connecting to nodes with explicitly specified network addresses and ports.
+Connection to nodes with explicitly specified network addresses and ports.
 
 {% list tabs group=instructions %}
 

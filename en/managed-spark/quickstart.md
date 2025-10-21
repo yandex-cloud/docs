@@ -20,7 +20,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 
 ## Get your cloud ready {#prepare-cloud}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -30,22 +30,22 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 
     * [managed-spark.admin](security.md#managed-spark-admin): To create a cluster.
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To assign a service account to a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Set up the infrastructure {#prepare-infrastructure}
 
-1. [Create a service account](../iam/operations/sa/create.md#create-sa) and assign it the following roles:
+1. [Create a service account](../iam/operations/sa/create.md#create-sa) and assign the following roles to it:
 
    * `managed-spark.integrationProvider`: For {{ msp-full-name }} to interact with other system components, e.g., for sending logs and metrics.
-   * [storage.editor](../storage/security/index.md#storage-editor): For accessing PySpark job files in your {{ objstorage-name }} bucket.
+   * [storage.editor](../storage/security/index.md#storage-editor): For accessing PySpark job files in an {{ objstorage-name }} bucket.
 
 1. [Create an {{ objstorage-name }}](../storage/operations/buckets/create.md) bucket.
 
 1. Grant the service account access to the {{ objstorage-name }} that will be storing your code and data for cluster-specific jobs:
 
-   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. In the [management console]({{ link-console-main }}), select the folder you need.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Open the bucket you [created earlier](#create-s3-bucket).
       1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -66,7 +66,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
   1. In the management console, select the folder where you want to create a cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Specify a name for the cluster.
+  1. Give the cluster a name.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the [previously created](#before-you-begin) service account.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a network, subnet, and security group for the cluster.
   1. Set up computing resources for hosts to run drivers and workers.
@@ -78,7 +78,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
      1. Select **{{ ui-key.yacloud.logging.label_minlevel }}**: **INFO**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Wait until the cluster is ready: its status on the {{ msp-full-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+  1. Wait until the cluster is ready for use, i.e., its status on the {{ msp-full-name }} dashboard switches to **Running** and its state, to **Alive**. This may take some time.
 
 {% endlist %}
 

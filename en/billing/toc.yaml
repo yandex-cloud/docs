@@ -56,14 +56,18 @@ items:
         items:
           - name: Viewing your payment history
             href: operations/check-bill-history.md
-          - name: Viewing usage details in the console
-            href: operations/check-charges.md
-          - name: Exporting extended usage details
-            href: operations/get-folder-report.md
-          - name: Viewing usage details in {{ datalens-full-name }}
-            href: operations/dashboard.md
-          - name: Searching for usage details with {{ yq-full-name }}
-            href: operations/query-integration.md
+          - name: Cost itemization
+            items:
+              - name: Overview
+                href: operations/charges-index.md
+              - name: Viewing usage details in the console
+                href: operations/check-charges.md
+              - name: Viewing usage details in {{ datalens-full-name }}
+                href: operations/dashboard.md
+              - name: Exporting extended usage details
+                href: operations/get-folder-report.md
+              - name: Searching for usage details with {{ yq-full-name }}
+                href: operations/query-integration.md
   - name: Concepts
     items:
       - name: All concepts

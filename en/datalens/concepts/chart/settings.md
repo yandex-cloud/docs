@@ -44,7 +44,7 @@ The settings specified below may not be available for some chart types.
 * **Off**: Hides the navigator.
 
 For more information, see [this guide](../../operations/chart/config-chart-navigator.md). ||
-|| Pagination | Breaks a table into pages.<br/><br/>Available values:
+|| Pagination | Breaks a table into pages. It is not available if only one page is displayed or there is no data.<br/><br/>Available values:
 
 * **On**: Displays the table part by part across a number of pages.
 * **Off**: Displays the whole table. ||
@@ -112,7 +112,7 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 * `None`: No markup.
 * `HTML`: HTML markup. Available only for `String` type fields.
 * `Markdown`: [{#T}](../../dashboard/markdown.md) markup. Available only for `String` type fields in relevant sections depending on visualization type.
-
+  
   #|
   || **Visualization types** | **Sections** ||
   || [Scatter chart](../../visualization-ref/scatter-chart.md) | X, Y, Points, [Colors](#color-settings), Shapes ||

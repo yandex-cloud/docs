@@ -36,8 +36,8 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
   1. Click the name of your cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Select a sharding type:
-     * **{{ ui-key.yacloud.mongodb.cluster.shards.label_standard }}**: Based on `MONGOINFRA` hosts.
-     * **{{ ui-key.yacloud.mongodb.cluster.shards.label_custom }}**: Based on `MONGOS` and `MONGOCFG` hosts.
+     * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-standard_ezqnu }}**: Based on `MONGOINFRA` hosts.
+     * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-extended_8Vip4 }}**: Based on `MONGOS` and `MONGOCFG` hosts.
 
        For more information, see [Sharding](../concepts/sharding.md).
 

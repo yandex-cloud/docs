@@ -4,6 +4,12 @@
 
 ## Сделать версию основной {#make-primary}
 
+{% note info %}
+
+Изменение основной версии ключа относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
+
 Чтобы сделать версию основной:
 
 {% list tabs group=instructions %}
@@ -113,6 +119,12 @@
   Воспользуйтесь методом REST API [scheduleVersionDestruction](../../kms/api-ref/SymmetricKey/scheduleVersionDestruction.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/ScheduleVersionDestruction](../../kms/api-ref/grpc/SymmetricKey/scheduleVersionDestruction.md).
 
 {% endlist %}
+
+{% note info %}
+
+Планирование удаления версии ключа относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
 
 ## Отменить удаление версии {#cancel-delete}
 

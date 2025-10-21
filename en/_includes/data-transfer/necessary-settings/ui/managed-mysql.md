@@ -5,7 +5,7 @@
 
         Select **Managed Service for MySQL cluster** as the installation type and configure the following settings:
 
-        * {% include [cluster-id](../../fields/mysql/ui/cluster-id.md) %}
+        * {% include [cluster-name](../../fields/mysql/ui/cluster-name.md) %}
         * {% include [database](../../fields/mysql/ui/database.md) %}
         * {% include [user](../../fields/mysql/ui/user.md) %}
         * {% include [password](../../fields/mysql/ui/password.md) %}
@@ -15,7 +15,7 @@
         * Select the folder with the {{ mmy-name }} cluster.
         * Select **Managed DB cluster** as the installation type and configure the following settings:
 
-            * {% include [cluster-id](../../fields/mysql/ui/cluster-id.md) %}
+            * {% include [cluster-name](../../fields/mysql/ui/cluster-name.md) %}
             * {% include [connection](../../fields/mysql/ui/connection.md) %}
             * {% include [database](../../fields/mysql/ui/database.md) %}
 

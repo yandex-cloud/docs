@@ -23,6 +23,8 @@
 
 1. Задайте сопоставление групп пользователей в настройках федерации:
 
+    {% include [group-mapping-roles-necessary](../../_includes/organization/group-mapping-roles-necessary.md) %}
+
     {% list tabs group=instructions %}
 
     - Интерфейс {{ cloud-center }} {#cloud-center}

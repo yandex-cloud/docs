@@ -17,3 +17,9 @@ description: In this article, you will learn how to work with {{ msp-full-name }
 
 * [Spark jobs](jobs-spark.md)
 * [PySpark jobs](jobs-pyspark.md)
+* [SparkConnect jobs](jobs-sparkconnect.md)
+
+## Logs and monitoring {#monitoring-and-logs}
+
+* [Monitoring cluster state](monitoring.md)
+* [Viewing cluster logs](cluster-logs.md)

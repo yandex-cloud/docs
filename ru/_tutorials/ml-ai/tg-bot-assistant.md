@@ -2,6 +2,8 @@
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/episode/vplezctzkblzqsa2f3wh?autoplay=0&mute=1" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 
+{% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
+
 С помощью {{ ml-sdk-full-name }}, [RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском) и [{{ assistant-api }}](../../ai-studio/concepts/assistant/index.md) языковые модели могут поддерживать контекст диалога и обращаться к поиску в базе знаний.
 
 В этом руководстве вы создадите чат-ассистента по продаже вин на основе модели {{ yagpt-name }} 5. Используя возможности [function calling](../../ai-studio/concepts/generation/function-call.md) и RAG, ассистент получит доступ к базе данных по винам и регионам, а также прайс-листу с ценами и данными о наличии вин. Настройка ассистента пройдет в ноутбуке {{ ml-platform-full-name }}, общение с ассистентом будет осуществляться через Telegram.

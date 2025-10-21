@@ -5,7 +5,9 @@ description: With UI customization, you can achieve a custom {{ datalens-full-na
 
 # {{ datalens-full-name }} UI customization
 
+
 {% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 With UI customization, you can achieve a custom {{ datalens-short-name }} look by editing colors, logo, and redesigning individual elements.
 
@@ -14,8 +16,15 @@ Customization settings can be edited by the {{ datalens-short-name }} instance [
 For UI customization:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
-1. In the **UI customization** section, click **Configure**.
+
+
+1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**. For the Community plan administrator, the features available in the Business [service plan](../concepts/service-plans-comparison.md) are highlighted.
+
+   ![image](../../_assets/datalens/release-notes/business-setting.png =552x167)
+
+
+1. In the **UI customization** section, click ![image](../../_assets/console-icons/palette.svg) **Configure**.
+
 1. Customize the design:
 
    * **UI theme**: Select the UI theme for which you want to set the color palette.
@@ -46,17 +55,18 @@ For UI customization:
      {% endlist %}
 
    * **Contrasting color**: Select a color for the text on the button.
-   * **Logo and favicon**: To replace the logo and favicon, [upload](../../storage/quickstart.md#upload-files) an SVG file to the {{ objstorage-full-name }} storage in a 1:1 ratio. Then copy the link to the file in the storage and paste it into this field. Click **Apply** to the right of the field.
+   * **Logo and favicon**: To replace the logo and favicon, [upload](../../storage/quickstart.md#upload-files) an 1:1 ratio SVG file to the {{ objstorage-full-name }} storage. Then copy the link to the file in the storage and paste it into this field. Click **Apply** to the right of the field.
    * **Rounding**: Sets the rounding of the corners of UI elements.
 
     {% note info %}
 
-    The preview area displays how the UI elements will look with the specified settings.
+    The preview area displays how the UI elements will look like with the specified settings.
 
     {% endnote %}
 
 1. At the top right, click **Save**.
 1. To apply your custom UI settings, select **Enabled** at the top of the screen.
+
 
    {% note info %}
 
@@ -65,3 +75,4 @@ For UI customization:
    Customization settings can be tested by the {{ datalens-short-name }} instance [administrator](../security/roles.md#datalens-admin) (`{{ roles-datalens-admin }}` role).
 
    {% endnote %}
+

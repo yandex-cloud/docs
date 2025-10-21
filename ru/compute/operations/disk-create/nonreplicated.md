@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться [снимки](../../concepts/snapshot.md), или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      При создании диска для него можно выбрать только одно расписание снимков. Если требуется, после создания диска вы можете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 
@@ -163,7 +163,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}
@@ -180,7 +180,7 @@ description: Следуя данной инструкции, вы сможете
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться снимки, или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      Если вы хотите указать еще одно расписание, вы сможете [добавить](../disk-control/configure-schedule.md#add-schedule) его после создания диска.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 

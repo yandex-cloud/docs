@@ -203,7 +203,7 @@ Fixed the filter workflow on the completed queries page.
 
 1. The **Connections** tab now displays the {{ yandex-cloud }} managed database clusters from the selected folder available to the user. This speeds up the process of creating connections to these clusters, as most of the cluster information is populated automatically. Also updates were made to the forms for [creating connections](../operations/create-connection.md).
 
-1. [{{ websql-name }}](/services/websql) is the first service integrated with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml). All [connections](../concepts/index.md#connection) are stored in [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md), but you can also manage ([create](../operations/create-connection.md), [delete](../operations/connect.md#delete-connection), and [edit](../operations/connect.md#change-connection-settings)) them from the {{ websql-name }} interface. All changes you make in {{ websql-name }} are displayed in {{ connection-manager-name }} and vice versa.
+1. [{{ websql-name }}](/services/websql) is the first service integrated with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml). All [connections](../concepts/index.md#connection) are stored in [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md), but you can also manage ([create](../operations/create-connection.md), [delete](../operations/delete-connection.md), and [edit](../operations/change-connection-settings.md)) them from the {{ websql-name }} interface. All changes you make in {{ websql-name }} are displayed in {{ connection-manager-name }} and vice versa.
 
 1. You can now publish [saved](../operations/templates.md#publish-query) and [historical queries](../operations/history.md#publish-query). Once published, the query will be available to all folder users. This action cannot be undone — you can only delete the query you published. [Roles](../security/index.md#roles-list) allow you to manage user access to a published query: you can grant permissions for viewing and editing a query or managing its access permissions.
 
@@ -265,4 +265,5 @@ Fixed the incorrect display of variables when opening [saved queries](../operati
 
 1. Grouping by [connection type](../concepts/index.md#connection): external, demo, and {{ yandex-cloud }} connections.
 
-1. Simplified modal window for [reconnecting](../operations/connect.md#update-connection).
+1. Simplified modal window for [reconnecting](../operations/update-connection.md).
+

@@ -1,6 +1,6 @@
 ---
 title: Creating a {{ TR }} cluster
-description: Every {{ mtr-name }} cluster consists of a set of {{ TR }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones.
+description: Every {{ mtr-name }} cluster consists of a set of {{ TR }} components, each of which may have multiple instances. These instances may reside in different availability zones.
 keywords:
   - creating an {{ TR }} cluster
   - '{{ TR }} cluster'
@@ -16,8 +16,8 @@ Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordin
 To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * [managed-trino.admin](../security.md#managed-trino-admin): To create a cluster.
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): Required to access the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) to use the cluster [network](../../vpc/concepts/network.md#network).
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
 
 Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster's [service account](../../iam/concepts/users/service-accounts.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -44,7 +44,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         1. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 
-            Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` to the service account.
+            Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the service account.
+
+        1. Select the {{ TR }} version.
+
+            {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
     1. Under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
@@ -67,7 +71,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
             1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
             1. Select the log destination:
-                * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list. Logs will be written to the default log group for the selected folder.
+                * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list. Logs will be written to the selected folder's default log group.
                 * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
             1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
 
@@ -88,10 +92,10 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         yc vpc subnet list
         ```
 
-        If your folder has no subnets, [create the required ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-    1. See the description of the CLI command for creating a cluster:
+    1. View the description of the CLI command to create a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster create --help
@@ -102,6 +106,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         ```bash
         {{ yc-mdb-tr }} cluster create \
            --name <cluster_name> \
+           --version <version> \
            --service-account-id <service_account_ID> \
            --subnet-ids <list_of_subnet_IDs> \
            --security-group-ids <list_of_security_group_IDs> \
@@ -113,8 +118,12 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         Where:
 
         * `--name`: Cluster name. It must be unique within the folder.
+        * `--version`: {{ TR }} version.
+
+          {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+        
         * `--service-account-id`: Service account ID.
-        * `--subnet-ids`: Subnet IDs list.
+        * `--subnet-ids`: List of subnet IDs.
         * `--security-group-ids`: List of security group IDs.
         * `--coordinator`: [Coordinator](../concepts/index.md#coordinator) configuration.
 
@@ -225,11 +234,19 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
+    1. Validate your configuration.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        
     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -263,17 +280,18 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                   "maxCount": "<maximum_number_of_instances>"
                 }
               }
-            }
-          },
-          "retryPolicy": {
-            "policy": "<object_type_for_retry>",
-            "exchangeManager": {
-              "storage": {
-                "serviceS3": {}
-              },
-              "additionalProperties": {<additional_storage_parameters>}
             },
-            "additionalProperties": {<additional_retry_parameters>}
+            "retryPolicy": {
+              "policy": "<object_type_for_retry>",
+              "exchangeManager": {
+                "storage": {
+                  "serviceS3": {}
+                },
+                "additionalProperties": {<additional_storage_parameters>}
+              },
+              "additionalProperties": {<additional_retry_parameters>}
+            },
+            "version": "<version>"
           },
           "network": {
             "subnetIds": [ <list_of_subnet_IDs> ],
@@ -282,7 +300,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
           "deletionProtection": "<deletion_protection>",
           "serviceAccountId": "<service_account_ID>",
           "logging": {
-            "enabled": "<use of_logging>",
+            "enabled": "<use_of_logging>",
             "folderId": "<folder_ID>",
             "minLevel": "<logging_level>"
           }
@@ -291,10 +309,10 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         Where:
 
-        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `trino`: Configuration of {{ TR }} cluster [components](../concepts/index.md#cluster-architecture).
 
             * `coordinatorConfig`: Coordinator configuration.
@@ -316,7 +334,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                       * `minCount`: Minimum number of workers.
                       * `maxCount`: Maximum number of workers.
 
-                  Specify one of the two parameters: `fixedScale` or `autoScale`. 
+                  Specify either `fixedScale` or `autoScale`. 
 
             * `retryPolicy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
@@ -328,10 +346,14 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additionalProperties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+            
+            * `version`: {{ TR }} version.
+
+               {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
         * `network`: Network settings:
 
-            * `subnetIds`: Subnet IDs list.
+            * `subnetIds`: List of subnet IDs.
             * `securityGroupIds`: List of security group IDs.
 
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
@@ -342,11 +364,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         * `logging`: Logging parameters:
 
             * `enabled`: Enables logging. Logs generated by {{ TR }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-            * `minLevel`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
+            * `minLevel`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and`FATAL`.
             * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `logGroupId`: Custom log group ID. Logs will be written to this group.
 
-            Specify one of the two parameters: `folderId` or `logGroupId`.
+            Specify either `folderId` or `logGroupId`.
 
     1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -408,7 +430,8 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                 "additional_properties": {<additional_storage_parameters>}
               },
               "additional_properties": {<additional_retry_parameters>}
-            }
+            },
+            "version": "<version>"
           },
           "network": {
             "subnet_ids": [ <list_of_subnet_IDs> ],
@@ -417,7 +440,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
           "deletion_protection": "<deletion_protection>",
           "service_account_id": "<service_account_ID>",
           "logging": {
-            "enabled": "<use of_logging>",
+            "enabled": "<use_of_logging>",
             "folder_id": "<folder_ID>",
             "min_level": "<logging_level>"
           }
@@ -426,10 +449,10 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `trino`: Configuration of {{ TR }} cluster [components](../concepts/index.md#cluster-architecture).
 
             * `coordinator_config`: Coordinator configuration.
@@ -451,7 +474,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                       * `min_count`: Minimum number of workers.
                       * `max_count`: Maximum number of workers.
 
-                    Specify one of the two parameters: `fixed_scale` or `auto_scale`.
+                    Specify either `fixed_scale` or `auto_scale`.
 
             * `retry_policy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
@@ -463,10 +486,14 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additional_properties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+            
+            * `version`: {{ TR }} version.
+
+               {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
         * `network`: Network settings:
 
-            * `subnet_ids`: Subnet IDs list.
+            * `subnet_ids`: List of subnet IDs.
             * `security_group_ids`: List of security group IDs.
 
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
@@ -477,11 +504,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
         * `logging`: Logging parameters:
 
             * `enabled`: Enables logging. Logs generated by {{ TR }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-            * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
+            * `min_level`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and`FATAL`.
             * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-            Specify one of the two parameters: `folder_id` or `log_group_id`.
+            Specify either `folder_id` or `log_group_id`.
 
     1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

@@ -1,10 +1,10 @@
 # Working with the query editor
 
-The query editor opens in the data panel when you select a database, a table, or a view in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section. 
+The query editor opens in the data panel when you select a database, a table, or a view in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 
 ## Running a query {#execute-query}
 
-To perform a database query, [establish](create-connection.md#connect-db) or [activate](connect.md#update-connection) a connection with the database.
+To run a [query](../concepts/index.md#queries) to a database, [establish](create-connection.md#connect-db) or [activate](update-connection.md) a connection with the database.
 
 {% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
@@ -50,10 +50,10 @@ A file with the results will be added to your browser's downloads section.
 
 ## Setting up the query editor {#sql-editor-settings}
 
-{{ websql-full-name }} enables you to quickly edit your queries, including with features, such as context help or SQL syntax and error highlighting. To manage these features: 
+{{ websql-full-name }} enables you to quickly edit your queries, including with features, such as context help or SQL syntax and error highlighting. To manage these features:
 
 1. Click ![image](../../_assets/console-icons/gear.svg) **Settings** in the bottom-left corner.
-1. Go to the **Query editor** section. 
+1. Go to the **Query editor** section.
 1. Customize the editor theme (`Visual Studio` or `High Contrast`), font size and type, and the following editing feature options:
    * Editor tips
    * Syntax highlighting

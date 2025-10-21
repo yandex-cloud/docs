@@ -59,3 +59,5 @@ The `organization-manager.admin` role enables managing organization settings, id
 {% endcut %}
 
 This role includes `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, and `src.repositories.admin` permissions.
+
+To configure user group mapping, the role must be assigned for those Identity Hub groups, which you want to configure mapping for.

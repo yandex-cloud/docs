@@ -69,7 +69,7 @@ To create or edit an endpoint of a managed database, you will need the [`{{ role
 
 {% endnote %}
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -82,7 +82,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 ### Custom installation {#on-premise}
 
-Connecting to the database with explicitly specified network addresses and ports.
+Connection to the database with explicitly specified network addresses and ports.
 
 {% list tabs group=instructions %}
 

@@ -10,7 +10,7 @@ To create an AppMetrica connection:
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **AppMetrica** connection.
-1. Specify the connection settings:
+1. Configure the connection as follows:
 
    * **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
    * **App**. Specify one or more applications to connect to.

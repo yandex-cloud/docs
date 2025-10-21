@@ -40,9 +40,6 @@ description: Управление доступом в сервисе созда�
 
 {% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
-#### managed-kafka.restorer {#managed-kafka-restorer}
-
-{% include [managed-kafka.restorer](../../_roles/managed-kafka/restorer.md) %}
 
 #### managed-kafka.editor {#managed-kafka-editor}
 
@@ -68,9 +65,6 @@ description: Управление доступом в сервисе созда�
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
-#### mdb.restorer {#mdb-restorer}
-
-{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

@@ -1,7 +1,7 @@
 # Установка OIDC Аутентификация
 
 
-[OIDC Аутентификация]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) — приложение для аутентификации пользователей в кластере {{ managed-k8s-name }} с помощью сторонних провайдеров аутентификации, поддерживающих протоколы идентификации [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), [Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/active-directory-domain-services), [LDAP](https://ru.wikipedia.org/wiki/LDAP) или [GitHub](https://github.com/). Приложение использует протокол [OAuth 2.0](https://oauth.net/2/) для выпуска токена доступа пользователя по идентификатору и секретному ключу, предоставленному провайдером.
+[OIDC Аутентификация]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) — приложение для аутентификации пользователей в кластере {{ managed-k8s-name }} с помощью сторонних провайдеров аутентификации, поддерживающих протоколы идентификации [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), [{{ microsoft-idp.ad-short }}](https://docs.microsoft.com/windows-server/identity/ad-ds/active-directory-domain-services), [LDAP](https://ru.wikipedia.org/wiki/LDAP) или [GitHub](https://github.com/). Приложение использует протокол [OAuth 2.0](https://oauth.net/2/) для выпуска токена доступа пользователя по идентификатору и секретному ключу, предоставленному провайдером.
 
 Приложение состоит из двух компонентов:
 

@@ -19,7 +19,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a disk.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
@@ -33,7 +33,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk [snapshots](../../concepts/snapshot.md), if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      When creating a disk, you can only select a single snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
-  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 
@@ -163,7 +163,7 @@ You can only create a disk in an existing disk placement group.
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Enter a name for the disk. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
@@ -180,7 +180,7 @@ You can only create a disk in an existing disk placement group.
   1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk snapshots, if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
-  1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 

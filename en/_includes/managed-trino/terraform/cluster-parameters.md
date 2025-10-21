@@ -7,6 +7,7 @@ resource "yandex_trino_cluster" "<cluster_name>" {
   subnet_ids          = [yandex_vpc_subnet.<subnet_name>.id]
   security_group_ids  = [<list_of_security_group_IDs>]
   deletion_protection = <protect_cluster_from_deletion>
+  version             = "<version>"
 
   coordinator = {
     resource_preset_id = "<class_of_computing_resources>"
@@ -36,11 +37,15 @@ Where:
 
 * `name`: Cluster name. It must be unique within the folder.
 * `service_account_id`: Service account ID.
-* `subnet_ids`: Subnet IDs list.
+* `subnet_ids`: List of subnet IDs.
 * `security_group_ids`: List of security group IDs.
 * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
     Even if it is enabled, one can still connect to the cluster manually and delete it.
+
+* `version`: {{ TR }} version.
+    
+    {% include [change-version-note](../change-version-note.md) %}
 
 * `coordinator`: [Coordinator](../../../managed-trino/concepts/index.md#coordinator) configuration.
 

@@ -137,7 +137,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
   1. [Create](../../../compute/operations/disk-control/create-snapshot.md) a snapshot of the disk.
   1. Create a new encrypted disk from the snapshot:
 
-      1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
       1. In the dialog that opens:
           1. Name the disk in the **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** field.
           1. Specify the preferred [availability zone](../../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.compute.disk-form.field_zone }}** field.

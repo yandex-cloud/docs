@@ -33,3 +33,5 @@
 * [Почему возникает ошибка `cannot execute <SQL-команда> in a read-only transaction`?](#read-only-error)
 
 * [Что делать, если в логах отображается ошибка `too many connections for role "monitor"`?](#monitor-role-error)
+
+* [Почему установка нескольких расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)

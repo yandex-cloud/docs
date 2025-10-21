@@ -21,10 +21,13 @@ Cluster hosts accept [connections](../operations/connect/clients.md) from client
 
 Different {{ KF }} versions use different tools to store cluster metadata, state, and configuration:
 
-* Versions 3.5 or lower use [{{ ZK }}](#zookeeper).
-* Versions 3.6 or higher use [{{ kraft-name }}](#kraft).
+{% include notitle [kafka-versions.md](../../_includes/mdb/mkf/kafka-versions.md) %}
 
-The number and type of hosts are different between the two cases.
+{% note info %}
+
+{% include notitle [default-config](../../_includes/mdb/mkf/create-cluster.md#default-config) %}
+
+{% endnote %}
 
 ### Host configuration in clusters with {{ ZK }} {#zookeeper}
 
@@ -37,19 +40,9 @@ You cannot delete {{ ZK }} hosts. The number of {{ ZK }} hosts is fixed.
 
 For more information on creating a {{ mkf-name }} cluster with {{ ZK }}, see [this guide](../operations/cluster-create.md#create-cluster).
 
-{% note info %}
-
-{{ ZK }} hosts get the following specs by default:
-
-* `b2.medium` [host class](instance-types.md).
-* Disk size of `10`GB.
-* [Disk type](storage.md): `network-ssd-nonreplicated`.
-
-{% endnote %}
-
 ### Host configuration in clusters with {{ kraft-name }} {#kraft}
 
-In {{ KF }} 3.6 or higher, [{{ kraft-name }} protocol](kraft.md) (abbreviated as {{ kraft-short-name }}) is used to store metadata instead of {{ ZK }}.
+The [{{ kraft-name }} protocol](kraft.md) (abbreviated {{ kraft-short-name }}) is used to store metadata instead of {{ ZK }}.
 
 {% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
 
@@ -66,9 +59,9 @@ VMs for cluster hosts can be hosted on:
 
   These are physical servers reserved exclusively for your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
 
-  A cluster with multiple broker hosts needs at least three groups of dedicated hosts for its operation. This is required for the deployment of {{ ZK }} hosts.
+  A cluster with multiple broker hosts needs at least three groups of dedicated hosts to operate. This enables the placement of {{ ZK }} and {{ kraft-short-name }} hosts.
 
-  This placement option ensures physical isolation of the VMs. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
+  This placement configuration ensures physical isolation of VMs. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
   For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
 
