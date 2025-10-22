@@ -80,6 +80,3 @@ If, based on the request context, the model elects not to use the suggested tool
 ## Use cases {#examples}
 
 [{#T}](../../operations/generation/function-call.md)
-
-
-^1^ {{ meta-disclaimer }}

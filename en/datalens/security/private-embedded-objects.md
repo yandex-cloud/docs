@@ -264,7 +264,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a chart {#chart}
 
         ```bash
-        https://datalens.yandex.cloud/embeds/chart#dl_embed_token=<token>
+        {{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>
         ```
 
         Where `<token>` is the JWT.
@@ -272,7 +272,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a dashboard {#dashboard}
 
         ```bash
-        https://datalens.yandex.cloud/embeds/dash#dl_embed_token=<token>
+        {{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>
         ```
 
         Where `<token>` is the JWT.
@@ -286,7 +286,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a chart {#chart}
 
         ```html
-        <iframe src="https://datalens.yandex.cloud/embeds/chart#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="{{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
         ```
 
         Where:
@@ -300,7 +300,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       - For a dashboard {#dashboard}
 
         ```html
-        <iframe src="https://datalens.yandex.cloud/embeds/dash#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="{{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
         ```
 
         Where:
@@ -315,7 +315,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
       {% note info %}
 
-      If the website and app your chart or dashboard will be embedded into have a whitelist access policy, add the `https://datalens.ru` domain to the allowed list.
+      If the website and app your chart or dashboard will be embedded into have a whitelist access policy, add the `{{ link-datalens-main }}` domain to the allowed list.
 
       {% endnote %}
 
@@ -346,7 +346,7 @@ const iframe = document.getElementById('ID_IFRAME');
 iframe.contentWindow.postMessage({
     type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
     token: 'NEW_TOKEN'
-}, 'https://datalens.ru/');
+}, '{{ link-datalens-main }}/');
 ```
 
 When updating a token, keep in mind its expiration time.
@@ -362,7 +362,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
 - For a chart {#chart}
 
   ```html
-  <iframe src="https://datalens.yandex.cloud/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="{{ link-datalens-main }}/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
   ```
 
   Where:
@@ -374,7 +374,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
 - For a dashboard {#dashboard}
 
   ```html
-  <iframe src="https://datalens.yandex.cloud/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="{{ link-datalens-main }}/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
   ```
 
   Where:
@@ -406,53 +406,22 @@ Signed parameters are provided as part of the token. They cannot be changed with
 
 Embedding settings for enabled and disabled parameters do not apply to signed parameters. They will be provided to charts and selectors in any case.
 
-By default, signed parameter values are overridden by external parameters with the same name. The selector parameter, dashboard setting parameter, or link parameter will take priority over the signed ones.
-
 You can dynamically update signed parameters by [refreshing a token without losing filter states](#token-update).
 
-{% note warning %}
+When working with parameters:
 
-Starting August 26, 2025, the behavior of signed parameters will change.
+* Signed parameters take priority. If a widget gets both a signed and an external parameter of the same name at the same time, the signed one will apply.
+* Signed parameter selectors do not affect the dashboard charts.
 
-{% endnote %}
-
-Features of the new behavior:
-
-* Values of signed parameters will take priority. If both a signed parameter and external parameter with the same name are provided to a widget at the same time, the signed one will apply.
-* Selectors by signed parameters will not affect dashboard charts.
-
-Signed parameters provide more secure access to data: users with access to embedded objects will not be able to change these parameters. You can use signed parameters to filter charts and provide a specific user with only the slice of data they need.
+Signed parameters ensure more secure data access: users with access to embedded objects are unable to change these parameters. You can use signed parameters to filter charts and provide a specific user with only the slice of data they need.
 
 ## Recommendations {#recommendations}
 
 When embedding private objects, follow these guidelines:
 
 * Default values should be provided in the link parameters.
-* Note that any parameter in the link will override any signed parameter with the same name.
-* To block changes to a parameter value:
-
-  {% list tabs group=datalens_public %}
-
-  - For a chart {#chart}
-
-    1. Add a signed parameter with a required value into the token.
-    1. In chart embedding settings:
-
-       * In **Enable all** mode, add the parameter to the disabled list.
-       * In **Disable all** mode, do not add the parameter to the enabled list.
-
-  - For a dashboard {#dashboard}
-
-    1. Add a signed parameter with a required value into the token.
-    1. In the dashboard embedding settings, add the parameter to the disabled list.
-
-  {% endlist %}
-
-  {% note warning %}
-
-  Starting August 26, 2025, the behavior of signed parameters will change. Signed parameters will become immutable by default; you will no longer need to create lists of enabled or disabled parameters.
-
-  {% endnote %}
+* Note that any parameter in the link will override any signed parameter of the same name.
+* To make it uneditable, add the [signed parameter](#signed-parameters) to a token.
 
 ## Things to consider when embedding dashboards {#dash-embed-specialties}
 

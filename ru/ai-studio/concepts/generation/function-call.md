@@ -80,6 +80,3 @@ request_body = {
 ## Примеры использования {#examples}
 
 [{#T}](../../operations/generation/function-call.md)
-
-
-^1^ {{ meta-disclaimer }}

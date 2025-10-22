@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 {% note info %}
 
 Чтобы просматривать предложения, пользователю необходима [роль](../security/index.md#billing-accounts-viewer) `billing.accounts.viewer`.
-Чтобы принимать предложения, пользователю необходима [роль](../security/index.md#billing-accounts-owner) `billing.accounts.owner` или `billing.accounts.editor`.
+Чтобы принимать предложения, пользователю необходима [роль](../security/index.md#billing-accounts-owner) `billing.accounts.owner`.
 
 {% endnote %}
 

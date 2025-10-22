@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 Перед привязкой [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) убедитесь, что [платежный аккаунт](../concepts/billing-account.md) прошел активацию ([статус](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`), а пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
 * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако.
-* `billing.accounts.owner` или `editor` в платежном аккаунте. Подробнее о ролях читайте в разделе [Управление доступом](../security/index.md#roles-list).
+* `billing.accounts.editor` и выше в платежном аккаунте. Подробнее о ролях читайте в разделе [Управление доступом](../security/index.md#roles-list).
 
 ## Как привязать облако {#bind-cloud}
 
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы привязать облако, у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) должна быть [назначена роль](../security/index.md#set-role) `billing.accounts.owner` или `editor` на платежный аккаунт.
+  Чтобы привязать облако, у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) должна быть [назначена роль](../security/index.md#set-role) не ниже `billing.accounts.editor` на платежный аккаунт.
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      ```hcl

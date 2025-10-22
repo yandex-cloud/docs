@@ -24,9 +24,9 @@ description: Доступ к платежному аккаунту предос�
 
 ### Сервисные роли {#service-roles}
 
-#### billing.accounts.owner {#billing-accounts-owner}
+#### billing.accounts.member {#billing-accounts-member}
 
-{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
@@ -36,25 +36,25 @@ description: Доступ к платежному аккаунту предос�
 
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
 
+#### billing.partners.editor {#billing-partners-editor}
+
+{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
-
-#### billing.accounts.admin {#billing-accounts-admin}
-
-{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
-
-#### billing.accounts.member {#billing-accounts-member}
-
-{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
 
-#### billing.partners.editor {#billing-partners-editor}
+#### billing.accounts.admin {#billing-accounts-admin}
 
-{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
+{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.owner {#billing-accounts-owner}
+
+{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
@@ -83,7 +83,8 @@ description: Доступ к платежному аккаунту предос�
 | Пополнение лицевого счета с помощью расчетного счета    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Генерация нового акта сверки                            | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Активация промокодов                                    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Привязка облаков к платежному аккаунту                  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Привязка облачной организации и других сущностей к платежному аккаунту | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Связь с облачной организацией                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Создание экспорта детализации                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Создание бюджета                                        | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Резервирование ресурсов                                 | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -96,7 +97,6 @@ description: Доступ к платежному аккаунту предос�
 | Изменение платежных реквизитов                          | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение банковской карты                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение способа оплаты                                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
-| Активация пробного периода                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Активация платной версии                                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Пополнение лицевого счета с помощью банковской карты    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Принимать коммерческие предложения                      | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |

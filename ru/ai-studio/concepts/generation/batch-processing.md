@@ -13,10 +13,10 @@
 || **QwQ 32B Instruct** 
 [Карточка модели](https://huggingface.co/Qwen/QwQ-32B)
 Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwq-32b` | 32 768 ||
-|| **Llama 3.3 70B Instruct**^2^ 
+|| **Llama 3.3 70B Instruct**^\*^ 
 [Карточка модели](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
 [Лицензия Llama 3.3](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<идентификатор_каталога>/llama3.3-70b-instruct` | 8 192 ||
-|| **Llama 3.1 70B Instruct**^2^
+|| **Llama 3.1 70B Instruct**^\*^
 [Карточка модели](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct)
 [Лицензия Llama 3.1](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE)  | `gpt://<идентификатор_каталога>/llama3.1-70b-instruct` | 8 192 ||
 || **DeepSeek-R1 Distill Llama 70B** 
@@ -70,7 +70,7 @@
 Лицензия [Apache 2.0]({{ license-apache }}) | `gpt://<идентификатор_каталога>/qwen3-235b-a22b` | 32 768 ||
 |#
 
-^2^ {{ meta-disclaimer }}
+^\*^ {{ meta-disclaimer }}
 
 ## Мультимодальные модели {#multimodels-batch}
 

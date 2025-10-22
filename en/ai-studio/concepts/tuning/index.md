@@ -45,6 +45,3 @@ To send API requests in [{{ ml-platform-name }}]({{ link-datasphere-main }}) not
 * [{#T}](../../tutorials/models-fine-tuning.md)
 * [{#T}](../../operations/resources/create-dataset-gpt.md)
 * [{#T}](../../operations/resources/create-dataset-classifier.md)
-
-
-^1^ {{ meta-disclaimer }}

@@ -5,6 +5,18 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ objstorage-full-name }}
 
+## III квартал 2025 {#q3-2025}
+
+* Прекращена поддержка протокола TLS версий 1.0 и 1.1.
+* В S3 API реализована поддержка [условий записи объектов (conditional writes)](./concepts/object.md#conditional-writes).
+* В провайдер {{ TF }} добавлены новые ресурсы:
+  * [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) — [настройка](operations/buckets/iam-access.md) прав доступа к бакету с помощью {{ iam-name }};
+  * [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) — [настройка](./operations/buckets/edit-acl.md) прав доступа к бакету с помощью [ACL {{ objstorage-name }}](./concepts/acl.md);
+  * [yandex_storage_bucket_policy]({{ tf-provider-resources-link }}/storage_bucket_policy) — [управление](./operations/buckets/policy.md) политикой доступа ([bucket policy](concepts/policy.md)) бакета.
+* В [{{ yandex-cloud }} CLI](../cli/quickstart.md) добавлена команда [yc storage s3 presign](./cli-ref/s3/presign.md) — для создания [подписанных (pre-signed) URL](./concepts/pre-signed-urls.md).
+* В командах {{ yandex-cloud }} CLI [yc storage bucket create](./cli-ref/bucket/create.md) и [yc storage bucket update](./cli-ref/bucket/update.md) добавлен параметр `--tags` для управления [метками](./concepts/tags.md) бакета.
+* Исправлена ошибка, при которой в некоторых случаях при удалении объектов по префиксу через консоль управления не учитывались правила политики доступа.
+
 ## II квартал 2025 {#q2-2025}
 
 * В [консоли управления]({{ link-console-main }}) появилась возможность включить [шифрование](./concepts/encryption.md) и [версионирование](./concepts/versioning.md) при создании [бакета](./concepts/bucket.md).

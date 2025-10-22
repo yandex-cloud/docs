@@ -108,6 +108,8 @@ items:
     items:
       - name: Обзор
         href: concepts/connection.md
+      - name: Версионирование
+        href: concepts/connection/versioning.md
       - name: Кеширование
         href: concepts/caching.md
       - name: Объединение данных
@@ -778,7 +780,7 @@ items:
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md
-      - name: Добавление описания к чарту
+      - name: Добавление информации о чарте
         href: operations/chart/add-description.md
       - name: Версионирование
         href: concepts/chart/versioning.md
@@ -822,7 +824,7 @@ items:
             href: operations/dashboard/add-text.md
           - name: Добавление заголовка на дашборд
             href: operations/dashboard/add-title.md
-          - name: Добавление описания к дашборду
+          - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
           - name: Добавление сообщения при обращении в поддержку
             href: operations/dashboard/add-support-message.md

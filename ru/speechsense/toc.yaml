@@ -119,9 +119,10 @@ items:
         href: tutorials/index.md
       - name: Автоматическая загрузка данных с помощью {{ sw-full-name }}
         href: tutorials/auto-upload.md
-      - name: Интеграция с Битрикс24
+      - name: Интеграция с {{ amocrm-name }}
+        href: tutorials/amocrm.md
+      - name: Интеграция с {{ bitrix24-name }}
         href: tutorials/bitrix24.md
-        hidden: true
   - name: Концепции
     items:
       - name: Иерархия ресурсов
