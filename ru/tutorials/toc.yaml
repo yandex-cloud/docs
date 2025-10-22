@@ -805,9 +805,10 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Конвертация видео в GIF на Python
             href: serverless/video-converting-queue.md
-          - name: Интеграция {{ speechsense-name }} с Битрикс24
+          - name: Интеграция {{ speechsense-name }} с {{ bitrix24-name }}
             href: speechsense/bitrix24.md
-            hidden: true
+          - name: Интеграция {{ speechsense-name }} с {{ amocrm-name }}
+            href: speechsense/amocrm.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

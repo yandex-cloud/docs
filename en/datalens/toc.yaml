@@ -915,8 +915,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: August 2025
+      - name: September 2025
         href: release-notes/index.md
+      - name: August 2025
+        href: release-notes/2508.md
       - name: July 2025
         href: release-notes/2507.md
       - name: June 2025
@@ -925,10 +927,10 @@ items:
         href: release-notes/2505.md
       - name: April 2025
         href: release-notes/2504.md
-      - name: March 2025
-        href: release-notes/2503.md
       - name: Archive
         items:
+          - name: March 2025
+            href: release-notes/2503.md
           - name: February 2025
             href: release-notes/2502.md
           - name: January 2025

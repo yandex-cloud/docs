@@ -8,10 +8,12 @@ service | Идентификатор сервиса: `data-transfer`.
 job_index | Индекс [воркера](../../../data-transfer/concepts/index.md#worker) для отличия воркеров, используемых при [параллельном копировании](../../../data-transfer/concepts/sharded.md) данных.
 src_id | Идентификатор [источника](../../../data-transfer/transfer-matrix.md).
 target_type | Тип [приемника](../../../data-transfer/transfer-matrix.md), например `mongo`.
-resource_id | Идентификатор [трансфера](../../../data-transfer/concepts/index.md#transfer) {{ data-transfer-name }}.
+resource_id | Идентификатор [трансфера](../../../data-transfer/concepts/index.md#transfer) или [эндпоинта](../../../data-transfer/concepts/index.md#endpoint) в зависимости от типа ресурса.
+resource_type | Тип ресурса, над которым была запущена или завершена операция. Возможны значения `endpoint` и `transfer`.
 dst_id | Идентификатор приемника.
 source_type | Тип источника, например `mongo`.
-operation_type (кроме метрик `replication.*`) | Тип операции, например `Activate`.
+operation_type (кроме метрик `replication.*` и `operations.*`) | Тип запущенной или завершенной операции. Значения соответствуют возможным операциям над `resource_type`.<br/>Для трансфера: `Activate`, `Upload`, `ReUpload`, `Start`, `Restart`, `Stop`, `Verify`, `AddTables`, `RemoveTables`, `Deactivate`, `Checksum`, `Replication`, `Termination`, `TestEndpoint`.<br/>Для эндпоинта: `Create`, `Update`, `Delete`.
+
 
 ## Метрики CPU {#data-transfer-cpu-metrics}
 

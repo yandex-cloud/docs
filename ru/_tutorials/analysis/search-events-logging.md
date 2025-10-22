@@ -1,6 +1,6 @@
 # Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
 
-## Кто удалил каталог
+## Кто удалил каталог {#delete-folder}
 
 Поиск по идентификатору:
 
@@ -12,7 +12,7 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
 ```
 
-## Кто создал/остановил/перезапустил/удалил виртуальную машину
+## Кто создал/остановил/перезапустил/удалил виртуальную машину {#vm-manage}
 
 Поиск по идентификатору [виртуальной машины](../../glossary/vm.md):
 
@@ -20,7 +20,7 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 json_payload.details.instance_id="<идентификатор_виртуальной_машины>" and (json_payload.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.UpdateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.DeleteInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StartInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StopInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.RestartInstance")
 ```
 
-## Какие действия совершал конкретный пользователь за период времени
+## Какие действия совершал конкретный пользователь за период времени {#user-actions}
 
 Поиск по идентификатору пользователя:
 
@@ -34,7 +34,7 @@ json_payload.authentication.subject_id="<идентификатор_пользо
 json_payload.authentication.subject_name="<имя_пользователя>" and json_payload.event_time>"2021-03-01" and json_payload.event_time<"2021-04-01"
 ```
 
-## Поиск событий по объектам определенного каталога
+## Поиск событий по объектам определенного каталога {#folder-actions}
 
 Поиск по идентификатору каталога:
 
@@ -47,6 +47,15 @@ json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" a
 ```json
 json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_name="<имя_каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_name="<имя_каталога>"
 ```
+
+## Поиск событий с ошибками {#error}
+
+Поиск ошибок, связанных с недостаточными правами на выполнение операции (Permission denied):
+
+```json
+json_payload.event_status = ERROR and json_payload.error.code = 7
+```
+
 
 ## Что дальше {#whats-next}
 

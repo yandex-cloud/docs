@@ -207,5 +207,3 @@ To enable the model to invoke the function when needed:
      ```
 
 {% endlist %}
-
-^1^ {{ meta-disclaimer }}

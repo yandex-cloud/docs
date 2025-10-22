@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: August 2025'
-description: Check out {{ datalens-full-name }} release notes for August 2025.
+title: '{{ datalens-full-name }} release notes: September 2025'
+description: Check out {{ datalens-full-name }} release notes for September 2025.
 ---
 
-# {{ datalens-full-name }} release notes: August 2025
+# {{ datalens-full-name }} release notes: September 2025
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
@@ -11,71 +11,102 @@ description: Check out {{ datalens-full-name }} release notes for August 2025.
 
 ## Changes in basic features {#base}
 
-* Added [parameterization of dataset sources](../dataset/parametrization.md). This new feature allows you to dynamically substitute parameters from a chart into an SQL query, table name, or schema name.
+* Added [dataset](../dataset/versioning.md) versioning. You can now view a list of previously saved dataset changes and roll back to a previous version.
+* In the chart [axis settings](../concepts/chart/settings.md#axis-settings), added the ability to select `Manually` for label formatting.
+* When using a connection to [{{ PG }}](../operations/connection/create-postgresql.md), added the ability to provide `TODAY()` as the first argument for the `DATEADD` [function](../function-ref/DATEADD.md).
+* Updated the settings form for calculated fields in datasets and charts: the field name is now displayed in a separate row.
 
 
-* Added highlighting of features available with the Business [service plan](../concepts/service-plans-comparison.md) to the service settings.
 
-  ![image](../../_assets/datalens/release-notes/business-setting.png =552x167)
+* Added highlighting of features available with the Business [service plan](../concepts/service-plans-comparison.md) in some menus.
 
-* Revamped the [chart](../concepts/chart/index.md) menu on dashboards:
+  {% cut "Object creation menu in workbooks" %}
 
-  * By default, in the web version, the chart menu on the dashboard is now hidden from view and appears when hovering over the widget. On mobile devices, the menu is visible at all times.
-  * The cross-filtering icon no longer overlaps notifications.
-  * Notification icons have become less bright.
-  * Changed the order of UI controls.
+  ![image](../../_assets/datalens/release-notes/business-in-menu-workbooks.png)
 
+  {% endcut %}
 
-* In [tables](../visualization-ref/table-chart.md) and [pivot tables](../visualization-ref/pivot-table-chart.md):
-  
-  * Hid pagniation if a single page is displayed or there is no data.
-  * In the measure settings window, moved the setting for field fill color selection in hex format. To change the color:
+* Added a privacy policy: click ![image](../../_assets/console-icons/circle-question.svg) **Help center** → **Privacy policy** in the left-hand navigation panel.
+* Implemented [adding chart info](../operations/chart/add-description.md) in the wizard, Editor, and in QL charts.
+* Added the **Retry** button in the window with related objects; it appears when an error occurs on window opening.
+* Now only a user with the `{{ roles-datalens-instances-admin }}` or `{{ roles-datalens-admin }}` [role](../security/roles.md#service-roles) can create a [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md) connection. To allow other users to view a connection and run queries to it, the connection administrator can configure [object access permissions](../security/manage-access.md).
+* Added a connection to [{{ TR }}](../operations/connection/create-trino.md). A connector enables you to connect either to a managed database in the current {{ yandex-cloud }} organization or to an external database with your own credentials and an option to select the authentication type.
+* Modified the behavior of [signed parameters](../security/private-embedded-objects.md#signed-parameters) in private embeddings.
 
-    1. Click the button with the current color.
-    1. In the pop-up window, select a color from the color palette or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify a color in hex format. The color will change in the settings window.
+  * Now signed parameters take priority. If a widget gets both a signed and an external parameter of the same name at the same time, the signed one will apply.
+  * Signed parameter selectors do not affect the dashboard charts.
 
-       ![image](../../_assets/datalens/release-notes/table-measure-color-setting-hex.png =346x375)
+### {{ datalens-full-name }} updates {#datalens-update}
 
-    1. Click anywhere outside the pop-up window with the color palette.
+Released a major {{ datalens-full-name }} update:
+
+* Changed the domain to `datalens.ru`. It is now the single point of access where you can download the on-premise distribution, explore the product, or view a ready-to-use dashboard.
+
+  Please note:
+
+  * The promo page and {{ datalens-short-name }} itself are now available at `datalens.ru`.
+  * The new secure embedding URL is `datalens.ru/embeds/*`. On October 9, we will enable redirection from the legacy secure embedding URLs to the new addresses. Make sure to make `datalens.ru` an allowed domain in the security settings of the website or application with embedded objects.
+  * Public charts and dashboards are still available at `datalens.yandex`.
+
+* Updated the design and contents of the {{ datalens-short-name }} promo page.
+
+  ![image](../../_assets/datalens/release-notes/promo-page.png)
 
 
 ## Fixes and improvements {#fixes}
 
-
-### UI fixes {#interface-fixes}
-
-* In {{ datalens-gallery }}, fixed icon positioning in the drop-down list of the **Use** menu.
-* In the dialog box for [configuring access permissions to workbooks and collections](../workbooks-collections/security.md), fixed scrolling display and added display of the full user name or group name when hovering over a permission subject.
-* In the dialog box for copying and transferring a workbook, fixed breadcrumb alignment and scrolling display.
-* Fixed the issue with attachment previews in the [support](../qa/index.md#how-to-resolve-problem) request form.
-
-
-### Fixes in connections {#connections-fixes}
-
-Fixed the incorrect behavior when opening a form for creating a Yandex Documents connection from the [Yandex Documents](../operations/connection/create-yadocs.md) connection page in the navigation panel.
-
-### Fixes in charts {#chart-fixes}
-
-* Hid the **Axis type** setting in [QL charts](../concepts/chart/ql-charts.md) rendered with the Gravity UI [Yagr](https://github.com/gravity-ui/yagr) library.
-* Now, in QL charts, the query may take up the whole width of the query editor window.
-* Fixed the issue with displaying the name of the selected connection when creating a QL chart.
-* Fixed the position of the navigation window when changing connections in QL charts.
-* In [point maps](../visualization-ref/point-map-chart.md) based on QL charts, fixed issues with changing the point size and tooltip display.
-* In [tables](../visualization-ref/table-chart.md#set-field-color), fixed filling of cells with empty (`null`) values. Now, such cells are not filled if the `Do not fill` option is selected in the **Colors** section.
-* Fixed incorrect tooltip display.
-* Fixed the error when displaying the empty (`null`) value in an [indicator](../visualization-ref/indicator-chart.md) built using the [markup functions](../function-ref/markup-functions.md).
-* When changing a dataset in the [wizard](../concepts/chart/dataset-based-charts.md), the navigation window now opens in the current directory.
-* Fixed the error in [labels](../concepts/chart/settings.md#sign) when `&amp;` and `&lt;&gt;` were displayed instead of the `&` and `<>` characters when using the [BR](../function-ref/BR.md) markup function.
-* Fixed incorrect display of the legend and labels in [pie](../visualization-ref/pie-chart.md) charts. Previously, a measure name was displayed in the legend and labels in case there was an empty row among dimensions.
-* Optimized the display of the gradient legend for dimensions.
+* Restored the ability to open a chart as a table. To open your chart as a table, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/layout-cells.svg) **Open as a table** in the top-right corner of the chart.
+* Fixed the incorrect closing of the settings window when editing a dashboard access error.
+* Fixed the error where data export got implicitly [disabled](../dataset/create-dataset.md#data-export-disable) when editing a dataset.
+* Fixed the error caused by attempts to save a selector in which a field could not be validated.
+* Fixed incorrect name saving when [creating a calculated field](../concepts/calculations/index.md#how-to-create-calculated-field) in a chart.
+* Fixed the issue where [disabling export](../concepts/chart/data-export.md#data-export-disable) at the connection or dataset level did not stop export from QL charts based on that connection or dataset. Now export from all charts will be blocked.
+* Fixed incorrect behavior when adding to or deleting favorites in datasets and dashboards.
 
 
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Fixes in Editor {#editor-fixes}
+* Implemented the ability to [add a description to a report](../reports/report-operations.md#report-add-description).
 
-* In [Advanced charts](../charts/editor/widgets/advanced.md), fixed the tooltip display when moving the cursor.
-* Fixed the issue with changing the background color when copying widgets in dashboards and reports.
-* Fixed the display of Gravity UI Charts in reports with configured scaling.
+### Neuroanalyst in {{ datalens-short-name }} {#ai-datalens}
+
+Neuroanalyst in {{ datalens-short-name }} is now available to all users with the Business service plan, including the 30-day trial period.
+
+Neuroanalyst comprises multiple AI assistants:
+
+* [Neuroanalyst for calculated fields](../concepts/calculations/formulas-helper.md): Helps you to create calculated fields.
+* [Neuroanalyst on your dashboard](../dashboard/insights.md): Neuroanalytics on your dashboard.
+* [Neuroanalyst in Editor](../charts/editor/code-helper.md): Helps you to write code and search for answers to your questions.
+* [Neuroanalyst in report](../reports/insights.md): Neuroanalytics in your report.
+
+Data security and processing:
+
+* Neuroanalyst is powered by the cloud service called [{{ foundation-models-full-name }}](../../ai-studio).
+* Your data and queries do not leave {{ yandex-cloud }}, are not logged, nor used for model tuning.
+* However, the user with the `{{ roles-datalens-admin }}` role may [disable](../concepts/neuroanalyst.md#prohibit) this option at the {{ datalens-short-name }} instance level or for individual dashboards.
+
+### Background data export {#data-export}
+
+In {{ datalens-short-name }}, added [background data export](../concepts/chart/data-export.md#background-export). You can now save large amounts of data from charts.
+
+* Available only for [tables](../visualization-ref/table-chart.md) created in the [wizard](../concepts/chart/dataset-based-charts.md) with enabled pagination.
+* Export file format is `CSV`.
+* Minimum number of pages to export is two.
+* Maximum number of rows in the table is 1,000,000.
+* Maximum export file size is 1 GB.
+
+For more information about the limitations, see [this section](../concepts/chart/data-export.md#restrictions).
+
+To initiate a background export, do the following:
+
+1. Open the data export window by doing one of the following:
+   
+   * Open the chart you want to export data from and click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **CSV** in its top-right corner.
+   * On the dashboard, find the chart for data export and click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **CSV** in its top-right corner.
+
+1. In the export window, under **Pages**, select `All`. Optionally, edit the following export file settings: **Value delimiter**, **Decimal separator**, and **Encoding**.
+1. Click **Save**. At the bottom of your screen, you will see a message saying that the export has started and a link to the export page, where you can monitor the export status and details. Once the export is complete, you will get the **Chart export complete** message with links to the export page and file for download.
+
+You can find the export history and files staged for download in the [Background data export]({{ link-datalens-main }}/exports) section.
 

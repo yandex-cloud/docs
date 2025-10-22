@@ -126,7 +126,6 @@ description: Следуя данной инструкции, вы сможете
 * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
 * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 * [Экстрактор 1С](../operations/connection/create-extractor1c.md)
-* [Битрикс24](../operations/connection/create-bitrix24.md)
 * МойСклад
 * Эквио
 * Контур.Маркет
