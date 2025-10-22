@@ -13,10 +13,10 @@
 || **QwQ 32B Instruct** 
 [Model card](https://huggingface.co/Qwen/QwQ-32B)
 [Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwq-32b` | 32,768 ||
-|| **Llama 3.3 70B Instruct**^2^ 
+|| **Llama 3.3 70B Instruct**^\*^ 
 [Model card](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
 [Llama 3.3 license](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/blob/main/LICENSE) | `gpt://<folder_ID>/llama3.3-70b-instruct` | 8,192 ||
-|| **Llama 3.1 70B Instruct**^2^
+|| **Llama 3.1 70B Instruct**^\*^
 [Model card](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct)
 [Llama 3.1 license](https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct/blob/main/LICENSE)  | `gpt://<folder_ID>/llama3.1-70b-instruct` | 8,192 ||
 || **DeepSeek-R1 Distill Llama 70B** 
@@ -70,7 +70,7 @@ Based on Llama-3.3-70B-Instruct. [Llama-3.3-70B-Instruct Terms of Use](https://h
 [Apache 2.0]({{ license-apache }}) license | `gpt://<folder_ID>/qwen3-235b-a22b` | 32,768 ||
 |#
 
-^2^ {{ meta-disclaimer }}
+^\*^ {{ meta-disclaimer }}
 
 ## Multimodal models {#multimodels-batch}
 

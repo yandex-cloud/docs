@@ -58,5 +58,3 @@
 Максимальная длина [промта](../ai-studio/concepts/index.md#prompt) | 500 символов
 **[MCP-серверы](../ai-studio/concepts/mcp-hub/index.md#servers)**
 Количество активных соединений в облаке на одну [зону доступности](../overview/concepts/geo-scope.md) | 500
-
-^1^ {{ meta-disclaimer }}

@@ -1,17 +1,17 @@
 ---
-title: How to add a description to a chart in {{ datalens-full-name }}
-description: Follow this guide to add a description to a chart.
+title: How to add chart info in {{ datalens-full-name }}
+description: Follow this guide to add chart info.
 ---
 
-# Adding a description to a chart
+# Adding chart info
 
-To add a description to a chart:
+To add chart info, do the following:
 
-1. Open the chart you want to add a description to.
+1. Open the chart to add info for.
 1. Click ![image](../../../_assets/console-icons/circle-info.svg) at the top of the screen.
 1. Enter the description and click **Save**.
 
-   {% cut "Adding a description to a chart" %}
+   {% cut "Adding chart info" %}
 
    {% list tabs group=charts %}
 
@@ -37,7 +37,7 @@ To add a description to a chart:
 
 As a result, all users will see the ![image](../../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the chart. Clicking it will open the **Chart info** window with the description.
 
-{% cut "Viewing a chart description" %}
+{% cut "Viewing chart info" %}
 
 {% list tabs group=charts %}
 
@@ -59,4 +59,4 @@ As a result, all users will see the ![image](../../../_assets/console-icons/circ
 
 {% endcut %}
 
-To remove a chart description, save an empty description in the **Chart info** window. Users will no longer see the ![image](../../../_assets/console-icons/circle-info.svg) icon.
+To remove chart info, save an empty description in the **Chart info** window. Users will no longer see the ![image](../../../_assets/console-icons/circle-info.svg) icon.

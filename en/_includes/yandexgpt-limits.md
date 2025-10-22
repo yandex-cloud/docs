@@ -58,5 +58,3 @@ Maximum number of indexing operations to run | 10
 Maximum [prompt](../ai-studio/concepts/index.md#prompt) length | 500 characters
 **[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)**
 Number of active cloud connections per [availability zone](../overview/concepts/geo-scope.md) | 500
-
-^1^ {{ meta-disclaimer }}

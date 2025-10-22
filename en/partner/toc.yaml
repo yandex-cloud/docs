@@ -30,7 +30,7 @@ items:
     items:
       - name: Granting access to a partner account
         href: operations/access/partners-account.md
-      - name: Viewing details of service usage by customers
+      - name: Viewing details of service consumption by customers
         href: operations/get-client-stat.md
       - name: Suspending services to customers
         href: operations/stop-client-services.md
@@ -40,6 +40,8 @@ items:
     href: security/index.md
   - name: Terms and definitions
     href: terms.md
+  - name: Release notes
+    href: release-notes/index.md
   - name: FAQ
     expanded: true
     items:
@@ -53,5 +55,5 @@ items:
         href: qa/start-grant.md
       - name: Additional grants within the partner program
         href: qa/additional-grants.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

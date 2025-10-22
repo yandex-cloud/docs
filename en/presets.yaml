@@ -14,6 +14,7 @@ default:
   alerts-name: Alerts
   all-mdb:
     max-databases: 1000
+  amocrm-name: amoCRM
   api-examples:
     grpc:
       tool: '[gRPCurl](https://github.com/fullstorydev/grpcurl)'
@@ -69,6 +70,7 @@ default:
   billing-interface: Yandex Cloud Billing interface
   billing-name: Yandex Cloud Billing
   billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=en
+  bitrix24-name: Bitrix24
   brand-voice-cc: Brand Voice Call Center
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   brand-voice-core: Brand Voice Self Service
@@ -8841,6 +8843,8 @@ default:
         file-input:
           button_choose: Choose a file
           button_choose-multiple: Choose files
+      filters:
+        action_select-all: Select all
       marketplace_v2:
         common:
           menu_ticket: Ticket
@@ -10557,6 +10561,7 @@ default:
             label_foundation-models: Foundation Models
             label_iam: Identity and Access Management
             label_iot-core: IoT Core
+            label_kafka: Managed Service for&nbsp;Kafka
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
             label_load-testing: Load Testing

@@ -1,6 +1,7 @@
 ---
 canonical: '{{ link-docs }}/tutorials/speechsense/bitrix24'
-noIndex: true
 ---
+
+# Интеграция с {{ bitrix24-name }}
 
 {% include [speechsense-bitrix24](../../_tutorials/speechsense/bitrix24.md) %}

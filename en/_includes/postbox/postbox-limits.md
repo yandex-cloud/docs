@@ -3,7 +3,7 @@
 #|
 || Type of limit | Value ||
 || Maximum number of email recipients 
-`postbox.recipients_per_email.count` | 10 ||
+`postbox.recipients_per_email.count` | 50 ||
 || Maximum size of an email with attachments 
 `postbox.email.size` | 10 MB ||
 || Maximum number of addresses 
