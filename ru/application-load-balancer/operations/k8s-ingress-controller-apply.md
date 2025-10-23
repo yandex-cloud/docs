@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 ## Перед началом работы {#prerequisites}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}

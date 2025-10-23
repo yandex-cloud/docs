@@ -16,8 +16,8 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную инфраструктуру](#setup-infrastructure).
-1. [Закажите Routing Instance](#request-routing-instance).
-1. [Создайте приватное соединение](#create-private-connection).
+1. [Закажите Routing Instance](#request-ri).
+1. [Создайте приватное соединение](#create-prc).
 1. [Проверьте сетевую связность](#check-connectivity).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -167,7 +167,7 @@
 {% endlist %}
 
 
-## Создайте Routing Instance {#request-routing-instance}
+## Создайте Routing Instance {#request-ri}
 
 Для организации сетевой связности между подсетями {{ baremetal-name }}, подсетями {{ vpc-name }} и/или подсетями on-prem необходимо создать ресурс `Routing Instance`. `Routing Instance` можно создать через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
 
@@ -189,7 +189,7 @@
 
 {% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
 
-## Создайте приватное соединение {#create-private-connection}
+## Создайте приватное соединение {#create-prc}
 
 После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 

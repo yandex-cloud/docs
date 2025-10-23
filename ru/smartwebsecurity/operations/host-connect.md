@@ -23,6 +23,8 @@ description: Следуя данной инструкции, вы сможете
 
     О настройке Ingress-контроллера читайте в [документации {{ managed-k8s-full-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
+    {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
     {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
 {% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}

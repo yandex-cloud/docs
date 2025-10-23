@@ -44,6 +44,8 @@
         --http-router-name <имя_HTTP-роутера>
       ```
 
+      {% include [Terraform timeouts](../terraform-timeout-router-and-host.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [update](../../../application-load-balancer/api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../../../application-load-balancer/api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../../../application-load-balancer/api-ref/grpc/VirtualHost/update.md).

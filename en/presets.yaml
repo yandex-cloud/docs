@@ -8371,6 +8371,7 @@ default:
           certificate_action_download_cert: Download certificate
           certificate_action_manage_certs: Certificate management
           certificate_section_title: Application certificate
+          field_cert-fingerprin: Fingerprint
           idp_section_closed_text: Additional attributes
           idp_section_download_metadata_action: Download metadata file
           idp_section_title: Identity provider (IdP) configuration
@@ -10976,6 +10977,7 @@ default:
         label_agent-by-filter-condition-option: Set conditions
         label_agent-by-filter-selector: First released
         label_agent-from-list-selector: Select from list
+        label_agent-temporal-selector: Temporal
         label_agents-count: Agent count
         label_agents-list: Agents
         label_choose-from-bucket: Select from bucket
@@ -11001,6 +11003,7 @@ default:
         section_agent: Agent
         section_export: Test logs
         test-data-section: Attached files
+        title_temporal-agent-field: Temporal agent settings
         value_cumulative-quantiles-chart-type: 'Response time: cumulative quantiles'
         value_imbalance_rps-chart-type: 'Fault point: RPS'
         value_instances-chart-type: 'Testing threads: quantity'

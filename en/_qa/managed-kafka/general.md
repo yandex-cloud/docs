@@ -25,7 +25,7 @@ Here is an alternative solution:
 
 [Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
+For `disk.used_bytes`, use notification thresholds. Their recommended values are as follows:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
@@ -35,17 +35,17 @@ Thresholds are set in bytes only. For example, the recommended values for a 100�
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%)
 
-#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
+#### Why is my cluster slow even though there are still some computing resources to spare? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, [increase the storage size](../../managed-kafka/operations/storage-space.md#change-disk-size).
 
-#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+#### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -58,7 +58,7 @@ This means, when connecting to the website, the service was unable to check whet
 To fix this error:
 
 * Make sure the corporate network settings do not block the check.
-* Run the command with the `--ssl-no-revoke` parameter.
+* Run the following command with the `--ssl-no-revoke` parameter:
 
    ```powershell
    mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
@@ -75,3 +75,7 @@ For an example of using scripts, see [{#T}](../../managed-kafka/operations/conne
 #### What should I do if the _kafkacat: command not found_ error occurs? {#kafkacat-not-found}
 
 On Ubuntu 24.04 and higher, use `kcat` instead of `kafkacat` (this command will not work).
+
+#### What is {{ mkf-short-name }}'s share of database management and maintenance work? {#services}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

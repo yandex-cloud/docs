@@ -1,4 +1,4 @@
-The metric name goes into the `name` label.
+The `name` label contains the metric name.
 
 Labels shared by all {{ mrd-name }} metrics: 
 
@@ -12,7 +12,7 @@ node | Host type: `master`
 subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-redis-cpu-metrics}
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -47,7 +47,7 @@ These metrics show processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
-## Disk I/O metrics {#managed-redis-diskio-metrics}
+## Disk operation metrics {#managed-redis-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
@@ -221,7 +221,7 @@ These metrics show processor core workload.
 | `redis_io_threaded_reads_processed`<br/>`DGAUGE`, count | Number of read operations processed using threaded I/O | 
 | `redis_io_threaded_writes_processed`<br/>`DGAUGE`, count | Number of write operations processed using threaded I/O | 
 | `redis_io_threads_active`<br/>`DGAUGE`, count | Number of active threads | 
-| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. | 
+| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
 | `redis_is_master`<br/>`DGAUGE` | Host type indicator.<br/>It can be either `1` if it is a DB server master host or `0` if it is not. | 
 | `redis_keyspace_hits`<br/>`DGAUGE`, count | Number of successful key lookups | 
 | `redis_keyspace_misses`<br/>`DGAUGE`, count | Number of unsuccessful key lookups | 
@@ -240,7 +240,7 @@ These metrics show processor core workload.
 | `redis_repl_backlog_size`<br/>`DGAUGE`, bytes | Maximum size of memory available for the replication backlog buffer | 
 | `redis_total_reads_processed`<br/>`DGAUGE`, count | Total read operations processed | 
 | `redis_total_writes_processed`<br/>`DGAUGE`, count | Total write operations processed | 
-| `redis_used_memory`<br/>`DGAUGE`, bytes| Actual host memory usage. If `redis_used_memory` reaches `redis_used_memory` when trying to insert new records, {{ mrd-full-name }} will apply the memory management mode defined by the [Maxmemory policy](../../../managed-redis/concepts/settings-list.md#settings-maxmemory-policy) setting. | 
+| `redis_used_memory`<br/>`DGAUGE`, bytes| Actual host memory usage. If `redis_used_memory` reaches `redis_maxmemory` when trying to insert new records, {{ mrd-full-name }} will apply the memory management mode defined by the [Maxmemory policy](../../../managed-redis/concepts/settings-list.md#settings-maxmemory-policy) setting. | 
 | `redis_used_memory_dataset`<br/>`DGAUGE`, bytes | RAM used for storing data | 
 | `redis_used_memory_overhead`<br/>`DGAUGE`, bytes | RAM used for internal management and data structures | 
 | `redis_used_memory_rss`<br/>`DGAUGE`, bytes | Memory used by Redis processes | 

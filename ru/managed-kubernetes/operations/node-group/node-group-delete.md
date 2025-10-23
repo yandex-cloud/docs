@@ -63,6 +63,8 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}

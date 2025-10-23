@@ -96,3 +96,5 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+  - name: Release notes
+    href: release-notes.md

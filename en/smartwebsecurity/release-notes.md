@@ -5,6 +5,26 @@ description: This section contains {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+* Added new [rule sets](concepts/waf.md#rules-set) to the WAF profile: ML WAL, Yandex Ruleset, and [OWASP CRS 4.8.0](https://owasp.org/www-project-modsecurity-core-rule-set/).
+
+    * ML WAF (Yandex Malicious Score) leverages ML algorithms to detect and block attacks that evade the signature-based method. Its rules automatically adjust to new attack tactics. We recommend using this rule set as an addition to the OWASP or Yandex Ruleset.
+
+    * Yandex Ruleset was developed based on real-world experience of protecting Yandex services. It includes rules to detect known attack patterns (signatures), such as code injections (SQLi, XSS), CVE vulnerabilities, and remote code execution. The rule set is continuously updated to protect against new threats as they emerge.
+
+    Yandex rule sets are at the [Preview](../overview/concepts/launch-stages.md) stage.
+
+* Implemented [advanced logging](concepts/logging.md) via {{ sws-name }} with more flexible log collection [settings](operations/configure-logging.md). Previously, logs were written via {{ alb-name }} and contained less information about rules and requests that triggered them.
+
+    Logging via SWS is at the [Preview](../overview/concepts/launch-stages.md) stage. To view logs in the SWS interface, send a request to [support]({{ link-console-support }}).
+
+* You can now [deactivate](../smartwebsecurity/operations/host-connect.md#host) the use of a {{ sws-name }} security profile to check traffic on a specific virtual host route. This can be of use when, on some routes, requests come from trusted sources and need not be analyzed.
+
+  The `disable-security-profile` parameter was added to {{ alb-name }} route management commands.
+
+  This feature is available through the [{{ yandex-cloud }} CLI](../application-load-balancer/cli-ref/index.md), [{{ TF }}](../application-load-balancer/tf-ref.md), and [API](../application-load-balancer/api-ref/authentication.md).
+
 ## Q2 2025 {#q2-2025}
 
 * Added a new functionality: [domains](concepts/domain-protect.md) for protection of websites and web applications hosted in {{ yandex-cloud }} or other platforms that do not use the L7 {{ alb-name }}.

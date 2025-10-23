@@ -1,58 +1,60 @@
 #### What is {{ mmy-short-name }}? {#what-is}
 
-{{ mmy-short-name }} is a service that helps you create, operate, and scale {{ MY }} databases in a cloud infrastructure.
+{{ mmy-short-name }} is a solution that helps you create, operate, and scale {{ MY }} databases in the cloud.
 
 With {{ mmy-short-name }}, you can:
-- Create a database with the required performance characteristics.
-- Scale processing power and storage dedicated for your databases as needed.
+- Create a database with the performance parameters tailored to your needs.
+- Scale computing power and dedicated storage capacity for your databases as needed.
 - Get database logs.
 
-{{ mmy-short-name }} takes on time-consuming {{ MY }} infrastructure administration tasks:
+{{ mmy-short-name }} takes over time-consuming {{ MY }} infrastructure administration tasks:
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps database software updated.
 
-You interact with database clusters in {{ mmy-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
+You work with a {{ mmy-short-name }} database cluster as if it were a regular database in your local infrastructure This allows you to manage internal database settings to meet your app requirements.
 
 
-#### What part of database management and maintenance is {{ mmy-short-name }} responsible for? {#services}
+#### What is {{ mmy-short-name }}'s share of database management and maintenance work? {#services}
 
 When you create clusters, {{ mmy-short-name }} allocates resources, installs the DBMS, and creates databases.
 
-For the created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
+For all created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates.
 
-{{ mmy-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
+{{ mmy-short-name }} also enables data replication between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically fails over to a backup replica if a failure occurs.
 
-#### Which tasks are best addressed using {{ mmy-short-name }}, and which using VMs with databases? {#mdb-advantage}
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Not sure whether to use {{ mmy-short-name }} or VMs running databases?
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
-- {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
+- {{ mmy-short-name }}: Enables you to operate template databases without needing to manage their administration.
+- {{ compute-full-name }} VM: Enables you to create and configure your own databases. With this approach, you can use any database management systems, access databases via SSH, and more.
 
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
-A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
+A _database host_ is an isolated database environment in the cloud with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ is one or more database hosts between which you can configure replication.
+A _database cluster_ is one or more database hosts with the option to configure replication.
 
 
 #### How do I get started with {{ mmy-short-name }}? {#quickstart}
 
-{{ mmy-short-name }} is available to any registered {{ yandex-cloud }} user.
+{{ mmy-short-name }} is available to all registered {{ yandex-cloud }} users.
 
-To create a database cluster in {{ mmy-short-name }}, you need to define its parameters:
+To create a database cluster in {{ mmy-short-name }}, you need to define its settings:
 
-- [Host class](../../managed-mysql/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
-- Storage size (reserved to the full extent when you create a cluster).
+- [Host class](../../managed-mysql/concepts/instance-types.md) (performance parameters, such as CPUs, RAM, etc.).
+- Storage size (fully reserved when creating the cluster).
 - Network your cluster will be connected to.
-- Number of hosts for the cluster and the availability zone for each host.
+- Number of hosts for your cluster and availability zone for each host.
 
 For more information, see [Getting started](../../managed-mysql/quickstart.md).
 
-#### How many database hosts can there be in one cluster? {#how-many-hosts}
+#### How many database hosts does a cluster support? {#how-many-hosts}
 
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md):
@@ -69,7 +71,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 
-The maximum number of hosts per cluster is subject to the limits in place.
+The maximum number of hosts per cluster cannot exceed the set limits.
 
 For more information, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
 
@@ -77,7 +79,7 @@ For more information, see [Quotas and limits](../../managed-mysql/concepts/limit
 
 You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
-[Learn more about connecting to clusters](../../managed-mysql/operations/connect.md).
+Learn more about connecting to clusters [here](../../managed-mysql/operations/connect.md).
 
 
 #### How many clusters can I create within a single cloud? {#db-limit}
@@ -89,7 +91,7 @@ For more information on MDB technical and organizational limitations, see [Quota
 
 In {{ mmy-short-name }}, maintenance implies:
 
-- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
+- Automatic installation of DBMS updates and fixes for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
@@ -102,7 +104,7 @@ For more information, see [Maintenance](../../managed-mysql/concepts/maintenance
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
+The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of an expected maintenance period and DB availability in advance.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
@@ -114,18 +116,18 @@ New hosts can no longer be created using deprecated DBMS versions. Database clus
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
-In {{ mmy-short-name }}, the usage cost is calculated based on the following parameters:
+In {{ mmy-short-name }}, the usage cost is calculated based on the following:
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mysql/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../managed-mysql/pricing.md) section.
+- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged based on the [pricing policy](../../managed-mysql/pricing.md).
+- Database host uptime in hours. Partial hours are rounded up to the nearest whole hour. You can find the cost per hour for each host class in the [Pricing policy](../../managed-mysql/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
+You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the relevant cluster.
 
-The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
+The cluster settings update within 30 minutes. This period may also include other cluster maintenance activities, such as installing updates.
 
 
 #### Is database host backup enabled by default? {#default-backup}
@@ -134,7 +136,7 @@ Yes, backup is enabled by default. For {{ MY }}, a full backup takes place once 
 
 By default, backups are stored for seven days.
 
-#### When are backups performed? Is a database cluster available during backup? {#backup-window}
+#### When are backups created? Is a database cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
@@ -144,20 +146,20 @@ Clusters remain fully accessible during the backup window.
 
 You can set the retention period for automatic backups when [creating](../../managed-mysql/operations/cluster-create.md) or [modifying](../../managed-mysql/operations/update.md#change-additional-settings) a cluster.
 
-#### What metrics and processes can be tracked using monitoring? {#monitoring}
+#### What metrics and processes can be monitored? {#monitoring}
 
-For all DBMS types, you can track:
+For all DBMS types, you can monitor:
 
 - CPU, memory, network, or disk usage, in absolute terms.
-- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
-- Amount of data in the DB cluster and the remaining free space in the data storage.
+- Memory, network, and disk usage as a percentage of the set limits for the relevant cluster host class.
+- Amount of data in a DB cluster and the remaining free space in your data storage.
 
-For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MY }}, you can track:
+For DB hosts, you can monitor metrics specific to their type of DBMS. For example, for {{ MY }}, you can monitor:
 - Average query execution time.
 - Number of queries per second.
-- Number of errors in logs, etc.
+- Number of errors in logs, and more.
 
-Monitoring can be performed with a minimum granularity of 5 seconds.
+Monitoring can be performed with a minimum granularity of five seconds.
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 

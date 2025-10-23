@@ -17,6 +17,8 @@ If all broker hosts are created in the same availability zone, you cannot change
 
 Cluster hosts accept [connections](../operations/connect/clients.md) from clients, such as data [producer](producers-consumers.md) and [consumer](producers-consumers.md) applications. Producers send messages to specific cluster topics and consumers read messages from them. Thus, you will not need to reconfigure consumers if a producer changes.
 
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
 ## Host configuration depending on {{ KF }} version {#version}
 
 Different {{ KF }} versions use different tools to store cluster metadata, state, and configuration:

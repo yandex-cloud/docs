@@ -1,0 +1,2 @@
+Optionally, in the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select a [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml) [security profile](../../../smartwebsecurity/concepts/profiles.md). A security profile allows you to filter incoming requests and enable [WAF](../../../smartwebsecurity/concepts/waf.md) for protection against malicious activities. For more information, see [{#T}](../../../smartwebsecurity/concepts/profiles.md).
+

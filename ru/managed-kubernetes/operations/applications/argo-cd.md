@@ -138,6 +138,8 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
 1. [Установите Ingress-контроллер {{ alb-name }}](alb-ingress-controller.md).
 
+   {% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 1. Для работы с L7-балансировщиком {{ alb-name }} требуется сервис типа `NodePort`, но Argo CD запускает сервер с сервисом типа `ClusterIP`. Измените тип сервиса:
 
    1. Откройте файл с описанием объекта `Service`:

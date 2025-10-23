@@ -1,0 +1,1 @@
+Optionally, enable **{{ ui-key.yacloud.alb.label_limit-all-requests }}** and/or **{{ ui-key.yacloud.alb.label_limit-requests-per-ip }}** and set these limits for the number of requests that will be processed for this route per unit of time.

@@ -10,19 +10,25 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
 ## Getting started {#before-begin}
 
 1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following parameters:
-   * **DB name**: `default`
+   * **DB name**: `default-bd`
    * **Username**: `admin`
    * **Password**: `admin-password`
+
+   {% note warning %}
+   
+   You cannot create a database named `default`.
+   
+   {% endnote %}
 
 1. [Create](../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket to store the DAG file in.
 
 1. [Configure the {{ maf-name }} cluster](cluster-update.md):
 
-   1. Enable **{{ ui-key.yacloud.airflow.field_lockbox }}** to use [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) secrets to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
+   1. Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option allowing you to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
    1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, add the `airflow-clickhouse-plugin` pip package.
    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select the {{ objstorage-name }} bucket you created earlier. Your DAG file will be fetched from it.
 
-1. Grant the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
+1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
    {% note info }
 
@@ -32,12 +38,7 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
 
 ## Create a {{ lockbox-full-name }} secret {#create-lockbox-secret}
 
-For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's name must have this format: `airflow/<artifact_type>/<artifact_ID>`, where:
-   * `<artifact_type>`: Decides what data will be stored in the secret. The possible values are:
-     * `connections`: Connections
-     * `variables`: Variables
-     * `config`: Configuration data
-   * `<artifact_ID>`: ID to use to access the artifact in {{ AF }}.
+{% include [lockbox-description](../../_includes/mdb/maf/lockbox-description.md) %}
 
 [Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
    * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/ch`.
@@ -48,9 +49,9 @@ For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's nam
       ```json
       {
         "conn_type": "clickhouse",
-        "host": "<{{ CH }}_cluster_host_FQDN>",
+        "host": "<ClickHouse®_cluster_host_FQDN>",
         "port": 9440,
-        "schema": "default",
+        "schema": "default-bd",
         "login": "admin",
         "password": "admin-password",
         "extra": {
@@ -89,7 +90,7 @@ The secret will store the data to connect to the database in the {{ mch-name }} 
 
 1. Upload the `clickhouse.py` DAG file to the bucket you created earlier.
 1. [Open the {{ AF }} web interface](af-interfaces.md#web-gui).
-1. Make sure a new graph named `clickhouse` has appeared in the **DAGs** section.
+1. Make sure there is a new graph named `clickhouse` in the **DAGs** section.
 
    It may take a few minutes to load a DAG file from the bucket.
 
@@ -99,8 +100,24 @@ The secret will store the data to connect to the database in the {{ mch-name }} 
 
 To check the result in the {{ AF }} web interface:
 
-1. In the **DAGs** section, open the `clickhouse` graph.
-1. Go to the **Graph** section.
-1. Select **query_clickhouse**.
-1. Go to **Logs**.
-1. Make sure the logs contain the `query result: [(1,)]` line. This means the query was successful.
+{% list tabs group=instructions %}
+   
+- {{ AF }} version below 3.0 {#version-2}
+
+  1. In the **DAGs** section, open the `clickhouse` graph.
+  1. Go to the **Graph** section.
+  1. Select **query_clickhouse**.
+  1. Go to **Logs**.
+  1. Make sure the logs contain the `query result: [(1,)]` line. This means the query was successful.
+
+- {{ AF }} version 3.0 or higher {#version-3}
+
+  1. In the **DAGs** section, click `clickhouse`.
+  1. Go to **Tasks**.
+  1. Select **query_clickhouse**.
+  1. Go to **Tasks Instances**.
+  1. Select the task instance.
+  1. The **Logs** section will open.
+  1. Make sure the logs contain the `query result: [(1,)]` line. This means the query was successful.
+
+{% endlist %}

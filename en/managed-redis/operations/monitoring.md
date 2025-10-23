@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of a {{ VLK }} cluster and hosts
+title: Monitoring the state of an {{ VLK }} cluster and hosts
 description: You can track the state of a {{ mrd-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# Monitoring the state of a {{ VLK }} cluster and hosts
+# Monitoring the state of an {{ VLK }} cluster and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -15,7 +15,7 @@ description: You can track the state of a {{ mrd-name }} cluster and its individ
 
 ## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed info on the state of a {{ mrd-name }} cluster:
+To view detailed information on the state of a {{ mrd-name }} cluster:
 
 {% list tabs group=instructions %}
 
@@ -23,7 +23,7 @@ To view detailed info on the state of a {{ mrd-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
   
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -149,7 +149,7 @@ To view detailed info on the state of a {{ mrd-name }} cluster:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed info on the state of individual {{ mrd-name }} hosts:
+To view detailed information on the state of individual {{ mrd-name }} hosts:
 
 {% list tabs group=instructions %}
 
@@ -162,13 +162,13 @@ To view detailed info on the state of individual {{ mrd-name }} hosts:
 
   This page displays charts showing the load on an individual host in the cluster:
 
-  * **CPU usage**: Usage of processor cores. As the load goes up, the `idle` value goes down.
+  * **CPU usage**: Processor core workload. As the load goes up, the `idle` value goes down.
   * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
   * **Disk IOPS**: Number of disk operations per second.
   * **Disk space usage**: Amount of used and total disk space.
-  * **Memory usage**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
-  * **Network bytes**: Speed of network data exchange (bytes per second).
-  * **Network packets**: Network packet transmission activity (packets per second).
+  * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
+  * **Network bytes**: Network data exchange rate, in bytes per second.
+  * **Network packets**: Number of network packets exchanged per second.
 
   The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
@@ -185,14 +185,14 @@ To configure state indicator alerts for the [cluster](#monitoring-cluster) and [
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mrd-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mrd-name }} — Host Overview** to configure host alerts.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-  1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
+  1. Set the `Alarm` and `Warning` thresholds to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
@@ -220,7 +220,7 @@ You can view a host's current RAM amount in the [cluster details](cluster-list.m
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a cluster's state and status:
+To view a state and status of a cluster:
 
 {% list tabs group=instructions %}
 

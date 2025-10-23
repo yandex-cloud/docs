@@ -1,5 +1,7 @@
 # Running a PySpark job using {{ maf-full-name }}
 
+{% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
+
 You can use a {{ maf-full-name }} cluster to automate your work with [{{ msp-full-name }}](../../../managed-spark/index.yaml), including the following operations:
 * Creating {{ SPRK }} clusters.
 * Waiting for clusters to start.

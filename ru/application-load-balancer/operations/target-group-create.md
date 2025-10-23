@@ -171,6 +171,8 @@ description: Для создания целевой группы {{ alb-full-nam
      yc alb target-group list
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-target-group.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/TargetGroup/create.md).

@@ -17,8 +17,8 @@ When creating a cluster, specify:
 * _Host class_: VM template for deploying the cluster hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
 * _Environment_: Environment where the cluster will be deployed:
-   * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+   * `PRODUCTION`: For stable versions of your applications.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
 
 
@@ -26,3 +26,5 @@ A cluster created in a folder can be accessed by all VMs connected to the same c
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

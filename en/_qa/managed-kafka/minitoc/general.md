@@ -8,12 +8,14 @@
 
 * [How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up?](#disk-space-percentage)
 
-* [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
+* [Why is my cluster slow even though there are still some computing resources to spare?](#throttling)
 
-* [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)
+* [Can I connect to cluster hosts over SSH or get superuser privileges on hosts?](#connect-ssh)
 
 * [What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
 
 * [Can I manage a cluster using scripts from a {{ KF }} distribution?](#script-apache-kafka)
 
 * [What should I do if the _kafkacat: command not found_ error occurs?](#kafkacat-not-found)
+
+* [What is {{ mkf-short-name }}'s share of database management and maintenance work?](#services)

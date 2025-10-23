@@ -11,7 +11,7 @@ You can load a variable from {{ lockbox-name }} using a [directed acyclic graph 
 
 ## Getting started {#before-begin}
 
-Grant the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
+Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
 {% note info }
 
@@ -20,6 +20,8 @@ There is no need to assign the `lockbox.payloadViewer` role for the whole folder
 {% endnote %}
 
 ## Create a {{ lockbox-full-name }} secret {#create-lockbox-secret}
+
+{% include [lockbox-description](../../_includes/mdb/maf/lockbox-description.md) %}
 
 [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following parameters:
 * **{{ ui-key.yacloud.common.name }}**: `airflow/variables/var_query`
@@ -63,9 +65,25 @@ The `airflow/variables/var_query` secret will store the `value` variable with `S
 
 To check the result in the {{ AF }} web interface:
 
-1. In the **DAGs** section, open the `load_variable_from_lockbox` graph.
-1. Go to the **Graph** section.
-1. Select **print_var_query**.
-1. Go to **Logs**.
-1. Make sure the logs contain the `query: SELECT 2` line. This means the query was successful.
+{% list tabs group=instructions %}
+   
+- {{ AF }} version below 3.0 {#version-2}
+
+  1. In the **DAGs** section, click the `load_variable_from_lockbox` graph.
+  1. Go to the **Graph** section.
+  1. Select **print_var_query**.
+  1. Go to **Logs**.
+  1. Make sure the logs contain the `query: SELECT 2` line. This means the query was successful.
+
+- {{ AF }} version 3.0 or higher {#version-3}
+
+  1. In the **DAGs** section, click the `load_variable_from_lockbox` graph.
+  1. Go to **Tasks**.
+  1. Select **print_var_query**.
+  1. Go to **Tasks Instances**.
+  1. Select the task instance.
+  1. The **Logs** section will open.
+  1. Make sure the logs contain the `query: SELECT 2` line. This means the query was successful.
+
+{% endlist %}
 

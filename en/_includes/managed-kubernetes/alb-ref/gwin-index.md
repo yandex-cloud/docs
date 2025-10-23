@@ -14,7 +14,7 @@ Here is how the Gwin controller works:
 
 ![image](../../../_assets/managed-kubernetes/gwin.svg)
 
-To learn how to install the Gwin controller, see [this guide](../../..//managed-kubernetes/alb-ref/gwin-quickstart.md).
+To learn how to install the Gwin controller, see [this guide](../../../managed-kubernetes/alb-ref/gwin-quickstart.md).
 
 ## Configuration examples
 

@@ -21,7 +21,7 @@ The minimum number of hosts in a cluster depends on the selected [disk type](sto
 
 {% note warning %}
 
-We do not recommend creating a single-host cluster. While being cheaper, such a cluster is anything but highly available.
+We do not recommend creating a cluster having a single host. While being cheaper, such a cluster is anything but highly available.
 
 {% endnote %}
 
@@ -34,3 +34,5 @@ A cluster created in a folder can be accessed by all VMs connected to the same c
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

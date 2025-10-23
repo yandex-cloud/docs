@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, какие роли необ
 
 - Ingress-контроллер
 
+  {% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
   | Сервис | На что нужно разрешение | Минимальная роль |
   | ----- | ----- | ----- |
   | {{ alb-name }}<br/>([роли](../../security/index.md)) | Управление ресурсами сервиса | `alb.editor` |

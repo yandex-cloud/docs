@@ -5,16 +5,33 @@ description: This section contains {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
+## September 2025 {#september-2025}
+
+* Added a new [service role](security/index.md#managed-kafka-interface-user), `managed-kafka.interfaceUser`, that enables you to use the {{ kafka-ui }}.
+* Added the option to select a coordination service when creating a cluster:
+   * {{ ZK }} (on separate hosts)
+   * {{ kraft-short-name }} (combined mode)
+   * {{ kraft-short-name }} (on separate hosts)
+* {{ ZK }} is supported by clusters with {{ KF }} 3.6 to 3.9 (inclusive).
+
+## August 2025 {#august-2025}
+
+* [Built-in support for the {{ kafka-ui }} web interface](concepts/kafka-ui.md) is now available in the Kazakhstan [region](../overview/concepts/region.md).
+* Added new [user roles](concepts/account-roles.md) for managing {{ KF }} cluster resources: `ACCESS_ROLE_TOPIC_PRODUCER`, `ACCESS_ROLE_TOPIC_CONSUMER`, `ACCESS_ROLE_SCHEMA_READER`, and `ACCESS_ROLE_SCHEMA_WRITER`.
+* Added the [ability to migrate](tutorials/zk-kraft-kafka-migration.md) from {{ ZK }} to {{ kraft-short-name }} hosts.
+* Added the ability to sync data from {{ KF }} topics to an {{ objstorage-name }} bucket without using the internet.
+* Changed the limit for the amount of broker data when using SSD network storage. The new limit is 32,768 GB.
 
 ## July 2025 {#july-2025}
 
 * Added [built-in support for {{ kafka-ui }}](concepts/kafka-ui.md) in clusters.
 * Now you can [get a discount for commited volumes of services in KRaft](pricing.md#prices-kraft).
-
+* Added the [version update policy](concepts/update-policy.md).
+* Added a new [user role](concepts/account-roles.md), `ACCESS_ROLE_TOPIC_ADMIN`, for managing topics.
 
 ## May 2025 {#may-2025}
 
-The **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section was added to the management console.
+Added the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section to the management console.
 
 ## March 2025 {#mar-2025}
 

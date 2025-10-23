@@ -154,6 +154,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
@@ -264,6 +266,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
@@ -300,6 +304,8 @@ description: Следуя данной инструкции, вы сможете
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
@@ -381,6 +387,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
@@ -448,6 +456,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
@@ -496,6 +506,8 @@ description: Следуя данной инструкции, вы сможете
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
@@ -687,6 +699,8 @@ description: Следуя данной инструкции, вы сможете
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 

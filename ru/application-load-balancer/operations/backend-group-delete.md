@@ -95,6 +95,8 @@ description: Следуя данной инструкции, вы сможете
      yc alb backend-group list
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/BackendGroup/delete.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Delete](../api-ref/grpc/BackendGroup/delete.md).

@@ -67,7 +67,7 @@ After you create a cluster, you can update its settings:
 
     {% endnote %}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
         
@@ -87,13 +87,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -113,7 +113,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -132,11 +132,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -163,7 +163,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -182,7 +182,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -204,7 +204,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -251,7 +251,7 @@ After you create a cluster, you can update its settings:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -271,13 +271,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -296,7 +296,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -314,11 +314,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -344,7 +344,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -363,7 +363,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -384,7 +384,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -426,7 +426,7 @@ After you create a cluster, you can update its settings:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
         
@@ -446,13 +446,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -473,7 +473,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -491,11 +491,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -523,7 +523,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -542,7 +542,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -563,7 +563,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -605,7 +605,7 @@ After you create a cluster, you can update its settings:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -625,13 +625,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -654,7 +654,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -674,11 +674,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -706,7 +706,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -725,7 +725,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -748,7 +748,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -799,14 +799,14 @@ After you create a cluster, you can update its settings:
 
         * `--retry-policy-enabled`: Enables the retry policy.
           
-        * `--retry-policy`: Query retry method. The possible values are:
+        * `--retry-policy`: Query retry method. The allowed values are:
 
             * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
             * `task`: Retries the intermediate task within the query that caused worker failure.
 
         * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
           
-        * `--retry-policy-exchange-manager-service-s3`: Enables the use of an {{ objstorage-name }} service bucket as an Exchange Manager storage for intermediate data.
+        * `--retry-policy-exchange-manager-service-s3`: Activates the use of a service {{ objstorage-short-name }} bucket as an Exchange Manager storage for intermediate data.
           
         * `--retry-policy-exchange-manager-additional-properties`: Additional Exchange Manager storage parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
@@ -814,7 +814,7 @@ After you create a cluster, you can update its settings:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -826,13 +826,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -862,13 +862,13 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
         * `trino.retryPolicy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
-            * `policy`: Query retry method. The possible values are:
+            * `policy`: Query retry method. The allowed values are:
 
                 * `TASK`: Retries the intermediate task within the query that caused worker failure.
                 * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
@@ -889,11 +889,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -930,7 +930,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -949,13 +949,13 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
         * `trino.retry_policy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
-            * `policy`: Query retry method. The possible values are:
+            * `policy`: Query retry method. The allowed values are:
 
                 * `TASK`: Retries the intermediate task within the query that caused worker failure.
                 * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
@@ -979,7 +979,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1038,7 +1038,7 @@ After you create a cluster, you can update its settings:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -1090,13 +1090,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1135,7 +1135,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -1170,11 +1170,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1220,7 +1220,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -1239,7 +1239,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -1277,7 +1277,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1363,7 +1363,7 @@ After you create a cluster, you can update its settings:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -1393,13 +1393,13 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1430,7 +1430,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -1469,11 +1469,11 @@ After you create a cluster, you can update its settings:
 
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1511,7 +1511,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -1530,7 +1530,7 @@ After you create a cluster, you can update its settings:
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 

@@ -117,7 +117,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -155,7 +155,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -220,7 +220,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -283,7 +283,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             Where:
 
-            * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+            * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
                 Specify the relevant parameters:
                 * `config_spec.clickhouse.resources.resource_preset_id`: To change the {{ CH }} host class.
@@ -296,7 +296,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
-        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -356,13 +356,13 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
      You can request the cluster name and ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-  1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
+  1. To change the disk type and  increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
 
 - {{ TF }} {#tf}
 
   To change the [disk type](../concepts/storage.md) and increase the storage size, do the following:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -402,7 +402,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -451,13 +451,13 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size, in bytes.
         * `configSpec.zookeeper.resources.diskTypeId`: Disk type of {{ ZK }} hosts.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -504,7 +504,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         ```
 
         Where:
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
 
@@ -520,9 +520,9 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size, in bytes.
         * `config_spec.zookeeper.resources.disk_type_id`: Disk type of {{ ZK }} hosts.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -582,7 +582,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -594,7 +594,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -604,7 +604,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -644,13 +644,13 @@ You cannot disable settings for user or database management via SQL once they ar
         * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
         * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -688,7 +688,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             Specify the relevant parameters:
 
@@ -702,9 +702,9 @@ You cannot disable settings for user or database management via SQL once they ar
         * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
         * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -716,6 +716,20 @@ You cannot disable settings for user or database management via SQL once they ar
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
+
+     * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
+
+       {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+
+       Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. New shards will use the settings of the oldest shard.
+
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
+  
+     * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
+
+       {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+  
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, change the following additional cluster settings:
 
      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
@@ -796,7 +810,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](cluster-create.md).
 
@@ -870,7 +884,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -928,7 +942,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             Where:
 
-            * `updateMask`: List of parameters to update as a single string, separated by commas.
+            * `updateMask`: Comma-separated list of settings you want to modify.
 
             * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
 
@@ -966,13 +980,13 @@ You cannot disable settings for user or database management via SQL once they ar
               --data '@body.json'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1037,7 +1051,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             Where:
 
-            * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+            * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
 
@@ -1064,7 +1078,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
         1. Run this query:
 
@@ -1081,7 +1095,7 @@ You cannot disable settings for user or database management via SQL once they ar
               < body.json
             ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1102,7 +1116,7 @@ The following resources will be created for each database user:
 
   {% note info %}
 
-  You can use {{ connection-manager-name }} and secrets you create there free of charge.
+  {{ connection-manager-name }} and secrets created with it are free of charge.
 
   {% endnote %}
 
@@ -1144,7 +1158,7 @@ The following resources will be created for each database user:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [this guide](./cluster-create.md).
 
@@ -1161,7 +1175,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1171,7 +1185,7 @@ The following resources will be created for each database user:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1190,13 +1204,13 @@ The following resources will be created for each database user:
 
         Where `destinationFolderId` is the ID of the destination folder to move your cluster to. You can request this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1221,7 +1235,7 @@ The following resources will be created for each database user:
 
         Where `destination_folder_id` is the ID of the destination folder to move your cluster to. You can request this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1261,7 +1275,7 @@ The following resources will be created for each database user:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -1288,7 +1302,7 @@ The following resources will be created for each database user:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1312,7 +1326,7 @@ The following resources will be created for each database user:
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to modify.
 
             Here, we only specified a single parameter, `securityGroupIds`.
 
@@ -1326,13 +1340,13 @@ The following resources will be created for each database user:
 
             {% endnote %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1365,7 +1379,7 @@ The following resources will be created for each database user:
         ```
 
         Where:
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
             Here, we only specified a single parameter, `security_group_ids`.
 
@@ -1379,9 +1393,9 @@ The following resources will be created for each database user:
 
             {% endnote %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1435,7 +1449,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1465,19 +1479,19 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to modify.
 
         * `configSpec.cloudStorage`: Hybrid storage settings:
 
             {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1516,13 +1530,13 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         ```
 
         Where:
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
         * `config_spec.cloud_storage`: Hybrid storage settings:
 
             {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

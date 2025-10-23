@@ -3,6 +3,8 @@
 
 По этому руководству вы развернете автомасштабируемый [gRPC](https://grpc.io/docs/)-сервис в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) [{{ alb-full-name }}](../../application-load-balancer/) и проведете нагрузочное тестирование сервиса.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 Чтобы развернуть сервис и осуществить нагрузочное тестирование:
 
 1. [Подготовьте облако к работе](#before-you-begin).

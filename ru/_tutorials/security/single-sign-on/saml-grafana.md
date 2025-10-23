@@ -92,7 +92,7 @@
     1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}**.
     1. Вернитесь в Grafana Cloud и  в блоке **Finish configuring Grafana using IdP data** вставьте скопированный адрес в поле **Metadata URL**.
 
-#### Сопоставление аттрибутов пользователей {#user-mapping}
+#### Сопоставление атрибутов пользователей {#user-mapping}
 
 Настройте соответствие между полями объектов пользователей в Grafana Cloud и {{ org-name }}:
 
@@ -120,7 +120,7 @@
 
 1. Ниже, в поле **Name identifier format** выберите `Email address`.
 
-    Имена аттрибутов пользователей в {{ org-name }} можно посмотреть и настроить в вашем приложении на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
+    Имена атрибутов пользователей в {{ org-name }} можно посмотреть и настроить в вашем приложении на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
 
 1. Сохраните настройки, нажав кнопку **Save and enable**.
 
@@ -141,15 +141,15 @@
 
 {% endlist %}
 
-#### Настройте аттрибуты пользователей {#user-attributes}
+#### Настройте атрибуты пользователей {#user-attributes}
 
 {% note warning %}
 
-Для интеграции с Grafana Cloud необходимо, чтобы у пользователей был аттрибут `login`.
+Для интеграции с Grafana Cloud необходимо, чтобы у пользователей был атрибут `login`.
 
 {% endnote %}
 
-Если у пользователей нет аттрибута `login`, добавьте его:
+Если у пользователей нет атрибута `login`, добавьте его:
 
 {% list tabs group=instructions %}
 
@@ -178,7 +178,7 @@
 
 {% endlist %}
 
-Подробнее о настройке аттрибутов см. [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
+Подробнее о настройке атрибутов см. [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
 
 ### Добавьте пользователя {#add-user}
 

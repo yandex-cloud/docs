@@ -13,3 +13,4 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](manage-organizations.md)
 * [{#T}](hide-user-info.md)
 * [{#T}](delete-org.md)
+* [{#T}](add-region.md)

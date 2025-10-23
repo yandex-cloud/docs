@@ -10,6 +10,7 @@ description: Step-by-step guide on managing a cloud using {{ resmgr-full-name }}
 ## Cloud {#cloud}
 
 * [{#T}](cloud/create.md)
+* [{#T}](cloud/create-in-another-region.md)
 * [{#T}](cloud/update.md)
 * [{#T}](cloud/delete.md)
 * [{#T}](cloud/delete-cancel.md)

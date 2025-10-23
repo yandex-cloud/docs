@@ -1,0 +1,1 @@
+Optionally, enable **{{ ui-key.yacloud.alb.label_limit-all-requests }}** and/or **{{ ui-key.yacloud.alb.label_limit-requests-per-ip }}** and set the limits for the number of requests the virtual host will be processing per unit of time.

@@ -10,7 +10,7 @@ In {{ CH }}, replication is performed if the cluster meets all these conditions:
 * There is at least one shard with two or more hosts.
 * Host coordination tool is set up.
 
-A {{ mch-name }} cluster with enabled replication is fault-tolerant. In such a cluster, you can create [replicated tables](#replicated-tables).
+A {{ mch-name }} cluster with enabled replication is fault-tolerant. In such a cluster, you can create [replicated tables](#replicated-tables) and [replicated databases](#replicated-db).
 
 With {{ mch-name }}, you can use one of the following tools to coordinate hosts and distribute queries among them:
 
@@ -30,7 +30,7 @@ Using {{ CK }} is associated with the following limitations:
 * You cannot switch clusters using {{ ZK }} hosts to {{ CK }}.
 * [To migrate a host](../operations/host-migration.md) from {{ CK }} to a different availability zone, you have to contact [support]({{ link-console-support }}).
 
-You can learn more about {{ CK }} in the [{{ CH }} documentation]({{ ch.docs }}/operations/clickhouse-keeper/).
+You can learn more about {{ CK }} in [this {{ CH }} guide]({{ ch.docs }}/operations/clickhouse-keeper/).
 
 ## {{ ZK }} {#zk}
 
@@ -106,6 +106,12 @@ ORDER BY
 The `'{cluster}'` argument will be automatically resolved to the {{ CH }} cluster ID.
 
 To learn how to manage the interaction between replicated and distributed tables in a {{ CH }} cluster, see [Sharding](sharding.md).
+
+## Replicated databases {#replicated-db}
+
+When [creating a database](../operations/databases.md#add-db) in {{ CH }}, you can select the Replicated engine. It supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
+
+You set the engine when creating the database and cannot change it for this database.
 
 ## Use cases {#examples}
 

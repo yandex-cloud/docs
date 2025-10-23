@@ -1,0 +1,1 @@
+* Automatic increase of storage size is not supported on dedicated hosts.

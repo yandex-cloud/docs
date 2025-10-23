@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud.alb.label_route-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-grpc }}`.

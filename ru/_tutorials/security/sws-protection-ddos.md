@@ -61,6 +61,8 @@ _Профиль безопасности_ — основной элемент {{
 
 Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

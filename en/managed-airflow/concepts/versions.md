@@ -10,6 +10,14 @@ Version {{ AF }} | Python version
 2.8 | 3.10
 2.10 | 3.10
 2.10 | 3.12
+3.0 | 3.12
+3.1 | 3.12
+
+{% note warning %}
+
+The package contents in {{ AF }} may vary in different versions. Some packages available in earlier versions are not included in {{ AF }} 3.0 and higher. If required, you can install them when creating or updating a cluster.
+
+{% endnote %}
 
 ## Version update {#update}
 
@@ -22,6 +30,7 @@ Note that {{ maf-name }} does not allow the following update strategies:
 
 * Dropping every other {{ AF }} version update. Each new {{ AF }} version requiring a metadata database migration, we recommend that you do your updates sequentially.
 * Updating Python and {{ AF }} versions simultaneously. Custom dependencies may not work on newer versions of Python, so we recommend you to update your cluster components separately.
+* Updating to {{ AF }} version 3.0. You can only create a new 3.0 cluster.
 
 With that said, the recommended {{ maf-name }} cluster update strategy from `Airflow=2.8, Python=3.8` to `Airflow=2.10, Python.3=12` would be as follows:
 

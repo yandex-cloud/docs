@@ -60,6 +60,8 @@ description: Следуя данной инструкции, вы сможете
 
       {{ TF }} изменит все требуемые ресурсы. Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
 
+      {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
+
   Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
@@ -118,6 +120,8 @@ description: Следуя данной инструкции, вы сможете
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       {{ TF }} изменит все требуемые ресурсы. Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
+
+      {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
   Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/alb_load_balancer).
 

@@ -39,7 +39,7 @@ Added new events for the services:
   --- | ---
   `gcore.RawLogsActivate` | Enabling log export
   `gcore.RawLogsDeactivate` | Disabling log export
-  `gcore.RawLogsUpdate` | Updating log export settings
+  `gcore.RawLogsUpdate` | Updating log export parameters
 
   {% endcut %}
 
@@ -142,7 +142,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `BucketLoggingUpdate` | Updating the logging mechanism for bucket actions 
+  `BucketLoggingUpdate` | Updating the bucket actions logging mechanism
   `BucketObjectLockUpdate` | Reconfiguring object version locks in a bucket
 
   {% endcut %}
@@ -624,9 +624,9 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `CreateReservedInstancePool` | Creating a reserved instance pool
-  `DeleteReservedInstancePool` | Deleting a reserved instance pool
-  `UpdateReservedInstancePool` | Updating a reserved instance pool
+  `CreateReservedInstancePool` | Creating a VM reserve pool
+  `DeleteReservedInstancePool` | Deleting a VM reserve pool
+  `UpdateReservedInstancePool` | Updating a VM reserve pool
 
   {% endcut %}
 
@@ -900,8 +900,8 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `workload.CreateFederatedCredential` | Creating [a link](../iam/concepts/workload-identity.md#federated-credentials) in a service account federation
-  `workload.DeleteFederatedCredential` | Deleting a link from a service account federation
+  `workload.CreateFederatedCredential` | Creating [federated credentials](../iam/concepts/workload-identity.md#federated-credentials) in a workload identity federation
+  `workload.DeleteFederatedCredential` | Deleting federated credentials from a workload identity federation
   `workload.oidc.CreateFederation` | Creating a [workload identity federation](../iam/concepts/workload-identity.md)
   `workload.oidc.DeleteFederation` | Deleting a workload identity federation
   `workload.oidc.UpdateFederation` | Updating a workload identity federation
@@ -1200,7 +1200,7 @@ Added new events for the services:
   --- | ---
   `CreateTalksReport` | Creating a dialog report
   `GetTalk` | Getting a dialog
-  `GetTalkAudio` | Getting an audio recording of a dialog
+  `GetTalkAudio` | Getting the audio recording of a dialog
   `SearchTalks` | Searching for a dialog
   `UploadTalkToConnection` | Uploading a dialog to a connection
 

@@ -1,0 +1,1 @@
+A calendar month is defined as the period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The prices for the number of requests per month are fixed and not based on the number of days in the month.

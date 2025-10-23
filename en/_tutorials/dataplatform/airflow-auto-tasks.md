@@ -1,5 +1,7 @@
 # Automating {{ yq-full-name }} tasks with {{ maf-full-name }}
 
+{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+
 {{ maf-short-name }} is a popular tool for automating data operations. {{ yq-full-name }} supports integration with {{ maf-short-name }} using the [`apache-airflow-providers-yandex`](https://pypi.org/project/apache-airflow-providers-yandex/) pip package.
 
 To create an infrastructure for automation of {{ yq-full-name }} tasks with {{ maf-short-name }}, follow these steps:
