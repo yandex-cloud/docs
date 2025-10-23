@@ -1,9 +1,27 @@
 ---
 title: '{{ speechsense-full-name }} release notes'
-description: This page presents {{ speechsense-full-name }} release notes.
+description: This page presents the {{ speechsense-full-name }} release notes.
 ---
 
 # {{ speechsense-full-name }} release notes
+
+## September 2025 {#0925}
+
+You can now create an [AI assistant](../concepts/assistants.md). An AI assistant will help you analyze dialogs as they come streaming in to extract relevant data, such as phone numbers, cities, products your customers express interest in, or company feedback. With a knowledge base in PDF format uploaded into it, your assistant will be able to analyze dialogs based on transcripts to highlight the agent's omissions.
+
+## August 2025 {#0825}
+
+* The [reports](../concepts/reports/index.md) export format has been changed to XLSX.
+* Added a new tag type, [semantic Pro tag](../concepts/tags.md#sense-pro-tags), that relies on complex search queries for dialog analysis. These tags are an improved version of [semantic tags](../concepts/tags.md#sense-tags).
+* Added new limits:
+   * Maximum number of projects per space.
+   * Maximum number of tags per project.
+   * Maximum number of metadata entries per connection.
+   * Maximum number of dictionaries per space.
+
+## July 2025 {#0725}
+
+You can now [change a billing account](../operations/space/change-ba.md) after you link it.
 
 ## May 2025 {#0525}
 

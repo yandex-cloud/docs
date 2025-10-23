@@ -10,8 +10,8 @@ Maximum number of [dictionaries](../speechsense/concepts/dictionaries) per space
 Maximum line size in dialog metadata, bytes | 1,024
 Maximum number of files per [knowledge base](../speechsense/concepts/assistants.md#tools) per assistant | 10
 Maximum file size per knowledge base per [assistant](../speechsense/concepts/assistants.md) | 30 MB
-Maximum total characters for the assistant instruction, including characters in the transcript | 120,000
-Maximum total characters in the [result fields]((../speechsense/concepts/assistants.md)) | 4,000
+Maximum total number of characters in the assistant instruction, including characters in the transcript | 120,000
+Maximum total number of characters in the [result fields](../speechsense/concepts/assistants.md) | 4,000
 **Quotas for a project** |
 Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per second | 20
 Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per minute | 200

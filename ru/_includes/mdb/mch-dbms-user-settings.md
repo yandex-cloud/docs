@@ -581,7 +581,7 @@
   SELECT col1, col2 FROM table1 JOIN (SELECT col3 FROM table2) AS MyQuery
   ```
 
-  По умолчанию настройка выключена.
+  По умолчанию настройка включена.
 
 * **Load balancing**{#setting-load-balancing} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
 

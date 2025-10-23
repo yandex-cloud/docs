@@ -59,6 +59,8 @@
 
 ## Установите Ingress-контроллер {{ alb-name }} и создайте ресурсы в кластере {{ managed-k8s-name }} {#install-ingress-nginx}
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 {% include [k8s-install-ingress-nginx](../_tutorials_includes/migration-from-nlb-to-alb/k8s-install-ingress-nginx.md) %}
 
 ## Проверьте работу L7-балансировщика {#test}

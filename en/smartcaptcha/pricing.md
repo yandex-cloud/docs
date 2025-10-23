@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}
@@ -30,7 +30,7 @@ You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answe
 
 * {{ captcha-name }} has identified the request as one sent by a human, not a bot.
 * Correct `secret` and `token` values were provided.
-* A unique `token` was issued not more than 10 minutes ago.
+* A unique `token` was issued 10 minutes ago or later.
 
 {% note info %}
 
@@ -38,7 +38,7 @@ Using {{ captcha-name }} in [restricted mode](concepts/restricted-mode) is free 
 
 {% endnote %}
 
-Examples of {{ captcha-name }} usage cost calculation:
+Examples of {{ captcha-name }} cost calculation:
 
 1. The user has passed the CAPTCHA test resulting in a correct `/validate` request from the server. A fee will be charged.
 

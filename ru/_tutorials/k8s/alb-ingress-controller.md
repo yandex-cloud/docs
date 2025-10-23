@@ -2,6 +2,8 @@
 
 Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 Чтобы настроить доступ к запущенным в кластере {{ managed-k8s-name }} приложениям через L7-балансировщик {{ alb-name }}:
 
 1. [Настройте тестовые приложения и ресурс Ingress](#create-ingress-and-apps).

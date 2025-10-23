@@ -319,6 +319,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) и передайте в запросе:

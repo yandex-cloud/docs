@@ -86,6 +86,10 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         {% endnote %}
 
+      * DAG processor
+        
+        {% include [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
       * (Optional) Triggerer services
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
@@ -235,7 +239,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -283,6 +287,12 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
             },
             "lockbox": {
               "enabled": <usage_of_secrets>
+            },
+            "dagProcessor": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
             }
           },
           "network": {
@@ -307,7 +317,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
             "minLevel": "<logging_level>",
             "folderId": "<folder_ID>"
           },
-          "adminPassword": "<admin_password>"
+          "adminPassword": "<administrator_password>"
         }
         ```
 
@@ -330,11 +340,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -344,6 +354,8 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
 
@@ -420,7 +432,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -470,6 +482,12 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
             },
             "lockbox": {
               "enabled": <usage_of_secrets>
+            },
+            "dag_processor": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
             }
           },
           "network": {
@@ -494,7 +512,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
             "min_level": "<logging_level>",
             "folder_id": "<folder_ID>"
           },
-          "admin_password": "<admin_password>"
+          "admin_password": "<administrator_password>"
         }
         ```
 
@@ -517,11 +535,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -531,6 +549,8 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
+                
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
 

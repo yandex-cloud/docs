@@ -1,9 +1,9 @@
 ---
-title: Monitoring the cluster state {{ mtr-name }}
+title: Monitoring {{ mtr-name }} cluster state
 description: In this tutorial, you will learn how to monitor the state of {{ mtr-name }} clusters.
 ---
 
-# Monitoring the cluster state {{ mtr-name }}
+# Monitoring {{ mtr-name }} cluster state
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -90,3 +90,25 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-trino-ref.md).
+
+## Cluster state and status {#cluster-health-and-status}
+
+A cluster’s _{{ ui-key.yacloud.mdb.cluster.overview.label_health }}_ indicates its health, while its _{{ ui-key.yacloud.mdb.cluster.overview.label_status }}_ shows whether the cluster is started, stopped, or in a transitory state.
+
+To view a state and status of a cluster:
+
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+
+### Cluster states {#cluster-health}
+
+State | Description | Suggested actions
+:--- | :--- | :---
+**ALIVE** | The cluster is operating normally. | No action is required.
+**DEGRADED** | The cluster is not running at its full capacity. | [Contact support]({{ link-console-support }}) and specify the following:<ul><li>Cluster ID.</li><li>IDs of the last operations performed on it.</li><li>Time when the cluster entered the `DEGRADED` state according to [availability charts](#monitoring-cluster).</li></ul>
+**DEAD** | The cluster is out of order. | [Contact support]({{ link-console-support }}) and specify the following:<ul><li>Cluster ID.</li><li>IDs of the last operations performed on it.</li><li>Time when the cluster entered the `DEAD` state according to [availability charts](#monitoring-cluster).</li></ul>
+**UNKNOWN** | The cluster’s state is unknown. | [Contact support]({{ link-console-support }}) and specify the following:<ul><li>Cluster ID.</li><li>IDs of the last operations performed on it.</li><li>Time when the cluster entered the `UNKNOWN` state according to [availability charts](#monitoring-cluster).</li></ul>
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

@@ -7,7 +7,7 @@ description: This section contains {{ maf-name }} release notes.
 
 ## May 2025 {#may-2025}
 
-Added the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section to the management console.
+Added the [**{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**](operations/cluster-maintenance.md) section to the management console.
 
 ## November 2024 {#nov-2024}
 
@@ -16,7 +16,7 @@ Added the option to select a [configuration](concepts/index.md#presets) (vCPUs a
 ## September 2024 {#sep-2024}
 
 * On September 16, 2024, {{ maf-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage. Since then its use is charged according to the [pricing policy](pricing.md).
-* Added the option to run operations on an {{ AF }} cluster using the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-airflow/cli-ref/index.md), [{{ TF }}](tf-ref.md), and [API](api-ref/authentication.md).
+* Enabled operations on an {{ AF }} cluster via the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-airflow/cli-ref/index.md), [{{ TF }}](tf-ref.md), and [API](api-ref/authentication.md).
 
 ## June 2024 {#jun-2024}
 

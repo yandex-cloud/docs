@@ -29,3 +29,10 @@ You can log in to the management console of each region. To start working in a n
 * [Quick start guide for the Russia region](https://yandex.cloud/en/docs/overview/quickstart)
 * [Quick start guide for the Kazakhstan region](https://yandex.cloud/ru-kz/docs/overview/quickstart)
 
+## Controlled organization in another region
+
+{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+
+A [controlled organization](../../organization/concepts/controlled-org.md) allows deploying your resources in a different region without registering a separate organization. Instead, you can [link](../../organization/operations/add-region.md) a region to the main organization to manage your resources in different regions from a single interface.
+
+Resources in different regions are isolated from each other. The data used by the resources is stored in the same regions the resources reside in.

@@ -5,15 +5,37 @@ description: This section contains {{ alb-name }} release notes.
 
 # {{ alb-full-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+* Added the ability to manually [disable](./operations/manage-zone/start-and-cancel-shift.md) one or more [availability zones](../overview/concepts/geo-scope.md) in the event of local issues or to test the load redistribution mechanism. You can also specify the availability zone off time. After this time runs out, the availability zone will be automatically re-enabled.
+
+  This feature is available through the [{{ yandex-cloud }} CLI](cli-ref/index.md) and [API](api-ref/authentication.md).
+
+* Now, you can allow or deny [auto-disabling](operations/manage-zone/allow-and-deny-shift.md) an availability zone. The auto-disabling is performed by {{ yandex-cloud }} staff if an availability zone is under maintenance or shows signs of failure.
+
+  This feature is available through the {{ yandex-cloud }} CLI, [{{ TF }}](tf-ref.md), and API.
+
+* Added support for modification of HTTP request parameters for specific routes on a virtual host. This feature may be of use for managing API versions, microservice routing, backward compatibility, and URL normalization. 
+ 
+  The `path-regex-rewrite` modification parameter was added to the following [route management](operations/manage-routes.md) commands: `append-http-route`, `prepend-http-route`, `insert-http-route`, and `update-http-route`.
+
+  This feature is available through the {{ yandex-cloud }} CLI, {{ TF }}, and API.
+
+* You can now [deactivate](../smartwebsecurity/operations/host-connect.md#host) the use of a {{ sws-name }} security profile to check traffic on a specific virtual host route. This can be of use when, on some routes, requests come from trusted sources and need not be analyzed.
+
+  The `disable-security-profile` parameter was added to route managing commands.
+
+  This feature is available through the {{ yandex-cloud }} CLI, {{ TF }}, and API.
+
 ## Q4 2024 {#q4-2024}
 
 * Added the Global RateLimit module to limit HTTP and gRPC requests per virtual host. The limit can be applied to the entire virtual host or individual routes.
   
   This feature is currently in [preview](../overview/concepts/launch-stages.md). To enable it, contact [support]({{ link-console-support }}).
 
-* Added support for custom HTTP status codes (100-599) as valid responses for [backend health checks](concepts/backend-group.md#health-checks).
+* Added support for custom HTTP status codes as valid responses for [backend health checks](concepts/backend-group.md#health-checks). Code values can range from 100 to 599.
   
-* Added an option to maintain connections even when health checks fail. This option is only available for [Stream health checks](concepts/backend-group.md#health-checks).
+* Added an option of keeping a connection alive even if the health check fails. This option is only available for [Stream health checks](concepts/backend-group.md#health-checks).
 
 * Added configurable idle timeout settings for Stream and SNI [listeners](concepts/application-load-balancer#listener).
   

@@ -691,7 +691,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/IamToken/createForServiceAccount.md) gRPC API call.
 
-  Request example with cURL for the `create` REST API method:
+  Example of a request using cURL for the `create` REST API method:
 
   ```curl
   curl \
@@ -739,7 +739,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
       def create_iam_token():
         jwt = create_jwt()
         
-        sdk = yandexcloud.SDK(service_account_key=sa_key)
+        sdk = yandexcloud.SDK(service_account_key=sa_key, endpoint="api.yandexcloud.kz")
         iam_service = sdk.client(IamTokenServiceStub)
         iam_token = iam_service.Create(
             CreateIamTokenRequest(jwt=jwt)
@@ -781,6 +781,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
         sdk, err := ycsdk.Build(ctx, ycsdk.Config{
           Credentials: credentials,
+          Endpoint: "api.yandexcloud.kz:443",
         })
         if err != nil {
           panic(err)

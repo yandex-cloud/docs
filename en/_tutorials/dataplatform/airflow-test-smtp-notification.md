@@ -1,5 +1,7 @@
 # Configuring an SMTP server to send e-mail notifications
 
+{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+
 Use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to configure your SMTP server to send e-mail notifications. Data for connecting to the DB is stored in {{ lockbox-name }} and automatically inserted into the graph.
 
 To configure an SMTP server to send e-mail notifications, follow these steps:
@@ -45,11 +47,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * {{ maf-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ maf-name }} pricing](../../managed-airflow/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ lockbox-name }} fee: storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 
@@ -98,7 +100,7 @@ The `airflow/connections/smtp_default` secret will store the data for connecting
 1. [Open the {{ AF }} web interface](../../managed-airflow/operations/af-interfaces.md#web-gui).
 1. Make sure a new graph named `test_smtp_notification` has appeared in the **DAGs** section.
 
-   It may take a few minutes to load a DAG file from the bucket.
+   It may take a few minutes to upload a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 

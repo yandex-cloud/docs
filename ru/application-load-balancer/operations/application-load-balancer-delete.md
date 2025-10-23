@@ -119,6 +119,8 @@ description: Следуя данной инструкции, вы сможете
      yc alb load-balancer list
      ```
 
+  {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/LoadBalancer/delete.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Delete](../api-ref/grpc/LoadBalancer/delete.md).

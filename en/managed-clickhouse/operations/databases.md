@@ -3,23 +3,23 @@ title: How to manage {{ CH }} cluster databases in {{ mch-full-name }}
 description: Follow this guide to manage {{ CH }} cluster databases.
 ---
 
-# Database management in {{ mch-name }}
+# Managing databases in {{ mch-name }}
 
-{{ mch-name }} provides two ways for you to manage cluster databases:
+{{ mch-name }} provides two methods to manage cluster databases:
 
-* Using native {{ yandex-cloud }} interfaces, such as the CLI, API, or management console. Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
-* SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
+* Using the native {{ yandex-cloud }} interfaces, such as the CLI, API, and management console. Select this method if you want to create and delete cluster databases using {{ mch-full-name }} features.
+* Using SQL queries to the cluster. Select this method if you want to use a solution you already have to create and manage databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
 ## Database management via SQL {#sql-database-management}
 
-To enable management, activate the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options when [creating](cluster-create.md) or [reconfiguring](./update.md#SQL-management) a cluster.
+To enable this management method, select **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** when [creating](cluster-create.md) or [reconfiguring](./update.md#SQL-management) your cluster.
 
-In a cluster with DB management via SQL enabled:
+In a cluster with enabled DB management via SQL:
 
-* Database and [user](./cluster-users.md#sql-user-management) management using the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-* You cannot enable user or database management using the standard {{ yandex-cloud }} interfaces.
-* The existing users as well as user and database settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-* User management is performed using the `admin` account. You set its password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options.
+* Database and [user](./cluster-users.md#sql-user-management) management via the native {{ yandex-cloud }} interfaces, such as the CLI, API, and management console, is unavailable.
+* You cannot enable user or database management via the native {{ yandex-cloud }} interfaces.
+* The existing users, user settings, ad databases created with the native {{ yandex-cloud }} interfaces will remain unchanged.
+* Management is performed by the `admin` account. You set the `admin` password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options.
 
 ## Getting a list of cluster databases {#list-db}
 
@@ -27,8 +27,8 @@ In a cluster with DB management via SQL enabled:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
 
@@ -36,18 +36,18 @@ In a cluster with DB management via SQL enabled:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of databases in a cluster, run the command:
+  To get the list of databases in a cluster, run this command:
 
   ```bash
   {{ yc-mdb-ch }} database list \
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -60,13 +60,13 @@ In a cluster with DB management via SQL enabled:
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/databases'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -87,14 +87,14 @@ In a cluster with DB management via SQL enabled:
         yandex.cloud.mdb.clickhouse.v1.DatabaseService.List
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse) to make sure your request was successful.
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-database-management).
-  1. Get a list of databases:
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-database-management).
+  1. Get the list of databases:
 
       ```sql
       SHOW DATABASES;
@@ -112,13 +112,24 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name.
   1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
-  1. Enter the database name and click **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
+  1. Enter a name for the database.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+  1. Select the database engine: 
+      
+      * By default, `Atomic` supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and the atomic `EXCHANGE TABLES` operations.
+      * `Replicated` supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
+
+        Available only in [replicated](../concepts/replication.md) clusters.
+
+      You set the engine when creating the database and cannot change it for this database.
+
+  1. Click **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
 - CLI {#cli}
 
@@ -126,7 +137,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the create database command and set the name of the new database:
+  Run the database create command, providing a name for the new database:
 
   ```bash
   {{ yc-mdb-ch }} database create <DB_name> \
@@ -135,13 +146,13 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  {{ mch-short-name }} runs the create database operation.
+  {{ mch-short-name }} will initiate creating the database.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -156,7 +167,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-        If you create a cluster with the help of {{ TF }} at the same time as creating a DB, specify a link to the new cluster's name instead of cluster ID in the `yandex_mdb_clickhouse_database` resource:
+        When creating a cluster with {{ TF }} at the same time as creating a database, specify a name for the new cluster rather than cluster ID in the `yandex_mdb_clickhouse_database` resource:
 
         ```hcl
 
@@ -175,15 +186,15 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -197,20 +208,29 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/databases' \
           --data '{
                     "databaseSpec": {
-                      "name": "<DB_name>"
+                      "name": "<DB_name>",
+                      "engine": "<database_engine>"
                     }
                   }'
       ```
 
-      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+      Where: 
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      * `databaseSpec.name`: Database name.
 
-  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+        
+      * `databaseSpec.engine`: Database engine. The allowed values are:
+        
+        {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
+
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -227,22 +247,31 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
           -d '{
                 "cluster_id": "<cluster_ID>",
                 "database_spec": {
-                  "name": "<DB_name>"
+                  "name": "<DB_name>",
+                  "engine": "<database_engine>"
                 }
               }' \
           {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.clickhouse.v1.DatabaseService.Create
       ```
 
-      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+      Where: 
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      * `database_spec.name`: Database name.
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+        
+      * `database_spec.engine`: Database engine. The allowed values are:
+
+        {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
+
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-database-management).
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-database-management).
   1. Create a database:
 
       ```sql
@@ -251,7 +280,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  To learn more about creating databases, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/database/).
+  To learn more about creating databases, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/statements/create/database/).
 
 {% endlist %}
 
@@ -261,9 +290,9 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required DB row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant DB row and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 
@@ -271,36 +300,36 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a database, run the command:
+  To delete a database, run this command:
 
   ```bash
   {{ yc-mdb-ch }} database delete <DB_name> \
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Delete the `yandex_mdb_clickhouse_database` resource with the name of the database you want to delete.
+    1. Delete the `yandex_mdb_clickhouse_database` resource with the name of the database you are deleting.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -313,13 +342,13 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
           --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/databases/<DB_name>'
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -341,26 +370,26 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
           yandex.cloud.mdb.clickhouse.v1.DatabaseService.Delete
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to a cluster using the [`admin` account](#sql-database-management).
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-database-management).
   1. Delete the database:
 
       ```sql
       DROP DATABASE <DB_name>;
       ```
 
-  To learn more about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+  To learn more about deleting objects, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/statements/drop/).
 
 {% endlist %}
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. You can get the operation status along with the [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

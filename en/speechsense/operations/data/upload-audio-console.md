@@ -20,7 +20,7 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.upload-audio.upload-audio-key-value }}**.
+1. In the top-right corner, click **{{ ui-key.yc-ui-talkanalytics.common.more }}** → **{{ ui-key.yc-ui-talkanalytics.upload-audio.upload-audio-key-value }}**.
 1. In the window that opens, select files to upload by doing one of the following:
 
     * Select one or more files in the file manager and drag them to the {{ speechsense-name }} area marked by the dotted line.

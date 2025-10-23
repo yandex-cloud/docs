@@ -1,14 +1,16 @@
 ---
-title: Как сбросить пароль локального пользователя в {{ org-full-name }}
-description: Следуя данной инструкции, вы сможете сбросить пароль локального пользователя в {{ org-full-name }}.
+title: Как задать или сбросить пароль локального пользователя в {{ org-full-name }}
+description: Следуя данной инструкции, вы сможете задать или сбросить пароль локального пользователя в {{ org-full-name }}.
 ---
 
-# Сбросить пароль локального пользователя
+# Изменить пароль локального пользователя
 
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-Чтобы сбросить пароль [локального](../../../iam/concepts/users/accounts.md#local) пользователя:
+## Сбросить пароль {#reset}
+
+Чтобы задать пароль [локального](../../../iam/concepts/users/accounts.md#local) пользователя:
 
 {% list tabs group=instructions %}
 
@@ -29,7 +31,46 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для изменения пароля пользователя в [пуле](../../concepts/user-pools.md):
+  1. Посмотрите описание команды CLI для сброса пароля пользователя в [пуле](../../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp user reset-password --help
+     ```
+  1. {% include [cli-list-userpools](../../../_includes/organization/cli-list-userpools.md) %}
+  1. {% include [cli-userpool-list-users](../../../_includes/organization/cli-userpool-list-users.md) %}
+  1. Выполните команду, указав идентификатор нужного пользователя:
+
+      ```bash
+      yc organization-manager idp user reset-password <идентификатор_пользователя>
+      ```
+
+      Результат:
+
+      ```text
+      generated password for user 'ek0gkfu0jc7v********' is 'rhls-mpvg-****-****'
+      ```
+
+      Сохраните сгенерированный пароль и передайте его пользователю. После закрытия командной оболочки посмотреть новый пароль будет невозможно.
+
+{% endlist %}
+
+Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
+
+## Задать пароль {#set}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  Задать произвольный пароль локальному пользователю через интерфейс {{ cloud-center }} нельзя. Чтобы изменить пароль на сгенерированный, воспользуйтесь [инструкцией](#reset).
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения пароля пользователя в пуле:
 
      ```bash
      yc organization-manager idp user set-password --help
@@ -52,5 +93,3 @@ description: Следуя данной инструкции, вы сможете
       {% endnote %}
 
 {% endlist %}
-
-Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.

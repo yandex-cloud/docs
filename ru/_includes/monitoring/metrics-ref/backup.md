@@ -2,16 +2,38 @@
 
 Общие метки для всех метрик сервиса {{ backup-name }}:
 
-Метка | Значение
-----|----
-service | Идентификатор сервиса: `backup`.
-resource_id | Идентификатор [ВМ](../../../compute/concepts/vm.md) в [{{ compute-name }}](../../../compute/) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md) в [{{ baremetal-full-name }}](../../../baremetal/).
-resource_name | Имя виртуальной машины или сервера {{ baremetal-name }}.
-resource_type | Тип ресурса. Возможные значения:<br/><ul><li>`vm` — виртуальная машина {{ compute-name }} или сервер {{ baremetal-name }}.</li><li>`backup` — [резервная копия](../../../backup/concepts/backup.md).</li>
+#|
+|| **Метка** | **Значение** ||
+|| service | Идентификатор сервиса: `backup`. ||
+|| resource_id | Идентификатор [виртуальной машины](../../../compute/concepts/vm.md) в [{{ compute-name }}](../../../compute/) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md) в [{{ baremetal-full-name }}](../../../baremetal/). ||
+|| resource_name | Имя ВМ {{ compute-name }} или сервера {{ baremetal-name }}. ||
+|| resource_type | Тип ресурса. Возможные значения:
+* `vm` — ВМ {{ compute-name }} или сервер {{ baremetal-name }}.
+* `backup` — [резервная копия](../../../backup/concepts/backup.md). ||
+|#
 
 Метрики сервиса:
 
-Имя метрики<br/>Тип, единицы измерения | Описание
---- | ---
-`protected`<br/>`DGAUGE`, штуки | Количество ВМ и серверов {{ baremetal-name }}, защищенных {{ backup-name }}.
-`used_space`<br/>`DGAUGE`, байты | Объем хранилища, занятый резервными копиями.
+#|
+|| **Имя метрики**
+**Тип, единицы измерения** | **Описание** ||
+|| `agent_alive`
+`DGAUGE` | Индикатор активности [агента {{ backup-name }}](../../../backup/concepts/agent.md). Возможные значения:
+* `1` — агент работает.
+* `0` — агент неактивен. Резервные копии не создаются, требуется вмешательство. ||
+|| `agent_version_available`
+`DGAUGE` | Индикатор доступности новой версии агента {{ backup-name }}. Возможные значения:
+* `1` — доступно обновление.
+* `0` — используется актуальная версия. ||
+|| `protected`
+`DGAUGE`, штуки | Количество ВМ {{ compute-name }} и серверов {{ baremetal-name }}, защищенных {{ backup-name }}. ||
+|| `BackupError`
+`DGAUGE`, штуки | Количество ошибок при создании резервных копий. Дополнительные метки:
+* `action` — тип действия.
+* `event_type` — тип события.
+* `level` — уровень логирования.
+* `policy_id` — идентификатор [политики резервного копирования](../../../backup/concepts/policy.md).
+* `policy_name` — имя политики резервного копирования. ||
+|| `used_space`
+`DGAUGE`, байты | Объем хранилища, занятый резервными копиями. ||
+|#

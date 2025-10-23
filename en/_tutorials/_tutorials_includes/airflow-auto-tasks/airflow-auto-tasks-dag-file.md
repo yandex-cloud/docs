@@ -17,7 +17,7 @@ To prepare a DAG:
 
     with DAG(
         dag_id="yq_hello_world_operator",
-        schedule_interval="@hourly",
+        schedule="@hourly",
         start_date=datetime.datetime.now(),
     ) as dag:
 
@@ -43,11 +43,11 @@ To prepare a DAG:
 
 1. Upload the DAG file into the {{ maf-name }} cluster. Create a `files/dags` folder in the `airflow-bucket` and upload the `yq_dag.py` file to it.
 1. [Open the {{ AF }} web interface](../../../managed-airflow/operations/af-interfaces.md#web-gui).
-1. Make sure the new `yq_hello_world_operator` DAG file has appeared in the **DAGs** section.
+1. Make sure the new `yq_hello_world_operator` DAG has appeared in the **DAGs** section.
 
     {% note info %}
 
-    It may take a few minutes to upload a DAG file from the bucket.
+    It may take a few minutes to load a DAG file from the bucket.
 
     {% endnote %}
 

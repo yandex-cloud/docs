@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select a [backend group](../../../application-load-balancer/concepts/backend-group.md) located in the same folder as the [HTTP router](../../../application-load-balancer/concepts/http-router.md) and virtual host for which you are creating the new route.

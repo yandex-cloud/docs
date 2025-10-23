@@ -2,6 +2,8 @@
 
 Вы можете задать настройки логирования для [L7-балансировщиков](../../application-load-balancer/concepts/application-load-balancer.md), созданных с помощью [Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) {{ alb-name }} в кластере {{ managed-k8s-name }}.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 Из этой статьи вы узнаете, как создать три L7-балансировщика с различными настройками логирования:
 
 * Запись в [лог-группу по умолчанию](../../logging/concepts/log-group.md).

@@ -22,14 +22,16 @@ When [creating a cluster](../operations/cluster-create.md), specify:
 
 - _Environment_ where the cluster will be deployed:
 
-    - `PRODUCTION`: For stable versions of your apps.
-    - `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+    - `PRODUCTION`: For stable versions of your applications.
+    - `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
 
 An {{ OS }} cluster created in a folder can be accessed by all VMs connected to the same [cloud network](../../vpc/concepts/network.md) as the cluster.
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
 ## Cluster fault tolerance {#high-availability}
 

@@ -129,6 +129,17 @@
 
 {% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
 
+## Настройте Routing Instance {#config-ri}
+
+В дополнение к списку IP-префиксов из предыдущего шага в Routing Instance необходимо добавить:
+
+1. Список агрегированных IP-префиксов для приватных подсетей из сегмента Baremetal.
+1. Список агрегированных IP-префиксов для анонсируемых подсетей из on-premise.
+
+Список агрегированных IP-префиксов может быть ассоциирован с любой из существующих зон доступности.
+
+Например, для IP-префикса подсети `192.168.1.0/24`, агрегатом может быть префикс - `192.168.0.0/22`.
+
 ## Создайте приватное соединение {#create-private-connection}
 
 После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:

@@ -7,14 +7,14 @@ Follow this guide to install the Gwin controller in a {{ managed-k8s-name }} clu
   * Automatically gets a dynamic public IP address.
   * Accepts HTTP traffic on port `80`.
   * Accepts HTTPS traffic on port `443` using a certificate in {{ certificate-manager-name }}.
-  * Sends GET requests to the test service named `example-service`.
+  * Sends GET requests to a test service named `example-service`.
 
 ## Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../../managed-kubernetes/pricing.md)).
-* Fee for {{ managed-k8s-name }} cluster nodes, specifically using computing resources and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* Fee for {{ managed-k8s-name }} cluster nodes: specifically using computing resources and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 * Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#prices-public-ip)).
 * Fee for using the load balancer's computing resources (see [{{ alb-name }} pricing](../../../application-load-balancer/pricing.md)).
 
@@ -36,11 +36,11 @@ The infrastructure support cost includes:
 
 1. {% include [kubectl-install](../kubectl-install.md) %}
 
-1. [Create a service account](../../../iam/operations/sa/create.md) the controller will use create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
+1. [Create a service account](../../../iam/operations/sa/create.md) the controller will use to create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
 
    * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create the {{ alb-name }} resources.
    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
-   * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): If you use cloud certificates registered with [{{ certificate-manager-full-name }}](../../certificate-manager/).
+   * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): If you use cloud certificates registered with [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager.editor): If you use {{ managed-k8s-name }} cluster certificates. In this case, the controller creates the relevant cloud certificates.
    * [compute.viewer](../../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../../application-load-balancer/concepts/target-group.md).
    *  [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer): To enable the controller to determine the network for deploying the L7 load balancer.
@@ -54,15 +54,32 @@ The infrastructure support cost includes:
       --output sa-key.json
     ```
 
-## Install Gwin using a Helm chart {#helm-install}
+## Installing Gwin {#install}
+
+### Installation from {{ marketplace-full-name }} {#marketplace-install}
+
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of the [{{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gwin](/marketplace/products/yc/gwin) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Configure the application:
+
+   * **Namespace**: Create a new [namespace](../../../managed-kubernetes/concepts/index.md#namespace), e.g., `gwin-space`. If you leave the default namespace, Gwin may work incorrectly.
+   * **Application name**: Specify the application name.
+   * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) Gwin will operate from.
+   * **Service account key**: Copy the contents of the `sa-key.json` file.
+
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application status to change to `Deployed`.
+
+### Installation using a Helm chart {#helm-install}
 
 1. {% include [helm-install](../helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Gwin controller, run this command:
 
     ```bash
-    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-      --version v1.0.1 \
+    helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+      --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
       --untar \
     helm install \
       --namespace <namespace> \
@@ -72,9 +89,9 @@ The infrastructure support cost includes:
       gwin ./gwin-chart
     ```
 
-      If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `gwin-space`.
+      If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all existing namespaces, e.g., `gwin-space`.
 
-      You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
+      You can get the folder ID from the [cloud’s folder list](../../../resource-manager/operations/folder/get-id.md).
 
 ## Create a test app {#create-test-app}
 
@@ -87,7 +104,7 @@ To test the Gwin controller, create a test application named `example-app`:
     "/C=RU/ST=Moscow/L=Moscow/O=Example/OU=IT/CN=example.com"
     ```
 
-    This command generates a self-signed certificate along with the matching private key. As a result, you will have two files:
+    This command generates a self-signed certificate along with a matching private key. As a result, you will have two files:
     
       * `example-com.crt` with the certificate.
       * `example-com.key` with the private key.

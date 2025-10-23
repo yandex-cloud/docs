@@ -141,6 +141,39 @@ For more information about limits on the number of hosts per cluster, see [Quota
 {% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
 
+## Disk space management {#manage-storage-space}
+
+In case of insufficient storage space in {{ mch-name }}, `INSERT` queries, background merges, and mutations are suspended. They will resume automatically after [the storage size is increased](../operations/update.md#change-disk-size).
+
+
+To monitor storage utilization, [set up alerts in {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
+
+
+### Automatic increase of storage size {#autoscaling}
+
+To prevent situations where the disk runs out of free space and insert queries, background merges, and mutations get suspended, [set up automatic storage size increase](../operations/update.md#change-additional-settings) for {{ CH }} and {{ ZK }} subclusters. This will trigger storage increase when you reach a preset threshold defined as a percentage of the total storage size. There are two thresholds:
+
+* Scheduled increase threshold: To plan this increase, an algorithm analyzes data from the last few hours and estimates how quickly the storage is filling up. If the calculations show that the specified threshold will be exceeded by the start of the nearest [maintenance window](maintenance.md#maintenance-window), the system schedules a storage increase. When initiating maintenance, the system will check whether the threshold is indeed exceeded, and if so, increase the storage size.
+
+* Immediate increase threshold: When reached, the storage size increases immediately.
+
+You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is not lower than the scheduled one.
+
+For a scheduled increase, you need to set the [maintenance window](maintenance.md#maintenance-window) schedule.
+
+{% include [storage-resize-steps](../../_includes/mdb/mch/storage-resize-steps.md) %}
+
+Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. New shards will use the settings of the oldest shard.
+
+You can configure automatic increase of storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/update.md#change-additional-settings).
+
+{% note warning %}
+
+* You cannot decrease the storage size.
+* While resizing the storage, cluster hosts will be unavailable.
+
+{% endnote %}
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/hybrid-storage.md)

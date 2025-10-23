@@ -25,11 +25,14 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions for the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
+  - title: Release notes
+    description: Releases and updates
+    href: release-notes
 meta:
   title: '{{ myt-full-name }}'
   description: >-

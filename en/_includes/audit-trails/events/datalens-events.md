@@ -28,6 +28,7 @@ Event name | Description
 `MoveEntry`                      | Moving an object
 `MoveWorkbooks`                | Moving workbooks
 `RenameEntry`                    | Renaming an object
+`SetDefaultColorPalette` | Setting the default color pallete
 `SwitchAiAssistantProhibition`  | Updating the restriction on using Neuroanalyst
 `SwitchDataExportProhibition`   | Updating the data export restriction
 `SwitchEntriesPublicationStatus` | Updating an object publication status

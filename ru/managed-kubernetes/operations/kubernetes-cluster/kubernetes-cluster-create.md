@@ -331,6 +331,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
 - API {#api}
 
   Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster).

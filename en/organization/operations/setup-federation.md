@@ -2,7 +2,7 @@
 
 You can use [identity federation](../concepts/add-federation.md) to set up user authentication in the cloud. Identity federations are compatible with any identity provider (IdP) that supports [SAML 2.0](https://wiki.oasis-open.org/security/FrontPage).
 
-To set up authentication through an identity federation, you need _at least_ the [`organization-manager.federations.editor` role](../../organization/security/index.md#organization-manager-federations-editor) for the [organization](../../organization/concepts/organization.md).
+To set up authentication through an identity federation, you need _at least_ the `organization-manager.federations.editor` [role](../../organization/security/index.md#organization-manager-federations-editor) for the [organization](../../organization/concepts/organization.md).
 
 To set up federated authentication, follow these steps:
 
@@ -111,12 +111,12 @@ For IdP-specific examples, see our tutorials:
 
             {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * (Optional) `--encrypted-assertions`: Ensures that authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side.
-        * (Optional) `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users.
+        * `--encrypted-assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side. This is an optional parameter.
+        * `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users. This is an optional parameter.
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * (Optional) `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive.
+        * `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive. This is an optional parameter.
         * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
@@ -127,7 +127,7 @@ For IdP-specific examples, see our tutorials:
 
   1. Create a configuration file describing the federation.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -150,7 +150,7 @@ For IdP-specific examples, see our tutorials:
       Where:
 
       * `name`: Federation name. It must be unique within the folder.
-      * (Optional) `description`: Federation description.
+      * `description`: Federation description. This is an optional parameter.
       * `organization_id`: Organization ID.
       * `issuer`: IdP server ID to use for authentication.
 
@@ -177,7 +177,7 @@ For IdP-specific examples, see our tutorials:
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Check that the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration files:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -219,7 +219,7 @@ For IdP-specific examples, see our tutorials:
 
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
-      * (Optional) `description`: Federation description.
+      * `description`: Federation description. This is an optional parameter.
       * `cookieMaxAge`: Time, in seconds, before the browser prompts the user to re-authenticate. The default value is `28800` (8 hours).
       * `issuer`: IdP server ID to use for authentication.
 
@@ -434,7 +434,7 @@ Set up the SAML application for the message to contain:
 
 * The ID from the SAML authentication request sent by {{ yandex-cloud }} in the `Response` and `SubjectConfirmationData` elements of the `InResponseTo` attribute.
 * ACS URL in the following elements:
-
+  
   * In `Response` of the `Destination` attribute.
   * In `SubjectConfirmationData` of the `Recipient` attribute.
   * `Audience`.

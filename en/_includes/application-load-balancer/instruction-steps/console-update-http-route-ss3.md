@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud.alb.label_http-methods }}** field, select the HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which to route the requests.

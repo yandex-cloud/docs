@@ -1,5 +1,7 @@
 # Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud }} Python SDK
 
+{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+
 When working with {{ maf-name }}, you can use the [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) to make requests to the {{ yandex-cloud }} API. The service supports sending requests to any type of cloud resources. You do not need to set up authentication in the cloud manually. The {{ yandex-cloud }} Python SDK gets authenticated via the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account attached to the {{ AF }} cluster.
 
 As an example, we use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to send a request to the {{ yandex-cloud }} API. The request returns a list of virtual machines in the folder where the {{ AF }} cluster was created.
@@ -15,11 +17,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * {{ maf-name }} cluster fee: computing resources of the cluster components and the amount of outgoing traffic (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * VM fee: using computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 

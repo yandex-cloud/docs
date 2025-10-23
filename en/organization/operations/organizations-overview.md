@@ -13,3 +13,4 @@ In {{ org-full-name }}, any Yandex user authorized with a Yandex ID can create a
 * [{#T}](manage-organizations.md)
 * [{#T}](hide-user-info.md)
 * [{#T}](delete-org.md)
+* [{#T}](add-region.md)

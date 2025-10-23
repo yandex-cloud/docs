@@ -73,7 +73,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk types
+      - name: Storage in {{ mmy-name }}
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md

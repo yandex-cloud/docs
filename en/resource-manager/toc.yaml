@@ -15,7 +15,6 @@ items:
             href: operations/cloud/create.md
           - name: Creating a cloud in another region
             href: operations/cloud/create-in-another-region.md
-            hidden: true
           - name: Renaming a cloud
             href: operations/cloud/update.md
           - name: Deleting a cloud

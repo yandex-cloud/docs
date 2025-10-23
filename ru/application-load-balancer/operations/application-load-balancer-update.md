@@ -314,6 +314,8 @@ description: Следуя данной инструкции, вы сможете
      yc alb load-balancer get <имя_балансировщика>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md).
@@ -432,6 +434,8 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc alb load-balancer get <имя_L7-балансировщика>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

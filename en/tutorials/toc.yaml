@@ -210,6 +210,14 @@ items:
             href: security/wlif-k8s-integration.md
           - name: '{{ managed-k8s-name }}'
             href: security/wlif-managed-k8s-integration.md
+      - name: Setting up single sign-on (SSO) for apps
+        items:
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: security/single-sign-on/grafana/oidc-grafana.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -1210,7 +1218,7 @@ items:
         href: dataplatform/airflow-and-spark.md
       - name: Working with an {{ objstorage-name }} table from a PySpark job
         href: dataplatform/spark-simple-rw-job.md
-      - name: '{{ msp-full-name }} integration with {{ metastore-full-name }}'
+      - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
         href: dataplatform/metastore-and-spark.md
       - name: Running a PySpark job using {{ maf-full-name }}
         href: dataplatform/airflow-spark-min.md

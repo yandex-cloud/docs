@@ -14,6 +14,19 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 * [Redirects for all requests](#redirects).
 * [Conditional request redirects](#redirects-on-conditions).
 
+{% note warning %}
+
+Static website hosting is not supported in buckets with the following parameters:
+
+* Bucket [encryption](../../concepts/encryption.md) is enabled. [Disable](../buckets/encrypt.md#del) encryption, [delete](../objects/delete-all.md) the objects from the bucket, and [reupload](../objects/upload.md) them.
+* [Public access](../../security/overview.md#anonymous) to the objects and their list is disabled. [Enable](../buckets/bucket-availability.md#open-public-access) public access.
+* [Access policies](../../concepts/policy.md) are in place which restrict access to the objects and their list for anonymous users. [Update](../buckets/policy.md#apply-policy) the access policy.
+* Access is allowed only from [VPC service connections](../../security/overview.md#pe-vpc). [Restore](../buckets/access-via-vpc.md#disable) access to the bucket from the public network.
+
+For more information, see [{#T}](../../security/overview.md).
+
+{% endnote %}
+
 ## Static website hosting {#hosting}
 
 {% list tabs group=instructions %}
@@ -99,7 +112,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the parameters of resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -362,7 +375,7 @@ With routing rules, you can redirect requests based on the object name prefixes 
      yc storage bucket update --help
      ```
      
-  1. Create a conditional redirect configuration file in JSON format. Here is an example:
+  1. Create a conditional redirect configuration file in JSON format. For example:
      
      ```json
      {

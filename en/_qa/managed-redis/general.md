@@ -3,52 +3,54 @@
 {{ mrd-short-name }} is a service that helps you create, operate, and scale {{ VLK }} databases in a cloud infrastructure.
 
 With {{ mrd-short-name }}, you can:
-- Create a database with the required performance characteristics.
+- Create a database with the performance parameters tailored to your needs.
 - Scale your processing power and storage size allocated to your databases as needed.
 - Get database logs.
 
-{{ mrd-short-name }} takes on time-consuming {{ VLK }} infrastructure administration tasks:
+{{ mrd-short-name }} takes over time-consuming {{ VLK }} infrastructure administration tasks:
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps database software updated.
 
-You interact with database clusters in {{ mrd-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
+You work with a {{ mrd-short-name }} database cluster as if it were a regular database in your local infrastructure This allows you to manage internal database settings to meet your app requirements.
 
 
-#### What part of database management and maintenance is {{ mrd-short-name }} responsible for? {#services}
+#### What is {{ mrd-short-name }} share of database management and maintenance work? {#services}
 
 When you create clusters, {{ mrd-short-name }} allocates resources, installs the DBMS, and creates databases.
 
 For the created and running databases, {{ mrd-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
-{{ mrd-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
+{{ mrd-short-name }} also enables data replication between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically fails over to a backup replica if a failure occurs.
 
-#### Which tasks are best addressed using {{ mrd-short-name }}, and which using VMs with databases? {#mdb-advantage}
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Not sure whether to use {{ mrd-short-name }} or VMs running databases?
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
-- {{ mrd-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
+- {{ mrd-short-name }}: Enables you to operate template databases without needing to manage their administration.
+- {{ compute-full-name }} VM: Enables you to create and configure your own databases. With this approach, you can use any database management systems, access databases via SSH, and more.
 
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
 A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-A _database cluster_ is one or more database hosts between which you can configure replication.
+A _database cluster_ is one or more database hosts with the option to configure replication.
 
 
 #### How do I get started with {{ mrd-short-name }}? {#quickstart}
 
-{{ mrd-short-name }} is available to any registered {{ yandex-cloud }} user.
+{{ mrd-short-name }} is available to all registered {{ yandex-cloud }} users.
 
 To create a database cluster in {{ mrd-short-name }}, you need to define its parameters:
 
-- [Host class](../../managed-redis/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
+- [Host class](../../managed-redis/concepts/instance-types.md) (performance parameters, such as CPUs, RAM, etc.).
 - [Disk type](../../managed-redis/concepts/storage.md) and size (reserved in full when creating a cluster).
 - Network your cluster will be connected to.
-- Number of hosts for the cluster and the availability zone for each host.
+- Number of hosts for your cluster and availability zone for each host.
 
 For more information, see [Getting started](../../managed-redis/quickstart.md).
 
@@ -77,7 +79,7 @@ For more information on MDB technical and organizational limitations, see [Quota
 
 In {{ mrd-short-name }}, maintenance implies:
 
-- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
+- Automatic installation of DBMS updates and fixes for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
 - Other {{ mrd-short-name }} maintenance activities.
 
@@ -89,7 +91,7 @@ For more information, see [Maintenance](../../managed-redis/concepts/maintenance
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
+The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of an expected maintenance period and DB availability in advance.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
@@ -101,18 +103,18 @@ New hosts can no longer be created using deprecated DBMS versions. Database clus
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
-In {{ mrd-short-name }}, the usage cost is calculated based on the following parameters:
+In {{ mrd-short-name }}, the usage cost is calculated based on the following:
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-redis/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-redis/pricing.md) section.
+- Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged based on the [pricing policy](../../managed-redis/pricing.md).
+- Database host uptime in hours. Partial hours are rounded up to the nearest whole hour. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-redis/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
 You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
 
-The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
+The cluster settings update within 30 minutes. This period may also include other cluster maintenance activities, such as installing updates.
 
 #### How do I fix the `Maximum number of hosts reached` error when adding a host to the cluster? {#error-when-adding-host}
 
@@ -126,7 +128,7 @@ Yes, backup is enabled by default. For {{ VLK }}, a full backup takes place once
 
 By default, backups are stored for seven days.
 
-#### When are backups performed? Is a database cluster available during backup? {#backup-window}
+#### When are backups created? Is a database cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
@@ -134,18 +136,18 @@ Clusters remain fully accessible during the backup window.
 
 #### What metrics and processes can be tracked using monitoring? {#monitoring}
 
-For all DBMS types, you can track:
+For all DBMS types, you can monitor:
 
 - CPU, memory, network, or disk usage, in absolute terms.
-- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
-- Amount of data in the DB cluster and the remaining free space in the data storage.
+- Memory, network, and disk usage as a percentage of the set limits for the relevant cluster host class.
+- Amount of data in a DB cluster and the remaining free space in your data storage.
 
-For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ VLK }}, you can track:
+For DB hosts, you can monitor metrics specific to their type of DBMS. For example, for {{ VLK }}, you can monitor:
 - Average query execution time.
 - Number of queries per second.
-- Number of errors in logs, etc.
+- Number of errors in logs, and more.
 
-Monitoring can be performed with a minimum granularity of 5 seconds.
+Monitoring can be performed with a minimum granularity of five seconds.
 
 #### How do I set up an alert that triggers as soon as a certain percentage of disk space has been used up? {#disk-space-percentage}
 
@@ -167,7 +169,7 @@ Thresholds are set in bytes only. For example, the recommended values for a 100Â
 
 {% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
 
-#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
+#### Why is my cluster slow even though there are still some computing resources to spare? {#throttling}
 
 Your storage may have insufficient maximum [IOPS and bandwidth](../../compute/concepts/storage-read-write.md) to process the current number of requests. In this case, [throttling](../../compute/concepts/storage-read-write.md#throttling) occurs, which degrades the entire cluster performance.
 
@@ -178,15 +180,15 @@ The maximum IOPS and bandwidth values increase by a fixed value when the storage
 | `network-ssd`               | 32      | 1,000/1,000                          | 15/15                                         |
 | `network-ssd-nonreplicated` | 93      | 28,000/5,600                         | 110/82                                        |
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-redis/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when [updating your cluster](../../managed-redis/operations/update.md#change-disk-size).
 
 Consider switching to a faster disk type by [restoring the cluster](../../managed-redis/operations/cluster-backups.md#restore) from a backup.
 
-#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+#### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -199,7 +201,7 @@ This means, when connecting to the website, the service was unable to check whet
 To fix this error:
 
 * Make sure the corporate network settings do not block the check.
-* Run the command with the `--ssl-no-revoke` parameter.
+* Run the following command with the `--ssl-no-revoke` parameter:
 
    ```powershell
    mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}

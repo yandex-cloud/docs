@@ -17,6 +17,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./manage-organizations.md)
 * [{#T}](./hide-user-info.md)
 * [{#T}](./delete-org.md)
+* [{#T}](./add-region.md)
 
 ## User management {#manage-users}
 

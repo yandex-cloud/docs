@@ -486,7 +486,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       Where:
 
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-      * `<request_ID>`: Quota update request ID.
+      * `<request_ID>`: Quota update request ID you got in the previous step.
 
       **Request example**
 
@@ -564,7 +564,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
       Where:
 
       * `<IAM_token>`: Service account IAM token or the environment variable containing the token.
-      * `<request_ID>`: Quota update request ID.
+      * `<request_ID>`: Quota update request ID you got in the previous step.
 
       **Request example**
 

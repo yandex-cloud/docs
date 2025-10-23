@@ -58,6 +58,6 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin` и `src.repositories.admin`.
+Включает разрешения, предоставляемые ролями `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator` и `src.repositories.admin`.
 
 Для настройки сопоставления групп пользователей роль должна быть назначена на те группы в Identity Hub, которые вы будете сопоставлять.
