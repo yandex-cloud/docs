@@ -171,9 +171,9 @@ Add users to the IdP server:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Specify the federation parameters in the configuration file.
+  1. Describe the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -195,7 +195,7 @@ Add users to the IdP server:
       * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md).
-      * `labels`: Set of key/value label pairs assigned to the federation.
+      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional parameter.
       * `issuer`: ID of the IdP server to use for authentication.
 
           Use the link from the **{{ microsoft-idp.entra-full }}** ID field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:

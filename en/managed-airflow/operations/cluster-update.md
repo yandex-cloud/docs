@@ -34,9 +34,11 @@ After creating a cluster, you can edit its basic and advanced settings.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-    1. In the settings sections of {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, and **{{ ui-key.yacloud.airflow.section_workers }}**, specify the number of instances and [computing resource configuration](../concepts/index.md#presets).
+    1. In the settings sections of the {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, and **{{ ui-key.yacloud.airflow.section_dag_processor }}** specify the number of instances and [computing resource configuration](../concepts/index.md#presets).
 
-    1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable the triggerer. If it is enabled, specify the number of instances and resources.
+       {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
+    1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable Triggerer. If it is enabled, specify the number of instances and resources.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, delete or add names of pip and deb packages.
 
@@ -51,7 +53,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * Add, edit, or delete [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., the `api.maximum_page_limit` key with `150` for its value.
 
-            Fill in the fields manually or import the settings from a configuration file (see [a configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+            Populate the fields manually or import a configuration from a file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
         * Enable or disable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option allowing you to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
@@ -110,7 +112,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
 
-        You can get the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+        You can request the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -140,7 +142,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -154,7 +156,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -200,7 +202,13 @@ After creating a cluster, you can edit its basic and advanced settings.
               "debPackages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <usage_of_secrets>
+            },
+            "dagProcessor": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
             }
           },
           "codeSync": {
@@ -252,11 +260,11 @@ After creating a cluster, you can edit its basic and advanced settings.
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -266,6 +274,8 @@ After creating a cluster, you can edit its basic and advanced settings.
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
 
@@ -323,15 +333,15 @@ After creating a cluster, you can edit its basic and advanced settings.
             --data '@body.json'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -380,7 +390,13 @@ After creating a cluster, you can edit its basic and advanced settings.
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <usage_of_secrets>
+            },
+            "dag_processor": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
             }
           },
           "code_sync": {
@@ -448,11 +464,11 @@ After creating a cluster, you can edit its basic and advanced settings.
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -462,6 +478,8 @@ After creating a cluster, you can edit its basic and advanced settings.
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
 

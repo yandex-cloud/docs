@@ -31,7 +31,6 @@ items:
             href: operations/delete-org.md
           - name: Connecting a controlled organization
             href: operations/add-region.md
-            hidden: true
       - name: Managing users
         items:
           - name: Overview
@@ -216,6 +215,16 @@ items:
                 href: tutorials/federations/group-mapping/keycloak.md
       - name: Service account with an OS Login profile for VM management via Ansible
         href: tutorials/sa-oslogin-ansible.md
+      - name: Setting up single sign-on (SSO) for apps
+        items:
+          - name: Overview
+            href: tutorials/single-sign-on/index.md
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/grafana/oidc-grafana.md
   - name: Concepts
     items:
       - name: Organization
@@ -238,7 +247,6 @@ items:
         href: concepts/mfa.md
       - name: Controlled organizations
         href: concepts/controlled-org.md
-        hidden: true
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting

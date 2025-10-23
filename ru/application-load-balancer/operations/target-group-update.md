@@ -163,6 +163,8 @@
      yc alb target-group get --name <имя_целевой_группы>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-target-group.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/TargetGroup/addTargets.md).

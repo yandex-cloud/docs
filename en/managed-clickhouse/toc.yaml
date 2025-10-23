@@ -206,7 +206,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk types
+      - name: Storage
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md

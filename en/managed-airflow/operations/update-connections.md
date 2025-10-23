@@ -5,6 +5,12 @@ description: You can connect to a {{ maf-name }} database using software and upd
 
 # Connecting to a {{ maf-full-name }} database
 
+{% note warning %}
+
+This guide is suitable for {{ AF }} 3.0 and lower.
+
+{% endnote %}
+
 You can connect to a {{ maf-name }} database using software and update connection data using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service).
 
 ## Prepare the DAG file and run the graph {#dag}
@@ -51,7 +57,7 @@ You can connect to a {{ maf-name }} database using software and update connectio
 
 To check the result in the {{ AF }} web interface:
 
-1. In the **DAGs** section, open the `update_connections` graph.
+1. In the **DAGs** section, click `update_connections`.
 1. Go to the **Graph** section.
 1. Select **update_connections_task**.
 1. Go to **Logs**.

@@ -65,24 +65,7 @@ description: In this tutorial, you will learn how to start and stop {{ unified-a
   Edit the `/etc/yandex/unified_agent/config.yml` configuration file, e.g., by setting up the agent to [deliver Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](configuration.md).
 
 
-  To make sure {{ unified-agent-short-name }} is successfully installed and started, run this command:
-
-  ```bash
-  systemctl status unified-agent
-  ```
-
-  Result:
-
-  ```bash
-  ● unified-agent.service - Yandex Unified Agent service
-     Loaded: loaded (/lib/systemd/system/unified-agent.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2021-02-09 15:57:08 UTC; 2 weeks 2 days ago
-   Main PID: 141403 (unified_agent)
-      Tasks: 8 (limit: 507)
-     Memory: 9.4M
-     CGroup: /system.slice/unified-agent.service
-             └─141403 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml --log-priority NOTICE
-  ```
+  {% include [agent-is-run](../../../../_includes/monitoring/agent-is-run.md) %}
 
 - Binary file {#binary}
 

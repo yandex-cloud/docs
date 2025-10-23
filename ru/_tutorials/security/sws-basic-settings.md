@@ -328,6 +328,9 @@
 
   Чтобы подключить виртуальный хост в сервисе {{ alb-name }}:
   1. Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+      {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
   1. Если балансировщик управляется вами, в разделе ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** выберите созданный профиль.
   1. Справа сверху нажмите ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. В открывшемся окне последовательно выберите:

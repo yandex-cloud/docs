@@ -6,7 +6,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.2.9 (beta) {#2-2-9}
 
-* Updated Apache Spark to version 3.5.6.
+* {{ SPRK }} updated to version 3.5.6.
 
 ### 2.2.8 (beta) {#2-2-8}
 
@@ -193,7 +193,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.0.47 {#2-0-47}
 
 * Fixed TCP connection leaks in the metadata service under high-load cluster conditions. These leaks could prevent IAM token updates, affecting authorization in {{ objstorage-name }} and other services.
-* Fixed the error that prevented {{ metastore-name }} tables from loading. `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
+* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that prevented {{ metastore-name }} tables from loading.
 
 ### 2.0.46 {#2-0-46}
 
@@ -238,7 +238,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.0.36 {#2-0-36}
 
 * The CLI tool is now installed by default on all cluster nodes.
-* Added the following environment variables for initialization scripts: `CLUSTER_ID`, `S3_BUCKET`, `ROLE`, `CLUSTER_SERVICES`, `MIN_WORKER_COUNT`, `MAX_WORKER_COUNT`.
+* Added the following environment variables for initialization scripts: `CLUSTER_ID`, `S3_BUCKET`, `ROLE`, `CLUSTER_SERVICES`, `MIN_WORKER_COUNT`, and `MAX_WORKER_COUNT`.
 
 ### 2.0.35 {#2-0-35}
 

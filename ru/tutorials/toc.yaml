@@ -226,6 +226,8 @@ items:
                 href: security/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: security/single-sign-on/grafana/oidc-grafana.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
       - name: Загрузка аудитных логов в {{ mos-name }}

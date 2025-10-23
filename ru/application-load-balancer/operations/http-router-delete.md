@@ -120,6 +120,8 @@ description: Следуя данной инструкции, вы сможете
      yc alb http-router list
      ```
 
+  {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/HttpRouter/delete.md) для ресурса [HttpRouter](../api-ref/HttpRouter/index.md) или вызовом gRPC API [HttpRouterService/Delete](../api-ref/grpc/HttpRouter/delete.md).

@@ -1,0 +1,1 @@
+Be mindful of what is what is controlled by the service, and what by the {{ yandex-cloud }} customer. Understanding these control zones will help you use your cloud resources effectively and avoid potential database-related problems. For more information, see [{#T}](../../overview/concepts/mdb-responsibilities.md).

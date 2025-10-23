@@ -806,6 +806,8 @@ default:
   SPRK: Apache Spark™
   src-full-name: SourceCraft
   src-name: SourceCraft
+  stackland-full-name: Yandex Cloud Stackland
+  stackland-name: Stackland
   storage-aws-cli-alias: ycs3
   sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
@@ -8379,6 +8381,7 @@ default:
           certificate_action_download_cert: Скачать сертификат
           certificate_action_manage_certs: Управление сертификатами
           certificate_section_title: Сертификат приложения
+          field_cert-fingerprin: Цифровой отпечаток (fingerprint)
           idp_section_closed_text: Дополнительные атрибуты
           idp_section_download_metadata_action: Скачать файл с метаданными
           idp_section_title: Конфигурация поставщика удостоверений (IdP)
@@ -10990,6 +10993,7 @@ default:
         label_agent-by-filter-condition-option: Задать условия
         label_agent-by-filter-selector: Первый освободившийся
         label_agent-from-list-selector: Выбрать из списка
+        label_agent-temporal-selector: Временный
         label_agents-count: Количество агентов
         label_agents-list: Агенты
         label_choose-from-bucket: Выбрать из бакета
@@ -11015,6 +11019,7 @@ default:
         section_agent: Агент
         section_export: Логи теста
         test-data-section: Прикрепленные файлы
+        title_temporal-agent-field: Настройки временного агента
         value_cumulative-quantiles-chart-type: 'Время ответа: кумулятивные квантили'
         value_imbalance_rps-chart-type: 'Точка разладки: RPS'
         value_instances-chart-type: 'Тестирующие потоки: количество'

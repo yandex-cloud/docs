@@ -59,12 +59,14 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - deb package {#deb}
 
-  {{ unified-agent-short-name }} is distributed as a deb package for Ubuntu 16.04 or higher. The package contains a binary file with the agent and an empty configuration file located at `/etc/yandex/unified_agent/config.yml`.
+  {{ unified-agent-short-name }} is distributed as a deb package for Ubuntu 16.04 or higher and Debian 9 or higher. The package contains a binary file with the agent and a configuration file located at `/etc/yandex/unified_agent/config.yml`.
 
   To install {{ unified-agent-short-name }}:
 
   {% include [agent-setup-deb](../../../../_includes/monitoring/agent-setup-deb.md) %}
 
+
+  {% include [agent-setup-actions](../../../../_includes/monitoring/agent-setup-actions.md) %}
 
 - Binary file {#binary}
 
@@ -95,11 +97,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   To install the agent and send metrics, make sure the VM has access to the internet.
 
-  The agent is installed with a default configuration file located at `/etc/yc/unified_agent/config.yml`.
-
-  The configuration file is set up to send [basic virtual machine metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
-
-  You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+  {% include [agent-setup-actions](../../../../_includes/monitoring/agent-setup-actions.md) %}
 
 
   Once the VM is deployed, {{ unified-agent-short-name }} will be started automatically and begin delivering basic VM metrics to {{ monitoring-full-name }}.
@@ -133,9 +131,7 @@ Update {{ unified-agent-short-name }} using one of the following methods:
 
 - deb package {#deb}
 
-  Re-download and install the deb package:
-
-  {% include [agent-setup-deb](../../../../_includes/monitoring/agent-setup-deb.md) %}
+  Re-download and [install](#setup) the latest deb package.
 
 - Binary file {#binary}
 

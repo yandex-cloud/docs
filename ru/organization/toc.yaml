@@ -31,7 +31,6 @@ items:
             href: operations/delete-org.md
           - name: Подключить управляемую организацию
             href: operations/add-region.md
-            hidden: true
       - name: Управление пользователями
         items:
           - name: Обзор
@@ -42,7 +41,7 @@ items:
             href: operations/users-get.md
           - name: Изменить данные пользователя
             href: operations/user-pools/edit-user.md
-          - name: Сбросить пароль локального пользователя
+          - name: Изменить пароль локального пользователя
             href: operations/user-pools/reset-user-password.md
           - name: Посмотреть группы пользователя
             href: operations/get-users-groups.md
@@ -116,7 +115,7 @@ items:
             href: operations/user-pools/get-domain.md
           - name: Удалить домен
             href: operations/user-pools/delete-domain.md
-      - name: Управление приложениями
+      - name: Управление приложениями (SSO)
         items:
           - name: SAML-приложения
             items:
@@ -227,6 +226,8 @@ items:
                 href: tutorials/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: '{{ mgl-name }}'
+            href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
   - name: Концепции
@@ -243,7 +244,7 @@ items:
         href: concepts/add-federation.md
       - name: Домены
         href: concepts/domains.md
-      - name: Приложения
+      - name: Приложения (SSO)
         href: concepts/applications.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
@@ -251,7 +252,6 @@ items:
         href: concepts/mfa.md
       - name: Управляемые организации
         href: concepts/controlled-org.md
-        hidden: true
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
         hidden: true

@@ -58,6 +58,10 @@ The main {{ AF }} components are shown below:
 
 * _Scheduler_: Server in {{ yandex-cloud }} that controls the job run schedule. The scheduler gets schedule information from DAG files. It uses this schedule to notify workers that it is time to run a DAG file.
 
+* _DAG processor_: {{ yandex-cloud }} server to process DAG files.
+
+   {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
 * _Workers_: Executors of jobs specified in DAG files. The workers run jobs on the schedule received from the scheduler.
 
 * [_Triggerer_](#triggerer): Service that releases a worker if it goes idle while executing a job with a long event timeout (optional component).

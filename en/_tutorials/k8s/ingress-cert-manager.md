@@ -25,7 +25,7 @@ The support cost includes:
 
 ## Getting started {#before-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+1. [Create a service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You need the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -117,7 +117,7 @@ You can install the certificate manager in one of the following ways:
 
 - Manually {#manual}
 
-  1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of cert-manager. For example, run the following command for version 1.21.1:
+  1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of cert-manager. For example, run the following command for version 1.12.1:
 
      ```bash
      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
@@ -299,6 +299,6 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the public domain zone](../../dns/operations/zone-delete.md).

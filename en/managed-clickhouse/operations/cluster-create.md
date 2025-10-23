@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ CH }} cluster
-description: Follow this guide to create a {{ CH }} cluster with a single or multiple DB hosts.
+description: In this tutorial, you will learn how to create a {{ CH }} cluster with one or more database hosts.
 ---
 
 # Creating a {{ CH }} cluster
@@ -51,10 +51,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
-  1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
-      * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+  1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
+  1. Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
+      * `PRODUCTION`: For stable versions of your applications.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
   
@@ -73,10 +73,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+      * Select the size of your data and backup disk. For more details on how backups utilize storage space, see [Backups](../concepts/backup.md).
+
+      * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
+
+        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+
+        Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. When adding a new shard, the settings ​​are taken from the oldest shard.
 
       
-      * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+      * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
 
         * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
@@ -86,9 +92,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 
 
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**:
+  
+      * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ ZK }} subcluster:
+
+        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+  
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-      * If you want to manage cluster users via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field and enter the `admin` user password. This disables user management through other interfaces.
+      * If you want to manage cluster users via SQL, select **{{ ui-key.yacloud.common.enabled }}** from the drop-down list in the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** field and enter the `admin` password. This disables user management through other interfaces.
 
         Otherwise, select **{{ ui-key.yacloud.common.disabled }}**.
 
@@ -106,14 +118,23 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       
       * Specify a user password:
 
-        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select to enter your own password. The password must be from 8 to 128 characters long.
+        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select this option to set your own password. The password must be from 8 to 128 characters long.
 
-        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select to generate a password with {{ connection-manager-name }}.
+        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select this option to generate a password using {{ connection-manager-name }}.
 
-        To view the password, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab after you create the cluster and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+        To view the password after cluster creation, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
 
 
       * Specify a DB name. The DB name may contain Latin letters, numbers, and underscores. It can be up to 63 characters long. You cannot create a database named `default`.
+
+      * Select the database engine: 
+      
+        * By default, `Atomic` supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and the atomic `EXCHANGE TABLES` operations.
+        * `Replicated` supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
+
+          Available only in [replicated](../concepts/replication.md) clusters.
+
+        You set the engine when creating the database and cannot change it for this database.
 
       * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
@@ -220,13 +241,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         
         {% note info %}
 
-        You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command and specify the user parameters as follows:
+        You can also generate a password using {{ connection-manager-name }}. To do this, modify the command, specifying user details as follows:
 
         ```bash
           --user name=<username>,generate-password=true
         ```
 
-        To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+        To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
 
         {% endnote %}
 
@@ -274,7 +295,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} article](../../functions/operations/database-connection.md).
+      1. To enable access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), use the `--serverless-access` flag. For more information about setting up access, see [this {{ sf-name }} article](../../functions/operations/database-connection.md).
 
 
       1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -465,9 +486,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           
           {% note info %}
 
-          You can also generate a password with {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
+          You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
 
-          To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores your password. To view passwords, you need the `lockbox.payloadViewer` role.
+          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
 
           {% endnote %}
 
@@ -527,7 +548,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -602,7 +623,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               },
               "databaseSpecs": [
                 {
-                  "name": "<DB_name>"
+                  "name": "<DB_name>",
+                  "engine": "<database_engine>"
                 },
                 { <similar_settings_for_database_2> },
                 { ... },
@@ -705,7 +727,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs`: Database settings as an array of `name` element parameters. Each parameter contains a name of a separate database.
+            * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure: 
+              
+                * `name`: Database name.
+                * `engine`: Database engine. The allowed values are:
+                  
+                  {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
@@ -736,7 +763,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
               
             
-            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Run this request:
@@ -754,7 +781,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -831,7 +858,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               },
               "database_specs": [
                 {
-                  "name": "<DB_name>"
+                  "name": "<DB_name>",
+                  "engine": "<database_engine>"
                 },
                 { <similar_settings_for_database_2> },
                 { ... },
@@ -935,13 +963,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs`: Database settings as an array of `name` element parameters. Each parameter contains the name of a separate database.
+            * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure: 
+              
+                * `name`: Database name.
+                * `engine`: Database engine. The allowed values are:
+                  
+                  {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
-            * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
+            * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
                 {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
 
-            * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+            * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
                 * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
 
@@ -966,7 +999,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
 
             
-            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Run this query:
@@ -1038,8 +1071,8 @@ To create a {{ CH }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Create a new directory named `imported-cluster` and move your file there.
+    1. Modify the configuration so it can be used to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
@@ -1053,11 +1086,11 @@ To create a {{ CH }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating the provider configuration file manually, you can download it [here](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
 
-    1. Check that the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration files:
 
         ```bash
         terraform validate

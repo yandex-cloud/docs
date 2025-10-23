@@ -42,8 +42,24 @@ Use a [directed acyclic graph](../concepts/index.md#about-the-service) to read f
 
 To check the result in the {{ AF }} web interface:
 
-1. In the **DAGs** section, open the `read_file_from_dags_bucket` graph.
-1. Go to the **Graph** section.
-1. Select **read_file**.
-1. Go to **Logs**.
-1. Make sure the logs contain the `file content: {content}` line, where `content` is the file contents. This means the query was successful.
+{% list tabs group=instructions %}
+   
+- {{ AF }} version below 3.0 {#version-2}
+
+  1. In the **DAGs** section, click the `read_file_from_dags_bucket` graph.
+  1. Go to the **Graph** section.
+  1. Select **read_file**.
+  1. Go to **Logs**.
+  1. Make sure the logs contain the `file content: {content}` line, where `content` is the file contents. This means the query was successful.
+
+- {{ AF }} version 3.0 or higher {#version-3}
+
+  1. In the **DAGs** section, click the `read_file_from_dags_bucket` graph.
+  1. Go to **Tasks**.
+  1. Select **read_file**.
+  1. Go to **Tasks Instances**.
+  1. Select the task instance.
+  1. The **Logs** section will open.
+  1. Make sure the logs contain the `file content: {content}` line, where `content` is the file contents. This means the query was successful.
+
+{% endlist %}

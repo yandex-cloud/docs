@@ -3,7 +3,7 @@
 
     * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
     * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
+    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
 
         * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM

@@ -71,6 +71,8 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
+        {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
+
    {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}

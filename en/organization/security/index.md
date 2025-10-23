@@ -68,6 +68,14 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include [organizationmanager-oslogins-admin](../../_roles/organization-manager/osLogins/admin.md) %}
 
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalCreator}
+
+{% include [organization-manager-groups-externalCreator](../../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
+
+{% include [organization-manager-groups-externalConverter](../../_roles/organization-manager/groups/externalConverter.md) %}
+
 #### organization-manager.groups.editor {#organization-manager-groups-editor}
 
 {% include [organization-manager-groups-editor](../../_roles/organization-manager/groups/editor.md) %}
@@ -135,6 +143,10 @@ You can assign a role for individual resources within the service using the [{{ 
 #### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
 
 {% include [organizationmanager-userpools-viewer](../../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
+
+{% include [organizationmanager-userpools-syncAgent](../../_roles/organization-manager/userpools/syncAgent.md) %}
 
 #### organization-manager.userpools.editor {#organization-manager-userpools-editor}
 

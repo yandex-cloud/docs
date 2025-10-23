@@ -87,6 +87,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
 {% endlist %}
 
 Управление {{ k8s-ca }} выполняется на стороне сервиса {{ managed-k8s-name }}.

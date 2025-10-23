@@ -12,7 +12,6 @@ Event name | Description
 `CreateOsLoginProfile` | Creating a profile {{ oslogin }}
 `CreateUserSshKey` | Creating an SSH user key
 `DeactivateMfaEnforcement` | Deactivating an MFA policy
-`DeleteFederatedUserAccounts` | Deleting a user from a federation
 `DeleteGroup` | Deleting a user group
 `DeleteGroupMapping` | Deleting a federated user group mapping
 `DeleteInvitation` | Deleting an invite
@@ -51,10 +50,14 @@ Event name | Description
 `SetGroupAccessBindings` | Assigning access permissions for a user group
 `SetOrganizationAccessBindings` | Assigning access permissions for an organization
 `saml.AddFederationDomain` | Associating a [domain](../../../organization/concepts/domains.md) with a federation
+`saml.AddFederatedUserAccounts` | Adding a user to a federation
 `saml.CreateApplication` | Creating a [SAML](../../../organization/concepts/add-federation.md) app
+`saml.CreateFederation` | Creating an identity federation
 `saml.CreateSignatureCertificate` | Creating a signature certificate
 `saml.DeleteApplication` | Deleting a SAML app
+`saml.DeleteFederation` | Deleting an identity federation
 `saml.DeleteFederationDomain` | Deleting a domain
+`saml.DeleteFederatedUserAccounts` | Deleting a user from a federation
 `saml.DeleteSignatureCertificate` | Deleting a signature certificate
 `saml.ReactivateApplication` | Activating a SAML app
 `saml.ReactivateFederatedUserAccounts` | Activating a federated user
@@ -64,6 +67,7 @@ Event name | Description
 `saml.UpdateApplication` | Updating a SAML app
 `saml.UpdateApplicationAccessBindings` | Updating access permissions for a SAML app
 `saml.UpdateApplicationAssignments` | Updating a list of SAML app users
+`saml.UpdateFederation` | Updating an identity federation
 `saml.UpdateSignatureCertificate` | Updating a signing certificate
 `saml.ValidateFederationDomain` | Validating a domain to associate with a federation 
 `UpdateGroup` | Updating a user group

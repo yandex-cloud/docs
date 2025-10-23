@@ -92,6 +92,8 @@ description: Чтобы удалить целевую группу, в конс�
      yc alb target-group list
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-target-group.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/TargetGroup/delete.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Delete](../api-ref/grpc/TargetGroup/delete.md).

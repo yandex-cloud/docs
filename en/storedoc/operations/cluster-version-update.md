@@ -1,6 +1,6 @@
 # {{ SD }} version upgrade
 
-You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, for {{ SD }}, the upgrade sequence from version 4.2 to 6.0 is: 4.2 → 4.4 → 5.0 → 6.0.
+You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, for {{ SD }}, the upgrade sequence from version 4.2 to 8.0 is: 4.2 → 4.4 → 5.0 → 6.0 → 7.0 → 8.0. Before each cluster upgrade step, you must update the [cluster compatibility version](#compatibility-update).
 
 
 {% note alert %}
@@ -11,13 +11,15 @@ After upgrading, you cannot roll your cluster back to the previous version.
 
 ## Before a version upgrade {#before-update}
 
-Make sure the upgrade does not disrupt your applications:
+1. Make sure the upgrade does not disrupt your applications:
 
-1. Learn how the updates may affect your applications in the {{ MG }} [release notes](https://docs.mongodb.com/manual/release-notes/).
+1. See the {{ MG }} release notes to learn how upgrades may affect your applications.
 1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
-## Upgrading a cluster {#start-update}
+1. Make sure the [cluster compatibility version](#compatibility-update) matches the current cluster version. If required, upgrade the cluster compatibility version.
+
+## Upgrading the cluster version {#start-update}
 
 {% list tabs group=instructions %}
 
@@ -60,11 +62,10 @@ Make sure the upgrade does not disrupt your applications:
         --feature-compatibility-version=<new_version_number>
      ```
 
-     Learn more about backward compatibility in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
   
        For more information about creating this file, see [this guide](cluster-create.md).
   
@@ -83,7 +84,7 @@ Make sure the upgrade does not disrupt your applications:
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -93,7 +94,7 @@ Make sure the upgrade does not disrupt your applications:
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -117,35 +118,19 @@ Make sure the upgrade does not disrupt your applications:
 
       Where:
 
-      * `updateMask`: List of parameters to update as a single string, separated by commas.
+      * `updateMask`: Comma-separated list of settings you want to modify.
 
          In this case, one parameter is provided.
 
       * `configSpec.version`: New {{ SD }} version.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
-   1. After the upgrade, all {{ SD }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, send one more request and provide the new {{ SD }} version number in the `configSpec.featureCompatibilityVersion` property.
-
-      ```bash
-      curl \
-         --request PATCH \
-         --header "Authorization: Bearer $IAM_TOKEN" \
-         --header "Content-Type: application/json" \
-         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
-         --data '{
-                  "updateMask": "configSpec.featureCompatibilityVersion",
-                  "configSpec": {
-                    "featureCompatibilityVersion": "<Yandex_StoreDoc_new_version>"
-                  }
-                }'
-      ```
+   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -179,17 +164,144 @@ Make sure the upgrade does not disrupt your applications:
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
 
           In this case, one parameter is provided.
 
         * `version`: New {{ SD }} version.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    1. After the upgrade, all {{ SD }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, send one more request and provide the new {{ SD }} version number in the `config_spec.feature_compatibility_version` property.
+{% endlist %}
+
+{% note info %}
+
+After the upgrade, all {{ SD }} features that are not backward-compatible with the previous version will be disabled. To remove this limitation, [upgrade the cluster compatibility version](#compatibility-update).
+
+{% endnote %}
+
+## Upgrading the compatibility version {#compatibility-update}
+
+Upgrading the cluster compatibility version is required if you need to:
+* Upgrade your cluster to a new version, but the compatibility version does not match the current cluster version.
+* Make new {{ SD }} features available after a cluster upgrade.
+
+Learn more about backward compatibility in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+{% note alert %}
+
+Upgrading the cluster compatibility version is irreversible.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ SD }}**.
+  1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_fcv }}** field, select the required version number.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+  1. Get a list of your {{ SD }} clusters using this command:
+
+     ```bash
+     {{ yc-mdb-mg }} cluster list
+     ```
+
+  1. Get information about the cluster you need and check the {{ SD }} version in the `config.feature_compatibility_version` parameter:
+
+     ```bash
+     {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
+     ```
+
+  1. Run the cluster update command by specifying the new compatibility version:
+
+     ```bash
+     {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+        --feature-compatibility-version=<Yandex_StoreDoc_compatibility_version>
+     ```
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
+  
+       For more information about creating this file, see [Creating clusters](cluster-create.md).
+  
+    1. Add the `feature_compatibility_version` field to the {{ mmg-name }} cluster description or edit its value if it is already there:
+  
+       ```hcl
+       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
+         ...
+         cluster_config {
+           feature_compatibility_version = "<Yandex_StoreDoc_compatibility_version>"
+         }
+       }
+       ```
+
+    1. Make sure the settings are correct.
+  
+         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Confirm resource changes.
+  
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+   For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+   1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
+         --data '{
+                  "updateMask": "configSpec.featureCompatibilityVersion",
+                  "configSpec": {
+                    "featureCompatibilityVersion": "<Yandex_StoreDoc_compatibility_version>"
+                  }
+                }'
+      ```
+
+      Where:
+
+      * `updateMask`: Comma-separated list of settings you want to modify.
+
+         In this case, one parameter is provided.
+
+      * `configSpec.featureCompatibilityVersion`: New {{ SD }} compatibility version.
+
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+
+   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
         ```bash
         grpcurl \
@@ -206,12 +318,24 @@ Make sure the upgrade does not disrupt your applications:
                     ]
                   },  
                   "config_spec": {
-                    "feature_compatibility_version": "<Yandex_StoreDoc_new_version>"
+                    "feature_compatibility_version": "<Yandex_StoreDoc_compatibility_version>"
                   }
                }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.Update
         ```
+
+        Where:
+
+        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+
+          In this case, one parameter is provided.
+
+        * `feature_compatibility_version`: New {{ SD }} compatibility version.
+
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -235,11 +359,11 @@ Let's assume that you need to upgrade your cluster from version 5.0 to version 6
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih******** |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** |   storedoc406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. To get information about the `c9qut3k64b2o********` cluster, run the following command:
+   1. To get information about a `c9qut3k64b2o********` cluster, run the following command:
 
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
@@ -251,7 +375,7 @@ Let's assume that you need to upgrade your cluster from version 5.0 to version 6
       id: c9qut3k64b2o********
       folder_id: b1g0itj57rbj********
       created_at: "2019-07-16T09:43:50.393231Z"
-      name: mongodb406
+      name: storedoc406
       environment: PRODUCTION
       monitoring:
       - name: Console

@@ -22,14 +22,14 @@ For more information about sharding, see [{#T}](../../storedoc/concepts/sharding
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes the fee for additional service hosts in the {{ mmg-name }} cluster (see [{{ SD }} pricing](../../storedoc/pricing.md)).
+The support cost includes the fee for additional service hosts in the {{ mmg-name }} cluster (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 
 
 ## How to enable collection sharding {#enable}
 
 {% note warning %}
 
-Run all your sharding setup commands via the `mongosh` CLI as a user with the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+Run all your sharding setup commands via the `mongosh` CLI as a user with the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the `admin` database.
 
 {% endnote %}
 
@@ -54,20 +54,13 @@ Run all your sharding setup commands via the `mongosh` CLI as a user with the [m
    sh.shardCollection( "<DB_name>.<collection>", { "<index>": <index_type> } )
    ```
 
-   For a detailed description of the `shardCollection` command, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
 
 1. Modify the applications accessing your database to use **only** the `MONGOS` or `MONGOINFRA` hosts.
 
 ### Sharding heterogeneous data {#brackets}
 
-If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on the `_id` key values of the same type using [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). This will make sharding and document searching faster than with `_id` values of different types.
+If a collection includes documents with heterogeneous data types, we recommend sharding based on the `_id` key values of the same type using `Type Bracketing`. This will make sharding and document searching faster than with `_id` values of different types.
 
-### Useful links {#links}
-
-You can learn how to solve issues related to sharding in the {{ MG }} documentation:
-
-* Sharding overview: [Sharding](https://docs.mongodb.com/manual/sharding/index.html).
-* About choosing a shard key and sharding strategies: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).
 
 ## Example of sharding {#example}
 
@@ -75,7 +68,7 @@ Let's say you already have a sharded {{ mmg-name }} cluster with a `billing` dat
 
 Sequence of operations:
 
-1. [Connect](../../storedoc/operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+1. [Connect](../../storedoc/operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the `admin` database.
 1. Enable sharding for the `billing` database:
 
    ```text

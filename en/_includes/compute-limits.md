@@ -44,7 +44,7 @@ You can increase this quota only upon agreement with your account manager.
 `compute.instanceGpus.count` | 0 ||
 || Total number of {{ a100-epyc }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
 `compute.instanceA100Gpus.count` | 0 ||
-|| Total number of GPUs for Gen2 across all VMs and number of available slots in reserved instance pools per cloud
+|| Total number of Gen2 GPUs across all VMs and number of available slots in reserved instance pools per cloud
 `compute.instanceV3IGpus.count` | 0 ||
 || Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
 `compute.instanceT4Gpus.count` | 0 ||
@@ -136,7 +136,7 @@ When deploying optimized images, the quotas for the number of images per cloud a
 || Type of limit | Value ||
 || Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 ||
 || Number of [reserved instance pools](../compute/concepts/reserved-pools.md) per cloud^1^
-`compute.reservedInstancePools.count` | 0 ||
+`compute.reservedInstancePools.count` | 1 ||
 |#
 
 ^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images, dedicated hosts, or reserved instance pools, contact [support]({{ link-console-support }}).

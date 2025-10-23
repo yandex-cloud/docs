@@ -39,6 +39,10 @@ items:
             href: operations/http-router-get.md
           - name: Editing an HTTP router
             href: operations/http-router-update.md
+          - name: Managing virtual hosts
+            href: operations/manage-virtual-hosts.md
+          - name: Managing routes
+            href: operations/manage-routes.md
           - name: Deleting an HTTP router
             href: operations/http-router-delete.md
       - name: L7 load balancers
@@ -90,7 +94,7 @@ items:
           {{ alb-name }} ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
-          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          Migrating services from NLB to L7 ALB for enabling {{ sws-name }}
           protection
         items:
           - name: Overview
@@ -229,7 +233,7 @@ items:
             href: tools/gwin/quickstart.md
           - name: Gwin policies
             href: tools/gwin/policies.md
-          - name: Migrating apps from an ALB ingress controller to Gwin
+          - name: Migrating apps from an ALB Ingress controller to Gwin
             href: tools/gwin/ingress-gwin-migration.md
           - name: Resource configuration
             items:

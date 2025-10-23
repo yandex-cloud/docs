@@ -1,5 +1,7 @@
 Приложения в кластере {{ managed-k8s-full-name }} можно защитить от DDoS-атак и ботов с помощью сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} и который использует Ingress-контроллер {{ alb-name }}.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 Опираясь на ресурс Ingress будет развернут L7-балансировщик с профилем безопасности, подключенным к виртуальным хостам балансировщика. Бэкенды приложений, которые указаны в ресурсе Ingress, будут защищены с помощью {{ sws-name }}: все поступающие к бэкендам HTTP-запросы [будут обработаны](../../smartwebsecurity/concepts/rules.md#rule-action) в соответствии с правилами в профиле безопасности.
 
 Чтобы через Ingress создать L7-балансировщик с подключенным профилем безопасности:

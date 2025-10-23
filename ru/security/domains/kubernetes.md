@@ -89,6 +89,8 @@
 * интеграция с облачным сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/);
 * отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](../../application-load-balancer/).
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 #### Ограничение доступа к метаданным ВМ группы узлов {#metadata-access-restriction}
 
 Для всех подов необходимо создать network policy, которая блокирует сетевой трафик на адрес 169.254.169.254, либо использовать default-deny политику из [примера](../../managed-kubernetes/operations/calico#enable-isolation). Политика должна блокировать доступ к метаданным группы узлов из рабочих нагрузок, так как они содержат чувствительные данные, например токен сервисного аккаунта, привязанного к узлу.

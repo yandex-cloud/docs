@@ -5,6 +5,10 @@ description: This section contains {{ dataproc-name }} release notes.
 
 # {{ dataproc-full-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+In image 2.2.9 (beta), {{ SPRK }} is updated to version 3.5.6.
+
 ## Q2 2025 {#q2-2025}
 
 * Added the {{ oslogin }} option to use when creating a cluster. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.

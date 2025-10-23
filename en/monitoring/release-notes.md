@@ -6,6 +6,25 @@ description: This section contains {{ monitoring-name }} release notes.
 # {{ monitoring-full-name }} release notes
 
 
+## July – September 2025 {#jul-sep-2025}
+
+* Upgraded the [{{ prometheus-name }} Operator]({{ link-cloud-marketplace }}/products/yc/prometheus-operator) version in {{ marketplace-full-name }}.
+  
+* In {{ managed-prometheus-full-name }}, [Alert Manager](operations/prometheus/alerting-rules.md#alert-manager-create) now supports routing of notification channels. Routing is based on the `severity` labels mapped to notification channels.
+
+* In the [Dashboards](operations/dashboard/create.md#labels) section, added [labels](concepts/visualization/dashboard.md) for searching and sorting dashboards. You can set labels in the dashboard settings in `key=value` format.
+
+* Released phone calls and [escalations](concepts/alerting/escalations.md) for public [Preview](../overview/concepts/launch-stages.md). Previously, access to them was provided upon request to support.
+
+* Updated the logic for displaying metrics on all monitoring charts. Filtering metrics by a selected time interval is now more accurate, and charts and legends no longer show empty lines.
+
+* Added sending of alert [annotations](concepts/alerting/annotation.md) to notifications. Previously, annotations were only available on the alert page.
+
+* Added the ability to add [links](operations/dashboard/create.md#settings) to a dashboard. You can add links to other dashboards or any other URLs and also group them together. This enables you to enhance a dashboard with supplementary information, such as links to logs with specified filters or to documentation.
+
+* In charts, added the ability to set [threshold lines](operations/dashboard/add-widget.md#thresholds) with color customization. This makes it easier to track abnormal values.
+
+
 ## April – June 2025 {#apr-jun-2025}
 
 * Added the option to build charts based on [{{ managed-prometheus-full-name }}](operations/prometheus/querying/monitoring.md) metrics in the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** section. This allows you to manage all {{ monitoring-name }} metrics in a single interface and customize your {{ prometheus-name }} charts more flexibly. Also, you can add {{ prometheus-name }} charts to dashboards and display them together with {{ monitoring-name }} charts.
@@ -41,7 +60,7 @@ description: This section contains {{ monitoring-name }} release notes.
 
 * When creating a VM, you can [install an agent](operations/prometheus/ingestion/prometheus-agent.md) for collecting metrics in {{ prometheus-name }} format. By default, Linux system metrics are sent to {{ managed-prometheus-full-name }}. You can also configure delivering your application metrics when creating a VM or at a later time.
 
-* Updated the [Dashboards](concepts/visualization/dashboard.md) section:
+* The [Dashboards](concepts/visualization/dashboard.md) section updates:
   
   * Added sharing a chart screenshot: you can now copy the screenshot itself or a link to it.
   * Added expandable sections in which you can group any number of widgets. This allows you to pack more information into your dashboard, hide the charts you do not currently need, group them by purpose, service, or metric type.

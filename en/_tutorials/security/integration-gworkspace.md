@@ -108,7 +108,7 @@ To create a federation:
 
         * `--name`: Federation name. It must be unique within the folder.
         
-        * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md). 
+        * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
 
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md).
@@ -143,9 +143,9 @@ To create a federation:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Specify the federation parameters in the configuration file.
+  1. Describe the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -166,7 +166,7 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). 
-      * `labels`: Set of key/value label pairs assigned to the federation.
+      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional parameter.
       * `issuer`: ID of the IdP server to use for authentication.
 
           Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:

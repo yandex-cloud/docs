@@ -8,4 +8,5 @@ description: Настройка интеграции {{ org-full-name }} со с
 * Grafana Cloud
    * [{#T}](./grafana/saml-grafana.md)
    * [{#T}](./grafana/oidc-grafana.md)
+* [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [Zabbix](./saml-zabbix.md)

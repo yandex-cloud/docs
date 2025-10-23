@@ -47,7 +47,7 @@
 
   We recommend you to define the meaning of slow query execution for each service and its user and log only the queries that meet the definition. For example, for a web service, a query is slow if it runs for more than one second, while, for the reporting service, it is a query that runs for more than 10 minutes.
 
-  For more information, see the relevant [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  For more information, see [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
 - **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -68,7 +68,7 @@
   * `pgaudit` [library is connected](../../managed-postgresql/operations/extensions/cluster-extensions.md#libraries-connection) to the cluster.
   * `pgaudit` [extension is enabled](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) for the database.
 
-  The possible values are:
+  The allowed values are:
 
   * `read`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
   * `write`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data source is a relation.
@@ -93,13 +93,15 @@
 
     [Connection management mode](../../managed-postgresql/concepts/pooling.md) used by the Odyssey connection pooler.
 
-    The possible values are:
+    The allowed values are:
 
     * `SESSION`: Session mode.
     * `TRANSACTION`: Transaction mode.
     * `STATEMENT`: Query mode.
 
+    
     The default value is `SESSION`.
+
 
 - **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
 

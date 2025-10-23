@@ -71,7 +71,7 @@ To get started with the {{ dspm-name }} module, follow the guides on how to [cre
 
 ### Cloud Infrastructure Entitlement Management ({{ ciem-name }}) {#ciem}
 
-{{ sd-name }} [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) is a tool providing a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
+{{ sd-name }} [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 
@@ -83,7 +83,7 @@ To get started with the {{ ciem-name }} module, follow the guides for [viewing](
 
 [{{ atr-name }}]({{ link-sd-main }}transparency/) is an automated tool you can use to view analytical data about actions by {{ yandex-cloud }} engineers involving the organization's resources, whether when processing [requests](../support/overview.md), addressing security issues, or during maintenance.
 
-The tool ensures transparency of operations and provides control over the actions of {{ yandex-cloud }} engineers: a specially trained {{ yagpt-name }}-based model automatically analyzes their logs and, if necessary, escalates for the session to be checked by {{ yandex-cloud }} information security staff.
+The tool ensures operations are transparent and provides control over actions by {{ yandex-cloud }} engineers: a specially trained {{ yagpt-name }}-based model automatically analyzes their action logs and escalates issues, if any, so that a {{ yandex-cloud }} information security specialist can check the session.
 
 {% include [access-transparency-attach-ba-notice](../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 

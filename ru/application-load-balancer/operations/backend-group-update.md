@@ -152,6 +152,8 @@ description: Пошаговая инструкция по изменению г�
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
+
 - API {#api}
 
   Чтобы изменить базовые параметры [группы бэкендов](../concepts/backend-group.md), воспользуйтесь методом REST API [update](../api-ref/BackendGroup/update.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Update](../api-ref/grpc/BackendGroup/update.md).
@@ -282,6 +284,8 @@ description: Пошаговая инструкция по изменению г�
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
 
 - API {#api}
 
@@ -446,6 +450,8 @@ description: Пошаговая инструкция по изменению г�
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
 
 - API {#api}
 

@@ -103,13 +103,15 @@ description: Следуя данной инструкции, вы сможете
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
       ```bash
       yc alb virtual-host get <имя_виртуального_хоста> \
         --http-router-name <имя_HTTP-роутера>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 
@@ -297,6 +299,8 @@ description: Следуя данной инструкции, вы сможете
         --http-router-name <имя_HTTP-роутера>
       ```
 
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [update](../api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../api-ref/grpc/VirtualHost/update.md).
@@ -360,13 +364,15 @@ description: Следуя данной инструкции, вы сможете
   1. Обновите ресурсы:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} обновит требуемые ресурсы. Проверить наличие ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
       ```bash
       yc alb virtual-host list \
         --http-router-name <имя_HTTP-роутера>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

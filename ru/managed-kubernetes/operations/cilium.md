@@ -72,6 +72,8 @@
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
+        {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
+
 {% endlist %}
 
 ### Подготовьтесь к работе с кластером {#do-preparations}
