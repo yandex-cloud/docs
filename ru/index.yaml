@@ -195,6 +195,9 @@ links:
   - title: Serverless Integrations
     description: Интеграция сервисов Yandex Cloud друг с другом
     href: serverless-integrations/
+  - title: Stackland
+    description: Управление Kubernetes on-premises
+    href: stackland/
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/

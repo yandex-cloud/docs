@@ -1,6 +1,6 @@
 # Calling a function from a model
 
-If using {{ gpt-pro }}, you can access external tools, API, and databases with the help of [function calls](../../concepts/generation/function-call.md). 
+When working with models, you can access external tools, APIs, and databases with the help of [function calls](../../concepts/generation/function-call.md). 
 
 For example, you have a function called `weatherTool` that accepts a city name as the input parameter and returns the current air temperature for the city. It is up to you to contribute the model response processing, the usability of the function, and the generation of requests.
 

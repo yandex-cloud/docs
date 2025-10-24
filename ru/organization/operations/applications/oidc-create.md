@@ -36,6 +36,115 @@ description: Следуя данной инструкции, вы сможете
           1. Нажмите **Enter**.
       1. Нажмите кнопку **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+
+     ```bash
+     yc organization-manager idp application oauth application create --help
+     ```
+
+  1. Создайте OAuth-клиент:
+
+     ```bash
+     yc iam oauth-client create \
+       --name <имя_OAuth-клиента> \
+       --scopes <атрибут>[,<атрибут>]
+     ```
+
+     Где:
+
+     * `--name` — имя OAuth-клиента.
+     * `--scopes` — набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов через запятую в формате `<атрибут1>,<атрибут2>`. Возможные атрибуты:
+       * `openid` — идентификатор пользователя. Обязательный атрибут.
+       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+       * `email` — адрес электронной почты пользователя.
+       * `address` — место жительства пользователя.
+       * `phone` — номер телефона пользователя.
+       * `groups` — [группы пользователей](../../concepts/groups.md) в организации.
+
+     Результат:
+
+     ```text
+     id: ajeqqip130i1********
+     name: test-oauth-client
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
+
+     Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
+
+  1. Создайте секрет для OAuth-клиента:
+
+     ```bash
+     yc iam oauth-client-secret create --oauth-client-id <идентификатор_OAuth-клиента>
+     ```
+
+     Результат:
+
+     ```text
+     oauth_client_secret:
+       id: ajeq9jfrmc5t********
+       oauth_client_id: ajeqqip130i1********
+       masked_secret: yccs__939233b8ac****
+       created_at: "2025-10-21T10:14:17.861652377Z"
+     secret_value: yccs__939233b8ac********
+     ```
+
+     Сохраните значение поля `secret_value`, оно понадобится для [настроек приложения](#setup-application) на стороне поставщика услуг.
+  
+  1. Создайте OIDC-приложение:
+
+     ```bash
+     yc iam organization-manager idp application oauth application create \
+       --organization-id <идентификатор_организации> \
+       --name <имя_приложения> \
+       --description <описание_приложения> \
+       --client-id <идентификатор_OAuth-клиента> \
+       --authorized-scopes <атрибут>[,<атрибут>] \
+       --group-distribution-type all-groups \
+       --labels <ключ>=<значение>[,<ключ>=<значение>]
+     ```
+
+     Где:
+
+     * `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно создать OIDC-приложение. Обязательный параметр.
+     * `--name` — имя OIDC-приложения. Обязательный параметр. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description` — описание OIDC-приложения. Необязательный параметр.
+     * `--client-id` — идентификатор OAuth-клиента, полученный на втором шаге. Обязательный параметр.
+     * `--authorized-scopes` — укажите те же атрибуты, которые были указаны при создании OAuth-клиента.
+     * `--group-distribution-type` — если при создании OAuth-клиента вы указали атрибут `groups`, укажите, какие группы пользователей будут переданы поставщику услуг. Возможные значения:
+       * `all-groups` — поставщику услуг будут переданы все группы, в которые входит пользователь.
+
+          Максимальное количество передаваемых групп — 1 000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп.
+       * `assigned-groups` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые будут явно [заданы](#users-and-groups).
+       * `none` — поставщику услуг не будут переданы группы, в которые входит пользователь.
+     * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
+
+     Результат:
+
+     ```text     
+     id: ek0o663g4rs2********
+     name: oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
 {% endlist %}
 
 ## Настройте приложение {#setup-application}
@@ -84,6 +193,43 @@ description: Следуя данной инструкции, вы сможете
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
   1. {% include [oidc-app-update-sp-settings](../../../_includes/organization/oidc-app-update-sp-settings.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для настройки OAuth-клиента:
+
+     ```bash
+     yc iam oauth-client update --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc iam oauth-client update \
+       --id <идентификатор_OAuth-клиента> \
+       --redirect-uris <адрес>[,<адрес>]
+     ```
+
+     Где:
+
+     * `--id` — идентификатор OAuth-клиента.
+     * `--redirect-uris` — укажите полученный у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
+
+     Результат:
+
+     ```text
+     id: ajeqqip130i1********
+     name: test-oauth-client
+     redirect_uris:
+       - https://example.com
+       - https://example.ru
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
 
 {% endlist %}
 

@@ -1,9 +1,9 @@
 ---
-title: How to get mobile search results using {{ search-api-full-name }}'s API v2
-description: In this tutorial, you will learn how to get mobile search results using {{ search-api-name }}'s API v2.
+title: How to get mobile search results using {{ search-api-full-name }}
+description: In this tutorial, you will learn how to get mobile search results using {{ search-api-name }}.
 ---
 
-# Getting mobile search results using API v2
+# Getting mobile search results using the API
 
 Mobile search results differ from default search results by the ranking formula and presence of links to websites optimized for mobile devices.
 
@@ -13,7 +13,7 @@ Mobile search results differ from default search results by the ranking formula 
 
     - REST API {#api}
 
-      The `userAgent` contains the description of the device and browser [User-Agent header](https://en.wikipedia.org/wiki/User-Agent_header). Here is an example:
+      The `userAgent` contains the description of the device and browser [User-Agent header](https://en.wikipedia.org/wiki/User-Agent_header). For example:
 
       **body.json**
 
@@ -26,7 +26,7 @@ Mobile search results differ from default search results by the ranking formula 
 
     - gRPC API {#grpc-api}
 
-      The `user_agent` field contains the description of the device and browser [User-Agent header](https://en.wikipedia.org/wiki/User-Agent_header). Here is an example:
+      The `user_agent` field contains the description of the device and browser [User-Agent header](https://en.wikipedia.org/wiki/User-Agent_header). For example:
 
       **body.json**
 

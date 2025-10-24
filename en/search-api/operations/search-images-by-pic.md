@@ -1,11 +1,11 @@
 ---
-title: How to search in {{ search-api-name }} by image via API v2
-description: Follow this guide to learn how to use {{ search-api-full-name }}'s API v2 interface to send search queries for images based on a source image.
+title: How to search by image using {{ search-api-name }}
+description: Follow this guide to learn how to use {{ search-api-full-name }} to send search queries for images based on a source image.
 ---
 
-# Searching by image via API v2
+# Searching by image via the API
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can search through the [Yandex Images](https://yandex.ru/images) index by image and get search results in [JSON format](../concepts/image-search.md#json-response-format). You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the [parameters](../concepts/image-search.md#request-body-by-pic) specified in your query.
+You can use [{{ search-api-name }}](../concepts/index.md#api-v2) to search through the [Yandex Images](https://yandex.ru/images) index by image and get search results in [JSON format](../concepts/image-search.md#json-response-format). You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the [parameters](../concepts/image-search.md#request-body-by-pic) specified in your query.
 
 ## Getting started {#before-you-begin}
 

@@ -119,6 +119,8 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
         href: tutorials/maxpatrol.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
   - name: Концепции
     items:
       - name: Обзор

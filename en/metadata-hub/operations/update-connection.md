@@ -54,7 +54,7 @@ To change connection settings:
 
           * `--user`: Username to connect to the cluster.
 
-          * `--password`: User password.
+          * `--password`: Password.
       
           * `--managed-cluster-id`: Cluster ID. You can get the cluster ID with the list of clusters in the folder.
 
@@ -101,7 +101,7 @@ To change connection settings:
           
           * `--user`: Username to connect to the cluster.
           
-          * `--password`: User password.
+          * `--password`: Password.
           
           * `--ca-certificate`: Path to your TLS CA certificate file.
           
@@ -124,7 +124,7 @@ To change connection settings:
 
             {% endnote %}
 
-          * Coordinator parameters for connecting to {{ TR }} by running this command:
+          * Coordinator parameters for connecting to {{ TR }}, by running this command:
 
             ```bash
             yc metadata-hub connection-manager connection update trino <connection_ID> \

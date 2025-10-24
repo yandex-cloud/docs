@@ -47,7 +47,7 @@ items:
             href: tutorials/search-events-audit-logs/examples.md
           - name: Настройка работы с {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
-      - name: Настройка алертов в {{ monitoring-name }}
+      - name: Настройка дашбордов и алертов в {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md

@@ -7,7 +7,7 @@ description: In this article, you will learn about the generative models availab
 
 {{ foundation-models-full-name }} provides access to large generative models from different vendors. If out-of-the-box models are not enough, you can [fine-tune](../tuning/index.md) some of them for more accurate responses. All roles required for working with the models are listed in [{#T}](../../security/index.md).
 
-In a common instance, model resources are available to all {{ yandex-cloud }} users and shared between them, so model response time may increase under heavy workloads. We guarantee that no other user can access the context of your exchanges with the model: even with logging on, requests are stored anonymized and potentially sensitive information is masked. However, we recommend [disabling](../../operations/disable-logging.md) data logging whenever you use our models to process sensitive information.
+In a common instance, model resources are available to all {{ yandex-cloud }} users and shared between them, so model response time may increase under heavy workloads. You can be assured that other users have no access to the context of your exchanges with the model: even with logging on, requests are stored anonymized and potentially sensitive information is masked. However, we recommend [disabling](../../operations/disable-logging.md) data logging whenever you use our models to process sensitive information.
 
 Common instance models are subject to the update rules described in [Model lifecycle](#model-lifecycle). When updating models, generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change. Modified models share usage [quotas](../limits.md#quotas) with their basic models.
 

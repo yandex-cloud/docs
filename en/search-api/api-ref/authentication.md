@@ -1,11 +1,11 @@
 ---
-title: How to authenticate with the {{ search-api-full-name }}'s API v2
-description: In this section, you will find methods for authenticating with {{ search-api-name }}'s API v2.
+title: API authentication in {{ search-api-full-name }}
+description: This section describes the API authentication methods in {{ search-api-name }}.
 ---
 
-# Authentication with the API v2
+# API authentication
 
-{{ search-api-name }}'s [API v2](../concepts/index.md#api-v2) interface requires you to submit your authentication credentials in each request. The authentication method depends on the type of account used to send your request:
+[{{ search-api-name }}](../concepts/index.md#api-v2) requires you to submit your authentication credentials in each request. The authentication method depends on the type of account used to send your request:
 
 {% list tabs group=authentication %}
 

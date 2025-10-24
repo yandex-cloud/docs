@@ -30,8 +30,8 @@ description: Следуя данной инструкции, вы получит
 
   1. Выполните команду:
 
-      ```bash
-      yc organization-manager idp userpool get <идентификатор_пула>
-      ```
+     ```bash
+     yc organization-manager idp userpool get <идентификатор_пула>
+     ```
 
 {% endlist %}

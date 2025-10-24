@@ -163,6 +163,8 @@ description: Следуя данной инструкции, вы сможете
           --placement-group <имя_или_идентификатор_группы_размещения>
         ```
 
+      {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
+
 - {{ TF }} {#tf}
 
   Чтобы создать [группу узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group):
@@ -179,6 +181,9 @@ description: Следуя данной инструкции, вы сможете
        instance_template {
          name       = "<шаблон_имени_узлов>"
          platform_id = "<платформа_для_узлов>"
+         placement_policy {
+           placement_group_id = "<группа_размещения>"
+         }
          network_acceleration_type = "<тип_ускорения_сети>"
          container_runtime {
            type = "containerd"
@@ -217,6 +222,10 @@ description: Следуя данной инструкции, вы сможете
          {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
        * `platform_id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
+       * `placement_group_id` — [группа размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}.
+
+          {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
+
        * `network_acceleration_type` — тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
          * `standard` — без ускорения.
          * `software-accelerated` — программно-ускоренная сеть.
@@ -366,6 +375,10 @@ description: Следуя данной инструкции, вы сможете
   * Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
+
+    {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
 
   * Чтобы добавить метаданные для узлов, передайте их в параметре `nodeTemplate.metadata`.
 

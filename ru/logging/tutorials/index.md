@@ -17,6 +17,5 @@ sourcePath: ru/logging_includes/tutorials/index.md
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](cloud-logging.md)
 * [{#T}](logging-functions.md)
-* [{#T}](search-events-logging.md)
 * [{#T}](search-events-audit-logs/index.md)
 * [Передача логов кластера {{ mgp-full-name }} в {{ cloud-logging-name }}](mgp-to-cloud-logging.md)

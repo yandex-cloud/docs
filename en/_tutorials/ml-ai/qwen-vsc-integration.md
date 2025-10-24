@@ -89,16 +89,18 @@ As an example, let's ask Qwen to generate a script to access an AI model via the
    from openai import OpenAI
    
    def main():
-       if len(sys.argv) != 3:
-           print("Usage: python test.py <token> <model_id>")
+       if len(sys.argv) != 4:
+           print("Usage: python test.py <token> <model_id> <folder_id>")
            return
    
        token = sys.argv[1]
        model_id = sys.argv[2]
+       folder_id = sys.argv[3]
    
        client = OpenAI(
            base_url="https://{{ api-host-llm }}/v1",
-           api_key=token
+           api_key=token,
+           project=folder_id
        )
    
        stream = client.chat.completions.create(

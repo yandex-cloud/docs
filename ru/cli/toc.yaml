@@ -11,6 +11,8 @@ items:
         href: operations/install-cli.md
       - name: Обновление CLI
         href: operations/update-cli.md
+      - name: Удаление CLI
+        href: operations/remove-cli.md
       - name: Аутентификация
         items:
           - name: Аутентификация от имени пользователя

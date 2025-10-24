@@ -86,6 +86,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Select a [service account](../../iam/concepts/users/service-accounts.md) under which the {{ metastore-name }} cluster will interact with other {{ yandex-cloud }} services, or [create](../../iam/operations/sa/create.md) a new one.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet you created earlier. Specify the security group you configured previously.
+    1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, select the [cluster configuration](../concepts/metastore.md#presets).
     1. Optionally, under **{{ ui-key.yacloud.logging.label_title }}**, enable logging, select the minimum logging level, and specify the folder or [log group](../../logging/concepts/log-group.md).
     1. If required, enable protection of the cluster from accidental deletion by a user.
     1. Click **{{ ui-key.yacloud.common.create }}**.

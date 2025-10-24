@@ -71,7 +71,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -118,7 +118,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
     {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl

@@ -5,7 +5,7 @@ description: In this article you will learn what falls into the zone of control 
 
 # Zones of control between managed database (MDB) service users and {{ yandex-cloud }}
 
-When using managed database (MDB) services, i.e., {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }}, and {{ mkf-short-name }}, it is important to bear in mind what is controlled by the [MDB service](#cloud-responsibilities), and what by the [{{ yandex-cloud }} customer](#customer-responsibilities) Understanding these control zones will help you use your cloud resources effectively and avoid potential database-related problems.
+When using managed database (MDB) services, i.e., {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }}, and {{ mkf-short-name }}, it is important to bear in mind what is controlled by the [MDB service](#cloud-responsibilities), and what by the [{{ yandex-cloud }} customer](#customer-responsibilities). Understanding these control zones will help you use your cloud resources effectively and avoid potential database-related problems.
 
 ## {{ yandex-cloud }} control zone {#cloud-responsibilities}
 

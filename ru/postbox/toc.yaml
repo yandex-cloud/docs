@@ -55,6 +55,8 @@ items:
           Создание адреса {{ postbox-full-name }} и проверка владения доменом с
           помощью {{ TF }}
         href: tutorials/domain-identity-creating.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
       - name: Отправка писем с помощью AWS SDK
         items:
           - name: .NET Core

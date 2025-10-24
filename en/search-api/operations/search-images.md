@@ -1,11 +1,11 @@
 ---
-title: How to search for an image in {{ search-api-name }} based on a text description via API v2
-description: Follow this guide to learn how to use {{ search-api-full-name }}'s API v2 interface to send text search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
+title: How to search for an image in {{ search-api-name }} based on a text description
+description: Follow this guide to learn how to use {{ search-api-full-name }} to send text search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
 ---
 
-# Searching by text description via API v2
+# Searching for images by text description using the API
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can search through the [Yandex Images](https://yandex.ru/images) index by text description and get search results in [XML format](../concepts/image-search.md#xml-response-format). You can run queries using [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+You can use [{{ search-api-name }}](../concepts/index.md#api-v2) to search through the [Yandex Images](https://yandex.ru/images) index by text description and get search results in [XML format](../concepts/image-search.md#xml-response-format). You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 

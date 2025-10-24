@@ -5,6 +5,10 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 02/10/2025
+
+The {{ llama }} 8B and {{ llama }} 70B models are no longer supported in the common instance.
+
 ## Release as of 24/09/2025 {#240925}
 
 Yandex Foundation Models has evolved into {{ ai-studio-full-name }}, a full-value generative model and AI agent platform. There are some further updates:
@@ -56,7 +60,7 @@ New text models of the Qwen3 family are now available in batch mode.
 
 Vision language models are now available in {{ foundation-models-name }}.
 
-Added the [batch mode](../concepts/generation/index.md#working-mode) for models: now you can process large amounts of data with a single request. The batch mode is supported for [text generation models](../concepts/generation/models.md#batch) and vision language models. Added new types of [datasets](../concepts/resources/dataset.md) to use in batch mode.
+Added the [batch mode](../concepts/generation/index.md#working-mode) for working with models: now you can process large amounts of data with a single request. The batch mode is supported for [text generation models](../concepts/generation/models.md#batch) and vision language models. Added new types of [datasets](../concepts/resources/dataset.md) to use in batch mode.
 
 ## Release as of 31/03/2025 {#310325}
 
@@ -65,7 +69,7 @@ Added the [batch mode](../concepts/generation/index.md#working-mode) for models:
 
 ## Release as of 19/03/2025 {#190325}
 
-Increased some limits for {{ assistant-api }}: now you can add up to 10,000 documents with the total size of up to 5 million tokens to a search index. You can upload up to 100 documents at a time. Also, increased the maximum number of threads to 10,000 and maximum number of messages per thread to 100,000. For a complete list of limits, see [{#T}](../concepts/limits.md).
+Increased some limits for {{ assistant-api }}: now you can add up to 10,000 documents with the total size of 5 million tokens to a search index. You can upload up to 100 documents at a time. Also, increased the maximum number of threads to 10,000 and maximum number of messages per thread to 100,000. For a complete list of limits, see [{#T}](../concepts/limits.md).
 
 ## Release as of 25/02/2025 {#250225}
 

@@ -7,7 +7,7 @@ description: Voice agents enable you to create AI-powered applications that enga
 
 _Voice agents_ in {{ foundation-models-full-name }} enable you to create AI-powered applications that engage with users in both written and spoken form.
 
-Voice agents support two-way message exchange: The client sends events with audio or text instructions, and the server delivers responses as soon as they are generated. With this streaming mode, you can see partial responses immediately without waiting for full processing, which ensures the dialogue evolves in a natural way.
+Voice agents support two-way message exchange: the client sends events with audio or text instructions, and the server delivers responses as soon as they are generated. With this streaming mode, you can see partial responses immediately without waiting for full processing, which ensures the dialogue evolves in a natural way.
 
 You can use voice agents for the following scenarios:
 
@@ -29,6 +29,12 @@ To process user requests, {{ realtime-api }} runs a multimodal model tailored fo
 
 Designed for Russian-language scenarios, the model is well equipped for creating voice assistants, chat environments, and apps requiring a natural, human-like flow of conversation.
 
+### Voices {#voices}
+
+{{ realtime-api }} is compatible with all [standard {{ speechkit-full-name }} voices](../../../speechkit/tts/voices.md) as well as {{ brand-voice-lite-name }} and {{ brand-voice-premium-name }} [voices](../../../speechkit/tts/brand-voice/index.md).
+
+You can listen to voice samples on the [{{ speechkit-name }} page](/services/speechkit).
+
 ### Sessions {#sessions}
 
 The client-server communication context is stored in _sessions_. Each session holds the conversation history and configuration settings, such as the model's system prompt, selected speech synthesis voice, and expected modalities (text or voice).
@@ -45,7 +51,7 @@ _Events_ are the main way to exchange data in {{ realtime-api }}. Each client-se
 
 The client sends events to transmit data, instructions, or commands, e.g., to generate a new answer, upload audio, or edit the session settings. The server responds with events containing partial or final results along with state updates.
 
-The event exchange is two-way and asynchronous: The client can send new events to the server without waiting for the result of the previous task. This approach enables real-time handling of responses and reacting to them immediately, without waiting for full processing to complete.
+The event exchange is two-way and asynchronous: the client can send new events to the server without waiting for the result of the previous task. This approach enables real-time handling of responses and reacting to them immediately, without waiting for full processing to complete.
 
 Each event is transmitted as a separate [JSON](https://en.wikipedia.org/wiki/JSON) object over an open WebSocket connection. The client should support processing events as they arrive in real time. Moreover, you need to consider that the response may arrive in parts: first as deltas (partial data), and then as a final completion message.
 
@@ -64,30 +70,7 @@ Each event is transmitted as a separate [JSON](https://en.wikipedia.org/wiki/JSO
 * `error`: Error message.
 
 
-### Client-server workflow in {{ realtime-api }} {#interaction-scheme}
-
-The client-server workflow in {{ realtime-api }} proceeds as follows:
-
-1. The client sends audio data using the `input_audio_buffer.append` [event](#events). Multiple segments can be sent in a row.
-1. The client completes the transmission with the `input_audio_buffer.commit` event.
-1. The client creates a request to generate a new model response using the `response.create` event that contains system prompts and response parameters.
-1. The server returns the following streaming events:
-
-    * `response.output_text.delta`: Text segments, if the response is requested as text.
-    * `response.output_audio.delta`: Audio segments, if the response is requested as synthesized speech.
-1. When generation is complete, the server sends the `response.done` event to indicate that no new data will arrive.
-1. The client can immediately send a new event, `input_audio_buffer.append` or `response.create`, without closing the connection.
-
-For an example of creating a voice agent with {{ realtime-api }}, see [{#T}](../../operations/agents/create-voice-agent.md).
-
-{% note tip %}
-
-* You can dynamically change the response style or system prompts without recreating the [session](#sessions).
-* Subscribe to `error` type [events](#types) and properly finish or restart loops to keep your application responsive.
-* Set up client-side buffering because the server may send data faster than the client can handle it.
-
-{% endnote %}
-
 #### See also {#see-also}
 
+* [{#T}](./index.md)
 * [{#T}](../../operations/agents/create-voice-agent.md)

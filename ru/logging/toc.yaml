@@ -77,18 +77,10 @@ items:
         href: tutorials/cloud-logging.md
       - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}
         href: tutorials/logging-functions.md
-      - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
-        href: tutorials/search-events-logging.md
       - name: Поиск событий в аудитных логах
-        items:
-          - name: Обзор
-            href: tutorials/search-events-audit-logs/index.md
-          - name: Инструменты для работы с аудитными логами
-            href: tutorials/search-events-audit-logs/tools.md
-          - name: Примеры запросов для поиска событий
-            href: tutorials/search-events-audit-logs/examples.md
-          - name: Настройка работы с {{ yq-full-name }}
-            href: tutorials/search-events-audit-logs/query.md
+        href: tutorials/search-events-audit-logs/index.md
+      - name: Мониторинг записи событий в лог-группу
+        href: tutorials/log-group-record-monitoring.md
       - name: Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
         href: tutorials/mgp-to-cloud-logging.md
   - name: Концепции

@@ -1,11 +1,11 @@
 ---
-title: Search queries via {{ search-api-full-name }}'s API v2 interface
-description: This section describes the specificities and format of text queries when accessing {{ search-api-name }} via API v2.
+title: Search queries in {{ search-api-full-name }}
+description: This section describes the features and format of text queries when accessing {{ search-api-name }}.
 ---
 
 # Text search
 
-With {{ search-api-name }} v2, you can run queries to the Yandex search database and get a response in [synchronous](#sync-mode) or [deferred](#async-mode) mode. The search results you get depend on the [parameters](#parameters) specified in your query.
+With {{ search-api-name }}, you can run queries to the Yandex search database and get a response in [synchronous](#sync-mode) or [deferred](#async-mode) mode. The search results you get depend on the [parameters](#parameters) specified in your query.
 
 Queries can be submitted by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
 

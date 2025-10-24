@@ -108,6 +108,7 @@ description: Следуя данной инструкции, вы научите
 
    - Изображение {#image}
 
+          
      * Добавьте ссылку на [изображение](../dashboard/markdown.md#image), размещенное в хранилище [{{ objstorage-full-name }}](../../storage/quickstart.md).
 
        {% note warning %}
@@ -117,6 +118,7 @@ description: Следуя данной инструкции, вы научите
        {% include [datalens-cors-settings-note](../../_includes/datalens/datalens-cors-settings-note.md) %}
 
        {% endnote %}  
+
 
      * (опционально) Укажите альтернативный текст, который будет отображаться, если не удастся загрузить изображение.
      * (опционально) Отключите опцию сохранения соотношения сторон при изменении размеров виджета. По умолчанию опция включена.
@@ -138,9 +140,11 @@ description: Следуя данной инструкции, вы научите
 
        {% note warning %}
 
+              
        Если вставляете в виджет изображение, размещенное в хранилище {{ objstorage-full-name }}, задайте настройки [CORS](../../storage/operations/buckets/cors.md) для бакета с изображением:
 
        {% include [datalens-cors-settings-note](../../_includes/datalens/datalens-cors-settings-note.md) %}
+
 
        {% endnote %}
 

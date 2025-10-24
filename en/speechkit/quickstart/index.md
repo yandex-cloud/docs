@@ -13,8 +13,8 @@ You can test speech recognition and synthesis on the {{ speechkit-name }} [demo 
 To recognize speech from an audio file via the {{ speechkit-name }} Playground interface:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. Go to the **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}** tab.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. Navigate to the **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}** tab.
 1. In the **{{ ui-key.yacloud.speechkit.speech-to-text.field_language }}** field, select the language you need or leave `{{ ui-key.yacloud.speechkit.speech-to-text.label_language-auto }}`.
 1. Click **Select file** or drag the audio file to the loading area.
 1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text-v2.label_button_start-recognition }}** to start speech recognition in the audio file.
@@ -28,8 +28,8 @@ For a detailed guide, see [{#T}](../operations/stt-playground.md).
 To convert text to audio via the {{ speechkit-name }} Playground interface: 
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. Go to the **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}** tab.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. Navigate to the **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}** tab.
 1. In the settings section on the left side of the window:
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}**: Select the length of pauses between words or specify it yourself.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-title }}**: Emphasize the essential words.
@@ -49,11 +49,11 @@ For a detailed guide, see [{#T}](../operations/tts-playground.md).
 
 {{ speechkit-name }} Playground features basic speech synthesis options. For more flexible synthesis settings, use the [API](#tts-quickstart).
 
-## Speech recognition via the API {#stt-quickstart}
+## Speech recognition via API {#stt-quickstart}
 
 Learn how to recognize [short](stt-quickstart-v1.md) and [long](stt-quickstart-v2.md) pre-recorded audio files in {{ speechkit-name }}. The service also supports voice recognition in [real time](../stt/api/streaming-examples-v3.md).
 
-## Speech synthesis via the API {#tts-quickstart}
+## Speech synthesis via API {#tts-quickstart}
 
 Learn how to convert text to audio using the {{ speechkit-name }} [API v1](tts-quickstart-v1.md) and [API v3](tts-quickstart-v3.md). The API v3 provides more flexibility for speech synthesis setup. For more information about the differences between the API versions, see [{#T}](../tts/index.md#features).
 

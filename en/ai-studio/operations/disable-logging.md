@@ -1,6 +1,6 @@
 # Disabling request logging
 
-Models log all request data by default. Disable logging if you provide personal or confidential data or any manner of sensitive information in your requests. To do this, add the following option to the REST request header or gRPC call meta-information: `x-data-logging-enabled: false`. Requests with logging off will not be saved on {{ yandex-cloud }} servers.
+Models log all request data by default. Disable logging if you provide personal or confidential data or any manner of sensitive information in your requests. To do this, add the `x-data-logging-enabled: false` option to the REST request header or gRPC call meta-information. Requests with logging off will not be saved on {{ yandex-cloud }} servers.
 
 To disable request logging:
 
@@ -8,7 +8,7 @@ To disable request logging:
 
 - SDK {#sdk}
 
-  When initializing a `YCloudML` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will be adding `x-data-logging-enabled: false` to the meta-information of each gRPC call.
+  When initializing a `YCloudML` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will add `x-data-logging-enabled: false` to the meta-information of each gRPC call.
 
   For example:
 
@@ -37,7 +37,7 @@ To disable request logging:
 
   {% endnote %}
 
-  Add this header to your REST request: `x-data-logging-enabled: false`. For example:
+  Add the `x-data-logging-enabled: false` header to your REST request. For example:
 
   ```bash
   export FOLDER_ID=<folder_ID>
@@ -75,6 +75,7 @@ To disable request logging:
   client = OpenAI(
         api_key="<API_key>",
         base_url="https://llm.api.cloud.yandex.net/v1",
+        project="<folder_ID>",
         default_headers={
             "x-data-logging-enabled": "false"
         }
@@ -89,6 +90,7 @@ To disable request logging:
   Where:
 
   * `<API_key>`: Service account [API key](../../iam/concepts/authorization/api-key.md) required for [authentication in the {{ openai }} API](../concepts/openai-compatibility.md). You can also use the [IAM token](../../iam/operations/iam-token/create.md) for authentication.
+  * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the [service account](../../iam/concepts/users/service-accounts.md) was created in.
   * `<model_URI>`: Unique ID of a model from the [list of models](../concepts/generation/models.md) available for operation in synchronous mode. Contains the [service account](../../iam/concepts/users/service-accounts.md) [folder ID](../../resource-manager/operations/folder/get-id.md).
 
 {% endlist %}

@@ -1,9 +1,9 @@
 ---
-title: Diagnosing API v2 errors in {{ search-api-name }}
+title: Diagnosing API errors in {{ search-api-full-name }}
 description: If you get an error sending requests to the API and need help, contact support. The support team will solve your issue faster if you use additional HTTP request and response headers.
 ---
 
-# Diagnosing API v2 errors
+# Diagnosing API errors
 
 {% include [support-with-headers](../../_includes/ai-common/support-with-headers.md) %}
 
@@ -13,7 +13,7 @@ description: If you get an error sending requests to the API and need help, cont
 
 ### Examples {#examples}
 
-You can use the headers below to locate your search query in synchronous mode.
+You can use the headers below to locate your synchronous search query.
 
 {% include [example-headers-search](../../_includes/ai-common/example-headers-search.md) %}
 

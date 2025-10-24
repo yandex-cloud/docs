@@ -53,7 +53,7 @@ The URL of your request to {{ search-api-name }} and the list of supported param
 
 {% endlist %}
 
-### Request parameters {#parameters}
+### Request options {#parameters}
 
 {% include [name-and-key](../../_includes/search-api/key.md) %}
 

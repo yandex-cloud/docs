@@ -6,6 +6,10 @@ For more information about speech recognition methods, see [About technology](st
 
 
 
+## Release as of 01/10/2025 {#011025}
+
+`general:rc` updates are now available in the `general` model.
+
 ## Release as of 19/09/2025 {#190925}
 
 Updates to `general:rc`:
@@ -284,7 +288,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
 1. New languages are also available under their own codes. The `general:rc` model uses an indication as a hint for language recognition. If the language is indicated explicitly, the model will use it as a hint to improve the recognition quality. Currently, a hint only affects the quality of recognition of Russian.
 
 
-_Known issues_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
+_Known problems_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
 
 ## Release 26.01.22 {#260122}
 

@@ -47,7 +47,9 @@ You can also find a link to your request in:
 
 For more information on how to get notifications, see [this guide](../support/notify.md#notification-settings).
 
-If you have the {{ yandex-cloud }} [mobile app](../overview/mobile-app/) installed, you can track your case there. You will see all your requests on the **Support** tab.  
+
+If you have the {{ yandex-cloud }} [mobile app](../overview/mobile-app/index.md) installed, you can track your case there. You will see all your requests on the **Support** tab.
+
 
 #### How quickly can technical support solve an identified problem? {#resolution-time}
 

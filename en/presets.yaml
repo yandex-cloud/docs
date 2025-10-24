@@ -1341,6 +1341,10 @@ default:
             v2|string: ₸6.1285
             v3|string: ₸4.86
             v3i|string: ₸4.50
+          standard:
+            v4:
+              preemptible|string: ₸4.50
+            v4|string: ₸4.50
       gpu:
         gpu-standard:
           preemptible:
@@ -1361,10 +1365,16 @@ default:
           ic:
             preemptible|string: ₸343.44
           ic|string: ₸343.44
+          standard:
+            v4:
+              preemptible|string: ₸1654.85
         standard:
           v3-t4:
             preemptible|string: ₸86.40
           v3-t4|string: ₸345.60
+          v4:
+            preemptible|string: ₸3297.58
+          v4|string: ₸3297.58
       ram:
         gpu-standard:
           preemptible:
@@ -1376,6 +1386,10 @@ default:
           v2|string: ₸1.5965
           v3|string: ₸1.5120
           v3i|string: ₸1.40
+        standard:
+          v4:
+            preemptible|string: ₸1.40
+          v4|string: ₸1.40
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -3563,6 +3577,10 @@ default:
             v2|string: ₽1.2257
             v3|string: ₽0.9720
             v3i|string: ₽0.90
+          standard:
+            v4:
+              preemptible|string: ₽0.90
+            v4|string: ₽0.90
       gpu:
         gpu-standard:
           preemptible:
@@ -3583,10 +3601,16 @@ default:
           ic:
             preemptible|string: ₽68.6880
           ic|string: ₽68.6880
+          standard:
+            v4:
+              preemptible|string: ₽330.97
         standard:
           v3-t4:
             preemptible|string: ₽17.28
           v3-t4|string: ₽69.12
+          v4:
+            preemptible|string: ₽659.5160
+          v4|string: ₽659.5160
       ram:
         gpu-standard:
           preemptible:
@@ -3598,6 +3622,10 @@ default:
           v2|string: ₽0.3193
           v3|string: ₽0.3024
           v3i|string: ₽0.28
+        standard:
+          v4:
+            preemptible|string: ₽0.28
+          v4|string: ₽0.28
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -5777,6 +5805,10 @@ default:
             v2|string: $0.010214
             v3|string: $0.008100
             v3i|string: $0.007500
+          standard:
+            v4:
+              preemptible|string: $0.007500
+            v4|string: $0.007500
       gpu:
         gpu-standard:
           preemptible:
@@ -5797,10 +5829,16 @@ default:
           ic:
             preemptible|string: $0.572400
           ic|string: $0.572400
+          standard:
+            v4:
+              preemptible|string: $2.758082
         standard:
           v3-t4:
             preemptible|string: $0.144000
           v3-t4|string: $0.576000
+          v4:
+            preemptible|string: $5.495964
+          v4|string: $5.495964
       ram:
         gpu-standard:
           preemptible:
@@ -5812,6 +5850,10 @@ default:
           v2|string: $0.002661
           v3|string: $0.002520
           v3i|string: $0.002333
+        standard:
+          v4:
+            preemptible|string: $0.002333
+          v4|string: $0.002333
   sku|USD|compute:
     filesystem:
       hdd:
@@ -7968,6 +8010,8 @@ default:
         name: Name
         resource-acl:
           button_assign-binding: Edit roles
+        units:
+          label_time-sec_many: seconds
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Delete now
@@ -8292,6 +8336,7 @@ default:
           function: Aggregation function
       services:
         label_custom: Custom Metrics
+        label_logging: Cloud Logging
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -8308,6 +8353,7 @@ default:
           top-by: Chart split
         general:
           chartsInRow: Number of graphs per row
+          name: Title
           repeatByParam: Repeat by parameter
           repeatSettings: Repeat graphs
         group-by:
@@ -8320,6 +8366,7 @@ default:
         select:
           charts-count:
             label: Graphs in row
+        settings: Settings
         settings-select:
           show-legend: Show legend
         tab:
@@ -8423,6 +8470,9 @@ default:
           switch_proposals: Offers
         accounts:
           listing_button_create: Create an account
+      center-layout:
+        Layout:
+          organization-description_kvoUz: Users & applications
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Generate new certificate
@@ -8681,6 +8731,7 @@ default:
         users:
           action:
             add-federated-users: Add federated users
+            add-userpool-user: Create new user
             invite-users: Invite users with a Yandex account
           dropdown:
             button-text: Add user
@@ -9133,6 +9184,7 @@ default:
         label_stream-name: Data stream
         label_trail: Trail
         label_trails: Trails
+        logs: Diagnostic log
         title_kms-key: Encryption key
       backup:
         action_add-to-recovery-list: Add to list of files to be recovered
@@ -10194,6 +10246,7 @@ default:
         label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
+        label_meter-mode: Pricing Mode
         label_request-units: Actual usage
         label_shards: Shards
       data-transfer:
@@ -11467,13 +11520,16 @@ default:
         button_validate: Verify address
         field_secure-connection: Deliver emails only over a secure connection
         label_address: Domain
+        label_configuration-set: Configuration
         label_configuration-sets: Configurations
+        label_data-stream: Data stream
         label_delivery-options: Delivery settings
         label_dns-record-name: Name
         label_dns-record-value: Value
         label_event-destinations: Subscriptions
         label_identities: Addresses
         label_mail-statuses: Mail statuses
+        label_name: Name
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
@@ -12326,10 +12382,6 @@ default:
           section_title:
             playground: AI Playground
         instruction: Instructions
-        label_button-instruct-submit: View answer
-        label_instruction-text: Instructions
-        label_promt: YandexGPT Prompt mode
-        label_request-text: Request
         label_temperature-text: Temperature
         model: Model
         playground: AI Playground
@@ -12378,6 +12430,7 @@ default:
           label_section-network: Network
           label_section-storage: Storage groups
           label_serverless-type: Serverless
+          label_serverless-type_pB7Wx: Serverless
           label_text-public-ips: Assign
         overview:
           button_action-delete: Delete
