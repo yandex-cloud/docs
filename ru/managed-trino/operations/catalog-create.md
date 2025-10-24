@@ -809,6 +809,151 @@ description: Следуя этой инструкции, вы создадите
 
 {% endlist %}
 
+### Коннектор Hudi {{ preview-stage }} {#hudi}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create hudi <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --metastore-hive-uri <URI_для_подключения> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <идентификатор_ключа_доступа> \
+      --filesystem-external-s3-aws-secret-key <секретный_ключ> \
+      --filesystem-external-s3-aws-endpoint <эндпоинт> \
+      --filesystem-external-s3-aws-region <регион> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+      ...
+      hudi = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_для_подключения>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "hudi": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "hive": {
+                            "uri": "<URI_для_подключения>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "hudi": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "hive": {
+                        "uri": "<URI_для_подключения>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endlist %}
+
 ### Коннектор Iceberg {#iceberg}
 
 {% list tabs group=instructions %}

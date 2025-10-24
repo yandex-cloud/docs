@@ -8,9 +8,8 @@ description:
     websites, or across the internet. Additionally, it offers features to
     monitor website ranking for specific queries in Yandex search results.
   - >-
-    {{ search-api-name }} provides two interfaces for queries: API v2, which is
-    natively integrated into the {{ yandex-cloud }} ecosystem, and the original
-    Yandex XML-compatible API v1.
+    {{ search-api-name }} offers you a search query API natively integrated into
+    the {{ yandex-cloud }} ecosystem.
   - >-
     This service is subject to a <a
     href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
@@ -35,14 +34,14 @@ links:
   - title: Restrictions and requirements
     description: Restrictions and requirements
     href: concepts/limits
-  - title: Running queries via API v2
-    description: Running search queries via API v2
+  - title: Running queries via API
+    description: Running search queries via API
     href: operations/web-search
   - title: XML response format
     description: XML format of response to a text search query
     href: concepts/response
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: '{{ search-api-full-name }}'
@@ -58,4 +57,5 @@ meta:
     - search development service for a group of websites
     - internet search development service
     - API v2 interface
+    - API
     - generative response

@@ -1,12 +1,14 @@
 # Compatibility with {{ openai }}
 
-The {{ foundation-models-name }} API is partially compatible with the {{ openai }} API. You can quickly adapt your applications designed to work with {{ openai }} by changing a few parameters in the query.
+The {{ foundation-models-name }} API is compatible with the {{ openai }} API for full support for the Responses API, Realtime API, and Vector Store API. It is also partially compatible with the Completions API.
+ 
+You can quickly adapt your applications designed to work with {{ openai }} by changing a few parameters in the query.
 
 Use the [{{ ml-sdk-full-name }}](../sdk/index.md) API and library to access all {{ foundation-models-name }} features.
 
 ## Configuring {{ openai }} to work with {{ foundation-models-name }} {#before-begin}
 
-To use [text generation models](generation/models.md) from {{ foundation-models-name }} in {{ openai }} libraries, change the basic endpoint and specify the [API key](../operations/get-api-key.md).
+To use {{ foundation-models-name }}'s [text generation models](generation/models.md) in {{ openai }} libraries, change the basic endpoint and specify the [service account](../../iam/concepts/users/service-accounts.md)'s [API key](../operations/get-api-key.md) and home [folder ID](../../resource-manager/operations/folder/get-id.md).
 
 {% list tabs group=programming_language %}
 
@@ -17,7 +19,8 @@ To use [text generation models](generation/models.md) from {{ foundation-models-
 
   client = openai.OpenAI(
       api_key="<API_key_value>",
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="<API_endpoint>",
+      project="<folder_ID>"
   )
   ```
 
@@ -28,10 +31,15 @@ To use [text generation models](generation/models.md) from {{ foundation-models-
 
   const openai = new OpenAI({
     apiKey:"<API_key_value>",
-    baseURL:"https://{{ api-host-llm }}/v1"});
+    project:"<folder_ID>",
+    baseURL:"<API_endpoint>");
   ```
 
 {% endlist %}
+
+To use the Completions API, specify `https://llm.api.cloud.yandex.net/v1`.
+For requests to the Responses API or Vector Store API, use `https://rest-assistant.api.cloud.yandex.net/v1`.
+To create a voice agent and use the Realtime API via web sockets, specify `wss://rest-assistant.api.cloud.yandex.net/v1/realtime/openai?model=gpt://<folder_ID>/speech-realtime-250923`.
 
 [How to get an API key](../operations/get-api-key.md) for {{ foundation-models-name }}. 
 
@@ -39,9 +47,11 @@ To use [text generation models](generation/models.md) from {{ foundation-models-
 
 Before sending the query, in the model URI, specify the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you got the API key in.
 
+For examples of using the Responses API and Realtime API, refer to our [Step-by-step guides](../operations/index.md).
+
 ### Text generation {#text-generation}
 
-In {{ openai }}-compatible mode, API supports the following parameters: `temperature`, `max_tokens`, `stream`, and `response_format`.
+In {{ openai }} compatibility mode, the Completions API supports the following parameters: `temperature`, `max_tokens`, `stream`, and `response_format`.
 
 {% list tabs group=programming_language %}
 
@@ -59,7 +69,8 @@ In {{ openai }}-compatible mode, API supports the following parameters: `tempera
 
     client = openai.OpenAI(
         api_key=YANDEX_CLOUD_API_KEY,
-        base_url="https://{{ api-host-llm }}/v1"
+        base_url="https://{{ api-host-llm }}/v1",
+        project=YANDEX_CLOUD_FOLDER
     )
 
     response = client.chat.completions.create(
@@ -88,7 +99,8 @@ In {{ openai }}-compatible mode, API supports the following parameters: `tempera
 
     client = openai.OpenAI(
         api_key=YANDEX_CLOUD_API_KEY,
-        base_url="https://{{ api-host-llm }}/v1"
+        base_url="https://{{ api-host-llm }}/v1",
+        project=YANDEX_CLOUD_FOLDER
     )
 
     json_schema = {
@@ -120,6 +132,7 @@ In {{ openai }}-compatible mode, API supports the following parameters: `tempera
 
   const openai = new OpenAI({
     apiKey:"<API_key_value>",
+    project:"<folder_ID>",
     baseURL:"https://{{ api-host-llm }}/v1"});
 
   async function main() {
@@ -138,9 +151,10 @@ In {{ openai }}-compatible mode, API supports the following parameters: `tempera
 
   ```bash
   curl https://{{ api-host-llm }}/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer <API_key>" \
-    -d '{
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer <API_key>" \
+    --header "OpenAI-Project: <folder_ID>" \
+    --data '{
       "model": "gpt://<folder_ID>/yandexgpt/latest",
       "messages": [
         {
@@ -174,7 +188,8 @@ Before running the example, specify the folder ID and {{ yandex-cloud }} [API ke
 
   client = openai.OpenAI(
       api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project=YANDEX_CLOUD_FOLDER
   )
 
   # Weather function
@@ -312,7 +327,8 @@ Before running the example, specify the folder ID and {{ yandex-cloud }} [API ke
 
   client = openai.OpenAI(
       api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project=YANDEX_CLOUD_FOLDER
   )
 
   # Method for getting a random embedding
@@ -397,18 +413,16 @@ Before running the example, specify the folder ID and {{ yandex-cloud }} [API ke
   ```python
   import openai
 
+  YANDEX_CLOUD_FOLDER = "<folder_ID>"
   YANDEX_CLOUD_API_KEY = "<API_key_value>"
 
   client = openai.OpenAI(
       api_key=YANDEX_CLOUD_API_KEY,
-      base_url="https://{{ api-host-llm }}/v1"
+      base_url="https://{{ api-host-llm }}/v1",
+      project=YANDEX_CLOUD_FOLDER
   )
   models = client.models.list()
   print(models.data)
   ```
 
 {% endlist %}
-
-## Current limitations {#restrictions}
-
-{{ foundation-models-name }} is partially compatible with the {{ openai }} API. If not using the {{ openai }} SDK yet, we recommend you to build your apps with [{{ ml-sdk-full-name }}](../sdk/index.md) or the {{ foundation-models-name }} API right from the start.

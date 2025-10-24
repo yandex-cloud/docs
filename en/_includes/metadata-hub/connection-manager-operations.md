@@ -48,6 +48,6 @@
   
   To get information about operations performed for a specific {{ connection-manager-name }} connection, use the [Connection.ListOperations](../../metadata-hub/connection-manager/api-ref/Connection/listOperations.md) REST API method or the [ConnectionService.ListOperations](../../metadata-hub/connection-manager/api-ref/grpc/Connection/listOperations.md) gRPC API method and provide the connection ID in the request.
 
-  You can get the connection ID from the [list of connections](../../metadata-hub/operations/view-connection.md#connection-list) in the folder.
+  You can get the connection ID with the [list of connections](../../metadata-hub/operations/view-connection.md#connection-list) in the folder.
 
 {% endlist %}

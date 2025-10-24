@@ -148,7 +148,7 @@ items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: security/vipnet-to-yc.md
         hidden: true
-      - name: Настройка алертов в {{ monitoring-name }}
+      - name: Настройка алертов и дашбордов в {{ monitoring-name }}
         href: security/alerts-monitoring.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
         href: security/maxpatrol.md
@@ -1495,6 +1495,10 @@ items:
         href: serverless/ci-cd-sourcecraft-functions.md
       - name: Настройка CI/CD между {{ sf-name }} и GitHub
         href: serverless/ci-cd-github-functions.md
+      - name: >-
+          Настройка CI/CD в {{ src-name }} для развертывания приложения в {{
+          serverless-containers-name }} с помощью GitHub Actions
+        href: serverless/ci-cd-sourcecraft-github-actions.md
       - name: Работа с API-шлюзом по протоколу WebSocket
         href: serverless/api-gw-websocket.md
       - name: >-
@@ -1579,6 +1583,8 @@ items:
         href: serverless/create-ai-agent-function.md
       - name: Настройка Postfix для отправки через {{ postbox-full-name }}
         href: serverless/postfix-integration.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: serverless/postbox-webhook.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

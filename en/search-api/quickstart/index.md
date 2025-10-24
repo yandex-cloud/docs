@@ -1,11 +1,11 @@
 ---
-title: How to get started with {{ search-api-full-name }}
-description: Follow this guide to set up your {{ yandex-cloud }} workspace and get started with {{ search-api-name }} using the API v2 interface.
+title: Getting started with {{ search-api-full-name }}
+description: Follow this guide to set up your {{ yandex-cloud }} workspace and get started with {{ search-api-name }}
 ---
 
-# How to get started with the {{ search-api-name }} via API v2
+# How to get started with {{ search-api-name }}
 
-[API v2](../concepts/index.md#api-v2) is the recommended {{ search-api-name }} interface. API v2 is fully integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md) and supports both [API key](../../iam/concepts/authorization/api-key.md) authentication as well as the more secure [authentication](../api-ref/authentication.md) based on short-lived [IAM tokens](../../iam/concepts/authorization/iam-token.md).
+The [API](../concepts/index.md#api-v2) is the recommended {{ search-api-name }} interface. The API is fully integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md) and supports both [API key](../../iam/concepts/authorization/api-key.md) authentication as well as the more secure [authentication](../api-ref/authentication.md) based on short-lived [IAM tokens](../../iam/concepts/authorization/iam-token.md).
 
 For {{ search-api-name }} prices, see [{#T}](../pricing.md).
 

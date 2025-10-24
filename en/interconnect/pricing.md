@@ -32,7 +32,7 @@ When setting up a `private` or `public` **connection**, the cost calculation cov
 
 Automatic billing for the service starts with the earliest of the two events:
 * The [BGP session](./concepts/priv-con.md#bgp-peering) of any [private connection](./concepts/priv-con.md) in the trunk goes `Active`.
-* More than 90 days elapses since the [trunk](./concepts/trunk.md) was created (port was reserved) on the {{ yandex-cloud }} equipment. The state of the trunk physical port (ports) is irrelevant.
+* More than 90 days elapses since the [trunk](./concepts/trunk.md) was created (port was reserved) on the {{ yandex-cloud }} equipment. The state of the trunk physical port(s) is irrelevant.
 
 ## Data size {#data}
 

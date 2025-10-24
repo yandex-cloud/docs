@@ -1,11 +1,11 @@
 ---
-title: How to perform text search in {{ search-api-full-name }} via API v2 in deferred mode
-description: Follow this guide to learn how to use {{ search-api-name }}'s API v2 interface to send search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
+title: How to perform text search in {{ search-api-full-name }} via API in deferred mode
+description: Follow this guide to learn how to use {{ search-api-name }} to send search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
 ---
 
-# Performing text search queries in deferred mode via API v2
+# Performing text search queries in deferred mode via API
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+With {{ search-api-name }}'s [API](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in deferred (asynchronous) mode. You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 

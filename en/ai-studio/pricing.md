@@ -39,7 +39,7 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy: the use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
+At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy: the use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} pricing policy.
 
 ### Dedicated instances {#rules-dedicated}
 
@@ -74,6 +74,14 @@ The cost of using voice agents consists of your fees for speech recognition (inp
 ### Image generation {#rules-image-generation}
 
 You are charged for each generation request in {{ yandexart-name }}. Requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
+
+### {{ mcp-hub-name }} {#mcp-hub}
+
+{% include [note-preview](../_includes/note-preview.md) %}
+
+At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers. For example, [{{ sf-full-name }} function invocations](../functions/pricing.md#invoke).
+
+When using external APIs, such as [Kontur.Focus](./concepts/mcp-hub/templates.md#kontur), or [amoCRM](./concepts/mcp-hub/templates.md#amocrm), you pay directly to the partner.
 
 ### Internal server errors {#error-request}
 
@@ -131,8 +139,6 @@ _{{ price-per-hour-count-per-second }}_
 
 ### Using voice agents {#voice-assistant}
 
-_The cost is specified for one minute of use. Billing occurs per second._
-
 
 
 {% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
@@ -143,7 +149,6 @@ _The cost is specified for one minute of use. Billing occurs per second._
 
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
-
 
 
 ## Examples of the {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
@@ -194,7 +199,7 @@ Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with 
 
 Cost of using {{ foundation-models-full-name }} for text vectorization with the following property:
 
-* Number of tokens in the request: 2,000
+* Number of tokens per request: 2,000
 
 
 
@@ -202,15 +207,16 @@ Cost of using {{ foundation-models-full-name }} for text vectorization with the 
 
 
 
-## Examples of voice agent usage cost calculation {#price-example-voice-assistant}
+## Voice agent cost calculation example {#price-example-voice-assistant}
 
-Cost of using speech-realtime-250923 voice agent with the following parameters:
+Cost of using the speech-realtime-250923 voice agent within a 60-second session:
 
-* Input audio: 30 seconds.
-* Output audio: 1 minute.
-* Number of tokens in the request: 2,000.
+* Input audio: 60 seconds.
+* Output audio: 20 seconds.
+* Number of tokens: 2,000.
 
 
 
 {% include [usd-voice-assistant-pro](../_pricing_examples/ai-studio/usd-voice-assistant-pro.md) %}
+
 

@@ -89,7 +89,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -164,7 +164,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -239,7 +239,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -312,7 +312,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -386,7 +386,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -459,7 +459,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -568,7 +568,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -641,7 +641,7 @@ You can create connections of the following types:
         --password <password> \
         --hosts <list_of_hosts> \
         --databases <DB_list> \
-        --ca-certificate <path_to_certificate>
+        --ca-ce../connection-manager/api-ref/rtificate <path_to_certificate>
       ```
 
       Where:
@@ -723,7 +723,7 @@ You can create connections of the following types:
       
       * `--user`: Username to connect to the cluster.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<http_port>:<tcp_port>:<shard_name>` format.
       
@@ -874,7 +874,7 @@ You can create connections of the following types:
       
       * `--user`: Username to connect to the cluster.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>:<shard_name>` format.
       
@@ -1021,7 +1021,7 @@ You can create connections of the following types:
       
       * `--user`: Username to connect to the cluster.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--coordinator`: Coordinator parameters in `<host>:<port>` format.
       
@@ -1100,7 +1100,7 @@ You can create connections of the following types:
       
       * `--user`: Username to connect to the cluster.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -1287,7 +1287,7 @@ You can create connections of the following types:
 
 - API {#api}
 
-  To create a connection to a {{ GP }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+  To create a connection to a {{ MG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) reference.
 

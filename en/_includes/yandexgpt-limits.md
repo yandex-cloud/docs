@@ -6,7 +6,7 @@ Type of limit | Value
 Number of text vectorization requests per second | 10
 **[Text generation](../ai-studio/concepts/generation/index.md)** |
 Number of concurrent generations in [synchronous mode](../ai-studio/concepts/generation/index.md#working-mode) | 10
-Number of concurrent generations in [asynchronous mode](../ai-studio/concepts/generation/index.md#working-mode) (request) | 10
+Number of requests per second, [asynchronous mode](../ai-studio/concepts/generation/index.md#working-mode) (request) | 10
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5,000
 Number of [tokenization](../ai-studio/text-generation/api-ref/grpc/Tokenizer/index.md) requests per second | 50

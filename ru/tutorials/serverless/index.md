@@ -13,6 +13,7 @@
 * [Запуск {{ GLR }} в {{ serverless-containers-name }}](serverless-gitlab-runner.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](ci-cd-github-functions.md)
+* [{#T}](ci-cd-sourcecraft-github-actions.md)
 * [{#T}](api-gw-websocket.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
 * [Автоматическое копирование объектов из одного бакета {{ objstorage-full-name }} в другой](bucket-to-bucket-copying.md)

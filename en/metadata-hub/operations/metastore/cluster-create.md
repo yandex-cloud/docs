@@ -3,7 +3,7 @@ title: How to create a {{ metastore-full-name }} cluster
 description: Follow this guide to create a {{ metastore-full-name }} cluster.
 ---
 
-# Creating an {{ metastore-full-name }} cluster
+# Creating a {{ metastore-full-name }} cluster
 
 To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, see [{#T}](../../concepts/metastore.md).
 
@@ -36,6 +36,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
     1. Optionally, add [{{ yandex-cloud }} labels](../../../resource-manager/concepts/labels.md) to break resources into logical groups.
     1. Specify the service account you created earlier.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group you configured previously.
+    1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, select the [cluster configuration](../../concepts/metastore.md#presets).
     1. Optionally, configure logging settings:
 
         1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
@@ -61,7 +62,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
   To create a {{ metastore-name }} cluster:
 
-  1. View the description of the CLI command to create a cluster:
+  1. See the description of the CLI command for creating a cluster:
  
       ```bash
       {{ yc-metastore }} cluster create --help
@@ -100,7 +101,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -163,7 +164,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 

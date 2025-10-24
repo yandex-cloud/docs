@@ -1,0 +1,75 @@
+---
+editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/shards/{shardName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the SPQR cluster that the shard belongs to.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+          type: string
+        shardName:
+          description: |-
+            **string**
+            Required field. Name of the SPQR shard to return.
+            To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/Cluster/listShards#ListShards) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - shardName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
+sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/getShard.md
+---
+
+# Managed Service for SPQR API, REST: Cluster.GetShard
+
+Returns the specified shard.
+
+## HTTP request
+
+```
+GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/shards/{shardName}
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the SPQR cluster that the shard belongs to.
+To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+|| shardName | **string**
+
+Required field. Name of the SPQR shard to return.
+To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/Cluster/listShards#ListShards) request. ||
+|#
+
+## Response {#yandex.cloud.mdb.spqr.v1.Shard}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "name": "string",
+  "clusterId": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the shard. ||
+|| clusterId | **string**
+
+ID of the cluster that the shard belongs to. ||
+|#

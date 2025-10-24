@@ -1,11 +1,11 @@
 ---
-title: How to perform text search in {{ search-api-full-name }} via API v2 in synchronous mode
-description: Follow this guide to learn how to use {{ search-api-name }} API v2 interface to send search queries and get search results in XML or HTML format in synchronous mode.
+title: How to perform text search in {{ search-api-full-name }} in synchronous mode
+description: Follow this guide to learn how to use {{ search-api-name }} to send search queries and get search results in XML or HTML format in synchronous mode.
 ---
 
-# Performing text search queries via API v2 in synchronous mode
+# Performing text search queries via the API in synchronous mode
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+In {{ search-api-name }}, you can use the [API](../concepts/index.md#api-v2) to perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 

@@ -52,5 +52,9 @@
 | 50% vCPU | {{ sku|USD|compute.vm.cpu.c50.highfreq-v4a|string }} | {{ sku|USD|compute.vm.cpu.c50.preemptible.highfreq-v4a|string }} | − | − |
 | 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.highfreq-v4a|string }} | {{ sku|USD|compute.vm.cpu.c100.preemptible.highfreq-v4a|string }} | − | − |
 | RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.highfreq-v4a|string }} | {{ sku|USD|compute.vm.ram.preemptible.highfreq-v4a|string }} | − | − |
+| **GPU PLATFORM V4** | Regular VM | Preemptible&nbsp;VM | | |
+| 100% vCPU | {{ sku|USD|compute_gpu.vm.cpu.c100.standard.v4|string }} | {{ sku|USD|compute_gpu.vm.cpu.c100.standard.v4.preemptible|string }} | — | — |
+| 1 GPU | {{ sku|USD|compute_gpu.vm.gpu.standard.v4|string }} | {{ sku|USD|compute_gpu.vm.gpu.standard.v4.preemptible|string }} | — | — |
+| RAM (for 1 GB) | {{ sku|USD|compute_gpu.vm.ram.standard.v4|string }} | {{ sku|USD|compute_gpu.vm.ram.standard.v4.preemptible|string }} | — | — |
 
 ^*^ Feature is available on request, subject to technical availability.

@@ -51,6 +51,10 @@
     * [Изменение ролей для секретов](#update-secret-access-bindings)
     * [Чтение секрета](#read-secret)
 
+**Поиск ошибок**
+
+[Поиск ошибок permission denied](#permission-denied)
+
 ## Инфраструктура и сеть {#infrastructure-and-network}
 
 ### {{ compute-full-name }} {#compute}
@@ -59,7 +63,7 @@
 
 {% list tabs group=at_logs_tools %}
 
-- {{ yq-full-name }}
+- {{ yq-full-name }} {#yandex-query}
 
     Выполните запрос:
 
@@ -78,7 +82,7 @@
 
     Идентификатор можно запросить со списком виртуальных машин в каталоге.
 
-- {{ cloud-logging-full-name }}
+- {{ cloud-logging-full-name }} {#cloud-logging}
 
     Используйте фильтр:
 
@@ -283,10 +287,15 @@
 
 - {{ cloud-logging-full-name }} {#cloud-logging}
 
-    Используйте фильтр:
+    Поиск по идентификатору:
 
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
+    ```json
+    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
+    ```
+    
+    Поиск по имени:
+    ```json
+    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
     ```
 
     Имя каталога можно запросить со списком каталогов в облаке.
@@ -889,6 +898,32 @@
 
     ```sql
     json_payload.event_type="yandex.cloud.audit.lockbox.GetPayload"
+    ```
+
+{% endlist %}
+
+## Поиск ошибок {#errors}
+
+### Поиск ошибок permission denied {#permission-denied}
+
+Поиск ошибок, связанных с недостаточными правами на выполнение операции (permission denied):
+
+{% list tabs group=tools %}
+
+- {{ yq-full-name }} {#yandex-query}
+
+    ```sql
+    select * from 
+      bindings.`binding`
+    where
+      JSON_VALUE(data,"$.event_status") = 'ERROR' and
+      JSON_VALUE(data,"$.error.code") = 7
+    ```
+
+- {{ cloud-logging-full-name }} {#cloud-logging}
+
+    ```sql
+    json_payload.event_status = ERROR and json_payload.error.code = 7
     ```
 
 {% endlist %}

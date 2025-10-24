@@ -15,6 +15,20 @@ One may compare this to cataloging books in a library. In a large library with t
 
 In relational databases (Oracle, {{ PG }}), the data dictionary is built into the DBMS itself. When you create a table in {{ PG }}, information about its structure is stored in system tables within the same database. However, in big data ecosystems where files may be stored independently from processing tools, you need a dedicated service to store such information, {{ metastore-name }}.
 
+## {{ metastore-name }} cluster configuration {#presets}
+
+The configuration determines the computing power allocated for the cluster. There are two available configuration types:
+
+* **standard**: 2 vCPUs and 8 GB RAM
+
+    For this configuration, the ratio of RAM in GB to vCPU is 4:1.
+
+* **cpu-optimized**: 2 vCPUs and 4 GB RAM
+
+    For this configuration, the ratio of RAM in GB to vCPU is reduced to 2:1.
+
+You can select a configuration when [creating a cluster](../operations/metastore/cluster-create.md) or change it during a cluster [update](../operations/metastore/cluster-update.md).
+
 ## Use cases {#scenarios}
 
 {{ metastore-name }} does not solve any business tasks, yet it is an essential tool for certain use cases. 

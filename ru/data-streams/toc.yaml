@@ -131,6 +131,8 @@ items:
         href: tutorials/maxpatrol.md
       - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
         href: tutorials/search-events-query.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

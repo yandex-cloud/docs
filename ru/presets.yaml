@@ -227,8 +227,8 @@ default:
     docs: https://docs.gitlab.com
   GLA: GitLab Agent
   GLR: GitLab Runner
-  go-cli-ver: golang121
-  go-full-ver: Go 1.21
+  go-cli-ver: golang123
+  go-full-ver: Go 1.23
   google-looker: Looker Studio
   GP: Greenplum®
   gp:
@@ -488,8 +488,8 @@ default:
   network-name: default
   neurosupport-full-name: Yandex Neurosupport
   neurosupport-name: Neurosupport
-  nodejs-cli-ver: nodejs18
-  nodejs-full-ver: Node.js 18
+  nodejs-cli-ver: nodejs22
+  nodejs-full-ver: Node.js 22
   objstorage-full-name: Yandex Object Storage
   objstorage-name: Object Storage
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
@@ -1351,6 +1351,10 @@ default:
             v2|string: "6,1285\_₸"
             v3|string: "4,86\_₸"
             v3i|string: "4,50\_₸"
+          standard:
+            v4:
+              preemptible|string: "4,50\_₸"
+            v4|string: "4,50\_₸"
       gpu:
         gpu-standard:
           preemptible:
@@ -1371,10 +1375,16 @@ default:
           ic:
             preemptible|string: "343,44\_₸"
           ic|string: "343,44\_₸"
+          standard:
+            v4:
+              preemptible|string: "1\_654,85\_₸"
         standard:
           v3-t4:
             preemptible|string: "86,40\_₸"
           v3-t4|string: "345,60\_₸"
+          v4:
+            preemptible|string: "3\_297,58\_₸"
+          v4|string: "3\_297,58\_₸"
       ram:
         gpu-standard:
           preemptible:
@@ -1386,6 +1396,10 @@ default:
           v2|string: "1,5965\_₸"
           v3|string: "1,5120\_₸"
           v3i|string: "1,40\_₸"
+        standard:
+          v4:
+            preemptible|string: "1,40\_₸"
+          v4|string: "1,40\_₸"
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -3573,6 +3587,10 @@ default:
             v2|string: "1,2257\_₽"
             v3|string: "0,9720\_₽"
             v3i|string: "0,90\_₽"
+          standard:
+            v4:
+              preemptible|string: "0,90\_₽"
+            v4|string: "0,90\_₽"
       gpu:
         gpu-standard:
           preemptible:
@@ -3593,10 +3611,16 @@ default:
           ic:
             preemptible|string: "68,6880\_₽"
           ic|string: "68,6880\_₽"
+          standard:
+            v4:
+              preemptible|string: "330,97\_₽"
         standard:
           v3-t4:
             preemptible|string: "17,28\_₽"
           v3-t4|string: "69,12\_₽"
+          v4:
+            preemptible|string: "659,5160\_₽"
+          v4|string: "659,5160\_₽"
       ram:
         gpu-standard:
           preemptible:
@@ -3608,6 +3632,10 @@ default:
           v2|string: "0,3193\_₽"
           v3|string: "0,3024\_₽"
           v3i|string: "0,28\_₽"
+        standard:
+          v4:
+            preemptible|string: "0,28\_₽"
+          v4|string: "0,28\_₽"
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -5787,6 +5815,10 @@ default:
             v2|string: "0,010214\_$"
             v3|string: "0,008100\_$"
             v3i|string: "0,007500\_$"
+          standard:
+            v4:
+              preemptible|string: "0,007500\_$"
+            v4|string: "0,007500\_$"
       gpu:
         gpu-standard:
           preemptible:
@@ -5807,10 +5839,16 @@ default:
           ic:
             preemptible|string: "0,572400\_$"
           ic|string: "0,572400\_$"
+          standard:
+            v4:
+              preemptible|string: "2,758082\_$"
         standard:
           v3-t4:
             preemptible|string: "0,144000\_$"
           v3-t4|string: "0,576000\_$"
+          v4:
+            preemptible|string: "5,495964\_$"
+          v4|string: "5,495964\_$"
       ram:
         gpu-standard:
           preemptible:
@@ -5822,6 +5860,10 @@ default:
           v2|string: "0,002661\_$"
           v3|string: "0,002520\_$"
           v3i|string: "0,002333\_$"
+        standard:
+          v4:
+            preemptible|string: "0,002333\_$"
+          v4|string: "0,002333\_$"
   sku|USD|compute:
     filesystem:
       hdd:
@@ -7978,6 +8020,8 @@ default:
         name: Имя
         resource-acl:
           button_assign-binding: Изменить роли
+        units:
+          label_time-sec_many: секунд
       component:
         iam-delete-folder-or-cloud-dialog:
           label_delete-now: Удалить сейчас
@@ -8302,6 +8346,7 @@ default:
           function: Функция агрегации
       services:
         label_custom: Custom Metrics
+        label_logging: Cloud Logging
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -8318,6 +8363,7 @@ default:
           top-by: Разбивка графика
         general:
           chartsInRow: Количество графиков в ряд
+          name: Заголовок
           repeatByParam: Повторение по параметру
           repeatSettings: Повторение графиков
         group-by:
@@ -8330,6 +8376,7 @@ default:
         select:
           charts-count:
             label: Графиков в ряд
+        settings: Настройки
         settings-select:
           show-legend: Показать легенду
         tab:
@@ -8433,6 +8480,9 @@ default:
           switch_proposals: Предложения
         accounts:
           listing_button_create: Создать аккаунт
+      center-layout:
+        Layout:
+          organization-description_kvoUz: Пользователи и приложения
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Сгенерировать новый сертификат
@@ -8691,6 +8741,7 @@ default:
         users:
           action:
             add-federated-users: Добавить федеративных пользователей
+            add-userpool-user: Создать нового пользователя
             invite-users: Пригласить пользователей с аккаунтом на Яндексе
           dropdown:
             button-text: Добавить пользователя
@@ -9143,6 +9194,7 @@ default:
         label_stream-name: Поток данных
         label_trail: Трейл
         label_trails: Трейлы
+        logs: Лог диагностики
         title_kms-key: Ключ шифрования
       backup:
         action_add-to-recovery-list: Добавить к списку файлов для восстановления
@@ -10210,6 +10262,7 @@ default:
         label_data-storage-time-limit: Лимит времени
         label_data-stream: Поток данных
         label_database: База данных
+        label_meter-mode: Режим тарификации
         label_request-units: По фактическому использованию
         label_shards: Сегменты
       data-transfer:
@@ -11483,13 +11536,16 @@ default:
         button_validate: Проверить адрес
         field_secure-connection: Доставлять письмо только по защищенному соединению
         label_address: Домен
+        label_configuration-set: Конфигурация
         label_configuration-sets: Конфигурации
+        label_data-stream: Поток данных
         label_delivery-options: Настройки доставки
         label_dns-record-name: Имя
         label_dns-record-value: Значение
         label_event-destinations: Подписки
         label_identities: Адреса
         label_mail-statuses: Статусы писем
+        label_name: Название
         label_private-key: Приватный ключ
         label_restrict-senders: Ограничить список отправителей
         label_selector: Селектор
@@ -12342,10 +12398,6 @@ default:
           section_title:
             playground: AI Playground
         instruction: Инструкция
-        label_button-instruct-submit: Узнать ответ
-        label_instruction-text: Инструкции
-        label_promt: Промт-режим YandexGPT
-        label_request-text: Запрос
         label_temperature-text: Температура
         model: Модель
         playground: AI Playground
@@ -12394,6 +12446,7 @@ default:
           label_section-network: Сеть
           label_section-storage: Группы хранения
           label_serverless-type: Serverless
+          label_serverless-type_pB7Wx: Serverless
           label_text-public-ips: Присвоить
         overview:
           button_action-delete: Удалить

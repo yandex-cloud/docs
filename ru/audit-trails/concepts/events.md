@@ -308,6 +308,12 @@ description: В данном разделе приведены описания 
 
 {% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
 
+## {{ myt-full-name }} {#ytsaurus}
+
+Имя сервиса — `ytsaurus`.
+
+{% include [ytsaurus-events](../../_includes/audit-trails/events/ytsaurus-events.md) %}
+
 ## {{ resmgr-full-name }} {#resmgr}
 
 Имя сервиса — `resourcemanager`.

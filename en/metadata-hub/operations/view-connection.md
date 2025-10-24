@@ -89,7 +89,7 @@ The connection list only displays those connections to which the user has access
 
   To get information about a connection:
   
-  1. See the description of the CLI command for getting information about a command:
+  1. See the description of the CLI command for getting information about a connection:
 
       ```bash
       yc metadata-hub connection-manager connection get --help

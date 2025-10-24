@@ -43,7 +43,7 @@ You do not pay for:
 * Requests from VMs to [private](concepts/dns-zone.md#private-zones) and [service](concepts/dns-zone.md#service-zones) zones.
 
 **Starting December 6, 2021, you get the following free of charge**:
-* The first million (1,000,000) recursive requests from VMs each month.
+* The first 1,000,000 recursive requests from VMs each month.
 
   Once you have used up this free amount, you will be charged according to your service plan.
 
@@ -52,7 +52,7 @@ You do not pay for:
 
 The cost of public DNS requests is based on usage.
 
-For example, the cost of 50 thousand authoritative requests to your public DNS zone per month will be:
+For example, the cost of 50,000 authoritative requests to your public DNS zone per month will be:
 
 
 

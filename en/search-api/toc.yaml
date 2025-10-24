@@ -87,9 +87,9 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication with the API v2
+      - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: API v2
+      - name: API
         items:
           - name: gRPC
             items:
