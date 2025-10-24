@@ -22,7 +22,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-After deleting or stopping resources, you will continue to pay for the reserved public IP addresses. To avoid it, delete the IP addresses you no longer need.
+After deleting or stopping resources, you will continue paying for the reserved public IP addresses. To avoid it, delete the IP addresses you no longer need.
 
 
 ## Prices for the Russia region {#prices}
@@ -74,16 +74,16 @@ Please note that the traffic transmitted via a NAT gateway is charged separately
 
 > For example:
 >
-> If you transmit 110 GB of outgoing traffic via a NAT gateway and 5 GB of outgoing traffic using other ways per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway.
+> If you transmit 110 GB of outgoing traffic via a NAT gateway and 5 GB of outgoing traffic using other ways, per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway.
 >
-> If you transmit 110 GB of outgoing traffic via a NAT gateway and 105 GB of outgoing traffic using other ways per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway and 5 GB of the other outgoing traffic.
+> If you transmit 110 GB of outgoing traffic via a NAT gateway and 105 GB of outgoing traffic using other ways, per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway and 5 GB of the other outgoing traffic.
 
 
 
 
-The first 100 GB of outgoing traffic via NAT gateway are provided free of charge every month.
+The first 100 GB of outgoing traffic via a NAT gateway per month is free of charge.
 
-The minimum charging unit is 1 MB.
+The minimum billing unit is 1 MB.
 
 {% include notitle [usd-egress-nat-traffic.md](../_pricing/vpc/usd-egress-nat-traffic.md) %}
 
@@ -109,13 +109,13 @@ You can use [security groups](concepts/security-groups.md) free of charge.
 
 Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.
 
-For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of legitimate files from the internet. When the attack ended, the user downloaded another 2 GB of legitimate files. 
+For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of legitimate files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of legitimate files. 
 
 In this case, the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
 
 ### {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
-{{ adv-ddos-protection }} is activated upon request via the [form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
+You can enable {{ adv-ddos-protection }} by filling out [this form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
 {% note warning "Important note" %}
 
@@ -134,7 +134,7 @@ The excess is calculated by multiplying 1 Mbps of traffic by the prevailing traf
 {% include [usd-advanced-ddos](../_pricing/vpc/usd-advanced-ddos.md) %}
 
 
-{% cut "**Service plan parameters:**" %}
+{% cut "**Service plan comparison:**" %}
 
 | Service plan | Professional<br/>(Pro) | Business<br/>(Bsns) | Corporate<br/>(Corp) | Enterprise<br/>(ENT) |
 | --- | --- | --- | --- | --- |
@@ -143,13 +143,13 @@ The excess is calculated by multiplying 1 Mbps of traffic by the prevailing traf
 | Billable traffic | Legitimate | Legitimate | Legitimate | Legitimate |
 | HTTPS traffic filtering using customer's private keys | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Let's Encrypt® certificate | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Active availability testing of customer's platforms | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Testing customer's platforms | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | HTTPS filtering without private keys | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | API access | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 
 {% endcut %}
 
-With the {{ adv-ddos-protection }} service plan, you can additionally activate the following services:
+With the {{ adv-ddos-protection }} service plan, you can additionally enable the following services:
 
 
 

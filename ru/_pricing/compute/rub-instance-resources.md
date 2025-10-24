@@ -52,6 +52,10 @@
 | 50% vCPU | {{ sku|RUB|compute.vm.cpu.c50.highfreq-v4a|string }} | {{ sku|RUB|compute.vm.cpu.c50.preemptible.highfreq-v4a|string }} | − | − |
 | 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v4a|string }} | {{ sku|RUB|compute.vm.cpu.c100.preemptible.highfreq-v4a|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v4a|string }} | {{ sku|RUB|compute.vm.ram.preemptible.highfreq-v4a|string }} | − | − |
+| **GPU PLATFORM V4** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| 100% vCPU | {{ sku|RUB|compute_gpu.vm.cpu.c100.standard.v4|string }} | {{ sku|RUB|compute_gpu.vm.cpu.c100.standard.v4.preemptible|string }} | — | — |
+| 1 GPU | {{ sku|RUB|compute_gpu.vm.gpu.standard.v4|string }} | {{ sku|RUB|compute_gpu.vm.gpu.standard.v4.preemptible|string }} | — | — |
+| RAM (за 1 ГБ) | {{ sku|RUB|compute_gpu.vm.ram.standard.v4|string }} | {{ sku|RUB|compute_gpu.vm.ram.standard.v4.preemptible|string }} | — | — |
 
 ^*^ Доступ предоставляется по запросу, при наличии технической возможности.
 

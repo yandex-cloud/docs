@@ -7,6 +7,7 @@ description: В этом разделе собраны практические 
 
 * [{#T}](domain-identity-creating.md)
 * [{#T}](events-from-postbox-to-yds.md)
+* [{#T}](postbox-webhook.md)
 
 ## Отправка писем с помощью AWS SDK {#aws-sdk}
 

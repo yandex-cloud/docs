@@ -9,9 +9,9 @@ description: '{{ mcp-hub-name }} is a {{ foundation-models-full-name }} tool for
 
 {{ foundation-models-full-name }} enables using MCP servers in AI agents to work with external systems to get additional context or perform actions, e.g., by calling an external [API](https://en.wikipedia.org/wiki/API).
 
-_{{ mcp-hub-name }}_ is a {{ foundation-models-name }} tool for creating, managing, and monitoring MCP servers. To access MCP servers in {{ mcp-hub-name }}, you need the `serverless.mcpGateways.invoker` [role](../../security/index.md#serverless-mcpGateways-invoker) or higher.
+_{{ mcp-hub-name }}_ is a {{ foundation-models-name }} tool for creating, managing, and monitoring MCP servers. {{ mcp-hub-name }} allows you to hook up external MCP servers or create your own either from scratch or using pre-configured templates.
 
-{{ mcp-hub-name }} allows you to connect to external MCP servers or build your own ones from scratch or using pre-configured templates.
+To access MCP servers in {{ mcp-hub-name }}, you need the `serverless.mcpGateways.invoker` [role](../../security/index.md#serverless-mcpGateways-invoker) or higher. To access external MCP servers and MCP servers created from a template, you will additionally need the `serverless.mcpGateways.anonymousInvoker` [role](../../security/index.md#serverless-mcpGateways-anonymousInvoker) or higher.
 
 ## MCP servers {#servers}
 
@@ -42,7 +42,7 @@ MCP servers support the following use cases:
 
 ## Adding MCP servers in {{ mcp-hub-name }} {#adding-servers}
 
-In {{ mcp-hub-name }}, you can add MCP servers in three ways: connect an existing external server, build a new server from a template, or build a new server from scratch.
+In {{ mcp-hub-name }}, you can add MCP servers in three ways: connect an existing external server, build a new server from a template, or build a new one from scratch.
 
 To create an MCP server, you need the `serverless.mcpGateways.editor` [role](../../security/index.md#serverless-mcpGateways-editor) or higher.
 

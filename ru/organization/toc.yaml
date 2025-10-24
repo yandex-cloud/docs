@@ -59,6 +59,8 @@ items:
             href: operations/manage-groups.md
           - name: Создать группу
             href: operations/create-group.md
+          - name: Получить идентификатор группы
+            href: operations/group-get-id.md
           - name: Добавить участников
             href: operations/add-member-group.md
           - name: Редактировать группу
@@ -111,7 +113,7 @@ items:
             href: operations/user-pools/validate-domain.md
           - name: Получить список доменов
             href: operations/user-pools/list-domain.md
-          - name: Посмотреть информацию о домене
+          - name: Получить информацию о домене
             href: operations/user-pools/get-domain.md
           - name: Удалить домен
             href: operations/user-pools/delete-domain.md
@@ -131,6 +133,12 @@ items:
                 href: operations/applications/oidc-create.md
               - name: Изменить приложение
                 href: operations/applications/oidc-update.md
+              - name: Настроить доступ пользователям приложения
+                href: operations/applications/oidc-set-access-bindings.md
+              - name: Получить список приложений
+                href: operations/applications/oidc-list.md
+              - name: Получить информацию о приложении
+                href: operations/applications/oidc-get.md
               - name: Деактивировать и удалить приложение
                 href: operations/applications/oidc-deactivate-remove.md
       - name: Управление MFA

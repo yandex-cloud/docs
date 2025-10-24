@@ -11,7 +11,7 @@
 `CreatePlaylist` | Создание плейлиста
 `CreateStream` | Создание трансляции
 `CreateStreamLine` | Создание линии трансляции
-`CreateStylePreset` | Создание пресета плеера
+`CreateStylePreset` | Создание шаблона плеера
 `CreateSubtitle` | Создание субтитров
 `CreateThumbnail` | Создание обложки
 `CreateVideo` | Создание видео
@@ -20,7 +20,8 @@
 `DeletePlaylist` | Удаление плейлиста
 `DeleteStream` | Удаление трансляции
 `DeleteStreamLine` | Удаление линии трансляции
-`DeleteStylePreset` | Удаление пресета плеера
+`DeleteStylePreset` | Удаление шаблона плеера
+`DeleteWithReplaceStylePreset` | Удаление шаблона плеера с заменой на шаблон по умолчанию
 `DeleteSubtitle` | Удаление субтитров
 `DeleteThumbnail` | Удаление обложки
 `DeleteVideo` | Удаление видео
@@ -36,6 +37,6 @@
 `UpdatePlaylist` | Изменение плейлиста
 `UpdateStream` | Изменение трансляции
 `UpdateStreamLine` | Изменение линии трансляции
-`UpdateStylePreset` | Изменение пресета плеера
+`UpdateStylePreset` | Изменение шаблона плеера
 `UpdateVideo` | Изменение видео
 `VideoPerformAction` | Выполнение действий с видео

@@ -242,7 +242,7 @@ items:
             href: tutorials/audit-logs/search-bucket.md
           - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
             href: tutorials/audit-logs/search-cloud-logging.md
-          - name: Настройка алертов в {{ monitoring-name }}
+          - name: Настройка алертов и дашбордов в {{ monitoring-name }}
             href: tutorials/audit-logs/alerts-monitoring.md
           - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-name }}
             href: tutorials/audit-logs/logging-functions.md

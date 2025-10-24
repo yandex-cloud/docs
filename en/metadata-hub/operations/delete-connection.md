@@ -42,6 +42,6 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
   
   To delete a {{ connection-manager-name }} connection, use the [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) REST API method or the [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) gRPC API call and provide the connection ID in the request.
 
-  You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
+   To delete a {{ connection-manager-name }} connection, use the [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) REST API method or the [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) gRPC API call and provide the connection ID in the request.
 
 {% endlist %}

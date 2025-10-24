@@ -14,6 +14,7 @@ You can:
 * [Deactivate a transfer](#deactivate).
 * [Delete a transfer](#delete).
 
+
 For more information about [transfer](../concepts/index.md#transfer) states, possible operations on transfers, and existing limits, see [{#T}](../concepts/transfer-lifecycle.md).
 
 To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different [availability zone](../../overview/concepts/geo-scope.md), follow [this guide](endpoint/migration-to-an-availability-zone.md).
@@ -24,7 +25,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
 - CLI {#cli}
@@ -51,7 +52,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Click the required transfer name.
 
@@ -83,14 +84,14 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
   1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
   1. Select the target endpoint or [create](./endpoint/index.md#create) a new one. Make sure the [subnet](../concepts/network.md) specified for the target endpoint belongs to the same availability zone as the subnet for the source endpoint.
   1. Specify the transfer parameters:
      * **{{ ui-key.yacloud.common.name }}**.
-     * (Optional) **{{ ui-key.yacloud.common.description }}**.
+     * **{{ ui-key.yacloud.common.description }}** (optional setting).
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
        * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source.
          * {% include [field periodic snapshot](../../_includes/data-transfer/fields/periodic-snapshot.md) %}
@@ -165,7 +166,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
         {% note info %}
 
-        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. The name may be up to 63 characters long.
+        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. It can be up to 63 characters long.
 
         {% endnote %}
 
@@ -179,7 +180,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
     1. Create a configuration file with a description of your transfer.
 
-       Here is the configuration file example:
+       Configuration file structure example:
 
        ```hcl
        resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
@@ -198,15 +199,15 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
        * `INCREMENT_ONLY`: _{{ dt-type-repl }}_
        * `SNAPSHOT_AND_INCREMENT`: _{{ dt-type-copy-repl }}_
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-transfer }}).
 
     When created, `INCREMENT_ONLY` and `SNAPSHOT_AND_INCREMENT` transfers are activated and run automatically.
     If you want to activate a `SNAPSHOT_ONLY` transfer once it is created, add the `provisioner "local-exec"` section with the following transfer activation command to the configuration file:
@@ -237,7 +238,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Select a transfer and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top panel.
     1. Edit the transfer parameters:
@@ -322,11 +323,11 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
       For information on creating a transfer like this, please review [Create transfer](#create).
 
   1. Edit the values in the `name` and the `description` fields (transfer name and description).
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -334,7 +335,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - API {#api}
 
-    Use the [update](../api-ref/Transfer/update.md) API method and include the following in the request:
+    Use the [update](../api-ref/Transfer/update.md) API method, providing the following in your request:
 
     * Transfer ID in the `transferId` parameter. To find out the ID, [get a list of transfers in the folder](#list).
     * Transfer name in the `name` parameter.
@@ -353,9 +354,9 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer you need and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the transfer name and select ![ellipsis](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 - CLI {#cli}
 
@@ -397,9 +398,9 @@ During transfer deactivation:
 - Management console {#console}
 
     1. Switch the source to <q>read-only</q>.
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer you need and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
+    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the transfer name and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
     1. Wait for the transfer status to change to {{ dt-status-stopped }}.
 
 - CLI {#cli}
@@ -430,7 +431,7 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 
 {% endnote %}
 
-To learn more, see [{#T}](../concepts/transfer-lifecycle.md).
+For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
@@ -442,11 +443,11 @@ To learn more, see [{#T}](../concepts/transfer-lifecycle.md).
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. If the transfer you need is active, [deactivate it](#deactivate).
-    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the name of the transfer you need and select **{{ ui-key.yacloud.common.remove }}**.
-    1. Click **{{ ui-key.yacloud.common.remove }}**.
+    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the transfer name and select **{{ ui-key.yacloud.common.remove }}**.
+    1. Click ![ellipsis](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.remove }}**.
 
 - CLI {#cli}
 
@@ -473,6 +474,8 @@ To learn more, see [{#T}](../concepts/transfer-lifecycle.md).
     To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
+
+
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 

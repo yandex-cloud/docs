@@ -50,6 +50,11 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 
 {% include [prepare mysql db](../../_includes/data-transfer/endpoints/sources/mysql-prepare.md) %}
 
+### {{ ES }} source {#source-es}
+
+
+{% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
 ### {{ OS }} source {#source-os}
 
 {% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/opensearch-prepare.md) %}
@@ -98,6 +103,11 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 ### {{ objstorage-full-name }} target {#target-storage}
 
 {% include [prepare object storage db](../../_includes/data-transfer/endpoints/targets/object-storage-prepare.md) %}
+
+### {{ ES }} target {#target-es}
+
+
+{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
 
 ### {{ OS }} target {#target-os}
 

@@ -1,7 +1,5 @@
 * `--security-group-ids`: List of [security group](../../metadata-hub/operations/metastore/configure-security-group.md) IDs.
-* `--resource-preset-id`: Computing resource configuration. The possible values are:
-    * `c2-m8`: 2 vCPUs and 8 GB RAM.
-    * `c2-m4`: 2 vCPUs and 4 GB RAM.
+* `--resource-preset-id`: [Computing resource configuration](../../metadata-hub/concepts/metastore.md#presets).
 * `--maintenance-window`: Maintenance window settings (including for disabled clusters), where `type` is the maintenance type:
 
     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}

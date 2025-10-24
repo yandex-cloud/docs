@@ -78,11 +78,14 @@ description: Следуя данной инструкции, вы сможете
 * Минимальное количество страниц для выгрузки — 2.
 * Максимальное количество строк в таблице — 1 000 000.
 * Не поддерживаются [строка с итогами](../../visualization-ref/table-chart.md#add-totals) и [древовидная иерархия](../../dataset/data-types.md#how-to-create-tree). Древовидную иерархию можно экспортировать при отключенной пагинации.
+
+
 * Не поддерживаются следующие подключения:
 
   * [{{ datalens-short-name }} Usage Analytics](../../operations/connection/create-usage-tracking.md)
   * [{{ speechsense-name }}](../../operations/connection/create-speechsense.md)
   * [{{ yandex-cloud }} Billing](../../operations/connection/create-cloud-billing.md)
+
 
 * Максимальный размер файла выгрузки — 1 ГБ.
 * Скачивание доступно в течение 1 суток с момента завершения операции экспорта.

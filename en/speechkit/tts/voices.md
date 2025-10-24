@@ -12,6 +12,8 @@ This section provides a list of voices available in the service and their charac
 * Available voice [roles](index.md#role).
 * Supported API version.
 
+All voices are compatible with {{ realtime-api }} for creating voice agents in {{ ai-studio-full-name }}.
+
 You can listen to voice samples on the [service page](/services/speechkit).
 
 ## Supported voices {#premium}

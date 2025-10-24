@@ -41,6 +41,7 @@ Migration with data storage type changed.
 * [{{ OS }} to {{ ydb-short-name }}](opensearch-to-ydb.md)
 * [{{ OS }} to {{ GP }}](opensearch-to-greenplum.md)
 * [{{ PG }} to {{ OS }}](postgresql-to-opensearch.md)
+* [{{ ES }} to {{ OS }}](mes-to-mos.md)
 
 ## Change data capture {#cdc}
 

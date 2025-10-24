@@ -3,7 +3,7 @@ title: How to update a {{ metastore-full-name }} cluster
 description: Follow this guide to update a {{ metastore-full-name }} cluster.
 ---
 
-# Updating an cluster {{ metastore-full-name }}
+# Updating a cluster {{ metastore-full-name }}
 
 {% list tabs group=instructions %}
 
@@ -21,11 +21,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
         1. Switch your {{ metastore-name }} version.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select another [security group](configure-security-group.md) or create a new one.
-  1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, update the computing resource configuration for your cluster. The following configurations are available:
-
-        * **standard**: 2 vCPUs and 8 GB RAM
-        * **cpu-optimized**: 2 vCPUs and 4 GB RAM
-
+  1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, update the [cluster configuration](../../concepts/metastore.md#presets).
   1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable or disable logging. If logging is enabled, do the following:
       * Specify the log group or folder to write logs to.
       * Select the minimum logging level. 
@@ -75,11 +71,11 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
       {% include [CLI cluster parameters description, part 2](../../../_includes/metadata-hub/metastore-cluster-parameters-cli-part-2.md) %}
 
-      You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name and ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -143,13 +139,13 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
             --data '@body.json'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 

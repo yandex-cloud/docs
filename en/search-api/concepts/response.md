@@ -7,9 +7,7 @@ description: This article describes the XML format of {{ search-api-name }}'s re
 
 {% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
 
-In response to a text search query, {{ search-api-name }} can return a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded XML file with search results. The service returns an XML response for text queries processed both via [API v2](./index.md#api-v2) and API v1.
-
-{% include [api-v1](../../_includes/search-api/api-v1.md) %}
+In response to a text search query, {{ search-api-name }} can return a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded XML file with search results.
 
 You can get a maximum of 1,000 search results per search query. Depending on the docs-in-group attribute value, each result may contain one to three documents. The maximum number of search results pages depends on the number of groups of documents per page, which is defined by the groups-on-page attribute. For example, if the `groups-on-page` attribute is set to `10`, a maximum of 100 pages with search results can be generated.
 
@@ -107,7 +105,7 @@ The `request` group provides aggregate information about request parameters. It 
 || query | Search query text | None ||
 || page | Number of returned search results page. Page numbering starts from zero (`0` stands for page one). | None ||
 || sortby | 
-Result sorting parameters. The possible values are:
+Result sorting parameters. The allowed values are:
 
 * `rlv`: By relevance.
 * `tm`: By document update time.
@@ -177,7 +175,7 @@ In some cases, it is mutually exclusive with other tags of the `response` groupi
 || reqid | Unique request ID | None ||
 || found | Estimated number of documents found for the request.
 | 
-`priority`: Service attribute. The possible values are:
+`priority`: Service attribute. The allowed values are:
 
 * `phrase`
 * `strict`
@@ -208,7 +206,7 @@ It contains information about a fix made in the original query before searching 
 || rule | 
 Type of error found in the query.
 
-The possible values are:
+The allowed values are:
 
 * `Misspell`: Typo.
 * `KeyboardLayout`: Incorrect keyboard layout.
@@ -253,7 +251,7 @@ Attributes reflect the grouping rules for documents.
 * `curcateg`: Service attribute. Takes the `-1` value.
 ||
 || found | Estimated number of generated groups. | 
-`priority`: Service attribute. The possible values are:
+`priority`: Service attribute. The allowed values are:
 
 * `phrase`
 * `strict`
@@ -266,7 +264,7 @@ Estimated number of documents found for the query.
 It is a more accurate estimate compared to the value provided in the `found` tag of the [general search results info](#basic-search-info) section.
 
 | 
-`priority`: Service attribute. The possible values are:
+`priority`: Service attribute. The allowed values are:
 
 * `phrase`
 * `strict`
@@ -355,7 +353,7 @@ The maximum number of passages provided in a single `passages` tag depends on th
 || mime-type | Document type according to [RFC2046](http://tools.ietf.org/html/rfc2046) | None ||
 || properties | Grouping tag with document properties. | None ||
 || _PassagesType | 
-Passage type. The possible values are:
+Passage type. The allowed values are:
 
 * `0`: Regular passage (derived from the document text).
 * `1`: Passage based on the link text. Used if the document is found via a link.

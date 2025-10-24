@@ -6,9 +6,9 @@ Total: {% calc [currency=USD] 8 × {{ sku|USD|foundation_models.text_generation.
 
 Where:
 
-* {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %}: Cost of processing per 1000 tokens.
-* {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} × 2: Cost of processing per 2000 tokens.
-* $0.000216: Cost of processing per 1 second of the incoming audio.
-* $0.000216 × 60: Cost of processing per 60 seconds of the incoming audio.
-* $0.00166: Cost of processing per 1 second of the outgoing audio.
-* $0.00166 × 20: Cost of processing per 20 seconds of the outgoing audio.
+* {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %}: Cost of processing 1,000 tokens.
+* {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} × 2: Cost of processing 2,000 tokens.
+* $0.000216: Cost of processing one second of incoming audio.
+* $0.000216 × 60: Cost of processing 60 seconds of incoming audio.
+* $0.00166: Cost of processing one second of outgoing audio.
+* $0.00166 × 20: Cost of processing 20 seconds of outgoing audio.

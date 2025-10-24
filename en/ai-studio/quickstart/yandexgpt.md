@@ -24,25 +24,6 @@ To get started in {{ yandex-cloud }}:
 
   {% include [sdk-before-begin-ai-langmodel-user](../../_includes/ai-studio/sdk-before-begin-ai-langmodel-user.md) %}
 
-- API {#api}
-
-  To use the examples of requests via the API, install [cURL](https://curl.haxx.se). 
-
-  To work with the {{ yagpt-name }} API, you need to get authenticated using your account:
-
-  1. Get an IAM token: see the guide for a [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
-  1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` role or higher.
-  1. When accessing {{ gpt-lite }} or {{ gpt-pro }} via the API, provide the received parameters:
-
-     * In the request file, specify the folder ID in the `modelUri` parameter.
-     * In the request, specify the IAM token in the `Authorization` header.
-
-     ```json
-     Authorization: Bearer <IAM_token>
-     ```
-
-  For information about other API authentication methods, see [{#T}](../api-ref/authentication.md).
-
 {% endlist %}
 
 ## Generate the text {#generate-text}
@@ -53,16 +34,31 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
+  1. Click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** on the left-hand panel and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** or find it using the search bar on the dashboard.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
 
      ![screen01](../../_assets/ai-studio/quickstart/yandexgpt/screen01.png)
 
-  1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` for the model's response variability: the higher the value, the less predictable will be the result.
-  1. Describe the request context under **{{ ui-key.yacloud.yagpt.label_instruction-text }}**.
-  1. Enter your prompt to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
-  1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The response will appear on the right side of the screen.
+  1. Select the generation type:
+
+      * **Context-aware generation**: Model will generate responses based on the dialog history. This will allow you to refine the result during the interaction.
+      * **Text generation**: Model will generate responses based only on your last message and instructions.
+
+  1. Type your query in the input field below and click ![image](../../_assets/console-icons/arrow-up.svg) or press **Enter**. You can also use the query examples provided above.
+
+     All your dialogs are saved in the **{{ ui-key.yacloud.yagpt.experiments-page-subtitle }}** panel on the right. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dialog to rename or delete it.
+
+  1. To set up a chat, under **{{ ui-key.yacloud.yagpt.settings }}**, do the following:
+
+     1. Select a generation [model](../concepts/generation/models.md).
+     1. **{{ ui-key.yacloud.yagpt.label_temperature-text }}**: Enter a value between `0` and `1` for the model's response variability. With a higher value, you get a more unpredictable result.
+     1. **{{ ui-key.yacloud.yagpt.instruction }}**: Describe your task, the appropriate writing style, limits, and other requirements for the model. .
+     1. **{{ ui-key.yacloud.yagpt.use-context }}**: Change the generation type.
+     1. **{{ ui-key.yacloud.yagpt.use-assistant }}**: If this option is enabled, {{ ai-playground }} will work based on [{{ assistant-api }}](../concepts/assistant/index.md).
+
+  1. Click ![image](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.yagpt.train-modal }}** if you want to [train the model](../concepts/tuning/index.md) to follow a complex response format.
+  1. Click ![image](../../_assets/console-icons/code.svg) **View code** to get the code for a request to the model via the ML SDK for Python or [cURL](https://curl.haxx.se).
 
      ![screen02](../../_assets/ai-studio/quickstart/yandexgpt/screen02.png)
 
@@ -70,79 +66,6 @@ To get started in {{ yandex-cloud }}:
 
   {% include [yandexgpt-sdk-entire-generation-block](../../_includes/ai-studio/yandexgpt/yandexgpt-sdk-entire-generation-block.md) %}
 
-- API {#api}
-
-  1. Create a file with the request body, e.g., `prompt.json`:
-
-     ```json
-     {
-       "modelUri": "gpt://<folder_ID>/yandexgpt",
-       "completionOptions": {
-         "stream": false,
-         "temperature": 0.6,
-         "maxTokens": "2000",
-         "reasoningOptions": {
-           "mode": "DISABLED"
-         }
-       },
-       "messages": [
-         {
-           "role": "system",
-           "text": "Find errors in the text and correct them."
-         },
-         {
-           "role": "user",
-           "text": "Laminate flooring is sutiable for instalation in the kitchen or in a child's room. It withsatnds moisturre and mechanical dammage thanks to a 0.2 mm thick proctive layer of melamine films and a wax-treated interlocking systme."
-         }
-       ]
-     }
-     ```
-
-     Where:
-
-     {% include [api-parameters](../../_includes/ai-studio/yandexgpt/api-parameters.md) %}
-
-  1. Use the [completion](../text-generation/api-ref/TextGeneration/completion.md) method to send a request to the neural network in the following command:
-
-     ```bash
-     export FOLDER_ID=<folder_ID>
-     export IAM_TOKEN=<IAM_token>
-     curl \
-       --request POST \
-       --header "Content-Type: application/json" \
-       --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --data "@prompt.json" \
-       "https://llm.{{ api-host }}/foundationModels/v1/completion"
-     ```
-
-     Where:
-
-     * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-     * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
-
-     The service will return the generated text:
-
-     ```json
-     {
-       "result": {
-         "alternatives": [
-           {
-             "message": {
-               "role": "assistant",
-               "text": "Laminate flooring is suitable for installation in the kitchen or in a child's room. It withstands moisture and mechanical damage thanks to a 0.2 mm thick protective layer of melamine films and a wax-treated interlocking system."
-             },
-             "status": "ALTERNATIVE_STATUS_TRUNCATED_FINAL"
-           }
-         ],
-         "usage": {
-           "inputTextTokens": "67",
-           "completionTokens": "50",
-           "totalTokens": "117"
-         },
-         "modelVersion": "06.12.2023"
-       }
-     }
-     ```
 
 {% endlist %}
 

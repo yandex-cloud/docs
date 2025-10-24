@@ -1,4 +1,4 @@
-The cost depends on the [rent period](../../baremetal/concepts/servers.md#server-lease). 
+The cost depends on the [rent period](../../baremetal/concepts/servers.md#server-lease).
 
 The funds are debited **monthly**, irrespective of the rent period.
 

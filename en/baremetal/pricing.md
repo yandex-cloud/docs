@@ -12,7 +12,7 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-In {{ baremetal-name }}, you pay for leasing a server of a [certain configuration](concepts/server-configurations.md). A leased server is billable for the entire lease period, whether it is on or off.
+In {{ baremetal-name }}, you pay for renting a server of a [certain configuration](concepts/server-configurations.md). A rented server is billable for the entire rent period, whether it is on or off.
 
 The monthly prices are based on 720 hours per month.
 
@@ -24,7 +24,7 @@ The monthly prices are based on 720 hours per month.
 
 
 
-All prices are per month.
+All prices are per month and do not include VAT.
 
 {% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
 

@@ -15,7 +15,7 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `serverless.mcpGateways.editor` [role](../../security/index.md#serverless-mcpGateways-editor) or higher.
+  1. In the [management console]({{ link-console-main }}), select a folder for which your account has the [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) and [`serverless.mcpGateways.anonymousInvoker`](../../security/index.md#serverless-mcpGateways-anonymousInvoker) roles or higher.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers**, and in the window that opens:
 
@@ -24,7 +24,7 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
 
           {% include [create-server-add-external-steps](../../../_includes/ai-studio/mcp-hub/create-server-add-external-steps.md) %}
 
-      1. Under **Server parameters**:
+      1. Under **Server settings**:
 
           1. {% include [create-server-console-general-params-ss1](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss1.md) %}
           1. {% include [create-server-console-general-params-ss2](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss2.md) %}

@@ -46,6 +46,9 @@
 
 1. (Опционально) В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}** укажите, если группа узлов {{ managed-k8s-name }} должна быть без предустановленных драйверов NVIDIA® и библиотек CUDA® для [GPU-ускорения](../../compute/concepts/gpus.md).
 1. (Опционально) В блоке **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}** укажите имя [группы размещения](../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}. Эту настройку невозможно изменить после создания группы узлов {{ managed-k8s-name }}.
+
+    {% include [placement-groups](placement-groups.md) %}
+
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Укажите **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** узла {{ managed-k8s-name }}:
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}` — [стандартный сетевой диск](../../compute/concepts/disk.md#disks-types), сетевое блочное хранилище на HDD-накопителе.

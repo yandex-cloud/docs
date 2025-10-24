@@ -213,6 +213,10 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Настройка CI/CD в {{ src-name }} для развертывания {{
+          serverless-containers-name }} с помощью GitHub Actions
+        href: tutorials/ci-cd-sourcecraft-github-actions.md
       - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
         href: tutorials/serverless-gitlab-runner.md
       - name: >-
