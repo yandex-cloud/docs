@@ -149,7 +149,7 @@
    ```bash
    kubectl --namespace ns apply -f - <<< '
    apiVersion: external-secrets.io/v1beta1
-   kind: ClusterSecretStore
+   kind: SecretStore
    metadata:
      name: yc-cert-manager
    spec:
@@ -162,7 +162,11 @@
              namespace: ns'
    ```
 
+   {% note tip %}
 
+   В примере хранилище секретов создается с типом `kind: SecretStore`, оно будет доступно только в пространстве имен `ns`, в котором было создано. Чтобы хранилище секретов было доступно во всех пространствах имен, используйте тип `kind: ClusterSecretStore`.
+
+   {% endnote %}
 
 ## Создайте ExternalSecret {#create-externalsecret}
 
@@ -185,7 +189,7 @@
      refreshInterval: 1h
      secretStoreRef:
        name: yc-cert-manager
-       kind: ClusterSecretStore
+       kind: SecretStore
      target:
        name: k8s-secret
        template:
@@ -200,6 +204,12 @@
          key: <идентификатор_сертификата>
          property: privateKey'
    ```
+
+   {% note info %}
+
+   Если вы создавали хранилище секретов с типом `kind: ClusterSecretStore`, исправьте в примере манифеста значение `spec:secretStoreRef:kind` на `ClusterSecretStore`.
+
+   {% endnote %}
 
    Где:
    * `k8s-secret` — имя секрета, в который External Secret Operator поместит сертификат из {{ certificate-manager-name }}.
