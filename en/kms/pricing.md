@@ -11,7 +11,7 @@ editable: false
 
 
 
-To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator) and [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing info in this section.
+To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator) and [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use our calculator on the {{ yandex-cloud }} website or see the pricing info below.
 
 
 
@@ -33,7 +33,7 @@ The cost of using {{ kms-name }} is based on:
 
   {% endnote %}
 
-* Number of performed cryptographic operations ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
+* Number of performed cryptographic operations ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), and [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
 
 ## Prices for the Russia region {#prices}
@@ -42,7 +42,7 @@ The cost of using {{ kms-name }} is based on:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Billed hourly. The price per month is provided for reference based on 720 hours per month. The value is rounded.
+Billing occurs on an hourly basis. The price per month is provided for reference based on 720 hours per month. The value is rounded.
 
 ### Symmetric encryption {#symmetric}
 

@@ -8,6 +8,7 @@
 * [{#T}](datamart.md)
 * [{#T}](olap.md)
 * [{#T}](oltp.md)
+* [{#T}](sql.md)
 * [{#T}](cluster.md)
 * [{#T}](relational-databases.md)
 * [{#T}](columnar-databases.md)
@@ -74,6 +75,7 @@
 * [{#T}](ssh-keygen.md)
 * [{#T}](url.md)
 * [{#T}](dhcp.md)
+* [{#T}](soap.md)
 
 ## Безопасность {#security}
 

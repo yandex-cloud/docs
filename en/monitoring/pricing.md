@@ -14,14 +14,14 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-## What goes into the cost of using {{ monitoring-short-name }} {#rules}
+## What goes into the cost of {{ monitoring-short-name }} {#rules}
 
-At present, you will be charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
+Currently, you are charged for writing custom metrics via the [{{ monitoring-short-name }} API](api-ref/index.md) and writing any metrics via the [{{ prometheus-name }} Remote API](operations/prometheus/index.md), as well as reading any metrics via the [{{ monitoring-short-name }} API](api-ref/index.md).
 
 Reading metrics via the {{ prometheus-name }} Remote API is not yet billable.
 
-Pricing features:
-* After writing or reading the first 50 million metric values via the {{ monitoring-short-name }} API, the writing fee is reduced. See .
+Other points to consider:
+* After writing or reading the first 50,000,000 metric values via the {{ monitoring-short-name }} API, the writing fee is reduced. See  for details.
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
 * There is no charge for reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console.
 * There is no charge for {{ monitoring-short-name }} incoming and outgoing traffic.
@@ -49,7 +49,7 @@ Pricing features:
 
 
 
-The minimum billing unit is 1 metric value. The cost is rounded to the nearest cent.
+The minimum billing unit is one metric value. The cost is rounded to the nearest $0.01.
 
 {% include [usd-api-example](../_pricing_examples/monitoring/usd-api-example.md) %}
 

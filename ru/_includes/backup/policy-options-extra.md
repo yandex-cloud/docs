@@ -29,7 +29,7 @@
         * **{{ ui-key.yacloud.backup.policy-form.field_attempts-qty }}** — максимальное количество попыток.
         * **{{ ui-key.yacloud.backup.policy-form.field_interval-between-attempts }}** — длительность интервала между повторениями попыток.
 
-    * **{{ ui-key.yacloud.backup.policy-form.field_snapshot-reaatempt }}** — настройки повторных попыток при ошибках создания снимка:
+    * **{{ ui-key.yacloud.backup.policy-form.field_snapshot-reattempt }}** — настройки повторных попыток при ошибках создания снимка:
 
         *  **{{ ui-key.yacloud.backup.policy-form.field_attempts-qty }}** — максимальное количество попыток.
         *  **{{ ui-key.yacloud.backup.policy-form.field_interval-between-attempts }}** — длительность интервала между повторениями попыток.

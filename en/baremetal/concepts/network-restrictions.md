@@ -29,19 +29,34 @@ MSS in private network | 8870
 
 ## Bandwidth {#bandwidth}
 
-### Public network bandwidth {#bandwidth-for-pubic-network}
+### Bandwidth model in a public network {#bandwidth-for-pubic-network}
+
 
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
 
-Type of limit | Value, Gbps
+Data amount, TB per day | Connection capacity, Gbps
 --- | ---
-Bandwidth in public network | 1 
+10 | 1 
+
+{% note info %}
+
+To request a bandwidth package of 100 TB, contact [support]({{ link-console-support }}).
+
+{% endnote %}
+
+To increase this amount, you can use a package with daily billing:
+
+Data amount, TB per day | Connection capacity, Gbps | Note
+--- | --- | ---
+100 | 10 | You can use this package only for servers with 10 and 25 Gbps NICs.
+
+[Billing for increased bandwidth](../../baremetal/pricing#bandwidth-package).
 
 ### Bandwidth between Baremetal and VPC {#bandwidth-bm-vpc}
 
 You can [set up a connection between {{ baremetal-name }} and {{ vpc-name }}](../tutorials/bm-vrf-and-vpc-interconnect.md) within the same region.
 
-This connection has a default bandwidth limit of 10 Gbps for each user, regardless of the number of servers and their network card types. To request a higher bandwidth, contact [support]({{ link-console-support }}).
+This connection has a default bandwidth limit of 10 Gbps for each user, regardless of the number of servers and their network card types. To request for a higher bandwidth, contact [support]({{ link-console-support }}).
 
 ## Storm Control {#storm-control}
 

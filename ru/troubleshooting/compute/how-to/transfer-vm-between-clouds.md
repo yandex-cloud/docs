@@ -14,7 +14,7 @@
     Для переноса ВМ между облаками выполните следующие действия:
 
     1. [Создайте образ из диска нужной ВМ](../../../compute/operations/image-create/create-from-disk.md).
-    1. [Добавьте {{ iam-short-name }}-пользователя](../../../iam/operations/users/create.md) в облако с образом, который вы хотите перенести.
+    1. [Добавьте {{ iam-short-name }}-пользователя](../../../organization/operations/add-account.md) в облако с образом, который вы хотите перенести.
     1. [Назначьте {{ iam-short-name }}-пользователю минимально необходимые роли](../../../iam/operations/roles/grant.md) `{{ roles-cloud-member }}` и `{{ roles-image-user }}`.
     1. [Настройте](../../../cli/quickstart.md) утилиту YC CLI для пользователя в целевом облаке.
     1. Получите идентификатор вашего образа. Для этого в [Консоли управления]({{ link-console-main }}) найдите поле **{{ ui-key.yacloud.common.id }}** на вкладке **{{ ui-key.yacloud.compute.images.label_title }}** или получите его с помощью YC CLI командой `yc compute image list`.

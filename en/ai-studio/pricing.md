@@ -65,7 +65,7 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 
 ### Using assistants and text agents {#rules-assistant}
 
-You can use {{ assistant-api }}, {{ responses-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
+You can use the {{ assistant-api }}, {{ responses-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
 
 ### Using voice agents {#rules-voice-assistant}
 
@@ -211,9 +211,9 @@ Cost of using {{ foundation-models-full-name }} for text vectorization with the 
 
 Cost of using the speech-realtime-250923 voice agent within a 60-second session:
 
-* Input audio: 60 seconds.
-* Output audio: 20 seconds.
-* Number of tokens: 2,000.
+* Input audio: 60 seconds
+* Output audio: 20 seconds
+* Number of tokens: 2,000
 
 
 

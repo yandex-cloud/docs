@@ -12,7 +12,7 @@ Depending on your [pricing plan](../pricing.md#service-plans), the following **U
 
 * **Light**: Provides aggregated statistics on the {{ datalens-short-name }} instance usage for a limited period of time (60 days). This connection is available with any service plan.
 
-* **Detailed**: Provides both detailed and aggregated statistics on the {{ datalens-short-name }} instance usage for a long period of time (180 days). It allows you to view detailed statistics on dataset queries and dashboard views. This connection is only available with the _Business_ service plan. Once you change your service plan to _Community_, the connection will no longer work.
+* **Detailed**: Provides both detailed and aggregated statistics for the {{ datalens-short-name }} instance over a long period of time (360 days). Offers detailed statistics on dataset queries and dashboard views. This connection is only available with the _Business_ service plan. Once you change your service plan to _Community_, the connection will no longer work.
 
 
 ## Specifics of working with a connection {#ut-connection-dashboard}

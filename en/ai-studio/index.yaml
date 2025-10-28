@@ -18,6 +18,12 @@ description:
     MCP Hub allows you to build and connect MCP servers for agents to be able to
     use external tools and become truly efficient in helping you with your work.
   - >-
+    The {{ ai-studio-full-name }} API is compatible with {{ openai }}: The {{
+    responses-api }} is suitable for creating text agents, the {{ realtime-api
+    }} for voice agents, and the {{ vector-store-name }} API for searching
+    through documents. The APIs support integration with such widely used
+    frameworks as LangChain and LangGraph.
+  - >-
     For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_yandex_foundation_models">{{
     ai-studio-full-name }}</a> Terms of Use.

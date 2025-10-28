@@ -26,11 +26,11 @@ Only [legitimate requests](concepts/rules.md#rule-action) are counted for billin
 
 At the same time, there are things to consider about billing in the dry run mode:
 
-* If a rule has blocked a request, in the dry run mode, requests are not blocked and reach their destination. Such requests will be counted for billing.
+* If a rule has blocked a request, in the dry run mode, requests are not blocked and reach their destination. Such requests will be counted towards consumption. 
 
-* If dry run was enabled only for one rule type, e.g., security profile rules, and the request was blocked by a WAF or ARL rule without dry run on, such a request will not be counted for billing.
+* If dry run was enabled only for one rule type, e.g., security profile rules, and the request was blocked by a WAF or ARL rule without dry run on, such a request will not be counted towards consumption.
 
-Requests processed by ARL profile rules will not be counted for billing. Blocked requests will not be counted either, no matter when and which rule blocked them.
+Requests processed by ARL profile rules will not be counted towards consumption. Blocked requests will not be counted either, no matter when and which rule blocked them.
 
 When using [domains](concepts/domain-protect.md), in addition to the cost of processed requests, [a fee is charged](#proxy-resources) for traffic passing through the proxy server and protection against DDoS attacks at the L3-L4 levels of the [OSI model](https://wikipedia.org/wiki/OSI_model).
 
@@ -64,7 +64,7 @@ If the plan you select is not enough, you can switch to another with pro-rata re
 
 
 
-To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+To calculate the cost of using {{ sws-name }}, use [our calculator](https://yandex.cloud/en/prices?state=2e8dfeb93503#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}

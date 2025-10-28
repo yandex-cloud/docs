@@ -60,7 +60,7 @@ description: Для группы выделенных хостов {{ compute-na
 
        Где:
 
-       * `--user-account-id` — [идентификатор пользователя](../../../iam/operations/users/get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
+       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
        * `--role` — назначаемая [роль](../../security/index.md#roles-list).
 
      * Сервисному аккаунту:

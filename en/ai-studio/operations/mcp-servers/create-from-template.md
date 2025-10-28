@@ -16,7 +16,7 @@ To add a ready-made template-based MCP server to [{{ mcp-hub-name }}](../../conc
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder for which your account has the [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) and [`serverless.mcpGateways.anonymousInvoker`](../../security/index.md#serverless-mcpGateways-anonymousInvoker) roles or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
   1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers**, and in the window that opens:
 
       1. Under **How to add**, select one of the [templates](../../concepts/mcp-hub/templates.md): [Kontur.Focus](https://kontur-inc.com/focus), [{{ tracker-full-name }}](https://360.yandex.ru/business/tracker/), [{{ search-api-full-name }}](../../../search-api/index.yaml), or [amoCRM](https://www.amocrm.com/).

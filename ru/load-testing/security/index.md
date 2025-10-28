@@ -19,7 +19,7 @@
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/load-testing/service-roles-hierarchy.svg)
+{% include [load-testing](../../_mermaid/roles/load-testing.md) %}
 
 ### Сервисные роли {#service-roles}
 

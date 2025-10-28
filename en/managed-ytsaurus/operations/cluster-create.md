@@ -11,7 +11,7 @@ keywords:
 
 {% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
 
-Each {{ myt-name }} cluster consists of multiple {{ ytsaurus-name }} components.
+Each {{ myt-name }} cluster consists of a number of {{ ytsaurus-name }} components.
 
 Configurable components:
 * Exec and tablet nodes
@@ -193,7 +193,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-        For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-ytsaurus }}).
+        For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-ytsaurus }}).
 
     1. Validate your configuration.
 
@@ -482,7 +482,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -555,7 +555,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
        {% endnote %}
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
-    1. Wait until the cluster is ready for use: its status on the {{ myt-name }} dashboard will change to **Running**. This may take a while.
+    1. Wait until the cluster is ready: its status on the {{ myt-name }} dashboard will change to **Running**. This may take a while.
 
 - {{ TF }} {#tf}
 
@@ -722,9 +722,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-            * `odin.checks_ttl`: Frequency of checks by Odin, an internal monitoring tool. Remember to specify the measurement units: `h` for hours, `m` for minutes, and `s` for seconds, e.g., `336h0m0s` (2 weeks).
+            * `odin.checks_ttl`: Frequency of checks by Odin, an internal monitoring tool. Provide with units of measurement: `h` (hours), `m` (minutes), `s` (seconds). Here is an example: `336h0m0s` (2 weeks).
 
-        For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-ytsaurus }}).
+        For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-ytsaurus }}).
 
     1. Validate your configuration.
 
@@ -806,7 +806,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
         * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
         * `securityGroupIds`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
@@ -965,7 +965,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
         * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
         * `security_group_ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
@@ -1055,7 +1055,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1065,7 +1065,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
 - {{ TF }} {#tf}
 
-    Create a {{ myt-name }} cluster and a network for it with the following test specifications:
+    Create a {{ myt-name }} cluster and its network with the following test specifications:
 
     * Name: `my-ytsaurus-cluster`.
     * Network: `my-network`.
@@ -1088,7 +1088,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
     * HTTP and RPC proxies: `5` of each type.
 
-    The configuration file for this cluster is as follows:
+    The configuration file for this cluster looks like this:
 
     ```hcl
     resource "yandex_ytsaurus_cluster" "my-ytsaurus-cluster" {

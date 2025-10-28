@@ -16,7 +16,7 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder for which your account has the [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) and [`serverless.mcpGateways.anonymousInvoker`](../../security/index.md#serverless-mcpGateways-anonymousInvoker) roles or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
   1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers**, and in the window that opens:
 
       1. Under **Add Method**, select ![plug-connection](../../../_assets/console-icons/plug-connection.svg) **Connect**.
@@ -37,7 +37,7 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
 
 {% include [server-creation-result-phrase](../../../_includes/ai-studio/mcp-hub/server-creation-result-phrase.md) %}
 
-## Using the Responses API to access an external MCP server {#use-responses-api}
+## Using the {{ responses-api }} to access an external MCP server {#use-responses-api}
 
 {% include [use-responses-api-example](../../../_includes/ai-studio/mcp-hub/use-responses-api-example.md) %}
 

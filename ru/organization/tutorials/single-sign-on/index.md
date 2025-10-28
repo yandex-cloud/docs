@@ -10,3 +10,4 @@ description: Настройка интеграции {{ org-full-name }} со с
    * [{#T}](./grafana/oidc-grafana.md)
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [Zabbix](./saml-zabbix.md)
+* [{{ mos-name }}](./saml-opensearch.md)

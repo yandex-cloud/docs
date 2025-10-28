@@ -1,11 +1,11 @@
 ---
-title: Retrieval in {{ assistant-api }}
-description: This section describes Retrieval, an {{ assistant-api }} tool which enables you to create personalized assistants capable of generating responses based on information retrieved from search indexes.
+title: '{{ retrieval-tool-name }} in {{ assistant-api }}'
+description: This section describes {{ retrieval-tool-name }}, an {{ assistant-api }} tool you can use to create personalized assistants able to implement a retrieval augmented generation scenario based on information retrieved from search indexes.
 ---
 
-# Retrieval
+# {{ retrieval-tool-name }}
 
-Retrieval enables an AI assistant to search your own files, i.e., a knowledge base, for information to use in a response. Together with Retrieval, you can use a tailored [paraphrase model](../rephraser.md), which rephrases user queries to improve search quality.
+{{ retrieval-tool-name }} enables the AI assistant to search for information for the response in your own files (knowledge base). {{ retrieval-tool-name }} comes with the specially trained [paraphrase model](../rephraser.md), which rephrases users' queries to improve search quality.
 
 To enable your AI assistant to use your knowledge base:
 
@@ -17,15 +17,15 @@ To enable your AI assistant to use your knowledge base:
 
 {% include [rag-default-strategy-paragraph](../../../../_includes/ai-studio/assistants/rag-default-strategy-paragraph.md) %}
 
-AI assistants do not always need to use a search index to respond to a user’s query: the general information available to the model is often enough to answer most questions. When setting up your assistant, you can define a _strategy for accessing Retrieval_ so that the assistant’s model would decide on its own when it should search for information in the index.
+AI assistants do not always need to use a search index to respond to a user’s query: the general information available to the model is often enough to answer most questions. You can set up your assistant to use a _{{ retrieval-tool-name }} access strategy_ for its model itself to decide when to use the index to search for information.
 
-To enable your AI assistant to use Retrieval according to an access strategy, do the following:
+For your AI assistant to be able to use {{ retrieval-tool-name }} based on an access strategy:
 
 {% list tabs group=programming_language %}
 
 - SDK {#sdk}
 
-  In [{{ ml-sdk-name }}](../../../sdk/index.md), provide search index access instructions to the model in the `call_strategy` parameter when creating the Retrieval tool. Then, when creating your AI assistant, provide the resulting object with Retrieval in the `tools` parameter.
+  In [{{ ml-sdk-name }}](../../../sdk/index.md), provide a search index access instruction for the model in the `call_strategy` parameter when creating {{ retrieval-tool-name }}. Then, when creating the AI assistant, provide the resulting object with {{ retrieval-tool-name }} in the `tools` parameter.
 
   ```python
   ...
@@ -47,7 +47,7 @@ To enable your AI assistant to use Retrieval according to an access strategy, do
 
 - cURL {#curl}
 
-  In the [API](../../api.md), when [creating](../../../assistants/api-ref/Assistant/create.md) or [updating](../../../assistants/api-ref/Assistant/update.md) an AI assistant, provide search index access instructions to the model in the `tools` array of the request body in the `callStrategy` object.
+  In the [API](../../api.md), when [creating](../../../assistants/api-ref/Assistant/create.md) or [updating](../../../assistants/api-ref/Assistant/update.md) an AI assistant, provide a search index access instruction for the model in the `tools` array of the request body in the `callStrategy` object.
 
   ```json
   {
@@ -61,7 +61,7 @@ To enable your AI assistant to use Retrieval according to an access strategy, do
           "maxNumResults": "<maximum_number_of_returned_fragments>",
           "callStrategy": {
             "autoCall": {
-              "instruction": "<search_usage_instructions>"
+              "instruction": "<search_usage_instruction>"
             }
           }
         }
@@ -77,7 +77,7 @@ To enable your AI assistant to use Retrieval according to an access strategy, do
 
 {% endlist %}
 
-Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. For example:
+Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. Here is an example:
 
 ```json
 "instruction": "Search through the knowledge base only if the user has specifically asked you to do so."

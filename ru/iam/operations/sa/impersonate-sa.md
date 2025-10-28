@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы узнаете
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-  1. [Получите](../users/get.md) идентификатор пользователя и назначьте ему роль `iam.serviceAccounts.tokenCreator` на сервисный аккаунт `test-sa` (в профиле администратора):
+  1. [Получите](../../../organization/operations/users-get.mdd) идентификатор пользователя и назначьте ему роль `iam.serviceAccounts.tokenCreator` на сервисный аккаунт `test-sa` (в профиле администратора):
 
       ```
       yc iam service-account add-access-binding test-sa \

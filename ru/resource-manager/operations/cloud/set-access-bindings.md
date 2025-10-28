@@ -87,7 +87,7 @@
       * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`.
       * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_member` можно назначить только одну роль.
       * `member` — пользователь или группа, которым нужно назначить роль. Каждый ресурс `yandex_resourcemanager_cloud_iam_member` может иметь одно из следующих значений:
-        * `userAccount:<идентификатор_пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
+        * `userAccount:<идентификатор_пользователя>` — [идентификатор пользователя](../../../organization/operations/users-get.md).
         * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<идентификатор_федеративного_аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/operations/users-get.md).
         * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.

@@ -7,9 +7,24 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.172.0 (27.10.25) {#version0.172.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ org-name }}
+
+* Добавлена группа команд `yc organization-manager mfa-enforcement`.
+* Добавлены команды для управления пользователями SAML-федераций:
+  * `yc organization-manager federation saml suspend-user-accounts` — для блокировки пользователей.
+  * `yc organization-manager federation saml reactivate-user-accounts` — для разблокировки пользователей.
+
+* В команде `yc organization-manager idp user create` исправлена обработка флага `--is-active` при создании пользователя, когда пользователь создавался всегда активным.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.171.0 (20.10.25) {#version0.171.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ dns-name }}
 
@@ -30,11 +45,9 @@ description: На странице представлены релизы CLI, а
   * `--trusted-certs-from-files` — для передачи списка файлов с доверенными сертификатами.
   * `--remove-trusted-certs` — для удаления всех доверенных сертификатов.
 
-## Предыдущие релизы {#previous-release}
-
 ### Версия 0.170.0 (16.10.25) {#version0.170.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mpg-name }}
 
@@ -106,7 +119,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.169.0 (01.10.25) {#version0.169.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ container-registry-name }} {#container-registry-name-0.169.0}
 
@@ -157,7 +170,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.167.0 (25.09.25) {#version0.167.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ connection-manager-name }}
 
@@ -237,7 +250,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.165.0 (15.09.25) {#version0.165.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ iam-name }} {#iam}
 
@@ -249,7 +262,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.164.0 (11.09.25) {#version0.164.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ managed-k8s-name }}
 
@@ -286,7 +299,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.163.0 (08.09.25) {#version0.163.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ compute-name }}
 

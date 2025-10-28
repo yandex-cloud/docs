@@ -30,7 +30,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
       ![image](../../_assets/datalens/security/embedding-keys.png)
 
-   1. In the window that opens:
+   1. In the window that opens, do the following:
 
       1. Click ![plus](../../_assets/console-icons/plus.svg) **Create key**.
       1. Enter the key name and click **Create**.
@@ -151,7 +151,14 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
         ```bash
         pip3 install cryptography
+        pip3 install PyJWT
         ```
+
+        {% note info %}
+
+        For correct operation, use PyJWT version 2.0.0 or higher.
+        
+        {% endnote %}
 
         Run the following code:
 

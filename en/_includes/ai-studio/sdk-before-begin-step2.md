@@ -1,4 +1,4 @@
-[Get](../../iam/operations/authentication/manage-api-keys.md#create-api-key) the service account API key and save it.
+[Get](../../ai-studio/operations/get-api-key.md#run-client) the service account [API key](../../iam/concepts/authorization/api-key.md) and save it.
 
 {% include [sdk-auth-details-paragraph](./sdk-auth-details-paragraph.md) %}
 

@@ -1,6 +1,6 @@
 # Настроить запись логов L7-балансировщика
 
-[Логи](../concepts/application-load-balancer.md#logging) [L7-балансировщика](../concepts/application-load-balancer.md) можно отправлять в сервис [{{ cloud-logging-full-name }}](../../logging/).
+[Логи](../concepts/monitoring.md#logging) [L7-балансировщика](../concepts/application-load-balancer.md) можно отправлять в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 ## Включить запись логов {#enable-logs}
 

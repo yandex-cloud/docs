@@ -38,6 +38,8 @@ description: Управление доступом в сервисе {{ intercon
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ interconnect-name }}.
 
+{% include [interconnect](../../_mermaid/roles/interconnect.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### cic.auditor {#cic-auditor}

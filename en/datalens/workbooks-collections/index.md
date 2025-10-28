@@ -1,9 +1,9 @@
 ---
 title: '{{ datalens-full-name }} workbooks and collections'
-description: In this tutorial, you will learn about workbooks and collections, their specifics, and how to start using them.
+description: In this tutorial, you will learn about {{ datalens-full-name }} workbooks and collections, their features, and how to start using them.
 ---
 
-# {{ datalens-short-name }} workbooks and collections
+# {{ datalens-full-name }} workbooks and collections
 
 
 Workbooks and collections are a new way to store objects in {{ datalens-short-name }}, which is alternative to the old navigation across folders. This new approach allows you to place {{ datalens-short-name }} objects in special containers:
@@ -59,3 +59,15 @@ To transfer any object from a folder to a workbook, perform [migration](./migrat
 
 
 
+
+## Viewing linked objects {#related-objects}
+
+You can look up where the object is used or which objects are used by it. Do it by clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects** on the workbook page or object editing window. For example, this can give you a clue as to the sources used to build a dashboard or the charts based on a certain dataset.
+
+{% cut "Linked object window" %}
+
+![image](../../_assets/datalens/workbooks-collections/related-objects.png)
+
+{% endcut %}
+
+If you get an error when opening the linked object window, click **Retry**.

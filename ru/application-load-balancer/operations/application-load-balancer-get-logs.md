@@ -1,6 +1,6 @@
 # Посмотреть логи L7-балансировщика
 
-Вы можете [настроить](application-load-balancer-manage-logs.md) поставку [логов](../concepts/application-load-balancer.md#logging) L7-балансировщика в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
+Вы можете [настроить](application-load-balancer-manage-logs.md) поставку [логов](../concepts/monitoring.md#logging) L7-балансировщика в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
 
 Чтобы посмотреть логи L7-балансировщика:
 

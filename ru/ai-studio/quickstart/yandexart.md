@@ -65,7 +65,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `{{ roles-yaart-user }}` или выше.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. В поле ввода опишите изображение, которое вы хотите сгенерировать. Старайтесь использовать яркие образы, описывайте детали, указывайте стили, если хотите получить изображение определенного вида.
   1. [Параметр **Зерно**](../concepts/generation/index.md) оставьте случайным или укажите любое значение.

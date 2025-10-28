@@ -16,7 +16,7 @@ editable: false
 
 ## What goes into the cost of using {{ cloud-logging-name }} {#rules}
 
-{{ cloud-logging-name }} charges you for the amount of data written and the time over which the data is stored.
+{{ cloud-logging-name }} charges you for the amount of written data and the time over which the data is stored.
 
 The monthly prices are based on 720 hours per month.
 

@@ -185,6 +185,8 @@ items:
             href: operations/groups-access-binding.md
           - name: Посмотреть роли, назначенные в организации
             href: operations/org-list-bindings.md
+          - name: Просмотреть список доступов субъекта
+            href: operations/view-subject-access-bindings.md
           - name: Отозвать роль у пользователя
             href: operations/revoke-role.md
       - name: Синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
@@ -234,6 +236,8 @@ items:
                 href: tutorials/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: '{{ mos-name }}'
+            href: tutorials/single-sign-on/saml-opensearch.md
           - name: '{{ mgl-name }}'
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
@@ -351,8 +355,12 @@ items:
                 href: cli-ref/federation/saml/list-operations.md
               - name: list-user-accounts
                 href: cli-ref/federation/saml/list-user-accounts.md
+              - name: reactivate-user-accounts
+                href: cli-ref/federation/saml/reactivate-user-accounts.md
               - name: remove-labels
                 href: cli-ref/federation/saml/remove-labels.md
+              - name: suspend-user-accounts
+                href: cli-ref/federation/saml/suspend-user-accounts.md
               - name: update
                 href: cli-ref/federation/saml/update.md
               - name: validate-domain
@@ -514,6 +522,28 @@ items:
                 href: cli-ref/idp/userpool/update.md
               - name: update-access-bindings
                 href: cli-ref/idp/userpool/update-access-bindings.md
+      - name: mfa-enforcement
+        items:
+          - name: Overview
+            href: cli-ref/mfa-enforcement/index.md
+          - name: activate
+            href: cli-ref/mfa-enforcement/activate.md
+          - name: create
+            href: cli-ref/mfa-enforcement/create.md
+          - name: deactivate
+            href: cli-ref/mfa-enforcement/deactivate.md
+          - name: delete
+            href: cli-ref/mfa-enforcement/delete.md
+          - name: get
+            href: cli-ref/mfa-enforcement/get.md
+          - name: list
+            href: cli-ref/mfa-enforcement/list.md
+          - name: list-audience
+            href: cli-ref/mfa-enforcement/list-audience.md
+          - name: update
+            href: cli-ref/mfa-enforcement/update.md
+          - name: update-audience
+            href: cli-ref/mfa-enforcement/update-audience.md
       - name: organization
         items:
           - name: Overview

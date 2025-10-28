@@ -1,6 +1,6 @@
 ---
 title: Creating a simple text agent in {{ foundation-models-full-name }}
-description: Follow this guide to create a simple text agent using the Responses API in {{ foundation-models-full-name }}.
+description: Follow this guide to create a simple text agent using the {{ responses-api }} in {{ foundation-models-full-name }}.
 ---
 
 # Creating a simple text agent
@@ -52,7 +52,7 @@ To use an example:
       print(response.output[0].content[0].text)
       ```
 
-  1. Save authentication data into environment variables:
+  1. Save authentication data to environment variables:
 
       ```bash
       export YANDEX_CLOUD_FOLDER=<folder_ID>

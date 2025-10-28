@@ -1,6 +1,6 @@
-> (2 × 7,000 / 100,000) × {{ sku|USD|audit-trails.events.data_plane.v1|string }} = 0.14 × {{ sku|USD|audit-trails.events.data_plane.v1|string }} = {% calc [currency=USD] 0,14 × {{ sku|USD|audit-trails.events.data_plane.v1|number }} %}
+> (2 × 7,000 / 100,000) × {{ sku|USD|audit-trails.events.data_plane.v1|string }} = 0.14 × {{ sku|USD|audit-trails.events.data_plane.v1|string }} = {% calc [currency=USD] 0.14 × {{ sku|USD|audit-trails.events.data_plane.v1|number }} %}
 >
-> Total: {% calc [currency=USD] 0,14 × {{ sku|USD|audit-trails.events.data_plane.v1|number }} %}
+> Total: {% calc [currency=USD] 0.14 × {{ sku|USD|audit-trails.events.data_plane.v1|number }} %}
 
 Where:
 

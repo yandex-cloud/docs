@@ -82,6 +82,8 @@ Such use of semantic tags allows you to [filter dialogs](../operations/data/mana
 ## Semantic Pro tags {#sense-pro-tags}
 
 Semantic Pro tags rely on dialog analysis with the use of complex search queries. You provide a search query that may include mutliple topics. {{ speechsense-name }} analyses the dialogs and tags them if the dialog is semantically relevant to the search query.
+
+
 ### Testing semantic Pro tags {#test-sense-pro-tags}
 
 {% include [note-pro](../../_includes/speechsense/tag/note-pro.md) %}
@@ -112,7 +114,7 @@ Such use of semantic Pro tags allows you to [filter dialogs](../operations/data/
 || Dependency search | No | Yes | — ||
 || Dialog analysis | Simple query within a single [semantic attribute](reports/sense-attributes.md) | Complex query with multiple topics or conditions | 
 * Simple query: `Topics` for the attribute, `Vacation in Sochi` for the query.
-* Complex query: `tour to the Maldives purchased without a discount`. ||
+* Complex query: `tour to the Maldives purchased without a discount`.  ||
 || Recalculation based on historical data | Automatic recalculation within two months from the dialog upload date | No | — ||
 |#
 
@@ -125,7 +127,7 @@ Dictionary tags are based on scanning dialogs for specified key phrases. You can
 To fine-tune key phrase detection:
 
 * Enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** setting. In this case, related phrases will not be considered in key phrase detection.
-* Set the distance between words. This setting determines the maximum allowable distance between words in a key phrase. For example:
+* Set the distance between words. This setting determines the maximum allowable distance between words in a key phrase. Here is an example:
 
   > {% include [tag-distance-ex.md](../../_includes/speechsense/tag/tag-distance-ex.md) %}
 

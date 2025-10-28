@@ -1,6 +1,6 @@
 ---
 title: Creating a text agent with a function call in {{ foundation-models-full-name }}
-description: Follow this guide to create a simple text agent using the Responses API in {{ foundation-models-full-name }}.
+description: Follow this guide to create a simple text agent using the {{ responses-api }} in {{ foundation-models-full-name }}.
 ---
 
 # Creating a simple text agent with a function call
