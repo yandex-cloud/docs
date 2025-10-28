@@ -6,7 +6,7 @@ Gwin — инструмент для создания балансировщик
 
 Дополнительные возможности, которые предоставляет {{ alb-name }}:
 
-* [Логирование](../../../application-load-balancer/concepts/application-load-balancer.md#logging) и настройка правил отбрасывания логов.
+* [Логирование](../../../application-load-balancer/concepts/monitoring.md#logging) и настройка правил отбрасывания логов.
 * [Автомасштабирование](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) с контролем ресурсных единиц.
 * [Зональное управление трафиком](../../../application-load-balancer/concepts/application-load-balancer.md#lb-location) для обеспечения высокой доступности сервисов.
 * Гибкие настройки балансировки, включающие [локализацию трафика](../../../application-load-balancer/concepts/backend-group.md#locality) и [режим паники](../../../application-load-balancer/concepts/backend-group.md#panic-mode).

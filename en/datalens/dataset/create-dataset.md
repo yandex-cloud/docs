@@ -1,9 +1,9 @@
 ---
-title: Working with a dataset
-description: Follow this guide to learn how to work with a dataset.
+title: Working with a dataset in {{ datalens-full-name }}
+description: Follow this guide to learn how to work with a dataset in {{ datalens-full-name }}.
 ---
 
-# Working with datasets
+# Working with a dataset in {{ datalens-full-name }}
 
 In this section, you will learn how to work with a dataset:
 
@@ -145,7 +145,7 @@ You can join data from source tables.
 1. Select the fields to join the tables on. You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
-   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. For example:
+   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
    
      ```sql
      SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
@@ -225,7 +225,18 @@ You can perform the following operations on dataset fields:
 1. Change the source: If the table schema in the source has changed, you can select a new field from the source to match the dataset field.
 1. Change the field data type: [Data type](./data-types.md) determines how to process data and which [functions](../function-ref/all.md) can apply to the field. To change the data type, click the current type and select a new one from the list of available types.
 1. Select an aggregation type: Aggregation type determines the [aggregation function](./data-model.md#aggregation) to apply to the field. To change the aggregation type, click the current type and select a new one from the list of available aggregation types.
-1. Configure access permissions: You can restrict access to field values for different users or user groups. To do this, click ![icon](../../_assets/console-icons/key.svg) and set an access configuration in `'field_value': user_email` format. For more information, see [{#T}](../security/row-level-security.md).
+
+
+1. Setting up field display. For dimensions, you can choose a color and set a display format for numeric types; for metrics, you can only set a display format for numbers. These settings apply when you use these fields in charts built from this dataset.
+   
+   {% cut "Field display settings" %}
+
+   ![screenshot](../../_assets/datalens/dataset/dataset-field-format.png =310x285)
+
+   {% endcut %}
+
+
+1. Configure access permissions: You can restrict access to field values for different users or user groups. To do this, click ![icon](../../_assets/console-icons/key.svg) and set the access configuration in `'field_value': user_email` format. For more information, see [{#T}](../security/row-level-security.md).
 1. Sort fields: You can sort fields by name, data type, aggregation type, and other parameters. To do this, use the sorting buttons at the top of the **Fields** table.
 1. Add a description: You can add a comment to a field in the **Description** column. This can help other users understand what the field is used for or how it is calculated.
 1. Hide fields: You can hide fields you do not need at the moment. Other users will not see these fields in the wizard when creating a chart. To do this, click ![icon](../../_assets/console-icons/eye-slash.svg).
@@ -311,7 +322,7 @@ Parameters added at the dataset level are available in all charts created based 
 
    
    * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
-   * **Value validation**. This setting will be available if you enable **Allow use in source settings**. The default value validation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
+   * **Value validation**. This setting will be available if you enable the **Allow use in source settings** option. The default value vallidation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
 
 
 1. Click **Add**.
@@ -384,7 +395,7 @@ For more information on object access, see [{#T}](../security/index.md).
 
 ## Deleting a dataset {#delete}
 
-Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**.
+Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**. If you get an error when opening the linked object window, click **Retry**.
 
 To delete a dataset:
 

@@ -39,3 +39,6 @@ The following specifics apply to working with linked datasets in geovisualizatio
 * Filters in the **Layer filters** section that use non-linked dimensions only apply to their own dataset within the current layer.
 * There are no restrictions on using non-linked dimensions in different layers.
 
+#### See also {#see-also}
+
+[{#T}](../../operations/chart/create-multidataset-chart.md)

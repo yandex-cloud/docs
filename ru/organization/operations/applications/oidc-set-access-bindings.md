@@ -29,7 +29,7 @@ description: Из этой статьи вы узнаете, как настро
 
       Где `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно получить список OIDC-приложений.
 
-   1. Получите [идентификатор пользователя](../../../iam/operations/users/get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
+   1. Получите [идентификатор пользователя](../../../organization/operations/users-get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
 
    1. С помощью команды `yc organization-manager idp application oauth application set-access-bindings` назначьте роли:
       

@@ -5,6 +5,38 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## September {#september-2025}
+
+### New features {#new-features-september-2025}
+
+
+1. Integrated an [AI assistant](../operations/ai-assistant.md) into {{ websql-name }}. You can use it to generate queries to databases, analyze their structure, as well as to fix and optimize queries directly from the editor.
+
+
+1. Added the ability to use the `ISODate`, `UUID`, and `ObjectId` functions in {{ MG }}. You can use these functions to work with dates, create unique IDs, and generate primary keys for documents. 
+
+1. Added the `authentication_source` parameter that enables selecting a database in the cluster to use for authentication when connecting to {{ MG }}.
+
+### Improvements {#improvements-september-2025}
+
+1. Removed the error message that appeared on successful connection to a database with a schema export error. This way, you will still be able to query the database.
+
+
+1. In the [management console]({{ link-console-main }}), added links to the [Privacy policy](https://yandex.com/legal/confidential/en/) and [Terms of use](https://yandex.com/legal/cloud_termsofuse/en/) sections to the left-hand menu.
+
+
+### Fixed issues {#fixes-september-2025}
+
+1. Fixed the issue of random page refreshes when pressing arrow keys and `Enter`.
+
+1. Fixed the incorrect behavior of the `Readonly` user management setting in {{ CH }}.
+
+1. Fixed the incorrect behavior of the `sha256_password` authentication plugin in {{ MY }}.
+
+
+1. Fixed the error where catalog data did not load when opening {{ websql-name }} from the management console.
+
+
 ## August {#august-2025}
 
 

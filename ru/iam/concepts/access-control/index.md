@@ -53,7 +53,7 @@
 
     Идентификатор субъекта: `userAccount:<идентификатор_пользователя>`.
 
-    Где `<идентификатор_пользователя>` — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../operations/users/get.md) пользователю. Например: `userAccount:ajecpdmpr4pr********`.
+    Где `<идентификатор_пользователя>` — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../../organization/operations/users-get.md) пользователю. Например: `userAccount:ajecpdmpr4pr********`.
 
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}:
 
@@ -67,7 +67,7 @@
 
     Идентификатор субъекта: `federatedUser:<идентификатор_пользователя>`.
 
-    Где `<идентификатор_пользователя>` — уникальный идентификатор, [присвоенный](../../operations/users/get.md) федеративному пользователю. Например: `federatedUser:aje7b4u65nb6********`.
+    Где `<идентификатор_пользователя>` — уникальный идентификатор, [присвоенный](../../../organization/operations/users-get.md) федеративному пользователю. Например: `federatedUser:aje7b4u65nb6********`.
 
 * `group` — группа пользователей [{{ org-full-name }}](../../../organization/):
 

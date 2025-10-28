@@ -1,6 +1,6 @@
-Instead of {{ mcp-hub-name }}, you can use the Responses API to access an external MCP server from an AI agent. To do this, simply specify the server URL and the [API key](../../../iam/concepts/authorization/api-key.md).
+Instead of {{ mcp-hub-name }}, you can use the {{ responses-api }} to access an external MCP server from an AI agent. To do this, simply specify the server URL and the [API key](../../../iam/concepts/authorization/api-key.md).
 
-{% cut "Example of connecting an MCP server via the Responses API:" %}
+{% cut "Example of connecting an MCP server via the {{ responses-api }}:" %}
 
 ```python
 from openai import OpenAI
@@ -11,7 +11,7 @@ client = openai.OpenAI(
     base_url="https://{{ api-host-llm }}/v1",
     project="<folder_ID>"
 )
-# Example of calling the MCP via the Responses API
+# Example of calling the MCP via the {{ responses-api }}
 response = client.responses.create(
     model="gpt://<folder_ID>/yandexgpt",
     input=[

@@ -1,0 +1,1 @@
+Прежде чем начать работу с {{ backup-name }}, убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`.

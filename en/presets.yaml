@@ -563,6 +563,7 @@ default:
   resmgr-full-name: Yandex Resource Manager
   resmgr-name: Resource Manager
   responses-api: Responses API
+  retrieval-tool-name: Retrieval
   RMQ: RabbitMQ
   roles-admin: admin
   roles-alb-editor: alb.editor
@@ -875,6 +876,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   vision-full-name: Yandex Vision OCR
@@ -5473,6 +5475,9 @@ default:
       v1|month|number: 0.0378
       v1|month|string: $0.037800
   sku|USD|baremetal:
+    data:
+      data-100tb:
+        1sec|string: $83.333300
     public_network:
       subnet_24|number: 1.418333
       subnet_24|string: $1.418333
@@ -8487,6 +8492,7 @@ default:
         more: More
         overview: Overview
         resource-acl:
+          button_new-bindings: Assign bindings
           label_invitee-accounts: Invitee accounts
         section-base: General information
       component:
@@ -8808,7 +8814,7 @@ default:
             workspacesLabel_kZyU1: Workspaces
         workspaces:
           ConnectorAddField:
-            addNewConnector: New connector
+            addNewConnector: Create connector
             addResourcesPlaceholder: Add resources
           ConnectorDialog:
             createConnectorButton: Create connector
@@ -9235,7 +9241,7 @@ default:
           field_run-later: Run missed tasks after uploading
           field_schedule-type: Launch schedule
           field_sector-by-sector: Sector-by-sector backup
-          field_snapshot-reaatempt: Retry in case of an error while creating a snapshot
+          field_snapshot-reattempt: Retry in case of an error while creating a snapshot
           field_start-time: Start time
           field_validation-enabled: Backup checks
           field_week-days: Days of the week
@@ -9637,6 +9643,7 @@ default:
         field_ddos-protection-provider: DDoS protection
         folder: Folder
         id: ID
+        label_access-rights: Access permissions
         label_author: Author
         label_auto: Auto
         label_filters: Filters
@@ -10189,6 +10196,9 @@ default:
           title_scheduled-scan: Scheduled Docker image scans
         switch_registry: Registries
       dashboard:
+        DashboardPage:
+          AiStudioSection:
+            section_title_1sDGx: AI Studio
         label_permissions_gAtoT: Permissions
       data-catalog:
         action_create-catalog: Create catalog
@@ -10612,7 +10622,6 @@ default:
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
             label_dns: Cloud DNS
-            label_foundation-models: Foundation Models
             label_iam: Identity and Access Management
             label_iot-core: IoT Core
             label_kafka: Managed Service for&nbsp;Kafka
@@ -13920,7 +13929,7 @@ default:
         running: Running
         template-name: Template name
       docker:
-        build-path: Build path
+        build-path: Project storage mounting point
         credentials-switcher-label: Authentication data
         docker-template: Docker template
         dockerfile: Docker file
@@ -14479,7 +14488,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.1
+        tag: v1.20.3
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -14576,7 +14585,7 @@ default:
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
-        tag: 0.1.2-9
+        tag: 0.1.2-10
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero

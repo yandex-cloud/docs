@@ -40,7 +40,7 @@ description: Follow this guide to process large amounts of data by running a mod
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `ai.playground.user` and `ai.datasets.editor` [roles](../../security/index.md) or higher.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/gear-play.svg) **Batch jobs**.
   1. Click **Run**.
   1. Select a model to run.

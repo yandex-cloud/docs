@@ -107,7 +107,7 @@
        {% endnote %}
 
      * `member` — пользователь, которому будет присвоена роль. Обязательный параметр. Может иметь одно из следующих значений:
-       * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
+       * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../organization/operations/users-get.md).
        * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<идентификатор_пользовательского_аккаунта>` — [ID пользовательского аккаунта](../../../organization/operations/users-get.md).
        * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
@@ -513,7 +513,7 @@
 - CLI {#cli}
 
   1. Выберите роль из [справочника ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
-  1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+  1. [Получите идентификатор пользователя](../../../organization/operations/users-get.md).
   1. Назначьте роль с помощью команды:
 
       ```bash

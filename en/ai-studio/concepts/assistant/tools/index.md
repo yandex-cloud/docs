@@ -9,7 +9,7 @@ AI assistants can rely on additional information sources, such as internal knowl
 
 {{ foundation-models-name }} provides pre-integrated tools for {{ assistant-api }}:
 
-* [VectorStore](./vector-store.md)
+* [{{ retrieval-tool-name }}](./vector-store.md)
 * [WebSearch](./web-search.md)
 
 You can connect multiple tools to an AI assistant at the same time.

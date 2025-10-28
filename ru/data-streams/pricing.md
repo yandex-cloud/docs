@@ -6,8 +6,6 @@ editable: false
 
 # Правила тарификации для {{ yds-full-name }}
 
-
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -53,7 +51,12 @@ editable: false
 
 
 
+
+
 ## Цены для региона Россия {#prices}
+
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -73,6 +76,7 @@ editable: false
   {% include [kzt.md](../_pricing/data-streams/kzt-event.md) %}
 
 {% endlist %}
+
 
 
 
@@ -99,6 +103,7 @@ editable: false
 
 
 
+
 #### Цена за хранение данных при лимите пропускной способности сегмента до 512 КБ/с {#up-to-512}
 
 {% list tabs group=pricing %}
@@ -112,6 +117,7 @@ editable: false
   {% include [kzt.md](../_pricing/data-streams/kzt-resources-512.md) %}
 
 {% endlist %}
+
 
 
 #### Цена за хранение данных при лимите пропускной способности сегмента до 1 МБ/с {#up-to-1}
@@ -128,6 +134,7 @@ editable: false
   {% include [kzt.md](../_pricing/data-streams/kzt-resources-1.md) %}
 
 {% endlist %}
+
 
 
 
@@ -166,10 +173,10 @@ editable: false
 
 
 
+
 ## Тарификация по фактическому использованию {#on-demand}
 
 При тарификации по фактическому использованию:
 * Потоки данных, хранящие данные в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md).
 
 * Потоки данных, хранящие данные в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](../ydb/pricing/dedicated.md)).
-

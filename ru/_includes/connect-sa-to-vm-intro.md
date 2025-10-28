@@ -4,4 +4,4 @@
 
 {% endnote %}
 
-Чтобы привязать сервисный аккаунт к ВМ, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), [editor](../iam/roles-reference.md#editor) и выше.
+Чтобы привязать сервисный аккаунт к ВМ, необходимо иметь разрешение на использование этого сервисного аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), [editor](../iam/roles-reference.md#editor) и выше.

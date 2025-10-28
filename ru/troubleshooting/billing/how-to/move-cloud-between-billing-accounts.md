@@ -28,7 +28,7 @@
     После успешного переноса облаков вы сможете предоставить доступ к облаку и другим аккаунтам.
     Для этого выполните следующие шаги:
 
-    1. [Добавьте пользователя в облако](../../../iam/operations/users/create.md#passport-user).
+    1. [Добавьте пользователя в облако](../../../organization/operations/add-account.md#passport-user).
     1. [Назначьте пользователю необходимую роль](../../../iam/operations/roles/grant.md#access-to-user).
     
     Список ролей можно найти [здесь](../../../iam/concepts/access-control/roles.md).

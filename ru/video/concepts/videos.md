@@ -97,3 +97,4 @@
 
 * [Как начать работать с хостингом видео](../hosting.md)
 * [Как начать работать с API](../api-ref/quickstart.md)
+* [Как подключить монетизацию](../operations/channels/settings.md#ad-settings)

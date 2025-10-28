@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить идентификатор лог-группы L7-балансировщика
 
-Чтобы получить идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую передаются [логи](../concepts/application-load-balancer.md#logging) L7-балансировщика:
+Чтобы получить идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую передаются [логи](../concepts/monitoring.md#logging) L7-балансировщика:
 
 {% list tabs group=instructions %}
 

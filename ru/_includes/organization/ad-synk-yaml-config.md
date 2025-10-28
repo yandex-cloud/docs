@@ -5,6 +5,7 @@
 userpool_id: "<идентификатор_пула_пользователей>"
 cloud_credentials_file_path: "<путь_к_файлу_с_авторизованным_ключом>"
 replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
+working_directory: "<путь_к_рабочей_директории_агента>"
 
 # Active Directory replication API client settings
 drsr:

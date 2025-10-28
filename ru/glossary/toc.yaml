@@ -11,6 +11,8 @@ items:
         href: olap.md
       - name: OLTP
         href: oltp.md
+      - name: SQL
+        href: sql.md
       - name: Кластер
         href: cluster.md
       - name: Реляционные базы данных
@@ -111,6 +113,8 @@ items:
         href: url.md
       - name: DHCP
         href: dhcp.md
+      - name: SOAP
+        href: soap.md
   - name: Безопасность
     items:
       - name: Control Plane и Data Plane

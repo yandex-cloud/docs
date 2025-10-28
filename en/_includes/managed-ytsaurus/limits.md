@@ -8,6 +8,9 @@
 || Total virtual memory for all cluster components per cloud | 762 GB ||
 || Total non-replicated SSD storage capacity | 5,022 GB ||
 || Total SSD storage capacity | 5,022 GB ||
+|| Total number of NVIDIA® Ampere® A100 [GPUs](../../compute/concepts/gpus.md) for all cluster components per cloud | 0 ||
+|| Total number of NVIDIA® Tesla® T4 GPUs for all cluster components per cloud | 0 ||
+|| Total number of NVIDIA® Tesla® V100 GPUs for all cluster components per cloud | 0 ||
 |#
 
 ## Limits {#limits}

@@ -1,4 +1,4 @@
-1. При необходимости [добавьте](../iam/operations/users/create.md) нужного пользователя.
+1. При необходимости [добавьте](../organization/operations/add-account.md) нужного пользователя.
 1. В [консоли управления]({{ link-console-main }}) слева [выберите](../resource-manager/operations/cloud/switch-cloud.md) облако.
 1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.

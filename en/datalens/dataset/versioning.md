@@ -1,9 +1,9 @@
 ---
-title: Dataset versioning
-description: Dataset versioning means storing the history of dataset configuration changes through versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the dataset.
+title: Dataset versioning in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, dataset versioning means storing the history of dataset configuration changes through versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the dataset.
 ---
 
-# Versioning
+# Versioning in {{ datalens-full-name }}
 
 Dataset versioning means storing the history of dataset configuration changes through versions. A list of versions is available to users with the minimum edit permission for the dataset.
 
@@ -58,7 +58,7 @@ To edit an outdated version, select it from the list of versions. To save your c
 ## Limitations {#restrictions}
 
 * You can only switch to versions created on or after December 1, 2024. Currently, if you edit a dataset created before this date, saving your changes will delete the previous version.
-* You can only get change history for the last three months.
+* Change history is only available for the last three months.
 * The change history only contains a list of dataset versions and indicates the version type, save date and time, and user who made the change.
 * Dataset versions do not include:
 

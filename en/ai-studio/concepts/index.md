@@ -1,6 +1,6 @@
 ---
 title: About {{ ai-studio-full-name }}
-description: '{{ ai-studio-full-name }} is a platform for building AI solutions. It offers everything you need to build an intelligent agent that will help your business address everyday tasks. {{ gpt-lite }} and {{ gpt-pro }} can generate product descriptions, articles, news stories, newsletters, blog posts, and much more. {{ yandexart-name }} can create an image from a description. The quality of the neural network''s response directly depends on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.'
+description: '{{ ai-studio-full-name }} is a platform for building AI solutions. It offers everything you need to build an intelligent agent that will help your business address everyday tasks. {{ gpt-lite }} and {{ gpt-pro }} can generate product descriptions, articles, news stories, newsletters, blog posts, and much more. {{ yandexart-name }} can create an image from a description. The quality of the neural network''s response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.'
 ---
 
 # About {{ ai-studio-full-name }}
@@ -16,6 +16,6 @@ The [{{ agents-atelier-name }}](./agents/index.md) development environment suppo
 
 For those who prefer creating agents in a graphical editor, {{ ai-studio-name }} offers a {{ sw-full-name }} builder.
 
-The {{ ai-studio-name }} API is fully compatible with the {{ openai }} API: use the Responses API to build text agents, the Realtime API to create voice agents, and the Vector Store API for search through documents. The APIs support integration with such widely used frameworks as LangChain and LangGraph.
+The {{ ai-studio-name }} API is fully compatible with the {{ openai }} API: use the {{ responses-api }} to create text agents, the {{ realtime-api }} to create voice agents, and the {{ vector-store-name }} API to search through documents. The APIs support integration with such widely used frameworks as LangChain and LangGraph.
 
 For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).

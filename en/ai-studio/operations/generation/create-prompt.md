@@ -43,10 +43,9 @@ description: Follow this guide to learn how to use the {{ responses-api }} in {{
       )
 
       print(response.output[0].content[0].text)
-            ```
       ```
 
-  1. Save authentication data into environment variables:
+  1. Save authentication data to environment variables:
 
       ```bash
       export YANDEX_CLOUD_FOLDER=<folder_ID>

@@ -14,7 +14,7 @@ noIndex: true
 
 Схема синхронизации:
 
-![ad-sync-agent](../../_assets/organization/ad-sync-agent.png)
+![ad-sync-agent](../../_assets/organization/ad-sync-agent.svg)
 
 На сервере, где [запущен](../operations/sync-ad.md) агент синхронизации, должны быть открыты следующие [TCP](https://ru.wikipedia.org/wiki/TCP)-порты для входящего и исходящего трафика:
 

@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
         Где:
         * `--id` — идентификатор секрета.
-        * `--user-account-id` — [идентификатор пользователя](../../iam/operations/users/get.md).
+        * `--user-account-id` — [идентификатор пользователя](../../organization/operations/users-get.md).
         * `--role` — назначаемая [роль](../security/index.md#roles-list).
 
       * [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md):

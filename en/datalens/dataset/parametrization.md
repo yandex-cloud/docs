@@ -1,6 +1,11 @@
-# Parameterization of dataset sources
+---
+title: Parameterization of dataset sources in {{ datalens-full-name }}
+description: Parameterization of dataset sources in {{ datalens-full-name }} allows you to dynamically substitute parameters from a chart into an SQL query or a table or schema name.
+---
 
-Parameterization of dataset sources allows you to dynamically substitute parameters from a chart into an SQL query or the name of a table or schema.
+# Parameterization of dataset sources in {{ datalens-full-name }}
+
+Parameterization of dataset sources allows you to dynamically substitute parameters from a chart into an SQL query or a table or schema name.
 
 To enable source parameterization:
 

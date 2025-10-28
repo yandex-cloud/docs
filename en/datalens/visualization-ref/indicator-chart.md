@@ -31,7 +31,7 @@ Year |	Sales|
 
 ## Wizard sections {#wizard-sections}
 
-Section<br/> section| Description
+Wizard<br/> section| Description
 ----- | ----
 Measure  | Measure. One measure that determines the indicator value.
 Filters | Dimension or measure. Used as a filter.
@@ -58,7 +58,7 @@ To create an indicator:
 To change indicator size and color:
 
 1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg).
-1. In the **Indicator settings** window, select the size and color and click **Apply**.
+1. In the **Indicator settings** window, select the size, color palette, color and click **Apply**.
 
 ### Customizing header display {#indicator-title}
 

@@ -501,7 +501,7 @@
 
   1. В списке **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** выберите учетную запись.
 
-      Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему [облаку](../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../iam/operations/users/create.md).
+      Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему [облаку](../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../organization/operations/add-account.md).
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
 
 {% endlist %}

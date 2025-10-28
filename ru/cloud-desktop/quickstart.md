@@ -108,8 +108,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Справа от группы рабочих столов, созданной ранее, нажмите ![image](../_assets/console-icons/ellipsis.svg) и выберите **Настроить ACL**.
-  1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выберите группу пользователей, созданную ранее, укажите для нее [роль](./security/index.md#vdi-desktopGroups-user) `vdi.desktopGroups.user` или [роль](./security/index.md#vdi-desktopGroups-maintainer) `vdi.desktopGroups.maintainer` и нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В списке групп рабочих рабочих столов выберите созданную ранее группу.
+  1. На панели слева выберите ![persons](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
+  1. Нажмите **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud_components.acl.label.title }}** выберите группу пользователей, созданную ранее.
+  1. Нажмите **{{ ui-key.yacloud_components.acl.action.add-role }}** и укажите [роль](./security/index.md#vdi-desktopGroups-user) `vdi.desktopGroups.user` или [роль](./security/index.md#vdi-desktopGroups-maintainer) `vdi.desktopGroups.maintainer`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

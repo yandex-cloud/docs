@@ -22,7 +22,7 @@ def make_silence_chunk(samples: int):
 
 
 async def main():
-    # 1️⃣ Converting the input file to a format compatible with the Realtime API:
+    # 1️⃣ Converting the input file to a format the {{ realtime-api }} can understand:
     # mono, 24kHz, 16-bit PCM. Without this, the model will not accept the audio.
     print("🎧 Converting the input file...")
     subprocess.run([
@@ -32,12 +32,12 @@ async def main():
     ], check=True)
     print(f"✅ Converted {INPUT_FILE} -> {CONVERTED_FILE}")
 
-    # 2️⃣ Establishing a WebSocket connection with the Realtime API.
+    # 2️⃣ Establishing a WebSocket connection with the {{ realtime-api }}.
     async with websockets.connect(
             REALTIME_URL,
             additional_headers=[("Authorization", f"api-key {API_KEY}")]
     ) as ws:
-        print("✅ Connected to Realtime API")
+        print("✅ Connected to {{ realtime-api }}")
 
         # 3️⃣ Waiting for the first "session.created" event with the session settings.
         created = json.loads(await ws.recv())
@@ -91,7 +91,7 @@ Keep your responses concise; basically, make sure they are easy to listen to.
 
         # Sending ~500 ms of silence at the end for VAD to reliably detect the end of speech
         silence_chunk = make_silence_chunk(samples_per_chunk)
-        for _ in range(5):  # 5 * 100мс = 500мс
+        for _ in range(5):  # 5 * 100ms = 500ms
             await ws.send(json.dumps({
                 "type": "input_audio_buffer.append",
                 "audio": base64.b64encode(silence_chunk).decode("ascii")
@@ -108,7 +108,7 @@ Keep your responses concise; basically, make sure they are easy to listen to.
 
                 if data.get("type") == "input_audio_buffer.committed" and not committed:
                     committed = True
-                    print("✅ Audio buffer committed — creating response...")
+                    print("✅ Audio buffer committed — creating a response...")
                     await ws.send(json.dumps({
                         "type": "response.create",
                         "response": {

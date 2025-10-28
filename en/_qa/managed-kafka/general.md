@@ -76,6 +76,14 @@ For an example of using scripts, see [{#T}](../../managed-kafka/operations/conne
 
 On Ubuntu 24.04 and higher, use `kcat` instead of `kafkacat` (this command will not work).
 
+#### Will Karapace be available during maintenance? {#karapace-maintenance}
+
+{% include [karapace-maintenance](../../_includes/mdb/mkf/karapace-maintenance.md) %}
+
+#### Is Karapace's endpoint constant or does it vary depending on the broker? {#karapace-endpoint}
+
+{% include [karapace](../../_includes/mdb/mkf/karapace.md) %}
+
 #### What is {{ mkf-short-name }}'s share of database management and maintenance work? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

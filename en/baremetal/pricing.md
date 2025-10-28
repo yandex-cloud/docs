@@ -67,6 +67,25 @@ The prices for dedicated public subnets are effective starting May 15, 2025.
 ^1^ The price per month is provided for reference only, assuming a 720-hour (30-day) month. The price per hour is used in {{ billing-name }} calculations.
 
 
+
+### Connecting a bandwidth package for a public network {#bandwidth-package}
+
+{% note info %}
+
+To request a bandwidth package of 100 TB, contact [support]({{ link-console-support }}).
+
+{% endnote %}
+
+_Data size_ is a billing unit equal to the amount of traffic transmitted within a day. Per-day prices are calculated based on 24 hours.
+
+Available now:
+
+
+
+
+{% include [usd-bandwidth-restrictions](../_pricing/baremetal/usd-bandwidth.md) %}
+
+
 ### {{ baremetal-full-name }} network traffic billing when communicating with other {{ yandex-cloud }} services {#traffic-pricing-pecs}
 
 #### {{ vpc-full-name }} {#vpc-traffic}

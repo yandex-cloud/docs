@@ -4171,9 +4171,15 @@ items:
                   - name: list-user-accounts
                     href: >-
                       cli-ref/organization-manager/cli-ref/federation/saml/list-user-accounts.md
+                  - name: reactivate-user-accounts
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/federation/saml/reactivate-user-accounts.md
                   - name: remove-labels
                     href: >-
                       cli-ref/organization-manager/cli-ref/federation/saml/remove-labels.md
+                  - name: suspend-user-accounts
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/federation/saml/suspend-user-accounts.md
                   - name: update
                     href: >-
                       cli-ref/organization-manager/cli-ref/federation/saml/update.md
@@ -4372,6 +4378,32 @@ items:
                   - name: update-access-bindings
                     href: >-
                       cli-ref/organization-manager/cli-ref/idp/userpool/update-access-bindings.md
+          - name: mfa-enforcement
+            items:
+              - name: Overview
+                href: cli-ref/organization-manager/cli-ref/mfa-enforcement/index.md
+              - name: activate
+                href: >-
+                  cli-ref/organization-manager/cli-ref/mfa-enforcement/activate.md
+              - name: create
+                href: cli-ref/organization-manager/cli-ref/mfa-enforcement/create.md
+              - name: deactivate
+                href: >-
+                  cli-ref/organization-manager/cli-ref/mfa-enforcement/deactivate.md
+              - name: delete
+                href: cli-ref/organization-manager/cli-ref/mfa-enforcement/delete.md
+              - name: get
+                href: cli-ref/organization-manager/cli-ref/mfa-enforcement/get.md
+              - name: list
+                href: cli-ref/organization-manager/cli-ref/mfa-enforcement/list.md
+              - name: list-audience
+                href: >-
+                  cli-ref/organization-manager/cli-ref/mfa-enforcement/list-audience.md
+              - name: update
+                href: cli-ref/organization-manager/cli-ref/mfa-enforcement/update.md
+              - name: update-audience
+                href: >-
+                  cli-ref/organization-manager/cli-ref/mfa-enforcement/update-audience.md
           - name: organization
             items:
               - name: Overview

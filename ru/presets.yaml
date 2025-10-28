@@ -934,6 +934,7 @@ default:
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
+  yc-ytsaurus: yc managed-ytsaurus
   ycdr-full-name: Yandex Cloud Detection and Response
   ycdr-name: YCDR
   ydb-full-name: Yandex Managed Service for YDB
@@ -5483,6 +5484,9 @@ default:
       v1|month|number: 0.0378
       v1|month|string: "0,037800\_$"
   sku|USD|baremetal:
+    data:
+      data-100tb:
+        1sec|string: "83,333300\_$"
     public_network:
       subnet_24|number: 1.418333
       subnet_24|string: "1,418333\_$"
@@ -8497,6 +8501,7 @@ default:
         more: Ещё
         overview: Обзор
         resource-acl:
+          button_new-bindings: Назначить роли
           label_invitee-accounts: Приглашенные аккаунты
         section-base: Общая информация
       component:
@@ -8818,7 +8823,7 @@ default:
             workspacesLabel_kZyU1: Окружения
         workspaces:
           ConnectorAddField:
-            addNewConnector: Новый коннектор
+            addNewConnector: Создать коннектор
             addResourcesPlaceholder: Добавить ресурсы
           ConnectorDialog:
             createConnectorButton: Создать коннектор
@@ -9245,7 +9250,7 @@ default:
           field_run-later: Запуск пропущенных заданий после загрузки
           field_schedule-type: Расписание запуска
           field_sector-by-sector: Посекторное резервное копирование
-          field_snapshot-reaatempt: В случае ошибки при создании снимка повторить попытку
+          field_snapshot-reattempt: В случае ошибки при создании снимка повторить попытку
           field_start-time: Время запуска
           field_validation-enabled: Проверка резервных копий
           field_week-days: Дни недели
@@ -9651,6 +9656,7 @@ default:
         field_ddos-protection-provider: Защита от DDoS-атак
         folder: Каталог
         id: Идентификатор
+        label_access-rights: Права доступа
         label_author: Автор
         label_auto: Автоматически
         label_filters: Фильтры
@@ -10205,6 +10211,9 @@ default:
           title_scheduled-scan: Сканирование Docker-образов по расписанию
         switch_registry: Реестры
       dashboard:
+        DashboardPage:
+          AiStudioSection:
+            section_title_1sDGx: AI Studio
         label_permissions_gAtoT: Разрешения
       data-catalog:
         action_create-catalog: Cоздать каталог
@@ -10628,7 +10637,6 @@ default:
             label_data-transfer_ru: Data Transfer
             label_datalens: DataLens
             label_dns: Cloud DNS
-            label_foundation-models: Foundation Models
             label_iam: Identity and Access Management
             label_iot-core: IoT Core
             label_kafka: Managed Service for&nbsp;Kafka
@@ -13936,7 +13944,7 @@ default:
         running: Running
         template-name: Имя шаблона
       docker:
-        build-path: Путь к образу внутри проекта
+        build-path: Точка монтирования хранилища проекта
         credentials-switcher-label: Данные для аутентификации
         docker-template: Шаблон Docker-образа
         dockerfile: Файл Docker
@@ -14495,7 +14503,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.1
+        tag: v1.20.3
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -14592,7 +14600,7 @@ default:
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
-        tag: 0.1.2-9
+        tag: 0.1.2-10
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero

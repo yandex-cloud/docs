@@ -32,6 +32,7 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 * [{#T}](./agents/create-voice-agent.md)
 * [{#T}](./agents/create-simple-text-agent.md)
 * [{#T}](./agents/create-function-text-agent.md)
+* [{#T}](./agents/manage-searchindex.md)
 
 ## Step-by-step guides on how to use MCP servers {#mcp-servers}
 

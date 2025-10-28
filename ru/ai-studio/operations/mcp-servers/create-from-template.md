@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы научите
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роли [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) и [`serverless.mcpGateways.anonymousInvoker`](../../security/index.md#serverless-mcpGateways-anonymousInvoker) (или выше).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
   1. На панели слева выберите ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP-серверы** и нажмите кнопку **Создать MCP-сервер**. В открывшемся окне:
 
       1. В блоке **Способ добавления** выберите один из [шаблонов](../../concepts/mcp-hub/templates.md): [Контур.Фокус](https://focus.kontur.ru), [{{ tracker-full-name }}](https://360.yandex.ru/business/tracker/), [{{ search-api-full-name }}](../../../search-api/index.yaml) или [amoCRM](https://www.amocrm.ru/).

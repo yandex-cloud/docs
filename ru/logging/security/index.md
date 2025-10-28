@@ -40,6 +40,8 @@
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ cloud-logging-name }}.
 
+{% include [logging](../../_mermaid/roles/logging.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### logging.viewer {#logging-viewer}

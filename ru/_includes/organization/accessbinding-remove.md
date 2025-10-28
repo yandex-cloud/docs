@@ -38,7 +38,7 @@
          --organization-id <идентификатор_организации>
        ```
 
-   1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, у которых отзываете роль.
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, у которых отзываете роль.
    1. С помощью команды `yc organization-manager group remove-access-binding` отзовите роль у объекта:
 
          ```bash

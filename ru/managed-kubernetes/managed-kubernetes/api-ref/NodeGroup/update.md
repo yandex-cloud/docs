@@ -74,7 +74,7 @@ apiPlayground:
               properties:
                 fixedScale:
                   description: |-
-                    **[FixedScale](#yandex.cloud.k8s.v1.ScalePolicy.FixedScale)**
+                    **[FixedScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
                     Fixed scale policy of the node group.
                     Includes only one of the fields `fixedScale`, `autoScale`.
                   $ref: '#/definitions/FixedScale'
@@ -451,12 +451,11 @@ apiPlayground:
       FixedScale:
         type: object
         properties:
-          size:
+          resourcePresetId:
             description: |-
-              **string** (int64)
-              Number of nodes in the node group.
+              **string**
+              ID of computing resources preset to be used by master.
             type: string
-            format: int64
       AutoScale:
         type: object
         properties:

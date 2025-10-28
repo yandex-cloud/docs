@@ -24,3 +24,9 @@ You can set the preferred maintenance time when [creating a cluster](../operatio
 In single-host {{ mkf-name }} clusters, a single [broker host](brokers.md) undergoes maintenance. This means, if a cluster needs to be restarted during maintenance, it will become unavailable.
 
 In multi-host clusters, broker hosts undergo maintenance one by one. The hosts are queued randomly. A broker host becomes unavailable while it is being restarted during maintenance.
+
+## Karapace availability {#karapace}
+
+{% include [karapace-maintenance](../../_includes/mdb/mkf/karapace-maintenance.md) %}
+
+[Learn more about managing data schemas](managed-schema-registry.md).

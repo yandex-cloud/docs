@@ -55,6 +55,8 @@ items:
             href: operations/application-load-balancer-get.md
           - name: Посмотреть статистику L7-балансировщика
             href: operations/application-load-balancer-get-stats.md
+          - name: Настроить алерты
+            href: operations/application-load-balancer-manage-alerts.md
           - name: Посмотреть логи L7-балансировщика
             href: operations/application-load-balancer-get-logs.md
           - name: Настроить запись логов L7-балансировщика
@@ -225,6 +227,10 @@ items:
         href: concepts/backend-group.md
       - name: Целевые группы
         href: concepts/target-group.md
+      - name: Мониторинг и логирование
+        href: concepts/monitoring.md
+      - name: Графики мониторинга
+        href: concepts/function-monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Рекомендации по настройке проверок состояния
