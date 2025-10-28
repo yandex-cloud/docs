@@ -3,7 +3,7 @@
 Для использования [API](../../glossary/rest-api.md) подходят все инструменты, совместимые с Amazon SQS: AWS CLI, Boto3 и другие [поддерживаемые SDK](https://aws.amazon.com/ru/tools/#sdk).
 
 ## Прочие SDK {#sdk}
-* [1С:Предприятие 8](https://github.com/leemuar/yandexmq-sdk-1c)
+* [Клиент ЯндексMQ для 1С:Предприятие 8](https://github.com/leemuar/yandexmq-sdk-1c)
 
 ## Подготовка к работе {#preparations}
 
