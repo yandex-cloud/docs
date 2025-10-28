@@ -1,6 +1,6 @@
 Calculating the cost of computing resources:
 
-> ({{ sku|USD|cloud_desktop.vcpu.c50.v1|string }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|string }} × 2) × 1,000 = {% calc [currency=USD] ({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000 %}
+> ({{ sku|USD|cloud_desktop.vcpu.c50.v1|string }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|string }} × 2) × 1,000= {% calc [currency=USD] ({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000 %}
 >
 > Total: {% calc [currency=USD] ({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000 %}: Total cost of 1,000 hours of computing resource operation.
 
@@ -18,7 +18,7 @@ Cost calculation for boot disks:
 > Total: {% calc [currency=USD] {{ sku|USD|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %}: Cost of boot disk operation.
 
 Where:
-* {{ sku|USD|cloud_desktop.ssd.v1|month|string }}: Cost of using an SSD boot disk per 1 GB per month.
+* {{ sku|USD|cloud_desktop.ssd.v1|month|string }}: Cost of using an SSD boot disk: per GB, per month.
 * 50: Boot disk size (GB).
 * 10: Number of desktops in the group.
 
@@ -29,7 +29,7 @@ Cost calculation for data disks:
 > Total: {% calc [currency=USD] {{ sku|USD|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %}: Cost of data disk operation.
 
 Where:
-* {{ sku|USD|cloud_desktop.hdd.v1|month|string }}: Cost of using an HDD data disk per 1 GB per month.
+* {{ sku|USD|cloud_desktop.hdd.v1|month|string }}: Cost of using an HDD data disk: per GB, per month.
 * 30: Data disk size (GB).
 * 10: Number of desktops in the group.
 
@@ -37,7 +37,7 @@ Total cost calculation:
 
 > {% calc [currency=USD] ({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000 %} + {% calc [currency=USD] {{ sku|USD|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} + {% calc [currency=USD] {{ sku|USD|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} = {% calc [currency=USD] (({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|USD|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|USD|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %}
 >
-> Total: {% calc [currency=USD] (({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|USD|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|USD|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %}: Per month cost of {{ cloud-desktop-name }}.
+> Total: {% calc [currency=USD] (({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|USD|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|USD|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %}: Cost of using {{ cloud-desktop-name }}, per month.
 
 Where:
 * {% calc [currency=USD] ({{ sku|USD|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|USD|cloud_desktop.ram.v1|number }} × 2) × 1000 %}: Cost of computing resources.

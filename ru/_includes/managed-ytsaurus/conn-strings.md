@@ -15,23 +15,33 @@
 
 - Подключение с пользовательской ВМ {#from-yandex-vm}
 
-  1. Создайте конфигурационный файл доступа:
+  1. Получите конфигурационный файл доступа с помощью команды YC CLI:
 
-      ```bash
-      echo '{
-        auth_class = {
-          module_name = "yc_managed_ytsaurus_auth";
-          class_name = "IamTokenAuth";
-        };
-        proxy = {
-          url = "http://hp.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.mdb.yandexcloud.net:32100";
-          network_name = "external";
-          http_proxy_role = "default";
-        }
-      }' > ~/.yt/config
-      ```
+     ```bash
+     {{ yc-ytsaurus }} cluster get-configuration <имя_или_идентификатор_кластера> --private
+     ```
 
-      Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
+     {% cut "Пример конфигурационного файла" %}
+     
+     ```bash
+     {
+       auth_class = {
+         module_name = "yc_managed_ytsaurus_auth";
+         class_name = "IamTokenAuth";
+       };
+       proxy = {
+         url = "http://hp.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.mdb.yandexcloud.net:32100";
+         network_name = "external";
+         http_proxy_role = "default";
+       }
+     }
+     ```
+
+     {% endcut %}
+
+     Конфигурационный файл будет сохранен по пути `~/.yt/config`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
 
   1. Выполните запрос списка содержимого корневого каталога:
 
@@ -41,22 +51,32 @@
 
 - Подключение из интернета {#from-internet}
 
-  1. Создайте конфигурационный файл доступа:
+  1. Получите конфигурационный файл доступа с помощью команды YC CLI:
 
-      ```bash
-      echo '{
-        auth_class = {
-          module_name = "yc_managed_ytsaurus_auth";
-          class_name = "IamTokenAuth";
-        };
-        proxy = {
-          url = "https://<идентификатор_кластера_{{ ytsaurus-name }}>.proxy.ytsaurus.yandexcloud.net";
-          enable_proxy_discovery = %false;
-        }
-      }' > ~/.yt/config
-      ```
+     ```bash
+     {{ yc-ytsaurus }} cluster get-configuration <имя_или_идентификатор_кластера>
+     ```
 
-      Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
+     {% cut "Пример конфигурационного файла" %}
+     
+     ```bash
+     {
+       auth_class = {
+         module_name = "yc_managed_ytsaurus_auth";
+         class_name = "IamTokenAuth";
+       };
+       proxy = {
+         url = "https://<идентификатор_кластера_{{ ytsaurus-name }}>.proxy.ytsaurus.yandexcloud.net";
+         enable_proxy_discovery = %false;
+       }
+     }
+     ```
+     
+     {% endcut %}
+     
+     Конфигурационный файл будет сохранен по пути `~/.yt/config`.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
 
   1. Выполните запрос списка содержимого корневого каталога:
 

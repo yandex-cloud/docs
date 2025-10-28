@@ -41,7 +41,9 @@ Aliases:
 	- [yc organization-manager federation saml list-domains](saml/list-domains.md) — List domains in the specified federation
 	- [yc organization-manager federation saml list-operations](saml/list-operations.md) — List operations for the specified federation
 	- [yc organization-manager federation saml list-user-accounts](saml/list-user-accounts.md) — List user accounts of the specified federation
+	- [yc organization-manager federation saml reactivate-user-accounts](saml/reactivate-user-accounts.md) — Reactivate specified user accounts
 	- [yc organization-manager federation saml remove-labels](saml/remove-labels.md) — Remove labels from specified federation
+	- [yc organization-manager federation saml suspend-user-accounts](saml/suspend-user-accounts.md) — Suspend specified user accounts
 	- [yc organization-manager federation saml update](saml/update.md) — Update the specified federation
 	- [yc organization-manager federation saml validate-domain](saml/validate-domain.md) — Validate a domain in the specified federation
 

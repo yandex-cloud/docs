@@ -60,8 +60,14 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc organization-manager group set-access-bindings --help
       ```
+ 
+   1. Получите список групп пользователей вместе с идентификаторами этих групп:
 
-   1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или [группы пользователей](group-get-id.md), которым назначаете роли.
+      ```bash
+      yc organization-manager group list
+      ```
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или [группы пользователей](group-get-id.md), которым назначаете роли.
+
    1. С помощью команды `yc organization-manager group set-access-bindings` назначьте роли:
 
       * Пользователю с аккаунтом на Яндексе:

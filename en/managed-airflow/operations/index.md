@@ -40,6 +40,8 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 
 * [Working with {{ AF }} interfaces](af-interfaces.md)
 
-## Logs {#logs}
+## Logs and monitoring {#logs}
 
+* [Monitoring cluster state](monitoring.md)
+* [Viewing cluster logs](cluster-logs.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](af-logging.md)

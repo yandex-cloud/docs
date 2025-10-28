@@ -1,15 +1,15 @@
 ---
-title: Creating an assistant with the VectorStore tool
-description: Follow this guide to create a personalized assistant in {{ assistant-api }} to implement a generative response scenario with access to information from a search index using VectorStore.
+title: Creating an assistant with the {{ vector-store-name }} tool
+description: Follow this guide to create a personalized assistant in {{ assistant-api }} which generates responses based on information from a search index using {{ vector-store-name }}.
 ---
 
-# Creating a RAG assistant with the VectorStore tool
+# Creating a RAG assistant with the {{ vector-store-name }} tool
 
 {% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a retrieval augmented generation ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) scenario based on information from external sources, and save the context of requests to the model.
 
-The VectorStore [tool](../../concepts/assistant/tools/vector-store.md) allows AI assistants to draw information from the knowledge base.
+The {{ retrieval-tool-name }} [tool](../../concepts/assistant/tools/vector-store.md) allows AI assistants to draw information from the knowledge base.
 
 ## Getting started {#before-begin}
 
@@ -52,7 +52,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
 
   1. Run the file you created:
 
@@ -73,7 +73,7 @@ To use the examples:
 
       Response:  According to the information I found, a visa to Bali is 300 rubles. However, note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip.
 
-      * Contents of fragment No. 1: ('**Bali is a tropical paradise full of unforgettable experiences!**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you must have a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements.',)
+      * Contents of fragment No. 1: ('**Bali is a tropical paradise full of unforgettable experiences!**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you will need a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements.',)
       * Search index ID in fragment No. 1: fvtacpbi0cg3********
       * Search index type settings in fragment No. 1: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
       * Source file ID for fragment No. 1: fvtg6bmrdvb3********
@@ -85,13 +85,13 @@ To use the examples:
       * Source file ID for fragment No. 2: fvtg6bmrdvb3********
       * Source file MIME type for fragment No. 2: text/plain
 
-      * Contents of fragment No. 3: ('**What do I need for the trip?** To enter Indonesia, you must have a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles.',)
+      * Contents of fragment No. 3: ('**What do I need for the trip?** To enter Indonesia, you will need a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles.',)
       * Search index ID in fragment No. 3: fvtacpbi0cg3********
       * Search index type settings in fragment No. 3: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
       * Source file ID for fragment No. 3: fvtg6bmrdvb3********
       * Source file MIME type for fragment No. 3: text/plain
 
-      * Contents of fragment No. 4: ('**Kazakhstan: Journey to the heart of Eurasia**\n\nDiscover Kazakhstan, a fascinating country where East meets West. Enjoy its endless steppes, majestic mountains, historical landmarks, and the warm hospitality of its people. **What do I need for the trip?** To enter Kazakhstan from Russia, you will need the following documents:\n* Passport valid for at least 3 months beyond your trip. * Migration card (issued in-flight or at the border). * Medical insurance (optional but recommended). Don't miss out on the opportunity to visit this beautiful country for a vibrant vacation.',)
+      * Contents of fragment No. 4: ('**Kazakhstan: A journey to the heart of Eurasia**\n\nDiscover Kazakhstan, a fascinating country where East meets West. Enjoy its endless steppes, majestic mountains, historical landmarks, and the warm hospitality of its people. **What do I need for the trip?** To enter Kazakhstan from Russia, you will need the following documents:\n* Passport valid for at least 3 months beyond your trip. * Migration card (issued in-flight or at the border). * Medical insurance (optional but recommended). Don't miss out on the opportunity to visit this beautiful country for a vibrant vacation.',)
       * Search index ID in fragment No. 4: fvtacpbi0cg3********
       * Search index type settings in fragment No. 4: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
       * Source file ID for fragment No. 4: fvttf5sq7u0j********
@@ -291,7 +291,7 @@ To use the examples:
 
           {% endcut %}
 
-          `true` in the `done` field indicates that the index has been created. Save the obtained search index ID (`response.id` field value). You will need it when creating the assistant and [thread](../../concepts/assistant/index.md#content).
+          `true` in the `done` field indicates that the index has been created. Save the search index ID (`response.id` field value). You will need it to create an assistant and a [thread](../../concepts/assistant/index.md#content).
   1. Create an AI assistant:
 
       1. Create a file named `assistant.json` with the body of the request to create an assistant:
@@ -324,7 +324,7 @@ To use the examples:
           Where:
           * `modelUri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `searchIndexIds`: Search index ID you got at the previous step.
-          * `instruction`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+          * `instruction`: Prompt with an instruction for the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash
@@ -540,7 +540,7 @@ To use the examples:
           }
           ```
 
-          {{ assistant-api }} has returned the run information: the run is in the `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
 
       1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
@@ -694,7 +694,7 @@ To use the examples:
       }
       ```
 
-      {{ assistant-api }} has returned the run information: the run is in the `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+      {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
   1. Get the result of the run with the assistant's second response. To do this, make a request by specifying the run ID you got earlier:
 
       ```bash
@@ -808,7 +808,7 @@ To use the examples:
                         "content": [
                           {
                             "text": {
-                              "content": "**Bali is a tropical paradise full of unforgettable experiences.**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you must have a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles. Don't miss out on the opportunity to visit this beautiful island for a vibrant vacation! Book your Bali vacation today. **We look forward to seeing you!**"
+                              "content": "**Bali is a tropical paradise full of unforgettable experiences.**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you will need a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles. Don't miss out on the opportunity to visit this beautiful island for a vibrant vacation! Book your Bali vacation today. **We look forward to seeing you!**"
                             }
                           }
                         ]

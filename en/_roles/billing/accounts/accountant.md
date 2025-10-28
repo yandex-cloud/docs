@@ -14,12 +14,5 @@ To use the `billing.accounts.accountant` role, you need to assign it for a billi
 
 {% endcut %}
 
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
-
-* View the list of [subaccounts](../../../partner/terms.md#sub-account) and info on them.
-* [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
-* View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
-
-{% endcut %}
 
 This role includes the `billing.accounts.viewer` permissions.

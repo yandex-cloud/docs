@@ -22,7 +22,7 @@ description: Управление доступом в сервисе сетев�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.svg)
+{% include [network-load-balancer](../../_mermaid/roles/network-load-balancer.md) %}
 
 ### Сервисные роли {#service-roles}
 

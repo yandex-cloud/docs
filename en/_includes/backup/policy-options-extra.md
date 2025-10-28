@@ -16,7 +16,7 @@
         * **{{ ui-key.yacloud.backup.policy-form.field_attempts-qty }}**: Maximum number of retry attempts.
         * **{{ ui-key.yacloud.backup.policy-form.field_interval-between-attempts }}**: Interval between reattempts.
 
-    * **{{ ui-key.yacloud.backup.policy-form.field_snapshot-reaatempt }}**: Reattempt settings in case of snapshot errors:
+    * **{{ ui-key.yacloud.backup.policy-form.field_snapshot-reattempt }}**: Reattempt settings in case of snapshot errors:
 
         *  **{{ ui-key.yacloud.backup.policy-form.field_attempts-qty }}**: Maximum number of retry attempts.
         *  **{{ ui-key.yacloud.backup.policy-form.field_interval-between-attempts }}**: Interval between reattempts.

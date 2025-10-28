@@ -32,6 +32,16 @@ Syntax:
 	- [yc organization-manager group set-access-bindings](group/set-access-bindings.md) — Set access bindings for the specified group and delete all existing access bindings if there were any
 	- [yc organization-manager group update](group/update.md) — Update the specified group
 - [yc organization-manager idp](idp/index.md) — Manage Identity Provider
+- [yc organization-manager mfa-enforcement](mfa-enforcement/index.md) — Manage MFA enforcements in organizations
+	- [yc organization-manager mfa-enforcement activate](mfa-enforcement/activate.md) — Activate the specified mfa enforcement
+	- [yc organization-manager mfa-enforcement create](mfa-enforcement/create.md) — Create mfa enforcement
+	- [yc organization-manager mfa-enforcement deactivate](mfa-enforcement/deactivate.md) — Deactivate the specified mfa enforcement
+	- [yc organization-manager mfa-enforcement delete](mfa-enforcement/delete.md) — Delete the specified mfa enforcement
+	- [yc organization-manager mfa-enforcement get](mfa-enforcement/get.md) — Show information about the specified mfa enforcement
+	- [yc organization-manager mfa-enforcement list](mfa-enforcement/list.md) — List mfa enforcements
+	- [yc organization-manager mfa-enforcement list-audience](mfa-enforcement/list-audience.md) — List audience for the specified mfa enforcement
+	- [yc organization-manager mfa-enforcement update](mfa-enforcement/update.md) — Update the specified mfa enforcement
+	- [yc organization-manager mfa-enforcement update-audience](mfa-enforcement/update-audience.md) — Update audience for the specified mfa enforcement
 - [yc organization-manager organization](organization/index.md) — Manage organizations
 	- [yc organization-manager organization add-access-binding](organization/add-access-binding.md) — Add access binding for the specified organization
 	- [yc organization-manager organization add-labels](organization/add-labels.md) — Add labels to specified organization

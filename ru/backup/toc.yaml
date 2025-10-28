@@ -2,7 +2,13 @@ title: Yandex Cloud Backup
 href: index.yaml
 items:
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Начать работать с {{ backup-name }} на новой ВМ
+        href: quickstart/new-vm.md
+      - name: Начать работать с {{ backup-name }} на существующей ВМ
+        href: quickstart/existing-vm.md
   - name: Пошаговые инструкции
     expanded: true
     items:

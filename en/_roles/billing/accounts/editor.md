@@ -23,14 +23,7 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 
 {% cut "On the Yandex Cloud partner portal, users with this role can:" %}
 
-* [Create](../../../partner/program/var-pin-client.md#client-entry) customer records ([subaccounts](../../../partner/terms.md#sub-account)).
-* View the list of subaccounts and info on them.
-* Activate subaccounts.
-* Suspend subaccounts.
-* Re-activate subaccounts.
-* Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to subaccounts.
-* [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
-* View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
+* Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to [subaccounts](../../../partner/terms.md#sub-account).
 
 {% endcut %}
 

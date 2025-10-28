@@ -101,7 +101,6 @@ Let's calculate the cost of using a cluster with the following properties for 30
 {% include [usd-hour](../_pricing_examples/managed-kafka/usd-hour.md) %}
 
 
-
 ## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -113,7 +112,6 @@ Let's calculate the cost of using a cluster with the following properties for 30
 CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
-
 
 
 ## Prices for the Russia region {#prices}

@@ -95,6 +95,8 @@ After creating a cluster, you can edit its basic and advanced settings.
                    `resource-preset-id=<resource_ID> \
            --triggerer count=<number_of_instances>,`
                       `resource-preset-id=<resource_ID> \
+           --dag-processor count=<number_of_instances>,`
+                      `resource-preset-id=<resource_ID> \ 
            --deb-packages <list_of_deb_packages> \
            --pip-packages <list_of_pip_packages> \
            --dags-bucket <bucket_name> \
@@ -150,7 +152,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-maf }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
@@ -264,7 +266,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                 * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -468,7 +470,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                 * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The allowed values are:
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM

@@ -35,7 +35,7 @@ ACL, загруженный для объектов, применяется мг
 
   Идентификатор можно получить:
   * В разделе [IAM]({{ link-console-access-management }}) консоли управления.
-  * С помощью [CLI или API {{ iam-short-name }}](../../../iam/operations/users/get.md).
+  * С помощью [CLI или API {{ iam-short-name }}](../../../organization/operations/users-get.md).
 * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts)
 
   Для получения идентификатора в консоли управления в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, на панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.

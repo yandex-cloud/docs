@@ -53,8 +53,14 @@ items:
             href: operations/read-file-from-dags-bucket.md
       - name: Working with {{ AF }} interfaces
         href: operations/af-interfaces.md
-      - name: Transferring logs from {{ AF }} to {{ cloud-logging-name }}
-        href: operations/af-logging.md
+      - name: Logs and monitoring
+        items:
+          - name: Monitoring cluster state
+            href: operations/monitoring.md
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+          - name: Transferring logs from {{ AF }} to {{ cloud-logging-name }}
+            href: operations/af-logging.md
   - name: Tutorials
     items:
       - name: All tutorials

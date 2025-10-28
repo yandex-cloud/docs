@@ -7,9 +7,9 @@ description: Follow this guide to use {{ assistant-api }} to create a personaliz
 
 {% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants and implement a generative response scenario based on information from external sources (Retrieval Augmented Generation or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) by assigning [metadata](../../concepts/assistant/index.md#labels) sets to source files and search indexes for more efficient navigation through external sources.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants and implement a retrieval augmented generation ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) scenario based on information from external sources by assigning sets of [metadata](../../concepts/assistant/index.md#labels) to source files and search indexes for more efficient navigation through external sources.
 
-The VectorStore [tool](../../concepts/assistant/tools/vector-store.md) allows AI assistants to draw information from the knowledge base.
+The {{ retrieval-tool-name }} [tool](../../concepts/assistant/tools/vector-store.md) allows AI assistants to draw information from the knowledge base.
 
 ## Getting started {#before-begin}
 

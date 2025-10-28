@@ -36,6 +36,8 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 
 The [Karapace](https://github.com/Aiven-Open/karapace) open-source tool is used as a {{ mkf-msr }} implementation. The Karapace API is compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html) with only minor exceptions. To run API requests, you need [authentication](#msr-auth).
 
+{% include [karapace](../../_includes/mdb/mkf/karapace.md) %}
+
 Schema information is posted to a [service topic](./topics.md#service-topics) named `__schema_registry`. You cannot use regular tools to write data to this topic.
 
 To enable management, activate the option when [creating](../operations/cluster-create.md) or [updating](../operations/cluster-update.md#change-additional-settings) a cluster.

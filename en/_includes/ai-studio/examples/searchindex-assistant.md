@@ -63,7 +63,7 @@ def main():
     )
 
     # Creating an assistant for the Latest {{ gpt-pro }} model.
-    # It will use the VectorStore tool.
+    # It will use the {{ vector-store-name }} tool.
     assistant = sdk.assistants.create(
         "yandexgpt",
         instruction="You are an internal corporate documentation assistant. Answer politely. If the information is not in the documents below, don't make up your answer.",
@@ -90,7 +90,7 @@ def main():
         # Displaying some of the _citations_ property attributes: information
         # about utilized chunks created from the source files.
         # To display the entire contents of the _citations_ property,
-        # run the following command: print(result.citations).
+        # run this command: print(result.citations).
         count = 1
         for citation in result.citations:
             for source in citation.sources:

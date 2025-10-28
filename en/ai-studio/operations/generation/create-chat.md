@@ -57,7 +57,7 @@ description: Follow this guide to create a chat with {{ gpt-lite }} using the {{
           print("Agent:", response.output_text)
       ```
 
-  1. Save authentication data into environment variables:
+  1. Save authentication data to environment variables:
 
       ```bash
       export YANDEX_CLOUD_FOLDER=<folder_ID>

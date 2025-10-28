@@ -16,21 +16,9 @@ items:
       - name: Обработка секретов, попавших в открытый доступ
         href: operations/compromised-credentials.md
       - name: Пользователи
-        items:
-          - name: Добавление пользователя
-            href: operations/users/create.md
-          - name: Получение информации о пользователе
-            href: operations/users/get.md
-          - name: Удаление пользователя
-            href: operations/users/delete.md
+        href: ../organization/operations/manage-users.md
       - name: Группы пользователей
-        items:
-          - name: Создание группы
-            href: operations/groups/create.md
-          - name: Настройка прав доступа к группе
-            href: operations/groups/access-binding-object.md
-          - name: Назначение прав группе
-            href: operations/groups/access-binding-subject.md
+        href: ../organization/operations/manage-groups.md
       - name: Сервисные аккаунты
         items:
           - name: Создание сервисного аккаунта

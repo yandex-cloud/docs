@@ -56,11 +56,11 @@ keywords:
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    Чтобы создать кластер {{ myt-name }}:
+    Чтобы создать кластер {{ ytsaurus-name }}:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер {{ myt-name }} — описание кластера.
+        * Кластер {{ ytsaurus-name }} — описание кластера.
 
         * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -199,7 +199,7 @@ keywords:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Создайте кластер {{ myt-name }}.
+    1. Создайте кластер {{ ytsaurus-name }}.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -563,11 +563,11 @@ keywords:
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    Чтобы создать кластер {{ myt-name }}:
+    Чтобы создать кластер {{ ytsaurus-name }}:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер {{ myt-name }} — описание кластера.
+        * Кластер {{ ytsaurus-name }} — описание кластера.
 
         * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 

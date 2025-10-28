@@ -11,15 +11,11 @@ description: Пошаговые инструкции по управлению �
 
 ## Пользователи {#users}
 
-- [{#T}](users/create.md)
-- [{#T}](users/get.md)
-- [{#T}](users/delete.md)
+Инструкции по управлению пользователями см. в [документации {{ org-full-name }}](../../organization/operations/manage-users.md).
 
 ## Группы пользователей {#users-groups}
 
-- [{#T}](groups/create.md)
-- [{#T}](groups/access-binding-object.md)
-- [{#T}](groups/access-binding-subject.md)
+Инструкции по управлению группами пользователей см. в [документации {{ org-full-name }}](../../organization/operations/manage-groups.md).
 
 ## Сервисные аккаунты {#sa}
 

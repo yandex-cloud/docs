@@ -10,10 +10,7 @@
 
 {{ data-catalog-name }} поддерживает получение метаданных из следующих сервисов:
 
-* {{ mch-full-name }};
-* {{ mmy-full-name }};
-* {{ mpg-full-name }};
-* {{ data-transfer-full-name }}.
+{% include notitle [sources](../../_includes/metadata-hub/data-catalog-sources.md) %}
 
 Чтобы начать работу с сервисом:
 

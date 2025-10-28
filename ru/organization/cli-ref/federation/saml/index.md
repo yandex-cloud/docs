@@ -28,7 +28,9 @@ Syntax:
 - [yc organization-manager federation saml list-domains](list-domains.md) — List domains in the specified federation
 - [yc organization-manager federation saml list-operations](list-operations.md) — List operations for the specified federation
 - [yc organization-manager federation saml list-user-accounts](list-user-accounts.md) — List user accounts of the specified federation
+- [yc organization-manager federation saml reactivate-user-accounts](reactivate-user-accounts.md) — Reactivate specified user accounts
 - [yc organization-manager federation saml remove-labels](remove-labels.md) — Remove labels from specified federation
+- [yc organization-manager federation saml suspend-user-accounts](suspend-user-accounts.md) — Suspend specified user accounts
 - [yc organization-manager federation saml update](update.md) — Update the specified federation
 - [yc organization-manager federation saml validate-domain](validate-domain.md) — Validate a domain in the specified federation
 - [yc organization-manager federation saml certificate](certificate/index.md) — Manage certificates for the SAML-compatible identity federation
