@@ -110,6 +110,7 @@ items:
           - name: Создать MCP-сервер с нуля
             href: operations/mcp-servers/create-brand-new.md
   - name: Концепции
+    expanded: true
     items:
       - name: О сервисе {{ foundation-models-full-name }}
         href: concepts/index.md
@@ -152,29 +153,27 @@ items:
           - name: Голосовые агенты
             href: concepts/agents/realtime.md
           - name: '{{ assistant-api }}'
-            href: concepts/assistant/index.md
-          - name: Инструменты
             items:
-              - name: Обзор
-                href: concepts/assistant/tools/index.md
-              - name: '{{ retrieval-tool-name }}'
-                href: concepts/assistant/tools/vector-store.md
-              - name: WebSearch
-                href: concepts/assistant/tools/web-search.md
-              - name: Перефразирование запросов
-                href: concepts/assistant/rephraser.md
-              - name: MCP TBD
-                hidden: true
+              - name: AI-Ассистенты
+                href: concepts/assistant/index.md
+              - name: Файлы-источники
+                href: concepts/assistant/files.md
+              - name: Поисковые индексы {{ assistant-api }}
+                href: concepts/assistant/search-index.md
+              - name: Инструменты
+                items:
+                  - name: Обзор
+                    href: concepts/assistant/tools/index.md
+                  - name: '{{ retrieval-tool-name }}'
+                    href: concepts/assistant/tools/vector-store.md
+                  - name: WebSearch
+                    href: concepts/assistant/tools/web-search.md
+                  - name: Перефразирование запросов
+                    href: concepts/assistant/rephraser.md
       - name: AI Search
         items:
-          - name: Файлы-источники
-            href: concepts/assistant/files.md
-          - name: Поисковые индексы {{ assistant-api }}
-            href: concepts/assistant/search-index.md
           - name: Поисковые индексы {{ vector-store-name }}
             href: concepts/search/vectorstore.md
-          - name: Коннекторы TBD
-            hidden: true
       - name: '{{ mcp-hub-name }}'
         items:
           - name: Обзор

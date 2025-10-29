@@ -1,23 +1,38 @@
 ---
-title: How to deactivate a pool user in {{ org-full-name }}
-description: Follow this guide to deactivate a user in an {{ org-name }} pool.
+title: How to deactivate a user in {{ org-full-name }}
+description: Follow this guide to deactivate a user in {{ org-name }}.
 ---
 
 # Deactivating a user
 
+To suspend a user’s access to organization resources, you can deactivate the user. Deactivation will terminate all the user's sessions, and the user will lose access to the organization's resources until [reactivated](activate-user.md).
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [activate-deactivate-passport-user-notice](../../../_includes/organization/activate-deactivate-passport-user-notice.md) %}
 
-Deactivation will terminate all the user's sessions, and the user will lose access to the organization's resources until reactivated.
+## Deactivating a federated user {#deactivate-federated}
+
+To deactivate a federated user account:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
-  1. In the left-hand panel, click ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** and select the [user pool](../../concepts/user-pools.md).
-  1. In the **{{ ui-key.yacloud_org.organization.userpools.title_userpool_members }}** tab, select the user.
-  1. In the top-right corner, click **Make inactive**.
+  {% include [deactivate-user-ui](../../../_includes/organization/deactivate-user-ui.md) %}
+
+{% endlist %}
+
+## Deactivating a local user {#deactivate-local}
+
+
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
+To deactivate a local user account:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  {% include [deactivate-user-ui](../../../_includes/organization/deactivate-user-ui.md) %}
 
 - CLI {#cli}
 
@@ -30,8 +45,9 @@ Deactivation will terminate all the user's sessions, and the user will lose acce
      ```bash
      yc organization-manager idp user suspend --help
      ```
-
-  1. Run this command:
+  1. {% include [cli-list-userpools](../../../_includes/organization/cli-list-userpools.md) %}
+  1. {% include [cli-userpool-list-users](../../../_includes/organization/cli-userpool-list-users.md) %}
+  1. To deactivate a user, provide their ID in this command:
 
      ```bash
      yc organization-manager idp user suspend <user_ID> \

@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the backup policy parameters:
 
@@ -54,94 +54,39 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
   1. See the description of the [CLI](../../../cli/) command to update a [backup policy](../../../backup/concepts/policy.md):
 
-     ```bash
-     yc backup policy update --help
-     ```
+      ```bash
+      yc backup policy update --help
+      ```
 
   1. Specify backup policy configuration in [JSON](https://en.wikipedia.org/wiki/JSON) format.
 
-     {% cut "Sample configuration file" %}
+      {% cut "Sample configuration file" %}
 
-     {% include [json-example](../../../_includes/backup/operations/json-example.md) %}
+      {% include [json-example](../../../_includes/backup/operations/json-example.md) %}
 
-     {% endcut %}
+      {% endcut %}
 
-     The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
+      The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-     See the [full backup policy specification](../../concepts/policy.md#specification) for details.
+      See the [full backup policy specification](../../concepts/policy.md#specification) for details.
   1. Get the ID of the backup policy you want to update:
 
-     {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
+      {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
   1. Update the backup policy by specifying its ID:
 
-     ```bash
-     yc backup policy update <backup_policy_ID> \
-       --settings-from-file <path_to_configuration_file>
-     ```
+      ```bash
+      yc backup policy update <backup_policy_ID> \
+        --settings-from-file <path_to_configuration_file>
+      ```
 
-     Where `--settings-from-file` is the path to the backup policy configuration file in JSON format.
+      Where `--settings-from-file` is the path to the backup policy configuration file in JSON format.
 
-     Result:
+      Result:
 
-     ```text
-     id: cbq5rwepukxn********
-     name: test2
-     created_at: "2023-07-03T08:24:16.735555276Z"
-     updated_at: "2023-07-03T08:24:16.746377738Z"
-     enabled: true
-     settings:
-       compression: NORMAL
-       format: AUTO
-       multi_volume_snapshotting_enabled: true
-       preserve_file_security_settings: true
-       reattempts:
-         enabled: true
-         interval:
-           type: SECONDS
-           count: "30"
-         max_attempts: "30"
-       silent_mode_enabled: true
-       splitting:
-         size: "1099511627776"
-       vm_snapshot_reattempts:
-         enabled: true
-         interval:
-           type: MINUTES
-           count: "5"
-         max_attempts: "3"
-       vss:
-         enabled: true
-         provider: TARGET_SYSTEM_DEFINED
-       archive:
-         name: '''[Machine Name]-[Plan ID]-[Unique ID]A'''
-       performance_window: {}
-       retention:
-         rules:
-           - max_count: "10"
-         before_backup: true
-       scheduling:
-         backup_sets:
-           - time:
-               weekdays:
-                 - MONDAY
-               repeat_at:
-                 - minute: "5"
-               type: WEEKLY
-         enabled: true
-         max_parallel_backups: "2"
-         rand_max_delay:
-           type: MINUTES
-           count: "30"
-         scheme: ALWAYS_INCREMENTAL
-         weekly_backup_day: MONDAY
-       cbt: ENABLE_AND_USE
-       fast_backup_enabled: true
-       quiesce_snapshotting_enabled: true
-     folder_id: d2q792qpemb4********
-     ```
+      {% include [json-output-cli](../../../_includes/backup/operations/json-output-cli.md) %}
 
-     For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
+      For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
 
 - {{ TF }} {#tf}
 
@@ -213,7 +158,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about `yandex_backup_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about `yandex_backup_policy` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

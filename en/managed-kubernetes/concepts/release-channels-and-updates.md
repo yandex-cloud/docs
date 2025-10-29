@@ -20,6 +20,8 @@ Channel | {{ k8s }} versions | Automatic updates | Channel description
 `regular`| {{ k8s-versions-regular }} | Automatic updates can be disabled. | New features and improvements are added shortly after they appear on `rapid`.
 `stable`| {{ k8s-versions-stable }} | Automatic updates can be disabled. | New features and improvements are added shortly after they appear on `regular`.
 
+{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
+
 ## Updates {#updates}
 
 When an update appears on a release channel, the corresponding information is displayed in the management console. You can install updates automatically or manually.

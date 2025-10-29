@@ -22,7 +22,7 @@ resource "yandex_alb_virtual_host" "my-virtual-host" {
       http_match {
         http_method = ["GET","POST"]
         path {
-          prefix = "myapp/"
+          prefix = "/myapp/"
         }
       }
 
@@ -30,7 +30,7 @@ resource "yandex_alb_virtual_host" "my-virtual-host" {
         backend_group_id = "ds7dnf2s5dco********"
         host_rewrite = "myapp"
         idle_timeout = "3s"
-        prefix_rewrite = "yourapp/"
+        prefix_rewrite = "/yourapp/"
         rate_limit {
           all_requests {
             per_second = 12

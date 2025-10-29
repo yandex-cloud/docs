@@ -8,17 +8,25 @@ description: In this article, you will learn about vCPU performance levels and a
 
 When creating a virtual machine, you need to select a vCPU performance level. This level defines the physical core computing time a vCPU can guarantee.
 
-* Virtual machines with performance under 100% have access to the computing power of physical cores for at least the specified percentage of a unit of time.
+* Virtual machines with performance level below 100% have access to the computing power of physical cores for at least the specified percentage of a unit of time.
 
     > At 20% performance, a VM will have access to the physical cores at least 20% of the time, i.e., 200 milliseconds out of every second. During that time, the processor clock speed is not limited and depends on the selected platform, e.g., 2 GHz for Intel Ice Lake (`standard-v3`).
 
-    VMs with a performance level under 100% are designed to run applications that do not require high performance and are not sensitive to delays. These VMs cost less.
+    VMs with performance level below 100% are designed to run applications that do not require high performance and are not sensitive to delays. These VMs cost less.
 
-* Virtual machines with 100% performance have continuous access (100% of the time) to the physical core computing power. Such VMs are designed to run applications that require high performance all the time.
+* Virtual machines with 100% performance level have continuous access (100% of the time) to the computing power or physical cores. Such VMs are designed to run applications that require high performance all the time.
 
 Actual performance may exceed the guaranteed level. Available configurations of computing resources may change for different levels, depending on the selected [platform](vm-platforms.md).
 
 The available disk space does not depend on the VM performance level. For limitations, see [{#T}](limits.md).
+
+{% note warning %}
+
+VMs with vCPU performance level below 100% may operate at lower [speed](storage-read-write.md) with network drives.
+
+{% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
+
+{% endnote %}
 
 ## Minimum and maximum configurations {#minmax-configurations}
 

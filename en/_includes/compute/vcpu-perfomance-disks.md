@@ -1,0 +1,1 @@
+Network drive service cores [do not depend](../../vpc/concepts/software-accelerated-network.md#reg-vm) on VM parameters; however, vCPU performance reduction directly affects disk read and write speed.

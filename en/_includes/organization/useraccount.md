@@ -22,9 +22,9 @@ Users with any of the following [roles](../../organization/security/index.md) ca
 
         ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
 
-    1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
+    1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 
-    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
+    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
         You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 

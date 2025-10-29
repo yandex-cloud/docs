@@ -2,7 +2,7 @@
 
 The `Ingress` resource defines rules for incoming traffic distribution between {{ k8s }} services. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md), its listeners, and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). You can specify {{ alb-name }} backend [services](../../../application-load-balancer/k8s-ref/service-for-ingress.md) in `Ingress` directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
-`Ingress` is a standard {{ k8s }} resource. Below, we describe its fields and annotations used by the {{ alb-name }} Ingress controller. For resource configuration details, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
+`Ingress` is a standard {{ k8s }} resource. Below, we describe its fields and annotations used by the {{ alb-name }} Ingress controller. For resource configuration details, see this [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
 ## Ingress {#ingress}
 
@@ -133,13 +133,13 @@ You can map one key to multiple values. For example, to add a `noarchive,nofollo
   ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
   ```
 
-For more information on annotations, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+For more information on annotations, see this [{{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/group-name** {#annot-group-name}
 
-  `Ingress` resource group name. The system will create a separate load balancer for each group. You can combine `Ingress` resources into a group to avoid creating load balancers for each individual resource. For more information about the group name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  `Ingress` resource group name. The system will create a separate load balancer for each group. You can combine `Ingress` resources into a group to avoid creating load balancers for each individual resource. For more information about the format, see this [{{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   This is a required field even for one `Ingress` resource in a group.
 
@@ -456,7 +456,7 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/session-affinity-connection** {#annot-session-affinity-connection}
 
-  Indicator of using a client IP address for session affinity.
+  Indicator of using client IP address for session affinity.
 
   * `source-ip`: `true` or `false`
 
@@ -499,10 +499,10 @@ If no routing rules are specified, you must configure a [default backend](#defau
 ### IngressTLS {#tls}
 
 ```yaml
-hosts:
-  - <string>
-  - ...
-secretName: <string>
+- hosts:
+    - <string>
+    - ...
+  secretName: <string>
 ```
 
 #|
@@ -528,12 +528,12 @@ In {{ certificate-manager-name }}, you can either use a [Let's Encrypt<sup>®</s
 ### IngressRule {#rule}
 
 ```yaml
-host: <string>
-http:
-  paths:
-    - path: <string>
-      pathType: <string>
-      backend: <IngressBackend>
+- host: <string>
+  http:
+    paths:
+      - path: <string>
+        pathType: <string>
+        backend: <IngressBackend>
 ```
 
 Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controllers v0.2.0 and later map backend groups directly to the `backend.service` configuration, i.e., [IngressBackend](#backend). This may cause collisions when upgrading the ALB Ingress Controller. To avoid them, check the [upgrade restrictions](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) for your infrastructure.

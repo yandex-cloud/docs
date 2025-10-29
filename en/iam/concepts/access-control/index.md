@@ -87,7 +87,7 @@ Roles are assigned to subjects. There are the following subject types:
 
         Subject ID: `group:federation:<federation_ID>:users`.
 
-        Where `<federation_ID>` is the unique ID assigned to the `N` [identity federation](../../../organization/concepts/add-federation.md). e.g., `group:federation:bpf8tpgggfoi********:users`.
+        Where `<federation_ID>` is the unique ID assigned to the `N` [identity federation](../../../organization/concepts/add-federation.md), e.g., `group:federation:bpf8tpgggfoi********:users`.
 
 * `system`: [Public group](./public-group.md) of users:
 
@@ -113,14 +113,6 @@ If a resource has child resources, all permissions from the parent resource will
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You cannot limit the list of permissions inherited from the parent resource.
 
-### Impersonation {#impersonation}
-
-_Impersonation_ occurs when a user performs certain actions with cloud resources on behalf of a service account with the appropriate permissions. Impersonation is mostly used to temporarily expand user permissions without generating static credentials for the user.
-
-For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` [role](../../security/index.md#iam-serviceAccounts-tokenCreator) to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account. 
-
-The administrator can revoke the role whenever needed.
-
 ### Access control restrictions in the management console {#console-restrictions}
 
 Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in the management console:
@@ -145,6 +137,7 @@ Step-by-step guides and examples:
 * [{#T}](../../operations/roles/revoke.md)
 * [{#T}](../../operations/sa/assign-role-for-sa.md)
 * [{#T}](../../operations/sa/set-access-bindings.md)
+* [{#T}](../../operations/sa/impersonate-sa.md)
 * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
 * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
 * [{#T}](../../operations/service-control/enable-disable.md)

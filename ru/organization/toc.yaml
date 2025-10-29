@@ -242,6 +242,8 @@ items:
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: tutorials/single-sign-on/saml-yandex-360.md
   - name: Концепции
     items:
       - name: Организация

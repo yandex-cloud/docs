@@ -19,5 +19,5 @@ When [creating](../operations/user-pools/create-userpool.md) a user pool, you sp
 #### See also {#see-also}
 
 * [{#T}](../operations/user-pools/create-userpool.md)
-* [{#T}](../operations/user-pools/add-user.md)
+* [Creating a local user](../operations/add-account.md#add-local-user)
 * [{#T}](../operations/user-pools/add-domain.md)

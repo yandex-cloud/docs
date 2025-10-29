@@ -54,7 +54,7 @@ Pool rates apply to slots with the `available` [status](./concepts/reserved-pool
 
 Slots with the `unavailable` or `pending` status are not billable.
 
-### VM usage {#instance}
+### Using VMs {#instance}
 
 The cost of a VM depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
 
@@ -64,7 +64,7 @@ The VM starts automatically once it is created.
 
 When creating a VM, you can specify a public IP address for it.
 
-For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
+To learn how the external IP address is priced, see this [{{ vpc-full-name }} article](../vpc/pricing.md).
 
 
 #### Computing resources {#instance-resources}
@@ -80,7 +80,7 @@ _{{ price-per-hour-count-per-second }}_
 
 Let's compare the cost of [Intel Ice Lake](concepts/vm-platforms.md) VMs of different [vCPU performance levels](concepts/performance-levels.md).
 
-Two VMs were created running Linux OS:
+Let’s assume you created two Linux VMs:
 * 2 x 20% vCPUs and 2 GB of RAM.
 * 2 x 100% vCPUs and 2 GB of RAM.
 
@@ -107,7 +107,7 @@ As you can see, the cost of the VM using 20% vCPU is almost half as much as that
 
 #### Operating systems {#instance-os}
 
-VM OS usage also comes at a charge. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
+Using the VM’s OS also comes at a charge. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
 _{{ price-per-hour-count-per-second }}_
 
@@ -138,7 +138,7 @@ If you connect such a disk to a VM as additional storage, you will be charged fo
 {% endnote %}
 
 
-### {{ ig-name }} usage {#instance-groups}
+### Using {{ ig-name }} {#instance-groups}
 
 Using {{ ig-name }} is free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
@@ -168,19 +168,21 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 {% endcut %}
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ compute-name }} provides two types of CVoS: on vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ compute-name }} provides two types of CVoS: for vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
 _{{ price-per-hour-count-per-second }}_
+
 
 ## Prices for the Russia region {#prices}
 
@@ -188,9 +190,7 @@ _{{ price-per-hour-count-per-second }}_
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 CVoS adjusted price is only available for regular VMs.
-
 
 
 ### VM computing resources {#prices-instance-resources}
@@ -237,7 +237,7 @@ _{{ price-per-hour-count-per-second }}_
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
-The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. See the example of cost calculation [above](#dedicated-hosts).
+The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, let’s assume a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. For the relevant example of cost calculation, see [above](#dedicated-hosts).
 
 _{{ price-per-hour-count-per-second }}_
 

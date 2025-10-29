@@ -41,8 +41,6 @@ Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prome
 Alerting | Alerting via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) | Support for existing [alerting rule](alerting-rules.md) files in YAML format, which you can upload and manage via the {{ monitoring-name }} UI and API.
 Integration | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/) | Existing libraries and exporters.
 
-{% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
-
 ## Current limitations {#restrictions}
 
 * The `NaN` value is not supported and is treated as a missing point.

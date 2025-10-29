@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать маршрут в [виртуальном хосте](../concepts/http-router.md#virtual-host) HTTP-роутера:
 
-{% include [console-update-http-route-naming-step](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
+{% include [route-create-complete-section](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
 
 ## Изменить маршрут {#update-route}
 
@@ -134,8 +134,8 @@ description: Следуя данной инструкции, вы сможете
         * Параметры с условиями маршрутизации на основе пути:
 
             * `--exact-path-match` — маршрутизировать запросы, путь в которых идентичен заданному пути. Например, чтобы маршрутизировать все запросы, укажите путь `/`.
-            * `--prefix-path-match` — маршрутизировать запросы, путь в которых начинается с заданного префикса. Например: `myapp/`.
-            * `--regex-path-match` — маршрутизировать запросы, путь в которых удовлетворяет заданному [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax). Например: `[a-z]{10}[0-9]{3}\/`.
+            * `--prefix-path-match` — маршрутизировать запросы, путь в которых начинается с заданного префикса. Например: `/myapp/`.
+            * `--regex-path-match` — маршрутизировать запросы, путь в которых удовлетворяет заданному [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax). Например: `\/[a-z]{10}[0-9]{3}\/`.
 
             {% note info %}
 
@@ -420,6 +420,162 @@ description: Следуя данной инструкции, вы сможете
 Чтобы изменить порядок маршрутов в [виртуальном хосте](../concepts/http-router.md#virtual-host) HTTP-роутера:
 
 {% include [reorder-routes-complete-section](../../_includes/application-load-balancer/instruction-steps/reorder-routes-complete-section.md) %}
+
+## Модифицировать параметры HTTP-запросов {#modify-http-parameters}
+
+Маршруты [виртуальных хостов](../concepts/http-router.md#virtual-host) в [HTTP-роутерах](../concepts/http-router.md) {{ alb-full-name }} позволяют при необходимости модифицировать параметры HTTP-запросов, заменяя части запроса, удовлетворяющие [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax), другими значениями.
+
+Например, такая модификация может быть полезна для управления версиями API, для микросервисной маршрутизации, для обеспечения обратной совместимости и нормализации URL, а также при [A/B тестировании](https://ru.wikipedia.org/wiki/A/B-тестирование) и в [канареечных релизах](../../api-gateway/concepts/extensions/canary.md).
+
+Модифицировать параметры HTTP-запросов в маршрутах вы можете с помощью [{{ yandex-cloud }} CLI](../../cli/index.yaml), [{{ TF }}]({{ tf-provider-link }}) или [API](../api-ref/authentication.md).
+
+### Пример модификации параметров HTTP-запросов {#modification-example}
+
+В качестве примера приведем решение для ситуации, которая может возникнуть в результате внедрения в сервисе новой версии API-интерфейса. Предположим, что изначально единственная версия API в сервисе была доступна по адресу `/api/users`. После появления новой версии интерфейса (`v2`) новый интерфейс должен быть доступен по адресу `/api/v2/users`, а старый — по адресу `/api/v1/users`.
+
+Запросы к новому API-интерфейсу приходят сразу на адрес `/api/v2/users`, и для них достаточно настроить обычное правило маршрутизации, которое направит эти запросы в группу бэкендов с новым API `api-v2-backend`.
+
+Запросы к старому API продолжают приходить на адрес `/api/users`, и этот адрес в запросах вы можете заменить на адрес `/api/v1/users`. Для этого вы можете использовать модификацию параметров HTTP-запроса в настройках маршрута.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Чтобы модифицировать параметры HTTP-запроса в маршруте виртуального хоста, при выполнении команды [создания](#create-route) или [изменения](#update-route) маршрута для HTTP-трафика задайте необходимые настройки замены в параметре `--path-regex-rewrite`. В приведенной ниже команде модификация запроса настраивается при создании маршрута:
+
+  ```bash
+  yc alb virtual-host append-http-route <имя_маршрута> \
+  --virtual-host-name <имя_виртуального_хоста> \
+  --http-router-name <имя_HTTP-роутера> \
+  --backend-group-name api-v1-backend \
+  --prefix-path-match '/api/users/' \
+  --path-regex-rewrite 'regex=^/api/users/(.*),substitute=/api/v1/users/\\1'
+  ```
+   
+  Где:
+
+  * `--backend-group-name` — имя группы бэкендов, в которой доступен старый API-интерфейс.
+  * `--prefix-path-match` — фильтр с указанием префикса пути, по которому будут отбираться запросы, поступающие в создаваемый маршрут.
+  * `--path-regex-rewrite` — параметр, задающий настройки замены в пути HTTP-запроса:
+
+      {% include [path-regex-rewrite-legend](../../_includes/application-load-balancer/instruction-steps/path-regex-rewrite-legend.md) %}
+
+      {% note info %}
+
+      Параметры `--path-regex-rewrite` и `--path-prefix-rewrite` — взаимоисключающие: вы можете использовать только один из них.
+
+      {% endnote %}
+  
+  Результат:
+
+  ```text
+  name: my-virtual-host
+  routes:
+    - name: my-http-route
+      http:
+        match:
+          path:
+            prefix_match: /api/users/
+        route:
+          backend_group_id: ds7m9iupbcaq********
+          regex_rewrite:
+            regex: ^/api/users/(.*)
+            substitute: /api/v1/users/\\1
+  ```
+
+  Подробную информацию о команде `yc alb virtual-host append-http-route` с полным перечнем параметров см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+
+- {{ TF }} {#tf}
+
+  1. Чтобы модифицировать параметры HTTP-запроса, в конфигурационном файле {{ TF }} в параметрах HTTP-маршрута как ресурса, вложенного в ресурс типа [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host), задайте параметр `regex_rewrite`:
+
+      ```hcl
+      ...
+      route {
+        name                      = "<имя_маршрута>"
+        disable_security_profile  = true|false
+
+        http_route {
+          http_match {
+            http_method = ["<HTTP-метод_1>","<HTTP-метод_2>",...,"<HTTP-метод_n>"]
+            path {
+              prefix = "/api/users/"
+              # или exact = "<путь_запроса>"
+              # или regex = "<регулярное_выражение>"
+            }
+          }
+
+          http_route_action {
+            backend_group_id  = "ds7m9iupbcaq********"
+            host_rewrite      = "<значение_заголовка_Host>"
+            timeout           = "<таймаут_соединения>s"
+            idle_timeout      = "<таймаут-простоя>s"
+            regex_rewrite {
+              regex      = "^/api/users/(.*)"
+              substitute = "/api/v1/users/\\1"
+            }
+            rate_limit {
+              all_requests {
+                per_second = <количество_запросов_в_секунду>
+                # или per_minute = <количество_запросов_в_минуту>
+              }
+              requests_per_ip {
+                per_second = <количество_запросов_в_секунду>
+                # или per_minute = <количество_запросов_в_минуту>
+              }
+            }
+          }
+        }
+      }
+      ...
+      ```
+
+      Где:
+
+      * `route` — описание маршрута виртуального хоста:
+
+          * `http_route` — описание маршрута для HTTP-трафика:
+
+              * `path` — параметр для фильтрации пути входящего запроса:
+
+                  * `prefix` — фильтр с указанием префикса пути, по которому будут отбираться запросы, поступающие в создаваемый маршрут.
+          * `http_route_action` — параметр для указания действия с HTTP-трафиком:
+
+              * `backend_group_id` — идентификатор группы бэкендов, в которой доступен старый API-интерфейс.
+              * `regex_rewrite` — параметр, задающий настройки замены в пути HTTP-запроса:
+
+                  {% include [path-regex-rewrite-legend](../../_includes/application-load-balancer/instruction-steps/path-regex-rewrite-legend.md) %}
+
+              {% note info %}
+
+              Параметры `regex_rewrite` и `prefix_rewrite` — взаимоисключающие: вы можете использовать только один из них.
+
+              {% endnote %}
+
+          Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+
+  1. Создайте или обновите ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление, изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+      ```bash
+      yc alb virtual-host get <имя_виртуального_хоста> \
+        --http-router-name <имя_HTTP-роутера>
+      ```
+
+- API {#api}
+
+  Чтобы модифицировать параметры HTTP-запроса в маршруте виртуального хоста, при [создании](#create-route) или [изменении](#update-route) маршрута для HTTP-трафика задайте необходимые настройки замены в поле `regexRewrite` (для REST API) или `regex_rewrite` (для gRPC API).
+
+  {% note info %}
+
+  Поля `regexRewrite` и `prefixRewrite` — взаимоисключающие: вы можете задать значение только для одного из них.
+
+  {% endnote %}
+
+{% endlist %}
 
 ## Удалить маршрут {#delete-route}
 

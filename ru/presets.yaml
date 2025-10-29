@@ -8328,6 +8328,10 @@ default:
           action_destroy: Удалить
           action_download: Скачать файл
           action_replace: Заменить файл
+        managing-rule:
+          tabs:
+            alerts: Алерты
+            rules: Правила
         query:
           action_execute: Выполнить
           label: Запрос на языке PromQL
@@ -8572,7 +8576,6 @@ default:
             suspend_d90a8: Деактивировать
           caption:
             email: Электронная почта
-            federation: Федерация
             provider: Поставщик учётных данных
             status: Статус
             user: Пользователь
@@ -9216,8 +9219,6 @@ default:
         context_current-bms: текущий
         context_current-vm: текущая
         field_delete-old-vm: Удалить неактуальную ВМ
-        field_type-full: Полный
-        field_type-incremental: Инкрементальный
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Пользовательское

@@ -1,6 +1,6 @@
 ---
 title: Gwin controller for {{ managed-k8s-full-name }}
-description: '{{ alb-full-name }} introduces Gwin, a tool for creating and managing load balancers in {{ managed-k8s-full-name }} clusters.'
+description: '{{ alb-full-name }} introduces the Gwin controller, a tool for creating and managing load balancers in {{ managed-k8s-full-name }} clusters.'
 noIndex: true
 ---
 

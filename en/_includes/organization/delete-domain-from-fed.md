@@ -26,6 +26,6 @@
       ```bash
       yc organization-manager federation saml delete-domain my-federation \
         --domain my-domain.ru
-      ```  
+      ```
 
 {% endlist %}

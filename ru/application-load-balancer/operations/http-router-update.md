@@ -126,7 +126,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы добавить новый маршрут в [виртуальный хост](../concepts/http-router.md#virtual-host) HTTP-роутера:
 
-{% include [console-update-http-route-naming-step](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
+{% include [route-create-complete-section](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
 
 ## Изменить порядок маршрутов в виртуальном хосте {#change-route-order}
 

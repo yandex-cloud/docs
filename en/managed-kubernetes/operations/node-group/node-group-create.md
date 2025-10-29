@@ -6,9 +6,11 @@ description: Follow this guide to create node groups.
 # Creating a node group
 
 
-A [node group](../../concepts/index.md#node-group) is a group of VMs in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) that have the same configuration and run the user's containers.
+A [node group](../../concepts/index.md#node-group) is a group of VMs in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) that have the same configuration and run user containers.
 
-Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster first and make sure that the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [free resources](../../concepts/limits.md).
+Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster first and make sure your [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [resources](../../concepts/limits.md).
+
+{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
 {% list tabs group=instructions %}
 
@@ -28,7 +30,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      {{ yc-k8s }} node-group create --help
      ```
 
-  1. Specify {{ managed-k8s-name }} node group parameters in the create command (we excluded some supported parameters from the example for brevity).
+  1. Specify {{ managed-k8s-name }} node group parameters in the create command (our example does not include all available parameters):
 
      ```bash
      {{ yc-k8s }} node-group create \
@@ -36,7 +38,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --cluster-name <cluster_name> \
        --cores <number_of_vCPUs> \
        --core-fraction <guaranteed_vCPU_share> \
-       --daily-maintenance-window <update_window_settings> \
+       --daily-maintenance-window <maintenance_window_settings> \
        --disk-size <storage_size_in_GB> \
        --disk-type <storage_type> \
        --fixed-size <fixed_number_of_nodes_in_group> \
@@ -70,20 +72,20 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * Type of scaling:
 
        * `--fixed-size`: Fixed number of nodes in a {{ managed-k8s-name }} node group.
-       * `--auto-scale`: Configuring [{{ managed-k8s-name }} cluster autoscaling](../../concepts/node-group/cluster-autoscaler.md):
+       * `--auto-scale`: Settings for [{{ managed-k8s-name }} cluster autoscaling](../../concepts/node-group/cluster-autoscaler.md):
 
          * `min`: Minimum number of nodes in the group.
          * `max`: Maximum number of nodes in the group.
          * `initial`: Initial number of nodes in the group.
 
-       You cannot change the scaling type after you create a node group.
+       You cannot change the scaling type after creating a node group.
 
      * `--max-expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
 
        {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
      * `--max-unavailable`: Maximum number of unavailable nodes in the group when updating it.
-     * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md) and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify more than one option but only a single subnet per zone. Use a separate `--location` parameter for each of the availability zones.
+     * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md) and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify more than one option but only a single subnet per zone. Use a separate `--location` parameter for each availability zone.
 
        {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
@@ -93,7 +95,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
      * `--memory`: Amount of memory allocated for {{ managed-k8s-name }} nodes.
      * `--name`: {{ managed-k8s-name }} node group name.
-     * `--network-acceleration-type`: Change [network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
+     * `--network-acceleration-type`: Select the [network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
        * `standard`: No acceleration.
        * `software-accelerated`: Software-accelerated network.
 
@@ -141,11 +143,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
         Add metadata using one of the following methods:
 
-        * Using `--metadata`, specify one or more `key=value` pairs separated by commas.
+        * Using `--metadata`, specify one or multiple `key=value` pairs separated by commas.
 
             {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
 
-        * Using `--metadata-from-file`, specify one or more `key=path_to_file_with_value` pairs separated by commas.
+        * Using `--metadata-from-file`, specify one or multiple `key=path_to_file_with_value` pairs separated by commas.
 
             {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
 
@@ -226,7 +228,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
        * `scale_policy`: Scaling settings.
 
-         You cannot change the scaling type after you create a node group.
+         You cannot change the scaling type after creating a node group.
 
        * `deploy_policy`: Group deployment settings:
          * `max_expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
@@ -235,11 +237,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
          * `max_unavailable`: Maximum number of unavailable nodes in the group when updating it.
 
-       * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter that represents the [availability zone](../../../overview/concepts/geo-scope.md) you want to place the group nodes in. You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, specify each of the availability zones you need in a separate `location` section.
+       * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter, i.e., the [availability zone](../../../overview/concepts/geo-scope.md) where you want to place the group nodes. You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, specify each availability zone you need in a separate `location` section.
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
-     * To create a node group with a constant number of nodes, add a `fixed_scale` section:
+     * To create a node group with a fixed number of nodes, add the `fixed_scale` section:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -252,7 +254,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        }
        ```
 
-     * To create a {{ managed-k8s-name }} node group with [autoscaling](../../concepts/node-group/cluster-autoscaler.md), add an `auto_scale` section:
+     * To create an [autoscaling](../../concepts/node-group/cluster-autoscaler.md) {{ managed-k8s-name }} node group, add the `auto_scale` section:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -279,11 +281,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
         Add metadata using one of the following methods:
 
-        * Specify one or more `key=value` pairs.
+        * Specify one or multiple `key=value` pairs.
 
             {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
 
-        * Specify one or more `key=file(path_to_file_with_value)` pairs.
+        * Specify one or multiple `key=file(path_to_file_with_value)` pairs.
 
             {% include [metadata-key-from-file](../../../_includes/managed-kubernetes/metadata-key-from-file.md) %}
 
@@ -308,7 +310,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+     For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -319,7 +321,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
 - API {#api}
 
-  Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and include the following information in the request:
+  Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and provide the following in the request:
   * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with the [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [{{ managed-k8s-name }} node group configuration](../../concepts/index.md#config) in the `nodeTemplate` parameter.
   * [Network acceleration type](../../../compute/concepts/software-accelerated-network.md) in the `nodeTemplate.networkSettings.type` parameter.
@@ -331,7 +333,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * Node group [{{ k8s }} labels](../../concepts/index.md#node-labels) in the `nodeLabels` parameter.
   * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
   
-    You cannot change the scaling type after you create a node group.
+    You cannot change the scaling type after creating a node group.
 
   * Node group deployment settings in the `deployPolicy` parameter:
     * `maxExpansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
@@ -345,11 +347,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
-  * List of settings being changed in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-  * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide the `network-ssd-nonreplicated` value for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
+  * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide `network-ssd-nonreplicated` for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
     You can only change the size of non-replicated disks in 93 GB increments. The maximum size of this type of disk is 4 TB.
 
@@ -373,7 +375,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% endnote %}
 
-    Add metadata by specifying one or more `key=value` pairs separated by commas.
+    Add metadata by specifying one or multiple `key=value` pairs separated by commas.
 
     {% include [metadata-key-explicit](../../../_includes/managed-kubernetes/metadata-key-explicit.md) %}
 
@@ -391,7 +393,7 @@ Creating a group of {{ managed-k8s-name }} nodes may take a few minutes dependin
 
 ## Examples {#examples}
 
-Create a node group for the {{ managed-k8s-name }} cluster with the following test characteristics:
+Create a node group for the {{ managed-k8s-name }} cluster with the following test specifications:
 
 * Name: `k8s-demo-ng`.
 * Description: `Test node group`.
@@ -399,13 +401,13 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster): Specify the [ID](../kubernetes-cluster/kubernetes-cluster-list.md) of an existing cluster, e.g., `{{ cluster-id }}`.
 * [{{ k8s }} version](../../concepts/release-channels-and-updates.md) on group nodes: `1.29`.
 * Node [platform](../../../compute/concepts/vm-platforms.md): `standard-v3`.
-* Number of vCPUs for the nodes: Two.
+* Number of vCPUs for nodes: Two.
 * [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md): 50%.
 * [Disk size](../../../compute/concepts/disk.md#maximum-disk-size): 64 GB.
 * [Disk type](../../../compute/concepts/disk.md#disks_types): `network-ssd`.
 * Number of nodes: One.
-* Number of nodes that {{ managed-k8s-name }} can create in the group during its [update](../../concepts/release-channels-and-updates.md#node-group): No more than three.
-* Number of nodes that the service can delete from the group during its update: No more than one.
+* Number of nodes {{ managed-k8s-name }} can create in the group when [updating](../../concepts/release-channels-and-updates.md#node-group) it: Up to three.
+* Number of nodes {{ managed-k8s-name }} can delete from the group when updating it: Up to one.
 * RAM: 2 GB.
 * [Update](../../concepts/release-channels-and-updates.md#updates) time: From 22:00 to 08:00 UTC.
 * [Network acceleration](../../../compute/concepts/software-accelerated-network.md) type: `standard` (no acceleration).
@@ -416,7 +418,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 * [{{ k8s }} label](../../concepts/index.md#node-labels): `node-label1=node-value1`.
 * {{ k8s }} [taint policy](../../concepts/index.md#taints-tolerations): `taint1=taint-value1:NoSchedule`.
 * [Cloud label](../../concepts/index.md#node-labels): `template-label1=template-value1`.
-* Permission to use [unsafe kernel parameters](../../concepts/index.md#config): Enabled. Added the `kernel.msg*` and `net.core.somaxconn` parameters.
+* Permission to use [unsafe kernel parameters](../../concepts/index.md#config): Enabled. We added the `kernel.msg*` and `net.core.somaxconn` parameters.
 * VM being the only node of the group: [Preemptible](../../../compute/concepts/preemptible-vm.md).
 
 {% list tabs group=instructions %}
@@ -511,7 +513,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
       }
       ```
 
-  1. Check that the configuration file is correct.
+  1. Make sure the configuration file is correct.
 
       {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
