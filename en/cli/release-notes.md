@@ -7,6 +7,34 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.170.0 (13/10/25) {#version0.170.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mpg-name }}
+
+Added the `yc managed-postgresql connect` command to connect users with IAM authentication.
+
+##### {{ maf-name }}
+
+Added DAG processor configuration for Airflow 3.0 and higher.
+
+##### {{ mgp-name }}
+
+* For the `yc managed-greenplum cluster create` command, changed the default version to 6.28.
+* For the `yc managed-greenplum connect` command with IAM authentication, deleted the `--user` option. The user is now defined automatically.
+
+##### {{ objstorage-short-name }}
+
+Added a check for the maximum object size in the `yc storage s3 cp` command.
+
+##### {{ org-name }}
+
+* Added the `yc organization-manager group list-effective` command to output groups to which the user belongs within an organization.
+* Added an ability to manage password policies when creating or updating a user pool.
+
+## Previous releases {#previous-release}
+
 ### Version 0.169.0 (01/10/25) {#version0.169.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -45,8 +73,6 @@ Added the `--valkey-modules` parameter to the `yc managed-redis cluster update` 
 ##### {{ baremetal-name }} {#baremetal-name-0.169.0}
 
 Fixed the display of processor info in the `yc baremetal configuration list` command output.
-
-## Previous releases {#previous-release}
 
 ### Version 0.168.0 (29/09/25) {#version0.168.0}
 
@@ -134,7 +160,7 @@ Added the `mysql_no_login` and `mdb_iamproxy_auth` authentication plugins into t
 
 ##### {{ mtr-name }} {#mtr}
 
-Added the following commands for setting up access to a {{ mtr-name }} cluster:
+Added the following commands for setting up access control in a {{ mtr-name }} cluster:
 * `yc managed-trino cluster create`
 * `yc managed-trino cluster get-access-control`
 * `yc managed-trino cluster set-access-control`
@@ -938,7 +964,7 @@ Added commands to link instances to reserved instance pools.
 ##### {{ objstorage-name }}
 
 * Added a parameter to the `yc storage bucket update` command to specify a {{ vpc-full-name }} [service connection](../vpc/concepts/private-endpoint.md) to access the bucket from:
-  * `--private-endpoint`, e.g., `--enable-private-endpoints true --private-endpoints cba,abc`.
+  * `--private-endpoint`, example: `--enable-private-endpoints true --private-endpoints cba,abc`.
 
 ### Version 0.142.0 (30/01/25) {#version0.142.0}
 
@@ -1389,7 +1415,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ load-testing-name }}
 
-* In the `yc loadtesting agent create` command, added the option to wait for the created agent to connect to {{ load-testing-name }}:
+* In the `yc loadtesting agent create` command, you can now choose to wait for the new agent to connect to {{ load-testing-name }}:
   * `--wait-ready` flag: Do not terminate the command until the agent has the `READY FOR TEST` status.
   * `--wait-ready-timeout` parameter: Maximum wait time for `--wait-ready` (default: 5m).
 
@@ -1649,7 +1675,7 @@ Added the `--deletion-protection` parameter to the following commands to protect
 ##### {{ load-testing-name }} {#load-testing}
 
 * Added the `yc loadtesting test wait` command to wait for the end of the load test.
-* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command to wait for the end of the created load test.
+* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command to wait for the end of the load test.
 * Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` parameters to the `yc loadtesting test create` command for selecting a load testing agent by filter or an anonymous agent, respectively.
 * Added the `--filter` parameter to the `yc loadtesting agent list` command to filter the agent list.
 
@@ -1819,13 +1845,13 @@ Added the `yc loadtesting` command tree to manage the load testing service:
 
 Added the following parameter to the `yc serverless function version create` command to specify the mounting of buckets to a function:
 
-* `--storage-mounts`, e.g., `--storage-mounts mount-point=dir,bucket=user-bucket,read-only=false`.
+* `--storage-mounts`, example: `--storage-mounts mount-point=dir,bucket=user-bucket,read-only=false`.
 
 #### {{ serverless-containers-name }} {#serverless-containers}
 
 Added the following parameter to the `yc serverless container revision deploy` command to specify the mounting of buckets to a container:
 
-* `--storage-mounts`, e.g., `--storage-mounts mount-point-path=/data,bucket=user-bucket,read-only=false`.
+* `--storage-mounts`, example: `--storage-mounts mount-point-path=/data,bucket=user-bucket,read-only=false`.
 
 ##### {{ compute-name }} {#compute}
 
@@ -1868,7 +1894,7 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 
 **{{ mkf-name }}**
 
-* `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands: the `--unmanaged-topics` flag is marked as `deprecated`. The relevant field is no longer sent in API requests, but the flag is kept for backward compatibility.
+* `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands: The `--unmanaged-topics` flag is marked as `deprecated`. The relevant field is no longer sent in API requests, but the flag remains for backward compatibility.
 
 **{{ mos-name }}**
 
@@ -2052,7 +2078,7 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 ##### {{ kms-name }} {#kms}
 
-* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../kms/).
+* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../kms/).
 
 ### Version 0.107.0 (15/06/23) {#version0.107.0}
 
@@ -3218,7 +3244,7 @@ Added support for {{ org-full-name }}.
 
 {{ org-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
 
-{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). For more information about the service, refer to the [documentation](../organization/).
+{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). For more information about the service, refer to [this guide](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -3238,7 +3264,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../logging/).
+{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -3768,7 +3794,7 @@ You can use {{ certificate-manager-name }} to obtain and update TLS certificates
 
 These certificates can be used in {{ yandex-cloud }} services to provide connection security.
 
-{{ certificate-manager-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../certificate-manager/).
+{{ certificate-manager-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../certificate-manager/).
 
 
 ### Version 0.63.0 (28/08/20) {#version0.63.0}
@@ -3893,7 +3919,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is an API gateway management service supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and extensions for compatibility with other cloud services.
 
-{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../api-gateway/).
+{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -4257,7 +4283,7 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
-{{ kms-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to the [documentation](../kms/).
+{{ kms-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../kms/).
 
 
 ### Version 0.48.0 (27/12/19) {#version0.48.0}

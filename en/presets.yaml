@@ -8319,6 +8319,10 @@ default:
           action_destroy: Delete
           action_download: Download file
           action_replace: Replace file
+        managing-rule:
+          tabs:
+            alerts: Alerts
+            rules: Rules
         query:
           action_execute: Execute
           label: Query in PromQL
@@ -8563,7 +8567,6 @@ default:
             suspend_d90a8: Deactivate
           caption:
             email: Email
-            federation: Federation
             provider: Credential provider
             status: Status
             user: User
@@ -9207,8 +9210,6 @@ default:
         context_current-bms: current
         context_current-vm: current
         field_delete-old-vm: Delete the outdated VM
-        field_type-full: Full
-        field_type-incremental: Incremental
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Custom

@@ -25,7 +25,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
    * Assign the [admin](../../iam/roles-reference.md#admin) role only to users whose duties involve managing access to resources. 
    * Assign the cloud or organization [owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) role only to users whose duties involve performing any actions with resources. An administrator can take away another administrator's access permissions, and an owner can revoke a role from another owner.
    * Assign users service and primitive level `editor` roles to enable them to create and delete resources.
-   * Use [impersonation](../../iam/concepts/access-control/index.md#impersonation) to allow users to manage cloud resources on behalf of a service account. Use service accounts with the required roles rather than assigning roles to specific users. This approach temporarily expands user permissions without generating static credentials for the user.
+   * Use [impersonation](../../iam/concepts/access-control/impersonation.md) to allow users to manage cloud resources on behalf of a service account. Use service accounts with the required roles rather than assigning roles to specific users. This approach temporarily expands user permissions without generating static credentials for the user.
 
 &#x2713; **Using the {{ roles-auditor }} role to prevent access to user data**: Assign the `{{ roles-auditor }}` role (the role with least privilege and without access to service data) to users who need no access to data, such as external contractors or auditors. To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
 
@@ -41,7 +41,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 ## Service accounts {#service-accounts}
 
-&#x2713; **Using impersonation where feasible**: [Impersonation](../../iam/operations/sa/set-access-bindings.md#impersonation) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user.
+&#x2713; **Using impersonation where feasible**: [Impersonation](../../iam/operations/sa/impersonate-sa.md) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user.
 
 &#x2713; **Using a service account for operations from within a virtual machine**: [Link a service account to the VM](../../compute/operations/vm-connect/auth-inside-vm.md). Thus, you will no longer need to store your service account keys on the VM for authentication: your IAM token will be available via a [metadata service link](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
 

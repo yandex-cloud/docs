@@ -82,9 +82,12 @@ The infrastructure support costs include:
 ## Test cluster state {#test-cluster-state}
 
 Optionally, you can:
-   * [Test cluster physical state](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
-   * [Run parallel jobs in the cluster](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
-   * [Test InfiniBand throughput](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
+
+
+* [Test cluster physical state](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
+* [Run parallel jobs in the cluster](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
+* [Test InfiniBand throughput](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
+
 
 ## Run the language model {#launch-llm}
 

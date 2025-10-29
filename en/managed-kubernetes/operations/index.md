@@ -10,6 +10,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
 * [{#T}](apply-tf-provider.md)
+* [{#T}](apply-helm-provider.md)
 
 ## Connecting to a cluster {#cluster-connect}
 
@@ -92,6 +93,9 @@ description: In this article, you will learn how to work with the managed servic
 ## Working with external nodes {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+* [{#T}](external-nodes-connect-wireguard.md)
+* [{#T}](external-nodes-connect-ipsec.md)
+* [{#T}](bms-server-connect.md)
 
 ## Getting additional information {#get-additional-info}
 

@@ -1,6 +1,6 @@
-# Как начать работать с {{ gpt-lite }} и {{ gpt-pro }}
+# Как начать работать с моделями {{ model-gallery-name }}
 
-В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/generation/index.md#working-mode) без дополнения контекста. Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
+В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/generation/index.md#working-mode). Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
 
 О стоимости использования {{ foundation-models-full-name }} читайте в разделе [{#T}](../pricing.md).
 
@@ -34,7 +34,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `ai.playground.user` или выше.
   1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** или найдите его с помощью строки поиска на дашборде.
   1. На панели слева выберите ![image](../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
 
@@ -53,7 +53,7 @@
 
      1. Выберите [модель](../concepts/generation/models.md) генерации.
      1. **{{ ui-key.yacloud.yagpt.label_temperature-text }}** — укажите значение от `0` до `1`, которое определяет вариативность ответа модели. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
-     1. **{{ ui-key.yacloud.yagpt.instruction }}** — опишите требуемую задачу, стиль письма, лимиты и другие предписания для модели. Для повышения точности генерации см. [{#T}](../gpt-prompting-guide/about.md).
+     1. **{{ ui-key.yacloud.yagpt.instruction }}** — опишите требуемую задачу, стиль письма, лимиты и другие предписания для модели. Рекомендации для повышения качества генераций собраны в разделе [{#T}](../gpt-prompting-guide/about.md).
      1. **{{ ui-key.yacloud.yagpt.use-context }}** — измените тип генерации.
      1. **{{ ui-key.yacloud.yagpt.use-assistant }}** — если опция включена, {{ ai-playground }} будет работать на основе [{{ assistant-api }}](../concepts/assistant/index.md).
 

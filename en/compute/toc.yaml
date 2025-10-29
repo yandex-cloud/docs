@@ -419,6 +419,8 @@ items:
         href: operations/operation-logs.md
       - name: Viewing metrics in {{ monitoring-name }}
         href: operations/metrics-pull.md
+      - name: NVIDIA driver update guide
+        href: operations/gpu-driver-update.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Tutorials
@@ -553,7 +555,7 @@ items:
         href: tutorials/vipnet-to-yc.md
         hidden: true
       - name: >-
-          Creating an external table from a {{ objstorage-name }} bucket table
+          Creating an external table from an {{ objstorage-name }} bucket table
           using a configuration file
         href: tutorials/mgp-config-server-for-s3.md
       - name: >-

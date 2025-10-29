@@ -19,13 +19,13 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   1. Go to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../../../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
-  1. Make sure that the [account](../../../iam/concepts/users/accounts.md) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
+  1. Make sure the [account](../../../iam/concepts/users/accounts.md) you are using to create a {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
   1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
-  1. Create [service accounts](../../../iam/operations/sa/create.md):
-     * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](../../security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-     * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/registry.md) [registry](../../../container-registry/concepts/docker-image.md). Nodes will pull the required Docker images from the registry on behalf of this account.
+  1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will reside.
+  1. Create these [service accounts](../../../iam/operations/sa/create.md):
+     * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the folder where you want to create the {{ managed-k8s-name }} cluster. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
+     * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will use this account to pull the required Docker images from the registry.
 
      You can use the same service account for both operations.
 
@@ -33,13 +33,15 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   1. [Create and configure the security groups](../connect/security-groups.md).
 
-  1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
+  1. Check the [recommendations on using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
 {% endlist %}
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
 {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
+{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
 {% list tabs group=instructions %}
 
@@ -99,9 +101,9 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-     * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/registry.md) from the [registry](../../../container-registry/concepts/docker-image.md) on behalf of this account.
-     * `--master-location`: [Master](../../concepts/index.md#master) configuration. Specify in the parameter the availability zone and subnet where the master will be located.
+     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
+     * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will use this account to pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md).
+     * `--master-location`: [Master](../../concepts/index.md#master) configuration. Specify the availability zone and subnet where the master will reside.
 
         The number of `--master-location` parameters depends on the type of master:
 
@@ -136,7 +138,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        release_channel: REGULAR
      ```
   
-  1. Configure the cluster’s [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/):
+  1. Configure the [container network interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) for your cluster:
 
       {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
@@ -150,7 +152,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
           --enable-network-policy
         ```
 
-      * To enable Cilium's [tunnel mode](../../concepts/network-policy.md#cilium), provide the `--cilium` flag in the {{ managed-k8s-name }} cluster create command:
+      * To enable [tunnel mode](../../concepts/network-policy.md#cilium) for Cilium, provide the `--cilium` flag in the {{ managed-k8s-name }} cluster create command:
 
         ```bash
         {{ yc-k8s }} cluster create \
@@ -169,7 +171,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` property of the {{ managed-k8s-name }} cluster create command:
+  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -292,7 +294,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% endnote %}
 
-     To enable the Cilium [tunnel mode](../../concepts/network-policy.md#cilium), add the following block to the {{ managed-k8s-name }} cluster description:
+     To enable the Cilium [tunnel mode](../../concepts/network-policy.md#cilium), add the following section to the {{ managed-k8s-name }} cluster description:
 
      ```hcl
      network_implementation {
@@ -320,7 +322,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
 
-     For more information, see [this {{ TF }} provider article]({{ tf-provider-k8s-cluster }}).
+     For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -394,7 +396,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - {{ TF }} {#tf}
 
-  Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+  Create a {{ managed-k8s-name }} cluster and its network with the following test specifications:
 
   * Name: `k8s-single`.
   * [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID: `{{ tf-folder-id }}`.
@@ -496,7 +498,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     network_id  = yandex_vpc_network.mynet.id
     ingress {
       protocol          = "TCP"
-      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
+      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
       predefined_target = "loadbalancer_healthchecks"
       from_port         = 0
       to_port           = 65535
@@ -510,7 +512,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     }
     ingress {
       protocol          = "ANY"
-      description       = "The rule allows sub-sub and service-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
+      description       = "The rule allows pod-to-pod and service-to-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
@@ -522,7 +524,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     }
     ingress {
       protocol          = "TCP"
-      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or change existing ones to the required ports."
+      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or replace the existing ones as required."
       v4_cidr_blocks    = ["0.0.0.0/0"]
       from_port         = 30000
       to_port           = 32767
@@ -571,10 +573,10 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - {{ TF }} {#tf}
 
-  Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+  Create a {{ managed-k8s-name }} cluster and its network with the following test specifications:
 
   * Name: `k8s-ha-three-zones`.
-  * Folder ID: `{{ tf-folder-id }}`
+  * Folder ID: `{{ tf-folder-id }}`.
   * Network: `my-ha-net`.
   * Subnet: `mysubnet-a`. Its network settings are as follows:
 
@@ -701,11 +703,11 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   resource "yandex_vpc_security_group" "ha-k8s-sg" {
     name        = "ha-k8s-sg"
-    description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply it to the cluster and node groups."
+    description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply them to the cluster and node groups."
     network_id  = yandex_vpc_network.my-ha-net.id
     ingress {
       protocol          = "TCP"
-      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
+      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
       predefined_target = "loadbalancer_healthchecks"
       from_port         = 0
       to_port           = 65535
@@ -719,7 +721,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     }
     ingress {
       protocol          = "ANY"
-      description       = "The rule allows sub-sub and service-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
+      description       = "The rule allows pod-to-pod and service-to-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-d.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
@@ -731,7 +733,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     }
     ingress {
       protocol          = "TCP"
-      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or change existing ones to the required ports."
+      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or replace the existing ones as required."
       v4_cidr_blocks    = ["0.0.0.0/0"]
       from_port         = 30000
       to_port           = 32767
@@ -780,7 +782,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - {{ TF }} {#tf}
 
-  Create a {{ managed-k8s-name }} cluster and a network for it with the following test specifications:
+  Create a {{ managed-k8s-name }} cluster and its network with the following test specifications:
 
   * Name: `k8s-ha-one-zone`.
   * Folder ID: `{{ tf-folder-id }}`.
@@ -886,11 +888,11 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   resource "yandex_vpc_security_group" "ha-k8s-sg" {
     name        = "ha-k8s-sg"
-    description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply it to the cluster and node groups."
+    description = "Group rules ensure the basic performance of the {{ managed-k8s-name }} cluster. Apply them to the cluster and node groups."
     network_id  = yandex_vpc_network.my-ha-net.id
     ingress {
       protocol          = "TCP"
-      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
+      description       = "The rule allows availability checks from the load balancer's range of addresses. It is required for a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
       predefined_target = "loadbalancer_healthchecks"
       from_port         = 0
       to_port           = 65535
@@ -904,7 +906,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     }
     ingress {
       protocol          = "ANY"
-      description       = "The rule allows sub-sub and service-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
+      description       = "The rule allows pod-to-pod and service-to-service interactions. Specify the subnets of your {{ managed-k8s-name }} cluster and services."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks, yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks, yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
@@ -916,7 +918,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
     }
     ingress {
       protocol          = "TCP"
-      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or change existing ones to the required ports."
+      description       = "The rule allows incoming traffic from the internet to a range of NodePorts. Add ports or replace the existing ones as required."
       v4_cidr_blocks    = ["0.0.0.0/0"]
       from_port         = 30000
       to_port           = 32767
@@ -935,4 +937,4 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 ## See also {#see-also}
 
-[Overview of methods for connecting to a cluster](../connect/index.md)
+[Overview of cluster connection methods](../connect/index.md)

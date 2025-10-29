@@ -1,32 +1,32 @@
 ---
 title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
-description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
+description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ iam-name }}
 
-In this section, you will learn:
-* [What resources support role assignment](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#choosing-roles) for specific actions.
+In this section, you will learn about:
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user needs the `iam.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `iam.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporing role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 You can assign a role for a [service account](../concepts/users/service-accounts.md) in the [management console]({{ link-console-main }}) or using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/iam/cli-ref/service-account/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-## Available service roles {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/iam/security/service-roles-hierarchy.svg)
+{% include [iam](../../_mermaid/roles/iam.md) %}
 
 ### Service roles {#service-roles}
 
@@ -121,7 +121,7 @@ For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
 Action | Methods | Required roles
 ----- | ----- | -----

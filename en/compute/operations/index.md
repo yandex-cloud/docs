@@ -230,6 +230,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](reserved-pools/delete-reserved-pool.md)
 * [{#T}](reserved-pools/manage-pool-vms.md)
 
+
 ## GPU clusters {#gpu-cluster}
 
 * [{#T}](gpu-cluster/gpu-cluster-create.md)
@@ -242,7 +243,9 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
 * [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
 
+
 ## Getting additional information {#get-additional-info}
 
 * [{#T}](operation-logs.md)
 * [{#T}](metrics-pull.md)
+* [{#T}](gpu-driver-update.md)

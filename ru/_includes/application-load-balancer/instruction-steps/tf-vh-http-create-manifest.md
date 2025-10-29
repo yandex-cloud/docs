@@ -22,7 +22,7 @@ resource "yandex_alb_virtual_host" "my-virtual-host" {
       http_match {
         http_method = ["<HTTP-метод_1>","<HTTP-метод_2>",...,"<HTTP-метод_n>"]
         path {
-          prefix = "<префикс_пути_запроса>/"
+          prefix = "/<префикс_пути_запроса>/"
           # или exact = "<путь_запроса>"
           # или regex = "<регулярное_выражение>"
         }

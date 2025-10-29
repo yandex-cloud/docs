@@ -219,7 +219,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 ## Examples {#examples}
 
 * [Assigning multiple roles](#multiple-roles)
-* [Setting up impersonation](#impersonation)
 * [Setting up access of one service account to another service account](#access-to-sa)
 
 ### Assigning multiple roles {#multiple-roles}
@@ -294,7 +293,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
      {% endcut %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
  
   1. Check the configuration using this command:
      ```
@@ -312,7 +311,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```
@@ -383,83 +382,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 {% endlist %}
 
-### Set up impersonation {#impersonation}
-
-[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions under a service account using the `--impersonate-service-account-id` parameter. To use impersonation, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  1. Find out the ID of the service account, such as `test-sa`, you want to assign the role to. To do this, get a list of available service accounts (in the administrator profile):
-
-      ```bash
-      yc iam service-account list
-      ```
-
-      Result:
-
-      ```
-      +----------------------+----------+------------------+
-      |          ID          |   NAME   |   DESCRIPTION    |
-      +----------------------+----------+------------------+
-      | ajebqtreob2d******** | test-sa  | test-description |
-      | aje6o61dvog2******** | my-robot |                  |
-      +----------------------+----------+------------------+
-      ```
-
-  1. Assign the `test-sa` service account the `viewer` role for `my-folder`. In the subject type, specify `serviceAccount`, and in its value, specify the service account ID from the administrator profile:
-
-      ```
-      yc resource-manager folder add-access-binding my-folder \
-        --role viewer \
-        --subject serviceAccount:ajebqtreob2d********
-      ```
-
-  1. Get the user ID and assign them the `iam.serviceAccounts.tokenCreator` role for the `test-sa` service account (in the administrator profile):
-
-      ```
-      yc iam service-account add-access-binding test-sa \
-        --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfh********
-      ```
-
-  1. The user can run a command under the `test-sa` service account using the `--impersonate-service-account-id` parameter.
-
-      For example, the user can get a list of VMs in `my-folder`:
-
-      ```
-      yc compute instance list --folder-name my-folder \
-        --impersonate-service-account-id ajebqtreob2d********
-      ```
-
-      The user can also get an [IAM token](../../concepts/authorization/iam-token.md) of the `test-sa` service account for short-term access:
-
-      ```
-      yc iam create-token --impersonate-service-account-id ajebqtreob2d********
-      ```
-
-      The token will expire automatically.
-
-  1. If the user no longer needs this permission, revoke the role from the service account (in the administrator's profile):
-
-      ```
-      yc resource-manager folder remove-access-binding my-folder \
-        --role viewer \
-        --subject serviceAccount:ajebqtreob2d********
-      ```
-  1. Revoke the `iam.serviceAccounts.tokenCreator` role from the user you granted service account permissions to:
-
-      ```
-      yc iam service-account remove-access-binding test-sa \
-        --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfh********
-      ```
-
-{% endlist %}
-
 ### Setting up access from one service account to another service account {#access-to-sa}
 
 Allow the `test-sa` service account to manage the `my-robot` service account:
@@ -523,7 +445,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
      {% endcut %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
   1. Check the configuration using this command:
      ```
@@ -541,7 +463,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```
@@ -608,3 +530,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       ```
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](./impersonate-sa.md)

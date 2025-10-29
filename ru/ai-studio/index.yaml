@@ -30,15 +30,12 @@ description:
     href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">Уровень
     обслуживания {{ ai-studio-full-name }}</a>.
 links:
+  - title: О сервисе {{ ai-studio-name }}
+    description: Ознакомьтесь с основными возможностями сервиса
+    href: concepts/
   - title: Начало работы с {{ yagpt-name }}
     description: Отправьте свой первый запрос в {{ yagpt-name }}
     href: quickstart/yandexgpt
-  - title: Начало работы с {{ yandexart-name }}
-    description: Сгенерируйте первое изображение с {{ yandexart-name }}
-    href: quickstart/yandexart
-  - title: Концепции
-    description: Ознакомьтесь с основными возможностями сервиса
-    href: concepts/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

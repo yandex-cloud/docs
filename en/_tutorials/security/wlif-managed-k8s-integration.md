@@ -47,7 +47,6 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
 {% endnote %}
 
 1. If you do not have a {{ managed-k8s-name }} cluster yet:
-
     1. [Create a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). 
     1. [Create](../../managed-kubernetes/operations/node-group/node-group-create.md) a node group.
     1. [Set up](../../managed-kubernetes/operations/connect/security-groups.md) security groups for the cluster and node group.
@@ -120,7 +119,7 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
 
 ## Set up an {{ iam-short-name }} service account {#prepare-sa}
 
-1. Create a service account named {{ iam-short-name }}:
+1. Create a {{ iam-short-name }} service account:
 
     {% list tabs group=instructions %}
 

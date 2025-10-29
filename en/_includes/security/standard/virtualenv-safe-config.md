@@ -12,7 +12,7 @@ This section recommends customers on how to configure secure {{ yandex-cloud }} 
 Make sure to provide anti-malware protection within your scope of responsibility. You can use a variety of solutions from our partners in [{{ marketplace-full-name }}](/marketplace).
 [Antivirus solution images](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol) are available in {{ marketplace-full-name }}. License types and other required information are available in the product descriptions.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV38 | Medium |
 
@@ -35,17 +35,17 @@ On VMs, access to the serial console is disabled by default. For risks of using 
 When working with a serial console:
 
 * Make sure that critical data is not output to the serial console.
-* If SSH access to the serial console is enabled, make sure that both the credentials management routine and the password used to log in to the operating system locally are as per the regulatory standards. For example, in an payment card data storage infrastructure, passwords must be PCI DSS compliant: they must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
+* If SSH access to the serial console is enabled, make sure that both the credentials management routine and the password used to log in to the operating system locally are as per the regulatory standards. For example, in an infrastructure for storing payment card data, passwords must meet the PCI DSS requirements: they must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
 
 {% note info %}
 
-According to PCI DSS, VM access via a serial console is considered _non-console_, and {{ yandex-cloud }} uses TLS encryption for it.
+According to PCI DSS, VM access via a serial console is _non-console_ access, so {{ yandex-cloud }} applies TLS encryption for it.
 
 {% endnote %}
 
 We do not recommend using access to the serial console unless it is absolutely necessary.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV1 | High |
 
@@ -96,7 +96,7 @@ When deploying virtual machines, we recommend:
 * Use this image to create a virtual machine or [instance group](../../../compute/concepts/instance-groups/index.md).
 * Look up the virtual machine's information to check that it was created using this image.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV2 | Medium |
 
@@ -147,7 +147,7 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We do not recommend stating private information in your {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 
@@ -168,7 +168,7 @@ Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/che
 * [Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
 * [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud-examples/yc-terraform-state).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV3 | High |
 
@@ -182,7 +182,7 @@ Scan your {{ TF }} manifests using [Checkov](https://github.com/bridgecrewio/che
 
 #### 3.5 Integrity control is performed {#integrity-control}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV5 | Low |
 
@@ -195,7 +195,7 @@ Numerous information security standards require integrity control of critical fi
 
 {{ yandex-cloud }}'s marketplace also offers paid solutions, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV5.1 | Medium |
 
@@ -209,9 +209,9 @@ Numerous information security standards require integrity control of critical fi
 
 ##### 3.5.2 VM runtime environment integrity control {#vm-integrity-control}
 
-If you need to control a VM runtime environment (e.g., for access from the VM to a secure repository only when run in the {{ yandex-cloud }} CLI cloud), there is the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document is generated which stores information about the VM: VM ID, [{{ marketplace-full-name }}](/marketplace) product ID, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
+If you need to control a VM runtime environment (e.g., for access from the VM to a secure repository only when run in the {{ yandex-cloud }} CLI cloud), there is the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document that stores information about the VM is generated. It contains the IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV5.2 | Low |
 
@@ -234,7 +234,7 @@ We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-
 
 [Learn more](https://www.youtube.com/watch?v=VSP_cp6vDQQ&list=PL1x4ET76A10a9Jr6six11s0kRxeQ3fgom&index=17) about side-channel attack protection in cloud environments.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV6 | Informational |
 
@@ -242,7 +242,7 @@ We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-
 
 The {{ yandex-cloud }} Certified Security Specialist certification exam evaluates the competencies of {{ yandex-cloud }} users involved in information security and cloud system protection.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV39 | Informational |
 
@@ -283,7 +283,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
  [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket)
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV7 | Medium |
 
@@ -325,7 +325,7 @@ Bucket policy [examples](../../../storage/concepts/policy.md#config-examples):
 
 We recommend making sure that your {{ objstorage-name }} bucket uses at least one policy.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV8 | High |
 
@@ -361,15 +361,15 @@ Bucket versioning allows keeping a version history of an object. Each version is
 
 If you delete or modify an object with versioning enabled, the action will create a new object version with a new ID. In the case of deletion, the object becomes unreadable, but its version is kept and can be restored.
 
-For more information about setting up versioning, see the {{ objstorage-name }} documentation, [Bucket versioning](../../../storage/concepts/versioning.md).
+For more information about setting up versioning, see [Bucket versioning](../../../storage/concepts/versioning.md) in the {{ objstorage-name }} guide.
 
-For more information about lifecycles, see the {{ objstorage-name }} documentation, [Bucket object lifecycles](../../../storage/concepts/lifecycles.md) and [Bucket object lifecycle configuration](../../../storage/s3/api-ref/lifecycles/xml-config.md).
+For more information about lifecycles, see [Bucket object lifecycles](../../../storage/concepts/lifecycles.md) and [Bucket object lifecycle configuration](../../../storage/s3/api-ref/lifecycles/xml-config.md) in the {{ objstorage-name }} guide.
 
-In addition, to protect object versions against deletion, use [object locks](../../../storage/concepts/object-lock.md). For more information about object lock types and how to enable them, see the documentation.
+In addition, to protect object versions against deletion, use [object locks](../../../storage/concepts/object-lock.md). For more information about object lock types and how to enable them, refer to the guide.
 
 The storage period of critical data in a bucket is determined by the customer's information security requirements and the information security standards. For example, the PCI DSS standard states that audit logs should be stored for at least one year and be available online for at least three months.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV9 | Medium |
 
@@ -417,7 +417,7 @@ You can request log data [writing](../../../audit-trails/concepts/events.md#objs
 
 You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. For more information, see [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](../../../tutorials/datalens/storage-logs-analysis.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV10 | Low |
 
@@ -429,7 +429,7 @@ You can check if logging is enabled only via {{ TF }}/API by following [this gui
 
 If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in buckets, you should configure the Cross-Origin Resource Sharing (CORS) policy in accordance with your corporate information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV11 | Low |
 
@@ -462,7 +462,7 @@ To set up access permissions for the key, you need an [access policy](../../../s
 
 Temporary {{ sts-name }} keys inherit the access permissions of the service account but are limited by the access policy. If you set up a temporary key's access policy to allow operations not allowed for the service account, such operations will not be performed.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV12 | Low |
 
@@ -483,7 +483,7 @@ With pre-signed URLs, any web user can perform various operations in Object Stor
 
 We recommend using pre-signed URLs to users who are not authorized in the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) but need access to specific objects in the bucket. This way you follow the principle of least privilege and avoid opening access to all the objects in the bucket.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV13 | Low |
 
@@ -497,7 +497,7 @@ We recommend using pre-signed URLs to users who are not authorized in the [cloud
 
 We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from particular IP addresses. To do this, follow the steps in [Creating a security group](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV14 | Medium |
 
@@ -552,7 +552,7 @@ If any databases without security groups are found, assign them or enable the **
 
 Assigning a public IP to a managed database raises information security risks. We do not recommend assigning an external IP unless it is absolutely necessary.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV15 | High |
 
@@ -597,7 +597,7 @@ Disable public access if it is not required.
 
 In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even with cluster deletion protection enabled, one can still connect to the cluster manually and delete its data.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV16 | Medium |
 
@@ -645,7 +645,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. The
 
 Do not enable access to databases containing critical data from the management console, [{{ datalens-short-name }}](../../../datalens), or other services unless you have to. Access from {{ datalens-short-name }} may be required for data analysis and visualization. For such access, the {{ yandex-cloud }} service network is used, with authentication and TLS encryption. You can enable and disable access from {{ datalens-short-name }} or other services in the cluster settings or when creating it in the advanced settings section.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV17 | High |
 
@@ -695,7 +695,7 @@ You may need access to the database from the management console to send [SQL que
 
 We recommend that you enable this type of access only if needed, because it raises information security risks. In normal mode, use a standard DB connection as a DB user.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV18 | Low |
 
@@ -822,7 +822,7 @@ Networking between two functions, as well as between functions and user resource
 
 * Incoming connections are not supported. For example, you cannot access the internal components of a function over the network, even if you know the IP address of its instance.
 * Outgoing connections are supported via TCP, UDP, and ICMP. For example, a function can access a {{ compute-full-name }} VM or a {{ ydb-full-name }} DB on the user's network.
-* The function is cross-zonal: you cannot explicitly specify a subnet or select an availability zone to run a function.
+* Function is cross-zoned: you cannot explicitly specify a subnet or select an availability zone to run a function.
 
 If necessary, you can specify a cloud network in the function settings. In which case:
 
@@ -833,7 +833,7 @@ If necessary, you can specify a cloud network in the function settings. In which
 
 You can only specify a single network for functions, containers, and API gateways that reside in the same cloud.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV19 | Informational |
 
@@ -901,7 +901,7 @@ You cannot calculate environment variables. Environment variable values are stri
 
 You can access the DB cluster hosts from the function only via the [SSL protocol](https://ru.wikipedia.org/wiki/SSL), with the help of a [DB connection](../../../functions/operations/database-connection.md#connect), or by specifying a cloud network in the function settings. Use a service account with a role assigned and enable access for functions on the DBMS side.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV20 | Medium |
 
@@ -919,7 +919,7 @@ For more information about roles and resources you can assign roles for in {{ sf
 
 {{ sf-name }} does not guarantee time synchronization prior to or during execution of requests by functions. To get a function log with exact timestamps on the {{ sf-name }} side, use a cloud logging service. For more information on function logging, see [{#T}](../../../functions/concepts/logs.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV22 | Informational |
 
@@ -930,7 +930,7 @@ If the function is called to process an HTTP request, the returned result should
 You can run a function by specifying the `?integration=raw` string query parameter. When invoked this way, a function cannot parse or set HTTP headers:
 
 * HTTPS request body content is provided as the first argument (without converting to a JSON structure).
-* The contents of the HTTPS response body is identical to the function response (without converting or checking the structure), and the HTTP response status is `200`.
+* HTTPS request body content is the same as the function's response (without converting and checking the structure); the HTTP response status is `200`.
 
 The request must be a JSON structure which contains:
 
@@ -943,7 +943,7 @@ The request must be a JSON structure which contains:
 
 For the purpose of debugging a function, you can use special requests that return the JSON structure of the request and the result you need for debugging. For more information, see [function debugging](../../../functions/concepts/function-invoke.md#example).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV23 | Informational |
 
@@ -953,7 +953,7 @@ For the purpose of debugging a function, you can use special requests that retur
 
 It is prohibited to use confidential data for names of databases, tables, columns, folders, and so on. Do not send critical data, e.g., payment card details, to {{ ydb-name }} (both Dedicated and Serverless) in plain text. Prior to sending data, be sure to encrypt it at the application level. For this you can use the KMS service or any other method compliant with the regulator standard. For data where the storage period is known in advance, we recommend that you configure the [Time To Live]({{ ydb.docs }}/concepts/ttl) option.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV24 | High |
 
@@ -961,7 +961,7 @@ It is prohibited to use confidential data for names of databases, tables, column
 
 When working with the database, use [parameterized prepared statements]({{ ydb.docs }}/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV25 | High |
 
@@ -971,7 +971,7 @@ When accessing the database in dedicated mode, we recommend that you use it insi
 
 When setting up database permissions, use the principle of least privilege.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV26 | High |
 
@@ -1019,7 +1019,7 @@ When creating [on-demand backups](../../../ydb/pricing/serverless.md), make sure
 
 When creating backups on demand in {{ objstorage-name }}, follow the recommendations in the {{ objstorage-name }} subsection above (for example, use the built-in bucket encryption feature).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV27 | Low |
 
@@ -1029,7 +1029,7 @@ When creating backups on demand in {{ objstorage-name }}, follow the recommendat
 
 We recommend that you limit access to your {{ container-registry-short-name }} to specific IPs.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV28 | Medium |
 
@@ -1108,7 +1108,7 @@ Specify the IP addresses for registry access.
 
 #### 3.29 Requirements for application protection in {{ container-registry-full-name }} are met {#app-container-registry}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV40 | Medium |
 
@@ -1116,7 +1116,7 @@ Specify the IP addresses for registry access.
 
 {% include [scan-docker-upload.md](scan-docker-upload-description.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV41 | Medium |
 
@@ -1130,7 +1130,7 @@ Specify the IP addresses for registry access.
 
 {% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV42 | High |
 
@@ -1140,7 +1140,7 @@ Specify the IP addresses for registry access.
 
 {% include [artifacts-cosign](artifacts-cosign-description.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV43 | High |
 
@@ -1152,7 +1152,7 @@ Specify the IP addresses for registry access.
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers should be used for the purposes of administering VMs or other containers.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV44 | High |
 
@@ -1208,7 +1208,7 @@ When using certificate pinning, keep in mind that Let's Encrypt certificates are
 
 We recommend that you update certificates in advance if they are not [updated automatically](../../../certificate-manager/concepts/challenges.md#auto).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV29 | Medium |
 
@@ -1256,7 +1256,7 @@ Update the certificate or set up auto updates.
 
 See the recommendations [here](../../../managed-gitlab/concepts/security.md#secure-instance). 
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV30 | Medium |
 
@@ -1270,7 +1270,7 @@ See the recommendations [here](../../../managed-gitlab/concepts/security.md#secu
 
 #### 3.33 Requirements for application protection in {{ GL }} are met {#gl-app-container-registry}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV45 | Medium |
 
@@ -1282,7 +1282,7 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 * Using the [`Compliance framework and pipeline`](https://docs.gitlab.com/ee/user/project/settings/index.html#compliance-frameworks) mechanism that you can run in any group project. It is available for the `Ultimate` license.
 * Copying pipeline sections to `.gitlab-ci.yml` files in your projects.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV46 | Informational |
 
@@ -1294,7 +1294,7 @@ If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has
 
 If you close a thread manually, it will be created again. If a merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated code approval workflow.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV47 | Medium |
 
@@ -1317,7 +1317,7 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 Check the recommendations in [{#T}](../../../security/standard/kubernetes-security.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV32 | Medium |
 
@@ -1329,7 +1329,7 @@ Check the recommendations in [{#T}](../../../security/standard/kubernetes-securi
 
 Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users or service accounts. If you revoke the roles from a user or service account, they will lose access to all virtual machines and {{ k8s }} nodes with {{ oslogin }} access enabled.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV33 | Low |
 
@@ -1355,7 +1355,7 @@ Example of a free scanner operating as an agent on hosts: [Wazuh](https://docume
 
 You can also use a [solution](/marketplace/products/scanfactory/scanfactory-saas) from {{ marketplace-name }}.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV34 | Medium |
 
@@ -1371,7 +1371,7 @@ You can also use a [solution](/marketplace/products/scanfactory/scanfactory-saas
 
 Customers hosting their own software in {{ yandex-cloud }} can perform external security scans for the hosted software, including penetration tests. You can run your own scans or use contractors. For more information, see [Rules for performing external security scans](../../../security/compliance/pentest.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV35 | Informational |
 
@@ -1389,7 +1389,7 @@ Customers must perform security updates themselves within their [scope of respon
 
 {{ yandex-cloud }} publishes [security bulletins](../../../security/security-bulletins/index.md) to notify customers of newly discovered vulnerabilities and security updates.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV36 | Medium |
 
@@ -1401,7 +1401,7 @@ Make sure to back up all VMs in your organization using one of these options:
 * Scheduled snapshots
 * {{ backup-short-name }}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV37 | High |
 
@@ -1433,7 +1433,7 @@ Make sure that the {{ yandex-cloud }} user has access to the [{{ api-gw-name }}]
 
 {% include [roles-list](../../../_includes/iam/roles-list.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV48 | Medium |
 
@@ -1462,7 +1462,7 @@ For the gateway to have access not just to the internet but to the user resource
 
 If you specify a network in the API gateway settings, this will create an auxiliary subnet with addresses from the `198.19.0.0/16` range in each availability zone. The API gateway will get an IP address from the respective subnet and will have access to all network resources.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV49 | Medium |
 
@@ -1491,7 +1491,7 @@ If you are using your own domains in {{ api-gw-short-name }} with confirmed perm
 * Use [TLS](../../../storage/concepts/tls.md) version 1.2 or higher.
 * Use [additional protection tools](../../../api-gateway/concepts/extensions/), such as intrusion detection and DDoS protection systems.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV50 | Informational |
 
@@ -1516,7 +1516,7 @@ We recommend that you use the following when connecting to the API gateway via W
 * OpenAPI 3.0 [authentication and authorization mechanisms](#authorization).
 * [API gateway specification extensions](../../../api-gateway/concepts/extensions/), which can help you enhance your virtual environment security.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV51 | Informational |
 
@@ -1537,7 +1537,7 @@ For more information, see [{#T}](../../../api-gateway/tutorials/api-gw-websocket
 
 Make sure that security enhancement extensions were added to the {{ api-gw-name }} specification.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV52 | Medium |
 
@@ -1560,7 +1560,7 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 * [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) sets request number limits, thus reducing workload on web apps and protecting the backend from depleting resources.
 * The [WAF](../../../smartwebsecurity/concepts/waf.md) profile analyzes web app's incoming HTTP requests based on pre-configured rules for DoS/DDoS protection.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV53 | Medium |
 
@@ -1580,9 +1580,9 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 We recommend using the OpenAPI 3.0 authentication and authorization mechanisms that are standard for {{ api-gw-name }}. Currently, you can use authorization via a function and via a JWT.
 
 * [Authorization via Cloud Functions](../../../api-gateway/concepts/extensions/function-authorizer.md). For HTTP request authorization, {{ api-gw-name }} calls the `x-yc-apigateway-authorizer:function` extension. Currently these three types are supported: `HTTP Basic`, `HTTP Bearer`, and `API Key`.
-* [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-name }} validates a token and verifies its signature using these public keys: address, place, fields, body, time, caching mode, and cache retention period.
+* [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-name }} validates a token and verifies its signature using the following supported public keys: address, place, fields, body, time, caching mode, and cache retention period.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV54 | Medium |
 
@@ -1601,7 +1601,7 @@ We recommend using the OpenAPI 3.0 authentication and authorization mechanisms t
 
 We recommend using an [authorization context](../../../api-gateway/concepts/extensions/function-authorizer.md#context) in the [request](../../../functions/concepts/function-invoke.md#request) inside the `requestContext.authorizer` field. This helps preserve data integrity and prevents unauthorized access.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV55 | Medium |
 
@@ -1617,7 +1617,7 @@ We recommend using an [authorization context](../../../api-gateway/concepts/exte
 
 We recommend to keep logging enabled when creating an API gateway. For more information, see [{#T}](../../../api-gateway/operations/api-gw-logs-write.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | ENV56 | Medium |
 

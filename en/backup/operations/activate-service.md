@@ -6,7 +6,7 @@ description: Follow this guide to activate {{ backup-name }}.
 # Activating the service
 
 
-The minimum [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) role required to activate the service is `backup.editor` (see [its description](../security/index.md#backup-editor) for details).
+{% include [activate-provider-roles](../../_includes/backup/activate-provider-roles.md) %}
 
 {% include [agent-send-data](../../_includes/backup/agent-send-data.md) %}
 

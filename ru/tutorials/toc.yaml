@@ -228,6 +228,8 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ mgl-name }}'

@@ -13,7 +13,7 @@ When performing actions on behalf of a service account, ensure that it has the r
 
 Learn how to get authenticated in the {{ yandex-cloud }} CLI:
 
-* [On behalf of a service account using impersonation](#use-impersonation). Using [impersonation](../../../iam/concepts/access-control/index.md#impersonation) is the recommended and most secure way to get authenticated in the {{ yandex-cloud }} CLI.
+* [On behalf of a service account using impersonation](#use-impersonation). Using [impersonation](../../../iam/concepts/access-control/impersonation.md) is the recommended and most secure way to get authenticated in the {{ yandex-cloud }} CLI.
 * [On behalf of a service account using an authorized key](#auth-as-sa). Using an [authorized key](../../../iam/concepts/authorization/key.md) allows you to continually get authenticated in the {{ yandex-cloud }} CLI with the same authorized key you generated. Using a long-lived key is less secure than using impersonation.
 * [As a service account from inside a VM](#vm-auth-as-sa). Using a [service account](../../../iam/concepts/users/service-accounts.md) attached to the {{ compute-full-name }} [VM](../../../compute/concepts/vm.md) is the recommended method of authentication in the {{ yandex-cloud }} CLI when using a VM.
 
@@ -31,7 +31,7 @@ Learn how to get authenticated in the {{ yandex-cloud }} CLI:
 To perform an action on behalf of a service account:
 
 1. {% include [list-sas](../../../_includes/cli/list-sas.md) %}
-1. When running {{ yandex-cloud }} CLI commands, use [impersonation](../../../iam/concepts/access-control/index.md#impersonation) of your service account by specifying its ID in the `--impersonate-service-account-id` parameter.
+1. When running {{ yandex-cloud }} CLI commands, use [impersonation](../../../iam/concepts/access-control/impersonation.md) of your service account by specifying its ID in the `--impersonate-service-account-id` parameter.
 
     For example, to create a [bucket](../../../storage/concepts/bucket.md) named `my-sample-bucket` in the default folder on behalf of a service account, run this command:
 

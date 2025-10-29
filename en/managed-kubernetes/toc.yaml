@@ -19,6 +19,10 @@ items:
         href: operations/autoscale.md
       - name: Activating a {{ k8s }} {{ TF }} provider
         href: operations/apply-tf-provider.md
+      - name: >-
+          Installing applications from {{ marketplace-full-name }} using {{ TF
+          }}
+        href: operations/apply-helm-provider.md
       - name: Connecting to a cluster
         items:
           - name: Connection method overview
@@ -164,12 +168,18 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
-      - name: Connecting external nodes to a cluster
-        href: operations/external-nodes-connect.md
-      - name: Configuring WireGuard gateways to connect external nodes to a cluster
-        href: operations/external-nodes-connect-wireguard.md
-      - name: Configuring IPSec gateways to connect external nodes to a cluster
-        href: operations/external-nodes-connect-ipsec.md
+      - name: Working with external nodes
+        items:
+          - name: Connecting external nodes to a cluster
+            href: operations/external-nodes-connect.md
+          - name: >-
+              Configuring WireGuard gateways to connect external nodes to a
+              cluster
+            href: operations/external-nodes-connect-wireguard.md
+          - name: "Configuring IPSec gateways to connect external nodes to a cluster\_"
+            href: operations/external-nodes-connect-ipsec.md
+          - name: Connecting a {{ baremetal-name }} server as an external node
+            href: operations/bms-server-connect.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -302,7 +312,7 @@ items:
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Setting up Kyverno &amp; Kyverno Policies
             href: tutorials/marketplace/kyverno.md
-          - name: Using {{ MP }} to stream metrics
+          - name: Using {{ MP }} to transmit metrics
             href: tutorials/marketplace/metrics-provider.md
           - name: Editing website images with Thumbor
             href: tutorials/marketplace/thumbor.md
@@ -316,6 +326,8 @@ items:
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Updating node group OS
+        href: concepts/node-os-update.md
       - name: Encryption
         href: concepts/encryption.md
       - name: Using {{ k8s }} API objects

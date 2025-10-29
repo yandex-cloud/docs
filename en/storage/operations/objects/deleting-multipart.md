@@ -15,11 +15,9 @@ To manually delete a partially uploaded object:
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket that contains a partially uploaded object.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. Hover over the yellow field next to the object count.
-  1. Click **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}** as soon as it appears.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
+  1. In the row with the bucket, in the **{{ ui-key.yacloud.storage.buckets.column_count }}** column, hover over the yellow field with the number of partially uploaded objects.
+  1. In the window that opens, click **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}**.
   1. Select incomplete uploads you want to delete.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
