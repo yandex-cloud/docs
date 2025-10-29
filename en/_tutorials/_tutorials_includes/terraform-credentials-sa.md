@@ -56,7 +56,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
    - Management console {#console}
 
-     To assign to a service account a role for the folder:
+     To assign a role for a folder to a service account:
 
      {% include [grant-role-console-sa](../../_includes/grant-role-console-sa.md) %}
 
@@ -113,7 +113,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
    {% endlist %}
 
-1. Add your credentials to the environment variables. When creating an [IAM token](../../iam/concepts/authorization/iam-token.md), use the [impersonation](../../iam/concepts/access-control/index.md#impersonation) of the service account you created earlier, specifying its ID in the `--impersonate-service-account-id` parameter:
+1. Add your credentials to the environment variables. When creating an [IAM token](../../iam/concepts/authorization/iam-token.md), use the [impersonation](../../iam/concepts/access-control/impersonation.md) of the service account you created earlier, specifying its ID in the `--impersonate-service-account-id` parameter:
 
     {% include [impersonation-role-notice](../../_includes/cli/impersonation-role-notice.md) %}
 

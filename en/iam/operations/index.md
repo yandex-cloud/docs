@@ -28,6 +28,7 @@ description: Step-by-step guides on how to manage access permissions to {{ yande
 - [{#T}](sa/update.md)
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)
+- [{#T}](sa/impersonate-sa.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 - [{#T}](sa/get-id-token.md)

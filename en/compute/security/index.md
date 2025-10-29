@@ -6,11 +6,11 @@ description: Access management in {{ compute-full-name }}, a service providing s
 # Access management in {{ compute-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
 * [About access management in {{ yandex-cloud }}](#about-access-control).
-* [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [What roles are required to perform specific actions](#choosing-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
@@ -55,7 +55,7 @@ You can also assign roles for individual resources of the service:
 
 {% endlist %}
 
-## What roles this service has {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -147,6 +147,7 @@ Use of [disks](../concepts/disk.md) | `compute.disks.user`, `compute.snapshotSch
 Use of [images](../concepts/image.md) | `compute.images.user` or `compute.editor` for the image
 **Managing resources** |
 [Creating](../operations/vm-create/create-linux-vm.md) a VM | `compute.editor` for the folder
+Creating a VM with a [public IP address](../../vpc/concepts/address.md#public-addresses) | `compute.editor` and `vpc.publicAdmin` for the folder
 [Starting](../operations/vm-control/vm-stop-and-start.md#start), [stopping](../operations/vm-control/vm-stop-and-start.md#stop), and [restarting](../operations/vm-control/vm-stop-and-start.md#restart) virtual machines | `compute.operator` for the VM instance
 [Modifying](../operations/vm-control/vm-update.md) and [deleting](../operations/vm-control/vm-delete.md) a virtual machine | `compute.editor` for the VM instance
 [Linking](../operations/vm-control/vm-connect-sa.md) a service account to a VM | `compute.editor` for the VM instance

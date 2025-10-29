@@ -8,11 +8,6 @@
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-Чтобы дать доступ пользователям вашей организации в {{ mos-name }}:
-
-1. [Настройте интеграцию](#setup-integration).
-1. [Убедитесь в корректной работе приложения](#validate).
-
 ## Перед началом работы {#before-you-begin}
 
 Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер {{ OS }}, см. в разделе [Создание кластера {{ OS }}](../../../managed-opensearch/operations/cluster-create.md).
@@ -22,6 +17,12 @@
 ```url
 https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 ```
+
+Чтобы дать доступ пользователям вашей организации в {{ mos-name }}:
+
+1. [Создайте приложение](#create-app).
+1. [Настройте интеграцию](#setup-integration).
+1. [Убедитесь в корректной работе приложения](#validate).
 
 ## Создайте приложение {#create-app}
 

@@ -57,7 +57,7 @@ The data stored on the user's {{ compute-name }} VMs or {{ baremetal-name }} ser
 
 To get started, you need to activate the service, i.e., to connect to a backup provider. You can [activate](../operations/activate-service.md) the service directly or [connect](vm-connection.md) your first VM or {{ baremetal-name }} server to {{ backup-name }}, which activates the service automatically.
 
-The minimum folder role required to activate the service is `backup.editor` (see [its description](../security/index.md#backup-editor) for details).
+{% include [activate-provider-roles](../../_includes/backup/activate-provider-roles.md) %}
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
 

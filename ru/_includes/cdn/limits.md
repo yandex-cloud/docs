@@ -16,3 +16,10 @@
 | Количество запросов на [предзагрузку файлов](../../cdn/concepts/caching.md#prefetch) в минуту | 1 |
 | Количество путей к предзагружаемым файлам в одном запросе | 100 |
 | Количество IP-адресов (префиксов подсети) в [списке](../../cdn/concepts/ip-address-acl.md#ip-list) политики доступа по IP-адресам | 100 |
+| Количество доменов CORS при ответе клиенту ([EdgeCDN-провайдер](../../cdn/concepts/providers.md)) | 20 |
+
+
+#### Прочие ограничения {#other-restrictions}
+
+{% include [edge-cdn-restrictions](edge-cdn-restrictions.md) %}
+

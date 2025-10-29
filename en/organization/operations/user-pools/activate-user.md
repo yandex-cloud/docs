@@ -1,23 +1,39 @@
 ---
-title: How to activate a pool user in {{ org-full-name }}
-description: Follow this guide to activate a user in an {{ org-name }} pool.
+title: How to activate a user in {{ org-full-name }}
+description: Follow this guide to activate a user in {{ org-name }}.
 ---
 
 # Activating a user
 
+You can activate previously [deactivated](./deactivate-user.md) users. After activation, users regain access to the organization resources they have [access permissions](../../../iam/concepts/access-control/roles.md) for.
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [activate-deactivate-passport-user-notice](../../../_includes/organization/activate-deactivate-passport-user-notice.md) %}
 
-Activated users will gain access to the organization resources.
+## Activating a federated user {#activate-federated}
+
+To activate a federated user account:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
-  1. In the left-hand panel, click ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** and select the [user pool](../../concepts/user-pools.md).
-  1. In the **{{ ui-key.yacloud_org.organization.userpools.title_userpool_members }}** tab, select the user.
-  1. In the top-right corner, click **Make active**.
+  {% include [activate-user-ui](../../../_includes/organization/activate-user-ui.md) %}
+
+{% endlist %}
+
+
+## Activating a local user {#activate-local}
+
+
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
+To activate a local user account:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  {% include [activate-user-ui](../../../_includes/organization/activate-user-ui.md) %}
 
 - CLI {#cli}
 
@@ -30,13 +46,14 @@ Activated users will gain access to the organization resources.
      ```bash
      yc organization-manager idp user reactivate --help
      ```
-
-  1. Run this command:
+  1. {% include [cli-list-userpools](../../../_includes/organization/cli-list-userpools.md) %}
+  1. {% include [cli-userpool-list-users](../../../_includes/organization/cli-userpool-list-users.md) %}
+  1. To activate a user, provide their ID in this command:
 
      ```bash
      yc organization-manager idp user reactivate <user_ID>
      ```
-     
+
 {% endlist %}
 
 #### See also {#see-also}

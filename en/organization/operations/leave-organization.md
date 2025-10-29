@@ -5,23 +5,19 @@ description: Follow this guide to leave an organization.
 
 # Leaving an organization
 
-If you are not a federated user, you can leave an organization on your own. Proceed as follows:
+If you are a [Yandex account](../../iam/concepts/users/accounts.md#passport) user, you can leave an organization on your own. To do this:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. If you are a member of several organizations, [select](./manage-organizations.md#switch-to-another-org) the proper one.
-
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** and find your user account.
 
-  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
-
-  1. Select a user from the list or use the search bar or filter at the top of the page.
-
-  1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud.common.delete }}**.
-
-  1. In the window that opens, confirm excluding yourself from the organization.
+      Optionally, use the search bar or filter at the top of the page.
+  1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, confirm that you would like to leave the organization.
 
 {% endlist %}
 

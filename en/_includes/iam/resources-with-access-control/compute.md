@@ -1,4 +1,4 @@
-# {{ compute-name }} resources you can assign roles for
+# {{ compute-name }} resources for which you can assign roles
 
 * [VM instance](../../../compute/operations/vm-control/vm-access.md)
 * [Instance group](../../../compute/operations/instance-groups/access.md)

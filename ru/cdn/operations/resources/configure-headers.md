@@ -5,13 +5,15 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка HTTP-заголовков запросов и ответов
 
-Чтобы настроить для ресурса HTTP-заголовки запросов и ответов:
-
 {% note info %}
 
 Заголовок `Access-Control-Allow-Origin` для конфигурации CORS настраивается в блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**. Подробнее читайте в разделе [{#T}](configure-cors.md).
 
 {% endnote %}
+
+{% include [edge-cdn-restrictions](../../../_includes/cdn/edge-cdn-restrictions.md) %}
+
+Чтобы настроить для ресурса HTTP-заголовки запросов и ответов:
 
 {% list tabs group=instructions %}
 

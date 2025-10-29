@@ -1,7 +1,7 @@
 #### Quotas {#storage-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Storage volume per cloud 
 `storage.volume.size` | 1,024 GB ||
 || Number of buckets per cloud 
@@ -11,7 +11,7 @@
 
 #### Limits {#storage-limits}
 
-Type of limitation | Value
+Type of limit | Value
 --- | ---
 Maximum object size | 5 TB
 Total header size per request to HTTP API | 8 KB

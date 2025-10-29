@@ -6,8 +6,6 @@ sourcePath: ru/monitoring_includes/operations/prometheus/alerting-rules.md
 
 # Правила алертинга
 
-{% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
-
 {{ managed-prometheus-name }} позволяет добавить правила вычисления алертов и отправлять уведомления об их срабатывании. 
 
 Для использования алертинга:
@@ -71,7 +69,7 @@ groups:
 
    1. На странице сервиса [{{ monitoring-name }}]({{ link-monitoring }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
    1. Выберите или создайте воркспейс.
-   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}**.
    1. Если у вас еще нет загруженных файлов, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** и выберите файл `.yml` с правилами.
    1. Чтобы добавить еще один файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
    1. Чтобы заменить существующий файл, справа от него нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}**.
@@ -122,11 +120,13 @@ groups:
            "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
        ```
 
+{% endlist %}
+
 После создания правил алертинга они будут вычисляться и создавать метрики `ALERTS` и `ALERTS_FOR_STATE`. Для отправки уведомлений настройте Alert Manager.
 
-Подробнее о действиях с файлами и вычислении правил см. в разделе [{#T}](./recording-rules.md).
+Следить за статусами алертов можно на отдельной вкладке **{{ prometheus-name }}** → **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** в [консоли управления]({{ link-monitoring }}).
 
-{% endlist %}
+Подробнее о действиях с файлами и вычислении правил см. в разделе [{#T}](./recording-rules.md).
 
 ## Настройка Alert Manager {#alert-manager-create}
 

@@ -43,6 +43,8 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Setting up service account access permissions
             href: operations/sa/set-access-bindings.md
+          - name: Using impersonation
+            href: operations/sa/impersonate-sa.md
           - name: Getting service account info
             href: operations/sa/get-id.md
           - name: Getting an ID token for a service account
@@ -149,6 +151,8 @@ items:
             href: concepts/access-control/public-group.md
           - name: Resources that roles can be assigned for
             href: concepts/access-control/resources-with-access-control.md
+          - name: Impersonation
+            href: concepts/access-control/impersonation.md
       - name: Authentication
         items:
           - name: How to choose the correct authentication method

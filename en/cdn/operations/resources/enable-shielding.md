@@ -5,6 +5,8 @@ description: Follow this guide to enable origin shielding.
 
 # Enabling origin shielding
 
+{% include [provider-location-id](../../../_includes/cdn/provider-location-id.md) %}
+
 To enable [origin shielding](../../concepts/origins-shielding.md) for a [resource](../../concepts/resource.md):
 
 {% list tabs group=instructions %}

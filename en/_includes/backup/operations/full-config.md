@@ -114,7 +114,18 @@
   },
   "cbt": "string",
   "fastBackupEnabled": bool,
-  "quiesceSnapshottingEnabled": bool
+  "quiesceSnapshottingEnabled": bool,
+  "prePostCommands": [
+    {
+      "cmd": "string",
+      "args": "string",
+      "enabled": bool,
+      "stopOnError": bool,
+      "type": "string",
+      "wait": bool,
+      "workdir": "string"
+    }
+  ]
 }
 ```
 
@@ -225,5 +236,19 @@ Attribute sections with multiple nested values.
   |---|---|---|
   | `exclusionMasks` | Criterion for files to exclude from the backup. | `/tmp` |
   | `inclusionMasks` | Criterion for files to include into the backup. | `/home/user*` |
+
+- prePostCommands
+
+  Setting actions {{ backup-name }} will perform before and after the backup.
+
+  | Attribute | Description | Value (example) |
+  |---|---|---|
+  | `cmd` | Command or path to the executable file that needs to be executed (run). | `/usr/bin/myapp` |
+  | `args` | Command line parameters that will be applied when executing the command (running the file). | `-d -rw` |
+  | `enabled` | Enabling or disabling the command execution (running the file). | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+  | `stopOnError` | Stopping the backup if there is an error during command execution (running the file). | <ul><li>`true`: Stop the backup.</li><li>`false`: Not stop the backup.</li></ul> |
+  | `type` | Time of command execution (running the file). | <ul><li>`COMMAND_TYPE_UNSPECIFIED`: Not specified.</li><li>`PRE_COMMAND`: Execute the command (run the file) before taking the backup.</li><li>`POST_COMMAND`: Execute the command (run the file) after taking the backup.</li></ul>You can add to each policy not more than one command of the `PRE_COMMAND` type and no more than one command of the `POST_COMMAND` type. |
+  | `wait` | Waiting for the command execution (file running) to complete before starting the backup. | <ul><li>`true`: Wait for the command to complete.</li><li>`false`: Not wait for the command to complete.</li></ul> |
+  | `workdir` | Working directory to execute the command (run the file) in. | `/etc/myapp/` |
 
 {% endlist %}

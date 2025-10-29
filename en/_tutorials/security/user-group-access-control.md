@@ -90,7 +90,7 @@ In your new organization, create two [clouds](../../resource-manager/concepts/re
           1. Click **{{ ui-key.yacloud.page.welcome.button_create }}**.
 
           As a result, `Example organization` will have its first cloud named `testing`, and the browser will open the `default` folder created in this new cloud.
-      1. On the left side of the screen, in the line with `Example organization`, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**. In the window that opens:
+      1. On the left side of the screen, in the line with `Example organization`, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**. In the window that opens, do the following:
 
           1. In the **{{ ui-key.yacloud.common.name }}** field, specify `production`.
           1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -124,11 +124,11 @@ Create a separate folder named `security` for the group of information security 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the `production` cloud from the list of organizations, clouds, and folders on the left of the screen.
-  1. In the line with the `production` cloud name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**. In the window that opens:
+  1. In the line with the `production` cloud name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**. In the window that opens, do the following:
 
       1. In the **{{ ui-key.yacloud.iam.cloud.folders-create.field_name }}** field, enter the folder name, `security`.
-      1. (Optional) In the **{{ ui-key.yacloud_org.iam.cloud.folders-create.field_description }}** field, enter a description for the created folder.
-      1. In the **{{ ui-key.yacloud.iam.cloud.folders-create.field_optionally }}** field, disable the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. You will be able to create a [cloud network](../../vpc/operations/network-create.md) with the parameters you need later, at any point when creating the infrastructure.
+      1. Optionally, in the **{{ ui-key.yacloud_org.iam.cloud.folders-create.field_description }}** field, enter a description for the new folder.
+      1. In the **{{ ui-key.yacloud.iam.cloud.folders-create.field_optionally }}** field, disable **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. You will be able to create a [cloud network](../../vpc/operations/network-create.md) with the parameters you need later, at any point when creating the infrastructure.
       1. Click **{{ ui-key.yacloud_org.iam.cloud.folders-create.button_create }}**. 
 
 {% endlist %}
@@ -146,7 +146,7 @@ Create three [user groups](../../organization/concepts/groups.md): `security` fo
   1. In the top-right corner, click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}** and in the window that opens:
 
       1. Enter a name for the group: `security`.
-      1. (Optional) Enter the group description.
+      1. Optionally, enter the group description.
       1. Click **{{ ui-key.yacloud_org.groups.action_create-group }}**.
   1. Similarly, create the other two user groups, `devops` and `developers`.
 
@@ -196,7 +196,7 @@ To grant the required access permissions to the `security` user group:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the `security` folder in the `production` cloud.
-      1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens, do the following:
 
           1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `security` group.
           1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, enter and select the `admin` role in the search bar.
@@ -222,7 +222,7 @@ Assign roles for the clouds to the `devops` user group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the `production` cloud.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens, do the following:
 
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `devops` group.
       1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, find and select the `container-registry.editor`, `k8s.editor`, `mdb.admin`, `compute.editor`, `monitoring.admin`, and `logging.admin` roles.
@@ -251,7 +251,7 @@ Assign roles for the clouds to the `developers` user group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the `production` cloud.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens, do the following:
 
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `developers` group.
       1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, find and select the `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, and `monitoring.viewer` roles.
@@ -297,9 +297,9 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
       1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
       1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
-      1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. In the window that opens:
+      1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. In the window that opens, do the following:
 
-          1. Select the users. You may want to use the search feature.
+          1. Select the users. Use search, if required.
           1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
     {% endlist %}
@@ -336,7 +336,7 @@ You do not have to pay for organizations, clouds, folders, and users. However, y
 
 In addition to that, the infrastructure you create in this tutorial consumes [quotas](../../billing/concepts/limits.md) in {{ billing-name }} and some other services. Therefore, we recommend deleting an organization you do not use.
 
-You can also delete [clouds](../../resource-manager/operations/cloud/delete.md), [folders](../../resource-manager/operations/folder/delete.md), [user groups](../../organization/operations/delete-group.md), [service accounts](../../iam/operations/sa/delete.md), or [remove](../../organization/operations/edit-account.md#remove-user) users form an organization.
+You can also separately delete [clouds](../../resource-manager/operations/cloud/delete.md), [folders](../../resource-manager/operations/folder/delete.md), [user groups](../../organization/operations/delete-group.md), or [service accounts](../../iam/operations/sa/delete.md) from an organization.
 
 #### See also {#see-also}
 

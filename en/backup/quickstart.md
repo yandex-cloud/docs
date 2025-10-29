@@ -111,7 +111,7 @@ For more information, see [{#T}](../vpc/operations/security-group-create.md).
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM connected to {{ backup-name }}.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the [service account](../iam/concepts/users/service-accounts.md). Follow these naming requirements:
+  1. Enter a name for the [service account](../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -124,7 +124,7 @@ For more information, see [{#T}](../iam/operations/sa/create.md).
 
 ## Activate {{ backup-name }} {#activate-provider}
 
-To activate the service, you need _at least_ the `backup.editor` [role](security/index.md#backup-editor) for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a VM connected to {{ backup-name }}.
+{% include [activate-provider-roles](../_includes/backup/activate-provider-roles.md) %}
 
 {% include [agent-send-data](../_includes/backup/agent-send-data.md) %}
 

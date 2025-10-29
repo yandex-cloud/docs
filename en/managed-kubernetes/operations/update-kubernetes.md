@@ -185,11 +185,11 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -198,7 +198,7 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Automatic update settings in the `masterSpec.maintenancePolicy` parameter.
-  * List of settings you are changing in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [updateMask warning](../../_includes/note-api-updatemask.md) %}
 
@@ -300,24 +300,26 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster}}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-cluster}}).
 
 - API {#api}
 
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
-  * List of settings being changed in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
 ## Updating a node group {#node-group-upgrade}
+
+{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
 ### Configuring automatic updates of a node group {#node-group-auto-upgrade}
 
@@ -511,11 +513,11 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -524,7 +526,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
   * Automatic update settings in the `maintenancePolicy` parameter.
-  * List of settings being changed in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -651,18 +653,18 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
   * Required {{ k8s }} version in the `version.version` parameter.
-  * List of settings being changed in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -707,7 +709,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * `true` in the `masterSpec.version.version` parameter.
-  * List of settings being changed in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -743,7 +745,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
   * `true` in the `version.latestRevision` parameter.
-  * List of settings being changed in the `updateMask` parameter.
+  * List of settings to update in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

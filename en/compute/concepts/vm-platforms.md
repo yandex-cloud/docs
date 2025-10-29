@@ -8,6 +8,7 @@ description: In this article, you will learn about available platforms when crea
 
 {{ compute-full-name }} provides various types of physical processors. Choosing a platform guarantees the type of physical processor in the data center and determines the supported vCPU and RAM configurations. You can also add a graphics accelerator ([GPU](gpus.md)) to a VM. You need to choose a platform each time you create a new VM.
 
+
 {% note warning %}
 
 The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell, {{ v100-broadwell }}, {{ v100-cascade-lake }}, or {{ a100-epyc }} platforms. To [move](../operations/vm-control/vm-change-zone.md) such VMs to `{{ region-id }}-d`, do one of the following:
@@ -16,6 +17,7 @@ The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell, 
 * Stop the VM, change the platform, and move the VM by running `relocate`.
 
 {% endnote %}
+
 
 ## Standard platforms {#standard-platforms}
 

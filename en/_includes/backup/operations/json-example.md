@@ -68,6 +68,17 @@
   },
   "cbt": "ENABLE_AND_USE",
   "fastBackupEnabled": true,
-  "quiesceSnapshottingEnabled": true
+  "quiesceSnapshottingEnabled": true,
+  "prePostCommands": [
+    {
+      "cmd": "/usr/bin/myapp",
+      "args": "-d -rw",
+      "enabled": true,
+      "stopOnError": true,
+      "type": "PRE_COMMAND",
+      "wait": true,
+      "workdir": "/etc/myapp/"
+    }
+  ]
 }
 ```

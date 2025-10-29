@@ -5,8 +5,6 @@ description: In this guide, you will learn to create and edit {{ prometheus-name
 
 # Alerting rules
 
-{% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
-
 {{ managed-prometheus-name }} allows adding alerting rules and serving notifications when these rules trigger.
 
 To use alerting:

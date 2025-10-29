@@ -426,6 +426,8 @@ items:
                 href: operations/data-catalog/search-metadata.md
               - name: Анализ связей между метаданными
                 href: operations/data-catalog/analysis-metadata.md
+              - name: Запросы к наборам данных с помощью {{ websql-full-name }}
+                href: operations/data-catalog/web-sql-query.md
       - name: Концепции
         items:
           - name: Каталог метаданных

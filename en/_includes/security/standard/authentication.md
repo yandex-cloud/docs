@@ -13,13 +13,13 @@ The platform works with three categories of accounts:
 
 Yandex ID and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to the passwords of these account users and only authenticates service accounts using {{ iam-short-name }}. For Yandex ID and {{ yandex-360 }} accounts, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
-User access to cloud resources is managed using [roles](../../../iam/concepts/access-control/roles.md). {{ yandex-cloud }} services may offer different levels of granular access. In some cases, a role can be assigned directly to a resource within a service; in others, permissions are only granted at the resource's folder or cloud level.
+User access to cloud resources is managed using [roles](../../../iam/concepts/access-control/roles.md). {{ yandex-cloud }} services may provide different levels of granularity while granting permissions: in some cases, a role can be assigned directly to a service resource, in other cases, permissions are only granted at the level of the folder or cloud where the service resource is located.
 
 This ensures interaction of different categories of resources, roles, and users in the {{ yandex-cloud }} infrastructure. Access to resources is managed by {{ iam-short-name }}. {{ iam-short-name }} controls each request and makes sure that all operations with resources are only run by users who have the appropriate permissions.
 
 {% note info %}
 
-If using {{ yandex-cloud }} together with the {{ yandex-360 }} services, follow these {{ yandex-360 }} [security recommendations]({{ link-yandex }}/support/yandex-360/business/admin/ru/security/security-recommendations): in Yandex ID, specify your account recovery data, link a phone number for recovery and notifications, and [configure]({{ link-yandex }}/support/yandex-360/business/admin/ru/admin-audit-log) audit logs.
+When using {{ yandex-cloud }} together with {{ yandex-360 }}, follow the {{ yandex-360 }} [security best practices]({{ link-yandex }}/support/yandex-360/business/admin/ru/security/security-recommendations): add recovery information to Yandex ID, indicate your phone number for account recovery and notifications, and [configure]({{ link-yandex }}/support/yandex-360/business/admin/ru/admin-audit-log) audit logs.
 
 {% endnote %}
 
@@ -87,7 +87,7 @@ In organizations with a lot of users, you may need to grant the same access perm
 
 If you have created user groups in your identity provider or plan to do so, you can [map user groups](../../../organization/operations/federation-group-mapping.md) between the IdP and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM2 | Medium |
 
@@ -99,7 +99,7 @@ The best approach to account management, in terms of security, is using identity
 * Account with the `organization-manager.organizations.owner` and `{{ roles-cloud-owner }}` permissions, if used in emergencies only, e.g., when configuration of your federation fails. If you need to, you can [delete](../../../security/operations/account-deletion.md) a privileged [Yandex account](../../../iam/concepts/users/accounts.md#passport) with the `organization-manager.organizations.owner` role from an organization.
 * External accounts, such as those of your contract partners or contractors, which, for some reason, you cannot register in your IdP.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM3 | High |
 
@@ -138,7 +138,7 @@ Remove all the accounts that have a Yandex ID from your organization, except tho
 
 In the [identity federation](../../../organization/concepts/add-federation.md) settings, make sure the **Cookie lifetime** parameter value is less than or equal to 6 hours. Thus you minimize the risk of compromising cloud users' workstations.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM4 | Medium |
 
@@ -188,7 +188,7 @@ You can conveniently control access to resources via [user groups](../../../iam/
 * User has the `organization-manager.organizations.owner` or `{{ roles-admin }}` role or another privileged role for the whole organization.
 * User has the `{{ roles-admin }}` or `{{ roles-editor }}` role for a specific group as a resource (this is not recommended).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM5 | High |
 
@@ -207,13 +207,13 @@ You can conveniently control access to resources via [user groups](../../../iam/
 
 Remove the group access permissions from the accounts that do not require them.
 
-#### 1.5 Service roles are used instead of primitive ones: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
+#### 1.5 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
 
 The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
 
 Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM6 | Medium |
 
@@ -380,7 +380,7 @@ The `{{ roles-auditor }}` role allows you to perform the following operations:
 
 To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM7 | Medium |
 
@@ -459,7 +459,7 @@ A [service account](../../../iam/concepts/users/service-accounts.md) is an accou
 **When using service accounts**:
 
 * [Assign the service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to the VM and get the token via the metadata service.
-* Additionally, set up local firewall on the VM so that only relevant processes and system users have access to the metadata service (IP address: `169.254.169.254`).
+* Additionally, set up the local firewall on the VM to allow access to the metadata service (IP address: `169.254.169.254`) only to the appropriate processes and system users.
 
   Example of denying access to all users except the specified one (in this case, `root`):
 
@@ -471,7 +471,7 @@ A [service account](../../../iam/concepts/users/service-accounts.md) is an accou
 
 The cloud entities with service accounts assigned must be registered and limited because, for example, if a service account is assigned to a VM, a hacker may get the service account's token from the metadata service from within the VM.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM8 | High |
 
@@ -518,7 +518,7 @@ Remove the service accounts from the cloud entities that do not require them.
 
 Follow the principle of least privilege and [assign to the service account](../../../iam/operations/roles/grant.md) only the roles necessary to run the application.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM9 | High |
 
@@ -598,10 +598,10 @@ Follow the principle of least privilege and [assign to the service account](../.
 #### 1.9 Only trusted administrators have access to service accounts {#sa-admins}
 
 You can grant permissions to use a service account under another user or service account.
-Follow the principle of least privilege when granting access to a service account as a resource: with permissions for a service account, the user also gains access to all this service account's permissions. [Assign](../../../iam/operations/sa/set-access-bindings.md) roles that allow using and managing service accounts to a minimum number of users.
+Follow the principle of least privilege when granting access to a service account as a resource: if the user has service account permissions, they also have access to all of its permissions. [Assign](../../../iam/operations/sa/set-access-bindings.md) roles that allow using and managing service accounts to a minimum number of users.
 Each service account with extended permissions should be placed as a resource in a separate folder. It prevents accidental granting of permissions for this account along with the permissions for the folder with the respective service component.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM10 | High |
 
@@ -660,7 +660,7 @@ Each service account with extended permissions should be placed as a resource in
 
 You need to rotate keys with unlimited validity yourself: delete and generate new ones. You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days as recommended in the information security standards, such as PCI DSS.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM11 | High |
 
@@ -816,7 +816,7 @@ Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissu
 
 In addition to service account access permissions, you can define [scopes](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) to restrict the use of [API keys](../../../iam/concepts/authorization/api-key.md). Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys. Assign only the strictly required scopes to API keys.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM12 | Medium |
 
@@ -850,7 +850,7 @@ In addition to service account access permissions, you can define [scopes](../..
 
 To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance). For more information about getting an IAM token in a function, see [{#T}](../../../functions/operations/function-sa.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM13 | Medium |
 
@@ -864,9 +864,9 @@ To get an IAM token when executing a function, [assign](../../../functions/opera
 
 #### 1.13 Impersonation is used wherever possible {#impersonation}
 
-[Impersonation](../../../iam/operations/sa/set-access-bindings.md#impersonation) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user. It may be of use in the following scenarios: duty, local development, permission checks.
+[Impersonation](../../../iam/operations/sa/impersonate-sa.md) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user. It may be useful for use cases such as duty, local development, or permission verification.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM14 | High |
 
@@ -881,7 +881,7 @@ To get an IAM token when executing a function, [assign](../../../functions/opera
 
 **Guides and solutions to use:**
 
-If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/set-access-bindings.md#impersonation).
+If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/impersonate-sa.md).
 
 
 ### VM metadata {#vm-metadata}
@@ -927,7 +927,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
 * **yandex_cloud_iam_access_secret** : YC[a-zA-Z0-9_\-]{38}
   Yandex.Cloud AWS API compatible Access Secret
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM15 | High |
 
@@ -1215,7 +1215,7 @@ The Google Compute Engine metadata service uses an additional header to protect 
 
 You can disable getting a service account token via Amazon EC2 using the [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) VM parameter.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM16 | High |
 
@@ -1264,7 +1264,7 @@ To enable two-factor authentication, contact an identity provider that supports 
 
 For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM17 | High |
 
@@ -1320,7 +1320,7 @@ To view billing data, assign the `{{ roles-viewer }}` role for the billing accou
 
 By default, the `organization-manager.organizations.owner` role is granted to the user who creates an organization: the organization owner. The role allows you to appoint organization owners and use all the administrator privileges.
 
-The `{{ roles-cloud-owner }}` role is assigned automatically when you create your first cloud in the organization. A user with this role can perform any operation with the cloud or its resources and grant access to the cloud to other users by assigning and revoking roles.
+The `{{ roles-cloud-owner }}` role is assigned automatically when you create your first cloud in the organization. A user with this role can perform any operation with the cloud or its resources and grant cloud access to other users: assign roles and revoke them.
 
 Assign the `{{ roles-cloud-owner }}` and `organization-manager.organizations.owner` roles to one or more employees with a federated account. Set a strong password for the Yandex ID account that was used to create the cloud, and use it only when absolutely necessary (for example, if the federated access fails).
 
@@ -1332,7 +1332,7 @@ Make sure to fully protect your federated account that is granted one of the pri
 
 Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and billing accounts. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM18 | Medium |
 
@@ -1344,19 +1344,19 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Go to [{{ billing-name }}]({{ link-console-billing }}).
-  1. Check who got these roles: `billing.accounts.owner`, `{{ roles-admin }}`.
+  1. Check who is granted the roles: `billing.accounts.owner` and `{{ roles-admin }}`.
 
   Checking roles for an organization:
 
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-  1. Check who got these roles: `{{ roles-admin }}`, `organization-manager.organizations.owner`, `organization-manager.admin`, `{{ roles-cloud-owner }}`.
+  1. Check which users have the `{{ roles-admin }}`, `organization-manager.organizations.owner`, `organization-manager.admin`, and `{{ roles-cloud-owner }}` roles.
 
   Checking roles for a cloud:
 
   1. Open the {{ yandex-cloud }} management console in your browser.
-  1. Go to the global cloud menu and click the cloud in the initial cloud menu. Select the **Access permissions** tab.
-  1. Check who got these roles: `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-cloud-owner }}`.
+  1. Go to the global cloud menu: click the cloud in the initial cloud menu. Select the **Access permissions** tab.
+  1. Check which users have the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-cloud-owner }}` roles.
 
   To check roles for a folder:
 
@@ -1529,7 +1529,7 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 
 We recommend using generated passwords. In this case, [{{ lockbox-full-name }}](../../../lockbox/index.yaml) will [generate a secret](../../../lockbox/concepts/secret.md#secret-type), and its value will be used as the DB user password.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM19 | High |
 
@@ -1553,7 +1553,7 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 * Review the relevance of external user access to your cloud infrastructure.
 * Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM20 | High |
 
@@ -1569,7 +1569,7 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 
 #### 1.20 The proper resource model is used {#resourses}
 
-When developing an access model for your infrastructure, we recommend applying the least privilege principle and the principle of resource separation. The cloud resource model can be visualized as nested containers: organization, cloud, and folder levels.
+When developing an access model for your infrastructure, we recommend applying the least privilege principle and the principle of resource separation. The cloud resource model can be visualized as nested containers: organization, cloud, and folder.
 
 An [_organization_](../../../organization/concepts/organization.md) is the root container storing information about users and their roles. It may also host some services, e.g., {{ datalens-full-name }}, {{ ml-platform-full-name }}, etc. Organization-level roles are automatically inherited by all subordinate containers. For this reason, we recommend assigning organization-level roles only to administrators and users of organization-level services.
 
@@ -1588,7 +1588,7 @@ When developing an access model for your infrastructure, we recommend the follow
 * When developing applications, make sure to isolate test and production environments.
 * Put shared resources (e.g., network and security groups) into a separate shared resource folder (if you separate components into folders).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM21 | High |
 
@@ -1606,18 +1606,18 @@ When developing an access model for your infrastructure, we recommend the follow
 
 Public group details:
 
-* `All authenticated users`: All authenticated users, i.e., all registered {{ yandex-cloud }} users or service accounts, both from your clouds and other users' clouds.
+* `All authenticated users`: All authenticated users. This means all registered {{ yandex-cloud }} users or service accounts, both from your clouds and other users' clouds.
 * `All users`: Any user. No authentication is required.
 
 {% note warning %}
 
-`All users` is currently only supported in {{ objstorage-short-name }} (if managing access using ACLs), {{ container-registry-name }}, and {{ sf-name }}. For other services, assigning a role to the `All users` group is equivalent to assigning a role to `All authenticated users`.
+Now `All users` is only supported in the following services: {{ objstorage-short-name }} (if ACL-based access management is used), {{ container-registry-name }}, and {{ sf-name }}. For other services, assigning a role to the `All users` group is equivalent to assigning a role to `All authenticated users`.
 
 {% endnote %}
 
 Make sure these groups have no public access to your resources: clouds, folders, buckets, etc.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM22 | High |
 
@@ -1850,7 +1850,7 @@ Make sure these groups have no public access to your resources: clouds, folders,
 
       {% endcut %}
 
-  1. If none of the specified resources contain `allUsers` or `allAuthenticatedUsers`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. Make sure none of the specified resources contain `allUsers` or `allAuthenticatedUsers`. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -1866,7 +1866,7 @@ For instance, if abnormal activities in the customer's organization are detected
 
 Make sure the contact information is valid and messages are sent to multiple persons in charge from the specified email address.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM23 | Informational |
 
@@ -1899,7 +1899,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
 {% list tabs group=instructions %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM24 | Informational |
 
@@ -1923,7 +1923,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
 To get notifications of security-related events, such as vulnerability detection and elimination, we recommend selecting security notifications in the management console.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM25 | High |
 
@@ -1950,7 +1950,7 @@ To get notifications of security-related events, such as vulnerability detection
 
 For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM26 | Medium |
 
@@ -2025,11 +2025,11 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 
 To ensure data and cloud infrastructure security, you need to regularly audit the access permissions of users and service accounts.
 
-[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
+[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md), granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
 
 For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | IAM27 | Informational |
 

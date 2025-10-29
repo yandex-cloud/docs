@@ -144,4 +144,4 @@ If you get compilation errors when installing drivers:
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you had created any service accounts, [delete them](../../iam/operations/sa/delete.md).
+1. If you had created service accounts, [delete them](../../iam/operations/sa/delete.md).

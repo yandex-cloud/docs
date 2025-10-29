@@ -66,5 +66,5 @@ description: Follow this guide to create a user pool in {{ org-name }}.
 
 #### See also {#see-also}
 
-* [{#T}](add-user.md)
+* [{#T}](../add-account.md#add-local-user)
 * [{#T}](add-domain.md)

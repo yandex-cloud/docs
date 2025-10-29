@@ -12,6 +12,12 @@ You can associate a [domain](../../concepts/domains.md) with a [user pool](../..
 
 To use a domain in a user pool or federation, domain ownership must be [verified](validate-domain.md) via a DNS record.
 
+{% note warning %}
+
+You can only associate each domain with one user pool or one federation.
+
+{% endnote %}
+
 ## Associating a domain with a user pool {#userpool}
 
 {% include [add-domain-to-pool](../../../_includes/organization/add-domain-to-pool.md) %}

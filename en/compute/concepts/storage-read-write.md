@@ -25,6 +25,15 @@ Where:
 
 For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#limits-disks).
 
+{% note warning %}
+
+VMs with [vCPU performance level](performance-levels.md) below 100% may operate at lower speed with network drives.
+
+{% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
+
+{% endnote %}
+
+
 ## Disk and file storage performance {#performance}
 
 The maximum IOPS values are achieved when performing reads and writes that are 4 KB in size. Network SSDs and file storage have much higher IOPS for read operations and process requests faster than HDDs.
