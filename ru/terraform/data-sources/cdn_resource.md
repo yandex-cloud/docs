@@ -48,6 +48,7 @@ output "resource_cname" {
 - `provider_cname` (String) Provider CNAME of CDN resource, computed value for read and update operations.
 - `provider_type` (String) CDN provider is a content delivery service provider.
 - `secondary_hostnames` (Set of String) List of secondary hostname strings.
+- `shielding` (String) Shielding is a Cloud CDN feature that helps reduce the load on content origins from CDN servers.
 - `ssl_certificate` (Set of Object) SSL certificate of CDN resource. (see [below for nested schema](#nestedatt--ssl_certificate))
 - `updated_at` (String) Last update timestamp. Computed value for read and update operations.
 
@@ -60,7 +61,7 @@ Optional:
 
 - `browser_cache_settings` (Number) Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days.
 
-- `cache_http_headers` (List of String) List HTTP headers that must be included in responses to clients. List HTTP headers that must be included in responses to clients.
+- `cache_http_headers` (List of String, Deprecated) List HTTP headers that must be included in responses to clients. List HTTP headers that must be included in responses to clients.
 
 - `cors` (List of String) Parameter that lets browsers get access to selected resources from a domain different to a domain from which the request is received. Parameter that lets browsers get access to selected resources from a domain different to a domain from which the request is received.
 
@@ -68,11 +69,13 @@ Optional:
 
 - `custom_server_name` (String) Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS.
 
-- `disable_cache` (Boolean) Setup a cache status. Setup a cache status.
+- `disable_cache` (Boolean, Deprecated) Setup a cache status. Setup a cache status.
 
 - `disable_proxy_force_ranges` (Boolean) Disabling proxy force ranges. Disabling proxy force ranges.
 
 - `edge_cache_settings` (Number) Content will be cached according to origin cache settings. The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308 if an origin server does not have caching HTTP headers. Responses with other codes will not be cached. Content will be cached according to origin cache settings. The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308 if an origin server does not have caching HTTP headers. Responses with other codes will not be cached.
+
+- `edge_cache_settings_codes` (Block List, Max: 1) Set the cache expiration time for CDN servers (see [below for nested schema](#nestedblock--options--edge_cache_settings_codes))
 
 - `enable_ip_url_signing` (Boolean) Enable access limiting by IP addresses, option available only with setting secure_key. Enable access limiting by IP addresses, option available only with setting secure_key.
 
@@ -105,6 +108,17 @@ Optional:
 - `static_request_headers` (Map of String) Set up custom headers that CDN servers will send in requests to origins. Set up custom headers that CDN servers will send in requests to origins.
 
 - `static_response_headers` (Map of String) Set up a static response header. The header name must be lowercase. Set up a static response header. The header name must be lowercase.
+
+
+<a id="nestedblock--options--edge_cache_settings_codes"></a>
+### Nested Schema for `options.edge_cache_settings_codes`
+
+Optional:
+
+- `custom_values` (Map of Number) Caching time for a response with specific codes. These settings have a higher priority than the `value` field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time for a response with specific codes. These settings have a higher priority than the `value` field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
+
+- `value` (Number) Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes.
+
 
 
 <a id="nestedblock--options--ip_address_acl"></a>

@@ -323,7 +323,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `name` (String) The resource name.
 - `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 - `resources` (Block List, Min: 1, Max: 1) Resources allocated to hosts of the MySQL cluster. (see [below for nested schema](#nestedblock--resources))
-- `version` (String) Version of the MySQL cluster. (allowed versions are: 5.7, 8.0).
+- `version` (String) Version of the MySQL cluster. (allowed versions are: 5.7, 8.0, 8.4).
 
 ### Optional
 

@@ -42,6 +42,13 @@ apiPlayground:
             Includes only one of the fields `networkId`, `cloudId`, `folderId`.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - networkId
+        - required:
+            - cloudId
+        - required:
+            - folderId
     body: null
     definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listConnectedResources.md

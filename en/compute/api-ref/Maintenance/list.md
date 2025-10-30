@@ -53,6 +53,13 @@ apiPlayground:
             Supported fields: ["status", "resource_type", "resource_id"]
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - cloudId
+        - required:
+            - folderId
+        - required:
+            - resourceId
     body: null
     definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Maintenance/list.md

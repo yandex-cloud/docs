@@ -32,6 +32,11 @@ apiPlayground:
             - PKCS1
             - PKCS8
       additionalProperties: false
+      oneOf:
+        - required:
+            - certificateId
+        - required:
+            - folderAndName
     body: null
     definitions:
       FolderAndName:

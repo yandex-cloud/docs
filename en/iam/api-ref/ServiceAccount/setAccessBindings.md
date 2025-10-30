@@ -42,9 +42,9 @@ apiPlayground:
               For example, you don't need to specify the IAM token in an API query.
               It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
               * `group:organization:<id>:users`: A special system group that represents all members of organization
-              with given <id>. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
               * `group:federation:<id>:users`: A special system group that represents all users of federation
-              with given <id>. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
               * `<cloud generated id>`: An identifier that represents a user account.
               It can be used only if the [type](#yandex.cloud.access.Subject) is `userAccount`, `federatedUser` or `serviceAccount`.
             type: string
@@ -154,9 +154,9 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
 It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
 || type | **string**
@@ -361,9 +361,9 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
 It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
 || type | **string**

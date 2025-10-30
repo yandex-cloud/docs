@@ -12,7 +12,7 @@ node | Broker type: `leader`, `follower`, or `replica`
 subcluster_name | Subcluster type: `zookeeper_subcluster` or `kafka_subcluster`
 
 ## CPU metrics {#managed-kafka-cpu-metrics}
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -42,7 +42,7 @@ These metrics show processor core workload.
 | `disk.used_bytes`<br/>`DGAUGE`, bytes | Used space | 
 | `disk.used_inodes`<br/>`DGAUGE`, count | Used inodes |
 
-## Disk I/O metrics {#managed-kafka-diskio-metrics}
+## Disk operation metrics {#managed-kafka-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
@@ -133,6 +133,8 @@ These metrics show processor core workload.
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, count | Number of partitions with ISR count below the replication factor |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, milliseconds | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. |
 | `kafka_shard_count`<br/>`DGAUGE`, count | Number of active shards |
+| `kafka_topic_partition_high_water_mark`<br/>`DGAUGE`, count | Partition max offset |
+| `kafka_topic_partition_low_water_mark`<br/>`DGAUGE`, count | Partition min offset |
 
 {% note info %}
 

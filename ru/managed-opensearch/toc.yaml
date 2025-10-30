@@ -262,6 +262,12 @@ items:
                 href: api-ref/grpc/Cluster/restartOpenSearch.md
               - name: SwitchMaster
                 href: api-ref/grpc/Cluster/switchMaster.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Extension
             items:
               - name: Overview
@@ -362,6 +368,12 @@ items:
                 href: api-ref/Cluster/restartOpenSearch.md
               - name: SwitchMaster
                 href: api-ref/Cluster/switchMaster.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Extension
             items:
               - name: Overview

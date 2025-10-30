@@ -90,6 +90,11 @@ apiPlayground:
       required:
         - fieldMask
       additionalProperties: false
+      oneOf:
+        - required:
+            - onDemand
+        - required:
+            - schedule
     definitions:
       OnDemandParams:
         type: object

@@ -111,6 +111,7 @@ apiPlayground:
               **string**
               The name of the generated archive. The name may use the following variables: `[Machine Name]`, `[Plan ID]`, `[Plan Name]`, `[Unique ID]`, `[Virtualization Server Type]`.
               Default value: `[Machine Name]-[Plan ID]-[Unique ID]A`.
+            default: '[Machine Name]-[Plan ID]-[Unique ID]A'
             type: string
       PerformanceWindow:
         type: object
@@ -120,6 +121,43 @@ apiPlayground:
               **boolean**
               If true, the time windows will be enabled.
             type: boolean
+      RetentionRule:
+        type: object
+        properties:
+          backupSet:
+            description: |-
+              **enum** (RepeatePeriod)
+              A list of backup sets where rules are effective.
+              - `REPEATE_PERIOD_UNSPECIFIED`
+              - `HOURLY`
+              - `DAILY`
+              - `WEEKLY`
+              - `MONTHLY`
+            type: array
+            items:
+              type: string
+              enum:
+                - REPEATE_PERIOD_UNSPECIFIED
+                - HOURLY
+                - DAILY
+                - WEEKLY
+                - MONTHLY
+          maxAge:
+            description: |-
+              **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+              Includes only one of the fields `maxAge`, `maxCount`.
+            $ref: '#/definitions/Interval'
+          maxCount:
+            description: |-
+              **string** (int64)
+              Includes only one of the fields `maxAge`, `maxCount`.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - maxAge
+          - required:
+              - maxCount
       Retention:
         type: object
         properties:
@@ -129,20 +167,7 @@ apiPlayground:
               A list of retention rules.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    maxAge:
-                      description: |-
-                        **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
-                        Includes only one of the fields `maxAge`, `maxCount`.
-                      $ref: '#/definitions/Interval'
-                    maxCount:
-                      description: |-
-                        **string** (int64)
-                        Includes only one of the fields `maxAge`, `maxCount`.
-                      type: string
-                      format: int64
+              $ref: '#/definitions/RetentionRule'
           beforeBackup:
             description: |-
               **boolean**
@@ -271,6 +296,37 @@ apiPlayground:
             $ref: '#/definitions/Interval'
         required:
           - delay
+      BackupSet:
+        type: object
+        properties:
+          time:
+            description: |-
+              **[Time](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time)**
+              Includes only one of the fields `time`, `sinceLastExecTime`.
+            $ref: '#/definitions/Time'
+          sinceLastExecTime:
+            description: |-
+              **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
+              Includes only one of the fields `time`, `sinceLastExecTime`.
+            $ref: '#/definitions/SinceLastExecTime'
+          type:
+            description: |-
+              **enum** (Type)
+              BackupSet type -- one of incr, full, differential or auto.
+              if custom scheme is used the BackupSet type should be specified
+              - `TYPE_UNSPECIFIED`
+              - `FULL`
+              - `INCREMENTAL`
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - FULL
+              - INCREMENTAL
+        oneOf:
+          - required:
+              - time
+          - required:
+              - sinceLastExecTime
       Scheduling:
         type: object
         properties:
@@ -280,19 +336,7 @@ apiPlayground:
               A list of schedules with backup sets that compose the whole scheme.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    time:
-                      description: |-
-                        **[Time](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time)**
-                        Includes only one of the fields `time`, `sinceLastExecTime`.
-                      $ref: '#/definitions/Time'
-                    sinceLastExecTime:
-                      description: |-
-                        **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
-                        Includes only one of the fields `time`, `sinceLastExecTime`.
-                      $ref: '#/definitions/SinceLastExecTime'
+              $ref: '#/definitions/BackupSet'
           enabled:
             description: |-
               **boolean**

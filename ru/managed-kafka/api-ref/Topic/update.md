@@ -44,21 +44,7 @@ apiPlayground:
             **[TopicSpec](#yandex.cloud.mdb.kafka.v1.TopicSpec)**
             New configuration of the topic.
             Use `updateMask` to prevent reverting all topic settings that are not listed in `topicSpec` to their default values.
-          oneOf:
-            - type: object
-              properties:
-                topicConfig_2_8:
-                  description: |-
-                    **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
-                    Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
-                    User-defined settings for the topic.
-                  $ref: '#/definitions/TopicConfig2_8'
-                topicConfig_3:
-                  description: |-
-                    **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
-                    Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
-                    User-defined settings for the topic.
-                  $ref: '#/definitions/TopicConfig3'
+          $ref: '#/definitions/TopicSpec'
       additionalProperties: false
     definitions:
       TopicConfig2_8:
@@ -287,6 +273,43 @@ apiPlayground:
               Deprecated. Feature useless for Yandex Cloud.
             deprecated: true
             type: boolean
+      TopicSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the topic.
+            type: string
+          partitions:
+            description: |-
+              **string** (int64)
+              The number of the topic's partitions.
+            type: string
+            format: int64
+          replicationFactor:
+            description: |-
+              **string** (int64)
+              Amount of copies of a topic data kept in the cluster.
+            type: string
+            format: int64
+          topicConfig_2_8:
+            description: |-
+              **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+              User-defined settings for the topic.
+            $ref: '#/definitions/TopicConfig2_8'
+          topicConfig_3:
+            description: |-
+              **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+              User-defined settings for the topic.
+            $ref: '#/definitions/TopicConfig3'
+        oneOf:
+          - required:
+              - topicConfig_2_8
+          - required:
+              - topicConfig_3
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/update.md
 ---
 

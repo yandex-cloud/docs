@@ -115,3 +115,11 @@ Permission denied (publickey,gssapi-keyex,gssapi-with-mic)
 1. Смонтируйте диск: см. [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
 1. Проведите проверку файловой системы диска.
 1. Перенесите необходимые данные на загрузочный диск новой ВМ.
+
+#### Что делать, если возникает предупреждение UNPROTECTED PRIVATE KEY FILE? {#unprotected-private-key-file}
+
+В Unix-подобных системах после распаковки [SSH-ключей](../../compute/operations/vm-connect/ssh.md), сгенерированных через Консоль управления, закрытому ключу назначаются слишком высокие права. Из-за этого при подключении к ВМ возникает предупреждение `UNPROTECTED PRIVATE KEY FILE`. Чтобы сократить права, выполните команду:
+
+```bash
+chmod 600 <путь_к_файлу_закрытого_ключа>
+```

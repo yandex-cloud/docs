@@ -11,14 +11,14 @@ description:
     href="/docs/managed-kubernetes/concepts/service">services</a> and <a
     href="/docs/managed-kubernetes/operations/applications/marketplace">Cloud
     Marketplace apps</a>. All data is securely stored and replicated in the
-    Yandex Cloud, but you can create additional backups of Kubernetes data and
-    store them in <a href="/docs/storage/">Object Storage</a> or another
-    storage. To manage Kubernetes, use <a
+    Yandex Cloud infrastructure; however, you can create additional backups of
+    Kubernetes data and store them in <a href="/docs/storage/">Object
+    Storage</a> or another storage. To manage Kubernetes, use <a
     href="https://kubernetes.io/docs/tasks/tools/#kubectl">kubectl</a>.
   - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data. This
+    pursuant to the Russian Federal Law No. 152-FZ on personal data. This
     service is subject to a <a href="https://yandex.com/legal/cloud_sla">service
     level agreement</a>. The service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_kb">Yandex Managed Service for
@@ -40,10 +40,10 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: FAQ
     description: Answers to frequently asked questions

@@ -94,6 +94,26 @@ apiPlayground:
           $ref: '#/definitions/WorkloadIdentityFederationSpec'
       additionalProperties: false
     definitions:
+      UpdateVersionSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Request update to a newer version of Kubernetes (1.x -> 1.y).
+              Includes only one of the fields `version`, `latestRevision`.
+            type: string
+          latestRevision:
+            description: |-
+              **boolean**
+              Request update to the latest revision for the current version.
+              Includes only one of the fields `version`, `latestRevision`.
+            type: boolean
+        oneOf:
+          - required:
+              - version
+          - required:
+              - latestRevision
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -192,6 +212,37 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DaysOfWeekMaintenanceWindow'
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Updating the master at any time.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            description: |-
+              **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+              Updating the master on any day during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+              Updating the master on selected days during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - dailyMaintenanceWindow
+          - required:
+              - weeklyMaintenanceWindow
       MasterMaintenancePolicy:
         type: object
         properties:
@@ -206,30 +257,56 @@ apiPlayground:
               **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
               Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
               The time is set in UTC.
-            oneOf:
-              - type: object
-                properties:
-                  anytime:
-                    description: |-
-                      **object**
-                      Updating the master at any time.
-                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
-                      Maintenance policy.
-                    $ref: '#/definitions/AnytimeMaintenanceWindow'
-                  dailyMaintenanceWindow:
-                    description: |-
-                      **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
-                      Updating the master on any day during the specified time window.
-                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
-                      Maintenance policy.
-                    $ref: '#/definitions/DailyMaintenanceWindow'
-                  weeklyMaintenanceWindow:
-                    description: |-
-                      **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
-                      Updating the master on selected days during the specified time window.
-                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
-                      Maintenance policy.
-                    $ref: '#/definitions/WeeklyMaintenanceWindow'
+            $ref: '#/definitions/MaintenanceWindow'
+      MasterLogging:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for master components.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              ID of the log group where logs of master components should be stored.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              The destination of master components' logs.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              ID of the folder where logs should be stored (in default group).
+              Includes only one of the fields `logGroupId`, `folderId`.
+              The destination of master components' logs.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          auditEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for audit logs.
+            type: boolean
+          clusterAutoscalerEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+            type: boolean
+          kubeApiserverEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for kube-apiserver.
+            type: boolean
+          eventsEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for events.
+            type: boolean
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
       LocationSpec:
         type: object
         properties:
@@ -264,6 +341,17 @@ apiPlayground:
             type: string
         required:
           - minResourcePresetId
+      MasterScalePolicySpec:
+        type: object
+        properties:
+          autoScale:
+            description: |-
+              **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+              Includes only one of the fields `autoScale`.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - autoScale
       MasterUpdateSpec:
         type: object
         properties:
@@ -271,21 +359,7 @@ apiPlayground:
             description: |-
               **[UpdateVersionSpec](#yandex.cloud.k8s.v1.UpdateVersionSpec)**
               Specification of the master update.
-            oneOf:
-              - type: object
-                properties:
-                  version:
-                    description: |-
-                      **string**
-                      Request update to a newer version of Kubernetes (1.x -> 1.y).
-                      Includes only one of the fields `version`, `latestRevision`.
-                    type: string
-                  latestRevision:
-                    description: |-
-                      **boolean**
-                      Request update to the latest revision for the current version.
-                      Includes only one of the fields `version`, `latestRevision`.
-                    type: boolean
+            $ref: '#/definitions/UpdateVersionSpec'
           maintenancePolicy:
             description: |-
               **[MasterMaintenancePolicy](#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
@@ -302,25 +376,7 @@ apiPlayground:
             description: |-
               **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
               Cloud Logging for master components.
-            oneOf:
-              - type: object
-                properties:
-                  logGroupId:
-                    description: |-
-                      **string**
-                      ID of the log group where logs of master components should be stored.
-                      Includes only one of the fields `logGroupId`, `folderId`.
-                      The destination of master components' logs.
-                    pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                    type: string
-                  folderId:
-                    description: |-
-                      **string**
-                      ID of the folder where logs should be stored (in default group).
-                      Includes only one of the fields `logGroupId`, `folderId`.
-                      The destination of master components' logs.
-                    pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                    type: string
+            $ref: '#/definitions/MasterLogging'
           locations:
             description: |-
               **[LocationSpec](#yandex.cloud.k8s.v1.LocationSpec)**
@@ -337,14 +393,7 @@ apiPlayground:
             description: |-
               **[MasterScalePolicySpec](#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
               Scale policy of the master.
-            oneOf:
-              - type: object
-                properties:
-                  autoScale:
-                    description: |-
-                      **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
-                      Includes only one of the fields `autoScale`.
-                    $ref: '#/definitions/AutoScale'
+            $ref: '#/definitions/MasterScalePolicySpec'
       NetworkPolicy:
         type: object
         properties:

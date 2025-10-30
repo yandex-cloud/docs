@@ -121,53 +121,12 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
             A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    An any-time maintenance window.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
-                    A weekly maintenance window.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         configSpec:
           description: |-
             **[ConfigSpec](#yandex.cloud.mdb.greenplum.v1.ConfigSpec)**
             Configuration of Greenplum® and Odyssey®.
-          oneOf:
-            - type: object
-              properties:
-                greenplumConfig_6_17:
-                  description: |-
-                    **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17)**
-                    Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
-                  $ref: '#/definitions/GreenplumConfig6_17'
-                greenplumConfig_6_19:
-                  description: |-
-                    **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19)**
-                    Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
-                  $ref: '#/definitions/GreenplumConfig6_19'
-                greenplumConfig_6_21:
-                  description: |-
-                    **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21)**
-                    Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
-                  $ref: '#/definitions/GreenplumConfig6_21'
-                greenplumConfig_6_22:
-                  description: |-
-                    **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
-                    Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
-                  $ref: '#/definitions/GreenplumConfig6_22'
-                greenplumConfig_6:
-                  description: |-
-                    **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
-                    Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`.
-                  $ref: '#/definitions/GreenplumConfig6'
+          $ref: '#/definitions/ConfigSpec'
         cloudStorage:
           description: |-
             **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
@@ -196,21 +155,7 @@ apiPlayground:
           description: |-
             **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
             Cloud logging configuration
-          oneOf:
-            - type: object
-              properties:
-                folderId:
-                  description: |-
-                    **string**
-                    Includes only one of the fields `folderId`, `logGroupId`.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
-                logGroupId:
-                  description: |-
-                    **string**
-                    Includes only one of the fields `folderId`, `logGroupId`.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
+          $ref: '#/definitions/LoggingConfig'
       required:
         - folderId
         - name
@@ -383,241 +328,26 @@ apiPlayground:
               Hour of the day in the UTC timezone.
             type: string
             format: int64
-      GreenplumConfig6_17:
+      MaintenanceWindow:
         type: object
         properties:
-          maxConnections:
+          anytime:
             description: |-
-              **string** (int64)
-              Maximum number of inbound connections on master segment.
-            type: string
-            format: int64
-          maxSlotWalKeepSize:
+              **object**
+              An any-time maintenance window.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
             description: |-
-              **string** (int64)
-              The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
-              More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
-            type: string
-            format: int64
-          gpWorkfileLimitPerSegment:
-            description: |-
-              **string** (int64)
-              The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-              The default value is 0 (no limit).
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
-            type: string
-            format: int64
-          gpWorkfileLimitPerQuery:
-            description: |-
-              **string** (int64)
-              The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
-              The default value is 0 (no limit).
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
-            type: string
-            format: int64
-          gpWorkfileLimitFilesPerQuery:
-            description: |-
-              **string** (int64)
-              The maximum number of temporary spill files allowed per query at each segment.
-              Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
-              The current query is terminated if the limit is exceeded.
-              Set to zero to disable the limit.
-              Master session reloads if the parameter changes.
-              Default value is 10000.
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
-            type: string
-            format: int64
-          maxPreparedTransactions:
-            description: |-
-              **string** (int64)
-              The maximum number of transactions that can be in the `prepared` state simultaneously.
-              More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
-            type: string
-            format: int64
-          gpWorkfileCompression:
-            description: |-
-              **boolean**
-              Whether the spill files are compressed or not.
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
-            type: boolean
-      GreenplumConfig6_19:
-        type: object
-        properties:
-          maxConnections:
-            description: |-
-              **string** (int64)
-              Maximum number of inbound connections on master segment.
-            type: string
-            format: int64
-          maxSlotWalKeepSize:
-            description: |-
-              **string** (int64)
-              The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
-              More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
-            type: string
-            format: int64
-          gpWorkfileLimitPerSegment:
-            description: |-
-              **string** (int64)
-              The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-              The default value is 0 (no limit).
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
-            type: string
-            format: int64
-          gpWorkfileLimitPerQuery:
-            description: |-
-              **string** (int64)
-              The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
-              The default value is 0 (no limit).
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
-            type: string
-            format: int64
-          gpWorkfileLimitFilesPerQuery:
-            description: |-
-              **string** (int64)
-              The maximum number of temporary spill files allowed per query at each segment.
-              Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
-              The current query is terminated if the limit is exceeded.
-              Set to zero to disable the limit.
-              Master session reloads if the parameter changes.
-              Default value is 10000.
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
-            type: string
-            format: int64
-          maxPreparedTransactions:
-            description: |-
-              **string** (int64)
-              The maximum number of transactions that can be in the `prepared` state simultaneously.
-              More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
-            type: string
-            format: int64
-          gpWorkfileCompression:
-            description: |-
-              **boolean**
-              Whether the spill files are compressed or not.
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
-            type: boolean
-          maxStatementMem:
-            description: |-
-              **string** (int64)
-              The maximum memory limit for a query, in bytes.
-              Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
-              Taking into account the configuration of a single segment host, calculate [maxStatementMem](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
-              When changing both [maxStatementMem](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) and `statement_mem`, [maxStatementMem](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6) must be changed first, or listed first in the `postgresql.conf` file.
-              Default value is 2097152000 (2000 MB).
-              More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
-            type: string
-            format: int64
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              Logged SQL statements.
-              `PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type.
-              More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
-              - `LOG_STATEMENT_UNSPECIFIED`
-              - `NONE`: None statements are logged.
-              - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
-              - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
-              - `ALL`: Logs all statements.
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - NONE
-              - DDL
-              - MOD
-              - ALL
-      GreenplumConfig6_21:
-        type: object
-        properties:
-          maxConnections:
-            description: |-
-              **string** (int64)
-              Maximum number of inbound connections on master segment
-            type: string
-            format: int64
-          maxSlotWalKeepSize:
-            description: |-
-              **string** (int64)
-              Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-              https://www.postgresql.org/docs/current/runtime-config-replication.html
-            type: string
-            format: int64
-          gpWorkfileLimitPerSegment:
-            description: |-
-              **string** (int64)
-              Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-              The default value is 0, which means a limit is not enforced.
-              https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment
-            type: string
-            format: int64
-          gpWorkfileLimitPerQuery:
-            description: |-
-              **string** (int64)
-              Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-              The default value is 0, which means a limit is not enforced.
-              https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query
-            type: string
-            format: int64
-          gpWorkfileLimitFilesPerQuery:
-            description: |-
-              **string** (int64)
-              Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-              Spill files are created when executing a query that requires more memory than it is allocated.
-              The current query is terminated when the limit is exceeded.
-              Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-              https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
-              Default value is 10000
-            type: string
-            format: int64
-          maxPreparedTransactions:
-            description: |-
-              **string** (int64)
-              Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-              https://www.postgresql.org/docs/9.6/runtime-config-resource.html
-            type: string
-            format: int64
-          gpWorkfileCompression:
-            description: |-
-              **boolean**
-              Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-              https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression
-            type: boolean
-          maxStatementMem:
-            description: |-
-              **string** (int64)
-              Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-              Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-              (seghost_physical_memory) / (average_number_concurrent_queries)
-              When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-              https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-              Default value is 2097152000 (2000MB)
-            type: string
-            format: int64
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
-              MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
-              PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
-              https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement
-              Default value is ddl
-              - `LOG_STATEMENT_UNSPECIFIED`
-              - `NONE`: None statements are logged.
-              - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
-              - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
-              - `ALL`: Logs all statements.
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - NONE
-              - DDL
-              - MOD
-              - ALL
-          gpAddColumnInheritsTableSetting:
-            description: |-
-              **boolean**
-              https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting
-            type: boolean
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
+              A weekly maintenance window.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
       GreenplumConfig6_22:
         type: object
         properties:
@@ -817,6 +547,227 @@ apiPlayground:
               https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period
             type: string
             format: int64
+      ConnectionPoolerConfig:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (PoolMode)
+              Route server pool mode.
+              - `POOL_MODE_UNSPECIFIED`
+              - `SESSION`: Assign server connection to a client until it disconnects. Default value.
+              - `TRANSACTION`: Assign server connection to a client for a transaction processing.
+            type: string
+            enum:
+              - POOL_MODE_UNSPECIFIED
+              - SESSION
+              - TRANSACTION
+          size:
+            description: |-
+              **string** (int64)
+              The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+              Set to zero to disable the limit.
+            type: string
+            format: int64
+          clientIdleTimeout:
+            description: |-
+              **string** (int64)
+              Client pool idle timeout, in seconds.
+              Drop stale client connection after this much seconds of idleness, which is not in transaction.
+              Set to zero to disable.
+            type: string
+            format: int64
+          idleInTransactionTimeout:
+            description: |-
+              **string** (int64)
+              Client pool idle in transaction timeout, in seconds.
+              Drop client connection in transaction after this much seconds of idleness.
+              Set to zero to disable.
+            type: string
+            format: int64
+      BackgroundActivityStartAt:
+        type: object
+        properties:
+          hours:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          minutes:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      TableSizes:
+        type: object
+        properties:
+          starts:
+            description: '**[BackgroundActivityStartAt](#yandex.cloud.mdb.greenplum.v1.BackgroundActivityStartAt)**'
+            type: array
+            items:
+              $ref: '#/definitions/BackgroundActivityStartAt'
+      AnalyzeAndVacuum:
+        type: object
+        properties:
+          start:
+            description: '**[BackgroundActivityStartAt](#yandex.cloud.mdb.greenplum.v1.BackgroundActivityStartAt)**'
+            $ref: '#/definitions/BackgroundActivityStartAt'
+          analyzeTimeout:
+            description: |-
+              **string** (int64)
+              Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
+            type: string
+            format: int64
+          vacuumTimeout:
+            description: |-
+              **string** (int64)
+              Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
+            type: string
+            format: int64
+      QueryKiller:
+        type: object
+        properties:
+          enable:
+            description: '**boolean**'
+            type: boolean
+          maxAge:
+            description: |-
+              **string** (int64)
+              Maximum duration for this type of queries (in seconds).
+            type: string
+            format: int64
+          ignoreUsers:
+            description: |-
+              **string**
+              Ignore these users when considering queries to terminate
+            type: array
+            items:
+              type: string
+      QueryKillerScripts:
+        type: object
+        properties:
+          idle:
+            description: |-
+              **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
+              Configuration of script that kills long running queries that are in `idle` state.
+            $ref: '#/definitions/QueryKiller'
+          idleInTransaction:
+            description: |-
+              **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
+              Configuration of script that kills long running queries that are in `idle in transaction` state.
+            $ref: '#/definitions/QueryKiller'
+          longRunning:
+            description: |-
+              **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
+              Configuration of script that kills long running queries (in any state).
+            $ref: '#/definitions/QueryKiller'
+      BackgroundActivitiesConfig:
+        type: object
+        properties:
+          tableSizes:
+            description: |-
+              **[TableSizes](#yandex.cloud.mdb.greenplum.v1.TableSizes)**
+              Enables scripts that collects tables sizes to `*_sizes` tables in `mdb_toolkit` schema.
+            $ref: '#/definitions/TableSizes'
+          analyzeAndVacuum:
+            description: |-
+              **[AnalyzeAndVacuum](#yandex.cloud.mdb.greenplum.v1.AnalyzeAndVacuum)**
+              Configuration for `ANALYZE` and `VACUUM` operations.
+            $ref: '#/definitions/AnalyzeAndVacuum'
+          queryKillerScripts:
+            description: |-
+              **[QueryKillerScripts](#yandex.cloud.mdb.greenplum.v1.QueryKillerScripts)**
+              Configuration for long running queries killer.
+            $ref: '#/definitions/QueryKillerScripts'
+      PXFConfig:
+        type: object
+        properties:
+          connectionTimeout:
+            description: |-
+              **string** (int64)
+              Timeout for connection to the Apache Tomcat® server when making read requests.
+              Specify values in seconds.
+            type: string
+            format: int64
+          uploadTimeout:
+            description: |-
+              **string** (int64)
+              Timeout for connection to the Apache Tomcat® server when making write requests.
+              Specify the values in seconds.
+            type: string
+            format: int64
+          maxThreads:
+            description: |-
+              **string** (int64)
+              Maximum number of the Apache Tomcat® threads.
+              To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+            type: string
+            format: int64
+          poolAllowCoreThreadTimeout:
+            description: |-
+              **boolean**
+              Determines whether the timeout for core streaming threads is permitted.
+            type: boolean
+          poolCoreSize:
+            description: |-
+              **string** (int64)
+              Number of core streaming threads per pool.
+            type: string
+            format: int64
+          poolQueueCapacity:
+            description: |-
+              **string** (int64)
+              Maximum number of requests you can add to a pool queue for core streaming threads.
+              If `0`, no pool queue is generated.
+            type: string
+            format: int64
+          poolMaxSize:
+            description: |-
+              **string** (int64)
+              Maximum allowed number of core streaming threads.
+            type: string
+            format: int64
+          xmx:
+            description: |-
+              **string** (int64)
+              Initial size, in megabytes, of the JVM heap for the PXF daemon.
+            type: string
+            format: int64
+          xms:
+            description: |-
+              **string** (int64)
+              Maximum size, in megabytes, of the JVM heap for the PXF daemon.
+            type: string
+            format: int64
+      ConfigSpec:
+        type: object
+        properties:
+          greenplumConfig_6_22:
+            description: |-
+              **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
+              Includes only one of the fields `greenplumConfig_6_22`, `greenplumConfig_6`.
+            $ref: '#/definitions/GreenplumConfig6_22'
+          greenplumConfig_6:
+            description: |-
+              **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
+              Includes only one of the fields `greenplumConfig_6_22`, `greenplumConfig_6`.
+            $ref: '#/definitions/GreenplumConfig6'
+          pool:
+            description: |-
+              **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig)**
+              Odyssey® pool settings.
+            $ref: '#/definitions/ConnectionPoolerConfig'
+          backgroundActivities:
+            description: |-
+              **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig)**
+              Managed Greenplum® background tasks configuration.
+            $ref: '#/definitions/BackgroundActivitiesConfig'
+          pxfConfig:
+            description: '**[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)**'
+            $ref: '#/definitions/PXFConfig'
+        oneOf:
+          - required:
+              - greenplumConfig_6_22
+          - required:
+              - greenplumConfig_6
       CloudStorage:
         type: object
         properties:
@@ -825,6 +776,44 @@ apiPlayground:
               **boolean**
               enable Cloud Storage for cluster
             type: boolean
+      LoggingConfig:
+        type: object
+        properties:
+          enabled:
+            description: '**boolean**'
+            type: boolean
+          folderId:
+            description: |-
+              **string**
+              Includes only one of the fields `folderId`, `logGroupId`.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          logGroupId:
+            description: |-
+              **string**
+              Includes only one of the fields `folderId`, `logGroupId`.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          commandCenterEnabled:
+            description: |-
+              **boolean**
+              send Yandex Command Center logs
+            type: boolean
+          greenplumEnabled:
+            description: |-
+              **boolean**
+              send Greenplum logs
+            type: boolean
+          poolerEnabled:
+            description: |-
+              **boolean**
+              send Pooler logs
+            type: boolean
+        oneOf:
+          - required:
+              - folderId
+          - required:
+              - logGroupId
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/create.md
 ---
 
@@ -903,39 +892,7 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
     // end of the list of possible fields
   },
   "configSpec": {
-    // Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`
-    "greenplumConfig_6_17": {
-      "maxConnections": "string",
-      "maxSlotWalKeepSize": "string",
-      "gpWorkfileLimitPerSegment": "string",
-      "gpWorkfileLimitPerQuery": "string",
-      "gpWorkfileLimitFilesPerQuery": "string",
-      "maxPreparedTransactions": "string",
-      "gpWorkfileCompression": "boolean"
-    },
-    "greenplumConfig_6_19": {
-      "maxConnections": "string",
-      "maxSlotWalKeepSize": "string",
-      "gpWorkfileLimitPerSegment": "string",
-      "gpWorkfileLimitPerQuery": "string",
-      "gpWorkfileLimitFilesPerQuery": "string",
-      "maxPreparedTransactions": "string",
-      "gpWorkfileCompression": "boolean",
-      "maxStatementMem": "string",
-      "logStatement": "string"
-    },
-    "greenplumConfig_6_21": {
-      "maxConnections": "string",
-      "maxSlotWalKeepSize": "string",
-      "gpWorkfileLimitPerSegment": "string",
-      "gpWorkfileLimitPerQuery": "string",
-      "gpWorkfileLimitFilesPerQuery": "string",
-      "maxPreparedTransactions": "string",
-      "gpWorkfileCompression": "boolean",
-      "maxStatementMem": "string",
-      "logStatement": "string",
-      "gpAddColumnInheritsTableSetting": "boolean"
-    },
+    // Includes only one of the fields `greenplumConfig_6_22`, `greenplumConfig_6`
     "greenplumConfig_6_22": {
       "maxConnections": "string",
       "maxSlotWalKeepSize": "string",
@@ -1276,21 +1233,12 @@ Hour of the day in the UTC timezone. ||
 
 #|
 ||Field | Description ||
-|| greenplumConfig_6_17 | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17)**
-
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
-|| greenplumConfig_6_19 | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19)**
-
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
-|| greenplumConfig_6_21 | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21)**
-
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
 || greenplumConfig_6_22 | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
+Includes only one of the fields `greenplumConfig_6_22`, `greenplumConfig_6`. ||
 || greenplumConfig_6 | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
+Includes only one of the fields `greenplumConfig_6_22`, `greenplumConfig_6`. ||
 || pool | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig)**
 
 Odyssey® pool settings. ||
@@ -1298,201 +1246,6 @@ Odyssey® pool settings. ||
 
 Managed Greenplum® background tasks configuration. ||
 || pxfConfig | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)** ||
-|#
-
-## GreenplumConfig6_17 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17}
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **string** (int64)
-
-The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **string** (int64)
-
-The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **string** (int64)
-
-The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **string** (int64)
-
-The maximum number of temporary spill files allowed per query at each segment.
-
-Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
-
-The current query is terminated if the limit is exceeded.
-
-Set to zero to disable the limit.
-
-Master session reloads if the parameter changes.
-
-Default value is 10000.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **string** (int64)
-
-The maximum number of transactions that can be in the `prepared` state simultaneously.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **boolean**
-
-Whether the spill files are compressed or not.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). ||
-|#
-
-## GreenplumConfig6_19 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19}
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **string** (int64)
-
-The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **string** (int64)
-
-The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **string** (int64)
-
-The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **string** (int64)
-
-The maximum number of temporary spill files allowed per query at each segment.
-
-Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
-
-The current query is terminated if the limit is exceeded.
-
-Set to zero to disable the limit.
-
-Master session reloads if the parameter changes.
-
-Default value is 10000.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **string** (int64)
-
-The maximum number of transactions that can be in the `prepared` state simultaneously.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **boolean**
-
-Whether the spill files are compressed or not.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). ||
-|| maxStatementMem | **string** (int64)
-
-The maximum memory limit for a query, in bytes.
-
-Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
-
-Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
-
-When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
-
-Default value is 2097152000 (2000 MB).
-
-More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). ||
-|| logStatement | **enum** (LogStatement)
-
-Logged SQL statements.
-
-`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
-
-- `LOG_STATEMENT_UNSPECIFIED`
-- `NONE`: None statements are logged.
-- `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
-- `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
-- `ALL`: Logs all statements. ||
-|#
-
-## GreenplumConfig6_21 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21}
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **string** (int64)
-
-Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **string** (int64)
-
-Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-The default value is 0, which means a limit is not enforced.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **string** (int64)
-
-Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-The default value is 0, which means a limit is not enforced.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **string** (int64)
-
-Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-Spill files are created when executing a query that requires more memory than it is allocated.
-The current query is terminated when the limit is exceeded.
-Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
-Default value is 10000 ||
-|| maxPreparedTransactions | **string** (int64)
-
-Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **boolean**
-
-Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **string** (int64)
-
-Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-(seghost_physical_memory) / (average_number_concurrent_queries)
-When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-Default value is 2097152000 (2000MB) ||
-|| logStatement | **enum** (LogStatement)
-
-Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
-MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
-PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement
-Default value is ddl
-
-- `LOG_STATEMENT_UNSPECIFIED`
-- `NONE`: None statements are logged.
-- `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
-- `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
-- `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **boolean**
-
-https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
 
 ## GreenplumConfig6_22 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22}
@@ -1907,109 +1660,7 @@ send Pooler logs ||
       "string"
     ],
     "clusterConfig": {
-      // Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`
-      "greenplumConfigSet_6_17": {
-        "effectiveConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean"
-        },
-        "userConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean"
-        },
-        "defaultConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean"
-        }
-      },
-      "greenplumConfigSet_6_19": {
-        "effectiveConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean",
-          "maxStatementMem": "string",
-          "logStatement": "string"
-        },
-        "userConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean",
-          "maxStatementMem": "string",
-          "logStatement": "string"
-        },
-        "defaultConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean",
-          "maxStatementMem": "string",
-          "logStatement": "string"
-        }
-      },
-      "greenplumConfigSet_6_21": {
-        "effectiveConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean",
-          "maxStatementMem": "string",
-          "logStatement": "string",
-          "gpAddColumnInheritsTableSetting": "boolean"
-        },
-        "userConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean",
-          "maxStatementMem": "string",
-          "logStatement": "string",
-          "gpAddColumnInheritsTableSetting": "boolean"
-        },
-        "defaultConfig": {
-          "maxConnections": "string",
-          "maxSlotWalKeepSize": "string",
-          "gpWorkfileLimitPerSegment": "string",
-          "gpWorkfileLimitPerQuery": "string",
-          "gpWorkfileLimitFilesPerQuery": "string",
-          "maxPreparedTransactions": "string",
-          "gpWorkfileCompression": "boolean",
-          "maxStatementMem": "string",
-          "logStatement": "string",
-          "gpAddColumnInheritsTableSetting": "boolean"
-        }
-      },
+      // Includes only one of the fields `greenplumConfigSet_6_22`, `greenplumConfigSet_6`
       "greenplumConfigSet_6_22": {
         "effectiveConfig": {
           "maxConnections": "string",
@@ -2619,21 +2270,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 #|
 ||Field | Description ||
-|| greenplumConfigSet_6_17 | **[GreenplumConfigSet6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_17)**
-
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
-|| greenplumConfigSet_6_19 | **[GreenplumConfigSet6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_19)**
-
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
-|| greenplumConfigSet_6_21 | **[GreenplumConfigSet6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_21)**
-
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
 || greenplumConfigSet_6_22 | **[GreenplumConfigSet6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_22)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
+Includes only one of the fields `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
 || greenplumConfigSet_6 | **[GreenplumConfigSet6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
+Includes only one of the fields `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
 || pool | **[ConnectionPoolerConfigSet](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet)**
 
 Odyssey® pool settings. ||
@@ -2641,250 +2283,6 @@ Odyssey® pool settings. ||
 
 Managed Greenplum® background tasks configuration. ||
 || pxfConfig | **[PXFConfigSet](#yandex.cloud.mdb.greenplum.v1.PXFConfigSet)** ||
-|#
-
-## GreenplumConfigSet6_17 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_17}
-
-Configuration settings version 6.17
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
-
-Required field. Effective settings for a Greenplum® cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
-
-User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
-
-Default configuration for a Greenplum® cluster. ||
-|#
-
-## GreenplumConfig6_17 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172}
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **string** (int64)
-
-The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **string** (int64)
-
-The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **string** (int64)
-
-The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **string** (int64)
-
-The maximum number of temporary spill files allowed per query at each segment.
-
-Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
-
-The current query is terminated if the limit is exceeded.
-
-Set to zero to disable the limit.
-
-Master session reloads if the parameter changes.
-
-Default value is 10000.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **string** (int64)
-
-The maximum number of transactions that can be in the `prepared` state simultaneously.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **boolean**
-
-Whether the spill files are compressed or not.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). ||
-|#
-
-## GreenplumConfigSet6_19 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_19}
-
-Configuration settings version 6.19
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
-
-Required field. Effective settings for a Greenplum® cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
-
-User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
-
-Default configuration for a Greenplum® cluster. ||
-|#
-
-## GreenplumConfig6_19 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192}
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **string** (int64)
-
-The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **string** (int64)
-
-The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **string** (int64)
-
-The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
-
-The default value is 0 (no limit).
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **string** (int64)
-
-The maximum number of temporary spill files allowed per query at each segment.
-
-Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
-
-The current query is terminated if the limit is exceeded.
-
-Set to zero to disable the limit.
-
-Master session reloads if the parameter changes.
-
-Default value is 10000.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **string** (int64)
-
-The maximum number of transactions that can be in the `prepared` state simultaneously.
-
-More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **boolean**
-
-Whether the spill files are compressed or not.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). ||
-|| maxStatementMem | **string** (int64)
-
-The maximum memory limit for a query, in bytes.
-
-Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
-
-Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
-
-When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
-
-Default value is 2097152000 (2000 MB).
-
-More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). ||
-|| logStatement | **enum** (LogStatement)
-
-Logged SQL statements.
-
-`PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type.
-
-More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
-
-- `LOG_STATEMENT_UNSPECIFIED`
-- `NONE`: None statements are logged.
-- `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
-- `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
-- `ALL`: Logs all statements. ||
-|#
-
-## GreenplumConfigSet6_21 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_21}
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
-
-Required field. Effective settings for a Greenplum®  cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
-
-User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
-
-Default configuration for a Greenplum® cluster. ||
-|#
-
-## GreenplumConfig6_21 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212}
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **string** (int64)
-
-Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **string** (int64)
-
-Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-The default value is 0, which means a limit is not enforced.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **string** (int64)
-
-Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-The default value is 0, which means a limit is not enforced.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **string** (int64)
-
-Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-Spill files are created when executing a query that requires more memory than it is allocated.
-The current query is terminated when the limit is exceeded.
-Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
-Default value is 10000 ||
-|| maxPreparedTransactions | **string** (int64)
-
-Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **boolean**
-
-Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **string** (int64)
-
-Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-(seghost_physical_memory) / (average_number_concurrent_queries)
-When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-Default value is 2097152000 (2000MB) ||
-|| logStatement | **enum** (LogStatement)
-
-Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
-MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
-PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
-https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement
-Default value is ddl
-
-- `LOG_STATEMENT_UNSPECIFIED`
-- `NONE`: None statements are logged.
-- `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
-- `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
-- `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **boolean**
-
-https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
 
 ## GreenplumConfigSet6_22 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_22}

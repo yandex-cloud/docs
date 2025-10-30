@@ -19,7 +19,7 @@ items:
                 href: operations/connect.md
               - name: Configuring SAML authentication
                 href: operations/saml-authentication.md
-          - name: Updating parameters
+          - name: Updating properties
             items:
               - name: Updating cluster settings
                 href: operations/update.md
@@ -41,7 +41,7 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
-      - name: User management
+      - name: Managing users
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:
@@ -98,7 +98,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk types
+      - name: Storage
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -262,6 +262,12 @@ items:
                 href: api-ref/grpc/Cluster/restartOpenSearch.md
               - name: SwitchMaster
                 href: api-ref/grpc/Cluster/switchMaster.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Extension
             items:
               - name: Overview
@@ -362,6 +368,12 @@ items:
                 href: api-ref/Cluster/restartOpenSearch.md
               - name: SwitchMaster
                 href: api-ref/Cluster/switchMaster.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Extension
             items:
               - name: Overview

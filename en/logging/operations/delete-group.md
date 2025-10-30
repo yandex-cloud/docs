@@ -1,6 +1,7 @@
 ---
 title: How to delete a log group in {{ cloud-logging-name }}
 description: In this guide, you will learn how to delete a log group in {{ cloud-logging-name }}.
+sourcePath: en/logging_includes/operations/delete-group.md
 ---
 
 # Deleting a log group
@@ -88,7 +89,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors found in the configuration.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
 
@@ -96,7 +97,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
      terraform apply
      ```
 
-  1. Type `yes` and press **Enter** to confirm the changes.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
@@ -112,7 +113,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. You 
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  Send this request:
+  Run this query:
   
   ```bash
   grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \

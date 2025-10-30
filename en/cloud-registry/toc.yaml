@@ -134,6 +134,22 @@ items:
                 href: api-ref/grpc/Artifact/get.md
               - name: Delete
                 href: api-ref/grpc/Artifact/delete.md
+          - name: LifecyclePolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/LifecyclePolicy/index.md
+              - name: Create
+                href: api-ref/grpc/LifecyclePolicy/create.md
+              - name: Update
+                href: api-ref/grpc/LifecyclePolicy/update.md
+              - name: Delete
+                href: api-ref/grpc/LifecyclePolicy/delete.md
+              - name: Get
+                href: api-ref/grpc/LifecyclePolicy/get.md
+              - name: List
+                href: api-ref/grpc/LifecyclePolicy/list.md
+              - name: ChangeState
+                href: api-ref/grpc/LifecyclePolicy/changeState.md
           - name: Operation
             items:
               - name: Overview
@@ -182,6 +198,22 @@ items:
                 href: api-ref/Artifact/get.md
               - name: Delete
                 href: api-ref/Artifact/delete.md
+          - name: LifecyclePolicy
+            items:
+              - name: Overview
+                href: api-ref/LifecyclePolicy/index.md
+              - name: Create
+                href: api-ref/LifecyclePolicy/create.md
+              - name: Update
+                href: api-ref/LifecyclePolicy/update.md
+              - name: Delete
+                href: api-ref/LifecyclePolicy/delete.md
+              - name: Get
+                href: api-ref/LifecyclePolicy/get.md
+              - name: List
+                href: api-ref/LifecyclePolicy/list.md
+              - name: ChangeState
+                href: api-ref/LifecyclePolicy/changeState.md
           - name: Operation
             items:
               - name: Overview

@@ -43,82 +43,14 @@ apiPlayground:
           description: |-
             **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
             Filter for the rule.
-          oneOf:
-            - type: object
-              properties:
-                jqFilter:
-                  description: |-
-                    **string**
-                    JQ filter for matching events.
-                    Includes only one of the fields `jqFilter`.
-                  type: string
+          $ref: '#/definitions/Filter'
         targets:
           description: |-
             **[Target](#yandex.cloud.serverless.eventrouter.v1.Target)**
             Targets for the rule.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  yds:
-                    description: |-
-                      **[YdsTarget](#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    $ref: '#/definitions/YdsTarget'
-                  ymq:
-                    description: |-
-                      **[YmqTarget](#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    $ref: '#/definitions/YmqTarget'
-                  function:
-                    description: |-
-                      **[FunctionTarget](#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    $ref: '#/definitions/FunctionTarget'
-                  container:
-                    description: |-
-                      **[ContainerTarget](#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    $ref: '#/definitions/ContainerTarget'
-                  gatewayWsBroadcast:
-                    description: |-
-                      **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    $ref: '#/definitions/GatewayWebsocketBroadcastTarget'
-                  logging:
-                    description: |-
-                      **[LoggingTarget](#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          logGroupId:
-                            description: |-
-                              **string**
-                              Includes only one of the fields `logGroupId`, `folderId`.
-                              Log group ID or folder ID.
-                            type: string
-                          folderId:
-                            description: |-
-                              **string**
-                              Includes only one of the fields `logGroupId`, `folderId`.
-                              Log group ID or folder ID.
-                            type: string
-                  workflow:
-                    description: |-
-                      **[WorkflowTarget](#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
-                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
-                    $ref: '#/definitions/WorkflowTarget'
-              - type: object
-                properties:
-                  deadLetterQueue:
-                    description: |-
-                      **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
-                      Dead letter queue.
-                      Includes only one of the fields `deadLetterQueue`.
-                      Dead letter settings of the target.
-                    $ref: '#/definitions/PutQueueMessage'
+            $ref: '#/definitions/Target'
         deletionProtection:
           description: |-
             **boolean**
@@ -128,6 +60,18 @@ apiPlayground:
         - busId
       additionalProperties: false
     definitions:
+      Filter:
+        type: object
+        properties:
+          jqFilter:
+            description: |-
+              **string**
+              JQ filter for matching events.
+              Includes only one of the fields `jqFilter`.
+            type: string
+        oneOf:
+          - required:
+              - jqFilter
       YdsTarget:
         type: object
         properties:
@@ -272,6 +216,33 @@ apiPlayground:
           - gatewayId
           - path
           - serviceAccountId
+      LoggingTarget:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log group ID or folder ID.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log group ID or folder ID.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account which has permission for writing logs.
+            type: string
+        required:
+          - serviceAccountId
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
       WorkflowTarget:
         type: object
         properties:
@@ -293,6 +264,33 @@ apiPlayground:
         required:
           - workflowId
           - serviceAccountId
+      Transformer:
+        type: object
+        properties:
+          jqTransformer:
+            description: |-
+              **string**
+              JQ string inrerpolation expression for changing event format.
+              Includes only one of the fields `jqTransformer`.
+            type: string
+        oneOf:
+          - required:
+              - jqTransformer
+      RetrySettings:
+        type: object
+        properties:
+          retryAttempts:
+            description: |-
+              **string** (int64)
+              Maximum number of retries (extra calls) before an action fails.
+            type: string
+            format: int64
+          maximumAge:
+            description: |-
+              **string** (duration)
+              Event goes to dlq when its age exceeds this value. Default is 24h.
+            type: string
+            format: duration
       PutQueueMessage:
         type: object
         properties:
@@ -308,6 +306,94 @@ apiPlayground:
             type: string
         required:
           - serviceAccountId
+      Target:
+        type: object
+        properties:
+          yds:
+            description: |-
+              **[YdsTarget](#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/YdsTarget'
+          ymq:
+            description: |-
+              **[YmqTarget](#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/YmqTarget'
+          function:
+            description: |-
+              **[FunctionTarget](#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/FunctionTarget'
+          container:
+            description: |-
+              **[ContainerTarget](#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/ContainerTarget'
+          gatewayWsBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/GatewayWebsocketBroadcastTarget'
+          logging:
+            description: |-
+              **[LoggingTarget](#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/LoggingTarget'
+          workflow:
+            description: |-
+              **[WorkflowTarget](#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
+              Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+            $ref: '#/definitions/WorkflowTarget'
+          transformer:
+            description: |-
+              **[Transformer](#yandex.cloud.serverless.eventrouter.v1.Transformer)**
+              Transformer of the target.
+            $ref: '#/definitions/Transformer'
+          retrySettings:
+            description: |-
+              **[RetrySettings](#yandex.cloud.serverless.eventrouter.v1.RetrySettings)**
+              Retry settings of the target.
+            $ref: '#/definitions/RetrySettings'
+          deadLetterQueue:
+            description: |-
+              **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
+              Dead letter queue.
+              Includes only one of the fields `deadLetterQueue`.
+              Dead letter settings of the target.
+            $ref: '#/definitions/PutQueueMessage'
+          status:
+            description: |-
+              **enum** (Status)
+              Status of the target.
+              - `STATUS_UNSPECIFIED`
+              - `CREATING`
+              - `ACTIVE`
+              - `DELETING`
+            type: string
+            enum:
+              - STATUS_UNSPECIFIED
+              - CREATING
+              - ACTIVE
+              - DELETING
+        allOf:
+          - oneOf:
+              - required:
+                  - yds
+              - required:
+                  - ymq
+              - required:
+                  - function
+              - required:
+                  - container
+              - required:
+                  - gatewayWsBroadcast
+              - required:
+                  - logging
+              - required:
+                  - workflow
+          - oneOf:
+              - required:
+                  - deadLetterQueue
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/create.md
 ---
 

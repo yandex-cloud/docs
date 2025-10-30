@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/unified-agent/haproxy.md
+---
 # Delivering metrics from HAProxy and other third-party applications
 
 {{ unified-agent-full-name }} supports metric collection in {{ prometheus-name }} format and metric conversion to {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that provide them in {{ prometheus-name }} format.
@@ -18,7 +21,7 @@ You can also use this method to send metrics from any third-party applications [
       sudo apt install haproxy
       ```
 
-   1. To enable {{ prometheus-name }} integration, configure the exporter by adding a section named `frontend` to the `haproxy.cfg` configuration file:
+   1. To enable {{ prometheus-name }} integration, configure the exporter. To do this, add a section named `frontend` to the `haproxy.cfg` configuration file:
 
       ```bash
       frontend stats
@@ -35,7 +38,7 @@ You can also use this method to send metrics from any third-party applications [
       sudo service haproxy restart
       ```
 
-   1. Make sure the exporter is running and exposing metrics. To do this, run `curl http://localhost:8404/metrics`. Command output example:
+   1. Make sure the exporter is running and exposing metrics. Do it by running this command: `curl http://localhost:8404/metrics`. Command output example:
 
       ```bash
       # HELP haproxy_process_nbthread Number of started threads (global.nbthread)

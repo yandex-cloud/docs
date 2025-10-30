@@ -96,7 +96,7 @@ To create an {{ IBRG }} table and start working with it:
 
         Table data will be stored in the bucket at the `warehouse/` path.
 
-    For more information about the properties that have an effect on folder settings, see [this {{ IBRG }} article](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
+    For more information about the properties affecting folder settings, this [{{ IBRG }} guide](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
 
 1. [Use SSH to connect](connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
 
@@ -107,6 +107,12 @@ To create an {{ IBRG }} table and start working with it:
     ```
 
     You will perform all further actions within this session.
+
+1. Create a database named `db` in the `sample` folder:
+
+    ```sql
+    CREATE DATABASE sample.db;
+    ```
 
 1. Switch to the `db` database in the `sample` folder:
 
@@ -126,7 +132,7 @@ To create an {{ IBRG }} table and start working with it:
     DESC FORMATTED mytable;
     ```
 
-    Sample result:
+    Result example:
 
     ```sql
     id      bigint
@@ -155,7 +161,7 @@ To create an {{ IBRG }} table and start working with it:
     SELECT count(1), data FROM mytable GROUP BY data;
     ```
 
-    Sample result:
+    Result example:
 
     ```sql
     1       a

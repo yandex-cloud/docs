@@ -397,6 +397,12 @@ items:
                 href: api-ref/grpc/AccessAnalyzer/index.md
               - name: ListSubjectAccessBindings
                 href: api-ref/grpc/AccessAnalyzer/listSubjectAccessBindings.md
+          - name: AccessPolicyTemplate
+            items:
+              - name: Overview
+                href: api-ref/grpc/AccessPolicyTemplate/index.md
+              - name: List
+                href: api-ref/grpc/AccessPolicyTemplate/list.md
           - name: ApiKey
             items:
               - name: Overview
@@ -651,6 +657,12 @@ items:
                 href: api-ref/AccessAnalyzer/index.md
               - name: ListSubjectAccessBindings
                 href: api-ref/AccessAnalyzer/listSubjectAccessBindings.md
+          - name: AccessPolicyTemplate
+            items:
+              - name: Overview
+                href: api-ref/AccessPolicyTemplate/index.md
+              - name: List
+                href: api-ref/AccessPolicyTemplate/list.md
           - name: ApiKey
             items:
               - name: Overview

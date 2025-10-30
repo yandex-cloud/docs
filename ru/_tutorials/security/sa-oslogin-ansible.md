@@ -34,24 +34,18 @@
 ## Создайте сервисный аккаунт с SSH-ключом в профиле {{ oslogin }} {#create-ssh-key}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `my-ansible-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa) ему [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`.
-
-    {% note info %}
-
-    При создании сервисного аккаунта для него будет автоматически создан [профиль {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) по умолчанию. Имя пользователя (логин) в профиле {{ oslogin }} по умолчанию формируется для сервисного аккаунта c добавлением префикса `yc-sa-` к имени сервисного аккаунта: `yc-sa-<имя_сервисного_аккаунта>`.
-
-    {% endnote %}
-
+1. [Создайте](../../organization/operations/os-login-profile-create.md) для сервисного аккаунта `my-ansible-sa` [профиль {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) с логином `my-ansible-sa-profile`.
 1. Создайте пару [SSH-ключей](../../glossary/ssh-keygen.md) типа `ed25519`, которые сервисный аккаунт будет использовать для подключения к виртуальным машинам:
 
     ```bash
     ssh-keygen \
       -t ed25519 \
-      -f <путь>/id_yc-sa-my-ansible-sa
+      -f <путь>/my-ansible-sa-profile
     ```
     
-    Где: `-f` — имя создаваемого SSH-ключа и путь к директории, в которую будут сохранены файлы с закрытой и открытой частями ключа. Например, `-f /home/user/ansible-key/id_yc-sa-my-ansible-sa`.
+    Где: `-f` — имя создаваемого SSH-ключа и путь к директории, в которую будут сохранены файлы с закрытой и открытой частями ключа. Например, `-f /home/user/ansible-key/my-ansible-sa-profile`.
 
-    В результате в заданной директории будут созданы 2 файла SSH-ключа: `id_yc-sa-my-ansible-sa` и `id_yc-sa-my-ansible-sa.pub`.
+    В результате в заданной директории будут созданы 2 файла SSH-ключа: `my-ansible-sa-profile` и `my-ansible-sa-profile.pub`.
 
 1. Добавьте созданный SSH-ключ в профиль {{ oslogin }} сервисного аккаунта `my-ansible-sa`:
 
@@ -72,7 +66,7 @@
       * `--name` — имя загружаемого ключа, например, `ssh-my-ansible-sa`.
       * `--organization-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, к которой относится сервисный аккаунт `my-ansible-sa`.
       * `--subject-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, в профиль которого добавляется SSH-ключ.
-      * `--data` — содержимое файла с публичной частью SSH-ключа (`id_yc-sa-my-ansible-sa.pub`).
+      * `--data` — содержимое файла с публичной частью SSH-ключа (`my-ansible-sa-profile.pub`).
       * `--expires-at` — срок действия загружаемого ключа. Необязательный параметр. Если параметр не задан, у ключа будет неограниченный срок действия.
 
           Значение может задаваться в двух форматах:
@@ -105,12 +99,12 @@
 1. Проверьте возможность входа на ВМ с помощью профиля {{ oslogin }} сервисного аккаунта:
 
     ```bash
-    ssh yc-sa-my-ansible-sa@<IP-адрес_ВМ> -i <путь_к_закрытому_SSH-ключу>
+    ssh my-ansible-sa-profile@<IP-адрес_ВМ> -i <путь_к_закрытому_SSH-ключу>
     ```
  
     Где:
     * `<IP-адрес_ВМ>` — [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины с включенным доступом по {{ oslogin }}.
-    * `<путь_к_закрытому_SSH-ключу>` — путь к файлу, содержащему закрытую часть созданного ранее SSH-ключа. Например, `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
+    * `<путь_к_закрытому_SSH-ключу>` — путь к файлу, содержащему закрытую часть созданного ранее SSH-ключа. Например, `/home/user/ansible-key/my-ansible-sa-profile`.
 
 ## Настройте Ansible для работы от имени сервисного аккаунта {#configure-ansible}
 
@@ -121,14 +115,14 @@
     ```ini
     [yc:vars]
     ansible_connection=ssh
-    ansible_user=yc-sa-my-ansible-sa
+    ansible_user=my-ansible-sa-profile
     ansible_ssh_private_key_file=<путь_к_закрытому_SSH-ключу>
 
     [yc]
     <IP-адрес_ВМ>
     ```
     Где:
-    * `<путь_к_закрытому_SSH-ключу>` — путь к файлу, содержащему закрытую часть созданного ранее SSH-ключа. Например, `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
+    * `<путь_к_закрытому_SSH-ключу>` — путь к файлу, содержащему закрытую часть созданного ранее SSH-ключа. Например, `/home/user/ansible-key/my-ansible-sa-profile`.
     * `<IP-адрес_ВМ>` — публичный IP-адрес виртуальной машины с включенным доступом по {{ oslogin }}.
 
 1. Запустите Ansible с модулем `ansible.builtin.ping`:

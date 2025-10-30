@@ -1,5 +1,5 @@
 ---
-title: Connecting to an {{ SD }} cluster in {{ mmg-full-name }}
+title: Connecting to a {{ SD }} cluster in {{ mmg-full-name }}
 description: Follow this tutorial to connect to a database in a {{ SD }} cluster using command line tools, graphical IDEs, and Docker container.
 ---
 
@@ -181,7 +181,7 @@ You can only use graphical IDEs to connect to public cluster hosts with an [SSL 
    1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
    1. On the **General** tab:
       1. Configure the connection as follows:
-         * **User**, **Password**: DB user's name and password.
+         * **User**, **Password**: DB user name and password.
          * **URL**: Connection string.
 
               For a non-sharded cluster:
@@ -200,7 +200,7 @@ You can only use graphical IDEs to connect to public cluster hosts with an [SSL 
 
       1. Click **Download** to download the connection driver.
    1. On the **SSH/SSL** tab:
-      1. Enable the **Use SSL** setting.
+      1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](./index.md#get-ssl-cert).
 1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
@@ -256,4 +256,4 @@ RUN apt-get update && \
 
 To connect without SSL, no additional Dockerfile settings are required.
 
-After running the Docker container, switch to it and [install](https://www.mongodb.com/docs/mongodb-shell/install/) `mongosh`. You will need it to connect to the cluster.
+After you run the Docker container, navigate to it and install `mongosh`. You will need it to connect to the cluster.

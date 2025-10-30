@@ -30,6 +30,34 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions:
+      AgentSelector:
+        type: object
+        properties:
+          agentId:
+            description: |-
+              **string**
+              Selection by agent ID.
+              Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+            type: string
+          matchByFilter:
+            description: |-
+              **string**
+              Selection by filter string.
+              Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+            type: string
+          anonymousAgent:
+            description: |-
+              **boolean**
+              Select anonymoud (i.e. not registered) agents.
+              Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+            type: boolean
+        oneOf:
+          - required:
+              - agentId
+          - required:
+              - matchByFilter
+          - required:
+              - anonymousAgent
       ObjectStorage:
         type: object
         properties:
@@ -43,6 +71,18 @@ apiPlayground:
               **string**
               File name.
             type: string
+      FilePointer:
+        type: object
+        properties:
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.loadtesting.api.v1.test.ObjectStorage)**
+              Reference to a file in Object Storage.
+              Includes only one of the fields `objectStorage`.
+            $ref: '#/definitions/ObjectStorage'
+        oneOf:
+          - required:
+              - objectStorage
       SingleAgentConfiguration:
         type: object
         properties:
@@ -55,27 +95,7 @@ apiPlayground:
             description: |-
               **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
               Agent selection criterion.
-            oneOf:
-              - type: object
-                properties:
-                  agentId:
-                    description: |-
-                      **string**
-                      Selection by agent ID.
-                      Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
-                    type: string
-                  matchByFilter:
-                    description: |-
-                      **string**
-                      Selection by filter string.
-                      Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
-                    type: string
-                  anonymousAgent:
-                    description: |-
-                      **boolean**
-                      Select anonymoud (i.e. not registered) agents.
-                      Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
-                    type: boolean
+            $ref: '#/definitions/AgentSelector'
           files:
             description: |-
               **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
@@ -89,15 +109,7 @@ apiPlayground:
               - etc.
             type: object
             additionalProperties:
-              oneOf:
-                - type: object
-                  properties:
-                    objectStorage:
-                      description: |-
-                        **[ObjectStorage](#yandex.cloud.loadtesting.api.v1.test.ObjectStorage)**
-                        Reference to a file in Object Storage.
-                        Includes only one of the fields `objectStorage`.
-                      $ref: '#/definitions/ObjectStorage'
+              $ref: '#/definitions/FilePointer'
       Tag:
         type: object
         properties:
@@ -111,6 +123,42 @@ apiPlayground:
               **string**
               Value of the tag.
             type: string
+      ArtifactSettings:
+        type: object
+        properties:
+          objectStorageBucket:
+            description: |-
+              **string**
+              Name of output object storage bucket in test's folder.
+              Includes only one of the fields `objectStorageBucket`.
+            type: string
+          isArchive:
+            description: |-
+              **boolean**
+              Setting which defines whether artifact files should be archived prior to uploading.
+            type: boolean
+          filterInclude:
+            description: |-
+              **string**
+              Filter strings defining which files should be included to artifacts. GLOB format.
+              Example:
+              - ['*'] - all files will be uploaded.
+              - ['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded.
+            type: array
+            items:
+              type: string
+          filterExclude:
+            description: |-
+              **string**
+              Filter strings defining which files should be excluded from artifacts. GLOB format.
+              Example:
+              - filter_include=['*'], filter_exclude=['phout.log'] - upload all `.log` files excluding `phout.log`.
+            type: array
+            items:
+              type: string
+        oneOf:
+          - required:
+              - objectStorageBucket
       Details:
         type: object
         properties:
@@ -141,15 +189,7 @@ apiPlayground:
             description: |-
               **[ArtifactSettings](#yandex.cloud.loadtesting.api.v1.test.ArtifactSettings)**
               Settings which define where to upload test artifacts and which files should be included.
-            oneOf:
-              - type: object
-                properties:
-                  objectStorageBucket:
-                    description: |-
-                      **string**
-                      Name of output object storage bucket in test's folder.
-                      Includes only one of the fields `objectStorageBucket`.
-                    type: string
+            $ref: '#/definitions/ArtifactSettings'
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/create.md
 ---
 

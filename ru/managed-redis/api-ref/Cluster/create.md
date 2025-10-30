@@ -56,33 +56,7 @@ apiPlayground:
           description: |-
             **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
             Required field. Configuration and resources for hosts that should be created for the Redis cluster.
-          oneOf:
-            - type: object
-              properties:
-                redisConfig_5_0:
-                  description: |-
-                    **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
-                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
-                    Configuration of a Redis cluster.
-                  $ref: '#/definitions/RedisConfig5_0'
-                redisConfig_6_0:
-                  description: |-
-                    **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
-                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
-                    Configuration of a Redis cluster.
-                  $ref: '#/definitions/RedisConfig6_0'
-                redisConfig_6_2:
-                  description: |-
-                    **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
-                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
-                    Configuration of a Redis cluster.
-                  $ref: '#/definitions/RedisConfig6_2'
-                redisConfig_7_0:
-                  description: |-
-                    **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
-                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
-                    Configuration of a Redis cluster.
-                  $ref: '#/definitions/RedisConfig7_0'
+          $ref: '#/definitions/ConfigSpec'
         hostSpecs:
           description: |-
             **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
@@ -138,23 +112,7 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
             Window of maintenance operations.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Maintenance operation can be scheduled anytime.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
-                    Maintenance operation can be scheduled on a weekly basis.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         userSpecs:
           description: |-
             **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
@@ -529,6 +487,384 @@ apiPlayground:
               Redis maxmemory percent
             type: string
             format: int64
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-ssd - network SSD drive,
+              * local-ssd - local SSD storage.
+            type: string
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      Access:
+        type: object
+        properties:
+          dataLens:
+            description: |-
+              **boolean**
+              Allow access for DataLens
+            type: boolean
+          webSql:
+            description: |-
+              **boolean**
+              Allow access for Web SQL.
+            type: boolean
+      RedisConfig:
+        type: object
+        properties:
+          maxmemoryPolicy:
+            description: |-
+              **enum** (MaxmemoryPolicy)
+              Redis key eviction policy for a dataset that reaches maximum memory,
+              available to the host. Redis maxmemory setting depends on Managed
+              Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+              All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+              - `MAXMEMORY_POLICY_UNSPECIFIED`
+              - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+              - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+              - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+              - `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+              - `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+              - `ALLKEYS_RANDOM`: Remove keys randomly.
+              - `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+              and shorter TTL first.
+              - `NOEVICTION`: Return errors when memory limit was reached and commands could require
+              more memory to be used.
+            type: string
+            enum:
+              - MAXMEMORY_POLICY_UNSPECIFIED
+              - VOLATILE_LRU
+              - ALLKEYS_LRU
+              - VOLATILE_LFU
+              - ALLKEYS_LFU
+              - VOLATILE_RANDOM
+              - ALLKEYS_RANDOM
+              - VOLATILE_TTL
+              - NOEVICTION
+          timeout:
+            description: |-
+              **string** (int64)
+              Time that Redis keeps the connection open while the client is idle.
+              If no new command is sent during that time, the connection is closed.
+            type: string
+            format: int64
+          password:
+            description: |-
+              **string**
+              Authentication password.
+            pattern: '[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}'
+            type: string
+          databases:
+            description: |-
+              **string** (int64)
+              Number of database buckets on a single redis-server process.
+            type: string
+            format: int64
+          slowlogLogSlowerThan:
+            description: |-
+              **string** (int64)
+              Threshold for logging slow requests to server in microseconds (log only slower than it).
+            type: string
+            format: int64
+          slowlogMaxLen:
+            description: |-
+              **string** (int64)
+              Max slow requests number to log.
+            type: string
+            format: int64
+          notifyKeyspaceEvents:
+            description: |-
+              **string**
+              String setting for pub\sub functionality.
+            pattern: '[KEg$lshzxeAtm]{0,13}'
+            type: string
+          clientOutputBufferLimitPubsub:
+            description: |-
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              Redis connection output buffers limits for pubsub operations.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          clientOutputBufferLimitNormal:
+            description: |-
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              Redis connection output buffers limits for clients.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          maxmemoryPercent:
+            description: |-
+              **string** (int64)
+              Redis maxmemory percent
+            type: string
+            format: int64
+          luaTimeLimit:
+            description: |-
+              **string** (int64)
+              Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
+            type: string
+            format: int64
+          replBacklogSizePercent:
+            description: |-
+              **string** (int64)
+              Replication backlog size as a percentage of flavor maxmemory
+            type: string
+            format: int64
+          clusterRequireFullCoverage:
+            description: |-
+              **boolean**
+              Controls whether all hash slots must be covered by nodes
+            type: boolean
+          clusterAllowReadsWhenDown:
+            description: |-
+              **boolean**
+              Allows read operations when cluster is down
+            type: boolean
+          clusterAllowPubsubshardWhenDown:
+            description: |-
+              **boolean**
+              Permits Pub/Sub shard operations when cluster is down
+            type: boolean
+          lfuDecayTime:
+            description: |-
+              **string** (int64)
+              The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
+            type: string
+            format: int64
+          lfuLogFactor:
+            description: |-
+              **string** (int64)
+              Determines how the frequency counter represents key hits.
+            type: string
+            format: int64
+          turnBeforeSwitchover:
+            description: |-
+              **boolean**
+              Allows to turn before switchover in RDSync
+            type: boolean
+          allowDataLoss:
+            description: |-
+              **boolean**
+              Allows some data to be lost in favor of faster switchover/restart
+            type: boolean
+          useLuajit:
+            description: |-
+              **boolean**
+              Use JIT for lua scripts and functions
+            type: boolean
+          ioThreadsAllowed:
+            description: |-
+              **boolean**
+              Allow redis to use io-threads
+            type: boolean
+          zsetMaxListpackEntries:
+            description: |-
+              **string** (int64)
+              Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
+            type: string
+            format: int64
+          aofMaxSizePercent:
+            description: |-
+              **string** (int64)
+              AOF maximum size as a percentage of disk available
+            type: string
+            format: int64
+          activedefrag:
+            description: |-
+              **boolean**
+              Enable active (online) memory defragmentation
+            type: boolean
+      DiskSizeAutoscaling:
+        type: object
+        properties:
+          plannedUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+            type: string
+            format: int64
+          emergencyUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+            type: string
+            format: int64
+          diskSizeLimit:
+            description: |-
+              **string** (int64)
+              Limit on how large the storage for database instances can automatically grow, in bytes.
+            type: string
+            format: int64
+      ValkeySearch:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enable valkey-search module
+            type: boolean
+          readerThreads:
+            description: |-
+              **string** (int64)
+              Controls the amount of threads executing queries
+            type: string
+            format: int64
+          writerThreads:
+            description: |-
+              **string** (int64)
+              Controls the amount of threads processing index mutations
+            type: string
+            format: int64
+      ValkeyJson:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enable valkey-json module
+            type: boolean
+      ValkeyBloom:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enable valkey-bloom module
+            type: boolean
+      ValkeyModules:
+        type: object
+        properties:
+          valkeySearch:
+            description: |-
+              **[ValkeySearch](#yandex.cloud.mdb.redis.v1.ValkeySearch)**
+              valkey-search module settings
+            $ref: '#/definitions/ValkeySearch'
+          valkeyJson:
+            description: |-
+              **[ValkeyJson](#yandex.cloud.mdb.redis.v1.ValkeyJson)**
+              valkey-json module settings
+            $ref: '#/definitions/ValkeyJson'
+          valkeyBloom:
+            description: |-
+              **[ValkeyBloom](#yandex.cloud.mdb.redis.v1.ValkeyBloom)**
+              valkey-bloom module settings
+            $ref: '#/definitions/ValkeyBloom'
+      ConfigSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Version of Redis used in the cluster.
+            type: string
+          redisConfig_5_0:
+            description: |-
+              **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
+              Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+              Configuration of a Redis cluster.
+            $ref: '#/definitions/RedisConfig5_0'
+          redisConfig_6_0:
+            description: |-
+              **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
+              Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+              Configuration of a Redis cluster.
+            $ref: '#/definitions/RedisConfig6_0'
+          redisConfig_6_2:
+            description: |-
+              **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
+              Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+              Configuration of a Redis cluster.
+            $ref: '#/definitions/RedisConfig6_2'
+          redisConfig_7_0:
+            description: |-
+              **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+              Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+              Configuration of a Redis cluster.
+            $ref: '#/definitions/RedisConfig7_0'
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
+              Resources allocated to Redis hosts.
+            $ref: '#/definitions/Resources'
+          backupWindowStart:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Time to start the daily backup, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          access:
+            description: |-
+              **[Access](#yandex.cloud.mdb.redis.v1.Access)**
+              Access policy to DB
+            $ref: '#/definitions/Access'
+          redis:
+            description: |-
+              **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
+              Unified configuration of a Redis cluster
+            $ref: '#/definitions/RedisConfig'
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
+              Disk size autoscaling settings
+            $ref: '#/definitions/DiskSizeAutoscaling'
+          backupRetainPeriodDays:
+            description: |-
+              **string** (int64)
+              Retain period of automatically created backup in days
+            type: string
+            format: int64
+          modules:
+            description: |-
+              **[ValkeyModules](#yandex.cloud.mdb.redis.v1.ValkeyModules)**
+              Valkey modules settings
+            $ref: '#/definitions/ValkeyModules'
+        oneOf:
+          - required:
+              - redisConfig_5_0
+          - required:
+              - redisConfig_6_0
+          - required:
+              - redisConfig_6_2
+          - required:
+              - redisConfig_7_0
       HostSpec:
         type: object
         properties:
@@ -602,6 +938,28 @@ apiPlayground:
               Hour of the day in UTC (in `HH` format).
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operation can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
+              Maintenance operation can be scheduled on a weekly basis.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
       Permissions:
         type: object
         properties:

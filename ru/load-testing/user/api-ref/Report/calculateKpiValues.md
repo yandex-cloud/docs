@@ -136,6 +136,66 @@ apiPlayground:
             type: array
             items:
               type: string
+      KpiSelector:
+        type: object
+        properties:
+          responseTime:
+            description: |-
+              **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
+              Response time cummulative quantile (percentile).
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ResponseTime'
+          instances:
+            description: |-
+              **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
+              A number of instances throughout the test.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/Instances'
+          imbalanceRps:
+            description: |-
+              **object**
+              An RPS at the moment the test has been auto-stopped.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ImbalanceRps'
+          protocolCodesAbsolute:
+            description: |-
+              **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
+              A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ProtocolCodesAbsolute'
+          protocolCodesRelative:
+            description: |-
+              **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
+              A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ProtocolCodesRelative'
+          networkCodesAbsolute:
+            description: |-
+              **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
+              A total number of requests completed with certain network codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/NetworkCodesAbsolute'
+          networkCodesRelative:
+            description: |-
+              **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
+              A percentage of requests completed with certain network codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/NetworkCodesRelative'
+        oneOf:
+          - required:
+              - responseTime
+          - required:
+              - instances
+          - required:
+              - imbalanceRps
+          - required:
+              - protocolCodesAbsolute
+          - required:
+              - protocolCodesRelative
+          - required:
+              - networkCodesAbsolute
+          - required:
+              - networkCodesRelative
       KpiThreshold:
         type: object
         properties:
@@ -148,7 +208,7 @@ apiPlayground:
             description: |-
               **enum** (Comparison)
               Comparison operator for comparing actual with the threshold value.
-              Rule: actual (</<=/>/>=) reference
+              Rule: actual (&lt;/<=/&gt;/>=) reference
               - `COMPARISON_UNSPECIFIED`: Unspecified.
               - `COMPARISON_LT`: Less than the specified value.
               - `COMPARISON_LTE`: Less than or equal to the specified value.
@@ -168,51 +228,7 @@ apiPlayground:
             description: |-
               **[KpiSelector](#yandex.cloud.loadtesting.api.v1.report.KpiSelector)**
               Kind of KPI.
-            oneOf:
-              - type: object
-                properties:
-                  responseTime:
-                    description: |-
-                      **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
-                      Response time cummulative quantile (percentile).
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/ResponseTime'
-                  instances:
-                    description: |-
-                      **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
-                      A number of instances throughout the test.
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/Instances'
-                  imbalanceRps:
-                    description: |-
-                      **object**
-                      An RPS at the moment the test has been auto-stopped.
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/ImbalanceRps'
-                  protocolCodesAbsolute:
-                    description: |-
-                      **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
-                      A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/ProtocolCodesAbsolute'
-                  protocolCodesRelative:
-                    description: |-
-                      **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
-                      A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/ProtocolCodesRelative'
-                  networkCodesAbsolute:
-                    description: |-
-                      **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
-                      A total number of requests completed with certain network codes.
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/NetworkCodesAbsolute'
-                  networkCodesRelative:
-                    description: |-
-                      **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
-                      A percentage of requests completed with certain network codes.
-                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
-                    $ref: '#/definitions/NetworkCodesRelative'
+            $ref: '#/definitions/KpiSelector'
           threshold:
             description: |-
               **[KpiThreshold](#yandex.cloud.loadtesting.api.v1.report.KpiThreshold)**
@@ -454,7 +470,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.

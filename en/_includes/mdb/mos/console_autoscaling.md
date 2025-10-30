@@ -1,16 +1,16 @@
-* In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, set the conditions to:
+* In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, specify the conditions for the actions below:
 
-    * Increase the storage size during the [next maintenance window](../../../managed-opensearch/concepts/maintenance.md#maintenance-window) if the storage is more than the specified percent (%) full.
-    * Increase the storage size right away if the storage is more than the specified percent (%) full.
-
-    You can set both conditions, but the threshold for immediate increase must be higher than that for increase during the maintenance window.
-
-* In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set when increasing the storage size automatically.
-
-    {% include [storage-resize-steps](storage-resize-steps.md) %}
-
+    * Storage size increase during the [next maintenance window](../../../managed-opensearch/concepts/maintenance.md#maintenance-window) once the fill level exceeds the specified percentage. If you set this condition, configure the maintenance window schedule.
+    * Storage size increase immediately once the fill level exceeds the specified percentage.
     
-    {% include [warn-storage-resize](warn-storage-resize.md) %}
+        {% note warning %}
+
+        If you set both conditions, make sure the immediate increase threshold is higher than the scheduled one.
+
+        {% endnote %}
+
+* Specify maximum storage size after the increase in the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field.
 
 
-If you have set up the storage size to increase within the maintenance window, set up a schedule for the maintenance window.
+{% include [warn-storage-resize](warn-storage-resize.md) %}
+

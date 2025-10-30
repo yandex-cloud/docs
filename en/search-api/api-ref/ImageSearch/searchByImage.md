@@ -64,6 +64,13 @@ apiPlayground:
         - data
         - id
       additionalProperties: false
+      oneOf:
+        - required:
+            - url
+        - required:
+            - data
+        - required:
+            - id
     definitions: null
 sourcePath: en/_api-ref/searchapi/v2/api-ref/ImageSearch/searchByImage.md
 ---

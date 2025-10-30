@@ -33,6 +33,11 @@ apiPlayground:
           pattern: '[a-z][a-z0-9-_]{,19}'
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - filesystemId
+        - required:
+            - deviceName
     definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachFilesystem.md
 ---

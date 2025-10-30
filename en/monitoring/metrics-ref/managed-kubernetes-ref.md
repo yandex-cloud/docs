@@ -2,6 +2,7 @@
 title: '{{ managed-k8s-full-name }} metrics'
 description: In this tutorial, you will learn about {{ managed-k8s-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/managed-kubernetes-ref.md
 ---
 
 # {{ managed-k8s-full-name }} metrics

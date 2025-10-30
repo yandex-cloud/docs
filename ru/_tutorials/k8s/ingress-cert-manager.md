@@ -123,7 +123,7 @@
      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
      ```
 
-  1. Убедитесь, что в [пространстве имен](../../managed-kubernetes/concepts/index.md#имен-namespace) `cert-manager` создано три [пода](../../managed-kubernetes/concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
+  1. Убедитесь, что в [пространстве имен](../../managed-kubernetes/concepts/index.md#namespace) `cert-manager` создано три [пода](../../managed-kubernetes/concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
 
      ```bash
      kubectl get pods -n cert-manager --watch

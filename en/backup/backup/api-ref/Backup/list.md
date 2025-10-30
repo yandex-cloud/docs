@@ -92,6 +92,21 @@ apiPlayground:
             Token for the results page. Not allowed to use if listing is performed by specific policy ID.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - computeInstanceId
+        - required:
+            - archive
+        - required:
+            - folderId
+        - required:
+            - instancePolicy
+        - required:
+            - resourceId
+        - required:
+            - policyId
+        - required:
+            - backup
     body: null
     definitions:
       ArchiveParameters:

@@ -1,6 +1,7 @@
 ---
 title: Deleting expired metrics (TTL)
 description: In this article, you will learn how to delete expired metrics (TTL).
+sourcePath: en/monitoring_includes/concepts/ttl.md
 ---
 
 # Deleting expired metrics (TTL)

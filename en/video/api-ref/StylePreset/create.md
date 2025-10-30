@@ -103,46 +103,14 @@ apiPlayground:
             List of widgets to display to the right of the player.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  summarization:
-                    description: |-
-                      **object**
-                      Widget that displays video content summarization.
-                      Includes only one of the fields `summarization`, `description`.
-                      Specifies the type of widget to display.
-                    $ref: '#/definitions/Summarization'
-                  description:
-                    description: |-
-                      **object**
-                      Widget that displays detailed video description.
-                      Includes only one of the fields `summarization`, `description`.
-                      Specifies the type of widget to display.
-                    $ref: '#/definitions/Description'
+            $ref: '#/definitions/Widget'
         bottomWidgets:
           description: |-
             **[Widget](#yandex.cloud.video.v1.Widget)**
             List of widgets to display below the player.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  summarization:
-                    description: |-
-                      **object**
-                      Widget that displays video content summarization.
-                      Includes only one of the fields `summarization`, `description`.
-                      Specifies the type of widget to display.
-                    $ref: '#/definitions/Summarization'
-                  description:
-                    description: |-
-                      **object**
-                      Widget that displays detailed video description.
-                      Includes only one of the fields `summarization`, `description`.
-                      Specifies the type of widget to display.
-                    $ref: '#/definitions/Description'
+            $ref: '#/definitions/Widget'
       required:
         - channelId
         - title
@@ -162,6 +130,28 @@ apiPlayground:
       Description:
         type: object
         properties: {}
+      Widget:
+        type: object
+        properties:
+          summarization:
+            description: |-
+              **object**
+              Widget that displays video content summarization.
+              Includes only one of the fields `summarization`, `description`.
+              Specifies the type of widget to display.
+            $ref: '#/definitions/Summarization'
+          description:
+            description: |-
+              **object**
+              Widget that displays detailed video description.
+              Includes only one of the fields `summarization`, `description`.
+              Specifies the type of widget to display.
+            $ref: '#/definitions/Description'
+        oneOf:
+          - required:
+              - summarization
+          - required:
+              - description
 sourcePath: en/_api-ref/video/v1/api-ref/StylePreset/create.md
 ---
 

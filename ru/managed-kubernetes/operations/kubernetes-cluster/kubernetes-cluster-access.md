@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
-      * `--role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.editor`.
+      * `--role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
       * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
         Например: 
@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `cluster_id` — идентификатор кластера.
-      * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.editor`.
+      * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
       * `member` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
     
         Например: 
@@ -178,7 +178,7 @@ description: Следуя данной инструкции, вы настрои
     
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
       
-        * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.editor`.
+        * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
         * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
           Например:
@@ -220,7 +220,7 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `cluster_id` — идентификатор кластера.
-      * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.editor`.
+      * `role` — назначаемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
       * `member` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
     
         Например:
@@ -280,7 +280,7 @@ description: Следуя данной инструкции, вы настрои
 
       Где:
 
-      * `--role` — отзываемая [роль](../../security/index.md#roles-list), например `k8s.editor`.
+      * `--role` — отзываемая [роль](../../security/index.md#roles-list), например `k8s.cluster-api.editor`.
       * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначена роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
         Например:

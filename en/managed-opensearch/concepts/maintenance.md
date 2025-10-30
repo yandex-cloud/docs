@@ -8,7 +8,7 @@ description: In {{ mos-name }}, maintenance means automatic installation of DBMS
 Maintenance means:
 
 * Automatic installation of {{ OS }} updates and revisions for host groups (including disabled clusters).
-* Scheduled automatic increase of storage size.
+* Scheduled [automatic increase of storage size](storage.md#auto-rescale).
 * Other maintenance activities.
 
 Changing a major DBMS version is not part of maintenance. For more information about migrating between major versions, see [{#T}](../operations/cluster-version-update.md).

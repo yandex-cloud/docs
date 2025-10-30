@@ -68,33 +68,7 @@ apiPlayground:
           description: |-
             **[BootDiskSpec](#yandex.cloud.compute.v1.BootDiskSpec)**
             Spec is used to determine which License IDs should be allowed for instances created in the pool.
-          oneOf:
-            - type: object
-              properties:
-                diskId:
-                  description: |-
-                    **string**
-                    Disk ID.
-                    Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
-                  type: string
-                imageId:
-                  description: |-
-                    **string**
-                    Image ID.
-                    Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
-                  type: string
-                snapshotId:
-                  description: |-
-                    **string**
-                    Snapshot ID.
-                    Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
-                  type: string
-                productIds:
-                  description: |-
-                    **[ProductIDs](#yandex.cloud.compute.v1.ProductIDs)**
-                    Product IDs.
-                    Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
-                  $ref: '#/definitions/ProductIDs'
+          $ref: '#/definitions/BootDiskSpec'
         networkSettings:
           description: |-
             **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)**
@@ -172,6 +146,42 @@ apiPlayground:
             type: array
             items:
               type: string
+      BootDiskSpec:
+        type: object
+        properties:
+          diskId:
+            description: |-
+              **string**
+              Disk ID.
+              Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
+            type: string
+          imageId:
+            description: |-
+              **string**
+              Image ID.
+              Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
+            type: string
+          snapshotId:
+            description: |-
+              **string**
+              Snapshot ID.
+              Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
+            type: string
+          productIds:
+            description: |-
+              **[ProductIDs](#yandex.cloud.compute.v1.ProductIDs)**
+              Product IDs.
+              Includes only one of the fields `diskId`, `imageId`, `snapshotId`, `productIds`.
+            $ref: '#/definitions/ProductIDs'
+        oneOf:
+          - required:
+              - diskId
+          - required:
+              - imageId
+          - required:
+              - snapshotId
+          - required:
+              - productIds
       NetworkSettings:
         type: object
         properties:

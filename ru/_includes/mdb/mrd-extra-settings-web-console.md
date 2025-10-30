@@ -7,3 +7,7 @@
 - {% include [Deletion protection](console/deletion-protection.md) %}
 
     {% include [Ограничения защиты от удаления кластера](deletion-protection-limits-data.md) %}
+
+
+- **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](../../managed-redis/operations/web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+

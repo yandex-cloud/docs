@@ -82,37 +82,35 @@ resource "yandex_vpc_subnet" "foo" {
 - `permission` (Block Set) Set of permissions granted to the user. (see [below for nested schema](#nestedblock--permission))
 - `settings` (Map of String) Map of user settings. [Full description](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings).
 
-* `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:  - 0: `unspecified`
-  - 1: `read uncommitted`
-  - 2: `read committed`
-  - 3: `repeatable read`
-  - 4: `serializable`
+* `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:
+  - `read uncommitted`
+  - `read committed`
+  - `repeatable read`
+  - `serializable`
 
 * `lock_timeout` - The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object (default 0)
 
 * `log_min_duration_statement` - This setting controls logging of the duration of statements. (default -1 disables logging of the duration of statements.)
 
 * `synchronous_commit` - This setting defines whether DBMS will commit transaction in a synchronous way. One of:
-  - 0: `unspecified`
-  - 1: `on`
-  - 2: `off`
-  - 3: `local`
-  - 4: `remote write`
-  - 5: `remote apply`
+  - `on`
+  - `off`
+  - `local`
+  - `remote write`
+  - `remote apply`
 
 * `temp_file_limit` - The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
 
 * `log_statement` - This setting specifies which SQL statements should be logged (on the user level). One of:
-  - 0: `unspecified`
-  - 1: `none`
-  - 2: `ddl`
-  - 3: `mod`
-  - 4: `all`
+  - `none`
+  - `ddl`
+  - `mod`
+  - `all`
 
 * `pool_mode` - Mode that the connection pooler is working in with specified user. One of:
-  - 1: `session`
-  - 2: `transaction`
-  - 3: `statement`
+  - `session`
+  - `transaction`
+  - `statement`
 
 * `prepared_statements_pooling` - This setting allows user to use prepared statements with transaction pooling. Boolean.
 
@@ -122,7 +120,9 @@ resource "yandex_vpc_subnet" "foo" {
 
 * `idle_in_transaction_session_timeout` - Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. Value of 0 (default) disables the timeout. Integer.
 
-* `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer
+* `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer.
+
+* `pgaudit` - Settings of the PostgreSQL Audit Extension (pgaudit). [Full description](https://yandex.cloud/ru/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.PGAuditSettings). String (json with with escaped quotes). Example `"{\"log\": [\"READ\", \"WRITE\"]}"`
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only

@@ -5,7 +5,7 @@ description: This page covers FAQ about {{ managed-k8s-name }}.
 
 # FAQ about {{ managed-k8s-name }}
 
-### General questions about {#toc-general}
+### General questions {#toc-general}
 
 {% include [general-minitoc](../../_qa/managed-kubernetes/minitoc/general.md) %}
 
@@ -13,7 +13,7 @@ description: This page covers FAQ about {{ managed-k8s-name }}.
 
 {% include [volumes-minitoc](../../_qa/managed-kubernetes/minitoc/volumes.md) %}
 
-### Automatic scaling {#toc-autosscaling}
+### Autoscaling {#toc-autosscaling}
 
 {% include [autoscaling-minitoc](../../_qa/managed-kubernetes/minitoc/cluster-autoscaler.md) %}
 
@@ -29,11 +29,11 @@ description: This page covers FAQ about {{ managed-k8s-name }}.
 
 {% include [logs-minitoc](../../_qa/managed-kubernetes/minitoc/logs.md) %}
 
-### Troubleshooting in {#toc-troubleshooting}
+### Troubleshooting {#toc-troubleshooting}
 
 {% include [troubleshooting-minitoc](../../_qa/managed-kubernetes/minitoc/troubleshooting.md) %}
 
-## General questions about {#general}
+## General questions {#general}
 
 {% include [general](../../_qa/managed-kubernetes/general.md) %}
 
@@ -41,7 +41,7 @@ description: This page covers FAQ about {{ managed-k8s-name }}.
 
 {% include [volumes](../../_qa/managed-kubernetes/volumes.md) %}
 
-## Automatic scaling {#autosscaling}
+## Autoscaling {#autosscaling}
 
 {% include [autoscaling](../../_qa/managed-kubernetes/cluster-autoscaler.md) %}
 

@@ -263,7 +263,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 1. Обновите сетевые параметры в группе узлов кластера и на ВМ одним из следующих способов:
 
-   * Подключитесь к каждому узлу группы и к ВМ [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
+   * Подключитесь к каждому узлу группы и к ВМ [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
    * Перезагрузите узлы группы и ВМ в удобное для вас время.
 
    {% note warning %}

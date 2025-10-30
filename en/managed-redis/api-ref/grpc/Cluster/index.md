@@ -37,4 +37,7 @@ A set of methods for managing Redis clusters.
 || [DeleteShard](deleteShard.md) | Deletes the specified shard. ||
 || [Rebalance](rebalance.md) | Rebalances the cluster. Evenly distributes all the hash slots between the shards. ||
 || [EnableSharding](enableSharding.md) | Enable Sharding on non sharded cluster ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified Redis cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified Redis cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Redis cluster. ||
 |#

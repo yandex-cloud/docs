@@ -1,6 +1,7 @@
 ---
 title: How to copy a dashboard in {{ monitoring-full-name }}
 description: Follow this guide to copy a dashboard.
+sourcePath: en/monitoring_includes/operations/dashboard/copy.md
 ---
 
 # Copying a dashboard

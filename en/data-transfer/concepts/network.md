@@ -75,7 +75,7 @@ You can provide access to a source on an external network using one of the follo
 * Use [{{ interconnect-full-name }}](../../interconnect/index.yaml).
 * Use a VPN.
 
-If you need to transfer data between your cloud in {{ yandex-cloud }} and another cloud, including a different cloud in {{ yandex-cloud }}, or between your cloud in {{ yandex-cloud }} and a cluster in a user installation on your site, allow internet connections to a database in the third-party cloud or your site from [{{ data-transfer-name }} IP addresses]({{ dt-white-ip-list-uri }}).
+If you need to transfer data between your cloud in {{ yandex-cloud }} and another cloud, including a different cloud in {{ yandex-cloud }}, or between your cloud in {{ yandex-cloud }} and a cluster in a user installation on your site, allow internet connections to a database in the third-party cloud or your site from [{{ data-transfer-name }} IP addresses](../../overview/concepts/public-ips.md#virtual-private-cloud).
 
 If you are using [{{ interconnect-name }}](../../interconnect/concepts/index.md) or a VPN for connections, you do not need to configure the third-party cloud. To set up network connectivity, in the endpoint settings, specify a subnet from which you can connect to an external resource.
 

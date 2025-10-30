@@ -1,5 +1,6 @@
 ---
 editable: false
+sourcePath: en/monitoring_includes/api-ref/MetricsMeta/index.md
 ---
 
 # MetricsMeta

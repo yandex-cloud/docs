@@ -94,6 +94,125 @@ apiPlayground:
         required:
           - memory
           - cores
+      DiskPlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          placementGroupPartition:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      DiskSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the disk.
+            pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the disk.
+            type: string
+          typeId:
+            description: |-
+              **string**
+              ID of the disk type.
+              To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+            type: string
+          size:
+            description: |-
+              **string** (int64)
+              Required field. Size of the disk, specified in bytes.
+            type: string
+            format: int64
+          imageId:
+            description: |-
+              **string**
+              ID of the image to create the disk from.
+              Includes only one of the fields `imageId`, `snapshotId`.
+            type: string
+          snapshotId:
+            description: |-
+              **string**
+              ID of the snapshot to restore the disk from.
+              Includes only one of the fields `imageId`, `snapshotId`.
+            type: string
+          diskPlacementPolicy:
+            description: |-
+              **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+              Placement policy configuration.
+            $ref: '#/definitions/DiskPlacementPolicy'
+          blockSize:
+            description: |-
+              **string** (int64)
+              Block size of the disk, specified in bytes. The default is 4096.
+            type: string
+            format: int64
+          kmsKeyId:
+            description: |-
+              **string**
+              ID of KMS key for disk encryption
+            type: string
+        required:
+          - size
+        oneOf:
+          - required:
+              - imageId
+          - required:
+              - snapshotId
+      AttachedDiskSpec:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              The mode in which to attach this disk.
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`: Read-only access.
+              - `READ_WRITE`: Read/Write access. Default value.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          deviceName:
+            description: |-
+              **string**
+              Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+              This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+              If not specified, a random value will be generated.
+            pattern: '[a-z][a-z0-9-_]{,19}'
+            type: string
+          autoDelete:
+            description: |-
+              **boolean**
+              Specifies whether the disk will be auto-deleted when the instance is deleted.
+            type: boolean
+          diskSpec:
+            description: |-
+              **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+              Disk specification.
+              Includes only one of the fields `diskSpec`, `diskId`.
+            $ref: '#/definitions/DiskSpec'
+          diskId:
+            description: |-
+              **string**
+              ID of the disk that should be attached.
+              Includes only one of the fields `diskSpec`, `diskId`.
+            type: string
+        oneOf:
+          - required:
+              - diskSpec
+          - required:
+              - diskId
       DnsRecordSpec:
         type: object
         properties:
@@ -247,35 +366,7 @@ apiPlayground:
             description: |-
               **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
               Required field. Boot disk to attach to the instance.
-            oneOf:
-              - type: object
-                properties:
-                  diskSpec:
-                    description: |-
-                      **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
-                      Disk specification.
-                      Includes only one of the fields `diskSpec`, `diskId`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          imageId:
-                            description: |-
-                              **string**
-                              ID of the image to create the disk from.
-                              Includes only one of the fields `imageId`, `snapshotId`.
-                            type: string
-                          snapshotId:
-                            description: |-
-                              **string**
-                              ID of the snapshot to restore the disk from.
-                              Includes only one of the fields `imageId`, `snapshotId`.
-                            type: string
-                  diskId:
-                    description: |-
-                      **string**
-                      ID of the disk that should be attached.
-                      Includes only one of the fields `diskSpec`, `diskId`.
-                    type: string
+            $ref: '#/definitions/AttachedDiskSpec'
           networkInterfaceSpecs:
             description: |-
               **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**

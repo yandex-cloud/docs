@@ -111,7 +111,7 @@ We recommend changing the host class only when your cluster has no active worklo
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -119,7 +119,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -151,7 +151,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
           Here, we provide only one setting.
 
@@ -198,7 +198,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       Where:
 
-      * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
 
           Here, we provide only one setting.
 
@@ -206,11 +206,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
       You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing the disk type and increasing the storage size {#change-disk-size}
+## Change the disk type and increase the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -272,7 +272,7 @@ We recommend changing the host class only when your cluster has no active worklo
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -280,7 +280,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -313,7 +313,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
       * `configSpec.resources`: Storage parameters:
 
@@ -363,7 +363,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       Where:
 
-      * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
 
       * `config_spec.resources`: Storage parameters:
 
@@ -433,7 +433,7 @@ We recommend changing the host class only when your cluster has no active worklo
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -441,7 +441,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -476,7 +476,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
           Here, we provide only one setting.
 
@@ -528,7 +528,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
       Where:
 
-      * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
 
           Here, we provide only one setting.
 
@@ -703,13 +703,13 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -758,7 +758,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
       * `configSpec`: Cluster settings:
 
           * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
@@ -812,7 +812,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -872,7 +872,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where:
 
-      * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
       * `config_spec`: Cluster settings:
 
           * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
@@ -1098,7 +1098,7 @@ To switch the master:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1106,7 +1106,7 @@ To switch the master:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -1214,7 +1214,7 @@ To switch the master:
       }
       ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1222,7 +1222,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-mmy }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -1255,7 +1255,7 @@ To switch the master:
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
           Here, we provide only one setting.
 
@@ -1303,7 +1303,7 @@ To switch the master:
 
       Where:
 
-      * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
 
           Here, we provide only one setting.
 

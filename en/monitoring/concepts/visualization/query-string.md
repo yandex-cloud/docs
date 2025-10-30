@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/concepts/visualization/query-string.md
+---
 # Query string
 
 Query string is located in **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**, **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**, and **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. It allows you to specify parameters for charts.
@@ -45,7 +48,7 @@ In text mode, queries to monitoring are written as functions. Function arguments
 The following features are available when working with a query string:
 
 * Displaying metrics from different services or for different resources on the chart.
-
+  
     To do this, add multiple query strings and specify queries to get data for each resource.
 
 * Using a value from one query in another one.
@@ -53,7 +56,7 @@ The following features are available when working with a query string:
     Let's assume you have described two queries, `A` and `B`, and you need to display `B` as a share of `A` on the chart. Then, enter this formula in the `C` query: `100 * B / A`. Similarly, you can describe queries and build charts based not only on pure metric values, but also on their sum, ratio, and other derivative values.
 
 * Hiding auxiliary queries from the chart.
-
+  
     If you need some of your queries solely for other queries, click ![eye](../../../_assets/console-icons/eye.svg) to hide the auxiliary lines from the chart.
 
 * Viewing recent queries.

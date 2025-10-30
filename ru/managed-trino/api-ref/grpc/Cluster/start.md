@@ -386,6 +386,11 @@ Required field. ID of the Trino cluster that is being started. ||
             "description": "string"
           }
         ]
+      },
+      "tls": {
+        "trusted_certificates": [
+          "string"
+        ]
       }
     },
     "health": "Health",
@@ -604,6 +609,9 @@ Configuration for retry policy, specifying the spooling storage destination and 
 || access_control | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
 
 Configuration for access control, specifying the fine-grained rules of accesses. ||
+|| tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
+
+Configuration for TLS. ||
 |#
 
 ## CoordinatorConfig {#yandex.cloud.trino.v1.CoordinatorConfig}
@@ -1159,6 +1167,16 @@ Required field. Whether the rule allows setting the property.
 || description | **string**
 
 Rule description. ||
+|#
+
+## TLSConfig {#yandex.cloud.trino.v1.TLSConfig}
+
+#|
+||Field | Description ||
+|| trusted_certificates[] | **string**
+
+Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
+chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}

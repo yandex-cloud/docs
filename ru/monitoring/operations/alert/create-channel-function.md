@@ -48,7 +48,7 @@ sourcePath: ru/monitoring_includes/operations/alert/create-channel-function.md
 * `alertId` — идентификатор сработавшего алерта, текст;
 * `alertName` — имя сработавшего алерта, текст;
 * `folderId` — идентификатор каталога, в котором сработал алерт, текст;
-* `status` — [статус алерта](../../concepts/alerting/alert.md#статусы-алертов-alert-statuses), текст;
+* `status` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses), текст;
 * `annotations` — значения аннотаций сработавшего алерта, словарь значений `key:value`.
 
 Пример вызова функции см. в разделе [{#T}](alert-call-function.md).

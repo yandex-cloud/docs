@@ -69,23 +69,7 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.spqr.v1.MaintenanceWindow)**
             New maintenance window settings for the cluster.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Maintenance operation can be scheduled anytime.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.spqr.v1.WeeklyMaintenanceWindow)**
-                    Maintenance operation can be scheduled on a weekly basis.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         securityGroupIds:
           description: |-
             **string**
@@ -410,6 +394,28 @@ apiPlayground:
               Hour of the day in UTC (in `HH` format).
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operation can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.spqr.v1.WeeklyMaintenanceWindow)**
+              Maintenance operation can be scheduled on a weekly basis.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/update.md
 ---
 

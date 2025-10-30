@@ -321,6 +321,12 @@ items:
                 href: api-ref/grpc/Cluster/restartHosts.md
               - name: StepdownHosts
                 href: api-ref/grpc/Cluster/stepdownHosts.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -439,6 +445,12 @@ items:
                 href: api-ref/Cluster/restartHosts.md
               - name: StepdownHosts
                 href: api-ref/Cluster/stepdownHosts.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview

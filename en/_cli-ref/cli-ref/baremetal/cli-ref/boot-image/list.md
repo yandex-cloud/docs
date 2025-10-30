@@ -4,7 +4,7 @@ editable: false
 
 # yc baremetal boot-image list
 
-List images
+List boot-images
 
 #### Command Usage
 

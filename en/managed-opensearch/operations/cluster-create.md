@@ -43,16 +43,16 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       1. Enter a name for the cluster. It must be unique within the folder.
       1. Optionally, enter a description for the cluster.
-      1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
+      1. Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
 
-          * `PRODUCTION`: For stable versions of your apps.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+          * `PRODUCTION`: For stable versions of your applications.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first of the two to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
 
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
   
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#security-groups) to be able to connect to the cluster.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may need to [configure the security groups](connect.md#security-groups) to connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}`](../concepts/host-roles.md) host group:
@@ -72,7 +72,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
       
-      1. Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+      1. Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
 
           * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
@@ -81,7 +81,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
-      1. (Optional) Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, configure the automatic increase of disk size:
+      1. Optionally, set up automatic increase of disk size:
 
           {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
 
@@ -136,13 +136,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
   To create a {{ mos-name }} cluster:
 
-  1. View the description of the CLI command to create a cluster:
+  1. See the description of the CLI command for creating a cluster:
 
       ```bash
       {{ yc-mdb-os }} cluster create --help
       ```
 
-  1. Specify cluster parameters in that command (our example does not use all available parameters):
+  1. Specify the cluster settings in the creation command (our example does not include all available settings):
 
       ```bash
       {{ yc-mdb-os }} cluster create \
@@ -189,7 +189,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `--environment`: Environment:
 
           * `production`: For stable versions of your apps.
-          * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+          * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first of the two to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
 
       * `--service-account-name`: Name of the service account for [access to {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. For more information on service accounts, see the [{{ iam-full-name }} documentation](../../iam/concepts/users/service-accounts.md).
 
@@ -205,9 +205,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           Both enabled and disabled clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
 
       
-      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
-
-          {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+      * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -223,9 +221,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) to install in the cluster.
       * `--advanced-params`: Additional cluster parameters. The possible values are:
 
-          * `max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see [this {{ OS }} article]({{ os.docs }}/query-dsl/compound/bool/).
+          * `max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see [this {{ OS }} guide]({{ os.docs }}/query-dsl/compound/bool/).
           * `fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-          * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value as `<host_address>:<port>`. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} article]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+          * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value as `<host_address>:<port>`. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
@@ -249,11 +247,12 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
-        name                = "<cluster_name>"
-        environment         = "<environment>"
-        network_id          = "<network_ID>"
-        security_group_ids  = ["<list_of_security_group_IDs>"]
-        deletion_protection = "<protect_cluster_from_deletion>"
+        name                   = "<cluster_name>"
+        environment            = "<environment>"
+        network_id             = "<network_ID>"
+        security_group_ids     = ["<list_of_security_group_IDs>"]
+        disk_encryption_key_id = <KMS_key_ID>
+        deletion_protection    = "<protect_cluster_from_deletion>"
 
         config {
 
@@ -316,6 +315,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
       Where:
 
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
+
+      
+      * `disk_encryption_key_id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+
+          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
       * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
         Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
@@ -327,7 +333,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
         {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
       * `assign_public_ip`: Public access to the host, `true` or `false`.
-      * `roles`: Host roles, `DATA` and `MANAGER`.
+      * `roles`: `DATA` and `MANAGER` host roles.
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including those for disabled clusters):
           * `type`: Maintenance type. The possible values include:
               * `ANYTIME`: Any time.
@@ -335,7 +341,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
           * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
 
-      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+      For a complete list of configurable {{ mos-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mos }}).
 
   1. Validate your configuration.
 
@@ -448,7 +454,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       Where:
 
-      * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folderId`: Folder ID. You can get it from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -489,38 +495,48 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `subnetIds`: List of subnet IDs.
 
                   
-                  * `assignPublicIp`: Permission for [connection](connect.md) to the host from the internet, `true` or `false`.
+                  * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
                   * `diskSizeAutoscaling`: Automatic storage size increase settings:
 
                       * `plannedUsageThreshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
 
-                          Use a percentage value between `0` and `100`. The default value is `0` (autoscaling disabled).
+                          Use a value between `0` and `100`%. The default setting is `0` (automatic increase disabled).
 
-                          If you have set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
+                          If you set this condition, configure the maintenance window schedule in the `maintenanceWindow` parameter.
 
                       * `emergencyUsageThreshold`: Storage utilization percentage to trigger an immediate storage increase.
 
-                          Use a percentage value between `0` and `100`. The default value is `0` (autoscaling disabled). This parameter value must be greater than or equal to `plannedUsageThreshold`.
+                          Use a value between `0` and `100`%. The default setting is `0` (automatic increase disabled).
+
+                        {% note warning %}
+
+                        If you specify both thresholds, `emergencyUsageThreshold` must not be less than `plannedUsageThreshold`.
+
+                        {% endnote %}
 
                       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
-          * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`. The exception is the `roles` parameter: the `Dashboards` hosts have one role only, `DASHBOARDS`, so there is no need to specify it.
+                      
+                      {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
+
+
+          * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
 
           
-          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
 
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
-              The possible values for these settings are: `true` or `false`.
+              The possible setting values are `true` or `false`.
 
 
       * `maintenance_window.weeklyMaintenanceWindow`: Maintenance window schedule:
 
-          * `day`: Day of week, in `DDD` format, for scheduled maintenance.
-          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values are: from `1` to `24`. Use the UTC time zone.
+          * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
+          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
 
   1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -678,40 +694,50 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `subnet_ids`: List of subnet IDs.
 
                   
-                  * `assign_public_ip`: Permission for [connection](connect.md) to the host from the internet, `true` or `false`.
+                  * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
                   * `disk_size_autoscaling`: Automatic storage size increase settings:
 
                       * `planned_usage_threshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
 
-                          Use a percentage value between `0` and `100`. The default value is `0` (autoscaling disabled).
+                          Use a value between `0` and `100`%. The default setting is `0` (automatic increase disabled).
 
-                          If you have set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
+                          If you set this condition, configure the maintenance window schedule in the `maintenance_window` parameter.
 
                       * `emergency_usage_threshold`: Storage utilization percentage to trigger an immediate storage increase.
 
-                          Use a percentage value between `0` and `100`. The default value is `0` (autoscaling disabled). This parameter value must be greater than or equal to `planned_usage_threshold`.
+                          Use a value between `0` and `100`%. The default setting is `0` (automatic increase disabled).
+
+                          {% note warning %}
+
+                          If you specify both thresholds, `emergency_usage_threshold` must not be less than `planned_usage_threshold`.
+
+                          {% endnote %}
 
                       * `disk_size_limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
-          * `dashboards_spec`: Settings for `Dashboards` host groups. Contains the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`. The exception is the `roles` parameter: the `Dashboards` hosts have one role only, `DASHBOARDS`, so there is no need to specify it.
+                      
+                      {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
+
+
+          * `dashboards_spec`: Settings for `Dashboards` host groups. Contains the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
 
           
-          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
 
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
-              The possible values for these settings are: `true` or `false`.
+              The possible setting values are `true` or `false`.
 
 
       * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
 
-          * `day`: Day of week, in `DDD` format, for scheduled maintenance.
-          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values are: from `1` to `24`. Use the UTC time zone.
+          * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
+          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
 
-  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -726,13 +752,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
           < body.json
       ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, import the {{ OS }} source cluster configuration to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ OS }} source cluster has a lot of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one you previously created. To do this, import the {{ OS }} source cluster configuration to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Import is convenient when the source {{ OS }} cluster has many settings and you need to create a similar cluster.
 
 To create an {{ OS }} cluster copy:
 
@@ -745,49 +771,49 @@ To create an {{ OS }} cluster copy:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In the same working directory, place a `.tf` file with the following contents:
+    1. In your current working directory, create a `.tf` file with the following content:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ OS }} cluster to the environment variable:
+    1. Save the ID of the original {{ OS }} cluster to an environment variable:
 
         ```bash
         export OPENSEARCH_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
+        You can get the ID from the [folder’s cluster list](../../managed-opensearch/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ OS }} cluster into the {{ TF }} configuration:
+    1. Import the original {{ OS }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_opensearch_cluster.old ${OPENSEARCH_CLUSTER_ID}
         ```
 
-    1. Get the imported configuration:
+    1. Display the imported configuration:
 
         ```bash
         terraform show
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Create a new directory named `imported-cluster` and move your file there.
+    1. Modify the configuration so it can be used to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
-        * Delete the `created_at`, `health`, `id`, and `status` parameters.
+        * Delete `created_at`, `health`, `id`, and `status`.
         * Add the `admin_password` parameter to the `config` section.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * Optionally, make further changes if you need to customize the configuration.
+        * Optionally, you can customize the configuration further if needed.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating the provider configuration file manually, you can download it [here](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and edit it to [include your required values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
 
-    1. Check that the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration files:
 
         ```bash
         terraform validate
@@ -927,7 +953,7 @@ To create an {{ OS }} cluster copy:
     * Address range: `10.1.0.0/16`.
     * Security group name: `os-sg`. The security group enables connecting to the cluster host from any network (including the internet) on port `9200`.
 
-    The configuration file for this cluster is as follows:
+    The configuration file for this cluster looks like this:
 
     ```hcl
     resource "yandex_mdb_opensearch_cluster" "my-os-clstr" {

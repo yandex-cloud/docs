@@ -20,6 +20,8 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
         1. Select another [service account](../../../iam/concepts/users/service-accounts.md) or create a new one with the `{{ roles.metastore.integrationProvider }}` role.
         1. Switch your {{ metastore-name }} version.
 
+            {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select another [security group](configure-security-group.md) or create a new one.
   1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, update the [cluster configuration](../../concepts/metastore.md#presets).
   1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable or disable logging. If logging is enabled, do the following:
@@ -75,7 +77,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -145,7 +147,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 

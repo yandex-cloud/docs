@@ -40,7 +40,7 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -53,13 +53,13 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/hosts'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -81,9 +81,9 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
             yandex.cloud.mdb.mongodb.v1.ClusterService.ListHosts
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) to make sure your request was successful.    
+    1. Check the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) to make sure your request was successful.    
 
 {% endlist %}
 
@@ -109,12 +109,12 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
   1. Click the name of the {{ mmg-name }} cluster you need and go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
-  1. Specify the host parameters:
+  1. Specify these host parameters:
      * [Availability zone](../../overview/concepts/geo-scope.md).
      * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).
 
      
-     * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}.
+     * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
 
 
      * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
@@ -146,7 +146,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
-     If the required subnet is not in the list, create it.
+     If the required subnet is not on the list, create it.
   1. View a description of the CLI command for adding a host:
 
      ```bash
@@ -182,7 +182,7 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
 - {{ TF }} {#tf}
 
   To add a host to your {{ mmg-name }} cluster:
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      For more information about creating this file, see [this guide](cluster-create.md).
   1. Add the following to the {{ mmg-name }} cluster description:
@@ -249,15 +249,15 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
            * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
            * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -306,13 +306,13 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
       * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -358,9 +358,9 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
       * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -372,7 +372,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 {% endnote %}
 
 
-## Changing a host {#update}
+## Updating a host {#update}
 
 {% list tabs group=instructions %}
 
@@ -406,13 +406,13 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
 - {{ TF }} {#tf}
 
-    To change the parameters of the cluster host:
+    To change the parameters of a cluster host:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+        For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
 
     1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host you are updating.
 
@@ -438,11 +438,11 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
         * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -450,7 +450,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -480,20 +480,20 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
         Where `updateHostSpecs` sets the host parameters:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
         * `hostName`: Name of the host you are editing. You can request it with the [list of hosts in the cluster](#list-hosts).
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
         * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
         * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -536,20 +536,20 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
         Where `update_host_specs` sets the host parameters:
 
-        * `update_mask`: List of parameters to update as a single string, separated by commas.
+        * `update_mask`: Comma-separated list of settings you want to update.
         * `host_name`: Name of the host you are editing. You can request it with the [list of hosts in the cluster](#list-hosts).
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
         * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
         * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Removing a host {#remove-host}
+## Deleting a host {#remove-host}
 
 You can remove a `MONGOD` host from a {{ mmg-name }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
@@ -585,11 +585,11 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 - {{ TF }} {#tf}
 
   To remove a host from a {{ mmg-name }} cluster:
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      For more information about creating this file, see [this guide](cluster-create.md).
   1. Delete the relevant `host` section from the {{ mmg-name }} cluster description.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -597,13 +597,13 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -624,13 +624,13 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
       Where `hostNames` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](#list-hosts).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -656,18 +656,18 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
 
       Where `host_names` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](#list-hosts).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Starting host resync {#resetup}
 
-To [resync a host](https://docs.mongodb.com/manual/tutorial/resync-replica-set-member/) with other replicas in the {{ mmg-name }} cluster or shard, run forced resync. The operation can be applied to only one `MONGOD` host at a time and only for {{ mmg-name }} clusters with more than two replicas, regardless of the host class and type. Resync also lets you remove the collections and documents that were marked as deleted from the host's storage.
+To resync a host with other replicas in the {{ mmg-name }} cluster or shard, run forced resync. The operation can be applied to only one `MONGOD` host at a time and only for {{ mmg-name }} clusters with more than two replicas, regardless of the host class and type. Resync also lets you remove the collections and documents that were marked as deleted from the host's storage.
 
 During this operation:
-1. The host stops accepting write requests. If the host was a `PRIMARY` replica, {{ mmg-name }} will try to [make it a `SECONDARY` replica](https://docs.mongodb.com/manual/reference/method/rs.stepDown/#rs.stepDown). If the operation fails, it is aborted.
+1. The host stops accepting write requests. If the host was a `PRIMARY` replica, {{ mmg-name }} will try to make it a `SECONDARY` one. If the operation fails, it is aborted.
 1. The {{ SD }} instance on the host stops, and all data is deleted.
 1. The {{ SD }} instance restarts and downloads data from replica hosts again.
 1. Once the host has synced with other replicas in the {{ mmg-name }} cluster, it becomes a secondary replica.
@@ -705,7 +705,7 @@ During this operation:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -726,13 +726,13 @@ During this operation:
 
       Where `hostNames` is an array with the names of hosts to re-sync. To find out the host name, [get a list of hosts in the cluster](#list-hosts).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/resetupHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/resetupHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -758,9 +758,9 @@ During this operation:
 
       Where `host_names` is an array with the names of hosts to re-sync. To find out the host name, [get a list of hosts in the cluster](#list-hosts).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/resetupHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/resetupHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -805,7 +805,7 @@ You can only restart one host at a time.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -826,13 +826,13 @@ You can only restart one host at a time.
 
       Where `hostNames` is an array with the names of hosts to restart. To find out the host name, [get a list of hosts in the cluster](#list-hosts).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -858,8 +858,8 @@ You can only restart one host at a time.
 
       Where `host_names` is an array with the names of hosts to restart. To find out the host name, [get a list of hosts in the cluster](#list-hosts).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

@@ -54,7 +54,7 @@ Required field.  ||
   "labels": "object",
   "createdBy": "string",
   "params": {
-    // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`
+    // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
     "postgresql": {
       "cluster": {
         "hosts": [
@@ -559,6 +559,58 @@ Required field.  ||
       "databases": [
         "string"
       ]
+    },
+    "storedoc": {
+      "cluster": {
+        "hosts": [
+          {
+            "host": "string",
+            "port": "string",
+            "role": "string",
+            "health": "string",
+            "type": "string"
+          }
+        ],
+        "tlsParams": {
+          // Includes only one of the fields `tls`
+          "tls": {
+            "caCertificate": "string"
+          }
+          // end of the list of possible fields
+        }
+      },
+      "managedClusterId": "string",
+      "auth": {
+        // Includes only one of the fields `userPassword`
+        "userPassword": {
+          "user": "string",
+          "password": {
+            "raw": "string",
+            "passwordGenerationOptions": {
+              "cookie": "string",
+              // Includes only one of the fields `lockboxPasswordGenerationOptions`
+              "lockboxPasswordGenerationOptions": {
+                "length": "string",
+                "includeUppercase": "boolean",
+                "includeLowercase": "boolean",
+                "includeDigits": "boolean",
+                "includePunctuation": "boolean",
+                "includedPunctuation": "string",
+                "excludedPunctuation": "string"
+              }
+              // end of the list of possible fields
+            },
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string"
+            // end of the list of possible fields
+          }
+        },
+        // end of the list of possible fields
+        "authSource": "string"
+      },
+      "databases": [
+        "string"
+      ]
     }
     // end of the list of possible fields
   },
@@ -612,34 +664,37 @@ Includes only one of the fields `lockboxSecret`. ||
 ||Field | Description ||
 || postgresql | **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || mysql | **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || mongodb | **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || clickhouse | **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || kafka | **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || redis | **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || opensearch | **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || trino | **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || valkey | **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || greenplum | **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+|| storedoc | **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection)**
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 |#
 
 ## PostgreSQLConnection {#yandex.cloud.connectionmanager.v1.PostgreSQLConnection}
@@ -783,7 +838,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default: !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 
@@ -1279,6 +1334,65 @@ mutually exclusive with "cluster". ||
 || userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
 
 Includes only one of the fields `userPassword`. ||
+|#
+
+## StoreDocConnection {#yandex.cloud.connectionmanager.v1.StoreDocConnection}
+
+#|
+||Field | Description ||
+|| cluster | **[StoreDocCluster](#yandex.cloud.connectionmanager.v1.StoreDocCluster)**
+
+When creating/updating Connection, the field "cluster" is mutually
+exclusive with "managed_cluster_id". ||
+|| managedClusterId | **string**
+
+When creating/updating Connection, the field "managed_cluster_id" is mutually
+exclusive with "cluster". ||
+|| auth | **[StoreDocAuth](#yandex.cloud.connectionmanager.v1.StoreDocAuth)** ||
+|| databases[] | **string** ||
+|#
+
+## StoreDocCluster {#yandex.cloud.connectionmanager.v1.StoreDocCluster}
+
+#|
+||Field | Description ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host)** ||
+|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|#
+
+## Host {#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host}
+
+#|
+||Field | Description ||
+|| host | **string** ||
+|| port | **string** (int64) ||
+|| role | **enum** (Role)
+
+- `ROLE_UNSPECIFIED`
+- `PRIMARY`
+- `SECONDARY` ||
+|| health | **enum** (Health)
+
+- `HEALTH_UNSPECIFIED`
+- `ALIVE`
+- `DEAD`
+- `DEGRADED` ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `MONGOD`
+- `MONGOS`
+- `MONGOINFRA` ||
+|#
+
+## StoreDocAuth {#yandex.cloud.connectionmanager.v1.StoreDocAuth}
+
+#|
+||Field | Description ||
+|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+
+Includes only one of the fields `userPassword`. ||
+|| authSource | **string** ||
 |#
 
 ## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}

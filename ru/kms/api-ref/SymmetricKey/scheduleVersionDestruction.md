@@ -28,6 +28,7 @@ apiPlayground:
             **string** (duration)
             Time interval between the version destruction request and actual destruction.
             Default value: 7 days.
+          default: 7 days
           type: string
           format: duration
       required:

@@ -50,21 +50,7 @@ apiPlayground:
           description: |-
             **[MasterSpec](#yandex.cloud.k8s.v1.MasterSpec)**
             Required field. Master specification of the Kubernetes cluster.
-          oneOf:
-            - type: object
-              properties:
-                zonalMasterSpec:
-                  description: |-
-                    **[ZonalMasterSpec](#yandex.cloud.k8s.v1.ZonalMasterSpec)**
-                    Specification of the zonal master.
-                    Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
-                  $ref: '#/definitions/ZonalMasterSpec'
-                regionalMasterSpec:
-                  description: |-
-                    **[RegionalMasterSpec](#yandex.cloud.k8s.v1.RegionalMasterSpec)**
-                    Specification of the regional master.
-                    Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
-                  $ref: '#/definitions/RegionalMasterSpec'
+          $ref: '#/definitions/MasterSpec'
         ipAllocationPolicy:
           description: |-
             **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)**
@@ -206,6 +192,313 @@ apiPlayground:
             $ref: '#/definitions/ExternalAddressSpec'
         required:
           - regionId
+      LocationSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the master resides.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the VPC network's subnet where the master resides.
+              If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.
+            type: string
+        required:
+          - zoneId
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      DailyMaintenanceWindow:
+        type: object
+        properties:
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Window start time, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Window duration.
+            type: string
+            format: duration
+        required:
+          - startTime
+      DaysOfWeekMaintenanceWindow:
+        type: object
+        properties:
+          days:
+            description: |-
+              **enum** (DayOfWeek)
+              Days of the week when automatic updates are allowed.
+              - `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: array
+            items:
+              type: string
+              enum:
+                - DAY_OF_WEEK_UNSPECIFIED
+                - MONDAY
+                - TUESDAY
+                - WEDNESDAY
+                - THURSDAY
+                - FRIDAY
+                - SATURDAY
+                - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Window start time, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Window duration.
+            type: string
+            format: duration
+        required:
+          - startTime
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          daysOfWeek:
+            description: |-
+              **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
+              Days of the week and the maintenance window for these days when automatic updates are allowed.
+            type: array
+            items:
+              $ref: '#/definitions/DaysOfWeekMaintenanceWindow'
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Updating the master at any time.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            description: |-
+              **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+              Updating the master on any day during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+              Updating the master on selected days during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - dailyMaintenanceWindow
+          - required:
+              - weeklyMaintenanceWindow
+      MasterMaintenancePolicy:
+        type: object
+        properties:
+          autoUpgrade:
+            description: |-
+              **boolean**
+              If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
+              If set to false, automatic upgrades are disabled.
+            type: boolean
+          maintenanceWindow:
+            description: |-
+              **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
+              Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
+              The time is set in UTC.
+            $ref: '#/definitions/MaintenanceWindow'
+      MasterLogging:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for master components.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              ID of the log group where logs of master components should be stored.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              The destination of master components' logs.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              ID of the folder where logs should be stored (in default group).
+              Includes only one of the fields `logGroupId`, `folderId`.
+              The destination of master components' logs.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          auditEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for audit logs.
+            type: boolean
+          clusterAutoscalerEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+            type: boolean
+          kubeApiserverEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for kube-apiserver.
+            type: boolean
+          eventsEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for events.
+            type: boolean
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
+      AutoScale:
+        type: object
+        properties:
+          minResourcePresetId:
+            description: |-
+              **string**
+              Required field. Preset of computing resources to be used as lower boundary for scaling.
+            type: string
+        required:
+          - minResourcePresetId
+      MasterScalePolicySpec:
+        type: object
+        properties:
+          autoScale:
+            description: |-
+              **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+              Includes only one of the fields `autoScale`.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - autoScale
+      MasterSpec:
+        type: object
+        properties:
+          zonalMasterSpec:
+            description: |-
+              **[ZonalMasterSpec](#yandex.cloud.k8s.v1.ZonalMasterSpec)**
+              Specification of the zonal master.
+              Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
+            $ref: '#/definitions/ZonalMasterSpec'
+          regionalMasterSpec:
+            description: |-
+              **[RegionalMasterSpec](#yandex.cloud.k8s.v1.RegionalMasterSpec)**
+              Specification of the regional master.
+              Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
+            $ref: '#/definitions/RegionalMasterSpec'
+          locations:
+            description: |-
+              **[LocationSpec](#yandex.cloud.k8s.v1.LocationSpec)**
+              Locations specification for Kubernetes control-plane (master) instances.
+              Works in conjunction with [etcdClusterSize](#yandex.cloud.k8s.v1.MasterSpec). See it's documentation for details.
+              Possible combinations:
+              - 1 location and etcd_cluster_size = 1 - a single node cluster whose availability is limited by the availability of a single Compute Instance; downtime is expected during cluster updates.
+              - 1 location and etcd_cluster_size = 3 - a highly available cluster within a single availability zone; can survive the failure of a Compute Instance, a server, or an individual server rack.
+              - 3 location and etcd_cluster_size = 3 - a highly available cluster with each etcd instance located within separate availability zone; can survive the failure of a single availability zone.
+            type: array
+            items:
+              $ref: '#/definitions/LocationSpec'
+          etcdClusterSize:
+            description: |-
+              **string** (int64)
+              Number of etcd nodes in cluster.
+              Works in conjunction with [locations](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/update#yandex.cloud.k8s.v1.MasterUpdateSpec). See it's documentation for details.
+              Optional. If not set, will be assumed equal to the number of locations.
+            type: string
+            format: int64
+          externalV4AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv4 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+          externalV6AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv6 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+          version:
+            description: |-
+              **string**
+              Version of Kubernetes components that runs on the master.
+            type: string
+          maintenancePolicy:
+            description: |-
+              **[MasterMaintenancePolicy](#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
+              Maintenance policy of the master.
+            $ref: '#/definitions/MasterMaintenancePolicy'
+          securityGroupIds:
+            description: |-
+              **string**
+              Master security groups.
+            type: array
+            items:
+              type: string
+          masterLogging:
+            description: |-
+              **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
+              Cloud Logging for master components.
+            $ref: '#/definitions/MasterLogging'
+          scalePolicy:
+            description: |-
+              **[MasterScalePolicySpec](#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
+              Scale policy of the master.
+            $ref: '#/definitions/MasterScalePolicySpec'
+        oneOf:
+          - required:
+              - zonalMasterSpec
+          - required:
+              - regionalMasterSpec
       IPAllocationPolicy:
         type: object
         properties:

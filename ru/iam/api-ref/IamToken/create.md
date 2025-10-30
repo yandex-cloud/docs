@@ -23,6 +23,11 @@ apiPlayground:
             Includes only one of the fields `yandexPassportOauthToken`, `jwt`.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - yandexPassportOauthToken
+        - required:
+            - jwt
     definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/create.md
 ---

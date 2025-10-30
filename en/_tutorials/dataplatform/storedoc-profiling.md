@@ -1,4 +1,4 @@
-# {{ SD }} performance analysis and tuning
+# {{ MG }} performance analysis and tuning
 
 
 In this tutorial, you will learn how to:
@@ -9,7 +9,7 @@ In this tutorial, you will learn how to:
 {{ mmg-name }} cluster performance drops most often due to one of the following:
 
 * [High CPU and disk I/O utilization](#cpu-io-deficit).
-* [Inefficient query execution in {{ SD }}](#inefficient-queries).
+* [Inefficient query execution in {{ MG }}](#inefficient-queries).
 * [Locks](#locks).
 * [Insufficient disk space](#disk-deficit).
 
@@ -17,9 +17,9 @@ Here are some tips for diagnosing and fixing these issues.
 
 ## Getting started {#before-start}
 
-1. Install the `mongostat` and `mongotop` [utilities](../../storedoc/operations/tools.md#monitoring-tools) on an external host with network access to your {{ SD }} host (see [{#T}](../../storedoc/operations/connect/index.md)) to receive {{ SD }} performance data.
+1. Install the `mongostat` and `mongotop` [utilities](../../storedoc/operations/tools.md#monitoring-tools) on an external host with network access to your {{ MG }} host (see [{#T}](../../storedoc/operations/connect/index.md)) to receive {{ MG }} performance data.
 1. Determine which databases need to be checked for issues.
-1. [Create a {{ SD }} user](../../storedoc/operations/cluster-users.md#adduser) with the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role for these databases. You need to do this in order to use `mongostat` and `mongotop`.
+1. [Create a {{ MG }} user](../../storedoc/operations/cluster-users.md#adduser) with the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role for these databases. You need to do this in order to use `mongostat` and `mongotop`.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
@@ -27,11 +27,11 @@ If any of the CPU and disk I/O resources "hits a plateau", i.e., the [graph](../
 
 In most cases, high CPU utilization and high Disk IO are due to suboptimal indexes or a large load on the hosts.
 
-Start diagnostics by identifying the load pattern and problematic collections. Use the built-in [{{ SD }} monitoring tools](../../storedoc/operations/tools.md#monitoring-tools). Next, analyze the performance of specific queries using [logs](../../storedoc/operations/tools.md#explore-logs) or [profiler data](../../storedoc/operations/tools.md#explore-profiler).
+Start diagnostics by identifying the load pattern and problematic collections. Use the built-in [{{ MG }} monitoring tools](../../storedoc/operations/tools.md#monitoring-tools). Next, analyze the performance of specific queries using [logs](../../storedoc/operations/tools.md#explore-logs) or [profiler data](../../storedoc/operations/tools.md#explore-profiler).
 
 Pay attention to queries:
 
-* Not using indexes (`planSummary: COLLSCAN`). Such queries may affect both I/O consumption (more reads from the disk) and CPU consumption (data is compressed by default and decompression is required for it). If the required index is present, but the database does not use it, you can force its usage with [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
+* Not using indexes (`planSummary: COLLSCAN`). Such queries may affect both I/O consumption (more reads from the disk) and CPU consumption (data is compressed by default and decompression is required for it). If the required index is present, but the database does not use it, you can force its usage with `hint`.
 * With large `docsExamined` values (number of scanned documents). This may mean that the currently running indexes are inefficient or additional ones are required.
 
 As soon as performance drops, you can diagnose the problem in real time using a [list of currently running queries](../../storedoc/operations/tools.md#list-running-queries):
@@ -70,7 +70,6 @@ As soon as performance drops, you can diagnose the problem in real time using a 
 
 {% endlist %}
 
-See also the examples in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.currentOp/#examples).
 
 ## Troubleshooting resource shortage issues {#solving-deficit}
 
@@ -78,7 +77,7 @@ See also the examples in the [{{ MG }} documentation](https://docs.mongodb.com/m
 
 ## Diagnosing inefficient query execution {#inefficient-queries}
 
-To identify problematic queries in {{ SD }}:
+To identify problematic queries in {{ MG }}:
 
 * Review the [logs](../../storedoc/operations/tools.md#explore-logs). Pay special attention to:
 
@@ -89,10 +88,7 @@ To identify problematic queries in {{ SD }}:
 
 ## Troubleshooting issues with inefficient queries {#optimize}
 
-Each individual query can be analyzed in terms of the query plan. Learn more about this in the {{ MG }} documentation:
-
-* [Query analysis guide](https://docs.mongodb.com/manual/tutorial/analyze-query-plan/).
-* [Reference for the `db.collection.explain` function](https://docs.mongodb.com/manual/reference/method/db.collection.explain/#db.collection.explain).
+Each individual query can be analyzed in terms of the query plan.
 
 Analyze the graphs on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page:
 
@@ -100,7 +96,7 @@ Analyze the graphs on the [cluster monitoring](../../storedoc/operations/monitor
 * **Scan and order per host**.
 * **Scanned / returned**.
 
-To more quickly narrow down the search scope, use [indexes](https://docs.mongodb.com/manual/indexes).
+To narrow down the search scope quicker, use indexes.
 
 {% note warning %}
 
@@ -108,7 +104,7 @@ Each new index slows down writes. Too many indexes may negatively affect write p
 
 {% endnote %}
 
-To optimize read requests, use [projection](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/). In many cases, you need to return only a few fields rather than the entire document.
+To optimize read requests, use a projection. In many cases, you need to return only a few fields rather than the entire document.
 
 If you can neither optimize the queries you found nor go without them, [upgrade the host class](../../storedoc/operations/update.md#change-resource-preset).
 
@@ -116,7 +112,7 @@ If you can neither optimize the queries you found nor go without them, [upgrade 
 
 Poor query performance can be caused by locks.
 
-{{ SD }} does not provide detailed information on locks. There are only indirect ways to find out what is locking a specific query:
+{{ MG }} does not provide detailed information on locks. There are only indirect ways to find out what is locking a specific query:
 
 * Pay attention to large or growing `db.serverStatus().metrics.operation.writeConflicts` values: they may indicate high write contention on some documents.
 
@@ -164,7 +160,6 @@ Poor query performance can be caused by locks.
   * Queries that had waited a long time to get locks will have large `timeAcquiringMicros` values.
   * Queries that had competed for the same documents will have large `writeConflicts` values.
 
-Learn more about which locks are used by standard [client](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations-) and [administrative](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-a-database-) queries in the official {{ MG }} documentation.
 
 ## Troubleshooting locking issues {#solve-locks}
 
@@ -176,7 +171,7 @@ If a cluster shows poor performance combined with a small amount of free disk sp
 
 The amount of used disk space is displayed on the **Disk space usage per host, top 5 hosts** graphs on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page.
 
-To monitor storage usage on cluster hosts, [configure an alert](../../storedoc/operations/monitoring.md#read-only-alert).
+To monitor cluster host storage utilization, [configure an alert](../../storedoc/operations/monitoring.md#read-only-alert).
 
 ## Troubleshooting disk space issues {#solve-disk-deficit}
 

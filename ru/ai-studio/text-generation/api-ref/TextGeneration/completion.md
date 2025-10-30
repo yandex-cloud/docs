@@ -24,30 +24,7 @@ apiPlayground:
             A list of messages representing the context for the completion model.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  text:
-                    description: |-
-                      **string**
-                      Textual content of the message.
-                      Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
-                      Message content.
-                    type: string
-                  toolCallList:
-                    description: |-
-                      **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
-                      List of tool calls made by the model as part of the response generation.
-                      Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
-                      Message content.
-                    $ref: '#/definitions/ToolCallList'
-                  toolResultList:
-                    description: |-
-                      **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
-                      List of tool results returned from external tools that were invoked by the model.
-                      Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
-                      Message content.
-                    $ref: '#/definitions/ToolResultList'
+            $ref: '#/definitions/Message'
         tools:
           description: |-
             **[Tool](#yandex.cloud.ai.foundation_models.v1.Tool)**
@@ -55,15 +32,7 @@ apiPlayground:
             Note: This parameter is not yet supported and will be ignored if provided.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  function:
-                    description: |-
-                      **[FunctionTool](#yandex.cloud.ai.foundation_models.v1.FunctionTool)**
-                      Represents a function that can be called.
-                      Includes only one of the fields `function`.
-                    $ref: '#/definitions/FunctionTool'
+            $ref: '#/definitions/Tool'
         jsonObject:
           description: |-
             **boolean**
@@ -89,33 +58,13 @@ apiPlayground:
           description: |-
             **[ToolChoice](#yandex.cloud.ai.foundation_models.v1.ToolChoice)**
             Specifies how the model should select which tool (or tools) to use when generating a response.
-          oneOf:
-            - type: object
-              properties:
-                mode:
-                  description: |-
-                    **enum** (ToolChoiceMode)
-                    Specifies the overall tool-calling mode.
-                    Includes only one of the fields `mode`, `functionName`.
-                    - `TOOL_CHOICE_MODE_UNSPECIFIED`: The server will choose the default behavior, which is AUTO.
-                    - `NONE`: The model will not call any tool and will generate a standard text response.
-                    - `AUTO`: The model can choose between generating a text response or calling one or more tools.
-                    This is the default behavior.
-                    - `REQUIRED`: The model is required to call one or more tools.
-                  type: string
-                  enum:
-                    - TOOL_CHOICE_MODE_UNSPECIFIED
-                    - NONE
-                    - AUTO
-                    - REQUIRED
-                functionName:
-                  description: |-
-                    **string**
-                    Forces the model to call a specific function.
-                    The provided string must match the name of a function in the API request.
-                    Includes only one of the fields `mode`, `functionName`.
-                  type: string
+          $ref: '#/definitions/ToolChoice'
       additionalProperties: false
+      oneOf:
+        - required:
+            - jsonObject
+        - required:
+            - jsonSchema
     definitions:
       ReasoningOptions:
         type: object
@@ -174,6 +123,18 @@ apiPlayground:
               The structured arguments passed to the function.
               These arguments must adhere to the JSON Schema defined in the corresponding function's parameters.
             type: object
+      ToolCall:
+        type: object
+        properties:
+          functionCall:
+            description: |-
+              **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
+              Represents a call to a function.
+              Includes only one of the fields `functionCall`.
+            $ref: '#/definitions/FunctionCall'
+        oneOf:
+          - required:
+              - functionCall
       ToolCallList:
         type: object
         properties:
@@ -183,15 +144,37 @@ apiPlayground:
               A list of tool calls to be executed.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    functionCall:
-                      description: |-
-                        **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
-                        Represents a call to a function.
-                        Includes only one of the fields `functionCall`.
-                      $ref: '#/definitions/FunctionCall'
+              $ref: '#/definitions/ToolCall'
+      FunctionResult:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              The name of the function that was executed.
+            type: string
+          content:
+            description: |-
+              **string**
+              The result of the function call, represented as a string.
+              This field can be used to store the output of the function.
+              Includes only one of the fields `content`.
+            type: string
+        oneOf:
+          - required:
+              - content
+      ToolResult:
+        type: object
+        properties:
+          functionResult:
+            description: |-
+              **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
+              Represents the result of a function call.
+              Includes only one of the fields `functionResult`.
+            $ref: '#/definitions/FunctionResult'
+        oneOf:
+          - required:
+              - functionResult
       ToolResultList:
         type: object
         properties:
@@ -201,24 +184,46 @@ apiPlayground:
               A list of tool results.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    functionResult:
-                      description: |-
-                        **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
-                        Represents the result of a function call.
-                        Includes only one of the fields `functionResult`.
-                      oneOf:
-                        - type: object
-                          properties:
-                            content:
-                              description: |-
-                                **string**
-                                The result of the function call, represented as a string.
-                                This field can be used to store the output of the function.
-                                Includes only one of the fields `content`.
-                              type: string
+              $ref: '#/definitions/ToolResult'
+      Message:
+        type: object
+        properties:
+          role:
+            description: |-
+              **string**
+              The ID of the message sender. Supported roles:
+              * `system`: Special role used to define the behavior of the completion model.
+              * `assistant`: A role used by the model to generate responses.
+              * `user`: A role used by the user to describe requests to the model.
+            type: string
+          text:
+            description: |-
+              **string**
+              Textual content of the message.
+              Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+              Message content.
+            type: string
+          toolCallList:
+            description: |-
+              **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
+              List of tool calls made by the model as part of the response generation.
+              Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+              Message content.
+            $ref: '#/definitions/ToolCallList'
+          toolResultList:
+            description: |-
+              **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
+              List of tool results returned from external tools that were invoked by the model.
+              Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+              Message content.
+            $ref: '#/definitions/ToolResultList'
+        oneOf:
+          - required:
+              - text
+          - required:
+              - toolCallList
+          - required:
+              - toolResultList
       FunctionTool:
         type: object
         properties:
@@ -243,6 +248,18 @@ apiPlayground:
               **boolean**
               Enforces strict adherence to the function schema, ensuring only defined parameters are used.
             type: boolean
+      Tool:
+        type: object
+        properties:
+          function:
+            description: |-
+              **[FunctionTool](#yandex.cloud.ai.foundation_models.v1.FunctionTool)**
+              Represents a function that can be called.
+              Includes only one of the fields `function`.
+            $ref: '#/definitions/FunctionTool'
+        oneOf:
+          - required:
+              - function
       JsonSchema:
         type: object
         properties:
@@ -251,6 +268,37 @@ apiPlayground:
               **object**
               The JSON Schema that the model's output must conform to.
             type: object
+      ToolChoice:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (ToolChoiceMode)
+              Specifies the overall tool-calling mode.
+              Includes only one of the fields `mode`, `functionName`.
+              - `TOOL_CHOICE_MODE_UNSPECIFIED`: The server will choose the default behavior, which is AUTO.
+              - `NONE`: The model will not call any tool and will generate a standard text response.
+              - `AUTO`: The model can choose between generating a text response or calling one or more tools.
+              This is the default behavior.
+              - `REQUIRED`: The model is required to call one or more tools.
+            type: string
+            enum:
+              - TOOL_CHOICE_MODE_UNSPECIFIED
+              - NONE
+              - AUTO
+              - REQUIRED
+          functionName:
+            description: |-
+              **string**
+              Forces the model to call a specific function.
+              The provided string must match the name of a function in the API request.
+              Includes only one of the fields `mode`, `functionName`.
+            type: string
+        oneOf:
+          - required:
+              - mode
+          - required:
+              - functionName
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/TextGeneration/completion.md
 ---
 

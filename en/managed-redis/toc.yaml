@@ -37,7 +37,17 @@ items:
             href: operations/connect/sharded.md
           - name: Queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-      - name: Sharding and fault-tolerance
+      - name: Users
+        items:
+          - name: Getting user info
+            href: operations/user-list.md
+          - name: Creating a user
+            href: operations/user-create.md
+          - name: Updating user settings
+            href: operations/user-update.md
+          - name: Deleting a user
+            href: operations/user-delete.md
+      - name: Sharding and fault tolerance
         items:
           - name: Managing shards
             href: operations/shards.md
@@ -85,7 +95,7 @@ items:
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk types
+      - name: Storage
         href: concepts/storage.md
       - name: Maintenance
         href: concepts/maintenance.md
@@ -275,6 +285,12 @@ items:
                 href: api-ref/grpc/Cluster/rebalance.md
               - name: EnableSharding
                 href: api-ref/grpc/Cluster/enableSharding.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Operation
             items:
               - name: Overview
@@ -375,6 +391,12 @@ items:
                 href: api-ref/Cluster/rebalance.md
               - name: EnableSharding
                 href: api-ref/Cluster/enableSharding.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Operation
             items:
               - name: Overview

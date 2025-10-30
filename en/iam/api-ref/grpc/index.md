@@ -14,6 +14,7 @@ Actions are performed by making RPC calls. For more information about API archit
 #|
 ||Service | Description ||
 || [AccessAnalyzer](AccessAnalyzer/index.md) | A set of methods for access analysis. ||
+|| [AccessPolicyTemplate](AccessPolicyTemplate/index.md) |  ||
 || [ApiKey](ApiKey/index.md) | A set of methods for managing API keys. ||
 || [IamToken](IamToken/index.md) | A set of methods for managing IAM tokens. ||
 || [Key](Key/index.md) | A set of methods for managing Key resources. ||

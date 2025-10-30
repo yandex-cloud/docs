@@ -1,6 +1,7 @@
 ---
 title: How to delete {{ unified-agent-full-name }}
 description: In this tutorial, you will learn how to delete {{ unified-agent-full-name }}.
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/delete.md
 ---
 
 # Deleting {{ unified-agent-full-name }}
@@ -63,6 +64,7 @@ The way you delete {{ unified-agent-short-name }} depends on the way it was inst
       root 1068 0.0 2.1 2314804 43540 ? Ssl 08:33 0:03 /bin/unified_agent --config /etc/yc/unified_agent/config.yml
       yc-sa-a+ 4124 0.0 0.1 6612 2272 pts/2 S+ 12:34 0:00 grep --color=auto unified_agent
       ```
+
       In this example, the process number is `1068`.
 
   1. Stop the {{ unified-agent-short-name }} process:
@@ -119,7 +121,7 @@ The way you delete {{ unified-agent-short-name }} depends on the way it was inst
    
      1. Select the VM and navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   
-     1. Make sure the **{{ ui-key.yacloud.compute.instance.overview.field_ua-enabled }}** parameter is now set to `no` under **{{ ui-key.yacloud.compute.instance.overview.section_monitoring }}**.
+     1. Make sure the **{{ ui-key.yacloud.compute.instance.overview.field_ua-enabled }}** parameter is now set to `no under **{{ ui-key.yacloud.compute.instance.overview.section_monitoring }}**`.
    
 
 {% endlist %}

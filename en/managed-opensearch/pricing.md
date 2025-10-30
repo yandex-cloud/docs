@@ -42,7 +42,7 @@ The {{ mos-name }} usage cost includes:
 
 * Disk type and disk space.
 
-* Egress traffic from {{ yandex-cloud }}.
+* Outgoing traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -52,7 +52,7 @@ Host operation cost depends on what resources you allocate for it. You can find 
 
 You can select host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
-Host operation cost is charged per hour. The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ OS }} host is unable to perform its main functions.
+Host operation cost is charged per hour. The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ OS }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -60,7 +60,7 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-* Storage taken up by backups over specified cluster storage.
+* Storage taken up by backups over the specified cluster storage.
 
     * Backups are stored free of charge as long as the combined size of data in the cluster and all backups is smaller than the selected storage size.
 
@@ -68,13 +68,13 @@ You pay for the following:
 
     * When [requesting information about a backup](operations/cluster-backups.md#get-backup), you will get the full size of restorable data, but you only pay for the incremental part.
 
-    * The number of hosts in a cluster does not affect the storage size and, consequently, the backup size that is free of charge.
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 * **{{ OS }}** hosts: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
@@ -99,18 +99,18 @@ Calculation for the storage cost and total cost:
 {% include [usd-opensearch-storage](../_pricing_examples/managed-opensearch/usd-storage.md) %}
 
 
-
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 

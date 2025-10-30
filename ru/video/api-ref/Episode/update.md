@@ -99,6 +99,11 @@ apiPlayground:
       required:
         - fieldMask
       additionalProperties: false
+      oneOf:
+        - required:
+            - publicAccess
+        - required:
+            - signUrlAccess
     definitions:
       EpisodePublicAccessParams:
         type: object

@@ -17,7 +17,7 @@ apiPlayground:
             **string**
             Required field. Name of the PostgreSQL User resource to return.
             To get the name of the user, use a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
-          pattern: '[a-zA-Z0-9_-]*'
+          pattern: '[a-zA-Z0-9_@.-]*'
           type: string
       required:
         - clusterId
@@ -96,7 +96,8 @@ To get the name of the user, use a [UserService.List](/docs/managed-postgresql/a
   "userPasswordEncryption": "string",
   "connectionManager": {
     "connectionId": "string"
-  }
+  },
+  "authMethod": "string"
 }
 ```
 
@@ -151,6 +152,13 @@ The default is `` password_encryption `` setting for cluster.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| authMethod | **enum** (AuthMethod)
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}

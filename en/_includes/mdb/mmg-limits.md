@@ -7,9 +7,9 @@
 || Total number of processor cores for all database hosts per cloud 
 `mdb.cpu.count` | 64 ||
 || Total virtual memory for all database hosts per cloud 
-`mdb.memory.size` | 512 GB ||
+`mdb.memory.size` | 512 GB ||
 || Total storage capacity for all clusters per cloud 
-`mdb.ssd.size` | 4,096 GB ||
+`mdb.ssd.size` | 4,096 GB ||
 |#
 
 #### Limits {#mmg-limits}

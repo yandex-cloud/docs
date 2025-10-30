@@ -1,9 +1,10 @@
-1. [Get an IAM token for API authentication](../../../../managed-redis/api-ref/authentication.md) and put it into the environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-redis/api-ref/authentication.md) and place it in an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
 1. Use the [Cluster.AddHosts](../../../../managed-redis/api-ref/Cluster/addHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
+    
     ```bash
     curl \
         --request POST \
@@ -23,14 +24,15 @@
                 }'
     ```
 
+
     Where `hostSpecs` sets the host parameters:
 
     * `zoneId`: [Availability zone](../../../../overview/concepts/geo-scope.md).
-    * `subnetId`: [Subnet ID](../../../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+    * `subnetId`: [Subnet ID](../../../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
     * `shardName`: Shard name for the host. Only used if [cluster sharding](../../../../managed-redis/concepts/sharding.md) is enabled.
     * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../../../../managed-redis/concepts/replication.md#master-failover).
-    * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
+    * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. Public access is only a possibility if the cluster has TLS support enabled.
 
-    You can request the cluster ID with the [list of clusters in the folder](../../../../managed-redis/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID from the [folder’s cluster list](../../../../managed-redis/operations/cluster-list.md#list-clusters).
 
-1. View the [server response](../../../../managed-redis/api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+1. Check the [server response](../../../../managed-redis/api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.

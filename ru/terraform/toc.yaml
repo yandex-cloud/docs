@@ -39,6 +39,27 @@ items:
       - name: Ресурсы (англ.)
         expanded: true
         items:
+          - name: ''
+            items:
+              - name: Data Sources
+                items:
+                  - name: organizationmanager_idp_user
+                    href: data-sources/organizationmanager_idp_user.md
+                    title: ''
+                  - name: organizationmanager_idp_userpool
+                    href: data-sources/organizationmanager_idp_userpool.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: organizationmanager_idp_user
+                    href: resources/organizationmanager_idp_user.md
+                    title: ''
+                  - name: organizationmanager_idp_userpool
+                    href: resources/organizationmanager_idp_userpool.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Application Load Balancer (ALB)
             items:
               - name: Data Sources

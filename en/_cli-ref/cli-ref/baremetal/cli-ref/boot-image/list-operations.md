@@ -17,7 +17,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>boot-image id.|
-|`--name`|<b>`string`</b><br/>Image name.|
+|`--name`|<b>`string`</b><br/>Boot-image name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 100 items|
 
 #### Global Flags

@@ -32,7 +32,7 @@ To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. ||
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
-the service returns a [<ResponseMessage>.next_page_token]
+the service returns a [&lt;ResponseMessage&gt;.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
 || page_token | **string**

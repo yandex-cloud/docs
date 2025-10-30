@@ -149,7 +149,6 @@ metadata:
     gwin.yandex.cloud/zone.ru-central1-b.receiveTraffic: "true"  # enable this zone
     
     # Listener configuration
-    gwin.yandex.cloud/listeners.securityProfileID: "security-profile-id"  # WAF protection
     gwin.yandex.cloud/listeners.rbac.action: "ALLOW"  # access control policy
     gwin.yandex.cloud/listeners.http.protocolSettings.allowHTTP10: "true"  # support old HTTP
     gwin.yandex.cloud/listeners.http.protocolSettings.http2Options.maxConcurrentStreams: "100"  # limit connections
@@ -283,7 +282,6 @@ For `discardRule` annotations you can set up any name. It does not affect ALB co
 | `gwin.yandex.cloud/listeners.http.protocolSettings.allowHTTP10` <br> _(boolean)_ <br> Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. Applies to all HTTP listeners. <br> Example: `true` |
 | `gwin.yandex.cloud/listeners.http.protocolSettings.http2Options.maxConcurrentStreams` <br> _(number)_ <br> Maximum number of concurrent HTTP/2 streams in a connection. Applies to all HTTP listeners. <br> Example: `100` |
 | `gwin.yandex.cloud/listeners.stream.idleTimeout` <br> _(duration)_ <br> The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection. Applies to all stream listeners. <br> Example: `300s` |
-| `gwin.yandex.cloud/listeners.securityProfileID` <br> _(string)_ <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID that applies to all requests via HTTP router for all listeners. <br> Example: `security-profile-id` |
 | `gwin.yandex.cloud/listeners.rbac.action` <br> _(string)_ <br> RBAC action (ALLOW/DENY) for HTTP router access control for all listeners. <br> Example: `ALLOW` |
 
 #### Backend group configuration

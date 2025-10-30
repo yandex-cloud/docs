@@ -30,7 +30,7 @@ You can also [assign a role for a separate cluster](../operations/kubernetes-clu
 
 ### Roles required to access the {{ k8s }} API {#k8s-api}
 
-The following [roles](../../iam/concepts/access-control/roles.md) give the permission to manage [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) resources via the {{ k8s }} API. Roles of the {{ k8s }} API employ the [role-based access control (RBAC) model](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). To manage a {{ managed-k8s-name }} cluster, combine these roles with [roles for the {{ yandex-cloud }} API](#yc-api). Learn more about roles in the {{ k8s }} RBAC in this [{{ k8s }} guide](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
+The following [roles](../../iam/concepts/access-control/roles.md) give the permission to manage [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) resources via the {{ k8s }} API. Roles of the {{ k8s }} API employ the [role-based access control (RBAC) model](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). To manage a {{ managed-k8s-name }} cluster, combine these roles with [roles for the {{ yandex-cloud }} API](#yc-api). Learn more about roles in the {{ k8s }} RBAC in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
 
 To view permissions for {{ managed-k8s-name }} cluster resources available for a specific role, run this command:
 
@@ -57,8 +57,8 @@ The roles described below allow you to manage {{ managed-k8s-name }} clusters an
 To manage a {{ managed-k8s-name }} cluster and a node group without public access, you need the `k8s.clusters.agent` role.
 
 To manage a {{ managed-k8s-name }} cluster and a node group with public access, you need the following roles:
-* `k8s.clusters.agent`.
-* `{{ roles-vpc-public-admin }}`.
+* `k8s.clusters.agent`
+* `{{ roles-vpc-public-admin }}`
 
 To manage a {{ managed-k8s-name }} cluster with a cloud network from a different folder, you will additionally need the following roles in this folder:
 * [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
@@ -146,7 +146,7 @@ Check if you can create resources in the cluster. In other namespaces, you will 
 
 {% endnote %}
 
-## Roles required for creating a {{ managed-k8s-name }} {#required-roles}
+## Roles required for creating a {{ managed-k8s-name }} cluster {#required-roles}
 
 When creating a {{ managed-k8s-name }} cluster and a node group, make sure the [account](../../iam/concepts/users/accounts.md) used for this purpose has these [roles](../../iam/concepts/access-control/roles.md):
 * [{{ roles.k8s.editor }}](#k8s-editor) or higher

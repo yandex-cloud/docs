@@ -18,22 +18,7 @@ apiPlayground:
             * Image size should not exceed 20M pixels (length x width).
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  content:
-                    description: |-
-                      **string** (bytes)
-                      Image content, represented as a stream of bytes.
-                      Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
-                      Includes only one of the fields `content`, `signature`.
-                    type: string
-                    format: bytes
-                  signature:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `content`, `signature`.
-                    type: string
+            $ref: '#/definitions/AnalyzeSpec'
         folderId:
           description: |-
             **string**
@@ -42,7 +27,104 @@ apiPlayground:
             Don't specify this field if you make the request on behalf of a service account.
           type: string
       additionalProperties: false
-    definitions: null
+    definitions:
+      FeatureClassificationConfig:
+        type: object
+        properties:
+          model:
+            description: |-
+              **string**
+              Model to use for image classification.
+            type: string
+      FeatureTextDetectionConfig:
+        type: object
+        properties:
+          languageCodes:
+            description: |-
+              **string**
+              List of the languages to recognize text.
+              Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`).
+            type: array
+            items:
+              type: string
+          model:
+            description: |-
+              **string**
+              Model to use for text detection.
+              Possible values:
+              * `page` (default): this model is suitable for detecting multiple text entries in an image.
+              * `line`: this model is suitable for cropped images with one line of text.
+            type: string
+      Feature:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Type of requested feature.
+              - `TYPE_UNSPECIFIED`
+              - `TEXT_DETECTION`: Text detection (OCR) feature.
+              - `CLASSIFICATION`: Classification feature.
+              - `FACE_DETECTION`: Face detection feature.
+              - `IMAGE_COPY_SEARCH`: Image copy search.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - TEXT_DETECTION
+              - CLASSIFICATION
+              - FACE_DETECTION
+              - IMAGE_COPY_SEARCH
+          classificationConfig:
+            description: |-
+              **[FeatureClassificationConfig](#yandex.cloud.ai.vision.v1.FeatureClassificationConfig)**
+              Required for the `CLASSIFICATION` type. Specifies configuration for the classification feature.
+              Includes only one of the fields `classificationConfig`, `textDetectionConfig`.
+            $ref: '#/definitions/FeatureClassificationConfig'
+          textDetectionConfig:
+            description: |-
+              **[FeatureTextDetectionConfig](#yandex.cloud.ai.vision.v1.FeatureTextDetectionConfig)**
+              Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature.
+              Includes only one of the fields `classificationConfig`, `textDetectionConfig`.
+            $ref: '#/definitions/FeatureTextDetectionConfig'
+        oneOf:
+          - required:
+              - classificationConfig
+          - required:
+              - textDetectionConfig
+      AnalyzeSpec:
+        type: object
+        properties:
+          content:
+            description: |-
+              **string** (bytes)
+              Image content, represented as a stream of bytes.
+              Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
+              Includes only one of the fields `content`, `signature`.
+            type: string
+            format: bytes
+          signature:
+            description: |-
+              **string**
+              Includes only one of the fields `content`, `signature`.
+            type: string
+          features:
+            description: |-
+              **[Feature](#yandex.cloud.ai.vision.v1.Feature)**
+              Requested features to use for analysis.
+              Max count of requested features for one file is 8.
+            type: array
+            items:
+              $ref: '#/definitions/Feature'
+          mimeType:
+            description: |-
+              **string**
+              [MIME type](https://en.wikipedia.org/wiki/Media_type) of content (for example, `` application/pdf ``).
+            type: string
+        oneOf:
+          - required:
+              - content
+          - required:
+              - signature
 sourcePath: en/_api-ref/ai/vision/v1/vision/api-ref/Vision/batchAnalyze.md
 ---
 

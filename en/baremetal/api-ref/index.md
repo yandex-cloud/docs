@@ -20,7 +20,9 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [PrivateCloudConnection](PrivateCloudConnection/index.md) | A set of methods for managing Private cloud connection resources. ||
 || [PrivateSubnet](PrivateSubnet/index.md) | A set of methods for managing PrivateSubnet resources. ||
 || [PublicSubnet](PublicSubnet/index.md) | A set of methods for managing PublicSubnet resources. ||
+|| [RentalPeriod](RentalPeriod/index.md) | A set of methods to retrieve information about RentalPeriod resources. ||
 || [Server](Server/index.md) | A set of methods for managing Server resources. ||
+|| [StandardImage](StandardImage/index.md) | A set of methods to retrieve information about standard image . ||
 || [Storage](Storage/index.md) | A set of methods to retrieve information about default storages. ||
 || [Vrf](Vrf/index.md) | A set of methods for managing VRF resources. ||
 || [Zone](Zone/index.md) | A set of methods to retrieve information about availability zones. ||

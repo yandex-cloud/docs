@@ -7,6 +7,8 @@ items:
     href: concepts/index.md
   - name: Примеры запросов
     href: requests-examples.md
+  - name: Справочник квот
+    href: all-quotas.md
   - name: Пошаговые инструкции
     expanded: true
     items:
@@ -51,7 +53,6 @@ items:
           - name: list-operations
             href: cli-ref/quota-request/list-operations.md
   - name: Справочник API
-    expanded: true
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md

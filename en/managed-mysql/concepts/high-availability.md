@@ -15,7 +15,7 @@ A single-host cluster does not provide high availability. If the master host VM 
 
 {% note warning %}
 
-We do not recommend creating a single-host cluster.
+We do not recommend creating a cluster having a single host.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ A host with a [manually set replication source](replication.md#manual-source) is
 ## Replication and master failover settings {#replication-settings}
 
 High availability is achieved through [replication and master failover](replication.md), which work as follows:
-* Clusters use a mechanism for automatic selection and failover to a new master. If the master host fails, one of its replicas becomes a new master.
+* Clusters use a mechanism for automatic selection and failover to a new master. If the master host fails, one of its replicas becomes a new master. You can also select a new master and [switch to it](../operations/update.md#start-manual-failover) manually.
 * For any replica, you can [manually select](replication.md#manual-source) a host as the replication source. Such a replica will not be involved in the master selection and failover mechanism.
 * If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
 * Using the [current master's FQDN](../operations/connect.md#fqdn-master) simplifies application development; however, your cluster will be temporarily unavailable while switching to a new master. To quickly switch to a new master, you need to implement the new master definition on the application side.

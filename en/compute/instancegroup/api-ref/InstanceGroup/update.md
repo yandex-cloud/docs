@@ -67,21 +67,7 @@ apiPlayground:
           description: |-
             **[ScalePolicy](#yandex.cloud.compute.v1.instancegroup.ScalePolicy)**
             Required field. [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group.
-          oneOf:
-            - type: object
-              properties:
-                fixedScale:
-                  description: |-
-                    **[FixedScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.FixedScale)**
-                    [Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group.
-                    Includes only one of the fields `fixedScale`, `autoScale`.
-                  $ref: '#/definitions/FixedScale'
-                autoScale:
-                  description: |-
-                    **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
-                    [Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
-                    Includes only one of the fields `fixedScale`, `autoScale`.
-                  $ref: '#/definitions/AutoScale'
+          $ref: '#/definitions/ScalePolicy'
         deployPolicy:
           description: |-
             **[DeployPolicy](#yandex.cloud.compute.v1.instancegroup.DeployPolicy)**
@@ -166,6 +152,50 @@ apiPlayground:
               The number of GPUs available to the instance.
             type: string
             format: int64
+      DiskSpec:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the disk.
+            type: string
+          typeId:
+            description: |-
+              **string**
+              Required field. ID of the disk type.
+            type: string
+          size:
+            description: |-
+              **string** (int64)
+              Size of the disk, specified in bytes.
+            type: string
+            format: int64
+          imageId:
+            description: |-
+              **string**
+              ID of the image that will be used for disk creation.
+              Includes only one of the fields `imageId`, `snapshotId`.
+            type: string
+          snapshotId:
+            description: |-
+              **string**
+              ID of the snapshot that will be used for disk creation.
+              Includes only one of the fields `imageId`, `snapshotId`.
+            type: string
+          preserveAfterInstanceDelete:
+            description: |-
+              **boolean**
+              When set to true, disk will not be deleted even after managed instance is deleted.
+              It will be a user's responsibility to delete such disks.
+            type: boolean
+        required:
+          - typeId
+        oneOf:
+          - required:
+              - imageId
+          - required:
+              - snapshotId
       AttachedDiskSpec:
         type: object
         properties:
@@ -194,21 +224,7 @@ apiPlayground:
               **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)**
               Required field. oneof disk_spec or disk_id
               Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk).
-            oneOf:
-              - type: object
-                properties:
-                  imageId:
-                    description: |-
-                      **string**
-                      ID of the image that will be used for disk creation.
-                      Includes only one of the fields `imageId`, `snapshotId`.
-                    type: string
-                  snapshotId:
-                    description: |-
-                      **string**
-                      ID of the snapshot that will be used for disk creation.
-                      Includes only one of the fields `imageId`, `snapshotId`.
-                    type: string
+            $ref: '#/definitions/DiskSpec'
           diskId:
             description: |-
               **string**
@@ -793,6 +809,31 @@ apiPlayground:
               - AUTO_SCALE_TYPE_UNSPECIFIED
               - ZONAL
               - REGIONAL
+      ScalePolicy:
+        type: object
+        properties:
+          fixedScale:
+            description: |-
+              **[FixedScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.FixedScale)**
+              [Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group.
+              Includes only one of the fields `fixedScale`, `autoScale`.
+            $ref: '#/definitions/FixedScale'
+          autoScale:
+            description: |-
+              **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
+              [Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
+              Includes only one of the fields `fixedScale`, `autoScale`.
+            $ref: '#/definitions/AutoScale'
+          testAutoScale:
+            description: |-
+              **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
+              Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - fixedScale
+          - required:
+              - autoScale
       DeployPolicy:
         type: object
         properties:
@@ -917,6 +958,50 @@ apiPlayground:
               **string**
               URL path to set for health checking requests.
             type: string
+      HealthCheckSpec:
+        type: object
+        properties:
+          interval:
+            description: |-
+              **string** (duration)
+              The interval between health checks. The default is 2 seconds.
+            type: string
+            format: duration
+          timeout:
+            description: |-
+              **string** (duration)
+              Timeout for the managed instance to return a response for the health check. The default is 1 second.
+            type: string
+            format: duration
+          unhealthyThreshold:
+            description: |-
+              **string** (int64)
+              The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.
+            type: string
+            format: int64
+          healthyThreshold:
+            description: |-
+              **string** (int64)
+              The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2.
+            type: string
+            format: int64
+          tcpOptions:
+            description: |-
+              **[TcpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions)**
+              Configuration options for a TCP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+            $ref: '#/definitions/TcpOptions'
+          httpOptions:
+            description: |-
+              **[HttpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions)**
+              Configuration options for an HTTP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+            $ref: '#/definitions/HttpOptions'
+        oneOf:
+          - required:
+              - tcpOptions
+          - required:
+              - httpOptions
       HealthChecksSpec:
         type: object
         properties:
@@ -926,21 +1011,7 @@ apiPlayground:
               Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    tcpOptions:
-                      description: |-
-                        **[TcpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions)**
-                        Configuration options for a TCP health check.
-                        Includes only one of the fields `tcpOptions`, `httpOptions`.
-                      $ref: '#/definitions/TcpOptions'
-                    httpOptions:
-                      description: |-
-                        **[HttpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions)**
-                        Configuration options for an HTTP health check.
-                        Includes only one of the fields `tcpOptions`, `httpOptions`.
-                      $ref: '#/definitions/HttpOptions'
+              $ref: '#/definitions/HealthCheckSpec'
           maxCheckingHealthDuration:
             description: |-
               **string** (duration)

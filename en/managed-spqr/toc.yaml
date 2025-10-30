@@ -106,6 +106,12 @@ items:
                 href: api-ref/grpc/Cluster/addShard.md
               - name: DeleteShard
                 href: api-ref/grpc/Cluster/deleteShard.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -216,6 +222,12 @@ items:
                 href: api-ref/Cluster/addShard.md
               - name: DeleteShard
                 href: api-ref/Cluster/deleteShard.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview

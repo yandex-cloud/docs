@@ -1916,14 +1916,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || selectFromSystemDbRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || selectFromInformationSchemaRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#

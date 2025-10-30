@@ -2983,8 +2983,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
+                    "cacheSizeGb": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -3027,31 +3026,14 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string",
-                "flowControlTargetLagSeconds": "string",
-                "flowControlWarnThresholdSeconds": "string",
-                "migrateCloneInsertionBatchDelayMs": "string",
-                "migrateCloneInsertionBatchSize": "string",
-                "orphanCleanupDelaySecs": "string",
-                "persistedChunkCacheUpdateMaxBatchSize": "string",
-                "rangeDeleterBatchDelayMs": "string",
-                "rangeDeleterBatchSize": "string",
-                "mirrorReads": {
-                  "samplingRate": "number",
-                  "maxTimeMs": "string"
-                }
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "minSnapshotHistoryWindowInSeconds": "string"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
+                    "cacheSizeGb": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -3094,31 +3076,14 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string",
-                "flowControlTargetLagSeconds": "string",
-                "flowControlWarnThresholdSeconds": "string",
-                "migrateCloneInsertionBatchDelayMs": "string",
-                "migrateCloneInsertionBatchSize": "string",
-                "orphanCleanupDelaySecs": "string",
-                "persistedChunkCacheUpdateMaxBatchSize": "string",
-                "rangeDeleterBatchDelayMs": "string",
-                "rangeDeleterBatchSize": "string",
-                "mirrorReads": {
-                  "samplingRate": "number",
-                  "maxTimeMs": "string"
-                }
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "minSnapshotHistoryWindowInSeconds": "string"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
+                    "cacheSizeGb": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -3161,23 +3126,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string",
-                "flowControlTargetLagSeconds": "string",
-                "flowControlWarnThresholdSeconds": "string",
-                "migrateCloneInsertionBatchDelayMs": "string",
-                "migrateCloneInsertionBatchSize": "string",
-                "orphanCleanupDelaySecs": "string",
-                "persistedChunkCacheUpdateMaxBatchSize": "string",
-                "rangeDeleterBatchDelayMs": "string",
-                "rangeDeleterBatchSize": "string",
-                "mirrorReads": {
-                  "samplingRate": "number",
-                  "maxTimeMs": "string"
-                }
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "minSnapshotHistoryWindowInSeconds": "string"
               }
             }
           },
@@ -3198,11 +3147,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -3211,34 +3156,14 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -3247,34 +3172,14 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -3283,23 +3188,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             }
           },
@@ -3324,26 +3213,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "userConfig": {
               "net": {
@@ -3353,26 +3223,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "defaultConfig": {
               "net": {
@@ -3382,26 +3233,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             }
           },
           "resources": {
@@ -3425,26 +3257,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "userConfig": {
               "net": {
@@ -3454,26 +3267,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "defaultConfig": {
               "net": {
@@ -3483,26 +3277,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             }
           },
           "configMongocfg": {
@@ -3510,11 +3285,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -3523,34 +3294,14 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -3559,34 +3310,14 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -3595,23 +3326,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             }
           },
@@ -7690,9 +7405,6 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7731,9 +7443,6 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cacheSize | **number** (double)
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -7830,10 +7539,10 @@ MongoDB supports the following compressors:
 ||Field | Description ||
 || enableEncryption | **boolean**
 
-If encryption at rest should be enabled or not, MongoDB Enterprise only ||
+If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP)**
 
-`kmip` section of mongod security config, MongoDB Enterprise only ||
+`kmip` section of mongod security config ||
 |#
 
 ## KMIP {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP}
@@ -7863,11 +7572,10 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter, should be valid JSON object string ||
+Audit filter ||
 || runtimeConfiguration | **boolean**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess
-!! Available for MongoDB Enterprise only !! ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -7876,8 +7584,7 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess
 ||Field | Description ||
 || auditAuthorizationSuccess | **boolean**
 
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+Enables the auditing of authorization successes ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
@@ -7886,57 +7593,6 @@ lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
-|| flowControlTargetLagSeconds | **string** (int64)
-
-The target maximum majority committed lag when running with flow control ||
-|| flowControlWarnThresholdSeconds | **string** (int64)
-
-The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
-|| migrateCloneInsertionBatchDelayMs | **string** (int64)
-
-Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
-|| migrateCloneInsertionBatchSize | **string** (int64)
-
-The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
-|| orphanCleanupDelaySecs | **string** (int64)
-
-Minimum delay before a migrated chunk is deleted from the source shard. ||
-|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
-
-Specifies the maximum batch size used for updating the persisted chunk cache. ||
-|| rangeDeleterBatchDelayMs | **string** (int64)
-
-The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| rangeDeleterBatchSize | **string** (int64)
-
-The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
-
-Specifies the settings for mirrored reads for the mongod instance ||
-|#
-
-## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
-
-#|
-||Field | Description ||
-|| samplingRate | **number** (double)
-
-The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
-|| maxTimeMs | **string** (int64)
-
-The maximum time in milliseconds for the mirrored reads ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
-
-#|
-||Field | Description ||
-|| maxSizePercent | **string** (int64)
-
-Oplog maxsize in percents. ||
-|| minRetentionHours | **number** (double)
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -7983,15 +7639,6 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
 
 `net` section of mongocfg configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter)**
-
-`setParameter` section of mongocfg configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
-
-`AuditLog` section of mongocfg configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -8012,9 +7659,6 @@ Configuration of WiredTiger storage engine.
 || engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig)**
-
-Index configuration for WiredTiger. ||
 |#
 
 ## EngineConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig}
@@ -8024,18 +7668,6 @@ Index configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cacheSize | **number** (double)
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
-|#
-
-## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
-
-#|
-||Field | Description ||
-|| prefixCompression | **boolean**
-
-Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling}
@@ -8064,64 +7696,6 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 || maxIncomingConnections | **string** (int64)
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
-|| compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression)**
-
-Compression settings ||
-|#
-
-## Compression {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression}
-
-#|
-||Field | Description ||
-|| compressors[] | **enum** (Compressor)
-
-Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:
-- other members of the deployment if the instance is part of a replica set or a sharded cluster
-- mongosh
-- drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
-
-- `COMPRESSOR_UNSPECIFIED`
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
-- `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter}
-
-#|
-||Field | Description ||
-|| enableFlowControl | **boolean**
-
-Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
-lag under a configurable maximum value. ||
-|| auditAuthorizationSuccess | **boolean**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
-
-#|
-||Field | Description ||
-|| maxSizePercent | **string** (int64)
-
-Oplog maxsize in percents. ||
-|| minRetentionHours | **number** (double)
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
@@ -8162,15 +7736,6 @@ Default mongos configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network)**
 
 Network settings for mongos. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)**
-
-`setParameter` section of mongos configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
-
-`AuditLog` section of mongos configuration. ||
-|| chunkSize | **string** (int64)
-
-`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -8202,61 +7767,6 @@ MongoDB supports the following compressors:
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter}
-
-#|
-||Field | Description ||
-|| auditAuthorizationSuccess | **boolean**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|| readHedgingMode | **string**
-
-Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
-|| shardingTaskExecutorPoolMaxSize | **string** (int64)
-
-Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
-
-Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
-|| shardingTaskExecutorPoolMinSize | **string** (int64)
-
-Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| shardingTaskExecutorPoolReplicaSetMatching | **string**
-
-On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
-|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
-
-Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
-|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
-
-Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
-|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
-
-Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
-|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
-
-Configures a mongos instance to prewarm its connection pool on startup. ||
-|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
-
-Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
-|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
-
-Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
-
-Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}

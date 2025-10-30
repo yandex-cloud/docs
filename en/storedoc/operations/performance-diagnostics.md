@@ -45,7 +45,6 @@ To get data:
        * `AVG`: Average value
        * `SUM`: Sum
    
-For more information about what statistics you can get, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/database-profiler/#output-reference).
 
 ## Getting information about indexes {#get-indexes}
 

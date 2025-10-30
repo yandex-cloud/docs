@@ -1,6 +1,7 @@
 ---
 title: Updating a log group
 description: Follow this guide to update a log group.
+sourcePath: en/logging_includes/operations/retention-period.md
 ---
 
 # Updating a log group
@@ -69,13 +70,13 @@ description: Follow this guide to update a log group.
 
      Where:
 
-     * `name`: Log group name. This is an optional setting.
-     * `folder_id`: Folder ID. This is an optional setting. It defaults to the value defined by the provider.
+     * `name`: Log group name. This is an optional parameter.
+     * `folder_id`: Folder ID. This is an optional parameter. It defaults to the value specified in the provider settings.
      * `retention_period`: New retention period for log group records.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-     For more information about the `yandex_logging_group` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
+     For more information about `yandex_logging_group` properties, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/logging_group).
 
   1. Check the configuration using this command:
 
@@ -95,7 +96,7 @@ description: Follow this guide to update a log group.
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors found in the configuration.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
 

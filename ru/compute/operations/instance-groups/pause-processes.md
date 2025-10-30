@@ -2,6 +2,8 @@
 
 Если вы временно хотите отключить процессы [обновления](../../concepts/instance-groups/deploy/), [автоматического восстановления](../../concepts/instance-groups/autohealing.md) и [масштабирования](../../concepts/instance-groups/policies/scale-policy.md) ВМ в группе, приостановите их. Сами ВМ при этом продолжат работу.
 
+{% include [stop-in-deleting-ig](../../../_includes/compute/stop-in-deleting-ig.md) %}
+
 Чтобы приостановить процессы в группе ВМ:
  
 {% list tabs group=instructions %}

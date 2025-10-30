@@ -54,7 +54,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
       * `PRODUCTION`: For stable versions of your applications.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first of the two to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
   
@@ -132,7 +132,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * By default, `Atomic` supports the non-blocking `DROP TABLE` and `RENAME TABLE` operations and the atomic `EXCHANGE TABLES` operations.
         * `Replicated` supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
-          Available only in [replicated](../concepts/replication.md) clusters.
+          It is only available in [replicated](../concepts/replication.md) clusters.
 
         You set the engine when creating the database and cannot change it for this database.
 
@@ -222,7 +222,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       * `--environment`: Cluster environment, `prestable` or `production`.
       * `--host`: Host settings:
-        * `type`: Host type, `clickhouse` or `zookeeper`.
+        * `type`: Host type: `clickhouse` or `zookeeper`.
         * `zone-id`: Availability zone.
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
@@ -291,11 +291,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       
       1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`.
 
-         {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-      1. To enable access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), use the `--serverless-access` flag. For more information about setting up access, see [this {{ sf-name }} article](../../functions/operations/database-connection.md).
+      1. To enable access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), use the `--serverless-access` flag. For more information about setting up access, see this [{{ sf-name }} guide](../../functions/operations/database-connection.md).
 
 
       1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
@@ -532,7 +530,21 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-       For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mch }}).
+       
+       1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
+
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+            ...
+            disk_encryption_key_id = <KMS_key_ID>
+            ...
+          }
+          ```
+
+          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
+       For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-mch }}).
 
     1. Make sure the {{ TF }} configuration files are correct:
 
@@ -730,7 +742,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure: 
               
                 * `name`: Database name.
-                * `engine`: Database engine. The allowed values are:
+                * `engine`: Database engine. The possible values are:
                   
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
@@ -763,7 +775,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `weeklyMaintenanceWindow.hour`: Time of day (UTC). The valid values range from `1` to `24`.
               
             
-            You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Run this request:
@@ -787,7 +799,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and paste the following code into it:
 
@@ -966,7 +978,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure: 
               
                 * `name`: Database name.
-                * `engine`: Database engine. The allowed values are:
+                * `engine`: Database engine. The possible values are:
                   
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
@@ -999,7 +1011,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               * `weekly_maintenance_window.hour`: Time of day (UTC). The valid values range from `1` to `24`.
 
             
-            You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. Run this query:
@@ -1088,7 +1100,7 @@ To create a {{ CH }} cluster copy:
 
     1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating the provider configuration file manually, you can download it [here](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and edit it to [include your required values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration files:
 

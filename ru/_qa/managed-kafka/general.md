@@ -6,7 +6,7 @@
 
 Ошибка вызвана тем, что сегменты логов ваших топиков занимают больше места, чем есть в хранилище брокеров. Подробнее о расчете необходимого места см. в разделе [{#T}](../../managed-kafka/concepts/storage.md#minimal-storage-size).
 
-Для решения проблемы можно [увеличить размер дискового хранилища](../../managed-kafka/operations/cluster-update#change-disk-size) или уменьшить размер сегмента для [топиков](../../managed-kafka/operations/cluster-topics.md#update-topic) или [всего кластера](../../managed-kafka/operations/cluster-update.md#change-kafka-settings).
+Для решения проблемы можно [увеличить размер дискового хранилища](../../managed-kafka/operations/cluster-update.md#change-disk-size) или уменьшить размер сегмента для [топиков](../../managed-kafka/operations/cluster-topics.md#update-topic) или [всего кластера](../../managed-kafka/operations/cluster-update.md#change-kafka-settings).
 
 {% include [logs](../logs.md) %}
 

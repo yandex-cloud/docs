@@ -38,4 +38,7 @@ A set of methods for managing OpenSearch clusters.
 || [UpdateAuthSettings](updateAuthSettings.md) | Updates auth settings for specified cluster. ||
 || [RestartOpenSearch](restartOpenSearch.md) | Restarts OpenSearch on specified host. ||
 || [SwitchMaster](switchMaster.md) | Switches current master or ensures that master not on specified hosts. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified OpenSearch cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified OpenSearch cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified OpenSearch cluster. ||
 |#

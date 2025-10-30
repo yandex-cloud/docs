@@ -111,7 +111,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
 
 
-     * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** (optional): Specify the full path to each object to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
@@ -125,7 +125,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
          If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
-     * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** (optional): [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types.
 
         {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
@@ -180,7 +180,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
     1. Create a configuration file with a description of your transfer.
 
-       Configuration file structure example:
+       Here is an example of the configuration file structure:
 
        ```hcl
        resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
@@ -207,7 +207,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-transfer }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-transfer }}).
 
     When created, `INCREMENT_ONLY` and `SNAPSHOT_AND_INCREMENT` transfers are activated and run automatically.
     If you want to activate a `SNAPSHOT_ONLY` transfer once it is created, add the `provisioner "local-exec"` section with the following transfer activation command to the configuration file:
@@ -222,7 +222,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
 - API {#api}
 
-    Use the [create](../api-ref/Transfer/create.md) API method and include the following information in the request:
+    Use the [create](../api-ref/Transfer/create.md) API method and provide the following in the request:
 
     * ID of the folder where the transfer should be placed, in the `folderId` parameter.
     * Transfer name in the `name` parameter.
@@ -285,7 +285,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
             If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
-        * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** (optional): [Data transformation](../concepts/data-transformation.md) rules. This setting only appears when the source and target are of different types.
 
            {% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
@@ -331,7 +331,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-transfer }}).
 
 - API {#api}
 
@@ -380,7 +380,7 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 {% endlist %}
 
-{% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
+{% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}
 
 
 ## Deactivating a transfer {#deactivate}
@@ -434,7 +434,7 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 
-{% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
+{% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}
 
 
 ## Deleting a transfer {#delete}

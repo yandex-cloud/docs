@@ -72,3 +72,9 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 После того как созданная ВМ перейдет в статус `Running`, вы сможете [подключиться](./os-login.md) к ней по {{ oslogin }}.
+
+{% note info %}
+
+{% include [os-login-sa-default-profile-notice](../../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+{% endnote %}

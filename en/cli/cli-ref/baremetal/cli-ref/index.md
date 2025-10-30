@@ -20,7 +20,7 @@ Syntax:
 	- [yc baremetal boot-image create](boot-image/create.md) — Create an boot-image
 	- [yc baremetal boot-image delete](boot-image/delete.md) — Delete the specified boot-image
 	- [yc baremetal boot-image get](boot-image/get.md) — Show information about the specified boot-image
-	- [yc baremetal boot-image list](boot-image/list.md) — List images
+	- [yc baremetal boot-image list](boot-image/list.md) — List boot-images
 	- [yc baremetal boot-image list-operations](boot-image/list-operations.md) — List operations for the specified boot-image
 	- [yc baremetal boot-image remove-labels](boot-image/remove-labels.md) — Remove labels from specified boot-image
 	- [yc baremetal boot-image update](boot-image/update.md) — Update the specified boot-image
@@ -30,6 +30,9 @@ Syntax:
 - [yc baremetal hardware-pool](hardware-pool/index.md) — Manage hardware pools
 	- [yc baremetal hardware-pool get](hardware-pool/get.md) — Show information about the specified hardware pool
 	- [yc baremetal hardware-pool list](hardware-pool/list.md) — List hardware pools
+- [yc baremetal image](image/index.md) — Manage images
+	- [yc baremetal image get](image/get.md) — Show information about the specified image
+	- [yc baremetal image list](image/list.md) — List images. Pass the  '--folder-id = baremetal-standard-images' flag to get general images
 - [yc baremetal private-subnet](private-subnet/index.md) — Manage private subnet
 	- [yc baremetal private-subnet add-labels](private-subnet/add-labels.md) — Add labels to specified private subnet
 	- [yc baremetal private-subnet create](private-subnet/create.md) — Create a private subnet

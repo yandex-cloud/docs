@@ -78,6 +78,11 @@ apiPlayground:
             New logs destination
           $ref: '#/definitions/S3'
       additionalProperties: false
+      oneOf:
+        - required:
+            - yds
+        - required:
+            - s3
     definitions:
       Yds:
         type: object

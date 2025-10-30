@@ -1,6 +1,9 @@
+---
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/filters.md
+---
 # Filters
 
-You can describe a filter in the `routes` section within the `channel`:`pipe`:`filter` element. Alternatively, you can do this in the `pipes` section.
+You can describe a filter in the `routes` section within the `channel`:`pipe`:`filter` element. Alternatively, you can do this in the `pipes` section. 
 
 The common filter description format is:
 
@@ -12,7 +15,7 @@ The common filter description format is:
         ...
 ```
 
-## assign filter {#assign_filter}
+## Assign filter {#assign_filter}
 
 This filter assigns metadata to a session or message.
 
@@ -24,7 +27,7 @@ The metadata value is generated using a template. Template syntax: `{key:format|
 - `_payload`: Message body.
 - `key`: Metadata with the key named `key`.
 
-If the metadata key is not found at the message level (in the `message` section), a search for the key will be conducted through the session metadata. If the key is not found at the session level, the default value `({_host|default_host})` will be used. If no default value is set, an empty string will be used.
+If the metadata key is not found at the message level (in the `message` section), the system will search for the key in the session metadata. If the key is not found at the session level, it will use the default value (`{_host|default_host}`) or an empty string if no default value is specified.
 
 You can also specify the following macros as the `key` value:
 - `$host_name`: Local name of the machine.
@@ -37,7 +40,7 @@ For example, in the case of `$file(name)`, the file name will be taken from the 
 
 The `format` value is a formatting string in [strftime](http://man7.org/linux/man-pages/man3/strftime.3.html) format. It can only be specified for `_timestamp`.
 
-Value: `default`:
+Value: `default`.
 
 - Specifies the default value if there is no metadata with this key or if `_payload` is empty.
 - Cannot be specified for `_timestamp` because `_timestamp` is always present.
@@ -54,10 +57,10 @@ Parameter descriptions:
 
         # Values to be written to the message metadata.
         # Inside `message`, there must be a list of single-element `map` functions with metadata name for the key and formatting template for the value.
-        # The macros enclosed in curly brackets in the template may contain the metadata keys ({_host}) as well as built-in functions ({$file('test-file')}).
-        # If the metadata key is not found at the message level (in the `message` section), a search for the key will be conducted through the session metadata.
-        # If the key is not found at the session level, the default value `({_host|default_host})` will be used. If no default value is set, an empty string will be used.
-        # Below are some such template examples.
+        # The macros enclosed in curly brackets in the template may contain the metadata keys (`{_host}`) as well as built-in functions (`{$file('test-file')}`).
+        # If the metadata key is not found at the message level (in the `message` section), the system will search for the key in the session metadata.
+        # If the key is not found at the session level, it will use the default value (`{_host|default_host}`) or an empty string if no default value is specified.
+        # Below are some template examples.
         message:  # optional, not set by default
             # Result example: 'Nov 27 21:03:24 test-host test-app:test_payload'.
             # The timestamp uses the strftime format (http://man7.org/linux/man-pages/man3/strftime.3.html).
@@ -81,17 +84,17 @@ Parameter descriptions:
             - m5: "$host_name"
 
             # It is similar to `$host_name` but without the domain (prefix up to the first dot).
-            # For example, if $host_name equals `lbk-dev-02.search.yandex.net`, then $short_host_name will get the `lbk-dev-02` value.
+            # For example, if `$host_name` equals `lbk-dev-02.search.yandex.net`, then `$short_host_name` will get the `lbk-dev-02` value.
             - m6: "$short_host_name"
 
-        # Values to be assigned to the session metadata.
+        # Values that need to be assigned to the session metadata.
         session:  # optional, not set by default
             # Similar to `message`.
             - m1: v1
             - m2: v2
 ```
 
-## convert_metrics filter {#convert_metrics_filter}
+## Convert_metrics filter {#convert_metrics_filter}
 
 A filter for converting metrics between different formats. The format for input messages is taken from the session metadata with the `_metrics_format` key (if any) or from the message metadata with the same key (if any).
 
@@ -141,7 +144,7 @@ Parameter descriptions:
         common_time: null  # optional, not set by default
 ```
 
-## filter_metrics filter {#filter_metrics_filter}
+## Filter_metrics filter {#filter_metrics_filter}
 
 The filter allows screening out the metrics you are transferring based on label values.
 
@@ -155,7 +158,7 @@ The filter allows screening out the metrics you are transferring based on label 
 
 See also the [query syntax description](../../../concepts/querying.md#selectors).
 
-## match filter {#match_filter}
+## Match filter {#match_filter}
 
 Filtering messages based on metadata: the filter lets through only messages containing all the listed metadata.
 
@@ -181,7 +184,7 @@ Parameter descriptions:
         # The metadata may contain any other keys as well.
 ```
 
-## transform_metric_label filter {#transform_metric_label_filter}
+## Transform_metric_label filter {#transform_metric_label_filter}
 
 This filter allows you to rename the metric label or add a prefix to it.
 
@@ -203,7 +206,7 @@ Parameter descriptions:
         delimiter: .  # optional, the default value is `.`
 ```
 
-## transform_metric_labels filter {#transform_metric_labels_filter}
+## Transform_metric_labels filter {#transform_metric_labels_filter}
 
 This filter allows you to add new labels to metrics as well as to delete and replace the existing ones. A label value can be represented by a fixed string or a text expression that uses other labels. You can use the `match` expression to limit the collection of metrics the transformation applies to.
 
@@ -225,7 +228,7 @@ Parameter descriptions:
       # you can reference the output of the previous ones.
       # Expression syntax is similar to the one used in the `assign` filter.
       # Using `{my_label|default_value}`, you can specify a default value if `my_label` is not found.
-      # To delete a label, use this syntax: my_label: "-".
+      # To delete a label, use this syntax: `my_label: "-”`.
       labels:
         - l2: "prefix_{l1}_suffix"                # required
         - l3: "prefix2_{l2}_s_{l1|default_value}" # required

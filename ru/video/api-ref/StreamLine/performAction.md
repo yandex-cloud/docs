@@ -35,6 +35,11 @@ apiPlayground:
             Specifies which action to perform on the stream line.
           $ref: '#/definitions/DeactivateAction'
       additionalProperties: false
+      oneOf:
+        - required:
+            - activate
+        - required:
+            - deactivate
     definitions:
       ActivateAction:
         type: object

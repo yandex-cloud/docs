@@ -20,8 +20,8 @@ items:
       - name: Monitoring DB status
         href: operations/monitoring.md
       - name: >-
-          Working with {{ ydb-short-name }} via the ydb-mcp server using the
-          Cursor IDE as an example
+          Using {{ ydb-short-name }} via the ydb-mcp server with the Cursor IDE
+          as an example
         href: operations/ydb-mcp-cursor.md
   - name: Tutorials
     items:

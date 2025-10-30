@@ -18,12 +18,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## How it works {#how-it-works}
 
-{{ GL }} sends the webhook to the new container after creating a job. {{ GLR }} starts in the container to run the job and shuts down after the job is completed. This way you can avoid the fixed costs incurred from {{ compute-full-name }} [virtual machines](../../compute/concepts/vm.md) by paying only for the runner operating time.
+![image](../../_assets/tutorials/serverless-gitlab-runner.svg)
+
+Once a job is created, {{ GL }} sends a webhook request to the new {{ serverless-containers-name }} container. The container runs based on a public image from [{{ container-registry-full-name }}](../../container-registry/) and gets the necessary secrets from [{{ lockbox-full-name }}](../../lockbox/). {{ GLR }} deploys inside the container, connects to {{ GL }} and takes the job for execution, runs it in an isolated Docker container, and shuts down when done. This approach eliminates the need to keep [VMs](../../compute/concepts/vm.md) running continuously: you pay only for actual job execution time.
 
 You can check the source code in the {{ src-full-name }} [repository]({{ link-src-main }}/yandex-cloud-examples/serverless-gitlab-runner).
 
+**Key steps**
+
 * The service receives HTTP requests on port `PORT` (`8080` by default) and at `WEBHOOK_PATH` (`/` by default).
-* If required, the service checks the secret in the `X-Gitlab-Token` header using the `GITLAB_SECRET` variable value.
+* If necessary, it checks the secret in the `X-Gitlab-Token` header using the `GITLAB_SECRET` environment variable.
 * The only requests that are processed are those headed `X-Gitlab-Event: Job Hook`.
 * The `build_status` field is extracted from the request body. If it is set to `pending`, the service runs this command:
 
@@ -39,9 +43,15 @@ You can check the source code in the {{ src-full-name }} [repository]({{ link-sr
 
 * When running a container, the service also does the following:
 
-    * Mounts `cgroup v2` (if required).
+    * If needed, mounts `cgroup v2`.
     * Prepares the `/run` and `/var/lib/docker` folders.
-    * Starts the built-in `dockerd` and waits until it is ready (`DOCKERD_READY_TIMEOUT`).
+    * Starts the built-in `dockerd` and waits till it is ready (`DOCKERD_READY_TIMEOUT`).
+
+**How it works inside the container**
+
+Inside the container, the service starts an HTTP server and a {{ GLR }} process, which then takes a new CI/CD job from {{ GL }} and executes it in separate isolated docker containers.
+
+**Environment variables**
 
 The service uses the following environment variables:
 
@@ -56,11 +66,12 @@ Variable              | By default         | Required | Description
 `MAX_BUILDS`            | `1`                  | No         | Value for `gitlab-runner --max-builds`
 `DOCKERD_READY_TIMEOUT` | `5s`                 | No         | Timeout until `dockerd` is ready (`time.Duration`)
 
-Limitations:
+**Restrictions**
 
 * This tutorial uses the Docker executor only. You can build a [container](../../serverless-containers/concepts/container.md) yourself with required dependencies and use the Shell executor in it.
-* Each webhook request starts a separate ephemeral runner. The state between such runners is not retained.
+* Each webhook request starts a separate ephemeral runner. The state between runners is not retained.
 * Jobs should have tags that match the runner’s tags. If a `job` in `.gitlab-ci.yml` has no matching tags, the runner will not take it. Use the `Run untagged jobs` option when creating a runner for it to take all jobs.
+
 
 ## Get your cloud ready {#before-begin}
 
@@ -185,7 +196,7 @@ Create two service accounts:
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Create service accounts:
+  1. Create these service accounts:
 
       ```bash
       yc iam service-account create --name gitlab-runner-lockbox-payload-viewer
@@ -458,7 +469,7 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
 
       {% note tip %}
 
-      If you get the `mounts[0].mount_point_path: Field does not match the pattern /[-_0-9a-zA-Z/]*/` error, escape the mount point name:
+      In case of the `mounts[0].mount_point_path: Field does not match the pattern /[-_0-9a-zA-Z/]*/` error, escape the mount point name:
 
       ```bash
       mount-point=//mnt

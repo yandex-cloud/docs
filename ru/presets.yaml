@@ -208,8 +208,6 @@ default:
   dt-type-copy-repl: '**Копирование и репликация**'
   dt-type-preparing: '**Подготавливается**'
   dt-type-repl: '**Репликация**'
-  dt-white-ip-list-uri: >-
-    https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   emb-vector: 256
   er-full-name: Yandex EventRouter
   er-name: EventRouter
@@ -230,6 +228,7 @@ default:
   go-cli-ver: golang123
   go-full-ver: Go 1.23
   google-looker: Looker Studio
+  gost-gateway-name: GOST Gateway
   GP: Greenplum®
   gp:
     docs:
@@ -401,9 +400,6 @@ default:
   metrika-link: https://metrika.yandex.ru/
   metrika-pro: Метрика Про
   MG: MongoDB
-  mg:
-    docs:
-      comd: https://www.mongodb.com/docs/manual
   mgl-full-name: Yandex Managed Service for GitLab
   mgl-name: Managed Service for GitLab
   mgp-full-name: Yandex Managed Service for Greenplum®
@@ -559,6 +555,7 @@ default:
   python-full-ver: Python 3.12
   quota-manager-full-name: Yandex Cloud Quota Manager
   quota-manager-name: Cloud Quota Manager
+  quota-manager-short-name: Quota Manager
   RD: Redis
   realtime-api: Realtime API
   realtime-model: speech-realtime-250923

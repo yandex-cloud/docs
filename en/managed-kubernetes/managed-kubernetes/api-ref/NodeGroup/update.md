@@ -69,21 +69,7 @@ apiPlayground:
           description: |-
             **[ScalePolicy](#yandex.cloud.k8s.v1.ScalePolicy)**
             Scale policy of the node group.
-          oneOf:
-            - type: object
-              properties:
-                fixedScale:
-                  description: |-
-                    **[FixedScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
-                    Fixed scale policy of the node group.
-                    Includes only one of the fields `fixedScale`, `autoScale`.
-                  $ref: '#/definitions/FixedScale'
-                autoScale:
-                  description: |-
-                    **[AutoScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
-                    Auto scale policy of the node group.
-                    Includes only one of the fields `fixedScale`, `autoScale`.
-                  $ref: '#/definitions/AutoScale'
+          $ref: '#/definitions/ScalePolicy'
         allocationPolicy:
           description: |-
             **[NodeGroupAllocationPolicy](#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy)**
@@ -99,21 +85,7 @@ apiPlayground:
           description: |-
             **[UpdateVersionSpec](#yandex.cloud.k8s.v1.UpdateVersionSpec)**
             Version of Kubernetes components that runs on the nodes.
-          oneOf:
-            - type: object
-              properties:
-                version:
-                  description: |-
-                    **string**
-                    Request update to a newer version of Kubernetes (1.x -> 1.y).
-                    Includes only one of the fields `version`, `latestRevision`.
-                  type: string
-                latestRevision:
-                  description: |-
-                    **boolean**
-                    Request update to the latest revision for the current version.
-                    Includes only one of the fields `version`, `latestRevision`.
-                  type: boolean
+          $ref: '#/definitions/UpdateVersionSpec'
         maintenancePolicy:
           description: |-
             **[NodeGroupMaintenancePolicy](#yandex.cloud.k8s.v1.NodeGroupMaintenancePolicy)**
@@ -466,6 +438,26 @@ apiPlayground:
             type: string
         required:
           - minResourcePresetId
+      ScalePolicy:
+        type: object
+        properties:
+          fixedScale:
+            description: |-
+              **[FixedScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
+              Fixed scale policy of the node group.
+              Includes only one of the fields `fixedScale`, `autoScale`.
+            $ref: '#/definitions/FixedScale'
+          autoScale:
+            description: |-
+              **[AutoScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+              Auto scale policy of the node group.
+              Includes only one of the fields `fixedScale`, `autoScale`.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - fixedScale
+          - required:
+              - autoScale
       NodeGroupLocation:
         type: object
         properties:
@@ -512,6 +504,26 @@ apiPlayground:
               be set to a non-zero value.
             type: string
             format: int64
+      UpdateVersionSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Request update to a newer version of Kubernetes (1.x -> 1.y).
+              Includes only one of the fields `version`, `latestRevision`.
+            type: string
+          latestRevision:
+            description: |-
+              **boolean**
+              Request update to the latest revision for the current version.
+              Includes only one of the fields `version`, `latestRevision`.
+            type: boolean
+        oneOf:
+          - required:
+              - version
+          - required:
+              - latestRevision
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -610,6 +622,37 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DaysOfWeekMaintenanceWindow'
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Updating the master at any time.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            description: |-
+              **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+              Updating the master on any day during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+              Updating the master on selected days during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - dailyMaintenanceWindow
+          - required:
+              - weeklyMaintenanceWindow
       NodeGroupMaintenancePolicy:
         type: object
         properties:
@@ -629,30 +672,7 @@ apiPlayground:
               **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
               Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
               The time is set in UTC.
-            oneOf:
-              - type: object
-                properties:
-                  anytime:
-                    description: |-
-                      **object**
-                      Updating the master at any time.
-                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
-                      Maintenance policy.
-                    $ref: '#/definitions/AnytimeMaintenanceWindow'
-                  dailyMaintenanceWindow:
-                    description: |-
-                      **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
-                      Updating the master on any day during the specified time window.
-                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
-                      Maintenance policy.
-                    $ref: '#/definitions/DailyMaintenanceWindow'
-                  weeklyMaintenanceWindow:
-                    description: |-
-                      **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
-                      Updating the master on selected days during the specified time window.
-                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
-                      Maintenance policy.
-                    $ref: '#/definitions/WeeklyMaintenanceWindow'
+            $ref: '#/definitions/MaintenanceWindow'
       Taint:
         type: object
         properties:

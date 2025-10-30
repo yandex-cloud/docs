@@ -51,23 +51,7 @@ apiPlayground:
             optional public network interface.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  privateSubnet:
-                    description: |-
-                      **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
-                      Private subnet.
-                      Includes only one of the fields `privateSubnet`, `publicSubnet`.
-                      Subnet that the network interface belongs to.
-                    $ref: '#/definitions/PrivateSubnetNetworkInterface'
-                  publicSubnet:
-                    description: |-
-                      **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
-                      Public subnet.
-                      Includes only one of the fields `privateSubnet`, `publicSubnet`.
-                      Subnet that the network interface belongs to.
-                    $ref: '#/definitions/PublicSubnetNetworkInterface'
+            $ref: '#/definitions/NetworkInterfaceSpec'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
@@ -102,6 +86,34 @@ apiPlayground:
               ID of the public subnet.
               A new ephemeral public subnet will be created if not specified.
             type: string
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the network interface. Should not be specified when creating a server.
+            pattern: ([a-z][a-z0-9]*)?
+            type: string
+          privateSubnet:
+            description: |-
+              **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
+              Private subnet.
+              Includes only one of the fields `privateSubnet`, `publicSubnet`.
+              Subnet that the network interface belongs to.
+            $ref: '#/definitions/PrivateSubnetNetworkInterface'
+          publicSubnet:
+            description: |-
+              **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
+              Public subnet.
+              Includes only one of the fields `privateSubnet`, `publicSubnet`.
+              Subnet that the network interface belongs to.
+            $ref: '#/definitions/PublicSubnetNetworkInterface'
+        oneOf:
+          - required:
+              - privateSubnet
+          - required:
+              - publicSubnet
 sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Server/update.md
 ---
 

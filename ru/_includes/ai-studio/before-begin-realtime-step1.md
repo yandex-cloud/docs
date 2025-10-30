@@ -1,0 +1,1 @@
+Получите [API-ключ](../../iam/concepts/authorization/api-key.md) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), от имени которого будет происходить взаимодействие с [{{ realtime-api }}](../../ai-studio/concepts/agents/realtime.md#realtime-api). Подробнее см. в разделе [{#T}](../../ai-studio/operations/get-api-key.md).

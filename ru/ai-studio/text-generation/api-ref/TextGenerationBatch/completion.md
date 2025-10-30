@@ -42,6 +42,11 @@ apiPlayground:
             Specifies the format of the model's response.
           $ref: '#/definitions/JsonSchema'
       additionalProperties: false
+      oneOf:
+        - required:
+            - jsonObject
+        - required:
+            - jsonSchema
     definitions:
       ReasoningOptions:
         type: object

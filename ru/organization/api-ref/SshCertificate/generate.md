@@ -39,6 +39,17 @@ apiPlayground:
       required:
         - publicKey
       additionalProperties: false
+      allOf:
+        - oneOf:
+            - required:
+                - cloudId
+            - required:
+                - organizationId
+        - oneOf:
+            - required:
+                - subjectId
+            - required:
+                - osLogin
     definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/SshCertificate/generate.md
 ---

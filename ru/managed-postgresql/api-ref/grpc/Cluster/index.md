@@ -31,4 +31,7 @@ A set of methods for managing PostgreSQL Cluster resources.
 || [AddHosts](addHosts.md) | Creates new hosts for a cluster. ||
 || [DeleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster. ||
 || [UpdateHosts](updateHosts.md) | Updates the specified hosts. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified PostgreSQL cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified PostgreSQL cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified PostgreSQL cluster. ||
 |#

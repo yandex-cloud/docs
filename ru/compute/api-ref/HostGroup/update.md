@@ -74,14 +74,7 @@ apiPlayground:
           description: |-
             **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
             Scale policy. Only fixed number of hosts are supported at this moment.
-          oneOf:
-            - type: object
-              properties:
-                fixedScale:
-                  description: |-
-                    **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
-                    Includes only one of the fields `fixedScale`.
-                  $ref: '#/definitions/FixedScale'
+          $ref: '#/definitions/ScalePolicy'
       additionalProperties: false
     definitions:
       FixedScale:
@@ -91,6 +84,17 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      ScalePolicy:
+        type: object
+        properties:
+          fixedScale:
+            description: |-
+              **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+              Includes only one of the fields `fixedScale`.
+            $ref: '#/definitions/FixedScale'
+        oneOf:
+          - required:
+              - fixedScale
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/update.md
 ---
 

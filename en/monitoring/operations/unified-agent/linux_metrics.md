@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/unified-agent/linux_metrics.md
+---
 # Delivering Linux system metrics
 
 {{ monitoring-full-name }} gets general virtual machine metrics from {{ compute-full-name }}. For example, this can be the size of RAM allocated to a VM at its start. However, you can measure how a VM utilizes its memory only by collecting data within that VM. {{ unified-agent-full-name }} is a utility that collects and transmits [Linux system metrics](../../metrics-ref/unifiedagent-ref.md).

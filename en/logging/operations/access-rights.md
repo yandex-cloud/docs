@@ -1,3 +1,6 @@
+---
+sourcePath: en/logging_includes/operations/access-rights.md
+---
 # Managing log group access permissions
 
 You can view the roles [assigned](#list) for a log group, [revoke](#revoke) them, or [assign](#add-access) new ones.

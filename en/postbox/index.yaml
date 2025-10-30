@@ -23,7 +23,7 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex Cloud Postbox

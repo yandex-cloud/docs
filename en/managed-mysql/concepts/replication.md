@@ -63,6 +63,8 @@ You can set host priority:
 
 The lowest priority is `0` (default), while the highest one is `100`.
 
+You can also initiate master failover or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/cdc-data-transfer.md)

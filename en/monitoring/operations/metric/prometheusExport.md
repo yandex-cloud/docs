@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/metric/prometheusExport.md
+---
 # Exporting metrics in Prometheus format
 
 To export metrics in {{ prometheus-name }} format, use the [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md) method. Set up metric collection in {{ prometheus-name }} before pushing metrics to it.

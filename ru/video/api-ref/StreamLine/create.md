@@ -66,6 +66,17 @@ apiPlayground:
         - channelId
         - title
       additionalProperties: false
+      allOf:
+        - oneOf:
+            - required:
+                - rtmpPush
+            - required:
+                - rtmpPull
+        - oneOf:
+            - required:
+                - manualLine
+            - required:
+                - autoLine
     definitions:
       RTMPPushParams:
         type: object

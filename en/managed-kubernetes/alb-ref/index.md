@@ -1,6 +1,6 @@
 ---
 title: '{{ alb-full-name }} tool reference for {{ managed-k8s-full-name }}'
-description: This page provides a {{ alb-name }} tool reference for {{ managed-k8s-name }}.
+description: This page provides an {{ alb-name }} tool reference for {{ managed-k8s-name }}.
 noIndex: true
 ---
 
@@ -29,7 +29,7 @@ This reference describes {{ k8s }} resource configurations used by the Ingress c
 * [YCCertificate](./yc-certificate.md): {{ certificate-manager-name }} certificate parameters for setting up TLS connections in the `Gateway` resource.
 * [HTTPRoute](http-route.md): Rules for redirecting or routing HTTP and HTTPS traffic across backends.
 * [RoutePolicy](route-policy.md): `HTTPRoute` resource policy and backend access rule configuration.
-* [HTTPRoute](grpc-route.md): Rules for redirecting or routing gRPC traffic across backends.
+* [GRPCRoute](grpc-route.md): Rules for redirecting or routing gRPC traffic across backends.
 * [YCStorageBucket](./yc-storage-bucket.md): {{ objstorage-name }} bucket parameters for setting up a backend in the `HTTPRoute` resource.
-* [TLSRoute](./tls-route.md): Rules for routing TLS traffic across backends.
-* [Service](service-for-gateway.md): {{ k8s }} backend service description.
+* [TLSRoute](./tls-route.md): Rules for TLS traffic routing between backends.
+* [Service](service-for-gateway.md): Description of {{ k8s }} services used as backends.
