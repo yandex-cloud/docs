@@ -101,6 +101,11 @@ apiPlayground:
       required:
         - fieldMask
       additionalProperties: false
+      oneOf:
+        - required:
+            - publicAccess
+        - required:
+            - signUrlAccess
     definitions:
       VideoPublicAccessParams:
         type: object

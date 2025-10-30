@@ -63,9 +63,9 @@
 
 ### Авторизация в {{ mkf-msr }} {#msr-auth}
 
-При работе с API {{ mkf-msr }} через SSL-соединение необходимо настроить тот же клиентский [SSL-сертификат](../operations/connect#get-ssl-cert), что и для подключения к хостам-брокерам.
+При работе с API {{ mkf-msr }} через SSL-соединение необходимо настроить тот же клиентский [SSL-сертификат](../operations/connect/index.md#get-ssl-cert), что и для подключения к хостам-брокерам.
 
-Также необходимо авторизовывать запросы к API-серверам с помощью [HTTP-заголовка](https://en.wikipedia.org/wiki/Basic_access_authentication) `Authorization`. В заголовке нужно указать [логин и пароль пользователя {{ KF }}](../operations/cluster-accounts#create-account).
+Также необходимо авторизовывать запросы к API-серверам с помощью [HTTP-заголовка](https://en.wikipedia.org/wiki/Basic_access_authentication) `Authorization`. В заголовке нужно указать [логин и пароль пользователя {{ KF }}](../operations/cluster-accounts.md#create-account).
 
 Возможность работы со схемами зависит от выбранного [способа управления топиками](./topics.md#management) и настроенных ролей пользователя:
 

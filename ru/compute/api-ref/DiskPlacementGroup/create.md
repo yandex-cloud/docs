@@ -64,6 +64,11 @@ apiPlayground:
         - folderId
         - zoneId
       additionalProperties: false
+      oneOf:
+        - required:
+            - spreadPlacementStrategy
+        - required:
+            - partitionPlacementStrategy
     definitions:
       DiskSpreadPlacementStrategy:
         type: object

@@ -8,11 +8,11 @@ description: Из статьи вы узнаете, что такое воркб
 
 Воркбуки и коллекции — новый подход к организации объектов в {{ datalens-short-name }}, который является альтернативой старой навигации по папкам. С новым подходом объекты {{ datalens-short-name }} можно размещать в специальных контейнерах:
 
-* **Воркбук** — хранит [подключения](../concepts/connection.md), [датасеты](../dataset/index.md), [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md).
+* **Воркбук** — хранит [подключения](../concepts/connection.md), [датасеты](../dataset/index.md), [чарты](../concepts/chart/index.md), [дашборды](../concepts/dashboard.md) и [отчеты](../reports/index.md).
 
   {% cut "Воркбук" %}
 
-  ![image](../../_assets/datalens/workbook.png =800x450)
+  ![image](../../_assets/datalens/workbook.png)
 
   {% endcut %}
 
@@ -54,6 +54,12 @@ description: Из статьи вы узнаете, что такое воркб
 
 1. Перейдите в [настройки сервиса]({{ link-datalens-settings }}).
 1. В разделе **Воркбуки** нажмите кнопку **Включить воркбуки**.
+
+   {% cut "Воркбуки включены" %}
+
+   ![image](../../_assets/datalens/workbooks-collections/enable-workbooks.png)
+
+   {% endcut %}
 
 Чтобы перенести любой объект из папки в воркбук, выполните [миграцию](./migrations.md). Если вы больше не планируете пользоваться навигацией по папкам, ее можно [отключить](../settings/disable-folder-navigation.md).
 

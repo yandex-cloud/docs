@@ -39,7 +39,7 @@ This token is obtained from the next_page_token field in the previous ListVideoR
 || order_by | **string**
 
 Specifies the ordering of results.
-Format is "<field> <order>" (e.g., "createdAt desc").
+Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
 Default: "id asc".
 Supported fields: ["id", "title", "createdAt", "updatedAt"].
 Both snake_case and camelCase field names are supported. ||

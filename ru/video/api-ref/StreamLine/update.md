@@ -67,6 +67,11 @@ apiPlayground:
       required:
         - fieldMask
       additionalProperties: false
+      oneOf:
+        - required:
+            - rtmpPush
+        - required:
+            - rtmpPull
     definitions:
       RTMPPushParams:
         type: object

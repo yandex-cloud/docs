@@ -65,23 +65,7 @@ apiPlayground:
             A list of listeners and their specs for the network load balancer.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  externalAddressSpec:
-                    description: |-
-                      **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
-                      External IP address specification.
-                      Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
-                      IP address for incoming traffic. Either the ID of the previously created address or the address specification.
-                    $ref: '#/definitions/ExternalAddressSpec'
-                  internalAddressSpec:
-                    description: |-
-                      **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
-                      Internal IP address specification.
-                      Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
-                      IP address for incoming traffic. Either the ID of the previously created address or the address specification.
-                    $ref: '#/definitions/InternalAddressSpec'
+            $ref: '#/definitions/ListenerSpec'
         attachedTargetGroups:
           description: |-
             **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
@@ -148,6 +132,62 @@ apiPlayground:
               - IP_VERSION_UNSPECIFIED
               - IPV4
               - IPV6
+      ListenerSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          port:
+            description: |-
+              **string** (int64)
+              Port for incoming traffic.
+            type: string
+            format: int64
+          protocol:
+            description: |-
+              **enum** (Protocol)
+              Required field. Protocol for incoming traffic.
+              - `PROTOCOL_UNSPECIFIED`
+              - `TCP`
+              - `UDP`
+            type: string
+            enum:
+              - PROTOCOL_UNSPECIFIED
+              - TCP
+              - UDP
+          externalAddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+              External IP address specification.
+              Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+              IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+            $ref: '#/definitions/ExternalAddressSpec'
+          internalAddressSpec:
+            description: |-
+              **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+              Internal IP address specification.
+              Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+              IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+            $ref: '#/definitions/InternalAddressSpec'
+          targetPort:
+            description: |-
+              **string** (int64)
+              Port of a target.
+              Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+        required:
+          - name
+          - protocol
+        oneOf:
+          - required:
+              - externalAddressSpec
+          - required:
+              - internalAddressSpec
       TcpOptions:
         type: object
         properties:
@@ -172,6 +212,60 @@ apiPlayground:
               URL path to set for health checking requests for every target in the target group.
               For example `` /ping ``. The default path is `` / ``.
             type: string
+      HealthCheck:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          interval:
+            description: |-
+              **string** (duration)
+              The interval between health checks. The default is 2 seconds.
+            type: string
+            format: duration
+          timeout:
+            description: |-
+              **string** (duration)
+              Timeout for a target to return a response for the health check. The default is 1 second.
+            type: string
+            format: duration
+          unhealthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2.
+            type: string
+            format: int64
+          healthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2.
+            type: string
+            format: int64
+          tcpOptions:
+            description: |-
+              **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+              Options for TCP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+              Protocol to use for the health check. Either TCP or HTTP.
+            $ref: '#/definitions/TcpOptions'
+          httpOptions:
+            description: |-
+              **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+              Options for HTTP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+              Protocol to use for the health check. Either TCP or HTTP.
+            $ref: '#/definitions/HttpOptions'
+        required:
+          - name
+        oneOf:
+          - required:
+              - tcpOptions
+          - required:
+              - httpOptions
       AttachedTargetGroup:
         type: object
         properties:
@@ -187,23 +281,7 @@ apiPlayground:
               For now we accept only one health check per AttachedTargetGroup.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    tcpOptions:
-                      description: |-
-                        **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
-                        Options for TCP health check.
-                        Includes only one of the fields `tcpOptions`, `httpOptions`.
-                        Protocol to use for the health check. Either TCP or HTTP.
-                      $ref: '#/definitions/TcpOptions'
-                    httpOptions:
-                      description: |-
-                        **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
-                        Options for HTTP health check.
-                        Includes only one of the fields `tcpOptions`, `httpOptions`.
-                        Protocol to use for the health check. Either TCP or HTTP.
-                      $ref: '#/definitions/HttpOptions'
+              $ref: '#/definitions/HealthCheck'
         required:
           - targetGroupId
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/update.md

@@ -125,7 +125,8 @@ Required field. ID of the cluster to stop. ||
       },
       "odin": {
         "checksTtl": "string"
-      }
+      },
+      "flavor": "string"
     },
     "createdAt": "string",
     "createdBy": "string",
@@ -332,6 +333,10 @@ Endpoints of the cluster. ||
 || tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)** ||
 || proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)** ||
 || odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)** ||
+|| flavor | **enum** (Flavor)
+
+- `FLAVOR_UNSPECIFIED`
+- `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec}

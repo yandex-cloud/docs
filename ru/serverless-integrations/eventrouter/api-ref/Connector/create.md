@@ -43,34 +43,7 @@ apiPlayground:
           description: |-
             **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
             Source of the connector.
-          oneOf:
-            - type: object
-              properties:
-                dataStream:
-                  description: |-
-                    **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
-                    Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
-                  $ref: '#/definitions/DataStream'
-                messageQueue:
-                  description: |-
-                    **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
-                    Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
-                  $ref: '#/definitions/MessageQueue'
-                timer:
-                  description: |-
-                    **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
-                    Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
-                  $ref: '#/definitions/Timer'
-                eventServiceSource:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
-                  $ref: '#/definitions/EventServiceSource'
-                auditTrails:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
-                  $ref: '#/definitions/AuditTrails'
+          $ref: '#/definitions/Source'
         deletionProtection:
           description: |-
             **boolean**
@@ -170,6 +143,45 @@ apiPlayground:
       AuditTrails:
         type: object
         properties: {}
+      Source:
+        type: object
+        properties:
+          dataStream:
+            description: |-
+              **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
+              Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
+            $ref: '#/definitions/DataStream'
+          messageQueue:
+            description: |-
+              **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
+              Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
+            $ref: '#/definitions/MessageQueue'
+          timer:
+            description: |-
+              **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
+              Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
+            $ref: '#/definitions/Timer'
+          eventServiceSource:
+            description: |-
+              **object**
+              Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
+            $ref: '#/definitions/EventServiceSource'
+          auditTrails:
+            description: |-
+              **object**
+              Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`.
+            $ref: '#/definitions/AuditTrails'
+        oneOf:
+          - required:
+              - dataStream
+          - required:
+              - messageQueue
+          - required:
+              - timer
+          - required:
+              - eventServiceSource
+          - required:
+              - auditTrails
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/create.md
 ---
 

@@ -91,6 +91,17 @@ apiPlayground:
       required:
         - title
       additionalProperties: false
+      allOf:
+        - oneOf:
+            - required:
+                - streamId
+            - required:
+                - lineId
+        - oneOf:
+            - required:
+                - publicAccess
+            - required:
+                - signUrlAccess
     definitions:
       EpisodePublicAccessParams:
         type: object

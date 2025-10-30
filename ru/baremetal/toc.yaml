@@ -223,6 +223,12 @@ items:
                 href: api-ref/grpc/PublicSubnet/delete.md
               - name: ListOperations
                 href: api-ref/grpc/PublicSubnet/listOperations.md
+          - name: RentalPeriod
+            items:
+              - name: Overview
+                href: api-ref/grpc/RentalPeriod/index.md
+              - name: List
+                href: api-ref/grpc/RentalPeriod/list.md
           - name: Server
             items:
               - name: Overview
@@ -251,6 +257,14 @@ items:
                 href: api-ref/grpc/Server/stopProlongation.md
               - name: ListOperations
                 href: api-ref/grpc/Server/listOperations.md
+          - name: StandardImage
+            items:
+              - name: Overview
+                href: api-ref/grpc/StandardImage/index.md
+              - name: Get
+                href: api-ref/grpc/StandardImage/get.md
+              - name: List
+                href: api-ref/grpc/StandardImage/list.md
           - name: Storage
             items:
               - name: Overview
@@ -373,6 +387,12 @@ items:
                 href: api-ref/PublicSubnet/delete.md
               - name: ListOperations
                 href: api-ref/PublicSubnet/listOperations.md
+          - name: RentalPeriod
+            items:
+              - name: Overview
+                href: api-ref/RentalPeriod/index.md
+              - name: List
+                href: api-ref/RentalPeriod/list.md
           - name: Server
             items:
               - name: Overview
@@ -401,6 +421,14 @@ items:
                 href: api-ref/Server/stopProlongation.md
               - name: ListOperations
                 href: api-ref/Server/listOperations.md
+          - name: StandardImage
+            items:
+              - name: Overview
+                href: api-ref/StandardImage/index.md
+              - name: Get
+                href: api-ref/StandardImage/get.md
+              - name: List
+                href: api-ref/StandardImage/list.md
           - name: Storage
             items:
               - name: Overview

@@ -307,8 +307,22 @@ Required:
 Optional:
 
 - `assign_public_ip` (Boolean) Sets whether the hosts should get a public IP address.
+- `disk_size_autoscaling` (Attributes) Node group disk size autoscaling settings. (see [below for nested schema](#nestedatt--config--opensearch--node_groups--disk_size_autoscaling))
 - `resources` (Block, Optional) Resources allocated to hosts of this OpenSearch node group. (see [below for nested schema](#nestedblock--config--opensearch--node_groups--resources))
 - `subnet_ids` (List of String) A set of the subnets, to which the hosts belongs. The subnets must be a part of the network to which the cluster belongs.
+
+<a id="nestedatt--config--opensearch--node_groups--disk_size_autoscaling"></a>
+### Nested Schema for `config.opensearch.node_groups.disk_size_autoscaling`
+
+Required:
+
+- `disk_size_limit` (Number) The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-opensearch/concepts/storage#auto-rescale) for details.
+
+Optional:
+
+- `emergency_usage_threshold` (Number) Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+- `planned_usage_threshold` (Number) Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
 
 <a id="nestedblock--config--opensearch--node_groups--resources"></a>
 ### Nested Schema for `config.opensearch.node_groups.resources`

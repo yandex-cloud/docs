@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/unified-agent/pull_prometheus.md
+---
 # Delivering custom application metrics
 
 {{ unified-agent-full-name }} collects metrics in {{ prometheus-name }} format and converts them to {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that provide them in {{ prometheus-name }} format.
@@ -117,7 +120,7 @@ You can also use this method to deliver metrics from any custom applications tha
               plugin: metrics_pull
               config:
                 url: http://<VM_public_address>:8000/metrics
-                metric_name_label:  my_name  # optional, allows you to rename your application's name label because this name is reserved by the agent
+                metric_name_label:  my_name  # optional, allows you to rename your application's name label, as this name is reserved by the agent.
                 format:
                   prometheus: {}
                 namespace: app
@@ -143,13 +146,13 @@ You can also use this method to deliver metrics from any custom applications tha
 
        * `folder_id`: ID of the folder to which you want to write metrics.
        * `url`: Public address of the VM hosting the test app that delivers metrics.
-       * `metric_name_label`: Decides which label the agent should write the metric name into for the {{ prometheus-name }} data. By default, the `name` label is used, which may cause a conflict if your app already uses this label. In which case you get this error when writing metrics:
+       * `metric_name_label`: Determines which label the agent writes the metric name for the {{ prometheus-name }} data to. By default, the `name` label is used, which may cause a conflict if your app already uses this label. In which case you get this error when writing metrics:
 
-         ```bash
-         label name 'name' is reserved
-         ```
+       ```bash
+       label name 'name' is reserved
+       ```
 
-       To avoid the error, specify any other unique name.
+       To avoid an error, specify any other unique name.
 
    1. Install {{ unified-agent-short-name }} by running the following command in your home directory:
 

@@ -1,6 +1,7 @@
 ---
 title: How to export logs from {{ cloud-logging-name }} to {{ yds-name }}
 description: In this guide, you will learn how to export logs from {{ cloud-logging-name }} to {{ yds-name }}.
+sourcePath: en/logging_includes/operations/export-logs-yds.md
 ---
 
 # Exporting logs to {{ yds-name }}

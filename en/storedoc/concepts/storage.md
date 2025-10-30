@@ -3,7 +3,7 @@ title: Storage in {{ mmg-full-name }}
 description: In this article, you will learn what storage is in {{ mmg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
 ---
 
-# Storage in {{ mmg-name }}
+# {{ mmg-name }} storage
 
 
 {{ mmg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
@@ -21,7 +21,7 @@ The number of hosts you can create together with a {{ SD }} cluster depends on t
 
    This cluster will be fault-tolerant.
 
-   Storage on local SSDs affects cluster pricing: it is charged even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
+   Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
 * You can add any number of hosts within the current quota when using the following disk types:
 
@@ -62,7 +62,7 @@ To keep your cluster up and running as the host is switching over to _read-only_
    {% endnote %}
 
 * [Force data synchronization](../operations/hosts.md#resetup) between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
-* Run the `compact` command. First, [add](../operations/cluster-users.md#updateuser) the [mdbDbAdmin role](users-and-roles.md#mdbdbadmin) to the user. For more information about this command, see [this {{ MG }} guide](https://docs.mongodb.com/manual/reference/command/compact).
+* Run the `compact` command. First, [add](../operations/cluster-users.md#updateuser) the [mdbDbAdmin role](users-and-roles.md#mdbdbadmin) to the user. 
 
 ## Use cases {#examples}
 

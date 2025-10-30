@@ -354,7 +354,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.
@@ -839,7 +839,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.

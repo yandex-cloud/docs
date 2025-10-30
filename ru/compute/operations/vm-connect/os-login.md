@@ -7,6 +7,11 @@ description: Следуя данной инструкции, вы сможете
 
 [{{ oslogin }}](../../../organization/concepts/os-login.md) используется для предоставления пользователям и [сервисным аккаунтам](../../../iam/concepts/users/service-accounts.md) доступа к [виртуальным машинам](../../../compute/concepts/vm.md#project), полагаясь только на механизмы [сервиса {{ iam-full-name }}](../../../iam/concepts/index.md), без необходимости загружать SSH-ключи на каждую новую ВМ при ее создании.
 
+{% note warning %}
+
+{% include [os-login-sa-default-profile-notice](../../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 

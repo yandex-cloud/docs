@@ -42,7 +42,7 @@ resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
 
 ### Optional
 
-- `audiences` (List of String) List of trusted values for aud claim.
+- `audiences` (Set of String) List of trusted values for aud claim.
 - `description` (String) Description of the service account. 0-256 characters long.
 - `disabled` (Boolean) True - the OIDC workload identity federation is disabled and cannot be used for authentication.
  False - the OIDC workload identity federation is enabled and can be used for authentication.

@@ -161,7 +161,8 @@ To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/
     },
     "kafkaUiConfig": {
       "enabled": "boolean"
-    }
+    },
+    "patchVersion": "string"
   },
   "networkId": "string",
   "health": "string",
@@ -345,6 +346,9 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
 
 Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}

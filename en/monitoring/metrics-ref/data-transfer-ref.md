@@ -2,6 +2,7 @@
 title: '{{ data-transfer-full-name }} metrics'
 description: In this tutorial, you will learn about {{ data-transfer-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/data-transfer-ref.md
 ---
 
 # {{ data-transfer-full-name }} metrics

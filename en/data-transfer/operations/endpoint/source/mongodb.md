@@ -96,7 +96,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -162,7 +162,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -221,7 +221,7 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 {% note info %}
 
 * If you use several endpoints, you need to create a separate transfer for each one.
-* As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude such collections.
+* Transferring of `Time Series` collections is not supported, so you should exclude such collections.
 
 {% endnote %}
 

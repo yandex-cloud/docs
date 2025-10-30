@@ -48,6 +48,11 @@ apiPlayground:
             Example of a filter: `status="ACTIVE"`.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - folderId
+        - required:
+            - functionId
     body: null
     definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listVersions.md
@@ -493,7 +498,7 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/<name> ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
 || mode | **enum** (Mode)
 
 Mount's mode

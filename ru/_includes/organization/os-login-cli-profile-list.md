@@ -19,4 +19,8 @@ yc organization-manager os-login profile list \
 
 Сохраните значение поля `LOGIN` для нужного пользователя или сервисного аккаунта — оно понадобится позднее.
 
+{% note info %}
+
 {% include [os-login-profile-tab-access-notice](./os-login-profile-tab-access-notice.md) %}
+
+{% endnote %}

@@ -2,10 +2,10 @@
 
 {{ mmg-short-name }} automates routine database maintenance:
 
-- Quick DB deployment with the necessary available resources.
+- Quick DB deployment with the required available resources.
 - Data backup.
 - Regular software updates.
-- Providing DB cluster failover.
+- Ensuring DB cluster fault tolerance.
 - Database usage monitoring and statistics.
 
 
@@ -23,21 +23,20 @@ Yes. A database cluster may consist of hosts that reside in different availabili
 
 #### What is the backup procedure for {{ SD }} clusters? {#backup}
 
-Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of the backup creation time.
+Backups are created every 24 hours and retained for seven days. You can only restore data as of the backup creation time.
 
 
 #### How does replication work for {{ SD }}? {#replication}
 
 {{ mmg-short-name }} uses the standard {{ SD }} replication mechanism: if a cluster has more than one active host, one of them is automatically selected as the primary server to handle write requests.
 
-For more information on how replication works in {{ SD }}, see the [{{ PG }} documentation](https://docs.mongodb.com/manual/replication/).
 
 
 #### What limitations are there for {{ SD }} database clusters? {#cluster-limitations}
 
 For more info on limitations in {{ mmg-name }}, see the [Quotas and limits](../../storedoc/concepts/limits.md) section.
 
-#### Why is the cluster slow even though the computing resources are not used up? {#throttling}
+#### Why is my cluster slow even though there are still some computing resources to spare? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
@@ -47,7 +46,7 @@ If you are using the `network-hdd` storage type, consider switching to `network-
 
 #### How do I get access to the local.oplog.rs service collection? {#oplog-permission}
 
-To grant a user read access to `oplog`, assign them the `mdbReplication` role in the `admin` database. To do this, run the following command in the {{ yandex-cloud }} CLI:
+To grant a user read access to `oplog`, assign them the `mdbReplication` role in the `admin` database. Do it by executing the following command in the {{ yandex-cloud }} CLI:
 
 ```bash
 {{ yc-mdb-mg }} user update <username> \
@@ -58,11 +57,11 @@ To grant a user read access to `oplog`, assign them the `mdbReplication` role in
 
 To avoid deleting user roles that are already assigned, list both the existing and new roles in the command.
 
-#### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
+#### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -75,7 +74,7 @@ This means, when connecting to the website, the service was unable to check whet
 To fix this error:
 
 * Make sure the corporate network settings do not block the check.
-* Run the command with the `--ssl-no-revoke` parameter.
+* Run the following command with the `--ssl-no-revoke` parameter:
 
   ```powershell
    mkdir $HOME\.mongodb; curl.exe --ssl-no-revoke -o $HOME\.mongodb\root.crt {{ crt-web-path }}

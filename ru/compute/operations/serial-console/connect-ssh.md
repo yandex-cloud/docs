@@ -128,7 +128,11 @@
 
           Также логин пользователя можно получить с помощью команды `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) или в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}**.
 
+          {% note info %}
+
           {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+          {% endnote %}
 
       Пример для пользователя с логином `yid-orgusername` и ВМ с идентификатором `epd22a2tj3gd********`:
 

@@ -52,34 +52,49 @@ apiPlayground:
             List of static routes.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  destinationPrefix:
-                    description: |-
-                      **string**
-                      Destination subnet in CIDR notation
-                      Includes only one of the fields `destinationPrefix`.
-                    type: string
-              - type: object
-                properties:
-                  nextHopAddress:
-                    description: |-
-                      **string**
-                      Next hop IP address
-                      Includes only one of the fields `nextHopAddress`, `gatewayId`.
-                    type: string
-                  gatewayId:
-                    description: |-
-                      **string**
-                      Next hop gateway id
-                      Includes only one of the fields `nextHopAddress`, `gatewayId`.
-                    type: string
+            $ref: '#/definitions/StaticRoute'
       required:
         - folderId
         - networkId
       additionalProperties: false
-    definitions: null
+    definitions:
+      StaticRoute:
+        type: object
+        properties:
+          destinationPrefix:
+            description: |-
+              **string**
+              Destination subnet in CIDR notation
+              Includes only one of the fields `destinationPrefix`.
+            type: string
+          nextHopAddress:
+            description: |-
+              **string**
+              Next hop IP address
+              Includes only one of the fields `nextHopAddress`, `gatewayId`.
+            type: string
+          gatewayId:
+            description: |-
+              **string**
+              Next hop gateway id
+              Includes only one of the fields `nextHopAddress`, `gatewayId`.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
+            type: object
+            additionalProperties:
+              type: string
+        allOf:
+          - oneOf:
+              - required:
+                  - destinationPrefix
+          - oneOf:
+              - required:
+                  - nextHopAddress
+              - required:
+                  - gatewayId
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/create.md
 ---
 

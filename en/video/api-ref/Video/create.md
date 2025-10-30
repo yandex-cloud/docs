@@ -106,6 +106,11 @@ apiPlayground:
         - channelId
         - title
       additionalProperties: false
+      oneOf:
+        - required:
+            - publicAccess
+        - required:
+            - signUrlAccess
     definitions:
       VideoTUSDParams:
         type: object

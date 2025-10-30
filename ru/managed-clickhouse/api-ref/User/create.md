@@ -1187,7 +1187,7 @@ apiPlayground:
               Enables or disables data compression in HTTP responses.
               By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
               Use this setting to command ClickHouse to compress the result when sending it via HTTP.
-              Enable this setting and add the **Accept-Encoding: <compression method>** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
+              Enable this setting and add the **Accept-Encoding: &lt;compression method&gt;** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
               ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
               Default value: **false**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_http_compression).
@@ -3050,7 +3050,7 @@ Enables or disables data compression in HTTP responses.
 By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
 Use this setting to command ClickHouse to compress the result when sending it via HTTP.
 
-Enable this setting and add the **Accept-Encoding: <compression method>** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
+Enable this setting and add the **Accept-Encoding: &lt;compression method&gt;** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
 
 ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
 
@@ -4892,7 +4892,7 @@ Enables or disables data compression in HTTP responses.
 By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
 Use this setting to command ClickHouse to compress the result when sending it via HTTP.
 
-Enable this setting and add the **Accept-Encoding: <compression method>** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
+Enable this setting and add the **Accept-Encoding: &lt;compression method&gt;** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
 
 ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
 

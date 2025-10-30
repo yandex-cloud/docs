@@ -58,6 +58,11 @@ apiPlayground:
             2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - imageId
+        - required:
+            - repositoryId
     body: null
     definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/list.md

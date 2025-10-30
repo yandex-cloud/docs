@@ -50,7 +50,8 @@ Updates the specified PostgreSQL user.
   ],
   "deletion_protection": "google.protobuf.BoolValue",
   "user_password_encryption": "UserPasswordEncryption",
-  "generate_password": "google.protobuf.BoolValue"
+  "generate_password": "google.protobuf.BoolValue",
+  "auth_method": "AuthMethod"
 }
 ```
 
@@ -109,6 +110,13 @@ Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRY
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager. ||
+|| auth_method | enum **AuthMethod**
+
+User Auth method
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -332,7 +340,8 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
     "user_password_encryption": "UserPasswordEncryption",
     "connection_manager": {
       "connection_id": "string"
-    }
+    },
+    "auth_method": "AuthMethod"
   }
   // end of the list of possible fields
 }
@@ -458,6 +467,13 @@ The default is `` password_encryption `` setting for cluster.
 || connection_manager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| auth_method | enum **AuthMethod**
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission2}

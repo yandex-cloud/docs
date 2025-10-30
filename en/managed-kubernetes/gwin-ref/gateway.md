@@ -126,7 +126,6 @@ metadata:
     gwin.yandex.cloud/zone.ru-central1-b.receiveTraffic: "true"  # enable this zone
 
     # HTTPRouter configuration
-    gwin.yandex.cloud/listeners.securityProfileID: "security-profile-id"  # WAF protection
     gwin.yandex.cloud/listeners.rbac.action: "ALLOW"  # access control policy
 
     # Listener configuration
@@ -202,14 +201,13 @@ For example: `gwin.yandex.cloud/listener.http-listener.http.protocolSettings.all
 
 Any `listeners` router option can be applied to a specific listener by prefixing with `listener.{listener-name}`.
 
-For example: `gwin.yandex.cloud/listener.http-listener.securityProfileID: "profile-1"`.
+For example: `gwin.yandex.cloud/listener.http-listener.rbac.action: "ALLOW"`.
 
 {% endnote %}
 
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/listeners.securityProfileID` <br> _(string)_ <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID that applies to all requests via HTTP router for all listeners. <br> Example: `profile-1` |
 | `gwin.yandex.cloud/listeners.rbac.action` <br> _(string)_ <br> RBAC action (ALLOW/DENY) for HTTP router access control for all listeners. <br> Example: `ALLOW` |
 
 For detailed RBAC configuration patterns, see: [RBAC Configuration](#rbac-configuration)

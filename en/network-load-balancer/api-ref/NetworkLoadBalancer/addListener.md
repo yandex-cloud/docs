@@ -23,23 +23,7 @@ apiPlayground:
           description: |-
             **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
             Required field. Listener spec.
-          oneOf:
-            - type: object
-              properties:
-                externalAddressSpec:
-                  description: |-
-                    **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
-                    External IP address specification.
-                    Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
-                    IP address for incoming traffic. Either the ID of the previously created address or the address specification.
-                  $ref: '#/definitions/ExternalAddressSpec'
-                internalAddressSpec:
-                  description: |-
-                    **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
-                    Internal IP address specification.
-                    Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
-                    IP address for incoming traffic. Either the ID of the previously created address or the address specification.
-                  $ref: '#/definitions/InternalAddressSpec'
+          $ref: '#/definitions/ListenerSpec'
       required:
         - listenerSpec
       additionalProperties: false
@@ -91,6 +75,62 @@ apiPlayground:
               - IP_VERSION_UNSPECIFIED
               - IPV4
               - IPV6
+      ListenerSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          port:
+            description: |-
+              **string** (int64)
+              Port for incoming traffic.
+            type: string
+            format: int64
+          protocol:
+            description: |-
+              **enum** (Protocol)
+              Required field. Protocol for incoming traffic.
+              - `PROTOCOL_UNSPECIFIED`
+              - `TCP`
+              - `UDP`
+            type: string
+            enum:
+              - PROTOCOL_UNSPECIFIED
+              - TCP
+              - UDP
+          externalAddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+              External IP address specification.
+              Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+              IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+            $ref: '#/definitions/ExternalAddressSpec'
+          internalAddressSpec:
+            description: |-
+              **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+              Internal IP address specification.
+              Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+              IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+            $ref: '#/definitions/InternalAddressSpec'
+          targetPort:
+            description: |-
+              **string** (int64)
+              Port of a target.
+              Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+        required:
+          - name
+          - protocol
+        oneOf:
+          - required:
+              - externalAddressSpec
+          - required:
+              - internalAddressSpec
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/addListener.md
 ---
 

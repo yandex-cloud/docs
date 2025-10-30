@@ -129,6 +129,16 @@ items:
                     href: api-ref/grpc/WebSearch/index.md
                   - name: Search
                     href: api-ref/grpc/WebSearch/search.md
+              - name: Wordstat
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Wordstat/index.md
+                  - name: GetTop
+                    href: api-ref/grpc/Wordstat/getTop.md
+                  - name: GetDynamics
+                    href: api-ref/grpc/Wordstat/getDynamics.md
+                  - name: GetRegionsDistribution
+                    href: api-ref/grpc/Wordstat/getRegionsDistribution.md
           - name: REST
             items:
               - name: Overview
@@ -167,6 +177,16 @@ items:
                     href: api-ref/WebSearch/index.md
                   - name: Search
                     href: api-ref/WebSearch/search.md
+              - name: Wordstat
+                items:
+                  - name: Overview
+                    href: api-ref/Wordstat/index.md
+                  - name: GetTop
+                    href: api-ref/Wordstat/getTop.md
+                  - name: GetDynamics
+                    href: api-ref/Wordstat/getDynamics.md
+                  - name: GetRegionsDistribution
+                    href: api-ref/Wordstat/getRegionsDistribution.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

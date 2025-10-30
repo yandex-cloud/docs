@@ -2969,8 +2969,7 @@ The time until which this maintenance operation should be delayed. The value sho
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -3013,31 +3012,14 @@ The time until which this maintenance operation should be delayed. The value sho
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
-                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
-                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
-                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
-                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
-                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
-                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
-                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
-                "range_deleter_batch_size": "google.protobuf.Int64Value",
-                "mirror_reads": {
-                  "sampling_rate": "google.protobuf.DoubleValue",
-                  "max_time_ms": "google.protobuf.Int64Value"
-                }
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
               }
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -3080,31 +3062,14 @@ The time until which this maintenance operation should be delayed. The value sho
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
-                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
-                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
-                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
-                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
-                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
-                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
-                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
-                "range_deleter_batch_size": "google.protobuf.Int64Value",
-                "mirror_reads": {
-                  "sampling_rate": "google.protobuf.DoubleValue",
-                  "max_time_ms": "google.protobuf.Int64Value"
-                }
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
               }
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -3147,23 +3112,7 @@ The time until which this maintenance operation should be delayed. The value sho
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
-                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
-                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
-                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
-                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
-                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
-                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
-                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
-                "range_deleter_batch_size": "google.protobuf.Int64Value",
-                "mirror_reads": {
-                  "sampling_rate": "google.protobuf.DoubleValue",
-                  "max_time_ms": "google.protobuf.Int64Value"
-                }
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
               }
             }
           },
@@ -3184,11 +3133,7 @@ The time until which this maintenance operation should be delayed. The value sho
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
-                  },
-                  "index_config": {
-                    "prefix_compression": "google.protobuf.BoolValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -3197,34 +3142,14 @@ The time until which this maintenance operation should be delayed. The value sho
                 "slow_op_threshold": "google.protobuf.Int64Value"
               },
               "net": {
-                "max_incoming_connections": "google.protobuf.Int64Value",
-                "compression": {
-                  "compressors": [
-                    "Compressor"
-                  ]
-                }
-              },
-              "set_parameter": {
-                "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "max_incoming_connections": "google.protobuf.Int64Value"
               }
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
-                  },
-                  "index_config": {
-                    "prefix_compression": "google.protobuf.BoolValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -3233,34 +3158,14 @@ The time until which this maintenance operation should be delayed. The value sho
                 "slow_op_threshold": "google.protobuf.Int64Value"
               },
               "net": {
-                "max_incoming_connections": "google.protobuf.Int64Value",
-                "compression": {
-                  "compressors": [
-                    "Compressor"
-                  ]
-                }
-              },
-              "set_parameter": {
-                "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "max_incoming_connections": "google.protobuf.Int64Value"
               }
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
-                  },
-                  "index_config": {
-                    "prefix_compression": "google.protobuf.BoolValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -3269,23 +3174,7 @@ The time until which this maintenance operation should be delayed. The value sho
                 "slow_op_threshold": "google.protobuf.Int64Value"
               },
               "net": {
-                "max_incoming_connections": "google.protobuf.Int64Value",
-                "compression": {
-                  "compressors": [
-                    "Compressor"
-                  ]
-                }
-              },
-              "set_parameter": {
-                "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "max_incoming_connections": "google.protobuf.Int64Value"
               }
             }
           },
@@ -3310,26 +3199,7 @@ The time until which this maintenance operation should be delayed. The value sho
                     "Compressor"
                   ]
                 }
-              },
-              "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue",
-                "read_hedging_mode": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "chunk_size": "google.protobuf.Int64Value"
+              }
             },
             "user_config": {
               "net": {
@@ -3339,26 +3209,7 @@ The time until which this maintenance operation should be delayed. The value sho
                     "Compressor"
                   ]
                 }
-              },
-              "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue",
-                "read_hedging_mode": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "chunk_size": "google.protobuf.Int64Value"
+              }
             },
             "default_config": {
               "net": {
@@ -3368,26 +3219,7 @@ The time until which this maintenance operation should be delayed. The value sho
                     "Compressor"
                   ]
                 }
-              },
-              "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue",
-                "read_hedging_mode": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "chunk_size": "google.protobuf.Int64Value"
+              }
             }
           },
           "resources": {
@@ -3411,26 +3243,7 @@ The time until which this maintenance operation should be delayed. The value sho
                     "Compressor"
                   ]
                 }
-              },
-              "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue",
-                "read_hedging_mode": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "chunk_size": "google.protobuf.Int64Value"
+              }
             },
             "user_config": {
               "net": {
@@ -3440,26 +3253,7 @@ The time until which this maintenance operation should be delayed. The value sho
                     "Compressor"
                   ]
                 }
-              },
-              "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue",
-                "read_hedging_mode": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "chunk_size": "google.protobuf.Int64Value"
+              }
             },
             "default_config": {
               "net": {
@@ -3469,26 +3263,7 @@ The time until which this maintenance operation should be delayed. The value sho
                     "Compressor"
                   ]
                 }
-              },
-              "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue",
-                "read_hedging_mode": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
-                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
-                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "chunk_size": "google.protobuf.Int64Value"
+              }
             }
           },
           "config_mongocfg": {
@@ -3496,11 +3271,7 @@ The time until which this maintenance operation should be delayed. The value sho
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
-                  },
-                  "index_config": {
-                    "prefix_compression": "google.protobuf.BoolValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -3509,34 +3280,14 @@ The time until which this maintenance operation should be delayed. The value sho
                 "slow_op_threshold": "google.protobuf.Int64Value"
               },
               "net": {
-                "max_incoming_connections": "google.protobuf.Int64Value",
-                "compression": {
-                  "compressors": [
-                    "Compressor"
-                  ]
-                }
-              },
-              "set_parameter": {
-                "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "max_incoming_connections": "google.protobuf.Int64Value"
               }
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
-                  },
-                  "index_config": {
-                    "prefix_compression": "google.protobuf.BoolValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -3545,34 +3296,14 @@ The time until which this maintenance operation should be delayed. The value sho
                 "slow_op_threshold": "google.protobuf.Int64Value"
               },
               "net": {
-                "max_incoming_connections": "google.protobuf.Int64Value",
-                "compression": {
-                  "compressors": [
-                    "Compressor"
-                  ]
-                }
-              },
-              "set_parameter": {
-                "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "max_incoming_connections": "google.protobuf.Int64Value"
               }
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue",
-                    "cache_size": "google.protobuf.DoubleValue"
-                  },
-                  "index_config": {
-                    "prefix_compression": "google.protobuf.BoolValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue"
                   }
                 }
               },
@@ -3581,23 +3312,7 @@ The time until which this maintenance operation should be delayed. The value sho
                 "slow_op_threshold": "google.protobuf.Int64Value"
               },
               "net": {
-                "max_incoming_connections": "google.protobuf.Int64Value",
-                "compression": {
-                  "compressors": [
-                    "Compressor"
-                  ]
-                }
-              },
-              "set_parameter": {
-                "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
-              },
-              "audit_log": {
-                "filter": "string"
-              },
-              "oplog": {
-                "max_size_percent": "google.protobuf.Int64Value",
-                "min_retention_hours": "google.protobuf.DoubleValue"
+                "max_incoming_connections": "google.protobuf.Int64Value"
               }
             }
           },
@@ -7619,9 +7334,6 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7660,9 +7372,6 @@ Index configuration for WiredTiger ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -7759,10 +7468,10 @@ MongoDB supports the following compressors:
 ||Field | Description ||
 || enable_encryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-If encryption at rest should be enabled or not, MongoDB Enterprise only ||
+If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP)**
 
-`kmip` section of mongod security config, MongoDB Enterprise only ||
+`kmip` section of mongod security config ||
 |#
 
 ## KMIP {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP}
@@ -7792,11 +7501,10 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter, should be valid JSON object string ||
+Audit filter ||
 || runtime_configuration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess
-!! Available for MongoDB Enterprise only !! ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -7805,8 +7513,7 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess
 ||Field | Description ||
 || audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+Enables the auditing of authorization successes ||
 || enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
@@ -7815,57 +7522,6 @@ lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
-|| flow_control_target_lag_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The target maximum majority committed lag when running with flow control ||
-|| flow_control_warn_threshold_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
-|| migrate_clone_insertion_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
-|| migrate_clone_insertion_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
-|| orphan_cleanup_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Minimum delay before a migrated chunk is deleted from the source shard. ||
-|| persisted_chunk_cache_update_max_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Specifies the maximum batch size used for updating the persisted chunk cache. ||
-|| range_deleter_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| range_deleter_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| mirror_reads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
-
-Specifies the settings for mirrored reads for the mongod instance ||
-|#
-
-## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
-
-#|
-||Field | Description ||
-|| sampling_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
-
-The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
-|| max_time_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The maximum time in milliseconds for the mirrored reads ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
-
-#|
-||Field | Description ||
-|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Oplog maxsize in percents. ||
-|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -7912,15 +7568,6 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
 
 `net` section of mongocfg configuration. ||
-|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter)**
-
-`setParameter` section of mongocfg configuration. ||
-|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
-
-`AuditLog` section of mongocfg configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -7941,9 +7588,6 @@ Configuration of WiredTiger storage engine.
 || engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig)**
-
-Index configuration for WiredTiger. ||
 |#
 
 ## EngineConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig}
@@ -7953,18 +7597,6 @@ Index configuration for WiredTiger. ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
-|#
-
-## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
-
-#|
-||Field | Description ||
-|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling}
@@ -7993,64 +7625,6 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 || max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
-|| compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression)**
-
-Compression settings ||
-|#
-
-## Compression {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression}
-
-#|
-||Field | Description ||
-|| compressors[] | enum **Compressor**
-
-Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:
-- other members of the deployment if the instance is part of a replica set or a sharded cluster
-- mongosh
-- drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
-
-- `COMPRESSOR_UNSPECIFIED`
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
-- `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter}
-
-#|
-||Field | Description ||
-|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
-lag under a configurable maximum value. ||
-|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
-
-#|
-||Field | Description ||
-|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Oplog maxsize in percents. ||
-|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
@@ -8091,15 +7665,6 @@ Default mongos configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network)**
 
 Network settings for mongos. ||
-|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)**
-
-`setParameter` section of mongos configuration. ||
-|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
-
-`AuditLog` section of mongos configuration. ||
-|| chunk_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -8131,61 +7696,6 @@ MongoDB supports the following compressors:
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter}
-
-#|
-||Field | Description ||
-|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|| read_hedging_mode | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
-|| sharding_task_executor_pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| sharding_task_executor_pool_max_connecting | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
-|| sharding_task_executor_pool_min_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| sharding_task_executor_pool_replica_set_matching | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
-|| sharding_task_executor_pool_host_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
-|| sharding_task_executor_pool_refresh_requirement_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
-|| sharding_task_executor_pool_refresh_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
-|| warm_min_connections_in_sharding_task_executor_pool_on_startup | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Configures a mongos instance to prewarm its connection pool on startup. ||
-|| warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
-|| sharding_task_executor_pool_max_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|| sharding_task_executor_pool_min_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}

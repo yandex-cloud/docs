@@ -44,6 +44,7 @@ apiPlayground:
             The expression must specify the field name from [GpuCluster](#yandex.cloud.compute.v1.GpuCluster) and `asc`ending or `desc`ending order,
             e.g. `createdAt desc`.
             Default value: `id asc`.
+          default: id asc
           type: string
       required:
         - folderId

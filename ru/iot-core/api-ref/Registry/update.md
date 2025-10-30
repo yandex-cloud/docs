@@ -62,27 +62,66 @@ apiPlayground:
           description: |-
             **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
             Options for logging registry events
-          oneOf:
-            - type: object
-              properties:
-                logGroupId:
-                  description: |-
-                    **string**
-                    Entry should be written to log group resolved by ID.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
-                folderId:
-                  description: |-
-                    **string**
-                    Entry should be written to default log group for specified folder.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
+          $ref: '#/definitions/LogOptions'
       additionalProperties: false
-    definitions: null
+    definitions:
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from registry disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/update.md
 ---
 

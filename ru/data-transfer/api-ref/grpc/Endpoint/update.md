@@ -762,7 +762,7 @@ The new endpoint settings. ||
 
 Field mask specifying endpoint fields to be updated. Semantics for this field is
 described here:
-<https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask>
+&lt;https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask&gt;
 The only exception: if the repeated field is specified in the mask, then
 the new value replaces the old one instead of being appended to the old one. ||
 |#
@@ -1940,7 +1940,7 @@ Includes only one of the fields `topic`, `topic_prefix`. ||
 Topic prefix
 
 Analogue of the Debezium setting database.server.name.
-Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+Messages will be sent to topic with name &lt;topic_prefix&gt;.&lt;schema&gt;.&lt;table_name&gt;.
 
 Includes only one of the fields `topic`, `topic_prefix`. ||
 |#

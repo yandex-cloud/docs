@@ -3,7 +3,7 @@ title: How to view detailed information about a {{ mmg-name }} cluster state
 description: Follow this guide to view detailed information about a {{ mmg-name }} cluster state.
 ---
 
-# Monitoring the state of an {{ SD }} cluster and its hosts
+# Monitoring the state of a {{ SD }} cluster and its hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -18,13 +18,13 @@ description: Follow this guide to view detailed information about a {{ mmg-name 
 To view detailed information on the state of a {{ mmg-name }} cluster:
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-1. Click the name of your cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 The following charts will appear on the page:
 
-* **Asserts total**: Number of [asserts](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) triggered in the cluster.
+* **Asserts total**: Number of asserts triggered in the cluster.
 * **Average operation time per host**: Average time of operation execution by each host (in microseconds).
 * **Average operations time on primary**: Average operation execution time on primary replicas (in microseconds).
 * **Average operations time on secondaries**: Average operation execution time on secondary replicas (in microseconds).
@@ -58,12 +58,12 @@ The following charts will appear on the page:
     * With read requests
     * With write requests
 * **Replicated queries**: Average number of replicated queries in the cluster.
-* **Replication lag per host and write_concern wait**: Replication lag on each host and waiting time for [write confirmation](https://docs.mongodb.com/manual/reference/write-concern/) (in seconds).
+* **Replication lag per host and write_concern wait**: Replication lag on each host and write confirmation timeout (in seconds).
 * **Scan and order per host**: Number of data sorts without index usage on each host.
 * **Scanned / returned**: Shows the following ratios:
     * `scanned_docs / returned_docs`: Documents scanned to documents returned.
     * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
-* **TTL indexes activity**: Total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
+* **TTL indexes activity**: Total number of TTL indexes.
 * **Total operations count on cluster**: Total number of operations performed in the cluster.
 * **Total operations time on cluster**: Total operation execution time in the cluster (in milliseconds).
 * **WiredTiger cache pages evicted on primary**: Average number of memory pages evicted on the primary replica.
@@ -132,12 +132,12 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-mongodb-ref.md).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see this [{{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-mongodb-ref.md).
 
 
 ### Monitoring the transition to read-only mode {#read-only-alert}
 
-To monitor storage usage on cluster hosts and get notifications when free space is about to run out:
+To monitor cluster host storage utilization and get notified if running out of free space:
 
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
 1. Add the `disk.free_bytes` status metric.

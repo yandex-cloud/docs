@@ -57,57 +57,14 @@ apiPlayground:
           description: |-
             **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
             Options for logging from the API gateway.
-          oneOf:
-            - type: object
-              properties:
-                logGroupId:
-                  description: |-
-                    **string**
-                    Entry should be written to log group resolved by ID.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  type: string
-                folderId:
-                  description: |-
-                    **string**
-                    Entry should be written to default log group for specified folder.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  type: string
+          $ref: '#/definitions/LogOptions'
         variables:
           description: |-
             **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
             Values of variables defined in the specification.
           type: object
           additionalProperties:
-            oneOf:
-              - type: object
-                properties:
-                  stringValue:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                      Variable value that can has only primitive type
-                    type: string
-                  intValue:
-                    description: |-
-                      **string** (int64)
-                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                      Variable value that can has only primitive type
-                    type: string
-                    format: int64
-                  doubleValue:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                      Variable value that can has only primitive type
-                    type: string
-                  boolValue:
-                    description: |-
-                      **boolean**
-                      Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                      Variable value that can has only primitive type
-                    type: boolean
+            $ref: '#/definitions/VariableInput'
         canary:
           description: |-
             **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary)**
@@ -140,6 +97,98 @@ apiPlayground:
             type: array
             items:
               type: string
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from API gateway disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
+      VariableInput:
+        type: object
+        properties:
+          stringValue:
+            description: |-
+              **string**
+              Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+              Variable value that can has only primitive type
+            type: string
+          intValue:
+            description: |-
+              **string** (int64)
+              Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+              Variable value that can has only primitive type
+            type: string
+            format: int64
+          doubleValue:
+            description: |-
+              **string**
+              Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+              Variable value that can has only primitive type
+            type: string
+          boolValue:
+            description: |-
+              **boolean**
+              Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+              Variable value that can has only primitive type
+            type: boolean
+        oneOf:
+          - required:
+              - stringValue
+          - required:
+              - intValue
+          - required:
+              - doubleValue
+          - required:
+              - boolValue
       Canary:
         type: object
         properties:
@@ -155,34 +204,7 @@ apiPlayground:
               Values specification variables, associated with canary.
             type: object
             additionalProperties:
-              oneOf:
-                - type: object
-                  properties:
-                    stringValue:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                        Variable value that can has only primitive type
-                      type: string
-                    intValue:
-                      description: |-
-                        **string** (int64)
-                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                        Variable value that can has only primitive type
-                      type: string
-                      format: int64
-                    doubleValue:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                        Variable value that can has only primitive type
-                      type: string
-                    boolValue:
-                      description: |-
-                        **boolean**
-                        Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-                        Variable value that can has only primitive type
-                      type: boolean
+              $ref: '#/definitions/VariableInput'
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/create.md
 ---
 

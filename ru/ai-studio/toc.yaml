@@ -77,7 +77,7 @@ items:
             href: operations/tuning/create-embeddings.md
       - name: Разработка AI-агентов
         items:
-          - name: Создать голосового агента
+          - name: Создать голосового агента с помощью {{ realtime-api }}
             href: operations/agents/create-voice-agent.md
           - name: Создать простого текстового агента
             href: operations/agents/create-simple-text-agent.md

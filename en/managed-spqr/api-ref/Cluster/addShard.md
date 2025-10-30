@@ -23,15 +23,7 @@ apiPlayground:
           description: |-
             **[ShardSpec](#yandex.cloud.mdb.spqr.v1.ShardSpec)**
             Required field. Properties of the shard to be created.
-          oneOf:
-            - type: object
-              properties:
-                mdbPostgresql:
-                  description: |-
-                    **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)**
-                    Properties of the MDB PostgreSQL cluster
-                    Includes only one of the fields `mdbPostgresql`.
-                  $ref: '#/definitions/MDBPostgreSQL'
+          $ref: '#/definitions/ShardSpec'
       required:
         - shardSpec
       additionalProperties: false
@@ -46,6 +38,26 @@ apiPlayground:
             type: string
         required:
           - clusterId
+      ShardSpec:
+        type: object
+        properties:
+          shardName:
+            description: |-
+              **string**
+              Required field. Name of the SPQR shard to create.
+            pattern: ^[a-zA-Z0-9][a-zA-Z0-9-]*$
+            type: string
+          mdbPostgresql:
+            description: |-
+              **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)**
+              Properties of the MDB PostgreSQL cluster
+              Includes only one of the fields `mdbPostgresql`.
+            $ref: '#/definitions/MDBPostgreSQL'
+        required:
+          - shardName
+        oneOf:
+          - required:
+              - mdbPostgresql
 sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/addShard.md
 ---
 

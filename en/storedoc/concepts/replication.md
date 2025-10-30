@@ -4,7 +4,6 @@
 
 When [changing the primary replica](../operations/stepdown.md) manually, {{ SD }} will automatically select a new primary replica from the available hosts.
 
-For more information on how replication works in {{ SD }}, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/replication/).
 
 ## Fault tolerance {#Fault-tolerance}
 

@@ -9,8 +9,8 @@ description: In this tutorial, you will learn about performance analysis tools a
 
 {{ SD }} offers utilities to help you get performance data:
 
-* [mongostat](https://docs.mongodb.com/database-tools/mongostat/#bin.mongostat): Collects statistics on CPU and memory usage with {{ SD }} processes.
-* [mongotop](https://docs.mongodb.com/database-tools/mongotop/#bin.mongotop): Collects data read/write statistics for each collection.
+* `mongostat`: Collects statistics on CPU and memory usage with {{ SD }} processes.
+* `mongotop`: Collects data read/write statistics for each collection.
 
 When calling these utilities, use the connection string with the username and password of the user with the `mdbMonitor` role, for example:
 
@@ -21,11 +21,10 @@ mongotop 5 --uri="mongodb://{<name_of_user_with_mdbMonitor_role>}:{<password>}@{
 
 Here, both utilities provide a set of performance data with a polling interval of 5 seconds.
 
-For more information about the `monostat` and `mongotop` utilities, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/administration/monitoring/).
 
 ### Profiler {#explore-profiler}
 
-{{ SD }} has a [built-in profiler](https://docs.mongodb.com/manual/reference/database-profiler/). It collects query data and then uses it to determine a query optimization strategy. The profiler runs based on the [{{ SD }} settings](../concepts/settings-list.md) that you can set when [creating a cluster](./cluster-create.md) or [updating the DBMS settings](./update.md#change-mongod-config):
+{{ SD }} has a built-in profiler. It collects query data and then uses it to determine a query optimization strategy. The profiler runs based on the [{{ SD }} settings](../concepts/settings-list.md) that you can set when [creating a cluster](./cluster-create.md) or [updating the DBMS settings](./update.md#change-mongod-config):
 
 * [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling).
 * [operationProfiling.slowOpThreshold](../concepts/settings-list.md#setting-slow-op-threshold).
@@ -38,17 +37,16 @@ The use of the `all` value for `operationProfiling.mode` and a value close to `0
 
 To view the data collected by the profiler, use the `system.profile` collection in each database. Profiler collections can be read by a [user](./cluster-users.md#adduser) with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role. By default, the data is duplicated in the logs.
 
-For more information about configuring the profiler and how to interpret its results, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/database-profiler/).
 
 ### Currently running queries {#list-running-queries}
 
-To view queries not pertaining to the current user, run the [db.currentOp() query](https://docs.mongodb.com/manual/reference/method/db.currentOp/) as a user with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role:
+To view queries not pertaining to the current user, run the `db.currentOp` query as a user with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role:
 
 ```javascript
 db.currentOp()
 ```
 
-To view the current user's queries, run the `db.currentOp()` query with the `true` value to [configure](https://docs.mongodb.com/manual/reference/method/db.currentOp/#behavior) `ownOps`:
+To view the current user's queries, run the `db.currentOp()` query with `ownOps` set to `true`:
 
 ```javascript
 db.currentOp({ "$ownOps": true })
@@ -63,7 +61,7 @@ You can find the most detailed information about {{ SD }} performance in the log
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
+    1. Click the cluster name and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
 
 - CLI {#cli}
 
@@ -89,11 +87,11 @@ You can find the most detailed information about {{ SD }} performance in the log
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method to execute the following request via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -108,12 +106,12 @@ You can find the most detailed information about {{ SD }} performance in the log
 
         Where:
 
-        * `serviceType`: Type of the service to get logs for:
+        * `serviceType`: Source service type for logs:
         
           * `MONGOD`: {{ SD }} operations log.
           * `AUDIT`: Audit log.
 
-        * `columnFilter`: List of data columns:
+        * `columnFilter`: List of output columns:
 
           {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -121,20 +119,20 @@ You can find the most detailed information about {{ SD }} performance in the log
         
             {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
 
-            * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
+            * `toTime`: The end time of the time range in the same format as `fromTime`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -158,7 +156,7 @@ You can find the most detailed information about {{ SD }} performance in the log
 
         Where:
 
-        * `service_type`: Type of the service to get logs for:
+        * `service_type`: Source service type for logs:
 
           * `MONGOD`: {{ SD }} operations log.
           * `AUDIT`: Audit log.
@@ -171,10 +169,10 @@ You can find the most detailed information about {{ SD }} performance in the log
 
             {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
 
-            * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+            * `to_time`: The end time of the time range in the same format as `from_time`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.mongodb.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 {% endlist %}

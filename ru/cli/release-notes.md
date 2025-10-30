@@ -7,6 +7,30 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.173.0 (30.10.25) {#version0.173.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mch-name }}
+
+В следующие команды добавлен параметр `engine` для выбора и отображения типа движка базы данных {{ CH }}:
+  * `yc managed-clickhouse database create`
+  * `yc managed-clickhouse database get`
+  * `yc managed-clickhouse database list`
+
+##### {{ baremetal-name }}
+
+Добавлена команда `yc baremetal image` для работы с образами:
+* `yc baremetal image get`
+* `yc baremetal image list`
+
+#### Изменения в CLI {#cli}
+
+* Добавлена поддержка сервиса {{ mspqr-full-name}}. Используйте команды `yc managed-sharded-postgresql`.
+* В `yc init` добавлен параметр `userpool-id`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.172.0 (27.10.25) {#version0.172.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -19,8 +43,6 @@ description: На странице представлены релизы CLI, а
   * `yc organization-manager federation saml reactivate-user-accounts` — для разблокировки пользователей.
 
 * В команде `yc organization-manager idp user create` исправлена обработка флага `--is-active` при создании пользователя, когда пользователь создавался всегда активным.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.171.0 (20.10.25) {#version0.171.0}
 

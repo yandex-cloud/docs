@@ -111,7 +111,8 @@ Updates the specified backend group.
     },
     "cookie": {
       "name": "string",
-      "ttl": "google.protobuf.Duration"
+      "ttl": "google.protobuf.Duration",
+      "path": "string"
     }
     // end of the list of possible fields
   },
@@ -201,7 +202,8 @@ Updates the specified backend group.
     },
     "cookie": {
       "name": "string",
-      "ttl": "google.protobuf.Duration"
+      "ttl": "google.protobuf.Duration",
+      "path": "string"
     }
     // end of the list of possible fields
   },
@@ -831,6 +833,12 @@ If set to `0`, session cookies are used, which are stored by clients in temporar
 on client restarts.
 
 If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. ||
+|| path | **string**
+
+Path of cookie.
+This will be used to set the path of a new cookie when it is generated.
+
+If path is unspecified or empty, no path will be set for the cookie. ||
 |#
 
 ## GrpcBackendGroup {#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup}
@@ -1126,7 +1134,8 @@ keep connections to the failed host. ||
       },
       "cookie": {
         "name": "string",
-        "ttl": "google.protobuf.Duration"
+        "ttl": "google.protobuf.Duration",
+        "path": "string"
       }
       // end of the list of possible fields
     },
@@ -1216,7 +1225,8 @@ keep connections to the failed host. ||
       },
       "cookie": {
         "name": "string",
-        "ttl": "google.protobuf.Duration"
+        "ttl": "google.protobuf.Duration",
+        "path": "string"
       }
       // end of the list of possible fields
     },
@@ -1904,6 +1914,12 @@ If set to `0`, session cookies are used, which are stored by clients in temporar
 on client restarts.
 
 If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. ||
+|| path | **string**
+
+Path of cookie.
+This will be used to set the path of a new cookie when it is generated.
+
+If path is unspecified or empty, no path will be set for the cookie. ||
 |#
 
 ## GrpcBackendGroup {#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup2}

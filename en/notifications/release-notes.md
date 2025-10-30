@@ -5,6 +5,14 @@ description: This section contains {{ cns-name }} release notes.
 
 # {{ cns-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+Implemented [topics](concepts/topics.md) to centrally send notifications to multiple endpoints.
+
+In {{ cns-name }}, the topics format is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+
+For examples of commands for topics, refer to the [management console]({{ link-console-main }}) and the [step-by-step guide](operations/index.md#topics) sections.
+
 ## Q1 2025 {#q1-2025}
 
 * Added the option to send push notifications to browsers and progressive web applications ([PWAs](https://ru.wikipedia.org/wiki/Прогрессивное_веб-приложение)). Browser integration is available in the management console, CLI, API, and SDK.

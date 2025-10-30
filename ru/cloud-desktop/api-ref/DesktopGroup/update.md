@@ -84,6 +84,11 @@ apiPlayground:
             Update policy of the desktop group.
           $ref: '#/definitions/ManualUpdatePolicy'
       additionalProperties: false
+      oneOf:
+        - required:
+            - autoUpdatePolicy
+        - required:
+            - manualUpdatePolicy
     definitions:
       ResourcesSpec:
         type: object
@@ -121,9 +126,9 @@ apiPlayground:
               For example, you don't need to specify the IAM token in an API query.
               It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `group:organization:<id>:users`: A special system group that represents all members of organization
-              with given <id>. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `group:federation:<id>:users`: A special system group that represents all users of federation
-              with given <id>. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
               * `<cloud generated id>`: An identifier that represents a user account.
               It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `userAccount`, `federatedUser` or `serviceAccount`.
             type: string
@@ -357,9 +362,9 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
 It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
 || type | **string**

@@ -98,7 +98,6 @@ spec:
       stream:
         idleTimeout: "300s"  # close idle connections
       # HTTP router configuration
-      securityProfileID: "security-profile-id"  # WAF protection
       rbac:
         action: "ALLOW"  # access control policy
         principals:
@@ -254,7 +253,6 @@ Gateway listener configuration that combines listener and HTTP router settings.
 |-------|-------------|
 | http | **[ListenerHTTP](#listenerhttp)** <br> HTTP specific listener settings. |
 | stream | **[ListenerStream](#listenerstream)** <br> Stream specific listener settings. |
-| securityProfileID | **string** <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID that applies to all requests via HTTP router. <br> Example: `security-profile-id` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
 
 ### Listener
@@ -317,7 +315,6 @@ Route options for security and access control.
 
 | Field | Description |
 |-------|-------------|
-| securityProfileID | **string** <br> Security profile that will take effect to all requests routed via particular route. <br> Example: `security-profile-id` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
 
 ### RBAC

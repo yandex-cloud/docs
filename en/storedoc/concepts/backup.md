@@ -18,7 +18,7 @@ keywords:
 
 {{ mmg-short-name }} supports automatic and manual database backups.
 
-{{ mmg-name }} allows you to restore your cluster _to any state_ (Point-in-Time-Recovery, PITR) in the time interval between the oldest backup and the archiving of the most recent [oplog](https://www.mongodb.com/docs/manual/core/replica-set-oplog/) collection. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster oplog.
+{{ mmg-name }} allows you to restore your cluster _to any state_ (Point-in-Time-Recovery, PITR) in the time interval between the oldest backup and the archiving of the most recent `oplog` collection. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster oplog.
 
 When creating backups and restoring data from them to a given point in time, keep the following in mind:
 

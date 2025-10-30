@@ -1,6 +1,7 @@
 ---
 title: How to create a log group in {{ cloud-logging-name }}
 description: In this guide, you will learn how to create a log group in {{ cloud-logging-name }}.
+sourcePath: en/logging_includes/operations/create-group.md
 ---
 
 # Creating a log group
@@ -40,11 +41,11 @@ description: In this guide, you will learn how to create a log group in {{ cloud
 
     Where:
     * `--name`: Log group name.
-    * `--retention-period`: Retention period for log group records. This is an optional setting.
+    * `--retention-period`: Retention period for log group records. This is an optional parameter.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-    * `--data-stream`: [Data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID in {{ yds-full-name }}. This is an optional setting. The specified stream will automatically receive the records added to your log group. A stream ID comprises the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
+    * `--data-stream`: [Data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID in {{ yds-full-name }}. This is an optional parameter. The specified stream will automatically receive the records added to your log group. A stream ID comprises the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
         >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
         >* `aws_stream`: Stream name.
@@ -75,13 +76,13 @@ description: In this guide, you will learn how to create a log group in {{ cloud
 
   1. In the configuration file, describe the resources you want to create:
 
-     * `name`: [Log group](../concepts/log-group.md) name. This is an optional setting. Follow these naming requirements:
+     * `name`: [Log group](../concepts/log-group.md) name. This is an optional parameter. Use the following name format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
+     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value defined by the provider.
 
-     * `retention_period`: Retention period for log group records. This is an optional setting.
+     * `retention_period`: Retention period for log group records. This is an optional parameter.
 
          {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
@@ -102,7 +103,7 @@ description: In this guide, you will learn how to create a log group in {{ cloud
      }
      ```
 
-     For more information about the `yandex_logging_group` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
+     For more information about the `yandex_logging_group` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/logging_group).
 
   1. Make sure the configuration files are correct.
 
@@ -113,17 +114,17 @@ description: In this guide, you will learn how to create a log group in {{ cloud
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors found in the configuration. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration has no errors, run this command:
+     1. If the configuration does not contain any errors, run this command:
 
         ```
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

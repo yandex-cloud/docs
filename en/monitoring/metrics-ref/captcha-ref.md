@@ -2,6 +2,7 @@
 title: '{{ captcha-full-name }} metrics'
 description: In this tutorial, you will learn about {{ captcha-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/captcha-ref.md
 ---
 
 # {{ captcha-full-name }} metrics

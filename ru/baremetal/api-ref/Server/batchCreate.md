@@ -44,6 +44,7 @@ apiPlayground:
           description: |-
             **string**
             A period of time for which the server is rented.
+            To get the rental period ID, use a [RentalPeriodService.List](/docs/baremetal/api-ref/RentalPeriod/list#List) request.
           type: string
         networkInterfaces:
           description: |-
@@ -54,62 +55,13 @@ apiPlayground:
             optional public network interface.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  privateSubnet:
-                    description: |-
-                      **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
-                      Private subnet.
-                      Includes only one of the fields `privateSubnet`, `publicSubnet`.
-                      Subnet that the network interface belongs to.
-                    $ref: '#/definitions/PrivateSubnetNetworkInterface'
-                  publicSubnet:
-                    description: |-
-                      **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
-                      Public subnet.
-                      Includes only one of the fields `privateSubnet`, `publicSubnet`.
-                      Subnet that the network interface belongs to.
-                    $ref: '#/definitions/PublicSubnetNetworkInterface'
+            $ref: '#/definitions/NetworkInterfaceSpec'
         osSettingsSpec:
           description: |-
             **[OsSettingsSpec](#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
             Operating system specific settings for provisioning the server. Optional, if omitted, the
             server will be created without an operating system.
-          oneOf:
-            - type: object
-              properties:
-                sshPublicKey:
-                  description: |-
-                    **string**
-                    Public SSH key for the server.
-                    Includes only one of the fields `sshPublicKey`, `userSshId`.
-                    Root user SSH key.
-                  type: string
-                userSshId:
-                  description: |-
-                    **string**
-                    ID of the user SSH key to use for the server.
-                    To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/UserSshKey/list#List) request.
-                    Includes only one of the fields `sshPublicKey`, `userSshId`.
-                    Root user SSH key.
-                  type: string
-            - type: object
-              properties:
-                passwordPlainText:
-                  description: |-
-                    **string**
-                    Raw password.
-                    Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
-                    Password for the server.
-                  type: string
-                passwordLockboxSecret:
-                  description: |-
-                    **[LockboxSecret](#yandex.cloud.baremetal.v1alpha.LockboxSecret)**
-                    Reference to the Lockbox secret used to obtain the password.
-                    Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
-                    Password for the server.
-                  $ref: '#/definitions/LockboxSecret'
+          $ref: '#/definitions/OsSettingsSpec'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
@@ -150,6 +102,145 @@ apiPlayground:
               ID of the public subnet.
               A new ephemeral public subnet will be created if not specified.
             type: string
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the network interface. Should not be specified when creating a server.
+            pattern: ([a-z][a-z0-9]*)?
+            type: string
+          privateSubnet:
+            description: |-
+              **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
+              Private subnet.
+              Includes only one of the fields `privateSubnet`, `publicSubnet`.
+              Subnet that the network interface belongs to.
+            $ref: '#/definitions/PrivateSubnetNetworkInterface'
+          publicSubnet:
+            description: |-
+              **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
+              Public subnet.
+              Includes only one of the fields `privateSubnet`, `publicSubnet`.
+              Subnet that the network interface belongs to.
+            $ref: '#/definitions/PublicSubnetNetworkInterface'
+        oneOf:
+          - required:
+              - privateSubnet
+          - required:
+              - publicSubnet
+      StoragePartition:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (StoragePartitionType)
+              Partition type.
+              - `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
+              - `EXT4`: ext4 file system partition type.
+              - `SWAP`: Swap partition type.
+              - `EXT3`: ext3 file system partition type.
+              - `XFS`: XFS file system partition type.
+            type: string
+            enum:
+              - STORAGE_PARTITION_TYPE_UNSPECIFIED
+              - EXT4
+              - SWAP
+              - EXT3
+              - XFS
+          sizeGib:
+            description: |-
+              **string** (int64)
+              Size of the storage partition in gibibytes (2^30 bytes).
+            type: string
+            format: int64
+          mountPoint:
+            description: |-
+              **string**
+              Storage mount point.
+            type: string
+      Disk:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the disk.
+            type: string
+          type:
+            description: |-
+              **enum** (DiskDriveType)
+              Type of the disk drive.
+              - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
+              - `HDD`: Hard disk drive (magnetic storage).
+              - `SSD`: Solid state drive with SATA/SAS interface.
+              - `NVME`: Solid state drive with NVMe interface.
+            type: string
+            enum:
+              - DISK_DRIVE_TYPE_UNSPECIFIED
+              - HDD
+              - SSD
+              - NVME
+          sizeGib:
+            description: |-
+              **string** (int64)
+              Size of the disk in gibibytes (2^30 bytes).
+            type: string
+            format: int64
+      Raid:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (RaidType)
+              RAID type.
+              - `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
+              - `RAID0`: RAID0 configuration.
+              - `RAID1`: RAID1 configuration.
+              - `RAID10`: RAID10 configuration.
+            type: string
+            enum:
+              - RAID_TYPE_UNSPECIFIED
+              - RAID0
+              - RAID1
+              - RAID10
+          disks:
+            description: |-
+              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+              Array of disks in the RAID configuration.
+            type: array
+            items:
+              $ref: '#/definitions/Disk'
+      Storage:
+        type: object
+        properties:
+          partitions:
+            description: |-
+              **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
+              Array of partitions created on the storage.
+            type: array
+            items:
+              $ref: '#/definitions/StoragePartition'
+          disk:
+            description: |-
+              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+              Disk storage.
+              Includes only one of the fields `disk`, `raid`.
+              Storage type.
+            $ref: '#/definitions/Disk'
+          raid:
+            description: |-
+              **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
+              RAID storage.
+              Includes only one of the fields `disk`, `raid`.
+              Storage type.
+            $ref: '#/definitions/Raid'
+        oneOf:
+          - required:
+              - disk
+          - required:
+              - raid
       LockboxSecret:
         type: object
         properties:
@@ -172,6 +263,63 @@ apiPlayground:
         required:
           - secretId
           - key
+      OsSettingsSpec:
+        type: object
+        properties:
+          imageId:
+            description: |-
+              **string**
+              ID of the image that the server was created from.
+            pattern: '[a-z][a-z0-9]*'
+            type: string
+          storages:
+            description: |-
+              **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
+              List of storages to be created on the server. If not specified, the default value based on the
+              selected configuration will be used as the field value.
+            type: array
+            items:
+              $ref: '#/definitions/Storage'
+          sshPublicKey:
+            description: |-
+              **string**
+              Public SSH key for the server.
+              Includes only one of the fields `sshPublicKey`, `userSshId`.
+              Root user SSH key.
+            type: string
+          userSshId:
+            description: |-
+              **string**
+              ID of the user SSH key to use for the server.
+              To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/UserSshKey/list#List) request.
+              Includes only one of the fields `sshPublicKey`, `userSshId`.
+              Root user SSH key.
+            type: string
+          passwordPlainText:
+            description: |-
+              **string**
+              Raw password.
+              Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
+              Password for the server.
+            type: string
+          passwordLockboxSecret:
+            description: |-
+              **[LockboxSecret](#yandex.cloud.baremetal.v1alpha.LockboxSecret)**
+              Reference to the Lockbox secret used to obtain the password.
+              Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
+              Password for the server.
+            $ref: '#/definitions/LockboxSecret'
+        allOf:
+          - oneOf:
+              - required:
+                  - sshPublicKey
+              - required:
+                  - userSshId
+          - oneOf:
+              - required:
+                  - passwordPlainText
+              - required:
+                  - passwordLockboxSecret
 sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Server/batchCreate.md
 ---
 
@@ -282,7 +430,9 @@ ID of the configuration to use for the server.
 To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request. ||
 || rentalPeriodId | **string**
 
-A period of time for which the server is rented. ||
+A period of time for which the server is rented.
+
+To get the rental period ID, use a [RentalPeriodService.List](/docs/baremetal/api-ref/RentalPeriod/list#List) request. ||
 || networkInterfaces[] | **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
 
 Network configuration for the server. Specifies how the network interface is configured

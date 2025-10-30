@@ -69,6 +69,8 @@ items:
     href: functions/index.yaml
   - name: '{{ foundation-models-name }}'
     href: ai-studio/index.yaml
+  - name: '{{ gost-gateway-name }}'
+    href: gost-gateway/index.yaml
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core

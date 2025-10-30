@@ -70,25 +70,59 @@ apiPlayground:
           description: |-
             **[LogOptions](#yandex.cloud.serverless.eventrouter.v1.LogOptions)**
             New options for logging from the bus.
-          oneOf:
-            - type: object
-              properties:
-                logGroupId:
-                  description: |-
-                    **string**
-                    Entry will be written to log group resolved by ID.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  type: string
-                folderId:
-                  description: |-
-                    **string**
-                    Entry will be written to default log group for specified folder.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  type: string
+          $ref: '#/definitions/LogOptions'
       additionalProperties: false
-    definitions: null
+    definitions:
+      LogOptions:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Entry will be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry will be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/update.md
 ---
 

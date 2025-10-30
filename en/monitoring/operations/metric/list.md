@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/metric/list.md
+---
 # Getting a list of metrics
 
 To get a list of metrics that belong to a specific cloud and folder, use the [listMetrics](../../api-ref/MetricsMeta/listMetrics.md) method.

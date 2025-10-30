@@ -1,7 +1,7 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
@@ -17,7 +17,7 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
-      - name: Activating a {{ k8s }} {{ TF }} provider
+      - name: Activating the {{ k8s }} {{ TF }} provider
         href: operations/apply-tf-provider.md
       - name: >-
           Installing applications from {{ marketplace-full-name }} using {{ TF
@@ -31,7 +31,7 @@ items:
             href: operations/connect/security-groups.md
           - name: Creating a static configuration file
             href: operations/connect/create-static-conf.md
-      - name: Installing apps from {{ marketplace-name }}
+      - name: Installing applications from {{ marketplace-name }}
         items:
           - name: Getting started with {{ marketplace-name }}
             href: operations/applications/marketplace.md
@@ -61,7 +61,7 @@ items:
             href: operations/applications/gatekeeper.md
           - name: Installing Gateway API
             href: operations/applications/gateway-api.md
-          - name: Installing the {{ GL }} Agent
+          - name: Installing the {{ GL }} agent
             href: operations/applications/gitlab-agent.md
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
@@ -125,7 +125,7 @@ items:
             href: operations/volumes/manage-storage-class.md
           - name: Encrypted disks for persistent volumes
             href: operations/volumes/encrypted-disks.md
-          - name: Expanding a pod volume
+          - name: Expanding a volume for pods
             href: operations/volumes/volume-expansion.md
           - name: Mounting a volume in block mode
             href: operations/volumes/mode-block.md
@@ -146,7 +146,7 @@ items:
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Managing {{ k8s }} cluster access
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
-          - name: Monitoring the cluster state {{ k8s }}
+          - name: Monitoring {{ k8s }} cluster state
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
@@ -192,7 +192,7 @@ items:
         href: tutorials/running-pod-gpu.md
       - name: Using node groups with GPUs and no pre-installed drivers
         href: tutorials/driverless-gpu.md
-      - name: Setting up Time-Slicing GPUs
+      - name: Setting up time-slicing GPUs
         href: tutorials/time-slicing-gpu.md
       - name: Migrating resources to a different availability zone
         href: tutorials/migration-to-an-availability-zone.md
@@ -214,9 +214,9 @@ items:
         href: tutorials/wlif-managed-k8s-integration.md
       - name: Setting up and testing scaling
         items:
-          - name: Horizontal application scaling in a cluster
+          - name: Horizontal scaling of an application in a cluster
             href: tutorials/autoscaling.md
-          - name: Vertical application scaling in a cluster
+          - name: Vertical scaling of an application in a cluster
             href: tutorials/vpa-autoscaling.md
           - name: Updating the Metrics Server parameters
             href: tutorials/metrics-server.md
@@ -238,7 +238,7 @@ items:
             href: tutorials/sign-cr-with-cosign.md
           - name: Storing Docker images created in {{ mgl-name }} projects
             href: tutorials/image-storage.md
-      - name: Usage {{ mkf-name }}
+      - name: Using {{ mkf-name }}
         items:
           - name: Deploying the {{ KF }} web interface
             href: tutorials/deploy-kafka-ui.md
@@ -256,13 +256,15 @@ items:
         items:
           - name: Integration with a corporate DNS zone
             href: tutorials/custom-dns.md
-          - name: DNS autoscaling based on cluster size
+          - name: DNS autoscaling based on the cluster size
             href: tutorials/dns-autoscaler.md
           - name: Setting up NodeLocal DNS Cache
             href: tutorials/node-local-dns.md
           - name: DNS Challenge for Let's Encrypt® certificates
             href: tutorials/dnschallenge.md
-          - name: Creating an ACME resolver webhook for responses to DNS01 checks
+          - name: >-
+              Creating an ACME resolver webhook for responses to DNS01
+              challenges
             href: tutorials/cert-manager-webhook.md
       - name: Backups
         items:
@@ -294,9 +296,7 @@ items:
             href: tutorials/fluent-bit-logging.md
           - name: Setting up Gateway API
             href: tutorials/marketplace/gateway-api.md
-          - name: >-
-              Configuring an L7 {{ alb-name }} with the help of an ingress
-              controller
+          - name: Configuring an L7 {{ alb-name }} using an ingress controller
             href: tutorials/alb-ingress-controller.md
           - name: Configuring L7 {{ alb-name }} logging via an ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
@@ -305,10 +305,10 @@ items:
               an {{ alb-name }} ingress controller
             href: tutorials/alb-ingress-with-sws-profile.md
           - name: >-
-              Performing health checks on {{ managed-k8s-name }} cluster
-              applications via an L7 {{ alb-name }}
+              Health checking applications in a {{ managed-k8s-name }} cluster
+              via an L7 {{ alb-name }}
             href: tutorials/custom-health-checks.md
-          - name: Using Jaeger to trace requests in {{ ydb-name }}
+          - name: Using Jaeger to trace queries in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Setting up Kyverno &amp; Kyverno Policies
             href: tutorials/marketplace/kyverno.md
@@ -358,7 +358,7 @@ items:
         href: concepts/external-nodes.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: '{{ managed-k8s-name }} usage recommendations'
+      - name: Recommendations on using {{ managed-k8s-name }}
         href: concepts/usage-recommendations.md
   - name: Access management
     href: security/index.md

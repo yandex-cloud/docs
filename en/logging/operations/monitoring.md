@@ -1,3 +1,6 @@
+---
+sourcePath: en/logging_includes/operations/monitoring.md
+---
 # Viewing log group monitoring charts
 
 You can monitor how records are added to a log group with the monitoring tools in the management console. These tools display diagnostic information as charts.

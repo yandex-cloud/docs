@@ -5,7 +5,7 @@ description: You can connect to {{ ydb-short-name }} via an MCP server and use L
 
 # How to use LLMs to work with {{ ydb-full-name }} via an MCP server: Cursor IDE example
 
-In this tutorial, you will learn how to work with a {{ ydb-short-name }} database using LLMs. This will allow you to manage your database using natural language: fix errors, optimize the DB, and analyze data. 
+In this tutorial, you will learn how to work with a {{ ydb-short-name }} database using LLMs. This will allow you to manage your database using a human language to fix errors, optimize the DB, and analyze data.
 
 As an example, we will take a cloud-based or local {{ ydb-short-name }} instance that you will connect to via a MCP server running on your machine. We will use the Cursor IDE to access the MCP server and integrate an LLM for natural language processing. You can easily write and send queries in your native language, and the model, along with the MCP server, will convert them into accurate SQL queries for YDB and assist with error correction and optimizations.
 
@@ -24,7 +24,7 @@ As an example, we will take a cloud-based or local {{ ydb-short-name }} instance
 
 **LLM**: Large language model, e.g, YandexGPT. It can generate text, but cannot connect to external systems, such as databases, on its own. To enable access to such systems, you need an MCP client, e.g., `Cursor`, that connects to an MCP server which, in turn, interacts with the database.  
 
-**MCP (Model Context Protocol)**: Open protocol an MCP client uses to connect to an MCP server and enable LLM access to external systems. .
+**MCP (Model Context Protocol)**: Open protocol an MCP client uses to connect to an MCP server and enable LLM access to external systems. For more information on MCP, see this page.
 
 **MCP client**: Software connecting an LLM with an MCP server and integrating MCP server tools in a dialog for the LLM to use. In this tutorial, we are using the `Cursor` IDE as an MCP client.  
 
@@ -32,9 +32,9 @@ As an example, we will take a cloud-based or local {{ ydb-short-name }} instance
 
 **ydb-mcp**: MCP server implemented by the {{ ydb-short-name }} team. 
 
-For different operations, ydb-mcp offers different tools, e.g., `ydb_status` tests the connection and `ydb_query` sends queries. These tools are similar to API functions: you provide them with parameters and get a result in response.
+For different operations, ydb-mcp offers different tools, e.g., `ydb_status` tests the connection, and `ydb_query` sends queries. These tools are similar to API functions: you feed them parameters and get a result.
 
-Developers’ work is similar: for a single API, each of them would create different code. In the case of LLMs, the result depends not only on the MCP server but also the model’s capabilities.
+It is the same with developers: with the same API, each one will have different code. In the case of LLMs, the result depends not only on the MCP server but also the model’s capabilities.
 
 ## Getting started {#before-start}
 
@@ -50,7 +50,6 @@ You can use this tutorial with other IDEs or models. Here, we selected Cursor as
 
 {% endnote %}
 
-
 ## Preparing the environment {#prepare}
 
 1. Install the [Cursor IDE](https://cursor.com/).
@@ -61,7 +60,7 @@ You can use this tutorial with other IDEs or models. Here, we selected Cursor as
 
 1. Clone the project from the [ydb-mcp-demo-notes](https://github.com/ydb-platform/ydb-mcp-demo-notes) repository. If Git is not installed, download and unpack [main.zip](https://github.com/ydb-platform/ydb-mcp-demo-notes/archive/refs/heads/main.zip).
 1. Open the project folder in the Cursor IDE: in the **File** menu, select **Open Folder** and specify the project folder.
-1. Open the terminal (*View → Terminal* menu or `Ctrl/Cmd + Backtick` shortcut).
+1. Open the terminal (*View → Terminal* or **Ctrl/Cmd** + **Backtick**).
 1. In the project folder, run the `docker compose build` command in the terminal to build the project’s containers.
 
 
@@ -140,12 +139,12 @@ If working with a local Docker container, skip this section.
 
 {% endlist %}
 
+
 {% note warning %}
 
 The `authorized_key.json` file contains the key’s secret part that you can use to access databases in your folder. Keep it secure. In the demo project, it is already added to `.gitignore`.
 
 {% endnote %}
-
 
 ### Specify settings database connection settings in ydb.env {#connection-settings-env}
 
@@ -153,8 +152,7 @@ If working with a local Docker container, skip this section.
 
 1. Copy the `ydb-template.env` file to `ydb.env`.
 1. Fill in the parameters for the connection to the database you created earlier:
-
-    - `YDB_AUTH_MODE=service-accountL`: Key name (`authorized_key.json`) is built into the example; you do not needed to specify it.
+    - `YDB_AUTH_MODE=service-account`: The key name (`authorized_key.json`) is built into the example; you do not needed to specify it.
     - `YDB_ENDPOINT` and `YDB_DATABASE`: Get values from the database info.
 
 
@@ -177,7 +175,7 @@ The parameters for starting the MCP server are already set in the `.cursor/mcp.j
 1. Navigate to **MCP & Settings**.
 1. Toggle on the switch next to **ydb**. If it is already on, toggle it off, then on again, so that the MCP server restarts with new settings.
 1. After it starts, next to the **ydb** MCP server, you will see a list of tools and an icon indicating the server is running.
-1. Test the connection: Open the AI panel on the right (`Ctrl/Cmd + L`) and enter this message in the chat: "Check the connection to {{ ydb-short-name }}". The output should inform you that the connection works correctly.
+1. Test the connection by opening the AI panel on the right (**Ctrl/Cmd** + **L**) and entering this in the chat: "Check connection to {{ ydb-short-name }}". The output should inform you that the connection works correctly.
 
 
 ### Select a model {#select-model}
@@ -188,7 +186,7 @@ In the chat window under the input field, find the **Auto** sign, click it, and 
 
 You will see a list of available models: select a model from the `claude-` family, e.g., `claude-4-sonnet` or a newer version.
 
-The LLM you select does not affect the MCP server performance. However, the steps and result directly depend on the choice of a model, as it determines which operations to perform via MCP. Examples in this tutorial were tested using `claude-4-sonnet` in `Auto` mode, but you can try other models as well.
+The LLM you select does not affect the MCP server performance. However, the steps and the result are directly affected by the choice of model: it is the model that decides which operations to perform via MCP. Examples in this tutorial were tested using `claude-4-sonnet` in `Auto` mode, but you can try other models as well.
 
 
 ## Working with YDB MCP {#ydb-mcp-examples}
@@ -208,22 +206,21 @@ Here is how it works:
 
 1. Cursor provides the description of the MCP server and its tools to the model.
 1. The LLM uses the `ydb_status` tool to test the database connection.  
-1. With `ydb_query`, the LLM sends queries to add rows. This YQL query must be accurate: sometimes, it is not accepted on the first attempt. In this case, the model rewrites the query based on the error text and makes another attempt. The number of attempts depends on the model you use and the query quality. On your side, no actions are required: the model fixes the errors on its own and, finally, adds the required number of notes.
+1. The LLM uses `ydb_query` to send queries to add rows. This YQL query must be accurate: sometimes it is not accepted on first try. In which case the model rewrites the query based on the error text and tries again. The number of attempts depends on the model and the quality of the query. You do not need to intervene: the model will fix the errors all by itself and, finally, add the required number of notes.
 
 To check the results, run the `docker compose run --rm notes-app list` command. You will see the notes the LLM has created. You can use this method to populate more complex databases as well.
 
 
 ### Fixing errors using the MCP server {#fix-code-with-mcp}
 
-You can use LLMs not only to write code or populate a database, but also to fix errors. This way, you can troubleshoot errors in data, a database schema, or application source code. To demonstrate how it works, let’s create an error on purpose by **renaming a table** in the database. 
+You can use LLMs not only to write code or populate a database, but also to fix errors. This way, you can troubleshoot errors in data, a database schema, or application source code. To demonstrate how it works, let’s create an error on purpose by **renaming a table** in the database.
 
-Without MCP, the LLM would have only the source code and error text. In this case, it would suggest rerunning the `init` command or creating a table via a query. With MCP, there are more options: the model can request the database schema and perform any operations, e.g., undo the table renaming or copy the table.
+Without MCP, the LLM would have only the source code and error text. In this case, it would suggest rerunning the `init` command or creating a table via a query. With MCP, there are more options: the model can request the database schema and perform any operation, e.g., undo table renaming or copy the table.
 
 
 #### Fixing a database schema {#fix-database-with-mcp}
 
 To simulate an error, rename the table:
-
 1. Log in to the [management console]({{ link-console-main }}).
 1. Go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and open your database.
 1. Click **{{ ui-key.yacloud.ydb.database.switch_browse }}**, then **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**, and run this query to [rename the table](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename):

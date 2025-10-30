@@ -64,42 +64,12 @@ apiPlayground:
           description: |-
             **[LoggingConfig](#yandex.cloud.trino.v1.LoggingConfig)**
             Cloud logging configuration.
-          oneOf:
-            - type: object
-              properties:
-                folderId:
-                  description: |-
-                    **string**
-                    Logs should be written to default log group for specified folder.
-                    Includes only one of the fields `folderId`, `logGroupId`.
-                    Destination of log records.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
-                logGroupId:
-                  description: |-
-                    **string**
-                    Logs should be written to log group resolved by ID.
-                    Includes only one of the fields `folderId`, `logGroupId`.
-                    Destination of log records.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
+          $ref: '#/definitions/LoggingConfig'
         maintenanceWindow:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.trino.v1.MaintenanceWindow)**
             Window of maintenance operations.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.trino.v1.WeeklyMaintenanceWindow)**
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
       required:
         - folderId
         - name
@@ -108,6 +78,29 @@ apiPlayground:
         - serviceAccountId
       additionalProperties: false
     definitions:
+      HiveMetastore:
+        type: object
+        properties:
+          uri:
+            description: |-
+              **string**
+              URI or cluster ID of the Hive Metastore.
+              Includes only one of the fields `uri`.
+            type: string
+        oneOf:
+          - required:
+              - uri
+      Metastore:
+        type: object
+        properties:
+          hive:
+            description: |-
+              **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
+              Includes only one of the fields `hive`.
+            $ref: '#/definitions/HiveMetastore'
+        oneOf:
+          - required:
+              - hive
       S3FileSystem:
         type: object
         properties: {}
@@ -139,6 +132,24 @@ apiPlayground:
           - awsSecretKey
           - awsEndpoint
           - awsRegion
+      FileSystem:
+        type: object
+        properties:
+          s3:
+            description: |-
+              **object**
+              Includes only one of the fields `s3`, `externalS3`.
+            $ref: '#/definitions/S3FileSystem'
+          externalS3:
+            description: |-
+              **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
+              Includes only one of the fields `s3`, `externalS3`.
+            $ref: '#/definitions/ExternalS3FileSystem'
+        oneOf:
+          - required:
+              - s3
+          - required:
+              - externalS3
       HiveConnector:
         type: object
         properties:
@@ -146,39 +157,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -204,39 +188,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -262,39 +219,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -369,6 +299,24 @@ apiPlayground:
         required:
           - connectionId
           - database
+      PostgresqlConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/OnPremise'
+          connectionManager:
+            description: |-
+              **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/ConnectionManager'
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManager
       PostgresqlConnector:
         type: object
         properties:
@@ -376,19 +324,7 @@ apiPlayground:
             description: |-
               **[PostgresqlConnection](#yandex.cloud.trino.v1.PostgresqlConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/OnPremise'
-                  connectionManager:
-                    description: |-
-                      **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/ConnectionManager'
+            $ref: '#/definitions/PostgresqlConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -404,6 +340,24 @@ apiPlayground:
               maxLength: 128
               minLength: 1
             maxProperties: 256
+      ClickhouseConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/OnPremise'
+          connectionManager:
+            description: |-
+              **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/ConnectionManager'
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManager
       ClickhouseConnector:
         type: object
         properties:
@@ -411,19 +365,7 @@ apiPlayground:
             description: |-
               **[ClickhouseConnection](#yandex.cloud.trino.v1.ClickhouseConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/OnPremise'
-                  connectionManager:
-                    description: |-
-                      **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/ConnectionManager'
+            $ref: '#/definitions/ClickhouseConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -475,6 +417,17 @@ apiPlayground:
               maxLength: 128
               minLength: 1
             maxProperties: 256
+      OracleConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`.
+            $ref: '#/definitions/OnPremise'
+        oneOf:
+          - required:
+              - onPremise
       OracleConnector:
         type: object
         properties:
@@ -482,14 +435,7 @@ apiPlayground:
             description: |-
               **[OracleConnection](#yandex.cloud.trino.v1.OracleConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`.
-                    $ref: '#/definitions/OnPremise'
+            $ref: '#/definitions/OracleConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -505,6 +451,17 @@ apiPlayground:
               maxLength: 128
               minLength: 1
             maxProperties: 256
+      SQLServerConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`.
+            $ref: '#/definitions/OnPremise'
+        oneOf:
+          - required:
+              - onPremise
       SQLServerConnector:
         type: object
         properties:
@@ -512,14 +469,7 @@ apiPlayground:
             description: |-
               **[SQLServerConnection](#yandex.cloud.trino.v1.SQLServerConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`.
-                    $ref: '#/definitions/OnPremise'
+            $ref: '#/definitions/SQLServerConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -542,39 +492,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -593,6 +516,90 @@ apiPlayground:
         required:
           - metastore
           - filesystem
+      Connector:
+        type: object
+        properties:
+          hive:
+            description: |-
+              **[HiveConnector](#yandex.cloud.trino.v1.HiveConnector)**
+              Hive connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/HiveConnector'
+          iceberg:
+            description: |-
+              **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
+              Iceberg connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/IcebergConnector'
+          deltaLake:
+            description: |-
+              **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
+              Delta Lake connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/DeltaLakeConnector'
+          postgresql:
+            description: |-
+              **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
+              PostgreSQL connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/PostgresqlConnector'
+          clickhouse:
+            description: |-
+              **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
+              ClickHouse connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/ClickhouseConnector'
+          tpch:
+            description: |-
+              **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
+              TPC-H connector for synthetic benchmarking.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/TPCHConnector'
+          tpcds:
+            description: |-
+              **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
+              TPC-DS connector for synthetic benchmarking.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/TPCDSConnector'
+          oracle:
+            description: |-
+              **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
+              Oracle connector configuration for connecting to Oracle Database instances.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/OracleConnector'
+          sqlserver:
+            description: |-
+              **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
+              SQLServer connector configuration for connecting to SQLServer Database instances.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/SQLServerConnector'
+          hudi:
+            description: |-
+              **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
+              Hudi connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/HudiConnector'
+        oneOf:
+          - required:
+              - hive
+          - required:
+              - iceberg
+          - required:
+              - deltaLake
+          - required:
+              - postgresql
+          - required:
+              - clickhouse
+          - required:
+              - tpch
+          - required:
+              - tpcds
+          - required:
+              - oracle
+          - required:
+              - sqlserver
+          - required:
+              - hudi
       CatalogSpec:
         type: object
         properties:
@@ -607,69 +614,7 @@ apiPlayground:
             description: |-
               **[Connector](#yandex.cloud.trino.v1.Connector)**
               Required field. Connector backing this catalog.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveConnector](#yandex.cloud.trino.v1.HiveConnector)**
-                      Hive connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/HiveConnector'
-                  iceberg:
-                    description: |-
-                      **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
-                      Iceberg connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/IcebergConnector'
-                  deltaLake:
-                    description: |-
-                      **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
-                      Delta Lake connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/DeltaLakeConnector'
-                  postgresql:
-                    description: |-
-                      **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
-                      PostgreSQL connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/PostgresqlConnector'
-                  clickhouse:
-                    description: |-
-                      **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
-                      ClickHouse connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/ClickhouseConnector'
-                  tpch:
-                    description: |-
-                      **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
-                      TPC-H connector for synthetic benchmarking.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/TPCHConnector'
-                  tpcds:
-                    description: |-
-                      **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
-                      TPC-DS connector for synthetic benchmarking.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/TPCDSConnector'
-                  oracle:
-                    description: |-
-                      **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
-                      Oracle connector configuration for connecting to Oracle Database instances.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/OracleConnector'
-                  sqlserver:
-                    description: |-
-                      **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
-                      SQLServer connector configuration for connecting to SQLServer Database instances.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/SQLServerConnector'
-                  hudi:
-                    description: |-
-                      **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
-                      Hudi connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/HudiConnector'
+            $ref: '#/definitions/Connector'
           description:
             description: |-
               **string**
@@ -733,6 +678,32 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      WorkerScalePolicy:
+        type: object
+        properties:
+          fixedScale:
+            description: |-
+              **[FixedScalePolicy](#yandex.cloud.trino.v1.FixedScalePolicy)**
+              A fixed scaling policy that specifies a fixed number of worker instances.
+              Includes only one of the fields `fixedScale`, `autoScale`.
+              Defines the scaling type for worker instances.
+              Only one type of scaling can be specified at a time.
+            $ref: '#/definitions/FixedScalePolicy'
+          autoScale:
+            description: |-
+              **[AutoScalePolicy](#yandex.cloud.trino.v1.AutoScalePolicy)**
+              A scaling policy that dynamically adjusts the number of worker instances
+              based on the cluster's workload. The system automatically increases or
+              decreases the number of instances within the defined range.
+              Includes only one of the fields `fixedScale`, `autoScale`.
+              Defines the scaling type for worker instances.
+              Only one type of scaling can be specified at a time.
+            $ref: '#/definitions/AutoScalePolicy'
+        oneOf:
+          - required:
+              - fixedScale
+          - required:
+              - autoScale
       WorkerConfig:
         type: object
         properties:
@@ -745,33 +716,25 @@ apiPlayground:
             description: |-
               **[WorkerScalePolicy](/docs/managed-trino/api-ref/Cluster/update#yandex.cloud.trino.v1.UpdateWorkerConfig.WorkerScalePolicy)**
               Required field. Configuration for scaling policy for worker instances.
-            oneOf:
-              - type: object
-                properties:
-                  fixedScale:
-                    description: |-
-                      **[FixedScalePolicy](#yandex.cloud.trino.v1.FixedScalePolicy)**
-                      A fixed scaling policy that specifies a fixed number of worker instances.
-                      Includes only one of the fields `fixedScale`, `autoScale`.
-                      Defines the scaling type for worker instances.
-                      Only one type of scaling can be specified at a time.
-                    $ref: '#/definitions/FixedScalePolicy'
-                  autoScale:
-                    description: |-
-                      **[AutoScalePolicy](#yandex.cloud.trino.v1.AutoScalePolicy)**
-                      A scaling policy that dynamically adjusts the number of worker instances
-                      based on the cluster's workload. The system automatically increases or
-                      decreases the number of instances within the defined range.
-                      Includes only one of the fields `fixedScale`, `autoScale`.
-                      Defines the scaling type for worker instances.
-                      Only one type of scaling can be specified at a time.
-                    $ref: '#/definitions/AutoScalePolicy'
+            $ref: '#/definitions/WorkerScalePolicy'
         required:
           - resources
           - scalePolicy
       ServiceS3:
         type: object
         properties: {}
+      ExchangeManagerStorage:
+        type: object
+        properties:
+          serviceS3:
+            description: |-
+              **object**
+              Use service side s3 bucket for exchange manager.
+              Includes only one of the fields `serviceS3`.
+            $ref: '#/definitions/ServiceS3'
+        oneOf:
+          - required:
+              - serviceS3
       ExchangeManagerConfig:
         type: object
         properties:
@@ -792,15 +755,7 @@ apiPlayground:
             maxProperties: 256
           storage:
             description: '**[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)**'
-            oneOf:
-              - type: object
-                properties:
-                  serviceS3:
-                    description: |-
-                      **object**
-                      Use service side s3 bucket for exchange manager.
-                      Includes only one of the fields `serviceS3`.
-                    $ref: '#/definitions/ServiceS3'
+            $ref: '#/definitions/ExchangeManagerStorage'
       RetryPolicyConfig:
         type: object
         properties:
@@ -854,6 +809,34 @@ apiPlayground:
             type: array
             items:
               type: string
+      CatalogAccessRuleMatcher:
+        type: object
+        properties:
+          nameRegexp:
+            description: |-
+              **string**
+              Catalog name regexp the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `ids`, `names`.
+            type: string
+          ids:
+            description: |-
+              **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
+              Catalog IDs rule is applied to.
+              Includes only one of the fields `nameRegexp`, `ids`, `names`.
+            $ref: '#/definitions/CatalogIds'
+          names:
+            description: |-
+              **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
+              Catalog names rule is applied to.
+              Includes only one of the fields `nameRegexp`, `ids`, `names`.
+            $ref: '#/definitions/CatalogNames'
+        oneOf:
+          - required:
+              - nameRegexp
+          - required:
+              - ids
+          - required:
+              - names
       CatalogAccessRule:
         type: object
         properties:
@@ -879,27 +862,7 @@ apiPlayground:
             description: |-
               **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
               Catalog matcher specifying what catalogs the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Catalog name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    type: string
-                  ids:
-                    description: |-
-                      **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
-                      Catalog IDs rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogIds'
-                  names:
-                    description: |-
-                      **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
-                      Catalog names rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogNames'
+            $ref: '#/definitions/CatalogAccessRuleMatcher'
           permission:
             description: |-
               **enum** (Permission)
@@ -931,6 +894,26 @@ apiPlayground:
             type: array
             items:
               type: string
+      SchemaAccessRuleMatcher:
+        type: object
+        properties:
+          nameRegexp:
+            description: |-
+              **string**
+              Schema name regexp the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            type: string
+          names:
+            description: |-
+              **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
+              Schema names the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            $ref: '#/definitions/SchemaNames'
+        oneOf:
+          - required:
+              - nameRegexp
+          - required:
+              - names
       SchemaAccessRule:
         type: object
         properties:
@@ -956,46 +939,12 @@ apiPlayground:
             description: |-
               **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
               Catalog matcher specifying what catalogs the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Catalog name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    type: string
-                  ids:
-                    description: |-
-                      **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
-                      Catalog IDs rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogIds'
-                  names:
-                    description: |-
-                      **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
-                      Catalog names rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogNames'
+            $ref: '#/definitions/CatalogAccessRuleMatcher'
           schema:
             description: |-
               **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
               Schema matcher specifying what schemas the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Schema name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
-                      Schema names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/SchemaNames'
+            $ref: '#/definitions/SchemaAccessRuleMatcher'
           owner:
             description: |-
               **enum** (Owner)
@@ -1025,6 +974,26 @@ apiPlayground:
             type: array
             items:
               type: string
+      TableAccessRuleMatcher:
+        type: object
+        properties:
+          nameRegexp:
+            description: |-
+              **string**
+              Table name regexp the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            type: string
+          names:
+            description: |-
+              **[TableNames](#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames)**
+              Table names the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            $ref: '#/definitions/TableNames'
+        oneOf:
+          - required:
+              - nameRegexp
+          - required:
+              - names
       Column:
         type: object
         properties:
@@ -1080,65 +1049,17 @@ apiPlayground:
             description: |-
               **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
               Catalog matcher specifying what catalogs the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Catalog name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    type: string
-                  ids:
-                    description: |-
-                      **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
-                      Catalog IDs rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogIds'
-                  names:
-                    description: |-
-                      **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
-                      Catalog names rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogNames'
+            $ref: '#/definitions/CatalogAccessRuleMatcher'
           schema:
             description: |-
               **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
               Schema matcher specifying what schemas the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Schema name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
-                      Schema names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/SchemaNames'
+            $ref: '#/definitions/SchemaAccessRuleMatcher'
           table:
             description: |-
               **[TableAccessRuleMatcher](#yandex.cloud.trino.v1.TableAccessRuleMatcher)**
               Table matcher specifying what tables the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Table name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[TableNames](#yandex.cloud.trino.v1.TableAccessRuleMatcher.TableNames)**
-                      Table names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/TableNames'
+            $ref: '#/definitions/TableAccessRuleMatcher'
           privileges:
             description: |-
               **enum** (Privilege)
@@ -1189,6 +1110,26 @@ apiPlayground:
             type: array
             items:
               type: string
+      FunctionAccessRuleMatcher:
+        type: object
+        properties:
+          nameRegexp:
+            description: |-
+              **string**
+              Function name regexp the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            type: string
+          names:
+            description: |-
+              **[FunctionNames](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames)**
+              Function names the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            $ref: '#/definitions/FunctionNames'
+        oneOf:
+          - required:
+              - nameRegexp
+          - required:
+              - names
       FunctionAccessRule:
         type: object
         properties:
@@ -1214,65 +1155,17 @@ apiPlayground:
             description: |-
               **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
               Catalog matcher specifying what catalogs the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Catalog name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    type: string
-                  ids:
-                    description: |-
-                      **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
-                      Catalog IDs rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogIds'
-                  names:
-                    description: |-
-                      **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
-                      Catalog names rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogNames'
+            $ref: '#/definitions/CatalogAccessRuleMatcher'
           schema:
             description: |-
               **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
               Schema matcher specifying what schema the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Schema name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
-                      Schema names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/SchemaNames'
+            $ref: '#/definitions/SchemaAccessRuleMatcher'
           function:
             description: |-
               **[FunctionAccessRuleMatcher](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher)**
               Function matcher specifying what functions the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Function name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[FunctionNames](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher.FunctionNames)**
-                      Function names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/FunctionNames'
+            $ref: '#/definitions/FunctionAccessRuleMatcher'
           privileges:
             description: |-
               **enum** (Privilege)
@@ -1311,6 +1204,26 @@ apiPlayground:
             type: array
             items:
               type: string
+      ProcedureAccessRuleMatcher:
+        type: object
+        properties:
+          nameRegexp:
+            description: |-
+              **string**
+              Procedure name regexp the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            type: string
+          names:
+            description: |-
+              **[ProcedureNames](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames)**
+              Procedure names the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            $ref: '#/definitions/ProcedureNames'
+        oneOf:
+          - required:
+              - nameRegexp
+          - required:
+              - names
       ProcedureAccessRule:
         type: object
         properties:
@@ -1336,65 +1249,17 @@ apiPlayground:
             description: |-
               **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
               Catalog matcher specifying what catalogs the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Catalog name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    type: string
-                  ids:
-                    description: |-
-                      **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
-                      Catalog IDs rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogIds'
-                  names:
-                    description: |-
-                      **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
-                      Catalog names rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogNames'
+            $ref: '#/definitions/CatalogAccessRuleMatcher'
           schema:
             description: |-
               **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)**
               Schema matcher specifying what schema the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Schema name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[SchemaNames](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher.SchemaNames)**
-                      Schema names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/SchemaNames'
+            $ref: '#/definitions/SchemaAccessRuleMatcher'
           procedure:
             description: |-
               **[ProcedureAccessRuleMatcher](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher)**
               Procedure matcher specifying what functions the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Procedure name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[ProcedureNames](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher.ProcedureNames)**
-                      Procedure names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/ProcedureNames'
+            $ref: '#/definitions/ProcedureAccessRuleMatcher'
           privileges:
             description: |-
               **enum** (Privilege)
@@ -1492,6 +1357,26 @@ apiPlayground:
             type: array
             items:
               type: string
+      PropertyAccessRuleMatcher:
+        type: object
+        properties:
+          nameRegexp:
+            description: |-
+              **string**
+              Property name regexp the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            type: string
+          names:
+            description: |-
+              **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames)**
+              Property names the rule is applied to.
+              Includes only one of the fields `nameRegexp`, `names`.
+            $ref: '#/definitions/PropertyNames'
+        oneOf:
+          - required:
+              - nameRegexp
+          - required:
+              - names
       SystemSessionPropertyAccessRule:
         type: object
         properties:
@@ -1517,21 +1402,7 @@ apiPlayground:
             description: |-
               **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
               Property matcher specifying what properties the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Property name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames)**
-                      Property names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/PropertyNames'
+            $ref: '#/definitions/PropertyAccessRuleMatcher'
           allow:
             description: |-
               **enum** (Allow)
@@ -1576,46 +1447,12 @@ apiPlayground:
             description: |-
               **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
               Catalog matcher specifying what catalogs the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Catalog name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    type: string
-                  ids:
-                    description: |-
-                      **[CatalogIds](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogIds)**
-                      Catalog IDs rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogIds'
-                  names:
-                    description: |-
-                      **[CatalogNames](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames)**
-                      Catalog names rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `ids`, `names`.
-                    $ref: '#/definitions/CatalogNames'
+            $ref: '#/definitions/CatalogAccessRuleMatcher'
           property:
             description: |-
               **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
               Property matcher specifying what properties the rule is applied to.
-            oneOf:
-              - type: object
-                properties:
-                  nameRegexp:
-                    description: |-
-                      **string**
-                      Property name regexp the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    type: string
-                  names:
-                    description: |-
-                      **[PropertyNames](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher.PropertyNames)**
-                      Property names the rule is applied to.
-                      Includes only one of the fields `nameRegexp`, `names`.
-                    $ref: '#/definitions/PropertyNames'
+            $ref: '#/definitions/PropertyAccessRuleMatcher'
           allow:
             description: |-
               **enum** (Allow)
@@ -1694,6 +1531,18 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/CatalogSessionPropertyAccessRule'
+      TLSConfig:
+        type: object
+        properties:
+          trustedCertificates:
+            description: |-
+              **string**
+              Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
+              chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
       TrinoConfigSpec:
         type: object
         properties:
@@ -1731,6 +1580,11 @@ apiPlayground:
               **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
               Configuration for access control, specifying the fine-grained access rules.
             $ref: '#/definitions/AccessControlConfig'
+          tls:
+            description: |-
+              **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
+              Configuration for TLS.
+            $ref: '#/definitions/TLSConfig'
         required:
           - coordinatorConfig
           - workerConfig
@@ -1751,6 +1605,63 @@ apiPlayground:
             type: array
             items:
               type: string
+      LoggingConfig:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Logs generated by the Trino components are delivered to Cloud Logging.
+            type: boolean
+          folderId:
+            description: |-
+              **string**
+              Logs should be written to default log group for specified folder.
+              Includes only one of the fields `folderId`, `logGroupId`.
+              Destination of log records.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          logGroupId:
+            description: |-
+              **string**
+              Logs should be written to log group resolved by ID.
+              Includes only one of the fields `folderId`, `logGroupId`.
+              Destination of log records.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - folderId
+          - required:
+              - logGroupId
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -1784,6 +1695,24 @@ apiPlayground:
               Hour of the day in UTC.
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.trino.v1.WeeklyMaintenanceWindow)**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/create.md
 ---
 
@@ -2303,6 +2232,11 @@ POST https://trino.{{ api-host }}/managed-trino/v1/clusters
           "description": "string"
         }
       ]
+    },
+    "tls": {
+      "trustedCertificates": [
+        "string"
+      ]
     }
   },
   "network": {
@@ -2394,6 +2328,9 @@ Format: "Number". ||
 || accessControl | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig)**
 
 Configuration for access control, specifying the fine-grained access rules. ||
+|| tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
+
+Configuration for TLS. ||
 |#
 
 ## CatalogSpec {#yandex.cloud.trino.v1.CatalogSpec}
@@ -3339,6 +3276,16 @@ Required field. Whether the rule allows setting the property.
 Rule description. ||
 |#
 
+## TLSConfig {#yandex.cloud.trino.v1.TLSConfig}
+
+#|
+||Field | Description ||
+|| trustedCertificates[] | **string**
+
+Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
+chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||
+|#
+
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}
 
 #|
@@ -3800,6 +3747,11 @@ Hour of the day in UTC. ||
             "description": "string"
           }
         ]
+      },
+      "tls": {
+        "trustedCertificates": [
+          "string"
+        ]
       }
     },
     "health": "string",
@@ -4056,6 +4008,9 @@ Configuration for retry policy, specifying the spooling storage destination and 
 || accessControl | **[AccessControlConfig](#yandex.cloud.trino.v1.AccessControlConfig2)**
 
 Configuration for access control, specifying the fine-grained rules of accesses. ||
+|| tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig2)**
+
+Configuration for TLS. ||
 |#
 
 ## CoordinatorConfig {#yandex.cloud.trino.v1.CoordinatorConfig2}
@@ -4604,6 +4559,16 @@ Required field. Whether the rule allows setting the property.
 || description | **string**
 
 Rule description. ||
+|#
+
+## TLSConfig {#yandex.cloud.trino.v1.TLSConfig2}
+
+#|
+||Field | Description ||
+|| trustedCertificates[] | **string**
+
+Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
+chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig2}

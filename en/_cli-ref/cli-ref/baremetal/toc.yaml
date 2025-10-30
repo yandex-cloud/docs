@@ -38,6 +38,14 @@ items:
         href: cli-ref/hardware-pool/get.md
       - name: list
         href: cli-ref/hardware-pool/list.md
+  - name: image
+    items:
+      - name: Overview
+        href: cli-ref/image/index.md
+      - name: get
+        href: cli-ref/image/get.md
+      - name: list
+        href: cli-ref/image/list.md
   - name: private-subnet
     items:
       - name: Overview

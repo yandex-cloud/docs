@@ -30,21 +30,7 @@ apiPlayground:
             Specification for a MapReduce job.
             Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
             Specification for the job.
-          oneOf:
-            - type: object
-              properties:
-                mainJarFileUri:
-                  description: |-
-                    **string**
-                    HCFS URI of the .jar file containing the driver class.
-                    Includes only one of the fields `mainJarFileUri`, `mainClass`.
-                  type: string
-                mainClass:
-                  description: |-
-                    **string**
-                    The name of the driver class.
-                    Includes only one of the fields `mainJarFileUri`, `mainClass`.
-                  type: string
+          $ref: '#/definitions/MapreduceJob'
         sparkJob:
           description: |-
             **[SparkJob](#yandex.cloud.dataproc.v1.SparkJob)**
@@ -65,23 +51,74 @@ apiPlayground:
             Specification for a Hive job.
             Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
             Specification for the job.
-          oneOf:
-            - type: object
-              properties:
-                queryFileUri:
-                  description: |-
-                    **string**
-                    URI of the script with all the necessary Hive queries.
-                    Includes only one of the fields `queryFileUri`, `queryList`.
-                  type: string
-                queryList:
-                  description: |-
-                    **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
-                    List of Hive queries to be used in the job.
-                    Includes only one of the fields `queryFileUri`, `queryList`.
-                  $ref: '#/definitions/QueryList'
+          $ref: '#/definitions/HiveJob'
       additionalProperties: false
+      oneOf:
+        - required:
+            - mapreduceJob
+        - required:
+            - sparkJob
+        - required:
+            - pysparkJob
+        - required:
+            - hiveJob
     definitions:
+      MapreduceJob:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Optional arguments to pass to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: |-
+              **string**
+              URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
+              and distributed Hadoop tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              **string**
+              URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and MapReduce.
+            type: object
+            additionalProperties:
+              type: string
+          mainJarFileUri:
+            description: |-
+              **string**
+              HCFS URI of the .jar file containing the driver class.
+              Includes only one of the fields `mainJarFileUri`, `mainClass`.
+            type: string
+          mainClass:
+            description: |-
+              **string**
+              The name of the driver class.
+              Includes only one of the fields `mainJarFileUri`, `mainClass`.
+            type: string
+        oneOf:
+          - required:
+              - mainJarFileUri
+          - required:
+              - mainClass
       SparkJob:
         type: object
         properties:
@@ -234,6 +271,52 @@ apiPlayground:
             type: array
             items:
               type: string
+      HiveJob:
+        type: object
+        properties:
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and Hive.
+            type: object
+            additionalProperties:
+              type: string
+          continueOnFailure:
+            description: |-
+              **boolean**
+              Flag indicating whether a job should continue to run if a query fails.
+            type: boolean
+          scriptVariables:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Query variables and their values.
+            type: object
+            additionalProperties:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Hive driver and each task.
+            type: array
+            items:
+              type: string
+          queryFileUri:
+            description: |-
+              **string**
+              URI of the script with all the necessary Hive queries.
+              Includes only one of the fields `queryFileUri`, `queryList`.
+            type: string
+          queryList:
+            description: |-
+              **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
+              List of Hive queries to be used in the job.
+              Includes only one of the fields `queryFileUri`, `queryList`.
+            $ref: '#/definitions/QueryList'
+        oneOf:
+          - required:
+              - queryFileUri
+          - required:
+              - queryList
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/create.md
 ---
 

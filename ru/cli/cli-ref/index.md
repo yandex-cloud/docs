@@ -51,6 +51,7 @@ Syntax:
 - [yc managed-opensearch](managed-opensearch/cli-ref/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.
 - [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
 - [yc managed-redis](managed-redis/cli-ref/index.md) — Manage Redis clusters, hosts, databases, backups and users.
+- [yc managed-sharded-postgresql](managed-sharded-postgresql/cli-ref/index.md) — Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.
 - [yc managed-spark](managed-spark/cli-ref/index.md) — Manage Spark clusters.
 - [yc managed-sqlserver](managed-sqlserver/cli-ref/index.md) — Manage SQLServer clusters, databases, backups and users.
 - [yc managed-trino](managed-trino/cli-ref/index.md) — Manage Trino clusters.

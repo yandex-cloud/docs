@@ -15,8 +15,6 @@
         
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
 
-       Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/).
-
 
 - {{ MG }}
     
@@ -26,7 +24,7 @@
     
     1. {% include [mondodb cluster requirement](../../mongodb-cluster-requirement.md) %}
     
-    1. [Configure the target cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) to allow connections from the internet:
+    1. Configure the target cluster to allow connections from the internet:
         
         1. In the configuration file, change `net.bindIp` from `127.0.0.1` to `0.0.0.0`:
         
@@ -113,7 +111,6 @@
             sh.shardCollection("<target_database_name>.<collection_name>", { <field_name>: <1|"hashed">, ... });
             ```
         
-           For the `shardCollection()` function description, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
         
         1. To make sure that sharding is set up and enabled, get a list of available shards:
         
@@ -132,6 +129,5 @@
         
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
 
-       Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/basics/sharding/).
 
 {% endlist %}

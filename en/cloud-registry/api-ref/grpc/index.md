@@ -14,6 +14,7 @@ Actions are performed by making RPC calls.
 #|
 ||Service | Description ||
 || [Artifact](Artifact/index.md) | A set of methods for managing Artifacts. ||
+|| [LifecyclePolicy](LifecyclePolicy/index.md) | A set of methods for managing LifecyclePolicy resources. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Registry](Registry/index.md) | A set of methods for managing Registry resources. ||
 |#

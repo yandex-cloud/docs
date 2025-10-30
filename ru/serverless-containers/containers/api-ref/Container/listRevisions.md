@@ -48,6 +48,11 @@ apiPlayground:
             Example of a filter: `status="ACTIVE"`.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - folderId
+        - required:
+            - containerId
     body: null
     definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/listRevisions.md

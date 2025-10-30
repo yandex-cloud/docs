@@ -207,7 +207,7 @@ The new transfer name. Must be unique within the folder. ||
 
 Field mask specifying transfer fields to be updated. Semantics for this field is
 described here:
-<https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask>
+&lt;https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask&gt;
 The only exception: if the repeated field is specified in the mask, then
 the new value replaces the old one instead of being appended to the old one. ||
 || labels | **object** (map<**string**, **string**>)

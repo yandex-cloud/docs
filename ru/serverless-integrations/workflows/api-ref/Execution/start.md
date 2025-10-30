@@ -17,19 +17,23 @@ apiPlayground:
           description: |-
             **[ExecutionInput](#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
             Input for the Workflow execution
-          oneOf:
-            - type: object
-              properties:
-                inputJson:
-                  description: |-
-                    **string**
-                    JSON input data for the Workflow execution.
-                    Includes only one of the fields `inputJson`.
-                  type: string
+          $ref: '#/definitions/ExecutionInput'
       required:
         - workflowId
       additionalProperties: false
-    definitions: null
+    definitions:
+      ExecutionInput:
+        type: object
+        properties:
+          inputJson:
+            description: |-
+              **string**
+              JSON input data for the Workflow execution.
+              Includes only one of the fields `inputJson`.
+            type: string
+        oneOf:
+          - required:
+              - inputJson
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/start.md
 ---
 

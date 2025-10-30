@@ -52,16 +52,16 @@ apiPlayground:
           selectFromSystemDbRequiresGrant:
             description: |-
               **boolean**
-              Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-              If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+              Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+              If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
               Default value: **false**.
             default: '**false**'
             type: boolean
           selectFromInformationSchemaRequiresGrant:
             description: |-
               **boolean**
-              Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-              If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+              Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+              If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
               Default value: **false**.
             default: '**false**'
             type: boolean
@@ -420,6 +420,199 @@ apiPlayground:
             format: int64
         required:
           - method
+      Id:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the numeric key.
+            type: string
+        required:
+          - name
+      Attribute:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the column.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. Type of the column.
+            type: string
+          nullValue:
+            description: |-
+              **string**
+              Default value for an element without data (for example, an empty string).
+            type: string
+          expression:
+            description: |-
+              **string**
+              Expression, describing the attribute, if applicable.
+            type: string
+          hierarchical:
+            description: |-
+              **boolean**
+              Indication of hierarchy support.
+              Default value: **false**.
+            default: false
+            type: boolean
+          injective:
+            description: |-
+              **boolean**
+              Indication of injective mapping "id -> attribute".
+              Default value: **false**.
+            default: false
+            type: boolean
+        required:
+          - name
+          - type
+      Key:
+        type: object
+        properties:
+          attributes:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Attributes of a complex key.
+            type: array
+            items:
+              $ref: '#/definitions/Attribute'
+      Structure:
+        type: object
+        properties:
+          id:
+            description: |-
+              **[Id](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Id)**
+              Single numeric key column for the dictionary.
+            $ref: '#/definitions/Id'
+          key:
+            description: |-
+              **[Key](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Key)**
+              Composite key for the dictionary, containing of one or more key columns.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key).
+            $ref: '#/definitions/Key'
+          rangeMin:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Field holding the beginning of the range for dictionaries with **RANGE_HASHED** layout.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+            $ref: '#/definitions/Attribute'
+          rangeMax:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Field holding the end of the range for dictionaries with **RANGE_HASHED** layout.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+            $ref: '#/definitions/Attribute'
+          attributes:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Description of the fields available for database queries.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes).
+            type: array
+            items:
+              $ref: '#/definitions/Attribute'
+      Layout:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Required field. Layout type.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
+              - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
+              - `CLICKHOUSE`: ClickHouse host.
+              - `ZOOKEEPER`: ZooKeeper host.
+              - `KEEPER`: ClickHouse Keeper host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - CLICKHOUSE
+              - ZOOKEEPER
+              - KEEPER
+          sizeInCells:
+            description: |-
+              **string** (int64)
+              Number of cells in the cache. Rounded up to a power of two.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **1000000000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          allowReadExpiredKeys:
+            description: |-
+              **boolean**
+              Allows to read expired keys.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: boolean
+          maxUpdateQueueSize:
+            description: |-
+              **string** (int64)
+              Max size of update queue.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **100000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          updateQueuePushTimeoutMilliseconds:
+            description: |-
+              **string** (int64)
+              Max timeout in milliseconds for push update task into queue.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **10**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          queryWaitTimeoutMilliseconds:
+            description: |-
+              **string** (int64)
+              Max wait timeout in milliseconds for update task to complete.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **60000** (1 minute).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          maxThreadsForUpdates:
+            description: |-
+              **string** (int64)
+              Max threads for cache dictionary update.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **4**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          initialArraySize:
+            description: |-
+              **string** (int64)
+              Initial dictionary key size.
+              Applicable only for **FLAT** layout type.
+              Default value: **1024**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+            type: string
+            format: int64
+          maxArraySize:
+            description: |-
+              **string** (int64)
+              Maximum dictionary key size.
+              Applicable only for **FLAT** layout type.
+              Default value: **500000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+            type: string
+            format: int64
+          accessToKeyFromAttributes:
+            description: |-
+              **boolean**
+              Allows to retrieve key attribute using **dictGetString** function.
+              Enabling this option increases memory usage.
+              Applicable only for **IP_TRIE** layout type.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ip_trie).
+            type: boolean
+        required:
+          - type
       Range:
         type: object
         properties:
@@ -725,6 +918,89 @@ apiPlayground:
           - db
           - table
           - user
+      ExternalDictionary:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the external dictionary.
+            type: string
+          structure:
+            description: |-
+              **[Structure](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure)**
+              Required field. Structure of the external dictionary.
+            $ref: '#/definitions/Structure'
+          layout:
+            description: |-
+              **[Layout](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Layout)**
+              Required field. Layout determining how to store the dictionary in memory.
+              For details, see https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory.
+            $ref: '#/definitions/Layout'
+          fixedLifetime:
+            description: |-
+              **string** (int64)
+              Fixed interval between dictionary updates.
+              Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
+            type: string
+            format: int64
+          lifetimeRange:
+            description: |-
+              **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
+              Range of intervals between dictionary updates for ClickHouse to choose from.
+              Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
+            $ref: '#/definitions/Range'
+          httpSource:
+            description: |-
+              **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
+              HTTP source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/HttpSource'
+          mysqlSource:
+            description: |-
+              **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
+              MySQL source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/MysqlSource'
+          clickhouseSource:
+            description: |-
+              **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
+              ClickHouse source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/ClickhouseSource'
+          mongodbSource:
+            description: |-
+              **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
+              MongoDB source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/MongodbSource'
+          postgresqlSource:
+            description: |-
+              **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
+              PostgreSQL source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/PostgresqlSource'
+        required:
+          - name
+          - structure
+          - layout
+        allOf:
+          - oneOf:
+              - required:
+                  - fixedLifetime
+              - required:
+                  - lifetimeRange
+          - oneOf:
+              - required:
+                  - httpSource
+              - required:
+                  - mysqlSource
+              - required:
+                  - clickhouseSource
+              - required:
+                  - mongodbSource
+              - required:
+                  - postgresqlSource
       Retention:
         type: object
         properties:
@@ -869,6 +1145,7 @@ apiPlayground:
               If this interval is exceeded the consumer is considered failed and the group will
               rebalance in order to reassign the partitions to another consumer group member.
               Default value: **300000** (5 minutes).
+            default: '**300000** (5 minutes)'
             type: string
             format: int64
           sessionTimeoutMs:
@@ -878,6 +1155,7 @@ apiPlayground:
               to indicate its liveness to the broker. If no hearts are received by the broker for a group member within
               the session timeout, the broker will remove the consumer from the group and trigger a rebalance.
               Default value: **45000** (45 seconds).
+            default: '**45000** (45 seconds)'
             type: string
             format: int64
           debug:
@@ -1006,6 +1284,7 @@ apiPlayground:
               **string**
               Substitution string for sensitive data.
               Default value: six asterisks.
+            default: six asterisks
             type: string
         required:
           - regexp
@@ -1017,6 +1296,7 @@ apiPlayground:
               **string** (int64)
               The maximum cache size in bytes.
               Default value: **1073741824** (1 GiB).
+            default: '**1073741824** (1 GiB)'
             type: string
             format: int64
           maxEntries:
@@ -1032,6 +1312,7 @@ apiPlayground:
               **string** (int64)
               The maximum size in bytes **SELECT** query results may have to be saved in the cache.
               Default value: **1048576** (1 MiB).
+            default: '**1048576** (1 MiB)'
             type: string
             format: int64
           maxEntrySizeInRows:
@@ -1195,6 +1476,7 @@ apiPlayground:
               The maximum size that query_log can grow to before old data will be removed. If set to **0**,
               automatic removal of query_log data based on size is disabled.
               Default value: **1073741824** (1 GiB).
+            default: '**1073741824** (1 GiB)'
             type: string
             format: int64
           queryLogRetentionTime:
@@ -1202,6 +1484,7 @@ apiPlayground:
               **string** (int64)
               The maximum time that query_log records will be retained before removal. If set to **0**, automatic removal of query_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           queryThreadLogEnabled:
@@ -1218,6 +1501,7 @@ apiPlayground:
               The maximum size that query_thread_log can grow to before old data will be removed. If set to **0**,
               automatic removal of query_thread_log data based on size is disabled.
               Default value: **536870912** (512 MiB).
+            default: '**536870912** (512 MiB)'
             type: string
             format: int64
           queryThreadLogRetentionTime:
@@ -1226,6 +1510,7 @@ apiPlayground:
               The maximum time that query_thread_log records will be retained before removal. If set to **0**,
               automatic removal of query_thread_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           partLogRetentionSize:
@@ -1234,6 +1519,7 @@ apiPlayground:
               The maximum size that part_log can grow to before old data will be removed. If set to **0**,
               automatic removal of part_log data based on size is disabled.
               Default value: **536870912** (512 MiB).
+            default: '**536870912** (512 MiB)'
             type: string
             format: int64
           partLogRetentionTime:
@@ -1242,6 +1528,7 @@ apiPlayground:
               The maximum time that part_log records will be retained before removal. If set to **0**,
               automatic removal of part_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           metricLogEnabled:
@@ -1258,6 +1545,7 @@ apiPlayground:
               The maximum size that metric_log can grow to before old data will be removed. If set to **0**,
               automatic removal of metric_log data based on size is disabled.
               Default value: **536870912** (512 MiB).
+            default: '**536870912** (512 MiB)'
             type: string
             format: int64
           metricLogRetentionTime:
@@ -1266,6 +1554,7 @@ apiPlayground:
               The maximum time that metric_log records will be retained before removal. If set to **0**,
               automatic removal of metric_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           traceLogEnabled:
@@ -1282,6 +1571,7 @@ apiPlayground:
               The maximum size that trace_log can grow to before old data will be removed. If set to **0**,
               automatic removal of trace_log data based on size is disabled.
               Default value: **536870912** (512 MiB).
+            default: '**536870912** (512 MiB)'
             type: string
             format: int64
           traceLogRetentionTime:
@@ -1290,6 +1580,7 @@ apiPlayground:
               The maximum time that trace_log records will be retained before removal. If set to **0**,
               automatic removal of trace_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           textLogEnabled:
@@ -1306,6 +1597,7 @@ apiPlayground:
               The maximum size that text_log can grow to before old data will be removed. If set to **0**,
               automatic removal of text_log data based on size is disabled.
               Default value: **536870912** (512 MiB).
+            default: '**536870912** (512 MiB)'
             type: string
             format: int64
           textLogRetentionTime:
@@ -1314,6 +1606,7 @@ apiPlayground:
               The maximum time that text_log records will be retained before removal. If set to **0**,
               automatic removal of text_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           textLogLevel:
@@ -1359,6 +1652,7 @@ apiPlayground:
               The maximum time that opentelemetry_span_log records will be retained before removal. If set to **0**,
               automatic removal of opentelemetry_span_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           queryViewsLogEnabled:
@@ -1384,6 +1678,7 @@ apiPlayground:
               The maximum time that query_views_log records will be retained before removal. If set to **0**,
               automatic removal of query_views_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           asynchronousMetricLogEnabled:
@@ -1409,6 +1704,7 @@ apiPlayground:
               The maximum time that asynchronous_metric_log records will be retained before removal. If set to **0**,
               automatic removal of asynchronous_metric_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           sessionLogEnabled:
@@ -1425,6 +1721,7 @@ apiPlayground:
               The maximum size that session_log can grow to before old data will be removed. If set to **0**,
               automatic removal of session_log data based on size is disabled.
               Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower.
+            default: '**536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower'
             type: string
             format: int64
           sessionLogRetentionTime:
@@ -1433,6 +1730,7 @@ apiPlayground:
               The maximum time that session_log records will be retained before removal. If set to **0**,
               automatic removal of session_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           zookeeperLogEnabled:
@@ -1458,6 +1756,7 @@ apiPlayground:
               The maximum time that zookeeper_log records will be retained before removal. If set to **0**,
               automatic removal of zookeeper_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           asynchronousInsertLogEnabled:
@@ -1483,6 +1782,7 @@ apiPlayground:
               The maximum time that asynchronous_insert_log records will be retained before removal. If set to **0**,
               automatic removal of asynchronous_insert_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           processorsProfileLogEnabled:
@@ -1508,6 +1808,7 @@ apiPlayground:
               The maximum time that processors_profile_log records will be retained before removal. If set to **0**,
               automatic removal of processors_profile_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           errorLogEnabled:
@@ -1533,6 +1834,7 @@ apiPlayground:
               The maximum time that error_log records will be retained before removal. If set to **0**,
               automatic removal of error_log data based on time is disabled.
               Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
             type: string
             format: int64
           accessControlImprovements:
@@ -1695,54 +1997,7 @@ apiPlayground:
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries).
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    fixedLifetime:
-                      description: |-
-                        **string** (int64)
-                        Fixed interval between dictionary updates.
-                        Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
-                      type: string
-                      format: int64
-                    lifetimeRange:
-                      description: |-
-                        **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
-                        Range of intervals between dictionary updates for ClickHouse to choose from.
-                        Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
-                      $ref: '#/definitions/Range'
-                - type: object
-                  properties:
-                    httpSource:
-                      description: |-
-                        **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
-                        HTTP source for the dictionary.
-                        Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                      $ref: '#/definitions/HttpSource'
-                    mysqlSource:
-                      description: |-
-                        **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
-                        MySQL source for the dictionary.
-                        Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                      $ref: '#/definitions/MysqlSource'
-                    clickhouseSource:
-                      description: |-
-                        **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
-                        ClickHouse source for the dictionary.
-                        Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                      $ref: '#/definitions/ClickhouseSource'
-                    mongodbSource:
-                      description: |-
-                        **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
-                        MongoDB source for the dictionary.
-                        Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                      $ref: '#/definitions/MongodbSource'
-                    postgresqlSource:
-                      description: |-
-                        **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
-                        PostgreSQL source for the dictionary.
-                        Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                      $ref: '#/definitions/PostgresqlSource'
+              $ref: '#/definitions/ExternalDictionary'
           graphiteRollup:
             description: |-
               **[GraphiteRollup](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup)**
@@ -3034,14 +3289,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || selectFromSystemDbRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || selectFromInformationSchemaRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#
@@ -5951,14 +6206,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || selectFromSystemDbRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || selectFromInformationSchemaRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#

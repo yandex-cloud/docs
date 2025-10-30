@@ -1129,14 +1129,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || select_from_system_db_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || select_from_information_schema_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#
@@ -4234,14 +4234,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || select_from_system_db_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || select_from_information_schema_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#

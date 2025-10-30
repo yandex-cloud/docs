@@ -17,7 +17,7 @@
     
     1. {% include [mondodb cluster requirement](../../mongodb-cluster-requirement.md) %}
     
-    1. [Configure access to the source cluster from {{ yandex-cloud }}](../../../../data-transfer/concepts/network.md#source-external). To configure a [source cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) for connections from the internet:
+    1. [Configure access to the source cluster from {{ yandex-cloud }}](../../../../data-transfer/concepts/network.md#source-external). To configure a source cluster for connections from the internet:
         
         1. In the configuration file, change `net.bindIp` from `127.0.0.1` to `0.0.0.0`:
         
@@ -61,7 +61,7 @@
             });
             ```
     
-    1. Create a user with the [`readWrite`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-readWrite) role for all the source databases to replicate:
+    1. Create a user with the `readWrite` role for all the source databases to replicate:
     
         ```javascript
         use admin
@@ -87,17 +87,17 @@
     
        {% note info %}
     
-       For {{ MG }} {{ dt-mg-version }} or higher, you only need to assign the created user the [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role for the databases to replicate.
+       For {{ MG }} {{ dt-mg-version }} or higher, you only need to assign the created user the `read` role for the databases to replicate.
     
        {% endnote %}
     
-    1. When using {{ MG }} {{ dt-mg-version }} or higher, to run the transfer, the user must have the read permission for the `local.oplog.rs` collection and the read and write permissions for the `__data_transfer.__dt_cluster_time` collection. To assign a user the [`clusterAdmin`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterAdmin) role granting these permissions, connect to {{ MG }} and run the following commands:
+    1. When using {{ MG }} {{ dt-mg-version }} or higher, to run the transfer, the user must have the read permission for the `local.oplog.rs` collection and the read and write permissions for the `__data_transfer.__dt_cluster_time` collection. To assign a user the `clusterAdmin` role granting these permissions, connect to {{ MG }} and run the following commands:
     
         ```js
         use admin;
         db.grantRolesToUser("<username>", ["clusterAdmin"]);
         ```
     
-       To grant more granular permissions, you can assign the [`clusterMonitor`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-clusterMonitor) role required for reading the `local.oplog.rs` collection and grant read and write access to the `__data_transfer.__dt_cluster_time` system collection.
+       To grant more granular permissions, you can assign the `clusterMonitor` role required for reading the `local.oplog.rs` collection and grant read and write access to the `__data_transfer.__dt_cluster_time` system collection.
 
 {% endlist %}

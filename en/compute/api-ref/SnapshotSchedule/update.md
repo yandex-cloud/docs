@@ -82,6 +82,11 @@ apiPlayground:
             New attributes of snapshots created by the snapshot schedule.
           $ref: '#/definitions/SnapshotSpec'
       additionalProperties: false
+      oneOf:
+        - required:
+            - retentionPeriod
+        - required:
+            - snapshotCount
     definitions:
       SchedulePolicy:
         type: object

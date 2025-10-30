@@ -1,6 +1,7 @@
 ---
 title: How to use Prometheus recording rules
 description: In this guide, you will learn to create and edit Prometheus files that define recording rules.
+sourcePath: en/monitoring_includes/operations/prometheus/recording-rules.md
 ---
 
 # Recording rules
@@ -181,7 +182,7 @@ If any rules or rule groups are deleted when replacing a file, they will no long
 
    You can get the evaluation info for any rule across all file groups by using the `snapshots` REST resource. Each snapshot contains information about the status, error, rule name, and evaluation time.
 
-   Run this request:
+   Run this query:
 
    ```bash
    export IAM_TOKEN=<IAM_token>

@@ -8,8 +8,8 @@ To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name
 
 The support cost for this solution includes:
 
-* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
-* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mmg-name }} target cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -31,7 +31,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Set up the source cluster {#source-setup}
   
-1. Connect to the `mongos` host of the {{ MG }} source cluster using [`mongosh`](https://docs.mongodb.com/mongodb-shell).
+1. Connect to the `mongos` host of the {{ MG }} source cluster using `mongosh`.
 1. Create a `db1`.
 1. Create a user with the `db1` owner permissions and log in with that user's credentials:
 
@@ -220,7 +220,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
-    To learn more about the transfer lifecycle, see the [{{ data-transfer-full-name }} documentation](../../data-transfer/concepts/transfer-lifecycle.md).
+    To learn more about the transfer lifecycle, see this [{{ data-transfer-full-name }} guide](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Delete](../../data-transfer/operations/transfer.md#delete) the stopped transfer.
 1. [Delete endpoints for both the source and target](../../data-transfer/operations/endpoint/index.md#delete).

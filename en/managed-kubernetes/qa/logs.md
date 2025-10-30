@@ -1,6 +1,6 @@
 ---
 title: FAQ about logs in {{ managed-k8s-name }}
-description: Can I save logs myself? Is Horizontal Pod Autoscaler supported? Find the answers to these and other questions in this article.
+description: Can I save logs myself? Is Horizontal Pod Autoscaler supported? Find answers to these and other questions in this article.
 ---
 
 # Monitoring and logs

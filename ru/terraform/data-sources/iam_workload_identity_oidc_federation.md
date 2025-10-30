@@ -34,7 +34,7 @@ data "yandex_iam_workload_identity_oidc_federation" "wlif" {
 
 ### Read-Only
 
-- `audiences` (List of String) List of trusted values for aud claim.
+- `audiences` (Set of String) List of trusted values for aud claim.
 - `created_at` (String) Creation timestamp.
 - `description` (String) Description of the OIDC workload identity federation.
 - `enabled` (Boolean) Enabled flag.

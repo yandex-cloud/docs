@@ -40,7 +40,7 @@
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с ролями [k8s.clusters.agent](../../managed-kubernetes/security/index.md#k8s-clusters-agent), [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) и [k8s.tunnelClusters.agent](../../managed-kubernetes/security/index.md#k8s-tunnelclusters-agent) на каталог, в котором создается кластер {{ managed-k8s-name }}.
 
-1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации, работающий в [туннельном режиме](../../managed-kubernetes/concepts/network-policy#cilium). При создании кластера укажите созданный ранее сервисный аккаунт.
+1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации, работающий в [туннельном режиме](../../managed-kubernetes/concepts/network-policy.md#cilium). При создании кластера укажите созданный ранее сервисный аккаунт.
 
    {% note warning %}
 

@@ -56,142 +56,7 @@ apiPlayground:
           description: |-
             **[ConfigSpec](#yandex.cloud.mdb.postgresql.v1.ConfigSpec)**
             Required field. Configuration and resources for hosts that should be created for the PostgreSQL cluster.
-          oneOf:
-            - type: object
-              properties:
-                postgresqlConfig_9_6:
-                  description: |-
-                    **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
-                    Configuration for a PostgreSQL 9.6 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig9_6'
-                postgresqlConfig_10_1c:
-                  description: |-
-                    **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
-                    Configuration for a PostgreSQL 10 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig10_1C'
-                postgresqlConfig_10:
-                  description: |-
-                    **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
-                    Configuration for a PostgreSQL 10 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig10'
-                postgresqlConfig_11:
-                  description: |-
-                    **[PostgresqlConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11)**
-                    Configuration for a PostgreSQL 11 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig11'
-                postgresqlConfig_11_1c:
-                  description: |-
-                    **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
-                    Configuration for a PostgreSQL 11 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig11_1C'
-                postgresqlConfig_12:
-                  description: |-
-                    **[PostgresqlConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12)**
-                    Configuration for a PostgreSQL 12 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig12'
-                postgresqlConfig_12_1c:
-                  description: |-
-                    **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
-                    Configuration for a PostgreSQL 12 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig12_1C'
-                postgresqlConfig_13:
-                  description: |-
-                    **[PostgresqlConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13)**
-                    Configuration for a PostgreSQL 13 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig13'
-                postgresqlConfig_13_1c:
-                  description: |-
-                    **[PostgresqlConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13_1C)**
-                    Configuration for a PostgreSQL 13 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig13_1C'
-                postgresqlConfig_14:
-                  description: |-
-                    **[PostgresqlConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14)**
-                    Configuration for a PostgreSQL 14 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig14'
-                postgresqlConfig_14_1c:
-                  description: |-
-                    **[PostgresqlConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C)**
-                    Configuration for a PostgreSQL 14 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig14_1C'
-                postgresqlConfig_15:
-                  description: |-
-                    **[PostgresqlConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15)**
-                    Configuration for a PostgreSQL 15 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig15'
-                postgresqlConfig_15_1c:
-                  description: |-
-                    **[PostgresqlConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C)**
-                    Configuration for a PostgreSQL 15 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig15_1C'
-                postgresqlConfig_16:
-                  description: |-
-                    **[PostgresqlConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16)**
-                    Configuration for a PostgreSQL 16 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig16'
-                postgresqlConfig_16_1c:
-                  description: |-
-                    **[PostgresqlConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C)**
-                    Configuration for a PostgreSQL 16 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig16_1C'
-                postgresqlConfig_17:
-                  description: |-
-                    **[PostgresqlConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17)**
-                    Configuration for a PostgreSQL 17 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig17'
-                postgresqlConfig_17_1c:
-                  description: |-
-                    **[PostgresqlConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C)**
-                    Configuration for a PostgreSQL 17 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig17_1C'
-                postgresqlConfig_18:
-                  description: |-
-                    **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18)**
-                    Configuration for a PostgreSQL 18 cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig18'
-                postgresqlConfig_18_1c:
-                  description: |-
-                    **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C)**
-                    Configuration for a PostgreSQL 18 1C cluster.
-                    Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    Configuration of a PostgreSQL cluster.
-                  $ref: '#/definitions/PostgresqlConfig18_1C'
+          $ref: '#/definitions/ConfigSpec'
         databaseSpecs:
           description: |-
             **[DatabaseSpec](#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
@@ -241,23 +106,7 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
             Window of maintenance operations.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Maintenance operation can be scheduled anytime.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
-                    Maintenance operation can be scheduled on a weekly basis.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         retentionPolicies:
           description: |-
             **[BackupRetentionPolicySpec](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
@@ -1556,6 +1405,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -2343,6 +2193,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -3155,6 +3006,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -3985,6 +3837,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -4826,6 +4679,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -5673,6 +5527,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -6573,6 +6428,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -7473,6 +7329,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -8398,6 +8255,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -9339,6 +9197,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -10283,6 +10142,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -11233,6 +11093,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -12177,6 +12038,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -13127,6 +12989,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -14067,6 +13930,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -15028,6 +14892,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -15983,6 +15848,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -16944,6 +16810,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort
+            default: 0 - choose based on based on geqo_effort
             type: string
             format: int64
           geqoGenerations:
@@ -17040,6 +16907,374 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      ConnectionPoolerConfig:
+        type: object
+        properties:
+          poolingMode:
+            description: |-
+              **enum** (PoolingMode)
+              Mode that the connection pooler is working in.
+              See descriptions of all modes in the [documentation for PgBouncer](https://pgbouncer.github.io/usage).
+              - `POOLING_MODE_UNSPECIFIED`
+              - `SESSION`: Session pooling mode.
+              - `TRANSACTION`: Transaction pooling mode.
+              - `STATEMENT`: Statement pooling mode.
+            type: string
+            enum:
+              - POOLING_MODE_UNSPECIFIED
+              - SESSION
+              - TRANSACTION
+              - STATEMENT
+          poolDiscard:
+            description: |-
+              **boolean**
+              Setting `server_reset_query_always` parameter in PgBouncer.
+            type: boolean
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/managed-postgresql/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-hdd - network HDD drive,
+              * network-ssd - network SSD drive,
+              * local-ssd - local SSD storage.
+            type: string
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      Access:
+        type: object
+        properties:
+          dataLens:
+            description: |-
+              **boolean**
+              Allow access for DataLens
+            type: boolean
+          webSql:
+            description: |-
+              **boolean**
+              Allow SQL queries to the cluster databases from the management console.
+              See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details.
+            type: boolean
+          serverless:
+            description: |-
+              **boolean**
+              Allow access for Serverless
+            type: boolean
+          dataTransfer:
+            description: |-
+              **boolean**
+              Allow access for DataTransfer.
+            type: boolean
+          yandexQuery:
+            description: |-
+              **boolean**
+              Allow access for YandexQuery.
+            type: boolean
+      PerformanceDiagnostics:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Configuration setting which enables/disables performance diagnostics service in cluster.
+            type: boolean
+          sessionsSamplingInterval:
+            description: |-
+              **string** (int64)
+              Interval (in seconds) for pg_stat_activity sampling
+            type: string
+            format: int64
+          statementsSamplingInterval:
+            description: |-
+              **string** (int64)
+              Interval (in seconds) for pg_stat_statements sampling
+            type: string
+            format: int64
+      DiskSizeAutoscaling:
+        type: object
+        properties:
+          plannedUsageThreshold:
+            description: |-
+              **string** (int64)
+              Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+            type: string
+            format: int64
+          emergencyUsageThreshold:
+            description: |-
+              **string** (int64)
+              Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+            type: string
+            format: int64
+          diskSizeLimit:
+            description: |-
+              **string** (int64)
+              New storage size (in bytes) that is set when one of the thresholds is achieved.
+            type: string
+            format: int64
+      ConfigSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Version of PostgreSQL used in the cluster.
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`
+            type: string
+          postgresqlConfig_9_6:
+            description: |-
+              **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
+              Configuration for a PostgreSQL 9.6 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig9_6'
+          postgresqlConfig_10_1c:
+            description: |-
+              **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
+              Configuration for a PostgreSQL 10 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig10_1C'
+          postgresqlConfig_10:
+            description: |-
+              **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
+              Configuration for a PostgreSQL 10 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig10'
+          postgresqlConfig_11:
+            description: |-
+              **[PostgresqlConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11)**
+              Configuration for a PostgreSQL 11 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig11'
+          postgresqlConfig_11_1c:
+            description: |-
+              **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
+              Configuration for a PostgreSQL 11 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig11_1C'
+          postgresqlConfig_12:
+            description: |-
+              **[PostgresqlConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12)**
+              Configuration for a PostgreSQL 12 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig12'
+          postgresqlConfig_12_1c:
+            description: |-
+              **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
+              Configuration for a PostgreSQL 12 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig12_1C'
+          postgresqlConfig_13:
+            description: |-
+              **[PostgresqlConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13)**
+              Configuration for a PostgreSQL 13 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig13'
+          postgresqlConfig_13_1c:
+            description: |-
+              **[PostgresqlConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig13_1C)**
+              Configuration for a PostgreSQL 13 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig13_1C'
+          postgresqlConfig_14:
+            description: |-
+              **[PostgresqlConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14)**
+              Configuration for a PostgreSQL 14 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig14'
+          postgresqlConfig_14_1c:
+            description: |-
+              **[PostgresqlConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C)**
+              Configuration for a PostgreSQL 14 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig14_1C'
+          postgresqlConfig_15:
+            description: |-
+              **[PostgresqlConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15)**
+              Configuration for a PostgreSQL 15 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig15'
+          postgresqlConfig_15_1c:
+            description: |-
+              **[PostgresqlConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C)**
+              Configuration for a PostgreSQL 15 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig15_1C'
+          postgresqlConfig_16:
+            description: |-
+              **[PostgresqlConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16)**
+              Configuration for a PostgreSQL 16 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig16'
+          postgresqlConfig_16_1c:
+            description: |-
+              **[PostgresqlConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C)**
+              Configuration for a PostgreSQL 16 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig16_1C'
+          postgresqlConfig_17:
+            description: |-
+              **[PostgresqlConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17)**
+              Configuration for a PostgreSQL 17 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig17'
+          postgresqlConfig_17_1c:
+            description: |-
+              **[PostgresqlConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C)**
+              Configuration for a PostgreSQL 17 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig17_1C'
+          postgresqlConfig_18:
+            description: |-
+              **[PostgresqlConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18)**
+              Configuration for a PostgreSQL 18 cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig18'
+          postgresqlConfig_18_1c:
+            description: |-
+              **[PostgresqlConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C)**
+              Configuration for a PostgreSQL 18 1C cluster.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Configuration of a PostgreSQL cluster.
+            $ref: '#/definitions/PostgresqlConfig18_1C'
+          poolerConfig:
+            description: |-
+              **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig)**
+              Configuration of the connection pooler.
+            $ref: '#/definitions/ConnectionPoolerConfig'
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources)**
+              Resources allocated to PostgreSQL hosts.
+            $ref: '#/definitions/Resources'
+          autofailover:
+            description: |-
+              **boolean**
+              Configuration setting which enables/disables autofailover in cluster.
+            type: boolean
+          backupWindowStart:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Time to start the daily backup, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          backupRetainPeriodDays:
+            description: |-
+              **string** (int64)
+              Retention policy of automated backups.
+            type: string
+            format: int64
+          access:
+            description: |-
+              **[Access](#yandex.cloud.mdb.postgresql.v1.Access)**
+              Access policy to DB
+            $ref: '#/definitions/Access'
+          performanceDiagnostics:
+            description: |-
+              **[PerformanceDiagnostics](#yandex.cloud.mdb.postgresql.v1.PerformanceDiagnostics)**
+              Configuration of the performance diagnostics service.
+            $ref: '#/definitions/PerformanceDiagnostics'
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling)**
+              Disk size autoscaling
+            $ref: '#/definitions/DiskSizeAutoscaling'
+        oneOf:
+          - required:
+              - postgresqlConfig_9_6
+          - required:
+              - postgresqlConfig_10_1c
+          - required:
+              - postgresqlConfig_10
+          - required:
+              - postgresqlConfig_11
+          - required:
+              - postgresqlConfig_11_1c
+          - required:
+              - postgresqlConfig_12
+          - required:
+              - postgresqlConfig_12_1c
+          - required:
+              - postgresqlConfig_13
+          - required:
+              - postgresqlConfig_13_1c
+          - required:
+              - postgresqlConfig_14
+          - required:
+              - postgresqlConfig_14_1c
+          - required:
+              - postgresqlConfig_15
+          - required:
+              - postgresqlConfig_15_1c
+          - required:
+              - postgresqlConfig_16
+          - required:
+              - postgresqlConfig_16_1c
+          - required:
+              - postgresqlConfig_17
+          - required:
+              - postgresqlConfig_17_1c
+          - required:
+              - postgresqlConfig_18
+          - required:
+              - postgresqlConfig_18_1c
       Extension:
         type: object
         properties:
@@ -17103,6 +17338,7 @@ apiPlayground:
               **boolean**
               Deletion Protection inhibits deletion of the database
               Default value: `unspecified` (inherits cluster's deletion_protection)
+            default: unspecified` (inherits cluster's deletion_protection)
             type: boolean
         required:
           - name
@@ -17178,6 +17414,7 @@ apiPlayground:
               The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
               If the wait time is longer than the specified amount, then this statement is aborted.
               Default value: `0` (no control is enforced, a statement waiting time is unlimited).
+            default: 0` (no control is enforced, a statement waiting time is unlimited)
             type: string
             format: int64
           logMinDurationStatement:
@@ -17308,7 +17545,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the PostgreSQL user.
-            pattern: '[a-zA-Z0-9_-]*'
+            pattern: '[a-zA-Z0-9_@.-]*'
             type: string
           password:
             description: |-
@@ -17329,6 +17566,7 @@ apiPlayground:
               When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig_12.effectiveConfig.maxConnections](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12) setting.
               When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
               Minimum value: `10` (default: `50`), when used in session pooling.
+            default: 50`), when used in session pooling
             type: string
             format: int64
           settings:
@@ -17341,6 +17579,7 @@ apiPlayground:
               **boolean**
               This flag defines whether the user can login to a PostgreSQL database.
               Default value: `true` (login is allowed).
+            default: true` (login is allowed)
             type: boolean
           grants:
             description: |-
@@ -17356,6 +17595,7 @@ apiPlayground:
               **boolean**
               Deletion Protection inhibits deletion of the user
               Default value: `unspecified` (inherits cluster's deletion_protection)
+            default: unspecified` (inherits cluster's deletion_protection)
             type: boolean
           userPasswordEncryption:
             description: |-
@@ -17376,6 +17616,18 @@ apiPlayground:
               **boolean**
               Generate password using Connection Manager.
             type: boolean
+          authMethod:
+            description: |-
+              **enum** (AuthMethod)
+              Auth method for user
+              - `AUTH_METHOD_UNSPECIFIED`
+              - `AUTH_METHOD_PASSWORD`
+              - `AUTH_METHOD_IAM`
+            type: string
+            enum:
+              - AUTH_METHOD_UNSPECIFIED
+              - AUTH_METHOD_PASSWORD
+              - AUTH_METHOD_IAM
         required:
           - name
           - password
@@ -25330,6 +25582,162 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      ConfigHostSpec:
+        type: object
+        properties:
+          postgresqlConfig_9_6:
+            description: |-
+              **[PostgresqlHostConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6)**
+              Configuration for a host with PostgreSQL 9.6 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig9_6'
+          postgresqlConfig_10_1c:
+            description: |-
+              **[PostgresqlHostConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C)**
+              Configuration for a host with PostgreSQL 10 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig10_1C'
+          postgresqlConfig_10:
+            description: |-
+              **[PostgresqlHostConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10)**
+              Configuration for a host with PostgreSQL 10 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig10'
+          postgresqlConfig_11:
+            description: |-
+              **[PostgresqlHostConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11)**
+              Configuration for a host with PostgreSQL 11 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig11'
+          postgresqlConfig_11_1c:
+            description: |-
+              **[PostgresqlHostConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C)**
+              Configuration for a host with PostgreSQL 11 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig11_1C'
+          postgresqlConfig_12:
+            description: |-
+              **[PostgresqlHostConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12)**
+              Configuration for a host with PostgreSQL 12 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig12'
+          postgresqlConfig_12_1c:
+            description: |-
+              **[PostgresqlHostConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C)**
+              Configuration for a host with PostgreSQL 12 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig12_1C'
+          postgresqlConfig_13:
+            description: |-
+              **[PostgresqlHostConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13)**
+              Configuration for a host with PostgreSQL 13 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig13'
+          postgresqlConfig_13_1c:
+            description: |-
+              **[PostgresqlHostConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C)**
+              Configuration for a host with PostgreSQL 13 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig13_1C'
+          postgresqlConfig_14:
+            description: |-
+              **[PostgresqlHostConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14)**
+              Configuration for a host with PostgreSQL 14 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig14'
+          postgresqlConfig_14_1c:
+            description: |-
+              **[PostgresqlHostConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C)**
+              Configuration for a host with PostgreSQL 14 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig14_1C'
+          postgresqlConfig_15:
+            description: |-
+              **[PostgresqlHostConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15)**
+              Configuration for a host with PostgreSQL 15 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig15'
+          postgresqlConfig_15_1c:
+            description: |-
+              **[PostgresqlHostConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C)**
+              Configuration for a host with PostgreSQL 15 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig15_1C'
+          postgresqlConfig_16:
+            description: |-
+              **[PostgresqlHostConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16)**
+              Configuration for a host with PostgreSQL 16 server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig16'
+          postgresqlConfig_16_1c:
+            description: |-
+              **[PostgresqlHostConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C)**
+              Configuration for a host with PostgreSQL 16 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig16_1C'
+          postgresqlConfig_17:
+            description: |-
+              **[PostgresqlHostConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17)**
+              Configuration for a host with PostgreSQL 17 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig17'
+          postgresqlConfig_17_1c:
+            description: |-
+              **[PostgresqlHostConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C)**
+              Configuration for a host with PostgreSQL 17 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig17_1C'
+          postgresqlConfig_18:
+            description: |-
+              **[PostgresqlHostConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18)**
+              Configuration for a host with PostgreSQL 18 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig18'
+          postgresqlConfig_18_1c:
+            description: |-
+              **[PostgresqlHostConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C)**
+              Configuration for a host with PostgreSQL 18 1C server deployed.
+              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+            $ref: '#/definitions/PostgresqlHostConfig18_1C'
+        oneOf:
+          - required:
+              - postgresqlConfig_9_6
+          - required:
+              - postgresqlConfig_10_1c
+          - required:
+              - postgresqlConfig_10
+          - required:
+              - postgresqlConfig_11
+          - required:
+              - postgresqlConfig_11_1c
+          - required:
+              - postgresqlConfig_12
+          - required:
+              - postgresqlConfig_12_1c
+          - required:
+              - postgresqlConfig_13
+          - required:
+              - postgresqlConfig_13_1c
+          - required:
+              - postgresqlConfig_14
+          - required:
+              - postgresqlConfig_14_1c
+          - required:
+              - postgresqlConfig_15
+          - required:
+              - postgresqlConfig_15_1c
+          - required:
+              - postgresqlConfig_16
+          - required:
+              - postgresqlConfig_16_1c
+          - required:
+              - postgresqlConfig_17
+          - required:
+              - postgresqlConfig_17_1c
+          - required:
+              - postgresqlConfig_18
+          - required:
+              - postgresqlConfig_18_1c
       HostSpec:
         type: object
         properties:
@@ -25374,123 +25782,7 @@ apiPlayground:
             description: |-
               **[ConfigHostSpec](#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
               Configuration of a PostgreSQL server for the host.
-            oneOf:
-              - type: object
-                properties:
-                  postgresqlConfig_9_6:
-                    description: |-
-                      **[PostgresqlHostConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6)**
-                      Configuration for a host with PostgreSQL 9.6 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig9_6'
-                  postgresqlConfig_10_1c:
-                    description: |-
-                      **[PostgresqlHostConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C)**
-                      Configuration for a host with PostgreSQL 10 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig10_1C'
-                  postgresqlConfig_10:
-                    description: |-
-                      **[PostgresqlHostConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10)**
-                      Configuration for a host with PostgreSQL 10 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig10'
-                  postgresqlConfig_11:
-                    description: |-
-                      **[PostgresqlHostConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11)**
-                      Configuration for a host with PostgreSQL 11 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig11'
-                  postgresqlConfig_11_1c:
-                    description: |-
-                      **[PostgresqlHostConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C)**
-                      Configuration for a host with PostgreSQL 11 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig11_1C'
-                  postgresqlConfig_12:
-                    description: |-
-                      **[PostgresqlHostConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12)**
-                      Configuration for a host with PostgreSQL 12 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig12'
-                  postgresqlConfig_12_1c:
-                    description: |-
-                      **[PostgresqlHostConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C)**
-                      Configuration for a host with PostgreSQL 12 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig12_1C'
-                  postgresqlConfig_13:
-                    description: |-
-                      **[PostgresqlHostConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13)**
-                      Configuration for a host with PostgreSQL 13 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig13'
-                  postgresqlConfig_13_1c:
-                    description: |-
-                      **[PostgresqlHostConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C)**
-                      Configuration for a host with PostgreSQL 13 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig13_1C'
-                  postgresqlConfig_14:
-                    description: |-
-                      **[PostgresqlHostConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14)**
-                      Configuration for a host with PostgreSQL 14 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig14'
-                  postgresqlConfig_14_1c:
-                    description: |-
-                      **[PostgresqlHostConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C)**
-                      Configuration for a host with PostgreSQL 14 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig14_1C'
-                  postgresqlConfig_15:
-                    description: |-
-                      **[PostgresqlHostConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15)**
-                      Configuration for a host with PostgreSQL 15 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig15'
-                  postgresqlConfig_15_1c:
-                    description: |-
-                      **[PostgresqlHostConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C)**
-                      Configuration for a host with PostgreSQL 15 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig15_1C'
-                  postgresqlConfig_16:
-                    description: |-
-                      **[PostgresqlHostConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16)**
-                      Configuration for a host with PostgreSQL 16 server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig16'
-                  postgresqlConfig_16_1c:
-                    description: |-
-                      **[PostgresqlHostConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C)**
-                      Configuration for a host with PostgreSQL 16 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig16_1C'
-                  postgresqlConfig_17:
-                    description: |-
-                      **[PostgresqlHostConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17)**
-                      Configuration for a host with PostgreSQL 17 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig17'
-                  postgresqlConfig_17_1c:
-                    description: |-
-                      **[PostgresqlHostConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C)**
-                      Configuration for a host with PostgreSQL 17 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig17_1C'
-                  postgresqlConfig_18:
-                    description: |-
-                      **[PostgresqlHostConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18)**
-                      Configuration for a host with PostgreSQL 18 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig18'
-                  postgresqlConfig_18_1c:
-                    description: |-
-                      **[PostgresqlHostConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C)**
-                      Configuration for a host with PostgreSQL 18 1C server deployed.
-                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-                    $ref: '#/definitions/PostgresqlHostConfig18_1C'
+            $ref: '#/definitions/ConfigHostSpec'
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -25525,6 +25817,28 @@ apiPlayground:
               Hour of the day in UTC (in `HH` format).
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operation can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
+              Maintenance operation can be scheduled on a weekly basis.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
       CronTab:
         type: object
         properties:
@@ -28596,7 +28910,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       ],
       "deletionProtection": "boolean",
       "userPasswordEncryption": "string",
-      "generatePassword": "boolean"
+      "generatePassword": "boolean",
+      "authMethod": "string"
     }
   ],
   "hostSpecs": [
@@ -37554,6 +37869,13 @@ The default is `` password_encryption `` setting for cluster.
 || generatePassword | **boolean**
 
 Generate password using Connection Manager. ||
+|| authMethod | **enum** (AuthMethod)
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}

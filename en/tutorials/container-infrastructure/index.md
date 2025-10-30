@@ -27,6 +27,7 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
 * [{#T}](k8s-cluster-api-provider-yandex.md)
+* [{#T}](k8s-connect-bms-as-node.md)
 
 ### Setting up and testing scaling {#scaling}
 

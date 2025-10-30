@@ -1,6 +1,7 @@
 ---
 title: How to read and visualize metrics with Grafana
 description: Follow this guide to read and visualize metrics with Grafana.
+sourcePath: en/monitoring_includes/operations/prometheus/querying/grafana.md
 ---
 
 # Reading and visualizing metrics with Grafana

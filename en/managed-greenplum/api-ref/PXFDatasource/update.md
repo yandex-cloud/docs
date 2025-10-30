@@ -32,33 +32,7 @@ apiPlayground:
           format: field-mask
         datasource:
           description: '**[PXFDatasource](#yandex.cloud.mdb.greenplum.v1.PXFDatasource)**'
-          oneOf:
-            - type: object
-              properties:
-                s3:
-                  description: |-
-                    **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
-                    Settings of an external S3 data source.
-                    Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
-                  $ref: '#/definitions/PXFDatasourceS3'
-                jdbc:
-                  description: |-
-                    **[PXFDatasourceJDBC](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC)**
-                    Settings of an external JDBC data source.
-                    Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
-                  $ref: '#/definitions/PXFDatasourceJDBC'
-                hdfs:
-                  description: |-
-                    **[PXFDatasourceHDFS](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS)**
-                    Settings of an external HDFS data source.
-                    Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
-                  $ref: '#/definitions/PXFDatasourceHDFS'
-                hive:
-                  description: |-
-                    **[PXFDatasourceHive](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive)**
-                    Settings of an external Hive data source.
-                    Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
-                  $ref: '#/definitions/PXFDatasourceHive'
+          $ref: '#/definitions/PXFDatasource'
       additionalProperties: false
     definitions:
       PXFDatasourceS3:
@@ -443,6 +417,50 @@ apiPlayground:
               **string**
               Kerberos server principal.
             type: string
+      PXFDatasource:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Data source name.
+            pattern: ^[^\|/*?.,;'<>]+$
+            type: string
+          s3:
+            description: |-
+              **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
+              Settings of an external S3 data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceS3'
+          jdbc:
+            description: |-
+              **[PXFDatasourceJDBC](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC)**
+              Settings of an external JDBC data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceJDBC'
+          hdfs:
+            description: |-
+              **[PXFDatasourceHDFS](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS)**
+              Settings of an external HDFS data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceHDFS'
+          hive:
+            description: |-
+              **[PXFDatasourceHive](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive)**
+              Settings of an external Hive data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceHive'
+        required:
+          - name
+        oneOf:
+          - required:
+              - s3
+          - required:
+              - jdbc
+          - required:
+              - hdfs
+          - required:
+              - hive
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/update.md
 ---
 

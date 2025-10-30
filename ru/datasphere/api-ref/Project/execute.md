@@ -56,6 +56,11 @@ apiPlayground:
             ID of the Spark Connector
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - notebookId
+        - required:
+            - cellId
     definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/execute.md
 ---

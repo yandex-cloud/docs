@@ -50,7 +50,7 @@ Example of a filter: `name="my-name"`. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction.
-format is "<field> desc\|acs" ||
+format is "&lt;field&gt; desc\|acs" ||
 |#
 
 ## ListTrailsResponse {#yandex.cloud.audittrails.v1.ListTrailsResponse}
@@ -173,7 +173,6 @@ format is "<field> desc\|acs" ||
             // end of the list of possible fields
             // Includes only one of the fields `dns_filter`
             "dns_filter": {
-              "only_recursive_queries": "bool",
               "include_nonrecursive_queries": "bool"
             },
             // end of the list of possible fields
@@ -271,7 +270,7 @@ Describes which groups of events will be sent and which resources will be monito
 
 Configuration for event delivery to Object Storage
 
-Uploaded objects will have prefix <trail_id>/ by default
+Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
 Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
 || cloud_logging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
@@ -301,7 +300,7 @@ Name of the destination bucket ||
 || object_prefix | **string**
 
 Prefix for exported objects. Optional
-If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
+If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
 |#
 
 ## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}
@@ -522,9 +521,6 @@ Policy with explicitly specified event group
 
 #|
 ||Field | Description ||
-|| only_recursive_queries | **bool**
-
-deprecated: use all_dns_queries instead ||
 || include_nonrecursive_queries | **bool**
 
 Not only recursive queries will be delivered ||

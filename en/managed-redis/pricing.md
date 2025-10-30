@@ -37,9 +37,9 @@ The {{ mrd-name }} usage cost includes:
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ VLK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ VLK }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -47,7 +47,7 @@ You are charged for the following:
 
 * Storage allocated for DB clusters.
 
-    * Non-replicated SSD (network-ssd-nonreplicated) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
+    * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
                 * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
@@ -60,11 +60,11 @@ You are charged for the following:
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
     * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 * **{{ VLK }}** hosts: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of SSD network storage.
@@ -85,18 +85,18 @@ Calculation for the storage cost and total cost:
 {% include [usd-redis-storage](../_pricing_examples/managed-redis/usd-storage.md) %}
 
 
-
-## Discount for committed volumes of services (CVoS) {#cvos}
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mrd-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mrd-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 
@@ -106,7 +106,7 @@ CVoS discount is only available for certain resource types. For unsupported reso
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host compute resources {#prices-hosts}
+### Host computing resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}

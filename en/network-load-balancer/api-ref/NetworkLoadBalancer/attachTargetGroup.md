@@ -53,6 +53,60 @@ apiPlayground:
               URL path to set for health checking requests for every target in the target group.
               For example `` /ping ``. The default path is `` / ``.
             type: string
+      HealthCheck:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          interval:
+            description: |-
+              **string** (duration)
+              The interval between health checks. The default is 2 seconds.
+            type: string
+            format: duration
+          timeout:
+            description: |-
+              **string** (duration)
+              Timeout for a target to return a response for the health check. The default is 1 second.
+            type: string
+            format: duration
+          unhealthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2.
+            type: string
+            format: int64
+          healthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2.
+            type: string
+            format: int64
+          tcpOptions:
+            description: |-
+              **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+              Options for TCP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+              Protocol to use for the health check. Either TCP or HTTP.
+            $ref: '#/definitions/TcpOptions'
+          httpOptions:
+            description: |-
+              **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+              Options for HTTP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+              Protocol to use for the health check. Either TCP or HTTP.
+            $ref: '#/definitions/HttpOptions'
+        required:
+          - name
+        oneOf:
+          - required:
+              - tcpOptions
+          - required:
+              - httpOptions
       AttachedTargetGroup:
         type: object
         properties:
@@ -68,23 +122,7 @@ apiPlayground:
               For now we accept only one health check per AttachedTargetGroup.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    tcpOptions:
-                      description: |-
-                        **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
-                        Options for TCP health check.
-                        Includes only one of the fields `tcpOptions`, `httpOptions`.
-                        Protocol to use for the health check. Either TCP or HTTP.
-                      $ref: '#/definitions/TcpOptions'
-                    httpOptions:
-                      description: |-
-                        **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
-                        Options for HTTP health check.
-                        Includes only one of the fields `tcpOptions`, `httpOptions`.
-                        Protocol to use for the health check. Either TCP or HTTP.
-                      $ref: '#/definitions/HttpOptions'
+              $ref: '#/definitions/HealthCheck'
         required:
           - targetGroupId
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/attachTargetGroup.md

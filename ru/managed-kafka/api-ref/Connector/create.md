@@ -23,23 +23,7 @@ apiPlayground:
           description: |-
             **[ConnectorSpec](#yandex.cloud.mdb.kafka.v1.ConnectorSpec)**
             Required field. Configuration of the connector to create.
-          oneOf:
-            - type: object
-              properties:
-                connectorConfigMirrormaker:
-                  description: |-
-                    **[ConnectorConfigMirrorMakerSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec)**
-                    Configuration of the MirrorMaker connector.
-                    Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
-                    Additional settings for the connector.
-                  $ref: '#/definitions/ConnectorConfigMirrorMakerSpec'
-                connectorConfigS3Sink:
-                  description: |-
-                    **[ConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3SinkSpec)**
-                    Configuration of S3-Sink connector.
-                    Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
-                    Additional settings for the connector.
-                  $ref: '#/definitions/ConnectorConfigS3SinkSpec'
+          $ref: '#/definitions/ConnectorSpec'
       required:
         - connectorSpec
       additionalProperties: false
@@ -81,6 +65,34 @@ apiPlayground:
               CA in PEM format to connect to external cluster.
               Lines of certificate separated by '\n' symbol.
             type: string
+      ClusterConnectionSpec:
+        type: object
+        properties:
+          alias:
+            description: |-
+              **string**
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
+            type: string
+          thisCluster:
+            description: |-
+              **object**
+              Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
+              Includes only one of the fields `thisCluster`, `externalCluster`.
+              Type of connection to Apache Kafka® cluster.
+            $ref: '#/definitions/ThisClusterSpec'
+          externalCluster:
+            description: |-
+              **[ExternalClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnectionSpec)**
+              Configuration of connection to an external cluster with all the necessary credentials.
+              Includes only one of the fields `thisCluster`, `externalCluster`.
+              Type of connection to Apache Kafka® cluster.
+            $ref: '#/definitions/ExternalClusterConnectionSpec'
+        oneOf:
+          - required:
+              - thisCluster
+          - required:
+              - externalCluster
       ConnectorConfigMirrorMakerSpec:
         type: object
         properties:
@@ -88,44 +100,12 @@ apiPlayground:
             description: |-
               **[ClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ClusterConnectionSpec)**
               Source cluster configuration for the MirrorMaker connector.
-            oneOf:
-              - type: object
-                properties:
-                  thisCluster:
-                    description: |-
-                      **object**
-                      Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
-                      Includes only one of the fields `thisCluster`, `externalCluster`.
-                      Type of connection to Apache Kafka® cluster.
-                    $ref: '#/definitions/ThisClusterSpec'
-                  externalCluster:
-                    description: |-
-                      **[ExternalClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnectionSpec)**
-                      Configuration of connection to an external cluster with all the necessary credentials.
-                      Includes only one of the fields `thisCluster`, `externalCluster`.
-                      Type of connection to Apache Kafka® cluster.
-                    $ref: '#/definitions/ExternalClusterConnectionSpec'
+            $ref: '#/definitions/ClusterConnectionSpec'
           targetCluster:
             description: |-
               **[ClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ClusterConnectionSpec)**
               Target cluster configuration for the MirrorMaker connector.
-            oneOf:
-              - type: object
-                properties:
-                  thisCluster:
-                    description: |-
-                      **object**
-                      Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
-                      Includes only one of the fields `thisCluster`, `externalCluster`.
-                      Type of connection to Apache Kafka® cluster.
-                    $ref: '#/definitions/ThisClusterSpec'
-                  externalCluster:
-                    description: |-
-                      **[ExternalClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnectionSpec)**
-                      Configuration of connection to an external cluster with all the necessary credentials.
-                      Includes only one of the fields `thisCluster`, `externalCluster`.
-                      Type of connection to Apache Kafka® cluster.
-                    $ref: '#/definitions/ExternalClusterConnectionSpec'
+            $ref: '#/definitions/ClusterConnectionSpec'
           topics:
             description: |-
               **string**
@@ -154,6 +134,20 @@ apiPlayground:
               **string**
               Default is 'us-east-1'.
             type: string
+      S3ConnectionSpec:
+        type: object
+        properties:
+          bucketName:
+            description: '**string**'
+            type: string
+          externalS3:
+            description: |-
+              **[ExternalS3StorageSpec](#yandex.cloud.mdb.kafka.v1.ExternalS3StorageSpec)**
+              Includes only one of the fields `externalS3`.
+            $ref: '#/definitions/ExternalS3StorageSpec'
+        oneOf:
+          - required:
+              - externalS3
       ConnectorConfigS3SinkSpec:
         type: object
         properties:
@@ -179,14 +173,48 @@ apiPlayground:
             description: |-
               **[S3ConnectionSpec](#yandex.cloud.mdb.kafka.v1.S3ConnectionSpec)**
               Credentials for connecting to S3 storage.
-            oneOf:
-              - type: object
-                properties:
-                  externalS3:
-                    description: |-
-                      **[ExternalS3StorageSpec](#yandex.cloud.mdb.kafka.v1.ExternalS3StorageSpec)**
-                      Includes only one of the fields `externalS3`.
-                    $ref: '#/definitions/ExternalS3StorageSpec'
+            $ref: '#/definitions/S3ConnectionSpec'
+      ConnectorSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the connector.
+            type: string
+          tasksMax:
+            description: |-
+              **string** (int64)
+              Maximum number of connector tasks. Default value is the number of brokers.
+            type: string
+            format: int64
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+              Example: `sync.topics.config.enabled: true`.
+            type: object
+            additionalProperties:
+              type: string
+          connectorConfigMirrormaker:
+            description: |-
+              **[ConnectorConfigMirrorMakerSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec)**
+              Configuration of the MirrorMaker connector.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+              Additional settings for the connector.
+            $ref: '#/definitions/ConnectorConfigMirrorMakerSpec'
+          connectorConfigS3Sink:
+            description: |-
+              **[ConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3SinkSpec)**
+              Configuration of S3-Sink connector.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+              Additional settings for the connector.
+            $ref: '#/definitions/ConnectorConfigS3SinkSpec'
+        oneOf:
+          - required:
+              - connectorConfigMirrormaker
+          - required:
+              - connectorConfigS3Sink
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/create.md
 ---
 

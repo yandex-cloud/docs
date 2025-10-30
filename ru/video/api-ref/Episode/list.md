@@ -37,7 +37,7 @@ apiPlayground:
           description: |-
             **string**
             Specifies the ordering of results.
-            Format is "<field> <order>" (e.g., "createdAt desc").
+            Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
             Default: "id asc".
             Supported fields: ["id", "createdAt", "updatedAt"].
             Both snake_case and camelCase field names are supported.
@@ -57,6 +57,11 @@ apiPlayground:
             Both snake_case and camelCase field names are supported.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - streamId
+        - required:
+            - lineId
     body: null
     definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/list.md
@@ -101,7 +106,7 @@ This token is obtained from the next_page_token field in the previous ListEpisod
 || orderBy | **string**
 
 Specifies the ordering of results.
-Format is "<field> <order>" (e.g., "createdAt desc").
+Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
 Default: "id asc".
 Supported fields: ["id", "createdAt", "updatedAt"].
 Both snake_case and camelCase field names are supported. ||

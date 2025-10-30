@@ -18,7 +18,7 @@ Syntax:
 - [yc baremetal boot-image create](create.md) — Create an boot-image
 - [yc baremetal boot-image delete](delete.md) — Delete the specified boot-image
 - [yc baremetal boot-image get](get.md) — Show information about the specified boot-image
-- [yc baremetal boot-image list](list.md) — List images
+- [yc baremetal boot-image list](list.md) — List boot-images
 - [yc baremetal boot-image list-operations](list-operations.md) — List operations for the specified boot-image
 - [yc baremetal boot-image remove-labels](remove-labels.md) — Remove labels from specified boot-image
 - [yc baremetal boot-image update](update.md) — Update the specified boot-image

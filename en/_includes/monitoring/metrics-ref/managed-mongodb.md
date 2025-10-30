@@ -1,4 +1,4 @@
-The metric name goes into the `name` label.
+The `name` label contains the metric name.
 
 Labels shared by all {{ mmg-name }} metrics: 
 
@@ -12,7 +12,7 @@ node | Host type: `primary` or `secondary`
 shard | Shard ID
 
 ## CPU metrics {#managed-mongodb-cpu-metrics}
-These metrics show processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -47,7 +47,7 @@ These metrics show processor core workload.
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over five minutes |
 
-## Disk I/O metrics {#managed-mongodb-diskio-metrics}
+## Disk operation metrics {#managed-mongodb-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
@@ -116,7 +116,7 @@ These metrics show processor core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `db_stats_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a DB | 
+| `db_stats_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in the database | 
 | `db_stats_indexSize`<br/>`DGAUGE`, bytes | Space used by DB indexes | 
 | `db_stats_config_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a configuration DB |
 | `db_stats_config_indexSize`<br/>`DGAUGE`, bytes | Space used by configuration DB indexes |
@@ -178,7 +178,7 @@ These metrics show processor core workload.
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
-| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault. |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled.  | 
@@ -302,7 +302,7 @@ These metrics show processor core workload.
 | `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, count | Increment of write conflicts, per second | 
 | `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, count | Increment of scanned index keys, per second | 
 | `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, count | Increment of scanned documents, per second | 
-| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, count | Increment of documents deleted using the [TTL index](https://www.mongodb.com/docs/manual/core/index-ttl/), per second | 
+| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, count | Increment of documents deleted using the TTL index, per second |
 | `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, count | Increment of background documents deleted from collections using the TTL index, per second | 
 | `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, microseconds | Rate of DB command execution latency change, per second | 
 | `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, count | Increment of DB collection operations, per second | 

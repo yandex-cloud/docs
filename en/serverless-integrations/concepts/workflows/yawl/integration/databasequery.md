@@ -12,7 +12,7 @@ The `connection` and `dsn` fields are mutually exclusive: you can use only one o
 #|
 || Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description ||
 || `connection` | [DatabaseConnection](#DatabaseonnecCtion) | No | No | No | Database connection parameters ||
-|| `dsn` | `string` | No | No | No | Database connection string (DNS). The supported schemas are: `postgres://`, `postgresql://`, `clickhouse://`, `grpc://`, `grpcs://`, `ydb://`, and the {{ MY }} DSN (`user:pass@tcp(host:port)/db?...`) format. ||
+|| `dsn` | `string` | No | No | No | Database connection string (DNS). Supported schemas: `postgres://`, `postgresql://`, `clickhouse://`, `grpc://`, `grpcs://`, `ydb://`, and the {{ MY }} DSN format (`user:pass@tcp(host:port)/db?...`). ||
 || `query` | `string` | Yes | No | Yes | SQL query text ||
 || `mode` | `string` | No | `EXEC` | No | SQL query execution method. Values to choose from:
 * `EXEC`: Execute the SQL query and return the service fields only, e.g., `RowsAffected` and `LastInsertId`.
@@ -27,7 +27,7 @@ For a {{ MY }} database, `parseTime=true` and `charset=utf8mb4` are set automati
 
 #|
 || Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description ||
-|| `type` | `string` | Yes | No | No | Database type. Values to choose from: `MYSQL`, `POSTGRES`, `YDB`, `CLICKHOUSE`. ||
+|| `type` | `string` | Yes | No | No | Database type. Possible values: `MYSQL`, `POSTGRES`, `YDB`, and `CLICKHOUSE`. ||
 || `host` | `string` | Yes | No | No | Database host. ||
 || `port` | `number` | Yes | No | No | Database port. ||
 || `database` | `string` | Yes | No | No | Database name. ||

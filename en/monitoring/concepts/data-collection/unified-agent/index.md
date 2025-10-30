@@ -1,6 +1,7 @@
 ---
 title: Metrics collection agent
 description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/index.md
 ---
 
 # Metrics collection agent
@@ -53,6 +54,7 @@ All messages sent during a session contain both message metadata and session met
 Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file. 
 
 ## Inputs {#inputs}
+
 An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
 
 See the [list of available inputs](inputs.md).
@@ -75,6 +77,7 @@ Filter types:
 See also the [list of available filters](filters.md).
 
 ## Storages {#storages}
+
 Storages are intended to store messages from their receipt as an input until their transmission to the output.
 Using a storage can help you avoid data loss if the agent fails to write the data to the specified output. This may happen due to network issues or destination API unavailability.
 
@@ -83,6 +86,7 @@ See also the [storage configuration guide](storage.md).
 ## Routing {#routing}
 
 ### Pipes {#pipes}
+
 Pipes contain:
 * Sequence of filters that messages pass through.
 * Link to the storage where the messages will be stored before their transmission to the output.

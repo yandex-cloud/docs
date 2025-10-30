@@ -72,6 +72,11 @@ apiPlayground:
           items:
             type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - retentionPeriod
+        - required:
+            - snapshotCount
     definitions:
       SchedulePolicy:
         type: object

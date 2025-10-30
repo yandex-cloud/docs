@@ -1,7 +1,7 @@
 #### Quotas {#mspqr-quotas}
 
 #|
-|| Limit type | Value ||
+|| Type of limit | Value ||
 || Connection time-to-live | 12 hours ||
 || Number of clusters per cloud
 `mdb.clusters.count` | 16 ||
@@ -15,10 +15,10 @@
 
 #### Limits {#mspqr-limits}
 
-| Type of limit                                                        | Minimum value                                                                                                                                             | Maximum value                                |
-|:---------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|
-| Host class                                                           | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m4a-c80-m640 (80 vCPU AMD Zen 3, 640 GB RAM) |
-| Number of hosts per cluster when using an HDD or SSD network storage | 1                                                                                                                                                         | 7                                            |
-| Amount of data per host when using an HDD or SSD network storage     | 10 GB                                                                                                                                                     | 512 GB                                       |
-| Connections per user                                                 | 1                                                                                                                                                         | 15,985                                       |
-| Number of databases per cluster                                      | 1                                                                                                                                                         | {{ all-mdb.max-databases }}                  |
+| Type of limit                                                                         | Minimum value                                                                                                                                      | Maximum value                        |
+|:----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|
+| Host class                                                                             | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m4a-c80-m640 (80 vCPU AMD Zen 3, 640 GB RAM) |
+| Number of hosts per cluster when using HDD or SSD network storage | 1                                                                                                                                                         | 7                                            |
+| Amount of data per host when using HDD or SSD network storage        | 10 GB                                                                                                                                                     | 512 GB                                       |
+| Connections per user                                                  | 1                                                                                                                                                         | 15,985                                        |
+| Number of databases per cluster                                                  | 1                                                                                                                                                         | {{ all-mdb.max-databases }}                  |

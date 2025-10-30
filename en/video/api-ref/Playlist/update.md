@@ -49,23 +49,7 @@ apiPlayground:
             The order of items in this list determines the playback order.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  videoId:
-                    description: |-
-                      **string**
-                      Identifier of a video included in the playlist.
-                      Includes only one of the fields `videoId`, `episodeId`.
-                      Specifies the content identifier type for this playlist item.
-                    type: string
-                  episodeId:
-                    description: |-
-                      **string**
-                      Identifier of an episode included in the playlist.
-                      Includes only one of the fields `videoId`, `episodeId`.
-                      Specifies the content identifier type for this playlist item.
-                    type: string
+            $ref: '#/definitions/PlaylistItem'
         stylePresetId:
           description: |-
             **string**
@@ -74,7 +58,36 @@ apiPlayground:
       required:
         - fieldMask
       additionalProperties: false
-    definitions: null
+    definitions:
+      PlaylistItem:
+        type: object
+        properties:
+          videoId:
+            description: |-
+              **string**
+              Identifier of a video included in the playlist.
+              Includes only one of the fields `videoId`, `episodeId`.
+              Specifies the content identifier type for this playlist item.
+            type: string
+          episodeId:
+            description: |-
+              **string**
+              Identifier of an episode included in the playlist.
+              Includes only one of the fields `videoId`, `episodeId`.
+              Specifies the content identifier type for this playlist item.
+            type: string
+          position:
+            description: |-
+              **string** (int64)
+              Position of this item in the playlist sequence (zero-indexed).
+              Determines the playback order of content in the playlist.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - videoId
+          - required:
+              - episodeId
 sourcePath: en/_api-ref/video/v1/api-ref/Playlist/update.md
 ---
 

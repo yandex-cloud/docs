@@ -2907,7 +2907,7 @@ Includes only one of the fields `topic`, `topicPrefix`. ||
 Topic prefix
 
 Analogue of the Debezium setting database.server.name.
-Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+Messages will be sent to topic with name &lt;topic_prefix&gt;.&lt;schema&gt;.&lt;table_name&gt;.
 
 Includes only one of the fields `topic`, `topicPrefix`. ||
 |#

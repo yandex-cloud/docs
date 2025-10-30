@@ -13,7 +13,7 @@ editable: false
 
 
 
-To estimate your service costs, use [our calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or see the pricing below.
+To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}

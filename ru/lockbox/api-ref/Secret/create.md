@@ -53,24 +53,7 @@ apiPlayground:
             Payload entries added to the first version.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  textValue:
-                    description: |-
-                      **string**
-                      Use the field to set a text value.
-                      Includes only one of the fields `textValue`, `binaryValue`.
-                      Confidential value of the entry.
-                    type: string
-                  binaryValue:
-                    description: |-
-                      **string** (bytes)
-                      Use the field to set a binary value.
-                      Includes only one of the fields `textValue`, `binaryValue`.
-                      Confidential value of the entry.
-                    type: string
-                    format: bytes
+            $ref: '#/definitions/PayloadEntryChange'
         deletionProtection:
           description: |-
             **boolean**
@@ -93,6 +76,37 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions:
+      PayloadEntryChange:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. Non-confidential key of the entry.
+            pattern: '[-_./\\@0-9a-zA-Z]+'
+            type: string
+          textValue:
+            description: |-
+              **string**
+              Use the field to set a text value.
+              Includes only one of the fields `textValue`, `binaryValue`.
+              Confidential value of the entry.
+            type: string
+          binaryValue:
+            description: |-
+              **string** (bytes)
+              Use the field to set a binary value.
+              Includes only one of the fields `textValue`, `binaryValue`.
+              Confidential value of the entry.
+            type: string
+            format: bytes
+        required:
+          - key
+        oneOf:
+          - required:
+              - textValue
+          - required:
+              - binaryValue
       PasswordPayloadSpecification:
         type: object
         properties:
@@ -127,7 +141,7 @@ apiPlayground:
             description: |-
               **boolean**
               whether at least one punctuation character is included in the password, true by default
-              punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+              punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
               to customize the punctuation characters, see included_punctuation and excluded_punctuation below
             type: boolean
           includedPunctuation:
@@ -275,7 +289,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 
@@ -588,7 +602,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 

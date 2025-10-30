@@ -29,31 +29,45 @@ apiPlayground:
             Describe how payload entries of the base version change in the added version.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  textValue:
-                    description: |-
-                      **string**
-                      Use the field to set a text value.
-                      Includes only one of the fields `textValue`, `binaryValue`.
-                      Confidential value of the entry.
-                    type: string
-                  binaryValue:
-                    description: |-
-                      **string** (bytes)
-                      Use the field to set a binary value.
-                      Includes only one of the fields `textValue`, `binaryValue`.
-                      Confidential value of the entry.
-                    type: string
-                    format: bytes
+            $ref: '#/definitions/PayloadEntryChange'
         baseVersionId:
           description: |-
             **string**
             Optional base version id. Defaults to the current version if not specified
           type: string
       additionalProperties: false
-    definitions: null
+    definitions:
+      PayloadEntryChange:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. Non-confidential key of the entry.
+            pattern: '[-_./\\@0-9a-zA-Z]+'
+            type: string
+          textValue:
+            description: |-
+              **string**
+              Use the field to set a text value.
+              Includes only one of the fields `textValue`, `binaryValue`.
+              Confidential value of the entry.
+            type: string
+          binaryValue:
+            description: |-
+              **string** (bytes)
+              Use the field to set a binary value.
+              Includes only one of the fields `textValue`, `binaryValue`.
+              Confidential value of the entry.
+            type: string
+            format: bytes
+        required:
+          - key
+        oneOf:
+          - required:
+              - textValue
+          - required:
+              - binaryValue
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 
@@ -352,7 +366,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 

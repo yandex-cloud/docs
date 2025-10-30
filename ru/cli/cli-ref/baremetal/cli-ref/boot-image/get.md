@@ -23,7 +23,7 @@ Aliases:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>boot-image id.|
-|`--name`|<b>`string`</b><br/>Image name.|
+|`--name`|<b>`string`</b><br/>Boot-image name.|
 
 #### Global Flags
 

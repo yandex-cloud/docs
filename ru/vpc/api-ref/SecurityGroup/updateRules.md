@@ -31,48 +31,24 @@ apiPlayground:
             Security rules specifications.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  protocolName:
-                    description: |-
-                      **string**
-                      Protocol name.
-                      Includes only one of the fields `protocolName`, `protocolNumber`.
-                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-                      Null value means any protocol.
-                    type: string
-                  protocolNumber:
-                    description: |-
-                      **string** (int64)
-                      Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-                      Includes only one of the fields `protocolName`, `protocolNumber`.
-                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
-                      Null value means any protocol.
-                    type: string
-                    format: int64
-              - type: object
-                properties:
-                  cidrBlocks:
-                    description: |-
-                      **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
-                      CIDR blocks to allow to recieve or send traffic.
-                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
-                    $ref: '#/definitions/CidrBlocks'
-                  securityGroupId:
-                    description: |-
-                      **string**
-                      ID of the security group to add rule to.
-                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
-                    type: string
-                  predefinedTarget:
-                    description: |-
-                      **string**
-                      Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
-                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
-                    type: string
+            $ref: '#/definitions/SecurityGroupRuleSpec'
       additionalProperties: false
     definitions:
+      PortRange:
+        type: object
+        properties:
+          fromPort:
+            description: |-
+              **string** (int64)
+              The lowest port in the range.
+            type: string
+            format: int64
+          toPort:
+            description: |-
+              **string** (int64)
+              The highest port in the range.
+            type: string
+            format: int64
       CidrBlocks:
         type: object
         properties:
@@ -90,6 +66,96 @@ apiPlayground:
             type: array
             items:
               type: string
+      SecurityGroupRuleSpec:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the security rule.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Rule labels as `` key:value `` pairs.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_./\@0-9a-z]*'
+              maxLength: 63
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_./\@0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
+          direction:
+            description: |-
+              **enum** (Direction)
+              Required field. The direction of network traffic allowed by this rule.
+              - `DIRECTION_UNSPECIFIED`
+              - `INGRESS`: Allows ingress traffic.
+              - `EGRESS`: Allows egress traffic.
+            type: string
+            enum:
+              - DIRECTION_UNSPECIFIED
+              - INGRESS
+              - EGRESS
+          ports:
+            description: |-
+              **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
+              The range of ports that allow traffic to pass through. Null value means any port.
+            $ref: '#/definitions/PortRange'
+          protocolName:
+            description: |-
+              **string**
+              Protocol name.
+              Includes only one of the fields `protocolName`, `protocolNumber`.
+              Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+              Null value means any protocol.
+            type: string
+          protocolNumber:
+            description: |-
+              **string** (int64)
+              Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+              Includes only one of the fields `protocolName`, `protocolNumber`.
+              Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+              Null value means any protocol.
+            type: string
+            format: int64
+          cidrBlocks:
+            description: |-
+              **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
+              CIDR blocks to allow to recieve or send traffic.
+              Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+            $ref: '#/definitions/CidrBlocks'
+          securityGroupId:
+            description: |-
+              **string**
+              ID of the security group to add rule to.
+              Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+            type: string
+          predefinedTarget:
+            description: |-
+              **string**
+              Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
+              Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+            type: string
+        required:
+          - direction
+        allOf:
+          - oneOf:
+              - required:
+                  - protocolName
+              - required:
+                  - protocolNumber
+          - oneOf:
+              - required:
+                  - cidrBlocks
+              - required:
+                  - securityGroupId
+              - required:
+                  - predefinedTarget
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 

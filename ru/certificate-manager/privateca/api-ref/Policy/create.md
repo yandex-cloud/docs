@@ -74,6 +74,22 @@ apiPlayground:
       required:
         - certificateAuthorityId
       additionalProperties: false
+      allOf:
+        - oneOf:
+            - required:
+                - keyUsagesWhiteList
+            - required:
+                - keyUsagesBlackList
+        - oneOf:
+            - required:
+                - extendedKeyUsagesWhiteList
+            - required:
+                - extendedKeyUsagesBlackList
+        - oneOf:
+            - required:
+                - extensionWhiteList
+            - required:
+                - extensionBlackList
     definitions:
       SubjectPolicy:
         type: object

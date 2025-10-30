@@ -1,22 +1,22 @@
 ---
 title: Access management in {{ kms-full-name }}
-description: Access management in {{ kms-full-name }}, an encryption key management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ kms-full-name }}, an encryption key management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ kms-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#choosing-roles) for particular actions.
+In this section, you will learn about:
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `kms.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `kms.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -24,13 +24,13 @@ You can assign a role for individual resources within the service in the [manage
 
 {% include notitle [kms-resources](../../_includes/iam/resources-with-access-control/kms.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 You can manage access to {{ kms-short-name }} keys using both service and primitive roles.
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/kms/service-roles-hierarchy.svg)
+{% include [kms](../../_mermaid/roles/kms.md) %}
 
 ### Service roles {#service-roles}
 
@@ -107,10 +107,10 @@ Action | Methods | Required roles
 **{{ kms-short-name }}** | | 
 Getting information about keys and versions | `get`, `listVersions` | `kms.viewer` for the folder key
 [Symmetric encryption and decryption](../api-ref/SymmetricCrypto/) operations | `encrypt`, `decrypt`, `reEncrypt`, `generateDataKey` | `kms.keys.encrypterDecrypter` for the key (encryption and decryption), `kms.keys.encrypter` for the key (encryption only), and `kms.keys.decrypter` for the key (decryption only)
-Getting a list of keys in the folder | `list` | `kms.auditor` for folder
+Getting a list of keys in the folder | `list` | `kms.auditor` for the folder
 Getting a public key of an asymmetric encryption key pair | | `kms.asymmetricEncryptionKeys.publicKeyViewer` for the key
 Decrypting data with a private key of an asymmetric encryption key pair | | `kms.asymmetricEncryptionKeys.decrypter` for the key
-[Creating](../operations/key.md#create) and [updating](../operations/key.md#update) a key | `create`, `update` | `kms.editor` for folder
+[Creating](../operations/key.md#create) and [updating](../operations/key.md#update) a key | `create`, `update` | `kms.editor` for the folder
 [Rotating a key](../operations/key.md#rotate) | `rotate` | `kms.editor` for the key
 [Changing the primary version](../operations/version.md#make-primary) | `setPrimaryVersion` | `kms.admin` for the key
 [Destroying keys](../operations/key.md#delete) and [versions](../operations/version.md#delete)| `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin` for the key
@@ -123,4 +123,4 @@ Viewing roles granted for a key | `listAccessBindings` | `kms.auditor` for the k
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

@@ -1,0 +1,1 @@
+[Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) ему [роль](../../ai-studio/security/index.md#ai-models-user) `ai.models.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).

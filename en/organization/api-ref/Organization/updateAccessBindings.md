@@ -31,36 +31,11 @@ apiPlayground:
         type: object
         properties:
           id:
-            description: |-
-              **string**
-              Required field. ID of the subject.
-              It can contain one of the following values:
-              * `allAuthenticatedUsers`: A special public group that represents anyone
-              who is authenticated. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
-              * `allUsers`: A special public group that represents anyone. No authentication is required.
-              For example, you don't need to specify the IAM token in an API query.
-              It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
-              * `group:organization:<id>:users`: A special system group that represents all members of organization
-              with given <id>. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
-              * `group:federation:<id>:users`: A special system group that represents all users of federation
-              with given <id>. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
-              * `<cloud generated id>`: An identifier that represents a user account.
-              It can be used only if the [type](#yandex.cloud.access.Subject) is `userAccount`, `federatedUser` or `serviceAccount`.
+            description: '**string**'
             type: string
           type:
-            description: |-
-              **string**
-              Required field. Type of the subject.
-              It can contain one of the following values:
-              * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
-              * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
-              * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
-              * `system`: System group. This type represents several accounts with a common system identifier.
-              For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+            description: '**string**'
             type: string
-        required:
-          - id
-          - type
       AccessBinding:
         type: object
         properties:
@@ -193,9 +168,9 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
 It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
 || type | **string**

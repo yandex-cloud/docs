@@ -21,9 +21,9 @@ To view detailed information on the state of a {{ mch-name }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
+  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
 
       The page that opens will display the performance charts for the cluster and {{ CH }} hosts.
 
@@ -136,7 +136,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
   
   {% note info %}
 
-  For more information about znodes, ephemeral nodes, and watches, see [this {{ ZK }} article](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
+  For more information about znodes, ephemeral nodes, and watches, see this [{{ ZK }} guide](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
   {% endnote %}
 
@@ -168,9 +168,9 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
 
   1. Navigate to the **Hosts** tab and select the host.
     
@@ -244,7 +244,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
       * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
       * **{{ mch-name }} — Host Overview** to configure host alerts.
   1. In the relevant metrics chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see this [{{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -268,7 +268,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-a
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%)
 * `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see this [{{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}

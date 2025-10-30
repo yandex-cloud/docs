@@ -1,6 +1,7 @@
 ---
 title: Data decimation in {{ monitoring-full-name }}
 description: This article describes decimation of metrics when reading data from {{ monitoring-name }} and decimation of historical metrics aimed at optimizing data storage in {{ monitoring-name }}.
+sourcePath: en/monitoring_includes/concepts/decimation.md
 ---
 
 # Data decimation

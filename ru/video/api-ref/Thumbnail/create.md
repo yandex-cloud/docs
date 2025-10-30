@@ -26,6 +26,11 @@ apiPlayground:
             Includes only one of the fields `episodeId`, `videoId`.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - episodeId
+        - required:
+            - videoId
     definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/create.md
 ---

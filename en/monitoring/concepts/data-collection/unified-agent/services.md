@@ -1,6 +1,7 @@
 ---
 title: Service sections
 description: 'In this article, you will learn about the service sections: status, main_thread_pool, agent_log, system, and flow_control.'
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/services.md
 ---
 
 # Service sections
@@ -28,7 +29,7 @@ This section contains a configuration for execution threads.
 Parameter descriptions:
 
 ```yaml
-main_thread_pool:  # optional
+main_thread_pool:  # Optional
   # Number of threads.
   threads: 1  # optional, the default value is 1
 ```

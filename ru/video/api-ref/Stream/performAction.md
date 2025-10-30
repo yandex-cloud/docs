@@ -35,6 +35,11 @@ apiPlayground:
             Specifies which action to perform on the stream (exactly one must be chosen).
           $ref: '#/definitions/StopAction'
       additionalProperties: false
+      oneOf:
+        - required:
+            - publish
+        - required:
+            - stop
     definitions:
       PublishAction:
         type: object

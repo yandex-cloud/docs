@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/metric/get.md
+---
 # Downloading metrics
 
 To download metric data, use the [read](../../api-ref/MetricsData/read.md) method.

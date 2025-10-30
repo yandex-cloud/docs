@@ -35,6 +35,11 @@ apiPlayground:
             Specifies which action to perform on the episode (exactly one must be chosen).
           $ref: '#/definitions/UnpublishEpisodeAction'
       additionalProperties: false
+      oneOf:
+        - required:
+            - publish
+        - required:
+            - unpublish
     definitions:
       PublishEpisodeAction:
         type: object

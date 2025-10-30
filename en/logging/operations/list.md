@@ -1,6 +1,7 @@
 ---
 title: How to get a list of log groups in {{ cloud-logging-full-name }}
 description: Follow this guide to get a list of log groups.
+sourcePath: en/logging_includes/operations/list.md
 ---
 
 # Getting a list of log groups
@@ -43,7 +44,7 @@ description: Follow this guide to get a list of log groups.
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  Send this request:
+  Run this query:
 
   ```bash
   grpcurl \

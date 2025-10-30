@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/api-ref/api-ref-grpc/index.md
+---
 # Overview
 
 This API reference is organized by resource. To perform an operation on a resource, make an RPC call. For more information, see the [{{ yandex-cloud }} API guidelines](../../../api-design-guide/).
@@ -10,7 +13,7 @@ Service|Description|Use cases
 
 Any operation changing a resource state has an asynchronous signature. When these operations are called, the server returns the [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto) object.
 
-The `Operation` object contains operation data, e.g., its status, ID, creation date, etc. You can use it for operation status monitoring by checking the `done` field that changes to `true` once the operation is completed. Currently, all operations are synchronous, returning `done=true` or an error.
+The `Operation` object contains operation data, e.g., its status, ID, creation date, etc. You can use it for operation status monitoring. The operation status is displayed in the `done` field. Once the operation is completed, the `done` field value changes to `true`. Currently, all operations are synchronous and return `done=true` or an error.
 
 An error during an asynchronous operation causes the server to abort all running procedures and add the `error` description field to the `Operation` object.
 

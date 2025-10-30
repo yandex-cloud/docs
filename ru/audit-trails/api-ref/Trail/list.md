@@ -42,7 +42,7 @@ apiPlayground:
           description: |-
             **string**
             By which column the listing should be ordered and in which direction.
-            format is "<field> desc|acs"
+            format is "&lt;field&gt; desc|acs"
           type: string
       required:
         - folderId
@@ -91,7 +91,7 @@ Example of a filter: `name="my-name"`. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction.
-format is "<field> desc\|acs" ||
+format is "&lt;field&gt; desc\|acs" ||
 |#
 
 ## Response {#yandex.cloud.audittrails.v1.ListTrailsResponse}
@@ -216,7 +216,6 @@ format is "<field> desc\|acs" ||
             // end of the list of possible fields
             // Includes only one of the fields `dnsFilter`
             "dnsFilter": {
-              "onlyRecursiveQueries": "boolean",
               "includeNonrecursiveQueries": "boolean"
             },
             // end of the list of possible fields
@@ -328,7 +327,7 @@ Describes which groups of events will be sent and which resources will be monito
 
 Configuration for event delivery to Object Storage
 
-Uploaded objects will have prefix <trail_id>/ by default
+Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
 Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
@@ -358,7 +357,7 @@ Name of the destination bucket ||
 || objectPrefix | **string**
 
 Prefix for exported objects. Optional
-If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
+If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
 |#
 
 ## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}
@@ -579,9 +578,6 @@ Policy with explicitly specified event group
 
 #|
 ||Field | Description ||
-|| onlyRecursiveQueries | **boolean**
-
-deprecated: use all_dns_queries instead ||
 || includeNonrecursiveQueries | **boolean**
 
 Not only recursive queries will be delivered ||

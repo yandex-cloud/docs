@@ -22,37 +22,90 @@ apiPlayground:
           description: |-
             **[ListenerSpec](#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
             Required field. Listener to add to the application load balancer.
-          oneOf:
-            - type: object
-              properties:
-                http:
-                  description: |-
-                    **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
-                    Unencrypted HTTP listener settings.
-                    Includes only one of the fields `http`, `tls`, `stream`.
-                    Listener type and settings.
-                  $ref: '#/definitions/HttpListener'
-                tls:
-                  description: |-
-                    **[TlsListener](#yandex.cloud.apploadbalancer.v1.TlsListener)**
-                    TLS-encrypted HTTP or TCP stream listener settings.
-                    All handlers within a listener ([TlsListener.defaultHandler](#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
-                    type, [HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
-                    supported.
-                    Includes only one of the fields `http`, `tls`, `stream`.
-                    Listener type and settings.
-                  $ref: '#/definitions/TlsListener'
-                stream:
-                  description: |-
-                    **[StreamListener](#yandex.cloud.apploadbalancer.v1.StreamListener)**
-                    Unencrypted stream (TCP) listener settings.
-                    Includes only one of the fields `http`, `tls`, `stream`.
-                    Listener type and settings.
-                  $ref: '#/definitions/StreamListener'
+          $ref: '#/definitions/ListenerSpec'
       required:
         - listenerSpec
       additionalProperties: false
     definitions:
+      ExternalIpv4AddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              IPv4 address.
+            type: string
+      InternalIpv4AddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              IPv4 address.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the address belongs to.
+            type: string
+      ExternalIpv6AddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              IPv6 address.
+            type: string
+      AddressSpec:
+        type: object
+        properties:
+          externalIpv4AddressSpec:
+            description: |-
+              **[ExternalIpv4AddressSpec](#yandex.cloud.apploadbalancer.v1.ExternalIpv4AddressSpec)**
+              Public IPv4 endpoint address.
+              Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`.
+              Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
+            $ref: '#/definitions/ExternalIpv4AddressSpec'
+          internalIpv4AddressSpec:
+            description: |-
+              **[InternalIpv4AddressSpec](#yandex.cloud.apploadbalancer.v1.InternalIpv4AddressSpec)**
+              Internal IPv4 endpoint address.
+              To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time).
+              Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`.
+              Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
+            $ref: '#/definitions/InternalIpv4AddressSpec'
+          externalIpv6AddressSpec:
+            description: |-
+              **[ExternalIpv6AddressSpec](#yandex.cloud.apploadbalancer.v1.ExternalIpv6AddressSpec)**
+              Public IPv6 endpoint address.
+              Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`.
+              Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address.
+            $ref: '#/definitions/ExternalIpv6AddressSpec'
+        oneOf:
+          - required:
+              - externalIpv4AddressSpec
+          - required:
+              - internalIpv4AddressSpec
+          - required:
+              - externalIpv6AddressSpec
+      EndpointSpec:
+        type: object
+        properties:
+          addressSpecs:
+            description: |-
+              **[AddressSpec](#yandex.cloud.apploadbalancer.v1.AddressSpec)**
+              Endpoint public (external) and internal addresses.
+            type: array
+            items:
+              $ref: '#/definitions/AddressSpec'
+          ports:
+            description: |-
+              **string** (int64)
+              Endpoint ports.
+            type: array
+            items:
+              type: string
+              format: int64
       Http2Options:
         type: object
         properties:
@@ -62,6 +115,45 @@ apiPlayground:
               Maximum number of concurrent HTTP/2 streams in a connection.
             type: string
             format: int64
+      HttpHandler:
+        type: object
+        properties:
+          httpRouterId:
+            description: |-
+              **string**
+              ID of the HTTP router processing requests. For details about the concept, see
+              [documentation](/docs/application-load-balancer/concepts/http-router).
+              To get the list of all available HTTP routers, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+            type: string
+          http2Options:
+            description: |-
+              **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
+              HTTP/2 settings.
+              If specified, incoming HTTP/2 requests are supported by the listener.
+              Includes only one of the fields `http2Options`, `allowHttp10`.
+              Protocol settings.
+              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+            $ref: '#/definitions/Http2Options'
+          allowHttp10:
+            description: |-
+              **boolean**
+              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+              Includes only one of the fields `http2Options`, `allowHttp10`.
+              Protocol settings.
+              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+            type: boolean
+          rewriteRequestId:
+            description: |-
+              **boolean**
+              When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
+            type: boolean
+        oneOf:
+          - required:
+              - http2Options
+          - required:
+              - allowHttp10
       Redirects:
         type: object
         properties:
@@ -80,28 +172,7 @@ apiPlayground:
               **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
               Settings for handling HTTP requests.
               Only one of `handler` and [redirects](#yandex.cloud.apploadbalancer.v1.HttpListener) can be specified.
-            oneOf:
-              - type: object
-                properties:
-                  http2Options:
-                    description: |-
-                      **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
-                      HTTP/2 settings.
-                      If specified, incoming HTTP/2 requests are supported by the listener.
-                      Includes only one of the fields `http2Options`, `allowHttp10`.
-                      Protocol settings.
-                      For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                      negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                    $ref: '#/definitions/Http2Options'
-                  allowHttp10:
-                    description: |-
-                      **boolean**
-                      Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
-                      Includes only one of the fields `http2Options`, `allowHttp10`.
-                      Protocol settings.
-                      For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                      negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                    type: boolean
+            $ref: '#/definitions/HttpHandler'
           redirects:
             description: |-
               **[Redirects](#yandex.cloud.apploadbalancer.v1.Redirects)**
@@ -128,6 +199,36 @@ apiPlayground:
             format: duration
         required:
           - backendGroupId
+      TlsHandler:
+        type: object
+        properties:
+          httpHandler:
+            description: |-
+              **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+              HTTP handler.
+              Includes only one of the fields `httpHandler`, `streamHandler`.
+              Settings for handling requests.
+            $ref: '#/definitions/HttpHandler'
+          streamHandler:
+            description: |-
+              **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+              Stream (TCP) handler.
+              Includes only one of the fields `httpHandler`, `streamHandler`.
+              Settings for handling requests.
+            $ref: '#/definitions/StreamHandler'
+          certificateIds:
+            description: |-
+              **string**
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+            type: array
+            items:
+              type: string
+        oneOf:
+          - required:
+              - httpHandler
+          - required:
+              - streamHandler
       SniMatch:
         type: object
         properties:
@@ -147,44 +248,7 @@ apiPlayground:
             description: |-
               **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
               Required field. Settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest) values.
-            oneOf:
-              - type: object
-                properties:
-                  httpHandler:
-                    description: |-
-                      **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
-                      HTTP handler.
-                      Includes only one of the fields `httpHandler`, `streamHandler`.
-                      Settings for handling requests.
-                    oneOf:
-                      - type: object
-                        properties:
-                          http2Options:
-                            description: |-
-                              **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
-                              HTTP/2 settings.
-                              If specified, incoming HTTP/2 requests are supported by the listener.
-                              Includes only one of the fields `http2Options`, `allowHttp10`.
-                              Protocol settings.
-                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                            $ref: '#/definitions/Http2Options'
-                          allowHttp10:
-                            description: |-
-                              **boolean**
-                              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
-                              Includes only one of the fields `http2Options`, `allowHttp10`.
-                              Protocol settings.
-                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                            type: boolean
-                  streamHandler:
-                    description: |-
-                      **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
-                      Stream (TCP) handler.
-                      Includes only one of the fields `httpHandler`, `streamHandler`.
-                      Settings for handling requests.
-                    $ref: '#/definitions/StreamHandler'
+            $ref: '#/definitions/TlsHandler'
         required:
           - name
           - handler
@@ -196,44 +260,7 @@ apiPlayground:
               **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
               Required field. Settings for handling requests by default, with Server Name
               Indication (SNI) not matching any of the [sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener).
-            oneOf:
-              - type: object
-                properties:
-                  httpHandler:
-                    description: |-
-                      **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
-                      HTTP handler.
-                      Includes only one of the fields `httpHandler`, `streamHandler`.
-                      Settings for handling requests.
-                    oneOf:
-                      - type: object
-                        properties:
-                          http2Options:
-                            description: |-
-                              **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
-                              HTTP/2 settings.
-                              If specified, incoming HTTP/2 requests are supported by the listener.
-                              Includes only one of the fields `http2Options`, `allowHttp10`.
-                              Protocol settings.
-                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                            $ref: '#/definitions/Http2Options'
-                          allowHttp10:
-                            description: |-
-                              **boolean**
-                              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
-                              Includes only one of the fields `http2Options`, `allowHttp10`.
-                              Protocol settings.
-                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                            type: boolean
-                  streamHandler:
-                    description: |-
-                      **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
-                      Stream (TCP) handler.
-                      Includes only one of the fields `httpHandler`, `streamHandler`.
-                      Settings for handling requests.
-                    $ref: '#/definitions/StreamHandler'
+            $ref: '#/definitions/TlsHandler'
           sniHandlers:
             description: |-
               **[SniMatch](#yandex.cloud.apploadbalancer.v1.SniMatch)**
@@ -254,6 +281,56 @@ apiPlayground:
             $ref: '#/definitions/StreamHandler'
         required:
           - handler
+      ListenerSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the listener. The name is unique within the application load balancer.
+            pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+            type: string
+          endpointSpecs:
+            description: |-
+              **[EndpointSpec](#yandex.cloud.apploadbalancer.v1.EndpointSpec)**
+              Endpoints of the listener.
+              Endpoints are defined by their IP addresses and ports.
+            type: array
+            items:
+              $ref: '#/definitions/EndpointSpec'
+          http:
+            description: |-
+              **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
+              Unencrypted HTTP listener settings.
+              Includes only one of the fields `http`, `tls`, `stream`.
+              Listener type and settings.
+            $ref: '#/definitions/HttpListener'
+          tls:
+            description: |-
+              **[TlsListener](#yandex.cloud.apploadbalancer.v1.TlsListener)**
+              TLS-encrypted HTTP or TCP stream listener settings.
+              All handlers within a listener ([TlsListener.defaultHandler](#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
+              type, [HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+              supported.
+              Includes only one of the fields `http`, `tls`, `stream`.
+              Listener type and settings.
+            $ref: '#/definitions/TlsListener'
+          stream:
+            description: |-
+              **[StreamListener](#yandex.cloud.apploadbalancer.v1.StreamListener)**
+              Unencrypted stream (TCP) listener settings.
+              Includes only one of the fields `http`, `tls`, `stream`.
+              Listener type and settings.
+            $ref: '#/definitions/StreamListener'
+        required:
+          - name
+        oneOf:
+          - required:
+              - http
+          - required:
+              - tls
+          - required:
+              - stream
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/addListener.md
 ---
 

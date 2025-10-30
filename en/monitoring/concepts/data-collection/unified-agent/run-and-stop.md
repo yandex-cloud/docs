@@ -1,6 +1,7 @@
 ---
 title: How to start and stop {{ unified-agent-full-name }}
 description: In this tutorial, you will learn how to start and stop {{ unified-agent-full-name }}.
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/run-and-stop.md
 ---
 
 # Starting and stopping {{ unified-agent-full-name }}
@@ -148,8 +149,8 @@ Environment variable | Default value | Description
 `UA_STATUS_PORT` | `16241` | Port where the [agent status](./services.md#status) will be available.
 `UA_LOG_PRIORITY` | `NOTICE` | [Agent's logging](./services.md#agent_log) level.
 `FOLDER_ID` | No | ID of the folder to write metrics to (a required parameter).
-`PROC_DIRECTORY` | `/proc` | Directory with mounted [procfs](https://ru.wikipedia.org/wiki/Procfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input).
-`SYS_DIRECTORY` | `/sys` | Directory with mounted [sysfs](https://ru.wikipedia.org/wiki/Sysfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input).
+`PROC_DIRECTORY` | `/proc` | Directory with mounted [procfs] (https://en.wikipedia.org/wiki/Procfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input).
+`SYS_DIRECTORY` | `/sys` | Directory with mounted [sysfs](https://en.wikipedia.org/wiki/Sysfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input).
 `UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | Level of detail of [system metrics](./inputs.md#linux_metrics_input): CPU, network, disks, I/O system, and Linux kernel.
 
 

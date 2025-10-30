@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/concepts/alerting/annotation.md
+---
 # Annotation
 
 Annotations enable you to save additional information during alert calculation. The annotation name and value are transmitted when sending alert notifications to the `Email` and `Telegram` [channels](notification-channel.md).
@@ -16,7 +19,7 @@ Used disk space is not_var{{pointValue}} Gbs, expected less than not_var{{alert.
 
 Complete list of alert parameters available in annotations:
 
-Name | Description
+Field | Description
 ---------|----------
 **alert.projectId**</br>**alert.folderId**</br>**alert.id**</br>**alert.name**</br>**alert.state**</br>**alert.createdAt**</br>**alert.updatedAt**</br>**alert.createdBy**</br>**alert.updatedBy**</br>**alert.version**</br> | Shared alert parameters
 **alert.queries**</br>**alert.queryToCheck**</br>**alert.thresholdType**</br>**alert.comparison**</br>**alert.alarmThreshold**</br>**alert.warnThreshold** | Threshold alert queries and comparison parameters

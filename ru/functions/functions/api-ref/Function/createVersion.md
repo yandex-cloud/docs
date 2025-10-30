@@ -106,38 +106,12 @@ apiPlayground:
             Yandex Lockbox secrets to be used by the version.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  environmentVariable:
-                    description: |-
-                      **string**
-                      environment variable in which secret's value to be delivered.
-                      Includes only one of the fields `environmentVariable`.
-                    type: string
+            $ref: '#/definitions/Secret'
         logOptions:
           description: |-
             **[LogOptions](#yandex.cloud.serverless.functions.v1.LogOptions)**
             Options for logging from the function
-          oneOf:
-            - type: object
-              properties:
-                logGroupId:
-                  description: |-
-                    **string**
-                    Entry should be written to log group resolved by ID.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
-                folderId:
-                  description: |-
-                    **string**
-                    Entry should be written to default log group for specified folder.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
+          $ref: '#/definitions/LogOptions'
         storageMounts:
           description: |-
             **[StorageMount](#yandex.cloud.serverless.functions.v1.StorageMount)**
@@ -170,23 +144,7 @@ apiPlayground:
             Mounts to be used by the version.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  objectStorage:
-                    description: |-
-                      **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
-                      Object storage mounts
-                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
-                      Target mount option
-                    $ref: '#/definitions/ObjectStorage'
-                  ephemeralDiskSpec:
-                    description: |-
-                      **[DiskSpec](#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
-                      Working disk (worker-local non-shared read-write NBS disk templates)
-                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
-                      Target mount option
-                    $ref: '#/definitions/DiskSpec'
+            $ref: '#/definitions/Mount'
         metadataOptions:
           description: |-
             **[MetadataOptions](#yandex.cloud.serverless.functions.v1.MetadataOptions)**
@@ -199,6 +157,13 @@ apiPlayground:
         - resources
         - executionTimeout
       additionalProperties: false
+      oneOf:
+        - required:
+            - package
+        - required:
+            - content
+        - required:
+            - versionId
     definitions:
       Resources:
         type: object
@@ -248,6 +213,90 @@ apiPlayground:
             type: array
             items:
               type: string
+      Secret:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of Yandex Lockbox secret.
+            type: string
+          versionId:
+            description: |-
+              **string**
+              ID of Yandex Lockbox version.
+            type: string
+          key:
+            description: |-
+              **string**
+              Key in secret's payload, which value to be delivered into function environment.
+            type: string
+          environmentVariable:
+            description: |-
+              **string**
+              environment variable in which secret's value to be delivered.
+              Includes only one of the fields `environmentVariable`.
+            type: string
+        oneOf:
+          - required:
+              - environmentVariable
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from function disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
       StorageMount:
         type: object
         properties:
@@ -295,6 +344,26 @@ apiPlayground:
         required:
           - queueArn
           - serviceAccountId
+      ResponseTarget:
+        type: object
+        properties:
+          emptyTarget:
+            description: |-
+              **object**
+              Target to ignore a result
+              Includes only one of the fields `emptyTarget`, `ymqTarget`.
+            $ref: '#/definitions/EmptyTarget'
+          ymqTarget:
+            description: |-
+              **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
+              Target to send a result to ymq
+              Includes only one of the fields `emptyTarget`, `ymqTarget`.
+            $ref: '#/definitions/YMQTarget'
+        oneOf:
+          - required:
+              - emptyTarget
+          - required:
+              - ymqTarget
       AsyncInvocationConfig:
         type: object
         properties:
@@ -308,40 +377,12 @@ apiPlayground:
             description: |-
               **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
               Required field. Target for successful result of the version's invocation
-            oneOf:
-              - type: object
-                properties:
-                  emptyTarget:
-                    description: |-
-                      **object**
-                      Target to ignore a result
-                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
-                    $ref: '#/definitions/EmptyTarget'
-                  ymqTarget:
-                    description: |-
-                      **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
-                      Target to send a result to ymq
-                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
-                    $ref: '#/definitions/YMQTarget'
+            $ref: '#/definitions/ResponseTarget'
           failureTarget:
             description: |-
               **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
               Required field. Target for unsuccessful result, if all retries failed
-            oneOf:
-              - type: object
-                properties:
-                  emptyTarget:
-                    description: |-
-                      **object**
-                      Target to ignore a result
-                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
-                    $ref: '#/definitions/EmptyTarget'
-                  ymqTarget:
-                    description: |-
-                      **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
-                      Target to send a result to ymq
-                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
-                    $ref: '#/definitions/YMQTarget'
+            $ref: '#/definitions/ResponseTarget'
           serviceAccountId:
             description: |-
               **string**
@@ -381,6 +422,48 @@ apiPlayground:
               Optional block size of disk for mount in bytes
             type: string
             format: int64
+      Mount:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt;
+            pattern: '[-_0-9a-zA-Z]*'
+            type: string
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mount's mode
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`
+              - `READ_WRITE`
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
+              Object storage mounts
+              Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+              Target mount option
+            $ref: '#/definitions/ObjectStorage'
+          ephemeralDiskSpec:
+            description: |-
+              **[DiskSpec](#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
+              Working disk (worker-local non-shared read-write NBS disk templates)
+              Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+              Target mount option
+            $ref: '#/definitions/DiskSpec'
+        required:
+          - name
+        oneOf:
+          - required:
+              - objectStorage
+          - required:
+              - ephemeralDiskSpec
       MetadataOptions:
         type: object
         properties:
@@ -807,7 +890,7 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/<name> ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
 || mode | **enum** (Mode)
 
 Mount's mode
@@ -1366,7 +1449,7 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/<name> ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
 || mode | **enum** (Mode)
 
 Mount's mode

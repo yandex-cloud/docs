@@ -51,6 +51,7 @@ output "network_id" {
 - `id` (String) The resource identifier.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Attributes) Maintenance window settings of the Redis cluster. (see [below for nested schema](#nestedatt--maintenance_window))
+- `modules` (Attributes) Valkey modules. (see [below for nested schema](#nestedatt--modules))
 - `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 - `persistence_mode` (String) Persistence mode.
 - `resources` (Attributes) Resources allocated to hosts of the Redis cluster. (see [below for nested schema](#nestedatt--resources))
@@ -149,6 +150,42 @@ Read-Only:
 - `day` (String) Day of week for maintenance window if window type is weekly.
 - `hour` (Number) Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
 - `type` (String) Type of maintenance window.
+
+
+<a id="nestedatt--modules"></a>
+### Nested Schema for `modules`
+
+Read-Only:
+
+- `valkey_bloom` (Attributes) Valkey bloom module settings. (see [below for nested schema](#nestedatt--modules--valkey_bloom))
+- `valkey_json` (Attributes) Valkey json module settings. (see [below for nested schema](#nestedatt--modules--valkey_json))
+- `valkey_search` (Attributes) Valkey search module settings. (see [below for nested schema](#nestedatt--modules--valkey_search))
+
+<a id="nestedatt--modules--valkey_bloom"></a>
+### Nested Schema for `modules.valkey_bloom`
+
+Read-Only:
+
+- `enabled` (Boolean) Enable Valkey bloom module.
+
+
+<a id="nestedatt--modules--valkey_json"></a>
+### Nested Schema for `modules.valkey_json`
+
+Read-Only:
+
+- `enabled` (Boolean) Enable Valkey json module.
+
+
+<a id="nestedatt--modules--valkey_search"></a>
+### Nested Schema for `modules.valkey_search`
+
+Read-Only:
+
+- `enabled` (Boolean) Enable Valkey search module.
+- `reader_threads` (Number) Number of reader threads.
+- `writer_threads` (Number) Number of writer threads.
+
 
 
 <a id="nestedatt--resources"></a>

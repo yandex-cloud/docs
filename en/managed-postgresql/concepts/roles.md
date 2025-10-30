@@ -11,6 +11,8 @@ With {{ mpg-name }}, you cannot access [predefined roles](https://www.postgresql
 * `mdb_monitor`: For users who need to be able to read various configuration parameters, statistics, and other system information.
 * `mdb_replication`: For users who need to be able to perform logical replication.
 
+{% include [users-and-roles](../../_includes/mdb/mpg/users-and-roles.md) %}
+
 To assign a role to a user, use the [{{ yandex-cloud }} interfaces](../operations/grant.md): roles assigned by a `GRANT` request are revoked with the next database operation.
 
 {% note info %}

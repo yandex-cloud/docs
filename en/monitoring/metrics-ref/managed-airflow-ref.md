@@ -2,6 +2,7 @@
 title: '{{ maf-full-name }} metrics'
 description: In this tutorial, you will learn about {{ maf-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/managed-airflow-ref.md
 ---
 
 # {{ maf-full-name }} metrics

@@ -10,7 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the registry artifact to list repositories in.
-            To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/Registry/list#List) request.
+            To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/LifecyclePolicy/list#List) request.
           type: string
       additionalProperties: false
     query:
@@ -62,7 +62,7 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:li
 
 Required field. ID of the registry artifact to list repositories in.
 
-To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/LifecyclePolicy/list#List) request. ||
 |#
 
 ## Query parameters {#yandex.cloud.cloudregistry.v1.ListArtifactsRequest}

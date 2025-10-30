@@ -39,59 +39,7 @@ apiPlayground:
             type: string
         params:
           description: '**[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**'
-          oneOf:
-            - type: object
-              properties:
-                postgresql:
-                  description: |-
-                    **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/PostgreSQLConnection'
-                mysql:
-                  description: |-
-                    **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/MySQLConnection'
-                mongodb:
-                  description: |-
-                    **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/MongoDBConnection'
-                clickhouse:
-                  description: |-
-                    **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/ClickHouseConnection'
-                kafka:
-                  description: |-
-                    **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/KafkaConnection'
-                redis:
-                  description: |-
-                    **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/RedisConnection'
-                opensearch:
-                  description: |-
-                    **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/OpenSearchConnection'
-                trino:
-                  description: |-
-                    **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/TrinoConnection'
-                valkey:
-                  description: |-
-                    **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/ValkeyConnection'
-                greenplum:
-                  description: |-
-                    **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
-                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
-                  $ref: '#/definitions/GreenplumConnection'
+          $ref: '#/definitions/ConnectionParams'
       additionalProperties: false
     definitions:
       Host:
@@ -132,6 +80,26 @@ apiPlayground:
           caCertificate:
             description: '**string**'
             type: string
+      TLSParams:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **undefined** (empty)
+              Empty JSON object `` {} ``.
+              Includes only one of the fields `tls`.
+            type: undefined
+            format: empty
+          tls:
+            description: |-
+              **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
+              Includes only one of the fields `tls`.
+            $ref: '#/definitions/TLSConfig'
+        oneOf:
+          - required:
+              - disabled
+          - required:
+              - tls
       PostgreSQLCluster:
         type: object
         properties:
@@ -142,21 +110,97 @@ apiPlayground:
               $ref: '#/definitions/Host'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      LockboxPasswordGenerationOptions:
+        type: object
+        properties:
+          length:
+            description: |-
+              **string** (int64)
+              password length; by default, a reasonable length will be decided
+            type: string
+            format: int64
+          includeUppercase:
+            description: |-
+              **boolean**
+              whether at least one A..Z character is included in the password, true by default
+            type: boolean
+          includeLowercase:
+            description: |-
+              **boolean**
+              whether at least one a..z character is included in the password, true by default
+            type: boolean
+          includeDigits:
+            description: |-
+              **boolean**
+              whether at least one 0..9 character is included in the password, true by default
+            type: boolean
+          includePunctuation:
+            description: |-
+              **boolean**
+              whether at least one punctuation character is included in the password, true by default
+              punctuation characters by default: !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+              to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+            type: boolean
+          includedPunctuation:
+            description: |-
+              **string**
+              If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
+              a string of specific punctuation characters to use
+            type: string
+          excludedPunctuation:
+            description: |-
+              **string**
+              a string of punctuation characters to exclude from the default
+            type: string
+      PasswordGenerationOptions:
+        type: object
+        properties:
+          cookie:
+            description: |-
+              **string**
+              Cookie is an arbitrary non-sensitive string that is saved with the
+              password. When updating PasswordGenerationOptions, if the cookie passed
+              in the update request differs from the cookie in the current
+              PasswordGenerationOptions, the password will be re-generated. If the
+              same cookie is passed, the password will not change.
+            type: string
+          lockboxPasswordGenerationOptions:
+            description: |-
+              **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
+              Includes only one of the fields `lockboxPasswordGenerationOptions`.
+            $ref: '#/definitions/LockboxPasswordGenerationOptions'
+        oneOf:
+          - required:
+              - lockboxPasswordGenerationOptions
+      Password:
+        type: object
+        properties:
+          raw:
+            description: |-
+              **string**
+              When creating/updating Password, the field "raw" is mutually exclusive
+              with "password_generation_options". In order to switch to the "raw"
+              password you have to explicitly clear the "password_generation_options"
+              field.
+            type: string
+          passwordGenerationOptions:
+            description: |-
+              **[PasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.PasswordGenerationOptions)**
+              When creating/updating Password, the field "password_generation_options"
+              is mutually exclusive with "raw". In order to switch to the
+              "password_generation_options" you have to explicitly clear the "raw"
+              field.
+            $ref: '#/definitions/PasswordGenerationOptions'
+          lockboxSecretKey:
+            description: |-
+              **string**
+              Read-only. Do not fill this field in create/update requests.
+              Includes only one of the fields `lockboxSecretKey`.
+            type: string
+        oneOf:
+          - required:
+              - lockboxSecretKey
       UserPasswordAuth:
         type: object
         properties:
@@ -165,15 +209,18 @@ apiPlayground:
             type: string
           password:
             description: '**[Password](#yandex.cloud.connectionmanager.v1.Password)**'
-            oneOf:
-              - type: object
-                properties:
-                  lockboxSecretKey:
-                    description: |-
-                      **string**
-                      Read-only. Do not fill this field in create/update requests.
-                      Includes only one of the fields `lockboxSecretKey`.
-                    type: string
+            $ref: '#/definitions/Password'
+      PostgreSQLAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       PostgreSQLConnection:
         type: object
         properties:
@@ -191,14 +238,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[PostgreSQLAuth](#yandex.cloud.connectionmanager.v1.PostgreSQLAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/PostgreSQLAuth'
           databases:
             description: '**string**'
             type: array
@@ -214,21 +254,18 @@ apiPlayground:
               $ref: '#/definitions/Host'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      MySQLAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       MySQLConnection:
         type: object
         properties:
@@ -246,14 +283,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[MySQLAuth](#yandex.cloud.connectionmanager.v1.MySQLAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/MySQLAuth'
           databases:
             description: '**string**'
             type: array
@@ -269,21 +299,21 @@ apiPlayground:
               $ref: '#/definitions/Host'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      MongoDBAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+          authSource:
+            description: '**string**'
+            type: string
+        oneOf:
+          - required:
+              - userPassword
       MongoDBConnection:
         type: object
         properties:
@@ -301,14 +331,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[MongoDBAuth](#yandex.cloud.connectionmanager.v1.MongoDBAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/MongoDBAuth'
           databases:
             description: '**string**'
             type: array
@@ -330,21 +353,7 @@ apiPlayground:
         properties:
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
           hosts:
             description: '**[Host](#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
             type: array
@@ -355,6 +364,17 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ShardGroup'
+      ClickHouseAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       ClickHouseConnection:
         type: object
         properties:
@@ -372,14 +392,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[ClickHouseAuth](#yandex.cloud.connectionmanager.v1.ClickHouseAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/ClickHouseAuth'
           databases:
             description: '**string**'
             type: array
@@ -395,21 +408,7 @@ apiPlayground:
               $ref: '#/definitions/Host'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
       KafkaSaslSecurity:
         type: object
         properties:
@@ -418,15 +417,7 @@ apiPlayground:
             type: string
           password:
             description: '**[Password](#yandex.cloud.connectionmanager.v1.Password)**'
-            oneOf:
-              - type: object
-                properties:
-                  lockboxSecretKey:
-                    description: |-
-                      **string**
-                      Read-only. Do not fill this field in create/update requests.
-                      Includes only one of the fields `lockboxSecretKey`.
-                    type: string
+            $ref: '#/definitions/Password'
           supportedMechanisms:
             description: |-
               **enum** (Mechanism)
@@ -442,6 +433,26 @@ apiPlayground:
                 - PLAIN
                 - SCRAM_SHA256
                 - SCRAM_SHA512
+      KafkaAuth:
+        type: object
+        properties:
+          sasl:
+            description: |-
+              **[KafkaSaslSecurity](#yandex.cloud.connectionmanager.v1.KafkaSaslSecurity)**
+              Includes only one of the fields `sasl`.
+            $ref: '#/definitions/KafkaSaslSecurity'
+          disabled:
+            description: |-
+              **undefined** (empty)
+              Empty JSON object `` {} ``.
+              Includes only one of the fields `sasl`.
+            type: undefined
+            format: empty
+        oneOf:
+          - required:
+              - sasl
+          - required:
+              - disabled
       KafkaConnection:
         type: object
         properties:
@@ -459,21 +470,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[KafkaAuth](#yandex.cloud.connectionmanager.v1.KafkaAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  sasl:
-                    description: |-
-                      **[KafkaSaslSecurity](#yandex.cloud.connectionmanager.v1.KafkaSaslSecurity)**
-                      Includes only one of the fields `sasl`.
-                    $ref: '#/definitions/KafkaSaslSecurity'
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `sasl`.
-                    type: undefined
-                    format: empty
+            $ref: '#/definitions/KafkaAuth'
       RedisCluster:
         type: object
         properties:
@@ -488,21 +485,18 @@ apiPlayground:
             format: int64
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      RedisAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       RedisConnection:
         type: object
         properties:
@@ -511,14 +505,7 @@ apiPlayground:
             $ref: '#/definitions/RedisCluster'
           auth:
             description: '**[RedisAuth](#yandex.cloud.connectionmanager.v1.RedisAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/RedisAuth'
           databases:
             description: '**string** (int64)'
             type: array
@@ -535,21 +522,18 @@ apiPlayground:
               $ref: '#/definitions/Host'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      OpenSearchAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       OpenSearchConnection:
         type: object
         properties:
@@ -567,14 +551,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[OpenSearchAuth](#yandex.cloud.connectionmanager.v1.OpenSearchAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/OpenSearchAuth'
       Coordinator:
         type: object
         properties:
@@ -593,21 +570,18 @@ apiPlayground:
             $ref: '#/definitions/Coordinator'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      TrinoAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       TrinoConnection:
         type: object
         properties:
@@ -616,14 +590,7 @@ apiPlayground:
             $ref: '#/definitions/TrinoCluster'
           auth:
             description: '**[TrinoAuth](#yandex.cloud.connectionmanager.v1.TrinoAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/TrinoAuth'
       ValkeyCluster:
         type: object
         properties:
@@ -638,21 +605,18 @@ apiPlayground:
             format: int64
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      ValkeyAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       ValkeyConnection:
         type: object
         properties:
@@ -670,14 +634,7 @@ apiPlayground:
             type: string
           auth:
             description: '**[ValkeyAuth](#yandex.cloud.connectionmanager.v1.ValkeyAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/ValkeyAuth'
           databases:
             description: '**string** (int64)'
             type: array
@@ -694,21 +651,18 @@ apiPlayground:
               $ref: '#/definitions/Host'
           tlsParams:
             description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            oneOf:
-              - type: object
-                properties:
-                  disabled:
-                    description: |-
-                      **undefined** (empty)
-                      Empty JSON object `` {} ``.
-                      Includes only one of the fields `tls`.
-                    type: undefined
-                    format: empty
-                  tls:
-                    description: |-
-                      **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-                      Includes only one of the fields `tls`.
-                    $ref: '#/definitions/TLSConfig'
+            $ref: '#/definitions/TLSParams'
+      GreenplumAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+        oneOf:
+          - required:
+              - userPassword
       GreenplumConnection:
         type: object
         properties:
@@ -726,19 +680,141 @@ apiPlayground:
             type: string
           auth:
             description: '**[GreenplumAuth](#yandex.cloud.connectionmanager.v1.GreenplumAuth)**'
-            oneOf:
-              - type: object
-                properties:
-                  userPassword:
-                    description: |-
-                      **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
-                      Includes only one of the fields `userPassword`.
-                    $ref: '#/definitions/UserPasswordAuth'
+            $ref: '#/definitions/GreenplumAuth'
           databases:
             description: '**string**'
             type: array
             items:
               type: string
+      StoreDocCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            $ref: '#/definitions/TLSParams'
+      StoreDocAuth:
+        type: object
+        properties:
+          userPassword:
+            description: |-
+              **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+              Includes only one of the fields `userPassword`.
+            $ref: '#/definitions/UserPasswordAuth'
+          authSource:
+            description: '**string**'
+            type: string
+        oneOf:
+          - required:
+              - userPassword
+      StoreDocConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[StoreDocCluster](#yandex.cloud.connectionmanager.v1.StoreDocCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/StoreDocCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is mutually
+              exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[StoreDocAuth](#yandex.cloud.connectionmanager.v1.StoreDocAuth)**'
+            $ref: '#/definitions/StoreDocAuth'
+          databases:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      ConnectionParams:
+        type: object
+        properties:
+          postgresql:
+            description: |-
+              **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/PostgreSQLConnection'
+          mysql:
+            description: |-
+              **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/MySQLConnection'
+          mongodb:
+            description: |-
+              **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/MongoDBConnection'
+          clickhouse:
+            description: |-
+              **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/ClickHouseConnection'
+          kafka:
+            description: |-
+              **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/KafkaConnection'
+          redis:
+            description: |-
+              **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/RedisConnection'
+          opensearch:
+            description: |-
+              **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/OpenSearchConnection'
+          trino:
+            description: |-
+              **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/TrinoConnection'
+          valkey:
+            description: |-
+              **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/ValkeyConnection'
+          greenplum:
+            description: |-
+              **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/GreenplumConnection'
+          storedoc:
+            description: |-
+              **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection)**
+              Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
+            $ref: '#/definitions/StoreDocConnection'
+        oneOf:
+          - required:
+              - postgresql
+          - required:
+              - mysql
+          - required:
+              - mongodb
+          - required:
+              - clickhouse
+          - required:
+              - kafka
+          - required:
+              - redis
+          - required:
+              - opensearch
+          - required:
+              - trino
+          - required:
+              - valkey
+          - required:
+              - greenplum
+          - required:
+              - storedoc
 sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connection/update.md
 ---
 
@@ -770,7 +846,7 @@ Required field.  ||
   "description": "string",
   "labels": "object",
   "params": {
-    // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`
+    // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
     "postgresql": {
       "cluster": {
         "hosts": [
@@ -1275,6 +1351,58 @@ Required field.  ||
       "databases": [
         "string"
       ]
+    },
+    "storedoc": {
+      "cluster": {
+        "hosts": [
+          {
+            "host": "string",
+            "port": "string",
+            "role": "string",
+            "health": "string",
+            "type": "string"
+          }
+        ],
+        "tlsParams": {
+          // Includes only one of the fields `tls`
+          "tls": {
+            "caCertificate": "string"
+          }
+          // end of the list of possible fields
+        }
+      },
+      "managedClusterId": "string",
+      "auth": {
+        // Includes only one of the fields `userPassword`
+        "userPassword": {
+          "user": "string",
+          "password": {
+            "raw": "string",
+            "passwordGenerationOptions": {
+              "cookie": "string",
+              // Includes only one of the fields `lockboxPasswordGenerationOptions`
+              "lockboxPasswordGenerationOptions": {
+                "length": "string",
+                "includeUppercase": "boolean",
+                "includeLowercase": "boolean",
+                "includeDigits": "boolean",
+                "includePunctuation": "boolean",
+                "includedPunctuation": "string",
+                "excludedPunctuation": "string"
+              }
+              // end of the list of possible fields
+            },
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string"
+            // end of the list of possible fields
+          }
+        },
+        // end of the list of possible fields
+        "authSource": "string"
+      },
+      "databases": [
+        "string"
+      ]
     }
     // end of the list of possible fields
   }
@@ -1305,34 +1433,37 @@ The rest of the fields will be reset to the default. ||
 ||Field | Description ||
 || postgresql | **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || mysql | **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || mongodb | **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || clickhouse | **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || kafka | **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || redis | **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || opensearch | **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || trino | **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || valkey | **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || greenplum | **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+|| storedoc | **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection)**
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 |#
 
 ## PostgreSQLConnection {#yandex.cloud.connectionmanager.v1.PostgreSQLConnection}
@@ -1476,7 +1607,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default: !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 
@@ -1974,6 +2105,65 @@ mutually exclusive with "cluster". ||
 Includes only one of the fields `userPassword`. ||
 |#
 
+## StoreDocConnection {#yandex.cloud.connectionmanager.v1.StoreDocConnection}
+
+#|
+||Field | Description ||
+|| cluster | **[StoreDocCluster](#yandex.cloud.connectionmanager.v1.StoreDocCluster)**
+
+When creating/updating Connection, the field "cluster" is mutually
+exclusive with "managed_cluster_id". ||
+|| managedClusterId | **string**
+
+When creating/updating Connection, the field "managed_cluster_id" is mutually
+exclusive with "cluster". ||
+|| auth | **[StoreDocAuth](#yandex.cloud.connectionmanager.v1.StoreDocAuth)** ||
+|| databases[] | **string** ||
+|#
+
+## StoreDocCluster {#yandex.cloud.connectionmanager.v1.StoreDocCluster}
+
+#|
+||Field | Description ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host)** ||
+|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|#
+
+## Host {#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host}
+
+#|
+||Field | Description ||
+|| host | **string** ||
+|| port | **string** (int64) ||
+|| role | **enum** (Role)
+
+- `ROLE_UNSPECIFIED`
+- `PRIMARY`
+- `SECONDARY` ||
+|| health | **enum** (Health)
+
+- `HEALTH_UNSPECIFIED`
+- `ALIVE`
+- `DEAD`
+- `DEGRADED` ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `MONGOD`
+- `MONGOS`
+- `MONGOINFRA` ||
+|#
+
+## StoreDocAuth {#yandex.cloud.connectionmanager.v1.StoreDocAuth}
+
+#|
+||Field | Description ||
+|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+
+Includes only one of the fields `userPassword`. ||
+|| authSource | **string** ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -2007,7 +2197,7 @@ Includes only one of the fields `userPassword`. ||
     "labels": "object",
     "createdBy": "string",
     "params": {
-      // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`
+      // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
       "postgresql": {
         "cluster": {
           "hosts": [
@@ -2512,6 +2702,58 @@ Includes only one of the fields `userPassword`. ||
         "databases": [
           "string"
         ]
+      },
+      "storedoc": {
+        "cluster": {
+          "hosts": [
+            {
+              "host": "string",
+              "port": "string",
+              "role": "string",
+              "health": "string",
+              "type": "string"
+            }
+          ],
+          "tlsParams": {
+            // Includes only one of the fields `tls`
+            "tls": {
+              "caCertificate": "string"
+            }
+            // end of the list of possible fields
+          }
+        },
+        "managedClusterId": "string",
+        "auth": {
+          // Includes only one of the fields `userPassword`
+          "userPassword": {
+            "user": "string",
+            "password": {
+              "raw": "string",
+              "passwordGenerationOptions": {
+                "cookie": "string",
+                // Includes only one of the fields `lockboxPasswordGenerationOptions`
+                "lockboxPasswordGenerationOptions": {
+                  "length": "string",
+                  "includeUppercase": "boolean",
+                  "includeLowercase": "boolean",
+                  "includeDigits": "boolean",
+                  "includePunctuation": "boolean",
+                  "includedPunctuation": "string",
+                  "excludedPunctuation": "string"
+                }
+                // end of the list of possible fields
+              },
+              // Includes only one of the fields `lockboxSecretKey`
+              "lockboxSecretKey": "string"
+              // end of the list of possible fields
+            }
+          },
+          // end of the list of possible fields
+          "authSource": "string"
+        },
+        "databases": [
+          "string"
+        ]
       }
       // end of the list of possible fields
     },
@@ -2662,34 +2904,37 @@ Includes only one of the fields `lockboxSecret`. ||
 ||Field | Description ||
 || postgresql | **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || mysql | **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || mongodb | **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || clickhouse | **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || kafka | **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || redis | **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || opensearch | **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || trino | **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || valkey | **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 || greenplum | **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection2)**
 
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`. ||
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
+|| storedoc | **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection2)**
+
+Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`. ||
 |#
 
 ## PostgreSQLConnection {#yandex.cloud.connectionmanager.v1.PostgreSQLConnection2}
@@ -2833,7 +3078,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default: !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 
@@ -3329,6 +3574,65 @@ mutually exclusive with "cluster". ||
 || userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
 
 Includes only one of the fields `userPassword`. ||
+|#
+
+## StoreDocConnection {#yandex.cloud.connectionmanager.v1.StoreDocConnection2}
+
+#|
+||Field | Description ||
+|| cluster | **[StoreDocCluster](#yandex.cloud.connectionmanager.v1.StoreDocCluster2)**
+
+When creating/updating Connection, the field "cluster" is mutually
+exclusive with "managed_cluster_id". ||
+|| managedClusterId | **string**
+
+When creating/updating Connection, the field "managed_cluster_id" is mutually
+exclusive with "cluster". ||
+|| auth | **[StoreDocAuth](#yandex.cloud.connectionmanager.v1.StoreDocAuth2)** ||
+|| databases[] | **string** ||
+|#
+
+## StoreDocCluster {#yandex.cloud.connectionmanager.v1.StoreDocCluster2}
+
+#|
+||Field | Description ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host2)** ||
+|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
+|#
+
+## Host {#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host2}
+
+#|
+||Field | Description ||
+|| host | **string** ||
+|| port | **string** (int64) ||
+|| role | **enum** (Role)
+
+- `ROLE_UNSPECIFIED`
+- `PRIMARY`
+- `SECONDARY` ||
+|| health | **enum** (Health)
+
+- `HEALTH_UNSPECIFIED`
+- `ALIVE`
+- `DEAD`
+- `DEGRADED` ||
+|| type | **enum** (Type)
+
+- `TYPE_UNSPECIFIED`
+- `MONGOD`
+- `MONGOS`
+- `MONGOINFRA` ||
+|#
+
+## StoreDocAuth {#yandex.cloud.connectionmanager.v1.StoreDocAuth2}
+
+#|
+||Field | Description ||
+|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
+
+Includes only one of the fields `userPassword`. ||
+|| authSource | **string** ||
 |#
 
 ## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}

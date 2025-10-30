@@ -28,7 +28,7 @@ Retrieves the list of registry artifact resources in the specified registry.
 
 ID of the registry artifact to list repositories in.
 
-To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/grpc/Registry/list#List) request. ||
+To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/grpc/LifecyclePolicy/list#List) request. ||
 || path | **string**
 
 The path to a specific node where the registry artifact is located. ||

@@ -23,56 +23,202 @@ apiPlayground:
           description: |-
             **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)**
             Configuration of the external dictionary.
-          oneOf:
-            - type: object
-              properties:
-                fixedLifetime:
-                  description: |-
-                    **string** (int64)
-                    Fixed interval between dictionary updates.
-                    Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
-                  type: string
-                  format: int64
-                lifetimeRange:
-                  description: |-
-                    **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
-                    Range of intervals between dictionary updates for ClickHouse to choose from.
-                    Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
-                  $ref: '#/definitions/Range'
-            - type: object
-              properties:
-                httpSource:
-                  description: |-
-                    **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
-                    HTTP source for the dictionary.
-                    Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                  $ref: '#/definitions/HttpSource'
-                mysqlSource:
-                  description: |-
-                    **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
-                    MySQL source for the dictionary.
-                    Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                  $ref: '#/definitions/MysqlSource'
-                clickhouseSource:
-                  description: |-
-                    **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
-                    ClickHouse source for the dictionary.
-                    Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                  $ref: '#/definitions/ClickhouseSource'
-                mongodbSource:
-                  description: |-
-                    **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
-                    MongoDB source for the dictionary.
-                    Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                  $ref: '#/definitions/MongodbSource'
-                postgresqlSource:
-                  description: |-
-                    **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
-                    PostgreSQL source for the dictionary.
-                    Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-                  $ref: '#/definitions/PostgresqlSource'
+          $ref: '#/definitions/ExternalDictionary'
       additionalProperties: false
     definitions:
+      Id:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the numeric key.
+            type: string
+        required:
+          - name
+      Attribute:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the column.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. Type of the column.
+            type: string
+          nullValue:
+            description: |-
+              **string**
+              Default value for an element without data (for example, an empty string).
+            type: string
+          expression:
+            description: |-
+              **string**
+              Expression, describing the attribute, if applicable.
+            type: string
+          hierarchical:
+            description: |-
+              **boolean**
+              Indication of hierarchy support.
+              Default value: **false**.
+            default: false
+            type: boolean
+          injective:
+            description: |-
+              **boolean**
+              Indication of injective mapping "id -> attribute".
+              Default value: **false**.
+            default: false
+            type: boolean
+        required:
+          - name
+          - type
+      Key:
+        type: object
+        properties:
+          attributes:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Attributes of a complex key.
+            type: array
+            items:
+              $ref: '#/definitions/Attribute'
+      Structure:
+        type: object
+        properties:
+          id:
+            description: |-
+              **[Id](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Id)**
+              Single numeric key column for the dictionary.
+            $ref: '#/definitions/Id'
+          key:
+            description: |-
+              **[Key](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Key)**
+              Composite key for the dictionary, containing of one or more key columns.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key).
+            $ref: '#/definitions/Key'
+          rangeMin:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Field holding the beginning of the range for dictionaries with **RANGE_HASHED** layout.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+            $ref: '#/definitions/Attribute'
+          rangeMax:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Field holding the end of the range for dictionaries with **RANGE_HASHED** layout.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+            $ref: '#/definitions/Attribute'
+          attributes:
+            description: |-
+              **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+              Description of the fields available for database queries.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes).
+            type: array
+            items:
+              $ref: '#/definitions/Attribute'
+      Layout:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Required field. Layout type.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
+              - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
+              - `CLICKHOUSE`: ClickHouse host.
+              - `ZOOKEEPER`: ZooKeeper host.
+              - `KEEPER`: ClickHouse Keeper host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - CLICKHOUSE
+              - ZOOKEEPER
+              - KEEPER
+          sizeInCells:
+            description: |-
+              **string** (int64)
+              Number of cells in the cache. Rounded up to a power of two.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **1000000000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          allowReadExpiredKeys:
+            description: |-
+              **boolean**
+              Allows to read expired keys.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: boolean
+          maxUpdateQueueSize:
+            description: |-
+              **string** (int64)
+              Max size of update queue.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **100000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          updateQueuePushTimeoutMilliseconds:
+            description: |-
+              **string** (int64)
+              Max timeout in milliseconds for push update task into queue.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **10**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          queryWaitTimeoutMilliseconds:
+            description: |-
+              **string** (int64)
+              Max wait timeout in milliseconds for update task to complete.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **60000** (1 minute).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          maxThreadsForUpdates:
+            description: |-
+              **string** (int64)
+              Max threads for cache dictionary update.
+              Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+              Default value: **4**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+            type: string
+            format: int64
+          initialArraySize:
+            description: |-
+              **string** (int64)
+              Initial dictionary key size.
+              Applicable only for **FLAT** layout type.
+              Default value: **1024**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+            type: string
+            format: int64
+          maxArraySize:
+            description: |-
+              **string** (int64)
+              Maximum dictionary key size.
+              Applicable only for **FLAT** layout type.
+              Default value: **500000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+            type: string
+            format: int64
+          accessToKeyFromAttributes:
+            description: |-
+              **boolean**
+              Allows to retrieve key attribute using **dictGetString** function.
+              Enabling this option increases memory usage.
+              Applicable only for **IP_TRIE** layout type.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ip_trie).
+            type: boolean
+        required:
+          - type
       Range:
         type: object
         properties:
@@ -378,6 +524,89 @@ apiPlayground:
           - db
           - table
           - user
+      ExternalDictionary:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the external dictionary.
+            type: string
+          structure:
+            description: |-
+              **[Structure](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure)**
+              Required field. Structure of the external dictionary.
+            $ref: '#/definitions/Structure'
+          layout:
+            description: |-
+              **[Layout](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Layout)**
+              Required field. Layout determining how to store the dictionary in memory.
+              For details, see https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory.
+            $ref: '#/definitions/Layout'
+          fixedLifetime:
+            description: |-
+              **string** (int64)
+              Fixed interval between dictionary updates.
+              Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
+            type: string
+            format: int64
+          lifetimeRange:
+            description: |-
+              **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
+              Range of intervals between dictionary updates for ClickHouse to choose from.
+              Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
+            $ref: '#/definitions/Range'
+          httpSource:
+            description: |-
+              **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
+              HTTP source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/HttpSource'
+          mysqlSource:
+            description: |-
+              **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
+              MySQL source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/MysqlSource'
+          clickhouseSource:
+            description: |-
+              **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
+              ClickHouse source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/ClickhouseSource'
+          mongodbSource:
+            description: |-
+              **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
+              MongoDB source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/MongodbSource'
+          postgresqlSource:
+            description: |-
+              **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
+              PostgreSQL source for the dictionary.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+            $ref: '#/definitions/PostgresqlSource'
+        required:
+          - name
+          - structure
+          - layout
+        allOf:
+          - oneOf:
+              - required:
+                  - fixedLifetime
+              - required:
+                  - lifetimeRange
+          - oneOf:
+              - required:
+                  - httpSource
+              - required:
+                  - mysqlSource
+              - required:
+                  - clickhouseSource
+              - required:
+                  - mongodbSource
+              - required:
+                  - postgresqlSource
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/createExternalDictionary.md
 ---
 
@@ -2971,14 +3200,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || selectFromSystemDbRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || selectFromInformationSchemaRequiresGrant | **boolean**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#

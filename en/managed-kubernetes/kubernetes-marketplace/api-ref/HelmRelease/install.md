@@ -29,6 +29,18 @@ apiPlayground:
         - clusterId
       additionalProperties: false
     definitions:
+      Value:
+        type: object
+        properties:
+          typedValue:
+            description: |-
+              **string**
+              The typed string value.
+              Includes only one of the fields `typedValue`.
+            type: string
+        oneOf:
+          - required:
+              - typedValue
       ValueWithKey:
         type: object
         properties:
@@ -41,15 +53,7 @@ apiPlayground:
             description: |-
               **[Value](#yandex.cloud.k8s.marketplace.v1.Value)**
               The value associated with the key.
-            oneOf:
-              - type: object
-                properties:
-                  typedValue:
-                    description: |-
-                      **string**
-                      The typed string value.
-                      Includes only one of the fields `typedValue`.
-                    type: string
+            $ref: '#/definitions/Value'
         required:
           - key
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/install.md

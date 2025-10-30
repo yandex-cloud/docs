@@ -47,49 +47,7 @@ apiPlayground:
             **[TextSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**
             Configuration for a traditional keyword-based text search index.
             Includes only one of the fields `textSearchIndex`, `vectorSearchIndex`, `hybridSearchIndex`.
-          oneOf:
-            - type: object
-              properties:
-                ngramTokenizer:
-                  description: |-
-                    **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
-                    Tokenizer that generates n-grams.
-                    Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
-                    Tokenizer type used for text search. The tokenizer determines how the
-                    input text is broken down into tokens before indexing.
-                    If not specified, the default tokenizer configuration is applied.
-                  deprecated: true
-                  $ref: '#/definitions/NgramTokenizer'
-                standardTokenizer:
-                  description: |-
-                    **object**
-                    Tokenizer that generates words.
-                    Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
-                    Tokenizer type used for text search. The tokenizer determines how the
-                    input text is broken down into tokens before indexing.
-                    If not specified, the default tokenizer configuration is applied.
-                  $ref: '#/definitions/StandardTokenizer'
-            - type: object
-              properties:
-                standardAnalyzer:
-                  description: |-
-                    **object**
-                    Standard analyzer that performs common text processing operations to normalize text.
-                    Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
-                    Analyzer type used for text search. The analyzer determines how the
-                    tokenized text is further processed before indexing.
-                    If not specified, the default analyzer configuration is applied.
-                  $ref: '#/definitions/StandardAnalyzer'
-                yandexLemmerAnalyzer:
-                  description: |-
-                    **object**
-                    Specialized analyzer that uses Yandex's lemmatization technology,
-                    particularly effective for Russian and other Slavic languages.
-                    Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
-                    Analyzer type used for text search. The analyzer determines how the
-                    tokenized text is further processed before indexing.
-                    If not specified, the default analyzer configuration is applied.
-                  $ref: '#/definitions/YandexLemmerAnalyzer'
+          $ref: '#/definitions/TextSearchIndex'
         vectorSearchIndex:
           description: |-
             **[VectorSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex)**
@@ -105,6 +63,13 @@ apiPlayground:
       required:
         - folderId
       additionalProperties: false
+      oneOf:
+        - required:
+            - textSearchIndex
+        - required:
+            - vectorSearchIndex
+        - required:
+            - hybridSearchIndex
     definitions:
       ExpirationConfig:
         type: object
@@ -124,6 +89,39 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      StaticChunkingStrategy:
+        type: object
+        properties:
+          maxChunkSizeTokens:
+            description: |-
+              **string** (int64)
+              The maximum number of tokens allowed in a single chunk.
+              Constraints: must be within the range [100, 2048].
+              Default value: 800
+            default: '800'
+            type: string
+            format: int64
+          chunkOverlapTokens:
+            description: |-
+              **string** (int64)
+              The number of tokens that should overlap between consecutive chunks.
+              This allows for some context from the previous chunk to be included in the next chunk.
+              Constraints: must be less than or equal to half of `max_chunk_size_tokens`.
+              Default value: 400
+            default: '400'
+            type: string
+            format: int64
+      ChunkingStrategy:
+        type: object
+        properties:
+          staticStrategy:
+            description: |-
+              **[StaticChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
+              Includes only one of the fields `staticStrategy`.
+            $ref: '#/definitions/StaticChunkingStrategy'
+        oneOf:
+          - required:
+              - staticStrategy
       NgramTokenizer:
         type: object
         properties:
@@ -148,28 +146,64 @@ apiPlayground:
       YandexLemmerAnalyzer:
         type: object
         properties: {}
-      StaticChunkingStrategy:
+      TextSearchIndex:
         type: object
         properties:
-          maxChunkSizeTokens:
+          chunkingStrategy:
             description: |-
-              **string** (int64)
-              The maximum number of tokens allowed in a single chunk.
-              Constraints: must be within the range [100, 2048].
-              Default value: 800
-            default: '800'
-            type: string
-            format: int64
-          chunkOverlapTokens:
+              **[ChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)**
+              Chunking strategy used to split text into smaller chunks before indexing.
+              In the case of text search, tokens are individual text characters.
+            $ref: '#/definitions/ChunkingStrategy'
+          ngramTokenizer:
             description: |-
-              **string** (int64)
-              The number of tokens that should overlap between consecutive chunks.
-              This allows for some context from the previous chunk to be included in the next chunk.
-              Constraints: must be less than or equal to half of `max_chunk_size_tokens`.
-              Default value: 400
-            default: '400'
-            type: string
-            format: int64
+              **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
+              Tokenizer that generates n-grams.
+              Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
+              Tokenizer type used for text search. The tokenizer determines how the
+              input text is broken down into tokens before indexing.
+              If not specified, the default tokenizer configuration is applied.
+            deprecated: true
+            $ref: '#/definitions/NgramTokenizer'
+          standardTokenizer:
+            description: |-
+              **object**
+              Tokenizer that generates words.
+              Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
+              Tokenizer type used for text search. The tokenizer determines how the
+              input text is broken down into tokens before indexing.
+              If not specified, the default tokenizer configuration is applied.
+            $ref: '#/definitions/StandardTokenizer'
+          standardAnalyzer:
+            description: |-
+              **object**
+              Standard analyzer that performs common text processing operations to normalize text.
+              Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
+              Analyzer type used for text search. The analyzer determines how the
+              tokenized text is further processed before indexing.
+              If not specified, the default analyzer configuration is applied.
+            $ref: '#/definitions/StandardAnalyzer'
+          yandexLemmerAnalyzer:
+            description: |-
+              **object**
+              Specialized analyzer that uses Yandex's lemmatization technology,
+              particularly effective for Russian and other Slavic languages.
+              Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
+              Analyzer type used for text search. The analyzer determines how the
+              tokenized text is further processed before indexing.
+              If not specified, the default analyzer configuration is applied.
+            $ref: '#/definitions/YandexLemmerAnalyzer'
+        allOf:
+          - oneOf:
+              - required:
+                  - ngramTokenizer
+              - required:
+                  - standardTokenizer
+          - oneOf:
+              - required:
+                  - standardAnalyzer
+              - required:
+                  - yandexLemmerAnalyzer
       VectorSearchIndex:
         type: object
         properties:
@@ -188,14 +222,7 @@ apiPlayground:
               **[ChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)**
               Chunking strategy used to split text into smaller chunks before indexing.
               In the case of vector search, tokens are produced by the tokenizer from the embedding model.
-            oneOf:
-              - type: object
-                properties:
-                  staticStrategy:
-                    description: |-
-                      **[StaticChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
-                      Includes only one of the fields `staticStrategy`.
-                    $ref: '#/definitions/StaticChunkingStrategy'
+            $ref: '#/definitions/ChunkingStrategy'
       MeanCombinationStrategy:
         type: object
         properties:
@@ -230,6 +257,24 @@ apiPlayground:
               The parameter k for RRFscore. Default is 60
             type: string
             format: int64
+      CombinationStrategy:
+        type: object
+        properties:
+          meanCombination:
+            description: |-
+              **[MeanCombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.MeanCombinationStrategy)**
+              Includes only one of the fields `meanCombination`, `rrfCombination`.
+            $ref: '#/definitions/MeanCombinationStrategy'
+          rrfCombination:
+            description: |-
+              **[ReciprocalRankFusionCombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ReciprocalRankFusionCombinationStrategy)**
+              Includes only one of the fields `meanCombination`, `rrfCombination`.
+            $ref: '#/definitions/ReciprocalRankFusionCombinationStrategy'
+        oneOf:
+          - required:
+              - meanCombination
+          - required:
+              - rrfCombination
       HybridSearchIndex:
         type: object
         properties:
@@ -237,49 +282,7 @@ apiPlayground:
             description: |-
               **[TextSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**
               Configuration for a traditional keyword-based text search index.
-            oneOf:
-              - type: object
-                properties:
-                  ngramTokenizer:
-                    description: |-
-                      **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
-                      Tokenizer that generates n-grams.
-                      Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
-                      Tokenizer type used for text search. The tokenizer determines how the
-                      input text is broken down into tokens before indexing.
-                      If not specified, the default tokenizer configuration is applied.
-                    deprecated: true
-                    $ref: '#/definitions/NgramTokenizer'
-                  standardTokenizer:
-                    description: |-
-                      **object**
-                      Tokenizer that generates words.
-                      Includes only one of the fields `ngramTokenizer`, `standardTokenizer`.
-                      Tokenizer type used for text search. The tokenizer determines how the
-                      input text is broken down into tokens before indexing.
-                      If not specified, the default tokenizer configuration is applied.
-                    $ref: '#/definitions/StandardTokenizer'
-              - type: object
-                properties:
-                  standardAnalyzer:
-                    description: |-
-                      **object**
-                      Standard analyzer that performs common text processing operations to normalize text.
-                      Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
-                      Analyzer type used for text search. The analyzer determines how the
-                      tokenized text is further processed before indexing.
-                      If not specified, the default analyzer configuration is applied.
-                    $ref: '#/definitions/StandardAnalyzer'
-                  yandexLemmerAnalyzer:
-                    description: |-
-                      **object**
-                      Specialized analyzer that uses Yandex's lemmatization technology,
-                      particularly effective for Russian and other Slavic languages.
-                      Includes only one of the fields `standardAnalyzer`, `yandexLemmerAnalyzer`.
-                      Analyzer type used for text search. The analyzer determines how the
-                      tokenized text is further processed before indexing.
-                      If not specified, the default analyzer configuration is applied.
-                    $ref: '#/definitions/YandexLemmerAnalyzer'
+            $ref: '#/definitions/TextSearchIndex'
           vectorSearchIndex:
             description: |-
               **[VectorSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex)**
@@ -291,14 +294,7 @@ apiPlayground:
               Common chunking strategy that applies to both text and vector search indexes.
               If provided, it overrides the individual chunking strategies in both `text_search_index` and `vector_search_index`.
               In this case, both text and vector search will use token-based chunking, where tokens are produced by the tokenizer of the embedding model.
-            oneOf:
-              - type: object
-                properties:
-                  staticStrategy:
-                    description: |-
-                      **[StaticChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
-                      Includes only one of the fields `staticStrategy`.
-                    $ref: '#/definitions/StaticChunkingStrategy'
+            $ref: '#/definitions/ChunkingStrategy'
           normalizationStrategy:
             description: |-
               **enum** (NormalizationStrategy)
@@ -315,19 +311,7 @@ apiPlayground:
             description: |-
               **[CombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.CombinationStrategy)**
               Combination strategy for merging rankings from different indices. Default is arithmetic mean
-            oneOf:
-              - type: object
-                properties:
-                  meanCombination:
-                    description: |-
-                      **[MeanCombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.MeanCombinationStrategy)**
-                      Includes only one of the fields `meanCombination`, `rrfCombination`.
-                    $ref: '#/definitions/MeanCombinationStrategy'
-                  rrfCombination:
-                    description: |-
-                      **[ReciprocalRankFusionCombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ReciprocalRankFusionCombinationStrategy)**
-                      Includes only one of the fields `meanCombination`, `rrfCombination`.
-                    $ref: '#/definitions/ReciprocalRankFusionCombinationStrategy'
+            $ref: '#/definitions/CombinationStrategy'
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/create.md
 ---
 

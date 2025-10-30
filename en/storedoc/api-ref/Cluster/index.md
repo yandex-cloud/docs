@@ -38,4 +38,7 @@ A set of methods for managing MongoDB Cluster resources.
 || [ResetupHosts](resetupHosts.md) | Resetups hosts. ||
 || [RestartHosts](restartHosts.md) | Restarts hosts. ||
 || [StepdownHosts](stepdownHosts.md) | Stepdown hosts. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified MongoDB cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified MongoDB cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified MongoDB cluster. ||
 |#

@@ -433,7 +433,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 1. Обновите сетевые параметры в группе узлов кластера одним из следующих способов:
 
-   * Подключитесь к каждому узлу группы [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
+   * Подключитесь к каждому узлу группы [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
    * Перезагрузите узлы группы в удобное для вас время.
 
    {% note warning %}

@@ -7,11 +7,11 @@
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
 
-        Specify the parameters for connecting to the source cluster.
+        Configure the source cluster connection settings.
 
     {% note info %}
 
-    The service does not support transferring [time series collections]({{ mg.docs.comd }}/core/timeseries-collections/), so you should [exclude](../../../data-transfer/operations/endpoint/source/mongodb.md#additional-settings) these collections in the endpoint settings.
+    Transferring of `Time Series` collections is not supported, so you should [exclude](../../../data-transfer/operations/endpoint/source/mongodb.md#additional-settings) such collections in the endpoint settings.
 
     {% endnote %}
 
@@ -22,11 +22,11 @@
 
         Specify the ID of the target cluster.
 
-1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+1. Create a _{{ dt-type-copy-repl }}_-type [transfer](../../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
 
-   To make large collections (over 1 GB) copy more quickly, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings. Specify two or more [workers](../../../data-transfer/concepts/index.md#worker). The collection will split into the specified number of parts that will be copied concurrently.
+   To make large collections (over 1 GB) copy more quickly, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings. Specify two or more [workers](../../../data-transfer/concepts/index.md#worker). The collection will be split into the specified number of parts that will be copied concurrently.
 
-   For parallel copy to work, the [data type](https://www.mongodb.com/docs/manual/reference/bson-types) in the `_id` field should be the same for all documents in a collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection before starting a transfer.
+   For parallel copy to work, the `_id` field data type must be the same for all documents in the same collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection before starting a transfer.
 
    {% note info %}
 
@@ -43,4 +43,4 @@
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
-1. [Delete](../../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
