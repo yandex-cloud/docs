@@ -1,6 +1,6 @@
-# {{ SD }} version upgrade
+# Upgrading {{ SD }} version
 
-You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, for {{ SD }}, the upgrade sequence from version 4.2 to 8.0 is: 4.2 → 4.4 → 5.0 → 6.0 → 7.0 → 8.0. Before each cluster upgrade step, you must update the [cluster compatibility version](#compatibility-update).
+You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrading to later versions is performed in stages. For example, for {{ SD }}, the upgrade sequence from version 4.2 to 8.0 is: 4.2 → 4.4 → 5.0 → 6.0 → 7.0 → 8.0. Before each cluster upgrade step, you must update the [cluster compatibility version](#compatibility-update).
 
 
 {% note alert %}
@@ -11,11 +11,11 @@ After upgrading, you cannot roll your cluster back to the previous version.
 
 ## Before a version upgrade {#before-update}
 
-1. Make sure the upgrade does not disrupt your applications:
+1. Make sure the upgrade will not disrupt your applications:
 
 1. See the {{ MG }} release notes to learn how upgrades may affect your applications.
-1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
-1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
+1. Try upgrading a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
+1. [Backup](cluster-backups.md#create-backup) the main cluster immediately before upgrading.
 
 1. Make sure the [cluster compatibility version](#compatibility-update) matches the current cluster version. If required, upgrade the cluster compatibility version.
 
@@ -27,7 +27,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
   1. Select the cluster from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
   As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -40,7 +40,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
      {{ yc-mdb-mg }} cluster list
      ```
 
-  1. Get information about the cluster you need and check the {{ SD }} version in the `config.version` parameter:
+  1. Get the target cluster details and check its {{ SD }} version in the `config.version` setting:
 
      ```bash
      {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
@@ -53,7 +53,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
         --mongodb-version=<new_version_number>
      ```
 
-     As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+     Once you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
   1. After the upgrade, all {{ SD }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, run this command:
 
@@ -80,7 +80,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
        }
        ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -88,7 +88,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-   For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+   For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -118,7 +118,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
          In this case, one parameter is provided.
 
@@ -164,7 +164,7 @@ After upgrading, you cannot roll your cluster back to the previous version.
 
         Where:
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
 
           In this case, one parameter is provided.
 
@@ -188,7 +188,7 @@ Upgrading the cluster compatibility version is required if you need to:
 * Upgrade your cluster to a new version, but the compatibility version does not match the current cluster version.
 * Make new {{ SD }} features available after a cluster upgrade.
 
-Learn more about backward compatibility in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+Learn more about backward compatibility in the [{{ MG }} guide](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 {% note alert %}
 
@@ -213,7 +213,7 @@ Upgrading the cluster compatibility version is irreversible.
      {{ yc-mdb-mg }} cluster list
      ```
 
-  1. Get information about the cluster you need and check the {{ SD }} version in the `config.feature_compatibility_version` parameter:
+  1. Get the target cluster details and check its {{ SD }} version in the `config.feature_compatibility_version` setting:
 
      ```bash
      {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
@@ -230,7 +230,7 @@ Upgrading the cluster compatibility version is irreversible.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-       For more information about creating this file, see [Creating clusters](cluster-create.md).
+       For more information about creating this file, see [this guide](cluster-create.md).
   
     1. Add the `feature_compatibility_version` field to the {{ mmg-name }} cluster description or edit its value if it is already there:
   
@@ -243,7 +243,7 @@ Upgrading the cluster compatibility version is irreversible.
        }
        ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -251,7 +251,7 @@ Upgrading the cluster compatibility version is irreversible.
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-   For more information, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+   For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -281,7 +281,7 @@ Upgrading the cluster compatibility version is irreversible.
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to modify.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
          In this case, one parameter is provided.
 
@@ -327,7 +327,7 @@ Upgrading the cluster compatibility version is irreversible.
 
         Where:
 
-        * `update_mask`: List of settings you want to modify as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
 
           In this case, one parameter is provided.
 
@@ -363,7 +363,7 @@ Let's assume that you need to upgrade your cluster from version 5.0 to version 6
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. To get information about a `c9qut3k64b2o********` cluster, run the following command:
+   1. To get `c9qut3k64b2o********` cluster details, run the following command:
 
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o********

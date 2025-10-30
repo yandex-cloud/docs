@@ -45,6 +45,11 @@ apiPlayground:
             Placement strategy.
           $ref: '#/definitions/PartitionPlacementStrategy'
       additionalProperties: false
+      oneOf:
+        - required:
+            - spreadPlacementStrategy
+        - required:
+            - partitionPlacementStrategy
     definitions:
       SpreadPlacementStrategy:
         type: object

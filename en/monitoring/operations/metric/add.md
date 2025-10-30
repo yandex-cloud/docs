@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/operations/metric/add.md
+---
 # Writing custom metrics via the API
 
 To start writing custom metrics via the API, use the [write](../../api-ref/MetricsData/write.md) method.
@@ -11,8 +14,8 @@ To follow the examples in this section:
 1. Get an IAM token:
 
    * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-   * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
-   * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+   * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for service accounts.
+   * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for federated accounts.
 
 ### Request example {#sample-request}
 

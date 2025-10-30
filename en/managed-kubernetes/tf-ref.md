@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ managed-k8s-full-name }}'
-description: This page describes the {{ TF }} provider’s resources and data sources supported by {{ managed-k8s-name }}.
+description: This page provides information about the {{ TF }} provider resources and data sources that {{ managed-k8s-name }} supports.
 ---
 
 # {{ TF }} reference for {{ managed-k8s-full-name }}

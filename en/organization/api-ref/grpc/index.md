@@ -15,6 +15,7 @@ Actions are performed by making RPC calls. For more information about API archit
 ||Service | Description ||
 || [GroupMapping](GroupMapping/index.md) | RPC service dedicated for federation group mapping. ||
 || [Group](Group/index.md) | A set of methods for managing groups. ||
+|| [MfaEnforcement](MfaEnforcement/index.md) | a set of methods for managing MFA enforcements ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Organization](Organization/index.md) | A set of methods for managing Organization resources. ||
 || [OsLogin](OsLogin/index.md) |  ||

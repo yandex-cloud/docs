@@ -96,6 +96,21 @@ apiPlayground:
               appropriate advertisement targeting and compliance.
             type: string
             format: int64
+      AdvertisementSettings:
+        type: object
+        properties:
+          yandexDirect:
+            description: |-
+              **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+              Yandex.Direct advertisement provider settings.
+              When specified, advertisements will be served through Yandex.Direct.
+              Includes only one of the fields `yandexDirect`.
+              Specifies the advertisement provider to use.
+              Only one provider can be active at a time.
+            $ref: '#/definitions/YandexDirect'
+        oneOf:
+          - required:
+              - yandexDirect
       RefererVerificationSettings:
         type: object
         properties:
@@ -125,18 +140,7 @@ apiPlayground:
               Settings for advertisement display and behavior.
               Controls whether and how advertisements are shown with content in this channel.
               If not specified, default advertisement settings are applied.
-            oneOf:
-              - type: object
-                properties:
-                  yandexDirect:
-                    description: |-
-                      **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
-                      Yandex.Direct advertisement provider settings.
-                      When specified, advertisements will be served through Yandex.Direct.
-                      Includes only one of the fields `yandexDirect`.
-                      Specifies the advertisement provider to use.
-                      Only one provider can be active at a time.
-                    $ref: '#/definitions/YandexDirect'
+            $ref: '#/definitions/AdvertisementSettings'
           refererVerification:
             description: |-
               **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**

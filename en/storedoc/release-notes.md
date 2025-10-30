@@ -25,7 +25,7 @@ You can now connect to a cluster database via [{{ websql-full-name }}](../websql
 
 ## December 2024 {#dec-2024}
 
-Creating {{ MG }} 5.0 clusters became unavailable starting December 2, 2024, as the version was [discontinued](https://www.mongodb.com/support-policy) by the vendor.
+Starting December 2, 2024, you can no longer create {{ MG }} 5.0 clusters: the version was discontinued by the vendor.
 
 ## October 2024 {#oct-2024}
 

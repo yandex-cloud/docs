@@ -26,15 +26,15 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
 The cost of transferring data with {{ data-transfer-full-name }} includes:
 
-* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* {{ mmg-name }} target cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 The cost of transferring data using a database dump includes:
 
-* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* {{ mmg-name }} target cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* When creating a VM to download a dump: Fee for using the computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* When creating a VM to download a dump: fee for the use of computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -57,7 +57,7 @@ Sequence of actions:
 
 ### Create a dump {#dump}
 
-You can create a database dump using `mongodump`. For more information about this utility, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/program/mongodump/).
+You can create a database dump using `mongodump`.
 
 1. Install `mongodump` and other utilities for working with MongoDB. Example for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts):
 
@@ -68,7 +68,6 @@ You can create a database dump using `mongodump`. For more information about thi
     sudo apt install mongodb-org-shell mongodb-org-tools
     ```
 
-    Instructions for other platforms, as well as more information about installing utilities, can be found on the [Install MongoDB](https://docs.mongodb.com/manual/installation/) page.
 
 1. Before creating a dump, we recommend switching the DBMS to "read-only" to avoid losing data that might appear while the dump is created.
 
@@ -143,7 +142,7 @@ As a result, you will get a VM with a database dump that is ready to be restored
 
 ### Recover data {#restore}
 
-Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/) utility to restore your DB dump.
+Use the `mongorestore` utility to restore your DB dump.
 
 * If you restore a dump from the VM in {{ yandex-cloud }}:
 
@@ -163,7 +162,7 @@ Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongore
     mongorestore --host <DBMS_server_address> \
                  --port <port> \
                  --ssl \
-                 --sslCAFile <certificate_file_path> \
+                 --sslCAFile <path_to_certificate_file> \
                  --username <username> \
                  --password "<password>" \
                  -j <number_of_streams> \

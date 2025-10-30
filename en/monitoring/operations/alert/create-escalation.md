@@ -1,6 +1,7 @@
 ---
 title: How to create an escalation policy
 description: In this article, you will learn how to create and configure an escalation policy to notify users of critical events in a timely manner.
+sourcePath: en/monitoring_includes/operations/alert/create-escalation.md
 ---
 
 # Creating an escalation policy
@@ -44,7 +45,7 @@ Make sure you have added [recipients](../../concepts/alerting/notification-chann
 
         {% note info %}
 
-        The **No notification on weekends and holidays** setting has a higher priority than the **Send days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
+        The **No notification on weekends and holidays** setting has a higher priority than the **Sending days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
 
         {% endnote %}
 

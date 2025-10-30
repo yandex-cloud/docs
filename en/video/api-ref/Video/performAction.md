@@ -35,6 +35,11 @@ apiPlayground:
             Specifies the action to perform on the video (exactly one must be chosen).
           $ref: '#/definitions/UnpublishVideoAction'
       additionalProperties: false
+      oneOf:
+        - required:
+            - publish
+        - required:
+            - unpublish
     definitions:
       PublishVideoAction:
         type: object

@@ -1,11 +1,12 @@
 ---
 title: How to read metrics via the Remote API
 description: Follow this guide to read metrics via the Remote API.
+sourcePath: en/monitoring_includes/operations/prometheus/querying/remote-read.md
 ---
 
 # Reading metrics via the Remote API
 
-1. In the [management console]({{ link-console-main }}), go to the folder that stores your data.
+1. In the [management console]({{ link-console-main }}), select the folder where the data is stored.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
 1. [Create an API key](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the service account.
 1. Add the endpoint (`url`) to the `remote_read` section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read):

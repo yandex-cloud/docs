@@ -275,7 +275,7 @@ apiPlayground:
               **string**
               HTTP status code of the redirect response.
               Default value: `"301"`.
-            default: '`"301"`'
+            default: '"301"'
             pattern: 3(0[1-9]|[1-9][0-9])
             type: string
           protocol:
@@ -670,6 +670,39 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Grant'
+      DefaultRetention:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              - `MODE_UNSPECIFIED`
+              - `MODE_GOVERNANCE`
+              - `MODE_COMPLIANCE`
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - MODE_GOVERNANCE
+              - MODE_COMPLIANCE
+          days:
+            description: |-
+              **string** (int64)
+              Number of days for locking
+              Includes only one of the fields `days`, `years`.
+            type: string
+            format: int64
+          years:
+            description: |-
+              **string** (int64)
+              Number of years for locking
+              Includes only one of the fields `days`, `years`.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - days
+          - required:
+              - years
       ObjectLock:
         type: object
         properties:
@@ -686,23 +719,7 @@ apiPlayground:
               - OBJECT_LOCK_STATUS_ENABLED
           defaultRetention:
             description: '**[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)**'
-            oneOf:
-              - type: object
-                properties:
-                  days:
-                    description: |-
-                      **string** (int64)
-                      Number of days for locking
-                      Includes only one of the fields `days`, `years`.
-                    type: string
-                    format: int64
-                  years:
-                    description: |-
-                      **string** (int64)
-                      Number of years for locking
-                      Includes only one of the fields `days`, `years`.
-                    type: string
-                    format: int64
+            $ref: '#/definitions/DefaultRetention'
       EncryptionRule:
         type: object
         properties:

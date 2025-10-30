@@ -54,50 +54,7 @@ apiPlayground:
             Restricts the search by date, document formats or language.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  date:
-                    description: |-
-                      **string**
-                      Restrict by document date. See https://yandex.ru/support/search/ru/query-language/search-operators details.
-                      Includes only one of the fields `date`, `lang`, `format`.
-                    type: string
-                  lang:
-                    description: |-
-                      **string**
-                      Restrict by document language. Use ISO 639-1 language codes.
-                      Includes only one of the fields `date`, `lang`, `format`.
-                    type: string
-                  format:
-                    description: |-
-                      **enum** (DocFormat)
-                      Restrict by document format.
-                      Includes only one of the fields `date`, `lang`, `format`.
-                      - `DOC_FORMAT_UNSPECIFIED`
-                      - `DOC_FORMAT_PDF`
-                      - `DOC_FORMAT_XLS`
-                      - `DOC_FORMAT_ODS`
-                      - `DOC_FORMAT_RTF`
-                      - `DOC_FORMAT_PPT`
-                      - `DOC_FORMAT_ODP`
-                      - `DOC_FORMAT_SWF`
-                      - `DOC_FORMAT_ODT`
-                      - `DOC_FORMAT_ODG`
-                      - `DOC_FORMAT_DOC`
-                    type: string
-                    enum:
-                      - DOC_FORMAT_UNSPECIFIED
-                      - DOC_FORMAT_PDF
-                      - DOC_FORMAT_XLS
-                      - DOC_FORMAT_ODS
-                      - DOC_FORMAT_RTF
-                      - DOC_FORMAT_PPT
-                      - DOC_FORMAT_ODP
-                      - DOC_FORMAT_SWF
-                      - DOC_FORMAT_ODT
-                      - DOC_FORMAT_ODG
-                      - DOC_FORMAT_DOC
+            $ref: '#/definitions/SearchFilter'
         searchType:
           description: |-
             **enum** (SearchType)
@@ -131,6 +88,13 @@ apiPlayground:
       required:
         - folderId
       additionalProperties: false
+      oneOf:
+        - required:
+            - site
+        - required:
+            - host
+        - required:
+            - url
     definitions:
       GenSearchMessage:
         type: object
@@ -185,6 +149,57 @@ apiPlayground:
             type: array
             items:
               type: string
+      SearchFilter:
+        type: object
+        properties:
+          date:
+            description: |-
+              **string**
+              Restrict by document date. See https://yandex.ru/support/search/ru/query-language/search-operators details.
+              Includes only one of the fields `date`, `lang`, `format`.
+            type: string
+          lang:
+            description: |-
+              **string**
+              Restrict by document language. Use ISO 639-1 language codes.
+              Includes only one of the fields `date`, `lang`, `format`.
+            type: string
+          format:
+            description: |-
+              **enum** (DocFormat)
+              Restrict by document format.
+              Includes only one of the fields `date`, `lang`, `format`.
+              - `DOC_FORMAT_UNSPECIFIED`
+              - `DOC_FORMAT_PDF`
+              - `DOC_FORMAT_XLS`
+              - `DOC_FORMAT_ODS`
+              - `DOC_FORMAT_RTF`
+              - `DOC_FORMAT_PPT`
+              - `DOC_FORMAT_ODP`
+              - `DOC_FORMAT_SWF`
+              - `DOC_FORMAT_ODT`
+              - `DOC_FORMAT_ODG`
+              - `DOC_FORMAT_DOC`
+            type: string
+            enum:
+              - DOC_FORMAT_UNSPECIFIED
+              - DOC_FORMAT_PDF
+              - DOC_FORMAT_XLS
+              - DOC_FORMAT_ODS
+              - DOC_FORMAT_RTF
+              - DOC_FORMAT_PPT
+              - DOC_FORMAT_ODP
+              - DOC_FORMAT_SWF
+              - DOC_FORMAT_ODT
+              - DOC_FORMAT_ODG
+              - DOC_FORMAT_DOC
+        oneOf:
+          - required:
+              - date
+          - required:
+              - lang
+          - required:
+              - format
       SearchMetadata:
         type: object
         properties:

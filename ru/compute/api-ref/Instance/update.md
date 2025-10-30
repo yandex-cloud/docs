@@ -147,15 +147,7 @@ apiPlayground:
           description: |-
             **[Application](#yandex.cloud.compute.v1.Application)**
             Instance application settings.
-          oneOf:
-            - type: object
-              properties:
-                containerSolution:
-                  description: |-
-                    **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
-                    Container specification.
-                    Includes only one of the fields `containerSolution`.
-                  $ref: '#/definitions/ContainerSolutionSpec'
+          $ref: '#/definitions/Application'
       additionalProperties: false
     definitions:
       ResourcesSpec:
@@ -378,6 +370,53 @@ apiPlayground:
             maxProperties: 100
         required:
           - productId
+      BackupSpec:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              If true, backup is enabled.
+            type: boolean
+          initialPolicyIds:
+            description: |-
+              **string**
+              A list of policy IDs to apply after resource registration.
+            type: array
+            items:
+              type: string
+          recoveryFromBackup:
+            description: |-
+              **boolean**
+              If true, recovery from backup starts on instance.
+            type: boolean
+          backupId:
+            description: |-
+              **string**
+              ID of the backup to recover from.
+            type: string
+          instanceRegistrationId:
+            description: |-
+              **string**
+              ID of the instance registration for cloud backup agent installation.
+            type: string
+      Application:
+        type: object
+        properties:
+          containerSolution:
+            description: |-
+              **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
+              Container specification.
+              Includes only one of the fields `containerSolution`.
+            $ref: '#/definitions/ContainerSolutionSpec'
+          cloudbackup:
+            description: |-
+              **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec)**
+              Backup settings.
+            $ref: '#/definitions/BackupSpec'
+        oneOf:
+          - required:
+              - containerSolution
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/update.md
 ---
 

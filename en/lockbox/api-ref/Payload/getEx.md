@@ -21,6 +21,11 @@ apiPlayground:
           description: '**string**'
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - secretId
+        - required:
+            - folderAndName
     body: null
     definitions:
       FolderAndName:

@@ -39,7 +39,7 @@ This token is obtained from the next_page_token field in the previous ListStream
 || order_by | **string**
 
 Specifies the ordering of results.
-Format is "<field> <order>" (e.g., "startTime desc").
+Format is "&lt;field&gt; &lt;order&gt;" (e.g., "startTime desc").
 Default: "id asc".
 Supported fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
 Both snake_case and camelCase field names are supported. ||

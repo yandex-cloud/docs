@@ -36,25 +36,57 @@ apiPlayground:
             List of rules.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  staticQuota:
-                    description: |-
-                      **[StaticQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
-                      Static quota. Counting each request individually.
-                      Includes only one of the fields `staticQuota`, `dynamicQuota`.
-                    $ref: '#/definitions/StaticQuota'
-                  dynamicQuota:
-                    description: |-
-                      **[DynamicQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
-                      Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
-                      Includes only one of the fields `staticQuota`, `dynamicQuota`.
-                    $ref: '#/definitions/DynamicQuota'
+            $ref: '#/definitions/AdvancedRateLimiterRule'
       required:
         - folderId
       additionalProperties: false
     definitions:
+      StringMatcher:
+        type: object
+        properties:
+          exactMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          exactNotMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          prefixMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          prefixNotMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          pireRegexMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          pireRegexNotMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+        oneOf:
+          - required:
+              - exactMatch
+          - required:
+              - exactNotMatch
+          - required:
+              - prefixMatch
+          - required:
+              - prefixNotMatch
+          - required:
+              - pireRegexMatch
+          - required:
+              - pireRegexNotMatch
       AuthorityMatcher:
         type: object
         properties:
@@ -64,39 +96,7 @@ apiPlayground:
               List of authorities. OR semantics implied.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    exactMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    exactNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
+              $ref: '#/definitions/StringMatcher'
       HttpMethodMatcher:
         type: object
         properties:
@@ -106,39 +106,7 @@ apiPlayground:
               List of HTTP methods. OR semantics implied.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    exactMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    exactNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
+              $ref: '#/definitions/StringMatcher'
       QueryMatcher:
         type: object
         properties:
@@ -151,39 +119,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the query parameter.
-            oneOf:
-              - type: object
-                properties:
-                  exactMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  exactNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
+            $ref: '#/definitions/StringMatcher'
         required:
           - key
           - value
@@ -194,39 +130,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
-            oneOf:
-              - type: object
-                properties:
-                  exactMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  exactNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
+            $ref: '#/definitions/StringMatcher'
           queries:
             description: |-
               **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
@@ -246,39 +150,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the header.
-            oneOf:
-              - type: object
-                properties:
-                  exactMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  exactNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
+            $ref: '#/definitions/StringMatcher'
         required:
           - name
           - value
@@ -426,6 +298,33 @@ apiPlayground:
               **string**
               String value of the key.
             type: string
+      Characteristic:
+        type: object
+        properties:
+          simpleCharacteristic:
+            description: |-
+              **[SimpleCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
+              Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes.
+              See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
+              Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
+            $ref: '#/definitions/SimpleCharacteristic'
+          keyCharacteristic:
+            description: |-
+              **[KeyCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
+              Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes.
+              See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
+              Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
+            $ref: '#/definitions/KeyCharacteristic'
+          caseInsensitive:
+            description: |-
+              **boolean**
+              Determines case-sensitive or case-insensitive keys matching.
+            type: boolean
+        oneOf:
+          - required:
+              - simpleCharacteristic
+          - required:
+              - keyCharacteristic
       DynamicQuota:
         type: object
         properties:
@@ -463,23 +362,55 @@ apiPlayground:
               List of characteristics.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    simpleCharacteristic:
-                      description: |-
-                        **[SimpleCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
-                        Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes.
-                        See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
-                        Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
-                      $ref: '#/definitions/SimpleCharacteristic'
-                    keyCharacteristic:
-                      description: |-
-                        **[KeyCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
-                        Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes.
-                        See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
-                        Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
-                      $ref: '#/definitions/KeyCharacteristic'
+              $ref: '#/definitions/Characteristic'
+      AdvancedRateLimiterRule:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
+            pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
+            type: string
+          priority:
+            description: |-
+              **string** (int64)
+              Determines the priority in case there are several matched rules.
+              Enter an integer within the range of 1 and 999999.
+              The rule priority must be unique within the entire ARL profile.
+              A lower numeric value means a higher priority.
+            type: string
+            format: int64
+          description:
+            description: |-
+              **string**
+              Optional description of the rule. 0-512 characters long.
+            type: string
+          dryRun:
+            description: |-
+              **boolean**
+              This allows you to evaluate backend capabilities and find the optimum limit values.
+              Requests will not be blocked in this mode.
+            type: boolean
+          staticQuota:
+            description: |-
+              **[StaticQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
+              Static quota. Counting each request individually.
+              Includes only one of the fields `staticQuota`, `dynamicQuota`.
+            $ref: '#/definitions/StaticQuota'
+          dynamicQuota:
+            description: |-
+              **[DynamicQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
+              Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
+              Includes only one of the fields `staticQuota`, `dynamicQuota`.
+            $ref: '#/definitions/DynamicQuota'
+        required:
+          - name
+        oneOf:
+          - required:
+              - staticQuota
+          - required:
+              - dynamicQuota
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/create.md
 ---
 

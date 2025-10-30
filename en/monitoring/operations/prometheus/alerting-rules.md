@@ -1,6 +1,7 @@
 ---
 title: How to use {{ prometheus-name }} alerting rules
 description: In this guide, you will learn to create and edit {{ prometheus-name }} files that define alerting rules.
+sourcePath: en/monitoring_includes/operations/prometheus/alerting-rules.md
 ---
 
 # Alerting rules
@@ -58,7 +59,7 @@ groups:
 
 This example describes the `CPU_Usage_Alerts` rule with the `HighCPUUsage` alert: The alert goes off when CPU usage remains above 80% for more than five minutes. CPU usage percentage is calculated by the formula in the `expr` field.
 
-The alert has a `severity: critical` label, which is used to route notification channels. In the Alert Manager configuration, you can map specific labels with channels so that notifications for different alerts are sent to different channels.
+The alert comes with the `severity: critical` label, which is used to route notification channels. In the Alert Manager configuration, you can map specific labels with channels so that notifications for different alerts are sent to different channels.
 
 ### Adding or replacing an alerting rule file {#create}
 

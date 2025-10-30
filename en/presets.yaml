@@ -203,8 +203,6 @@ default:
   dt-type-copy-repl: '**Snapshot and increment**'
   dt-type-preparing: '**Preparing**'
   dt-type-repl: '**Replication**'
-  dt-white-ip-list-uri: >-
-    https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   emb-vector: 256
   er-full-name: Yandex EventRouter
   er-name: EventRouter
@@ -225,6 +223,7 @@ default:
   go-cli-ver: golang121
   go-full-ver: Go 1.21
   google-looker: Looker Studio
+  gost-gateway-name: GOST Gateway
   GP: Greenplum®
   gp:
     docs:
@@ -397,9 +396,6 @@ default:
   metrika-link: https://metrika.yandex.com/
   metrika-pro: Metrica Pro
   MG: MongoDB
-  mg:
-    docs:
-      comd: https://www.mongodb.com/docs/manual
   mgl-full-name: Yandex Managed Service for GitLab
   mgl-name: Managed Service for GitLab
   mgp-full-name: Yandex Managed Service for Greenplum®
@@ -847,6 +843,7 @@ default:
   tf-provider-link: https://yandex.cloud/en/docs/terraform/
   tf-provider-maf: https://yandex.cloud/en/docs/terraform/resources/airflow_cluster
   tf-provider-mch: https://yandex.cloud/en/docs/terraform/resources/mdb_clickhouse_cluster
+  tf-provider-metastore: https://yandex.cloud/ru/docs/terraform/resources/metastore_cluster
   tf-provider-mgp: https://yandex.cloud/en/docs/terraform/resources/mdb_greenplum_cluster
   tf-provider-mkf: https://yandex.cloud/en/docs/terraform/resources/mdb_kafka_cluster
   tf-provider-mmg: https://yandex.cloud/en/docs/terraform/resources/mdb_mongodb_cluster

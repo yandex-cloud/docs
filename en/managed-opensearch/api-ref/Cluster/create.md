@@ -85,21 +85,7 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
             Cluster maintenance window. Should be defined by either one of the two options.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    An any-time maintenance window.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
-                    A weekly maintenance window.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         diskEncryptionKeyId:
           description: |-
             **string**
@@ -112,23 +98,6 @@ apiPlayground:
         - networkId
       additionalProperties: false
     definitions:
-      OpenSearchConfig2:
-        type: object
-        properties:
-          maxClauseCount:
-            description: |-
-              **string** (int64)
-              the maximum number of allowed boolean clauses in a query
-            type: string
-            format: int64
-          fielddataCacheSize:
-            description: |-
-              **string**
-              the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata
-            type: string
-          reindexRemoteWhitelist:
-            description: '**string**'
-            type: string
       Resources:
         type: object
         properties:
@@ -229,6 +198,68 @@ apiPlayground:
             $ref: '#/definitions/DiskSizeAutoscaling'
         required:
           - name
+      OpenSearchConfig2:
+        type: object
+        properties:
+          maxClauseCount:
+            description: |-
+              **string** (int64)
+              the maximum number of allowed boolean clauses in a query
+            type: string
+            format: int64
+          fielddataCacheSize:
+            description: |-
+              **string**
+              the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata
+            type: string
+          reindexRemoteWhitelist:
+            description: '**string**'
+            type: string
+      KeystoreSetting:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Keystore entry name.
+            type: string
+          value:
+            description: |-
+              **string**
+              Keystore entry value.
+            type: string
+      OpenSearchCreateSpec:
+        type: object
+        properties:
+          plugins:
+            description: |-
+              **string**
+              Names of the cluster plugins.
+            type: array
+            items:
+              type: string
+          nodeGroups:
+            description: |-
+              **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+              OpenSearch type host groups of the cluster.
+            type: array
+            items:
+              $ref: '#/definitions/NodeGroup'
+          opensearchConfig_2:
+            description: |-
+              **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+              Includes only one of the fields `opensearchConfig_2`.
+            $ref: '#/definitions/OpenSearchConfig2'
+          keystoreSettings:
+            description: |-
+              **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
+              Initial cluster keystore settings.
+            type: array
+            items:
+              $ref: '#/definitions/KeystoreSetting'
+        oneOf:
+          - required:
+              - opensearchConfig_2
       DashboardsCreateSpec:
         type: object
         properties:
@@ -313,6 +344,34 @@ apiPlayground:
               The minute of the hour at which the backup should be created.
             type: string
             format: int64
+      SnapshotSchedule:
+        type: object
+        properties:
+          hourlySnapshotSchedule:
+            description: |-
+              **[HourlySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
+              Hourly based snapshot schedule
+              Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
+            $ref: '#/definitions/HourlySnapshotSchedule'
+          dailySnapshotSchedule:
+            description: |-
+              **[DailySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
+              Daily based snapshot schedule
+              Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
+            $ref: '#/definitions/DailySnapshotSchedule'
+          weeklySnapshotSchedule:
+            description: |-
+              **[WeeklySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
+              Weekly based snapshot schedule
+              Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
+            $ref: '#/definitions/WeeklySnapshotSchedule'
+        oneOf:
+          - required:
+              - hourlySnapshotSchedule
+          - required:
+              - dailySnapshotSchedule
+          - required:
+              - weeklySnapshotSchedule
       SnapshotManagement:
         type: object
         properties:
@@ -320,27 +379,7 @@ apiPlayground:
             description: |-
               **[SnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
               Snapshot creation schedule
-            oneOf:
-              - type: object
-                properties:
-                  hourlySnapshotSchedule:
-                    description: |-
-                      **[HourlySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
-                      Hourly based snapshot schedule
-                      Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
-                    $ref: '#/definitions/HourlySnapshotSchedule'
-                  dailySnapshotSchedule:
-                    description: |-
-                      **[DailySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
-                      Daily based snapshot schedule
-                      Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
-                    $ref: '#/definitions/DailySnapshotSchedule'
-                  weeklySnapshotSchedule:
-                    description: |-
-                      **[WeeklySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
-                      Weekly based snapshot schedule
-                      Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.
-                    $ref: '#/definitions/WeeklySnapshotSchedule'
+            $ref: '#/definitions/SnapshotSchedule'
           snapshotMaxAgeDays:
             description: |-
               **string** (int64)
@@ -364,14 +403,7 @@ apiPlayground:
             description: |-
               **[OpenSearchCreateSpec](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec)**
               OpenSearch configuration.
-            oneOf:
-              - type: object
-                properties:
-                  opensearchConfig_2:
-                    description: |-
-                      **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
-                      Includes only one of the fields `opensearchConfig_2`.
-                    $ref: '#/definitions/OpenSearchConfig2'
+            $ref: '#/definitions/OpenSearchCreateSpec'
           dashboardsSpec:
             description: |-
               **[DashboardsCreateSpec](#yandex.cloud.mdb.opensearch.v1.DashboardsCreateSpec)**
@@ -423,6 +455,26 @@ apiPlayground:
               Hour of the day in the UTC timezone.
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              An any-time maintenance window.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
+              A weekly maintenance window.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/create.md
 ---
 

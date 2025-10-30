@@ -500,7 +500,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. **Создайте запрос на изменение квоты.**
 
-      [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits#quotas-limits-default) и создайте запрос с помощью вызова gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md):
+      [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits.md#quotas-limits-default) и создайте запрос с помощью вызова gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md):
 
       ```bash
       grpcurl \

@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/concepts/visualization/index.md
+---
 # Visualization
 
 {{ monitoring-full-name }} provides the following visualization tools:

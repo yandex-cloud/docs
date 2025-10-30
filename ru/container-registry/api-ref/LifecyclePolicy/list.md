@@ -51,6 +51,11 @@ apiPlayground:
             The default sorting order is ascending.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - registryId
+        - required:
+            - repositoryId
     body: null
     definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/list.md

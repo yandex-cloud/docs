@@ -17,7 +17,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>boot-image id.|
-|`--name`|<b>`string`</b><br/>Image name.|
+|`--name`|<b>`string`</b><br/>Boot-image name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--labels`|<b>`value[,value]`</b><br/>Label keys to remove.|
 

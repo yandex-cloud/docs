@@ -2,6 +2,7 @@
 title: '{{ mmg-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mmg-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/managed-mongodb-ref.md
 ---
 
 # {{ mmg-full-name }} metrics

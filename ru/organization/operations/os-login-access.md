@@ -184,7 +184,11 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% note info %}
+
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+{% endnote %}
 
 #### См. также {#see-also}
 

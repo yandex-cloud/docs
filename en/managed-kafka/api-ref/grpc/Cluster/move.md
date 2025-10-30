@@ -161,7 +161,8 @@ Required field. ID of the destination folder. ||
       },
       "kafka_ui_config": {
         "enabled": "bool"
-      }
+      },
+      "patch_version": "string"
     },
     "network_id": "string",
     "health": "Health",
@@ -412,6 +413,9 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || kafka_ui_config | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
 
 Configuration of Kafka UI. ||
+|| patch_version | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}

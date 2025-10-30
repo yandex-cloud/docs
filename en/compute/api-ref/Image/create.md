@@ -109,22 +109,19 @@ apiPlayground:
             **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
             Specify the overrides to hardware_generation of a source disk, image or snapshot,
             or to the default values if the source does not define it.
-          oneOf:
-            - type: object
-              properties:
-                legacyFeatures:
-                  description: |-
-                    **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
-                    Includes only one of the fields `legacyFeatures`, `generation2Features`.
-                  $ref: '#/definitions/LegacyHardwareFeatures'
-                generation2Features:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `legacyFeatures`, `generation2Features`.
-                  $ref: '#/definitions/Generation2HardwareFeatures'
+          $ref: '#/definitions/HardwareGeneration'
       required:
         - folderId
       additionalProperties: false
+      oneOf:
+        - required:
+            - imageId
+        - required:
+            - diskId
+        - required:
+            - snapshotId
+        - required:
+            - uri
     definitions:
       Os:
         type: object
@@ -161,6 +158,24 @@ apiPlayground:
       Generation2HardwareFeatures:
         type: object
         properties: {}
+      HardwareGeneration:
+        type: object
+        properties:
+          legacyFeatures:
+            description: |-
+              **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+              Includes only one of the fields `legacyFeatures`, `generation2Features`.
+            $ref: '#/definitions/LegacyHardwareFeatures'
+          generation2Features:
+            description: |-
+              **object**
+              Includes only one of the fields `legacyFeatures`, `generation2Features`.
+            $ref: '#/definitions/Generation2HardwareFeatures'
+        oneOf:
+          - required:
+              - legacyFeatures
+          - required:
+              - generation2Features
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/create.md
 ---
 

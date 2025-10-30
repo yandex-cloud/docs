@@ -37,6 +37,11 @@ apiPlayground:
             This token is obtained from the next_page_token field in the previous ListThumbnailResponse.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - episodeId
+        - required:
+            - videoId
     body: null
     definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/list.md

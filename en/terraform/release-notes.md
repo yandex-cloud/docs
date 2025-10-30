@@ -5,6 +5,29 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.169.0 (October 30, 2025)
+##### FEATURES:
+* OrganizationManager: new user and userpool datasources and resources
+* CDN: cdn_resource.options edge_cache_settings by codes
+##### BUG FIXES:
+* redis: fix for every time changed field `acl_options`
+* mongodb: fix empty diff when permission block changes from empty to null
+* iam: fix test assertions for `audiences` in `yandex_iam_workload_identity_oidc_federation` by using set-based checks
+##### ENHANCEMENTS:
+* CDN: resource.disable_cache is deprecated. You can safely delete it
+* CDN: cdn_resource.cache_http_headers marked deprecated
+##### :
+* mongodb: fix empty diff when permission block change empty to null
+
+## 0.168.0 (October 23, 2025)
+##### FEATURES:
+* CDN: shielding feature for cdn_resource
+##### BUG FIXES:
+* IAM: fix length validation for field external_subject_id for resource yandex_iam_workload_identity_federated_credential
+* postgresql: possibility to manage pgaudit settings for users via terraform
+* postgresql: error on an attempt to change name for existing user with yandex_mdb_postgresql_user
+* postgresql: possibility to reset deletion_protection to default via yandex_mdb_postgresql_user
+
 ## 0.167.0 (October 20, 2025)
 ##### FEATURES:
 * valkey: Add valkey-modules

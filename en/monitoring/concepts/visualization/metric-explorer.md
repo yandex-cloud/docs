@@ -1,13 +1,14 @@
 ---
 title: '{{ monitoring-full-name }} Metric Explorer'
 description: Metric Explorer in {{ monitoring-full-name }} helps you define and view real-time service and application metrics.
+sourcePath: en/monitoring_includes/concepts/visualization/metric-explorer.md
 ---
 
 # Metric Explorer in {{ monitoring-name }}
 
 In **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**, you can monitor various indicators of your infrastructure and applications in real time. For example, you can track RAM usage for a {{ compute-name }} VM instance or the number of requests to an {{ alb-name }} virtual host.
 
-{{ monitoring-name }} allows you to:
+{{ monitoring-name }} enables you to:
 
 * Flexibly configure regular and derived metrics with custom formulas.
 * Display one or multiple metrics on charts.
@@ -29,9 +30,9 @@ With Metric Explorer, you can perform the following tasks:
 
 To learn how to configure and use charts, see [{#T}](../../operations/metric/metric-explorer.md).
 
-## Chart repetition by parameters {#repeated-graphs}
+## Parameter-based chart repetition {#repeated-graphs}
 
-The chart repetition feature based on a specific parameter allows you to build multiple similar charts with different values of this parameter. This helps you to analyze indicator anomalies and problems as you can split a metric into multiple ones and examine each of them separately.
+Parameter-based chart repetition allows you to build multiple similar charts with different values for the same parameter. This helps you to analyze indicator anomalies and problems as you can split a metric into multiple ones and examine each of them separately.
 
 Let’s say you have multiple VMs deployed in your cloud and observe a spike in CPU utilization. To track down the issue fast:
 

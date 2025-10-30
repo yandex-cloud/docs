@@ -82,19 +82,7 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
             New maintenance window settings for the cluster.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         networkId:
           description: |-
             **string**
@@ -109,6 +97,26 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory, etc.).
+              All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+            type: string
       KafkaConfig2_8:
         type: object
         properties:
@@ -431,26 +439,31 @@ apiPlayground:
                 - SASL_MECHANISM_UNSPECIFIED
                 - SASL_MECHANISM_SCRAM_SHA_256
                 - SASL_MECHANISM_SCRAM_SHA_512
-      Resources:
+      Kafka:
         type: object
         properties:
-          resourcePresetId:
+          resources:
             description: |-
-              **string**
-              ID of the preset for computational resources available to a host (CPU, memory, etc.).
-              All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
-            type: string
-          diskSize:
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+              Resources allocated to Kafka brokers.
+            $ref: '#/definitions/Resources'
+          kafkaConfig_2_8:
             description: |-
-              **string** (int64)
-              Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
-            type: string
-            format: int64
-          diskTypeId:
+              **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig2_8'
+          kafkaConfig_3:
             description: |-
-              **string**
-              Type of the storage environment for the host.
-            type: string
+              **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig3'
+        oneOf:
+          - required:
+              - kafkaConfig_2_8
+          - required:
+              - kafkaConfig_3
       Zookeeper:
         type: object
         properties:
@@ -524,21 +537,7 @@ apiPlayground:
             description: |-
               **[Kafka](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka)**
               Configuration and resource allocation for Kafka brokers.
-            oneOf:
-              - type: object
-                properties:
-                  kafkaConfig_2_8:
-                    description: |-
-                      **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
-                      Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
-                      Kafka broker configuration.
-                    $ref: '#/definitions/KafkaConfig2_8'
-                  kafkaConfig_3:
-                    description: |-
-                      **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
-                      Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
-                      Kafka broker configuration.
-                    $ref: '#/definitions/KafkaConfig3'
+            $ref: '#/definitions/Kafka'
           zookeeper:
             description: |-
               **[Zookeeper](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
@@ -600,6 +599,11 @@ apiPlayground:
               **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
               Configuration of Kafka UI.
             $ref: '#/definitions/KafkaUIConfig'
+          patchVersion:
+            description: |-
+              **string**
+              Patch or release version ex. 3.9.1, 4.0.1 etc
+            type: string
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -633,6 +637,24 @@ apiPlayground:
               Hour of the day in UTC.
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/update.md
 ---
 
@@ -761,7 +783,8 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed
     },
     "kafkaUiConfig": {
       "enabled": "boolean"
-    }
+    },
+    "patchVersion": "string"
   },
   "name": "string",
   "securityGroupIds": [
@@ -877,6 +900,9 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
 
 Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}
@@ -1340,7 +1366,8 @@ Hour of the day in UTC. ||
       },
       "kafkaUiConfig": {
         "enabled": "boolean"
-      }
+      },
+      "patchVersion": "string"
     },
     "networkId": "string",
     "health": "string",
@@ -1623,6 +1650,9 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig2)**
 
 Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka2}

@@ -147,72 +147,7 @@ apiPlayground:
             Subject Alternative Names (SANs) for the certificate, such as DNS entries or IP addresses.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  otherName:
-                    description: |-
-                      **[OtherName](#yandex.cloud.certificatemanager.v1.privateca.OtherName)**
-                      Local defined identifier in arbitrary form
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    $ref: '#/definitions/OtherName'
-                  rfc_822Name:
-                    description: |-
-                      **string**
-                      Encoded email address
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
-                  dnsName:
-                    description: |-
-                      **string**
-                      Widely used in tls certificates for domains
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
-                  x_400Name:
-                    description: |-
-                      **string**
-                      x400 name https://en.wikipedia.org/wiki/X.400
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
-                  directoryName:
-                    description: |-
-                      **string**
-                      Represents sequence of rdn for uniquely identifying entities
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
-                  ediPartyName:
-                    description: |-
-                      **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
-                      Electronic Data Interchange entity
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    $ref: '#/definitions/EdiPartyName'
-                  uniformResourceIdentifier:
-                    description: |-
-                      **string**
-                      URI
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
-                  ipAddress:
-                    description: |-
-                      **string**
-                      ip address of certificate subject. May be used in tls certificates
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
-                  registeredId:
-                    description: |-
-                      **string**
-                      Object Identifier (OID)
-                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
-                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
-                    type: string
+            $ref: '#/definitions/SubjectAlternativeName'
         templateId:
           description: |-
             **string**
@@ -350,6 +285,91 @@ apiPlayground:
               **string**
               The actual identifier of the EDI party
             type: string
+      SubjectAlternativeName:
+        type: object
+        properties:
+          otherName:
+            description: |-
+              **[OtherName](#yandex.cloud.certificatemanager.v1.privateca.OtherName)**
+              Local defined identifier in arbitrary form
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            $ref: '#/definitions/OtherName'
+          rfc_822Name:
+            description: |-
+              **string**
+              Encoded email address
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+          dnsName:
+            description: |-
+              **string**
+              Widely used in tls certificates for domains
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+          x_400Name:
+            description: |-
+              **string**
+              x400 name https://en.wikipedia.org/wiki/X.400
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+          directoryName:
+            description: |-
+              **string**
+              Represents sequence of rdn for uniquely identifying entities
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+          ediPartyName:
+            description: |-
+              **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
+              Electronic Data Interchange entity
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            $ref: '#/definitions/EdiPartyName'
+          uniformResourceIdentifier:
+            description: |-
+              **string**
+              URI
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+          ipAddress:
+            description: |-
+              **string**
+              ip address of certificate subject. May be used in tls certificates
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+          registeredId:
+            description: |-
+              **string**
+              Object Identifier (OID)
+              Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+              https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+            type: string
+        oneOf:
+          - required:
+              - otherName
+          - required:
+              - rfc_822Name
+          - required:
+              - dnsName
+          - required:
+              - x_400Name
+          - required:
+              - directoryName
+          - required:
+              - ediPartyName
+          - required:
+              - uniformResourceIdentifier
+          - required:
+              - ipAddress
+          - required:
+              - registeredId
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/issueCertificate.md
 ---
 

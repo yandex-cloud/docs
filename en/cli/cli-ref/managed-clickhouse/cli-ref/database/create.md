@@ -20,6 +20,7 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--engine`|<b>`string`</b><br/>Set database engine to atomic or replicated Values: 'database-engine-atomic', 'database-engine-replicated'|
 
 #### Global Flags
 

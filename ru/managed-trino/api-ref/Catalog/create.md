@@ -27,6 +27,29 @@ apiPlayground:
         - catalog
       additionalProperties: false
     definitions:
+      HiveMetastore:
+        type: object
+        properties:
+          uri:
+            description: |-
+              **string**
+              URI or cluster ID of the Hive Metastore.
+              Includes only one of the fields `uri`.
+            type: string
+        oneOf:
+          - required:
+              - uri
+      Metastore:
+        type: object
+        properties:
+          hive:
+            description: |-
+              **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
+              Includes only one of the fields `hive`.
+            $ref: '#/definitions/HiveMetastore'
+        oneOf:
+          - required:
+              - hive
       S3FileSystem:
         type: object
         properties: {}
@@ -58,6 +81,24 @@ apiPlayground:
           - awsSecretKey
           - awsEndpoint
           - awsRegion
+      FileSystem:
+        type: object
+        properties:
+          s3:
+            description: |-
+              **object**
+              Includes only one of the fields `s3`, `externalS3`.
+            $ref: '#/definitions/S3FileSystem'
+          externalS3:
+            description: |-
+              **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
+              Includes only one of the fields `s3`, `externalS3`.
+            $ref: '#/definitions/ExternalS3FileSystem'
+        oneOf:
+          - required:
+              - s3
+          - required:
+              - externalS3
       HiveConnector:
         type: object
         properties:
@@ -65,39 +106,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -123,39 +137,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -181,39 +168,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -288,6 +248,24 @@ apiPlayground:
         required:
           - connectionId
           - database
+      PostgresqlConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/OnPremise'
+          connectionManager:
+            description: |-
+              **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/ConnectionManager'
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManager
       PostgresqlConnector:
         type: object
         properties:
@@ -295,19 +273,7 @@ apiPlayground:
             description: |-
               **[PostgresqlConnection](#yandex.cloud.trino.v1.PostgresqlConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/OnPremise'
-                  connectionManager:
-                    description: |-
-                      **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/ConnectionManager'
+            $ref: '#/definitions/PostgresqlConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -323,6 +289,24 @@ apiPlayground:
               maxLength: 128
               minLength: 1
             maxProperties: 256
+      ClickhouseConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/OnPremise'
+          connectionManager:
+            description: |-
+              **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+              Includes only one of the fields `onPremise`, `connectionManager`.
+            $ref: '#/definitions/ConnectionManager'
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManager
       ClickhouseConnector:
         type: object
         properties:
@@ -330,19 +314,7 @@ apiPlayground:
             description: |-
               **[ClickhouseConnection](#yandex.cloud.trino.v1.ClickhouseConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/OnPremise'
-                  connectionManager:
-                    description: |-
-                      **[ConnectionManager](#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
-                      Includes only one of the fields `onPremise`, `connectionManager`.
-                    $ref: '#/definitions/ConnectionManager'
+            $ref: '#/definitions/ClickhouseConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -394,6 +366,17 @@ apiPlayground:
               maxLength: 128
               minLength: 1
             maxProperties: 256
+      OracleConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`.
+            $ref: '#/definitions/OnPremise'
+        oneOf:
+          - required:
+              - onPremise
       OracleConnector:
         type: object
         properties:
@@ -401,14 +384,7 @@ apiPlayground:
             description: |-
               **[OracleConnection](#yandex.cloud.trino.v1.OracleConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`.
-                    $ref: '#/definitions/OnPremise'
+            $ref: '#/definitions/OracleConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -424,6 +400,17 @@ apiPlayground:
               maxLength: 128
               minLength: 1
             maxProperties: 256
+      SQLServerConnection:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+              Includes only one of the fields `onPremise`.
+            $ref: '#/definitions/OnPremise'
+        oneOf:
+          - required:
+              - onPremise
       SQLServerConnector:
         type: object
         properties:
@@ -431,14 +418,7 @@ apiPlayground:
             description: |-
               **[SQLServerConnection](#yandex.cloud.trino.v1.SQLServerConnection)**
               Connection configuration.
-            oneOf:
-              - type: object
-                properties:
-                  onPremise:
-                    description: |-
-                      **[OnPremise](#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
-                      Includes only one of the fields `onPremise`.
-                    $ref: '#/definitions/OnPremise'
+            $ref: '#/definitions/SQLServerConnection'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -461,39 +441,12 @@ apiPlayground:
             description: |-
               **[Metastore](#yandex.cloud.trino.v1.Metastore)**
               Required field. Metastore configuration.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
-                      Includes only one of the fields `hive`.
-                    oneOf:
-                      - type: object
-                        properties:
-                          uri:
-                            description: |-
-                              **string**
-                              URI or cluster ID of the Hive Metastore.
-                              Includes only one of the fields `uri`.
-                            type: string
+            $ref: '#/definitions/Metastore'
           filesystem:
             description: |-
               **[FileSystem](#yandex.cloud.trino.v1.FileSystem)**
               Required field. File system configuration.
-            oneOf:
-              - type: object
-                properties:
-                  s3:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/S3FileSystem'
-                  externalS3:
-                    description: |-
-                      **[ExternalS3FileSystem](#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
-                      Includes only one of the fields `s3`, `externalS3`.
-                    $ref: '#/definitions/ExternalS3FileSystem'
+            $ref: '#/definitions/FileSystem'
           additionalProperties:
             description: |-
               **object** (map<**string**, **string**>)
@@ -512,6 +465,90 @@ apiPlayground:
         required:
           - metastore
           - filesystem
+      Connector:
+        type: object
+        properties:
+          hive:
+            description: |-
+              **[HiveConnector](#yandex.cloud.trino.v1.HiveConnector)**
+              Hive connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/HiveConnector'
+          iceberg:
+            description: |-
+              **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
+              Iceberg connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/IcebergConnector'
+          deltaLake:
+            description: |-
+              **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
+              Delta Lake connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/DeltaLakeConnector'
+          postgresql:
+            description: |-
+              **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
+              PostgreSQL connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/PostgresqlConnector'
+          clickhouse:
+            description: |-
+              **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
+              ClickHouse connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/ClickhouseConnector'
+          tpch:
+            description: |-
+              **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
+              TPC-H connector for synthetic benchmarking.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/TPCHConnector'
+          tpcds:
+            description: |-
+              **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
+              TPC-DS connector for synthetic benchmarking.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/TPCDSConnector'
+          oracle:
+            description: |-
+              **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
+              Oracle connector configuration for connecting to Oracle Database instances.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/OracleConnector'
+          sqlserver:
+            description: |-
+              **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
+              SQLServer connector configuration for connecting to SQLServer Database instances.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/SQLServerConnector'
+          hudi:
+            description: |-
+              **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
+              Hudi connector configuration.
+              Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
+            $ref: '#/definitions/HudiConnector'
+        oneOf:
+          - required:
+              - hive
+          - required:
+              - iceberg
+          - required:
+              - deltaLake
+          - required:
+              - postgresql
+          - required:
+              - clickhouse
+          - required:
+              - tpch
+          - required:
+              - tpcds
+          - required:
+              - oracle
+          - required:
+              - sqlserver
+          - required:
+              - hudi
       CatalogSpec:
         type: object
         properties:
@@ -526,69 +563,7 @@ apiPlayground:
             description: |-
               **[Connector](#yandex.cloud.trino.v1.Connector)**
               Required field. Connector backing this catalog.
-            oneOf:
-              - type: object
-                properties:
-                  hive:
-                    description: |-
-                      **[HiveConnector](#yandex.cloud.trino.v1.HiveConnector)**
-                      Hive connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/HiveConnector'
-                  iceberg:
-                    description: |-
-                      **[IcebergConnector](#yandex.cloud.trino.v1.IcebergConnector)**
-                      Iceberg connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/IcebergConnector'
-                  deltaLake:
-                    description: |-
-                      **[DeltaLakeConnector](#yandex.cloud.trino.v1.DeltaLakeConnector)**
-                      Delta Lake connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/DeltaLakeConnector'
-                  postgresql:
-                    description: |-
-                      **[PostgresqlConnector](#yandex.cloud.trino.v1.PostgresqlConnector)**
-                      PostgreSQL connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/PostgresqlConnector'
-                  clickhouse:
-                    description: |-
-                      **[ClickhouseConnector](#yandex.cloud.trino.v1.ClickhouseConnector)**
-                      ClickHouse connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/ClickhouseConnector'
-                  tpch:
-                    description: |-
-                      **[TPCHConnector](#yandex.cloud.trino.v1.TPCHConnector)**
-                      TPC-H connector for synthetic benchmarking.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/TPCHConnector'
-                  tpcds:
-                    description: |-
-                      **[TPCDSConnector](#yandex.cloud.trino.v1.TPCDSConnector)**
-                      TPC-DS connector for synthetic benchmarking.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/TPCDSConnector'
-                  oracle:
-                    description: |-
-                      **[OracleConnector](#yandex.cloud.trino.v1.OracleConnector)**
-                      Oracle connector configuration for connecting to Oracle Database instances.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/OracleConnector'
-                  sqlserver:
-                    description: |-
-                      **[SQLServerConnector](#yandex.cloud.trino.v1.SQLServerConnector)**
-                      SQLServer connector configuration for connecting to SQLServer Database instances.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/SQLServerConnector'
-                  hudi:
-                    description: |-
-                      **[HudiConnector](#yandex.cloud.trino.v1.HudiConnector)**
-                      Hudi connector configuration.
-                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`.
-                    $ref: '#/definitions/HudiConnector'
+            $ref: '#/definitions/Connector'
           description:
             description: |-
               **string**

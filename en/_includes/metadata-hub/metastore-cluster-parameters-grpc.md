@@ -1,11 +1,12 @@
 * `name`: Cluster name.
 * `description`: Cluster description.
-* `labels`: List of labels Provide labels in `"<key>": "<value>"` format.
+* `labels`: List of labels provided in `"<key>": "<value>"` format.
 * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are: `true` or `false`.
 * `version`: {{ metastore-name }} version.
-* `config_spec.resources.resource_preset_id`: ID of the cluster's computing resources. The possible values are:
-  * `c2-m8`: 2 vCPUs and 8 GB RAM.
-  * `c2-m4`: 2 vCPUs and 4 GB RAM.
+
+  {% include [metastore-version](metastore-version-cluster-create.md) %}
+
+* `config_spec.resources.resource_preset_id`: [Computing resource configuration](../../metadata-hub/concepts/metastore.md#presets).
 * `service_account_id`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
 * `logging`: Logging parameters:
 
@@ -13,6 +14,6 @@
   * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
   * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-      Specify either `folder_id` or `log_group_id`.
+      Specify one of the two parameters: `folder_id` or `log_group_id`.
 
   * `min_level`: Minimum logging level. The possible values are: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.

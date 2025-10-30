@@ -17,7 +17,7 @@ apiPlayground:
             **string**
             Required field. Name of the user to grant the permission to.
             To get the name of the user, use a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
-          pattern: '[a-zA-Z0-9_-]*'
+          pattern: '[a-zA-Z0-9_@.-]*'
           type: string
       required:
         - clusterId
@@ -157,7 +157,8 @@ Name of the database that the permission grants access to. ||
     "userPasswordEncryption": "string",
     "connectionManager": {
       "connectionId": "string"
-    }
+    },
+    "authMethod": "string"
   }
   // end of the list of possible fields
 }
@@ -315,6 +316,13 @@ The default is `` password_encryption `` setting for cluster.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| authMethod | **enum** (AuthMethod)
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission2}

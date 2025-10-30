@@ -39,11 +39,11 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
       * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the cloud.
-      * (Optional) Enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
+      * Optionally, enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
       * Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
 
           * `PRODUCTION`: For stable versions of your applications.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first of the two to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
 
       * Specify the DBMS version.
 
@@ -173,8 +173,6 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `--mongod-disk-type`: Disk type.
       * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
-         {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
@@ -208,7 +206,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Configuration file structure example:
+     Here is an example of the configuration file structure:
 
      
      ```hcl
@@ -291,7 +289,21 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mmg }}).
+     
+     To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
+
+       ```hcl
+       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
+         ...
+         disk_encryption_key_id = <KMS_key_ID>
+         ...
+       }
+       ```
+
+       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
+     For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-mmg }}).
 
   1. Validate your configuration.
 
@@ -307,7 +319,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -415,7 +427,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. In `maintenanceWindow`, provide one of the two parameters:
 
           * `anytime`: Maintenance can take place at any time.
           * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -486,11 +498,11 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           --data "@body.json"
       ```
 
-  1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -599,7 +611,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. In `maintenance_window`, provide one of the two parameters:
 
           * `anytime`: Maintenance can take place at any time.
           * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
@@ -659,7 +671,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
 
-  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call to execute the following request via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -742,7 +754,7 @@ To create a {{ SD }} cluster copy:
 
     1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating the provider configuration file manually, you can download it [here](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and edit it to [include your required values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration files:
 
@@ -807,7 +819,7 @@ To create a {{ SD }} cluster copy:
 
 - {{ TF }} {#tf}
 
-  Create a {{ mmg-name }} cluster and a network for it with the following test specifications:
+  Create a {{ mmg-name }} cluster and its network with the following test specifications:
 
   * Name: `mymg`.
   * Version: `{{ versions.tf.latest }}`.

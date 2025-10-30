@@ -191,7 +191,8 @@ Example of a filter: `name=my-backend-group`. ||
         },
         "cookie": {
           "name": "string",
-          "ttl": "string"
+          "ttl": "string",
+          "path": "string"
         }
         // end of the list of possible fields
       },
@@ -281,7 +282,8 @@ Example of a filter: `name=my-backend-group`. ||
         },
         "cookie": {
           "name": "string",
-          "ttl": "string"
+          "ttl": "string",
+          "path": "string"
         }
         // end of the list of possible fields
       },
@@ -918,6 +920,12 @@ If set to `0`, session cookies are used, which are stored by clients in temporar
 on client restarts.
 
 If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. ||
+|| path | **string**
+
+Path of cookie.
+This will be used to set the path of a new cookie when it is generated.
+
+If path is unspecified or empty, no path will be set for the cookie. ||
 |#
 
 ## GrpcBackendGroup {#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup}

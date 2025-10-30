@@ -223,7 +223,7 @@ items:
               - name: Сопоставление групп пользователей в Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
       - name: >-
-          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible
         href: tutorials/sa-oslogin-ansible.md
       - name: Настройка единого входа в приложения (SSO)
@@ -682,6 +682,28 @@ items:
                 href: api-ref/grpc/Group/updateAccessBindings.md
               - name: ListEffective
                 href: api-ref/grpc/Group/listEffective.md
+          - name: MfaEnforcement
+            items:
+              - name: Overview
+                href: api-ref/grpc/MfaEnforcement/index.md
+              - name: Create
+                href: api-ref/grpc/MfaEnforcement/create.md
+              - name: Update
+                href: api-ref/grpc/MfaEnforcement/update.md
+              - name: Activate
+                href: api-ref/grpc/MfaEnforcement/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/MfaEnforcement/deactivate.md
+              - name: Delete
+                href: api-ref/grpc/MfaEnforcement/delete.md
+              - name: Get
+                href: api-ref/grpc/MfaEnforcement/get.md
+              - name: List
+                href: api-ref/grpc/MfaEnforcement/list.md
+              - name: UpdateAudience
+                href: api-ref/grpc/MfaEnforcement/updateAudience.md
+              - name: ListAudience
+                href: api-ref/grpc/MfaEnforcement/listAudience.md
           - name: Operation
             items:
               - name: Overview
@@ -886,6 +908,82 @@ items:
                         href: idp/application/oauth/api-ref/grpc/Operation/get.md
                       - name: Cancel
                         href: idp/application/oauth/api-ref/grpc/Operation/cancel.md
+              - name: SAML Application API
+                items:
+                  - name: Overview
+                    href: idp/application/saml/api-ref/grpc/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/grpc/Application/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/grpc/Application/get.md
+                      - name: List
+                        href: idp/application/saml/api-ref/grpc/Application/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/update.md
+                      - name: Delete
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/delete.md
+                      - name: Suspend
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/suspend.md
+                      - name: Reactivate
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/reactivate.md
+                      - name: ListSupportedAttributeValues
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listSupportedAttributeValues.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/saml/api-ref/grpc/Operation/cancel.md
+                  - name: SignatureCertificate
+                    items:
+                      - name: Overview
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/index.md
+                      - name: Get
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/get.md
+                      - name: List
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/update.md
+                      - name: Delete
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/delete.md
           - name: SAML Federation API
             items:
               - name: Overview
@@ -938,6 +1036,10 @@ items:
                     href: saml/api-ref/grpc/Federation/validateDomain.md
                   - name: DeleteDomain
                     href: saml/api-ref/grpc/Federation/deleteDomain.md
+                  - name: SuspendUserAccounts
+                    href: saml/api-ref/grpc/Federation/suspendUserAccounts.md
+                  - name: ReactivateUserAccounts
+                    href: saml/api-ref/grpc/Federation/reactivateUserAccounts.md
               - name: Operation
                 items:
                   - name: Overview
@@ -1187,6 +1289,77 @@ items:
                         href: idp/application/oauth/api-ref/Operation/get.md
                       - name: Cancel
                         href: idp/application/oauth/api-ref/Operation/cancel.md
+              - name: SAML Application API
+                items:
+                  - name: Overview
+                    href: idp/application/saml/api-ref/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/Application/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/Application/get.md
+                      - name: List
+                        href: idp/application/saml/api-ref/Application/list.md
+                      - name: Create
+                        href: idp/application/saml/api-ref/Application/create.md
+                      - name: Update
+                        href: idp/application/saml/api-ref/Application/update.md
+                      - name: Delete
+                        href: idp/application/saml/api-ref/Application/delete.md
+                      - name: Suspend
+                        href: idp/application/saml/api-ref/Application/suspend.md
+                      - name: Reactivate
+                        href: idp/application/saml/api-ref/Application/reactivate.md
+                      - name: ListSupportedAttributeValues
+                        href: >-
+                          idp/application/saml/api-ref/Application/listSupportedAttributeValues.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/saml/api-ref/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/saml/api-ref/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/saml/api-ref/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/Operation/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/saml/api-ref/Operation/cancel.md
+                  - name: SignatureCertificate
+                    items:
+                      - name: Overview
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/index.md
+                      - name: Get
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/get.md
+                      - name: List
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/update.md
+                      - name: Delete
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/delete.md
           - name: SAML Federation API
             items:
               - name: Overview
@@ -1239,6 +1412,10 @@ items:
                     href: saml/api-ref/Federation/validateDomain.md
                   - name: DeleteDomain
                     href: saml/api-ref/Federation/deleteDomain.md
+                  - name: SuspendUserAccounts
+                    href: saml/api-ref/Federation/suspendUserAccounts.md
+                  - name: ReactivateUserAccounts
+                    href: saml/api-ref/Federation/reactivateUserAccounts.md
               - name: Operation
                 items:
                   - name: Overview

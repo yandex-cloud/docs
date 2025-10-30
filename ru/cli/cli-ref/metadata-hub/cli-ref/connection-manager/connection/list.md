@@ -22,7 +22,7 @@ Syntax:
 |`--folder-id`|<b>`string`</b><br/>Identifier of the folder.|
 |`--mdb-cluster-id`|<b>`string`</b><br/>Identifier of the mdb cluster.|
 |`--name-pattern-or-id`|<b>`string`</b><br/>Name pattern or indetifier.|
-|`--db-type`|<b>`string`</b><br/>Database type. Values: 'postgresql', 'mysql', 'clickhouse', 'mongodb', 'kafka', 'redis', 'opensearch', 'trino', 'valkey', 'greenplum'|
+|`--db-type`|<b>`string`</b><br/>Database type. Values: 'postgresql', 'mysql', 'clickhouse', 'mongodb', 'kafka', 'redis', 'opensearch', 'trino', 'valkey', 'greenplum', 'storedoc'|
 |`--with-can-use`|Include usage permissions in the response (whether the subject can use or only list the connection).|
 |`--is-on-premise`|Filters connections to show only on-premise (true) or cloud-managed (false) deployments.|
 |`--is-manual`|Filter connections to show only manual (true), only automatic (false).|

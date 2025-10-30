@@ -50,6 +50,11 @@ apiPlayground:
             - BASIC
             - FULL
       additionalProperties: false
+      oneOf:
+        - required:
+            - registryId
+        - required:
+            - folderId
     body: null
     definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/list.md

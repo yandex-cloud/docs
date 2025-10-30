@@ -34,6 +34,11 @@ apiPlayground:
             If true, also returns applications that in the process of binding.
           type: boolean
       additionalProperties: false
+      oneOf:
+        - required:
+            - folderId
+        - required:
+            - computeInstanceId
     body: null
     definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/listApplications.md

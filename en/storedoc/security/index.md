@@ -6,11 +6,11 @@ description: Access management in {{ SD }}, a database creation and management s
 # Access management in {{ mmg-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -24,7 +24,7 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 

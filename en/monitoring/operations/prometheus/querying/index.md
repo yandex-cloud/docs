@@ -1,6 +1,7 @@
 ---
 title: How to read metrics
 description: Follow this guide to read metrics.
+sourcePath: en/monitoring_includes/operations/prometheus/querying/index.md
 ---
 
 # Reading metrics

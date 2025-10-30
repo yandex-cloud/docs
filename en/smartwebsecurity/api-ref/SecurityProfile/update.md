@@ -65,27 +65,7 @@ apiPlayground:
             List of security rules.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  ruleCondition:
-                    description: |-
-                      **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
-                      Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
-                      Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
-                    $ref: '#/definitions/RuleCondition'
-                  smartProtection:
-                    description: |-
-                      **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
-                      Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
-                      Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
-                    $ref: '#/definitions/SmartProtection'
-                  waf:
-                    description: |-
-                      **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
-                      Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
-                      Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
-                    $ref: '#/definitions/Waf'
+            $ref: '#/definitions/SecurityRule'
         captchaId:
           description: |-
             **string**
@@ -103,6 +83,52 @@ apiPlayground:
           $ref: '#/definitions/AnalyzeRequestBody'
       additionalProperties: false
     definitions:
+      StringMatcher:
+        type: object
+        properties:
+          exactMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          exactNotMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          prefixMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          prefixNotMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          pireRegexMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          pireRegexNotMatch:
+            description: |-
+              **string**
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+        oneOf:
+          - required:
+              - exactMatch
+          - required:
+              - exactNotMatch
+          - required:
+              - prefixMatch
+          - required:
+              - prefixNotMatch
+          - required:
+              - pireRegexMatch
+          - required:
+              - pireRegexNotMatch
       AuthorityMatcher:
         type: object
         properties:
@@ -112,39 +138,7 @@ apiPlayground:
               List of authorities. OR semantics implied.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    exactMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    exactNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
+              $ref: '#/definitions/StringMatcher'
       HttpMethodMatcher:
         type: object
         properties:
@@ -154,39 +148,7 @@ apiPlayground:
               List of HTTP methods. OR semantics implied.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    exactMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    exactNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    prefixNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
-                    pireRegexNotMatch:
-                      description: |-
-                        **string**
-                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                      type: string
+              $ref: '#/definitions/StringMatcher'
       QueryMatcher:
         type: object
         properties:
@@ -199,39 +161,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the query parameter.
-            oneOf:
-              - type: object
-                properties:
-                  exactMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  exactNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
+            $ref: '#/definitions/StringMatcher'
         required:
           - key
           - value
@@ -242,39 +172,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
-            oneOf:
-              - type: object
-                properties:
-                  exactMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  exactNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
+            $ref: '#/definitions/StringMatcher'
           queries:
             description: |-
               **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
@@ -294,39 +192,7 @@ apiPlayground:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               Required field. Value of the header.
-            oneOf:
-              - type: object
-                properties:
-                  exactMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  exactNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  prefixNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
-                  pireRegexNotMatch:
-                    description: |-
-                      **string**
-                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
-                    type: string
+            $ref: '#/definitions/StringMatcher'
         required:
           - name
           - value
@@ -465,6 +331,64 @@ apiPlayground:
             type: string
         required:
           - wafProfileId
+      SecurityRule:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
+            pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
+            type: string
+          priority:
+            description: |-
+              **string** (int64)
+              Determines the priority for checking the incoming traffic.
+              Enter an integer within the range of 1 and 999999.
+              The rule priority must be unique within the entire security profile.
+              A lower numeric value means a higher priority.
+              The default_action has the lowest priority.
+            type: string
+            format: int64
+          dryRun:
+            description: |-
+              **boolean**
+              This mode allows you to test your security profile or a single rule.
+              For example, you can have the number of alarms for a specific rule displayed.
+              Note: if this option is true, no real action affecting your traffic regarding this rule will be taken.
+            type: boolean
+          ruleCondition:
+            description: |-
+              **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
+              Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
+              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
+            $ref: '#/definitions/RuleCondition'
+          smartProtection:
+            description: |-
+              **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
+              Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
+              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
+            $ref: '#/definitions/SmartProtection'
+          waf:
+            description: |-
+              **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
+              Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
+              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
+            $ref: '#/definitions/Waf'
+          description:
+            description: |-
+              **string**
+              Optional description of the rule. 0-512 characters long.
+            type: string
+        required:
+          - name
+        oneOf:
+          - required:
+              - ruleCondition
+          - required:
+              - smartProtection
+          - required:
+              - waf
       AnalyzeRequestBody:
         type: object
         properties:

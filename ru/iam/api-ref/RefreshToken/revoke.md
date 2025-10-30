@@ -27,6 +27,13 @@ apiPlayground:
             Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`.
           $ref: '#/definitions/RevokeFilter'
       additionalProperties: false
+      oneOf:
+        - required:
+            - refreshTokenId
+        - required:
+            - refreshToken
+        - required:
+            - revokeFilter
     definitions:
       RevokeFilter:
         type: object

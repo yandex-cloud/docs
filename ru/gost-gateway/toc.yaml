@@ -1,0 +1,7 @@
+title: '{{ gost-gateway-name }}'
+href: index.yaml
+items:
+  - name: Концепции
+    items:
+      - name: О сервисе {{ gost-gateway-name }}
+        href: concepts/index.md

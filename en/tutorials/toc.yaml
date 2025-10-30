@@ -539,6 +539,10 @@ items:
             href: container-infrastructure/migration-to-an-availability-zone.md
           - name: Encrypting secrets
             href: container-infrastructure/kms-k8s.md
+          - name: >-
+              Connecting a {{ baremetal-name }} server as an external node to a
+              {{ managed-k8s-name }} cluster
+            href: container-infrastructure/k8s-connect-bms-as-node.md
           - name: Setting up and testing scaling
             items:
               - name: Horizontal application scaling in a cluster
@@ -617,11 +621,11 @@ items:
                   Health checking your applications in a {{ managed-k8s-name }}
                   cluster with an {{ alb-name }} ingress controller
                 href: container-infrastructure/custom-health-checks.md
-              - name: Using Jaeger to trace requests in {{ ydb-name }}
+              - name: Using Jaeger to trace queries in {{ ydb-name }}
                 href: container-infrastructure/jaeger-over-ydb.md
               - name: Setting up Kyverno &amp; Kyverno Policies
                 href: container-infrastructure/kyverno.md
-              - name: Using {{ MP }} to stream metrics
+              - name: Using {{ MP }} to transmit metrics
                 href: container-infrastructure/metrics-provider.md
               - name: Editing website images with Thumbor
                 href: container-infrastructure/thumbor.md

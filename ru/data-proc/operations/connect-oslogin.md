@@ -93,6 +93,13 @@ description: Следуя данной инструкции, вы сможете
 
     * `<путь_к_файлу_сертификата>` — путь к сохраненному ранее файлу `Identity` сертификата. Например: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
     * `<логин_пользователя>` — логин, заданный для этого пользователя в [профиле {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles). Логин также указывается в конце имени экспортированного сертификата {{ oslogin }}. В примере выше это `orgusername`.
+
+        {% note info %}
+
+        {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+        {% endnote %}
+
     * `<IP-адрес_хоста>` — полученный ранее адрес хоста.
 
     При первом подключении к хосту появится предупреждение о неизвестном хосте:
@@ -133,3 +140,9 @@ description: Следуя данной инструкции, вы сможете
     ```bash
     yc compute ssh --id <идентификатор_ВМ>
     ```
+
+    {% note info %}
+
+    {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+    {% endnote %}

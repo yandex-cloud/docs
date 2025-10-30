@@ -1,0 +1,1 @@
+Для сервисных аккаунтов [профили {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) не создаются автоматически. Чтобы подключаться к ВМ или узлу {{ k8s }} от имени сервисного аккаунта, [вручную создайте](../../organization/operations/os-login-profile-create.md) для него профиль {{ oslogin }}.

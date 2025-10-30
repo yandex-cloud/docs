@@ -6,6 +6,6 @@ To have other cluster health indicators monitored automatically:
 
     1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
     1. Add a status metric.
-    1. In the alert parameters, set up your alert thresholds.
+    1. In the alert parameters, set the alert thresholds.
 
 {% endlist %}

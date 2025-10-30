@@ -36,4 +36,7 @@ A set of methods for managing SPQR Cluster resources.
 || [ListShards](listShards.md) | Retrieves a list of shards. ||
 || [AddShard](addShard.md) | Creates a new shard. ||
 || [DeleteShard](deleteShard.md) | Deletes the specified shard. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified SPQR cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified SPQR cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified SPQR cluster. ||
 |#

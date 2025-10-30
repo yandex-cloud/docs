@@ -8,11 +8,10 @@ encountered non-recoverable resume token error. Sync cannot be resumed from this
 
 The `ChangeStreamHistoryLost` error occurs when the total copy time of the {{ MG }} (Managed Service for MongoDB) source cluster data exceeds the operation log (oplog) time window size. You can check the current time window size in the management console. See the **Oplog window** chart of the [cluster monitoring page](../../../../storedoc/operations/monitoring.md).
 
-For more information about oplog, see the [{{ MG }} documentation]({{ mg.docs.comd }}/core/replica-set-oplog).
 
 **Solution**:
 
-* Increase the oplog size (10% of the cluster disk size by default). To increase the oplog size in a {{ mmg-name }} source cluster, contact [support]({{ link-console-support }}). To change the oplog size in case of a custom source installation, see the [{{ MG }} documentation]({{ mg.docs.comd }}/tutorial/change-oplog-size).
+* Increase the oplog size (10% of the cluster disk size by default). To increase the oplog size in a {{ mmg-name }} source cluster, contact [support]({{ link-console-support }}). To change the oplog size in case of a custom source installation, see the relevant {{ MG }} guide.
 * Enable [parallel data copying](../../../../data-transfer/concepts/sharded.md) to speed up the copying stage.
 * Limit the list of transferable objects in the [transfer settings](../../../../data-transfer/operations/transfer.md#create).
 

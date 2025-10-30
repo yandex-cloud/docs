@@ -59,7 +59,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 You can find the supported resource configurations in the [Host classes](../concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the {{ GP }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ GP }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -83,11 +83,11 @@ You pay for the following:
 
   * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-  * Automatic backups in {{ mgp-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+  * Automatic backups in {{ mgp-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
 
-  * The number of hosts in a cluster does not affect the storage size and, consequently, the backup size that is free of charge.
+  * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -106,7 +106,6 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 
 
-
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
@@ -118,6 +117,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 

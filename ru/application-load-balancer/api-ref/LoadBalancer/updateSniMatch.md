@@ -56,44 +56,7 @@ apiPlayground:
           description: |-
             **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
             Required field. New settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values.
-          oneOf:
-            - type: object
-              properties:
-                httpHandler:
-                  description: |-
-                    **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
-                    HTTP handler.
-                    Includes only one of the fields `httpHandler`, `streamHandler`.
-                    Settings for handling requests.
-                  oneOf:
-                    - type: object
-                      properties:
-                        http2Options:
-                          description: |-
-                            **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
-                            HTTP/2 settings.
-                            If specified, incoming HTTP/2 requests are supported by the listener.
-                            Includes only one of the fields `http2Options`, `allowHttp10`.
-                            Protocol settings.
-                            For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                            negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                          $ref: '#/definitions/Http2Options'
-                        allowHttp10:
-                          description: |-
-                            **boolean**
-                            Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
-                            Includes only one of the fields `http2Options`, `allowHttp10`.
-                            Protocol settings.
-                            For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
-                            negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
-                          type: boolean
-                streamHandler:
-                  description: |-
-                    **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
-                    Stream (TCP) handler.
-                    Includes only one of the fields `httpHandler`, `streamHandler`.
-                    Settings for handling requests.
-                  $ref: '#/definitions/StreamHandler'
+          $ref: '#/definitions/TlsHandler'
       required:
         - listenerName
         - name
@@ -109,6 +72,45 @@ apiPlayground:
               Maximum number of concurrent HTTP/2 streams in a connection.
             type: string
             format: int64
+      HttpHandler:
+        type: object
+        properties:
+          httpRouterId:
+            description: |-
+              **string**
+              ID of the HTTP router processing requests. For details about the concept, see
+              [documentation](/docs/application-load-balancer/concepts/http-router).
+              To get the list of all available HTTP routers, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+            type: string
+          http2Options:
+            description: |-
+              **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
+              HTTP/2 settings.
+              If specified, incoming HTTP/2 requests are supported by the listener.
+              Includes only one of the fields `http2Options`, `allowHttp10`.
+              Protocol settings.
+              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+            $ref: '#/definitions/Http2Options'
+          allowHttp10:
+            description: |-
+              **boolean**
+              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+              Includes only one of the fields `http2Options`, `allowHttp10`.
+              Protocol settings.
+              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+            type: boolean
+          rewriteRequestId:
+            description: |-
+              **boolean**
+              When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
+            type: boolean
+        oneOf:
+          - required:
+              - http2Options
+          - required:
+              - allowHttp10
       StreamHandler:
         type: object
         properties:
@@ -129,6 +131,36 @@ apiPlayground:
             format: duration
         required:
           - backendGroupId
+      TlsHandler:
+        type: object
+        properties:
+          httpHandler:
+            description: |-
+              **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+              HTTP handler.
+              Includes only one of the fields `httpHandler`, `streamHandler`.
+              Settings for handling requests.
+            $ref: '#/definitions/HttpHandler'
+          streamHandler:
+            description: |-
+              **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+              Stream (TCP) handler.
+              Includes only one of the fields `httpHandler`, `streamHandler`.
+              Settings for handling requests.
+            $ref: '#/definitions/StreamHandler'
+          certificateIds:
+            description: |-
+              **string**
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+            type: array
+            items:
+              type: string
+        oneOf:
+          - required:
+              - httpHandler
+          - required:
+              - streamHandler
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/updateSniMatch.md
 ---
 

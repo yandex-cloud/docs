@@ -63,6 +63,11 @@ apiPlayground:
       required:
         - folderId
       additionalProperties: false
+      oneOf:
+        - required:
+            - yds
+        - required:
+            - s3
     definitions:
       Yds:
         type: object

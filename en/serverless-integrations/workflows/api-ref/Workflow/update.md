@@ -48,34 +48,12 @@ apiPlayground:
           description: |-
             **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
             Specification of the Workflow.
-          oneOf:
-            - type: object
-              properties:
-                specYaml:
-                  description: |-
-                    **string**
-                    Workflow specification in YAML format.
-                    Includes only one of the fields `specYaml`.
-                  type: string
+          $ref: '#/definitions/WorkflowSpecification'
         logOptions:
           description: |-
             **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions)**
             Options for logging from the Workflow.
-          oneOf:
-            - type: object
-              properties:
-                logGroupId:
-                  description: |-
-                    **string**
-                    ID of the logging group which should be used for Workflows logs.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                  type: string
-                folderId:
-                  description: |-
-                    **string**
-                    ID of the folder which default logging group should be used for Workflows.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                  type: string
+          $ref: '#/definitions/LogOptions'
         networkId:
           description: |-
             **string**
@@ -110,6 +88,71 @@ apiPlayground:
           $ref: '#/definitions/WorkflowSchedule'
       additionalProperties: false
     definitions:
+      WorkflowSpecification:
+        type: object
+        properties:
+          specYaml:
+            description: |-
+              **string**
+              Workflow specification in YAML format.
+              Includes only one of the fields `specYaml`.
+            type: string
+        oneOf:
+          - required:
+              - specYaml
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from Workflow disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              ID of the logging group which should be used for Workflows logs.
+              Includes only one of the fields `logGroupId`, `folderId`.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              ID of the folder which default logging group should be used for Workflows.
+              Includes only one of the fields `logGroupId`, `folderId`.
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum logs level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
       WorkflowSchedule:
         type: object
         properties:

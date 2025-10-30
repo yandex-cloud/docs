@@ -100,6 +100,47 @@ apiPlayground:
               **string**
               ID of the origin.
             type: string
+      OriginMeta:
+        type: object
+        properties:
+          common:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              A server with a domain name linked to it
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          bucket:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              An Object Storage bucket not configured as a static site hosting.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          website:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              An Object Storage bucket configured as a static site hosting.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          balancer:
+            description: |-
+              **[OriginBalancerMeta](#yandex.cloud.cdn.v1.OriginBalancerMeta)**
+              An L7 load balancer from Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginBalancerMeta'
+        oneOf:
+          - required:
+              - common
+          - required:
+              - bucket
+          - required:
+              - website
+          - required:
+              - balancer
       Origin:
         type: object
         properties:
@@ -140,38 +181,7 @@ apiPlayground:
             description: |-
               **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
               Set up origin of the content.
-            oneOf:
-              - type: object
-                properties:
-                  common:
-                    description: |-
-                      **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
-                      A server with a domain name linked to it
-                      Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
-                      Type of the origin.
-                    $ref: '#/definitions/OriginNamedMeta'
-                  bucket:
-                    description: |-
-                      **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
-                      An Object Storage bucket not configured as a static site hosting.
-                      Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
-                      Type of the origin.
-                    $ref: '#/definitions/OriginNamedMeta'
-                  website:
-                    description: |-
-                      **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
-                      An Object Storage bucket configured as a static site hosting.
-                      Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
-                      Type of the origin.
-                    $ref: '#/definitions/OriginNamedMeta'
-                  balancer:
-                    description: |-
-                      **[OriginBalancerMeta](#yandex.cloud.cdn.v1.OriginBalancerMeta)**
-                      An L7 load balancer from Application Load Balancer.
-                      CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
-                      Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
-                      Type of the origin.
-                    $ref: '#/definitions/OriginBalancerMeta'
+            $ref: '#/definitions/OriginMeta'
           providerType:
             description: |-
               **string**
@@ -222,6 +232,36 @@ apiPlayground:
             additionalProperties:
               type: string
               format: int64
+      EdgeCacheSettings:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its `values_variant` is applied to the resource.
+              False - the option is disabled and its default value is used for the resource.
+            type: boolean
+          value:
+            description: |-
+              **[CachingTimes](#yandex.cloud.cdn.v1.ResourceOptions.CachingTimes)**
+              Value of the option.
+              Includes only one of the fields `value`, `defaultValue`.
+            $ref: '#/definitions/CachingTimes'
+          defaultValue:
+            description: |-
+              **string** (int64)
+              Content will be cached according to origin cache settings.
+              The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308
+              if an origin server does not have caching HTTP headers.
+              Responses with other codes will not be cached.
+              Includes only one of the fields `value`, `defaultValue`.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - value
+          - required:
+              - defaultValue
       Int64Option:
         type: object
         properties:
@@ -253,6 +293,90 @@ apiPlayground:
             type: array
             items:
               type: string
+      QueryParamsOptions:
+        type: object
+        properties:
+          ignoreQueryString:
+            description: |-
+              **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value.
+              Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
+            $ref: '#/definitions/BoolOption'
+          queryParamsWhitelist:
+            description: |-
+              **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              Ignore All Except.
+              Files with the specified query parameters are cached as objects with different keys,
+              files with other parameters are cached as objects with the same key.
+              Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
+            $ref: '#/definitions/StringsListOption'
+          queryParamsBlacklist:
+            description: |-
+              **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              Ignore only. Files with the specified query parameters are cached as objects with the same key,
+              files with other parameters are cached as objects with different keys.
+              Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
+            $ref: '#/definitions/StringsListOption'
+        oneOf:
+          - required:
+              - ignoreQueryString
+          - required:
+              - queryParamsWhitelist
+          - required:
+              - queryParamsBlacklist
+      CompressionOptions:
+        type: object
+        properties:
+          fetchCompressed:
+            description: |-
+              **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              The Fetch compressed option helps you to reduce
+              the bandwidth between origin and CDN servers.
+              Also, content delivery speed becomes higher because of reducing the time
+              for compressing files in a CDN.
+              Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
+            $ref: '#/definitions/BoolOption'
+          gzipOn:
+            description: |-
+              **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). GZip compression at CDN servers reduces file size by 70% and can be as high as 90%.
+              Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
+            $ref: '#/definitions/BoolOption'
+          brotliCompression:
+            description: |-
+              **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              The option allows to compress content with brotli on the CDN's end.
+              Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled.
+              Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
+              Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
+            $ref: '#/definitions/StringsListOption'
+        oneOf:
+          - required:
+              - fetchCompressed
+          - required:
+              - gzipOn
+          - required:
+              - brotliCompression
+      RedirectOptions:
+        type: object
+        properties:
+          redirectHttpToHttps:
+            description: |-
+              **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTPS to HTTP.
+              Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
+            $ref: '#/definitions/BoolOption'
+          redirectHttpsToHttp:
+            description: |-
+              **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
+              Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
+            $ref: '#/definitions/BoolOption'
+        oneOf:
+          - required:
+              - redirectHttpToHttps
+          - required:
+              - redirectHttpsToHttp
       StringOption:
         type: object
         properties:
@@ -267,6 +391,29 @@ apiPlayground:
               **string**
               Value of the option.
             type: string
+      HostOptions:
+        type: object
+        properties:
+          host:
+            description: |-
+              **[StringOption](#yandex.cloud.cdn.v1.ResourceOptions.StringOption)**
+              Custom value for the Host header.
+              Your server must be able to process requests with the chosen header.
+              Default value (if [StringOption.enabled](#yandex.cloud.cdn.v1.ResourceOptions.StringOption) is `false`) is [Resource.cname](#yandex.cloud.cdn.v1.Resource).
+              Includes only one of the fields `host`, `forwardHostHeader`.
+            $ref: '#/definitions/StringOption'
+          forwardHostHeader:
+            description: |-
+              **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Choose the Forward Host header option if is important to send in the request to the Origin
+              the same Host header as was sent in the request to CDN server.
+              Includes only one of the fields `host`, `forwardHostHeader`.
+            $ref: '#/definitions/BoolOption'
+        oneOf:
+          - required:
+              - host
+          - required:
+              - forwardHostHeader
       StringsMapOption:
         type: object
         properties:
@@ -383,25 +530,7 @@ apiPlayground:
             description: |-
               **[EdgeCacheSettings](#yandex.cloud.cdn.v1.ResourceOptions.EdgeCacheSettings)**
               Set up [EdgeCacheSettings](#yandex.cloud.cdn.v1.ResourceOptions.EdgeCacheSettings).
-            oneOf:
-              - type: object
-                properties:
-                  value:
-                    description: |-
-                      **[CachingTimes](#yandex.cloud.cdn.v1.ResourceOptions.CachingTimes)**
-                      Value of the option.
-                      Includes only one of the fields `value`, `defaultValue`.
-                    $ref: '#/definitions/CachingTimes'
-                  defaultValue:
-                    description: |-
-                      **string** (int64)
-                      Content will be cached according to origin cache settings.
-                      The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308
-                      if an origin server does not have caching HTTP headers.
-                      Responses with other codes will not be cached.
-                      Includes only one of the fields `value`, `defaultValue`.
-                    type: string
-                    format: int64
+            $ref: '#/definitions/EdgeCacheSettings'
           browserCacheSettings:
             description: |-
               **[Int64Option](#yandex.cloud.cdn.v1.ResourceOptions.Int64Option)**
@@ -421,30 +550,7 @@ apiPlayground:
             description: |-
               **[QueryParamsOptions](#yandex.cloud.cdn.v1.ResourceOptions.QueryParamsOptions)**
               Set up [QueryParamsOptions](#yandex.cloud.cdn.v1.ResourceOptions.QueryParamsOptions).
-            oneOf:
-              - type: object
-                properties:
-                  ignoreQueryString:
-                    description: |-
-                      **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
-                      Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value.
-                      Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
-                    $ref: '#/definitions/BoolOption'
-                  queryParamsWhitelist:
-                    description: |-
-                      **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
-                      Ignore All Except.
-                      Files with the specified query parameters are cached as objects with different keys,
-                      files with other parameters are cached as objects with the same key.
-                      Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
-                    $ref: '#/definitions/StringsListOption'
-                  queryParamsBlacklist:
-                    description: |-
-                      **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
-                      Ignore only. Files with the specified query parameters are cached as objects with the same key,
-                      files with other parameters are cached as objects with different keys.
-                      Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
-                    $ref: '#/definitions/StringsListOption'
+            $ref: '#/definitions/QueryParamsOptions'
           slice:
             description: |-
               **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
@@ -456,73 +562,17 @@ apiPlayground:
             description: |-
               **[CompressionOptions](#yandex.cloud.cdn.v1.ResourceOptions.CompressionOptions)**
               Set up compression variant.
-            oneOf:
-              - type: object
-                properties:
-                  fetchCompressed:
-                    description: |-
-                      **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
-                      The Fetch compressed option helps you to reduce
-                      the bandwidth between origin and CDN servers.
-                      Also, content delivery speed becomes higher because of reducing the time
-                      for compressing files in a CDN.
-                      Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
-                    $ref: '#/definitions/BoolOption'
-                  gzipOn:
-                    description: |-
-                      **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
-                      Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). GZip compression at CDN servers reduces file size by 70% and can be as high as 90%.
-                      Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
-                    $ref: '#/definitions/BoolOption'
-                  brotliCompression:
-                    description: |-
-                      **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
-                      The option allows to compress content with brotli on the CDN's end.
-                      Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled.
-                      Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
-                      Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
-                    $ref: '#/definitions/StringsListOption'
+            $ref: '#/definitions/CompressionOptions'
           redirectOptions:
             description: |-
               **[RedirectOptions](#yandex.cloud.cdn.v1.ResourceOptions.RedirectOptions)**
               Set up redirects.
-            oneOf:
-              - type: object
-                properties:
-                  redirectHttpToHttps:
-                    description: |-
-                      **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
-                      Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTPS to HTTP.
-                      Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
-                    $ref: '#/definitions/BoolOption'
-                  redirectHttpsToHttp:
-                    description: |-
-                      **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
-                      Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
-                      Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
-                    $ref: '#/definitions/BoolOption'
+            $ref: '#/definitions/RedirectOptions'
           hostOptions:
             description: |-
               **[HostOptions](#yandex.cloud.cdn.v1.ResourceOptions.HostOptions)**
               Set up host parameters.
-            oneOf:
-              - type: object
-                properties:
-                  host:
-                    description: |-
-                      **[StringOption](#yandex.cloud.cdn.v1.ResourceOptions.StringOption)**
-                      Custom value for the Host header.
-                      Your server must be able to process requests with the chosen header.
-                      Default value (if [StringOption.enabled](#yandex.cloud.cdn.v1.ResourceOptions.StringOption) is `false`) is [Resource.cname](#yandex.cloud.cdn.v1.Resource).
-                      Includes only one of the fields `host`, `forwardHostHeader`.
-                    $ref: '#/definitions/StringOption'
-                  forwardHostHeader:
-                    description: |-
-                      **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
-                      Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Choose the Forward Host header option if is important to send in the request to the Origin
-                      the same Host header as was sent in the request to CDN server.
-                      Includes only one of the fields `host`, `forwardHostHeader`.
-                    $ref: '#/definitions/BoolOption'
+            $ref: '#/definitions/HostOptions'
           staticHeaders:
             description: |-
               **[StringsMapOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsMapOption)**
@@ -603,6 +653,19 @@ apiPlayground:
               **string**
               ID of the custom certificate.
             type: string
+      SSLCertificateData:
+        type: object
+        properties:
+          cm:
+            description: |-
+              **[SSLCertificateCMData](#yandex.cloud.cdn.v1.SSLCertificateCMData)**
+              Custom (add your SSL certificate by uploading the certificate
+              in PEM format and your private key).
+              Includes only one of the fields `cm`.
+            $ref: '#/definitions/SSLCertificateCMData'
+        oneOf:
+          - required:
+              - cm
       SSLTargetCertificate:
         type: object
         properties:
@@ -624,16 +687,7 @@ apiPlayground:
             description: |-
               **[SSLCertificateData](#yandex.cloud.cdn.v1.SSLCertificateData)**
               Certificate data.
-            oneOf:
-              - type: object
-                properties:
-                  cm:
-                    description: |-
-                      **[SSLCertificateCMData](#yandex.cloud.cdn.v1.SSLCertificateCMData)**
-                      Custom (add your SSL certificate by uploading the certificate
-                      in PEM format and your private key).
-                      Includes only one of the fields `cm`.
-                    $ref: '#/definitions/SSLCertificateCMData'
+            $ref: '#/definitions/SSLCertificateData'
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/create.md
 ---
 

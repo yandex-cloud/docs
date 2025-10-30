@@ -404,7 +404,7 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/<name> ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
 || mode | enum **Mode**
 
 Mount's mode
@@ -924,7 +924,7 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || name | **string**
 
-Required field. Unique mount point name. Device will be mounted into /function/storage/<name> ||
+Required field. Unique mount point name. Device will be mounted into /function/storage/&lt;name&gt; ||
 || mode | enum **Mode**
 
 Mount's mode

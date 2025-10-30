@@ -560,6 +560,12 @@ items:
                 href: api-ref/grpc/Cluster/updateExternalDictionary.md
               - name: DeleteExternalDictionary
                 href: api-ref/grpc/Cluster/deleteExternalDictionary.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -756,6 +762,12 @@ items:
                 href: api-ref/Cluster/updateExternalDictionary.md
               - name: DeleteExternalDictionary
                 href: api-ref/Cluster/deleteExternalDictionary.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview

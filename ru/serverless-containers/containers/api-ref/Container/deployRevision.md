@@ -54,15 +54,7 @@ apiPlayground:
             Yandex Lockbox secrets to be used by the revision.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  environmentVariable:
-                    description: |-
-                      **string**
-                      Environment variable in which secret's value is delivered.
-                      Includes only one of the fields `environmentVariable`.
-                    type: string
+            $ref: '#/definitions/Secret'
         connectivity:
           description: |-
             **[Connectivity](#yandex.cloud.serverless.containers.v1.Connectivity)**
@@ -83,25 +75,7 @@ apiPlayground:
           description: |-
             **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
             Options for logging from the container.
-          oneOf:
-            - type: object
-              properties:
-                logGroupId:
-                  description: |-
-                    **string**
-                    Entry should be written to log group resolved by ID.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
-                folderId:
-                  description: |-
-                    **string**
-                    Entry should be written to default log group for specified folder.
-                    Includes only one of the fields `logGroupId`, `folderId`.
-                    Log entries destination.
-                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
-                  type: string
+          $ref: '#/definitions/LogOptions'
         storageMounts:
           description: |-
             **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
@@ -115,42 +89,12 @@ apiPlayground:
             Mounts to be used by the revision.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  objectStorage:
-                    description: |-
-                      **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
-                      Object storage mounts
-                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
-                      Target mount option
-                    $ref: '#/definitions/ObjectStorage'
-                  ephemeralDiskSpec:
-                    description: |-
-                      **[DiskSpec](#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
-                      Working disk (worker-local non-shared read-write NBS disk templates)
-                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
-                      Target mount option
-                    $ref: '#/definitions/DiskSpec'
+            $ref: '#/definitions/Mount'
         runtime:
           description: |-
             **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
             The container's execution mode.
-          oneOf:
-            - type: object
-              properties:
-                http:
-                  description: |-
-                    **object**
-                    The classic one. You need to run an HTTP server inside the container.
-                    Includes only one of the fields `http`, `task`.
-                  $ref: '#/definitions/Http'
-                task:
-                  description: |-
-                    **object**
-                    We run a process from ENTRYPOINT inside the container for each user request.
-                    Includes only one of the fields `http`, `task`.
-                  $ref: '#/definitions/Task'
+          $ref: '#/definitions/Runtime'
         metadataOptions:
           description: |-
             **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
@@ -251,6 +195,33 @@ apiPlayground:
             type: string
         required:
           - imageUrl
+      Secret:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of Yandex Lockbox secret.
+            type: string
+          versionId:
+            description: |-
+              **string**
+              ID of Yandex Lockbox secret.
+            type: string
+          key:
+            description: |-
+              **string**
+              Key in secret's payload, which value to be delivered into container environment.
+            type: string
+          environmentVariable:
+            description: |-
+              **string**
+              Environment variable in which secret's value is delivered.
+              Includes only one of the fields `environmentVariable`.
+            type: string
+        oneOf:
+          - required:
+              - environmentVariable
       Connectivity:
         type: object
         properties:
@@ -295,6 +266,63 @@ apiPlayground:
               0 means no limit.
             type: string
             format: int64
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from container disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
       StorageMount:
         type: object
         properties:
@@ -354,12 +382,74 @@ apiPlayground:
               Optional block size of disk for mount in bytes
             type: string
             format: int64
+      Mount:
+        type: object
+        properties:
+          mountPointPath:
+            description: |-
+              **string**
+              Required field. The absolute mount point path inside the container for mounting.
+            pattern: '[-_0-9a-zA-Z/]*'
+            type: string
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mount's mode
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`
+              - `READ_WRITE`
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
+              Object storage mounts
+              Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+              Target mount option
+            $ref: '#/definitions/ObjectStorage'
+          ephemeralDiskSpec:
+            description: |-
+              **[DiskSpec](#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
+              Working disk (worker-local non-shared read-write NBS disk templates)
+              Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+              Target mount option
+            $ref: '#/definitions/DiskSpec'
+        required:
+          - mountPointPath
+        oneOf:
+          - required:
+              - objectStorage
+          - required:
+              - ephemeralDiskSpec
       Http:
         type: object
         properties: {}
       Task:
         type: object
         properties: {}
+      Runtime:
+        type: object
+        properties:
+          http:
+            description: |-
+              **object**
+              The classic one. You need to run an HTTP server inside the container.
+              Includes only one of the fields `http`, `task`.
+            $ref: '#/definitions/Http'
+          task:
+            description: |-
+              **object**
+              We run a process from ENTRYPOINT inside the container for each user request.
+              Includes only one of the fields `http`, `task`.
+            $ref: '#/definitions/Task'
+        oneOf:
+          - required:
+              - http
+          - required:
+              - task
       MetadataOptions:
         type: object
         properties:

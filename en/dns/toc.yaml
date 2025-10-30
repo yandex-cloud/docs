@@ -169,6 +169,8 @@ items:
                 href: api-ref/grpc/DnsZone/create.md
               - name: Update
                 href: api-ref/grpc/DnsZone/update.md
+              - name: Move
+                href: api-ref/grpc/DnsZone/move.md
               - name: Delete
                 href: api-ref/grpc/DnsZone/delete.md
               - name: GetRecordSet
@@ -213,6 +215,8 @@ items:
                 href: api-ref/DnsZone/create.md
               - name: Update
                 href: api-ref/DnsZone/update.md
+              - name: Move
+                href: api-ref/DnsZone/move.md
               - name: Delete
                 href: api-ref/DnsZone/delete.md
               - name: GetRecordSet

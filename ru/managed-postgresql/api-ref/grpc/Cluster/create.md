@@ -124,7 +124,8 @@ Creates a PostgreSQL cluster in the specified folder.
       ],
       "deletion_protection": "google.protobuf.BoolValue",
       "user_password_encryption": "UserPasswordEncryption",
-      "generate_password": "google.protobuf.BoolValue"
+      "generate_password": "google.protobuf.BoolValue",
+      "auth_method": "AuthMethod"
     }
   ],
   "host_specs": [
@@ -606,6 +607,13 @@ The default is `` password_encryption `` setting for cluster.
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager. ||
+|| auth_method | enum **AuthMethod**
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}

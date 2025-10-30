@@ -42,9 +42,9 @@ The {{ mpg-name }} usage cost includes:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The host operation cost is charged per hour based on the host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
+Host operation cost is charged per hour based on the host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
@@ -73,11 +73,11 @@ You are charged for the following:
 
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-    * Automatic backups in {{ mpg-short-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+    * Automatic backups in {{ mpg-short-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changes.
 
-    * Adding hosts increases the cluster's total storage size and, consequently, the free volume of backups.
+    * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 
 ### Example of cluster cost calculation {#example}
@@ -104,18 +104,18 @@ Calculation for the storage cost and total cost:
 
 
 
-
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
 A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 
 ## Prices for the Russia region {#prices}

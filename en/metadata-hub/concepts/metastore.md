@@ -17,17 +17,17 @@ In relational databases (Oracle, {{ PG }}), the data dictionary is built into th
 
 ## {{ metastore-name }} cluster configuration {#presets}
 
-The configuration determines the computing power allocated for the cluster. There are two available configuration types:
+A configuration decides the computing power allocated for the cluster. There are two available configuration types:
 
 * **standard**: 2 vCPUs and 8 GB RAM
 
-    For this configuration, the ratio of RAM in GB to vCPU is 4:1.
+    For this configuration, the RAM GB to vCPU ratio is 4:1.
 
 * **cpu-optimized**: 2 vCPUs and 4 GB RAM
 
-    For this configuration, the ratio of RAM in GB to vCPU is reduced to 2:1.
+    For this configuration, the RAM GB to vCPU ratio is decreased to 2:1.
 
-You can select a configuration when [creating a cluster](../operations/metastore/cluster-create.md) or change it during a cluster [update](../operations/metastore/cluster-update.md).
+You can select a configuration when [creating a cluster](../operations/metastore/cluster-create.md) or change them while [editing it](../operations/metastore/cluster-update.md).
 
 ## Use cases {#scenarios}
 
@@ -77,6 +77,12 @@ In {{ yandex-cloud }}, {{ metastore-name }} is particularly useful for creating 
 ## {{ metastore-name }} integration with {{ yandex-cloud }} services {#integrations}
 
 In {{ yandex-cloud }}, {{ metastore-name }} integrates with other services, enhancing their data capabilities and simplifying the creation of comprehensive solutions.
+
+{% note info %}
+
+For integration with other {{ yandex-cloud }} services, use {{ metastore-name }} 3.1 clusters.
+
+{% endnote %}
 
 ### {{ dataproc-name }} and {{ metastore-name }} {#data-processing}
 

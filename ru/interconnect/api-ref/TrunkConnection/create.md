@@ -127,6 +127,13 @@ apiPlayground:
             If set prohibits deletion of the trunkConnection.
           type: boolean
       additionalProperties: false
+      oneOf:
+        - required:
+            - singlePortDirectJoint
+        - required:
+            - lagDirectJoint
+        - required:
+            - partnerJointInfo
     definitions:
       SinglePortDirectJoint:
         type: object
@@ -149,6 +156,20 @@ apiPlayground:
               - TRANSCEIVER_TYPE_10GBASE_ER
               - TRANSCEIVER_TYPE_100GBASE_LR4
               - TRANSCEIVER_TYPE_100GBASE_ER4
+      LagAllocationSettingsRequest:
+        type: object
+        properties:
+          lagSize:
+            description: |-
+              **string** (int64)
+              Size of LAG.
+              Must be from 1 to 10 inclusively.
+              Includes only one of the fields `lagSize`.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - lagSize
       LagDirectJoint:
         type: object
         properties:
@@ -174,17 +195,7 @@ apiPlayground:
             description: |-
               **[LagAllocationSettingsRequest](#yandex.cloud.cic.v1.common.LagAllocationSettingsRequest)**
               LAG allocation settings that the trunkConnection is deployed on.
-            oneOf:
-              - type: object
-                properties:
-                  lagSize:
-                    description: |-
-                      **string** (int64)
-                      Size of LAG.
-                      Must be from 1 to 10 inclusively.
-                      Includes only one of the fields `lagSize`.
-                    type: string
-                    format: int64
+            $ref: '#/definitions/LagAllocationSettingsRequest'
       PartnerJoint:
         type: object
         properties:

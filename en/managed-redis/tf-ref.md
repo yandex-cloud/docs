@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mrd-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mrd-name }}.
+description: This page provides information about the {{ TF }} provider's resources and data sources that {{ mrd-name }} supports.
 ---
 
 # {{ TF }} reference for {{ mrd-full-name }}
@@ -9,11 +9,12 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mrd-name }}:
+{{ mrd-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_mdb_redis_cluster]({{ tf-provider-resources-link }}/mdb_redis_cluster) | [Cluster](./concepts/index.md) |
+| [yandex_mdb_redis_user]({{ tf-provider-resources-link }}/mdb_redis_user) | {{ VLK }} user |
 
 ## Data sources {#data-sources}
 
@@ -21,4 +22,4 @@ The following {{ TF }} provider resources are supported for {{ mrd-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_redis_cluster]({{ tf-provider-datasources-link }}/mdb_redis_cluster) | [Cluster](./concepts/index.md) details |

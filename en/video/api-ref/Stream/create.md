@@ -80,6 +80,11 @@ apiPlayground:
         - lineId
         - title
       additionalProperties: false
+      oneOf:
+        - required:
+            - onDemand
+        - required:
+            - schedule
     definitions:
       OnDemandParams:
         type: object

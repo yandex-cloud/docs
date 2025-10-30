@@ -1,11 +1,12 @@
 * `name`: Cluster name.
 * `description`: Cluster description.
-* `labels`: List of labels Provide labels in `"<key>": "<value>"` format.
+* `labels`: List of labels provided in `"<key>": "<value>"` format.
 * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 * `version`: {{ metastore-name }} version.
-* `configSpec.resources.resourcePresetId`: ID of the cluster's computing resources. The possible values are:
-  * `c2-m8`: 2 vCPUs and 8 GB RAM.
-  * `c2-m4`: 2 vCPUs and 4 GB RAM.
+
+  {% include [metastore-version](metastore-version-cluster-create.md) %}
+
+* `configSpec.resources.resourcePresetId`: [Computing resource configuration](../../metadata-hub/concepts/metastore.md#presets).
 * `serviceAccountId`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
 * `logging`: Logging parameters:
 

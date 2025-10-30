@@ -25,4 +25,6 @@ A set of methods for managing federations.
 || [AddDomain](addDomain.md) | Adds a domain to the specified federation. ||
 || [ValidateDomain](validateDomain.md) | Validates a domain in the specified federation. ||
 || [DeleteDomain](deleteDomain.md) | Deletes the specified domain from the federation. ||
+|| [SuspendUserAccounts](suspendUserAccounts.md) | Suspend federated user accounts. ||
+|| [ReactivateUserAccounts](reactivateUserAccounts.md) | Reactivate federated user accounts. ||
 |#

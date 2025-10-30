@@ -395,6 +395,12 @@ items:
                 href: api-ref/grpc/Cluster/backup.md
               - name: Restore
                 href: api-ref/grpc/Cluster/restore.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: HBARule
             items:
               - name: Overview
@@ -519,6 +525,12 @@ items:
                 href: api-ref/Cluster/backup.md
               - name: Restore
                 href: api-ref/Cluster/restore.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: HBARule
             items:
               - name: Overview

@@ -9,10 +9,9 @@ _Sharding_ is a horizontal data scaling strategy that puts parts of {{ SD }} col
 
 {{ mmg-name }} supports core data sharding strategies:
  
- * [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key)
- * [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/) (by a shard key value range)
+ * Hashed sharding (with a hash-based sharding key)
+ * Ranged sharding (by a value range)
 
-You can read more about {{ SD }} database sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
 ## Advantages of sharding {#advantages}
 
@@ -66,7 +65,7 @@ See also [Example of sharding](../tutorials/sharding.md#example).
 
 - You can [create a sharded](../operations/cluster-create.md#creating-a-sharded-cluster) cluster or [enable sharding](../operations/shards.md#enable) later.
 
-- In {{ mmg-name }}, sharding is managed by the hosts with the `MONGOS` ([routing user queries](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) and `MONGOCFG` ([storing shard configuration](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)) roles.
+- In {{ mmg-name }}, sharding is managed by the hosts with the `MONGOS` (routing user queries) and `MONGOCFG` (storing shard configuration) roles.
 
 - In {{ mmg-name }}, you can enable two types of sharding:
   - **Standard**: Cost-effective sharding for clusters that do not have any special requirements for sharding management hosts.

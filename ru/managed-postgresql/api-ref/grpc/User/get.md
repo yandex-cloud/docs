@@ -73,7 +73,8 @@ To get the name of the user, use a [UserService.List](/docs/managed-postgresql/a
   "user_password_encryption": "UserPasswordEncryption",
   "connection_manager": {
     "connection_id": "string"
-  }
+  },
+  "auth_method": "AuthMethod"
 }
 ```
 
@@ -128,6 +129,13 @@ The default is `` password_encryption `` setting for cluster.
 || connection_manager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| auth_method | enum **AuthMethod**
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}

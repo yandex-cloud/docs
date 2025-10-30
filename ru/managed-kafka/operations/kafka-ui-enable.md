@@ -12,9 +12,9 @@
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. Включите опцию **{{ui-key.yacloud.kafka.field_kafka-ui}}**.
+  1. Включите опцию **{{ ui-key.yacloud.kafka.field_kafka-ui }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  1. Перейдите на страницу **{{ui-key.yacloud.kafka.field_kafka-ui}}**. 
+  1. Перейдите на страницу **{{ ui-key.yacloud.kafka.field_kafka-ui }}**. 
 
 - CLI {#cli}
 
@@ -155,7 +155,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте страницу кластера.
-  1. Перейдите на страницу **{{ui-key.yacloud.kafka.field_kafka-ui}}**. 
+  1. Перейдите на страницу **{{ ui-key.yacloud.kafka.field_kafka-ui }}**. 
 
 - CLI {#cli}
 

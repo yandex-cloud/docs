@@ -1,6 +1,7 @@
 ---
 title: How to visualize metrics in {{ monitoring-name }}
 description: Follow this guide to read and visualize {{ prometheus-name }} metrics in {{ monitoring-name }}.
+sourcePath: en/monitoring_includes/operations/prometheus/querying/monitoring.md
 ---
 
 # Reading and visualizing metrics in {{ monitoring-name }}
@@ -62,7 +63,7 @@ Adding a chart under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.d
 - Management console {#console}
 
   1. Open the [service home page]({{ link-monitoring }}).
-  1. Navigate to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
   1. Select an existing dashboard or [create a new one](../../dashboard/create.md).
   1. At the top right, click ![image](../../../../_assets/console-icons/plus.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. In the **Data source** list at the top, select **{{ prometheus-name }}**.

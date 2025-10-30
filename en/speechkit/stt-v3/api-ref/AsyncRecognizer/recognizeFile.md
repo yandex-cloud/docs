@@ -47,6 +47,11 @@ apiPlayground:
             Summarization options
           $ref: '#/definitions/SummarizationOptions'
       additionalProperties: false
+      oneOf:
+        - required:
+            - content
+        - required:
+            - uri
     definitions:
       RawAudio:
         type: object
@@ -90,6 +95,26 @@ apiPlayground:
               - WAV
               - OGG_OPUS
               - MP3
+      AudioFormatOptions:
+        type: object
+        properties:
+          rawAudio:
+            description: |-
+              **[RawAudio](#speechkit.stt.v3.RawAudio)**
+              RAW audio without container.
+              Includes only one of the fields `rawAudio`, `containerAudio`.
+            $ref: '#/definitions/RawAudio'
+          containerAudio:
+            description: |-
+              **[ContainerAudio](#speechkit.stt.v3.ContainerAudio)**
+              Audio is wrapped in container.
+              Includes only one of the fields `rawAudio`, `containerAudio`.
+            $ref: '#/definitions/ContainerAudio'
+        oneOf:
+          - required:
+              - rawAudio
+          - required:
+              - containerAudio
       TextNormalizationOptions:
         type: object
         properties:
@@ -165,21 +190,7 @@ apiPlayground:
             description: |-
               **[AudioFormatOptions](#speechkit.stt.v3.AudioFormatOptions)**
               Specified input audio.
-            oneOf:
-              - type: object
-                properties:
-                  rawAudio:
-                    description: |-
-                      **[RawAudio](#speechkit.stt.v3.RawAudio)**
-                      RAW audio without container.
-                      Includes only one of the fields `rawAudio`, `containerAudio`.
-                    $ref: '#/definitions/RawAudio'
-                  containerAudio:
-                    description: |-
-                      **[ContainerAudio](#speechkit.stt.v3.ContainerAudio)**
-                      Audio is wrapped in container.
-                      Includes only one of the fields `rawAudio`, `containerAudio`.
-                    $ref: '#/definitions/ContainerAudio'
+            $ref: '#/definitions/AudioFormatOptions'
           textNormalization:
             description: |-
               **[TextNormalizationOptions](#speechkit.stt.v3.TextNormalizationOptions)**
@@ -280,6 +291,35 @@ apiPlayground:
               **object**
               The JSON Schema that the model's output must conform to.
             type: object
+      SummarizationProperty:
+        type: object
+        properties:
+          instruction:
+            description: |-
+              **string**
+              Summarization instruction for model.
+            type: string
+          jsonObject:
+            description: |-
+              **boolean**
+              When set to true, the model will return a valid JSON object.
+              Be sure to ask the model explicitly for JSON.
+              Otherwise, it may produce excessive whitespace and run indefinitely until it reaches the token limit.
+              Includes only one of the fields `jsonObject`, `jsonSchema`.
+              Specifies the format of the model's response.
+            type: boolean
+          jsonSchema:
+            description: |-
+              **[JsonSchema](#speechkit.stt.v3.JsonSchema)**
+              Enforces a specific JSON structure for the model's response based on a provided schema.
+              Includes only one of the fields `jsonObject`, `jsonSchema`.
+              Specifies the format of the model's response.
+            $ref: '#/definitions/JsonSchema'
+        oneOf:
+          - required:
+              - jsonObject
+          - required:
+              - jsonSchema
       SummarizationOptions:
         type: object
         properties:
@@ -294,25 +334,7 @@ apiPlayground:
               A list of suimmarizations to perform with transcription.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    jsonObject:
-                      description: |-
-                        **boolean**
-                        When set to true, the model will return a valid JSON object.
-                        Be sure to ask the model explicitly for JSON.
-                        Otherwise, it may produce excessive whitespace and run indefinitely until it reaches the token limit.
-                        Includes only one of the fields `jsonObject`, `jsonSchema`.
-                        Specifies the format of the model's response.
-                      type: boolean
-                    jsonSchema:
-                      description: |-
-                        **[JsonSchema](#speechkit.stt.v3.JsonSchema)**
-                        Enforces a specific JSON structure for the model's response based on a provided schema.
-                        Includes only one of the fields `jsonObject`, `jsonSchema`.
-                        Specifies the format of the model's response.
-                      $ref: '#/definitions/JsonSchema'
+              $ref: '#/definitions/SummarizationProperty'
 sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
 ---
 

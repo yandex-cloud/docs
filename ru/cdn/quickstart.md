@@ -26,6 +26,8 @@ description: Следуя данной инструкции, вы сможете
    1. [Откройте публичный доступ](../storage/operations/buckets/bucket-availability.md) к объектам в бакете и их списку.
    1. [Загрузите контент](../storage/operations/objects/upload.md) в бакет.
 
+      {% include [create-other-resources](../_includes/cdn/create-other-resources-note.md) %}
+      
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -35,6 +37,9 @@ description: Следуя данной инструкции, вы сможете
       * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
       * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
       * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+
+        {% include [create-other-resources](../_includes/cdn/create-other-resources-note.md) %}
+
       * В поле **{{ ui-key.yacloud.cdn.label_bucket }}** выберите бакет, созданный в {{ objstorage-name }}.
       * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
       * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.

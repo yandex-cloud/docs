@@ -1,6 +1,7 @@
 ---
 title: Creating an alert
 description: Follow this guide to create an alert.
+sourcePath: en/monitoring_includes/operations/alert/create-alert.md
 ---
 
 # Creating an alert
@@ -22,12 +23,12 @@ To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role o
 1. Describe [queries](../../concepts/alerting/alert.md#queries).
 1. Configure the alert [trigger conditions](../../concepts/alerting/alert.md#condition):
 
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.query-to-check }}**
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.query-to-check }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**.
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** and **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** trigger thresholds.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}**
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**.
 
     For more information, see [{#T}](../../concepts/alerting/alert.md#condition).
 

@@ -1,6 +1,7 @@
 ---
 title: How to delete an alerts in {{ monitoring-full-name }}
 description: Follow this guide to delete an alert.
+sourcePath: en/monitoring_includes/operations/alert/delete-alert.md
 ---
 
 # Deleting an alert

@@ -1,6 +1,7 @@
 ---
 title: How to install and update {{ unified-agent-full-name }}
 description: In this tutorial, you will learn how to install and update {{ unified-agent-full-name }}.
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/installation.md
 ---
 
 # Installing and updating {{ unified-agent-full-name }}
@@ -28,7 +29,7 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
 1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 16.04 or higher.
 
-1. (Optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
+1. Optionally, [install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
    - Set up a public IPv4 address (recommended).
    - [Configure Docker to work with IPv6](https://docs.docker.com/config/daemon/ipv6) and [enable network address translation](https://medium.com/@skleeschulte/how-to-enable-ipv6-for-docker-containers-on-ubuntu-18-04-c68394a219a2) if you cannot use a public IPv4 address.
 
@@ -83,7 +84,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   You can install {{ unified-agent-short-name }} when creating a VM through the management console, CLI, API, or {{ TF }}.
 
-  To install the agent from the [management console]({{ link-console-main }}), enable **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
+  To install the agent from the [management console]({{ link-console-main }}), enable **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** under **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**.
 
   To install the agent via the CLI, API, or {{ TF }}, provide the following string in the [user metadata](../../../../compute/concepts/metadata/sending-metadata.md) (`user-data`):
 

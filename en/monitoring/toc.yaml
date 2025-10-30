@@ -173,13 +173,9 @@ items:
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Access management
     href: security/index.md
-  - name: Pricing policy
-    href: pricing.md
-  - name: '{{ TF }} reference'
-    href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication in the API
         href: api-ref/authentication.md
       - name: REST
         items:
@@ -299,8 +295,6 @@ items:
         href: metrics-ref/smartwebsecurity-ref.md
       - name: '{{ unified-agent-short-name }}'
         href: metrics-ref/unifiedagent-ref.md
-  - name: Release notes
-    href: release-notes.md
   - name: FAQ
     items:
       - name: General questions
@@ -315,3 +309,9 @@ items:
         href: qa/alerts.md
       - name: All questions on one page
         href: qa/all.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
+  - name: Release notes
+    href: release-notes.md

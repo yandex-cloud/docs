@@ -55,9 +55,9 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 Cost of transferring data with {{ data-transfer-full-name }} includes:
 
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mmy-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Transferring data using external replication {#binlog-replication}
@@ -73,13 +73,19 @@ Cost of transferring data with {{ data-transfer-full-name }} includes:
 
 The cost of transferring data using external replication includes:
 
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mmy-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Transfer a logical dump of the database {#migrate-schema}
 
 A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. It is created using the [mysqldump utility](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html). To ensure that a logical dump is complete, pause data writes to the database before creating it.
+
+{% note warning %}
+
+If the database stores custom procedures, [grant](../../managed-mysql/operations/grant.md#grant-privilege) the database owner the [SHOW ROUTINE](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) administrative privilege to perform a logical dump.
+
+{% endnote %}
 
 1. Request the current position of the binary log to make sure that restoring the logical dump is consistent:
 
@@ -115,7 +121,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
 
     {% list tabs group=connection %}
 
-    - Connecting via SSL {#with-ssl}
+    - Connecting with SSL {#with-ssl}
 
        ```bash
        mysql --host=<master_host_FQDN> \
@@ -238,7 +244,7 @@ The target cluster will connect to the source cluster on behalf of this user.
    START SLAVE;
    ```
 
-   This is to ensure the replication will be reconfigured to use the new master host if the master host in the source cluster changes. For more information about configurations, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
+   This is to ensure the replication will be reconfigured to use the new master host if the master host in the source cluster changes. For more information about configurations, see this [{{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
 
 ### Track the migration process {#monitor-migration}
 

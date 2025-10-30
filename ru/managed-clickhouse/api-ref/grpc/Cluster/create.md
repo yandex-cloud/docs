@@ -1712,14 +1712,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || select_from_system_db_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || select_from_information_schema_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#
@@ -3931,7 +3931,7 @@ Enables or disables data compression in HTTP responses.
 By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
 Use this setting to command ClickHouse to compress the result when sending it via HTTP.
 
-Enable this setting and add the **Accept-Encoding: <compression method>** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
+Enable this setting and add the **Accept-Encoding: &lt;compression method&gt;** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
 
 ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
 
@@ -6433,14 +6433,14 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 ||Field | Description ||
 || select_from_system_db_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM system.<table>** requires any grants and can be executed by any user.
-If set to true then this query requires **GRANT SELECT ON system.<table>** just as for non-system tables.
+Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 
 Default value: **false**. ||
 || select_from_information_schema_requires_grant | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Sets whether **SELECT * FROM information_schema.<table>** requires any grants and can be executed by any user.
-If set to true, then this query requires **GRANT SELECT ON information_schema.<table>**, just as for ordinary tables.
+Sets whether **SELECT * FROM information_schema.&lt;table&gt;** requires any grants and can be executed by any user.
+If set to true, then this query requires **GRANT SELECT ON information_schema.&lt;table&gt;**, just as for ordinary tables.
 
 Default value: **false**. ||
 |#

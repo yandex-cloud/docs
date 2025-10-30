@@ -59,6 +59,7 @@ apiPlayground:
             **boolean**
             Deletion Protection inhibits deletion of the database
             Default value: `unspecified` (inherits cluster's deletion_protection)
+          default: unspecified` (inherits cluster's deletion_protection)
           type: boolean
       additionalProperties: false
     definitions:

@@ -36,6 +36,11 @@ apiPlayground:
             Includes only one of the fields `cloudId`, `folderId`.
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - cloudId
+        - required:
+            - folderId
     body: null
     definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listUsed.md

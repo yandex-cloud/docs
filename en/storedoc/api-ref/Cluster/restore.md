@@ -58,63 +58,7 @@ apiPlayground:
           description: |-
             **[ConfigSpec](#yandex.cloud.mdb.mongodb.v1.ConfigSpec)**
             Required field. Configuration for the MongoDB cluster to be created.
-          oneOf:
-            - type: object
-              properties:
-                mongodbSpec_3_6:
-                  description: |-
-                    **[MongodbSpec3_6](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6)**
-                    Configuration and resource allocation for a MongoDB 3.6 cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec3_6'
-                mongodbSpec_4_0:
-                  description: |-
-                    **[MongodbSpec4_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0)**
-                    Configuration and resource allocation for a MongoDB 4.0 cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec4_0'
-                mongodbSpec_4_2:
-                  description: |-
-                    **[MongodbSpec4_2](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2)**
-                    Configuration and resource allocation for a MongoDB 4.2 cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec4_2'
-                mongodbSpec_4_4:
-                  description: |-
-                    **[MongodbSpec4_4](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4)**
-                    Configuration and resource allocation for a MongoDB 4.4 cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec4_4'
-                mongodbSpec_5_0:
-                  description: |-
-                    **[MongodbSpec5_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0)**
-                    Configuration and resource allocation for a MongoDB 5.0 cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec5_0'
-                mongodbSpec_6_0:
-                  description: |-
-                    **[MongodbSpec6_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0)**
-                    Configuration and resource allocation for a MongoDB 6.0 cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec6_0'
-                mongodbSpec_4_4Enterprise:
-                  description: |-
-                    **[MongodbSpec4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise)**
-                    Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec4_4_enterprise'
-                mongodbSpec_5_0Enterprise:
-                  description: |-
-                    **[MongodbSpec5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise)**
-                    Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec5_0_enterprise'
-                mongodbSpec_6_0Enterprise:
-                  description: |-
-                    **[MongodbSpec6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise)**
-                    Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
-                    Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
-                  $ref: '#/definitions/MongodbSpec6_0_enterprise'
+          $ref: '#/definitions/ConfigSpec'
         hostSpecs:
           description: |-
             **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
@@ -154,23 +98,7 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
             Maintenance window settings for the cluster.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Maintenance operation can be scheduled anytime.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.WeeklyMaintenanceWindow)**
-                    Maintenance operation can be scheduled on a weekly basis.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         diskEncryptionKeyId:
           description: |-
             **string**
@@ -191,12 +119,6 @@ apiPlayground:
             description: |-
               **number** (double)
               The maximum size of the internal cache that WiredTiger will use for all data.
-            type: number
-            format: double
-          cacheSize:
-            description: |-
-              **number** (double)
-              The maximum size of the internal cache that WiredTiger will use for all data in percents.
             type: number
             format: double
       CollectionConfig:
@@ -657,6 +579,201 @@ apiPlayground:
               **[MongoInfra](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
               Configuration and resource allocation for mongoinfra (mongos+mongocfg) 6.0 hosts.
             $ref: '#/definitions/MongoInfra'
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      PerformanceDiagnosticsConfig:
+        type: object
+        properties:
+          profilingEnabled:
+            description: '**boolean**'
+            type: boolean
+      Access:
+        type: object
+        properties:
+          dataLens:
+            description: |-
+              **boolean**
+              Allow access for DataLens.
+            type: boolean
+          webSql:
+            description: |-
+              **boolean**
+              Allow access for Web SQL.
+            type: boolean
+          dataTransfer:
+            description: |-
+              **boolean**
+              Allow access for DataTransfer.
+            type: boolean
+      MongodbSpec:
+        type: object
+        properties:
+          mongod:
+            description: |-
+              **[Mongod](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6.Mongod)**
+              Configuration and resource allocation for mongod hosts.
+            $ref: '#/definitions/Mongod'
+          mongocfg:
+            description: |-
+              **[MongoCfg](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**
+              Configuration and resource allocation for mongocfg hosts.
+            $ref: '#/definitions/MongoCfg'
+          mongos:
+            description: |-
+              **[Mongos](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.Mongos)**
+              Configuration and resource allocation for mongos hosts.
+            $ref: '#/definitions/Mongos'
+          mongoinfra:
+            description: |-
+              **[MongoInfra](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
+              Configuration and resource allocation for mongoinfra (mongos+mongocfg) hosts.
+            $ref: '#/definitions/MongoInfra'
+      ConfigSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`.
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              **string**
+              MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+              Possible values:
+              * `3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
+              * `4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
+              * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
+              * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
+              * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older.
+            type: string
+          mongodbSpec_3_6:
+            description: |-
+              **[MongodbSpec3_6](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6)**
+              Configuration and resource allocation for a MongoDB 3.6 cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec3_6'
+          mongodbSpec_4_0:
+            description: |-
+              **[MongodbSpec4_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0)**
+              Configuration and resource allocation for a MongoDB 4.0 cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec4_0'
+          mongodbSpec_4_2:
+            description: |-
+              **[MongodbSpec4_2](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2)**
+              Configuration and resource allocation for a MongoDB 4.2 cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec4_2'
+          mongodbSpec_4_4:
+            description: |-
+              **[MongodbSpec4_4](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4)**
+              Configuration and resource allocation for a MongoDB 4.4 cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec4_4'
+          mongodbSpec_5_0:
+            description: |-
+              **[MongodbSpec5_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0)**
+              Configuration and resource allocation for a MongoDB 5.0 cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec5_0'
+          mongodbSpec_6_0:
+            description: |-
+              **[MongodbSpec6_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0)**
+              Configuration and resource allocation for a MongoDB 6.0 cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec6_0'
+          mongodbSpec_4_4Enterprise:
+            description: |-
+              **[MongodbSpec4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise)**
+              Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec4_4_enterprise'
+          mongodbSpec_5_0Enterprise:
+            description: |-
+              **[MongodbSpec5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise)**
+              Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec5_0_enterprise'
+          mongodbSpec_6_0Enterprise:
+            description: |-
+              **[MongodbSpec6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise)**
+              Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
+              Includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_6_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`, `mongodbSpec_6_0Enterprise`.
+            $ref: '#/definitions/MongodbSpec6_0_enterprise'
+          backupWindowStart:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Time to start the daily backup, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          backupRetainPeriodDays:
+            description: |-
+              **string** (int64)
+              Retain period of automatically created backup in days
+            type: string
+            format: int64
+          performanceDiagnostics:
+            description: |-
+              **[PerformanceDiagnosticsConfig](#yandex.cloud.mdb.mongodb.v1.PerformanceDiagnosticsConfig)**
+              Performance Diagnosics configuration
+            $ref: '#/definitions/PerformanceDiagnosticsConfig'
+          access:
+            description: |-
+              **[Access](#yandex.cloud.mdb.mongodb.v1.Access)**
+              Access policy to DB
+            $ref: '#/definitions/Access'
+          mongodb:
+            description: |-
+              **[MongodbSpec](#yandex.cloud.mdb.mongodb.v1.MongodbSpec)**
+              Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster.
+            $ref: '#/definitions/MongodbSpec'
+        oneOf:
+          - required:
+              - mongodbSpec_3_6
+          - required:
+              - mongodbSpec_4_0
+          - required:
+              - mongodbSpec_4_2
+          - required:
+              - mongodbSpec_4_4
+          - required:
+              - mongodbSpec_5_0
+          - required:
+              - mongodbSpec_6_0
+          - required:
+              - mongodbSpec_4_4Enterprise
+          - required:
+              - mongodbSpec_5_0Enterprise
+          - required:
+              - mongodbSpec_6_0Enterprise
       HostSpec:
         type: object
         properties:
@@ -772,6 +889,28 @@ apiPlayground:
               Hour of the day in UTC (in `HH` format).
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operation can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.WeeklyMaintenanceWindow)**
+              Maintenance operation can be scheduled on a weekly basis.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/restore.md
 ---
 
@@ -2049,8 +2188,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
           "storage": {
             "wiredTiger": {
               "engineConfig": {
-                "cacheSizeGb": "number",
-                "cacheSize": "number"
+                "cacheSizeGb": "number"
               },
               "collectionConfig": {
                 "blockCompressor": "string"
@@ -2093,23 +2231,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
           "setParameter": {
             "auditAuthorizationSuccess": "boolean",
             "enableFlowControl": "boolean",
-            "minSnapshotHistoryWindowInSeconds": "string",
-            "flowControlTargetLagSeconds": "string",
-            "flowControlWarnThresholdSeconds": "string",
-            "migrateCloneInsertionBatchDelayMs": "string",
-            "migrateCloneInsertionBatchSize": "string",
-            "orphanCleanupDelaySecs": "string",
-            "persistedChunkCacheUpdateMaxBatchSize": "string",
-            "rangeDeleterBatchDelayMs": "string",
-            "rangeDeleterBatchSize": "string",
-            "mirrorReads": {
-              "samplingRate": "number",
-              "maxTimeMs": "string"
-            }
-          },
-          "oplog": {
-            "maxSizePercent": "string",
-            "minRetentionHours": "number"
+            "minSnapshotHistoryWindowInSeconds": "string"
           }
         },
         "resources": {
@@ -2128,11 +2250,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
           "storage": {
             "wiredTiger": {
               "engineConfig": {
-                "cacheSizeGb": "number",
-                "cacheSize": "number"
-              },
-              "indexConfig": {
-                "prefixCompression": "boolean"
+                "cacheSizeGb": "number"
               }
             }
           },
@@ -2141,23 +2259,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
             "slowOpThreshold": "string"
           },
           "net": {
-            "maxIncomingConnections": "string",
-            "compression": {
-              "compressors": [
-                "string"
-              ]
-            }
-          },
-          "setParameter": {
-            "enableFlowControl": "boolean",
-            "auditAuthorizationSuccess": "boolean"
-          },
-          "auditLog": {
-            "filter": "string"
-          },
-          "oplog": {
-            "maxSizePercent": "string",
-            "minRetentionHours": "number"
+            "maxIncomingConnections": "string"
           }
         },
         "resources": {
@@ -2180,26 +2282,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
                 "string"
               ]
             }
-          },
-          "setParameter": {
-            "auditAuthorizationSuccess": "boolean",
-            "readHedgingMode": "string",
-            "shardingTaskExecutorPoolMaxSize": "string",
-            "shardingTaskExecutorPoolMaxConnecting": "string",
-            "shardingTaskExecutorPoolMinSize": "string",
-            "shardingTaskExecutorPoolReplicaSetMatching": "string",
-            "shardingTaskExecutorPoolHostTimeoutMs": "string",
-            "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-            "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-            "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-            "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-            "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-            "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-          },
-          "auditLog": {
-            "filter": "string"
-          },
-          "chunkSize": "string"
+          }
         },
         "resources": {
           "resourcePresetId": "string",
@@ -2221,36 +2304,13 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
                 "string"
               ]
             }
-          },
-          "setParameter": {
-            "auditAuthorizationSuccess": "boolean",
-            "readHedgingMode": "string",
-            "shardingTaskExecutorPoolMaxSize": "string",
-            "shardingTaskExecutorPoolMaxConnecting": "string",
-            "shardingTaskExecutorPoolMinSize": "string",
-            "shardingTaskExecutorPoolReplicaSetMatching": "string",
-            "shardingTaskExecutorPoolHostTimeoutMs": "string",
-            "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-            "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-            "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-            "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-            "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-            "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-          },
-          "auditLog": {
-            "filter": "string"
-          },
-          "chunkSize": "string"
+          }
         },
         "configMongocfg": {
           "storage": {
             "wiredTiger": {
               "engineConfig": {
-                "cacheSizeGb": "number",
-                "cacheSize": "number"
-              },
-              "indexConfig": {
-                "prefixCompression": "boolean"
+                "cacheSizeGb": "number"
               }
             }
           },
@@ -2259,23 +2319,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
             "slowOpThreshold": "string"
           },
           "net": {
-            "maxIncomingConnections": "string",
-            "compression": {
-              "compressors": [
-                "string"
-              ]
-            }
-          },
-          "setParameter": {
-            "enableFlowControl": "boolean",
-            "auditAuthorizationSuccess": "boolean"
-          },
-          "auditLog": {
-            "filter": "string"
-          },
-          "oplog": {
-            "maxSizePercent": "string",
-            "minRetentionHours": "number"
+            "maxIncomingConnections": "string"
           }
         },
         "resources": {
@@ -5768,9 +5812,6 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -5809,9 +5850,6 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cacheSize | **number** (double)
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -5908,10 +5946,10 @@ MongoDB supports the following compressors:
 ||Field | Description ||
 || enableEncryption | **boolean**
 
-If encryption at rest should be enabled or not, MongoDB Enterprise only ||
+If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP)**
 
-`kmip` section of mongod security config, MongoDB Enterprise only ||
+`kmip` section of mongod security config ||
 |#
 
 ## KMIP {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP}
@@ -5941,11 +5979,10 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter, should be valid JSON object string ||
+Audit filter ||
 || runtimeConfiguration | **boolean**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess
-!! Available for MongoDB Enterprise only !! ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -5954,8 +5991,7 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess
 ||Field | Description ||
 || auditAuthorizationSuccess | **boolean**
 
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+Enables the auditing of authorization successes ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
@@ -5964,57 +6000,6 @@ lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
-|| flowControlTargetLagSeconds | **string** (int64)
-
-The target maximum majority committed lag when running with flow control ||
-|| flowControlWarnThresholdSeconds | **string** (int64)
-
-The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
-|| migrateCloneInsertionBatchDelayMs | **string** (int64)
-
-Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
-|| migrateCloneInsertionBatchSize | **string** (int64)
-
-The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
-|| orphanCleanupDelaySecs | **string** (int64)
-
-Minimum delay before a migrated chunk is deleted from the source shard. ||
-|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
-
-Specifies the maximum batch size used for updating the persisted chunk cache. ||
-|| rangeDeleterBatchDelayMs | **string** (int64)
-
-The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| rangeDeleterBatchSize | **string** (int64)
-
-The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
-
-Specifies the settings for mirrored reads for the mongod instance ||
-|#
-
-## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
-
-#|
-||Field | Description ||
-|| samplingRate | **number** (double)
-
-The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
-|| maxTimeMs | **string** (int64)
-
-The maximum time in milliseconds for the mirrored reads ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
-
-#|
-||Field | Description ||
-|| maxSizePercent | **string** (int64)
-
-Oplog maxsize in percents. ||
-|| minRetentionHours | **number** (double)
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoCfg}
@@ -6045,15 +6030,6 @@ Disk size autoscaling settings ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
 
 `net` section of mongocfg configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter)**
-
-`setParameter` section of mongocfg configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
-
-`AuditLog` section of mongocfg configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -6074,9 +6050,6 @@ Configuration of WiredTiger storage engine.
 || engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig)**
-
-Index configuration for WiredTiger. ||
 |#
 
 ## EngineConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig}
@@ -6086,18 +6059,6 @@ Index configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cacheSize | **number** (double)
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
-|#
-
-## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
-
-#|
-||Field | Description ||
-|| prefixCompression | **boolean**
-
-Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling}
@@ -6126,64 +6087,6 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 || maxIncomingConnections | **string** (int64)
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
-|| compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression)**
-
-Compression settings ||
-|#
-
-## Compression {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression}
-
-#|
-||Field | Description ||
-|| compressors[] | **enum** (Compressor)
-
-Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:
-- other members of the deployment if the instance is part of a replica set or a sharded cluster
-- mongosh
-- drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
-
-- `COMPRESSOR_UNSPECIFIED`
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
-- `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter}
-
-#|
-||Field | Description ||
-|| enableFlowControl | **boolean**
-
-Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
-lag under a configurable maximum value. ||
-|| auditAuthorizationSuccess | **boolean**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
-
-#|
-||Field | Description ||
-|| maxSizePercent | **string** (int64)
-
-Oplog maxsize in percents. ||
-|| minRetentionHours | **number** (double)
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.Mongos}
@@ -6208,15 +6111,6 @@ Disk size autoscaling settings ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network)**
 
 Network settings for mongos. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)**
-
-`setParameter` section of mongos configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
-
-`AuditLog` section of mongos configuration. ||
-|| chunkSize | **string** (int64)
-
-`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -6248,61 +6142,6 @@ MongoDB supports the following compressors:
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter}
-
-#|
-||Field | Description ||
-|| auditAuthorizationSuccess | **boolean**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|| readHedgingMode | **string**
-
-Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
-|| shardingTaskExecutorPoolMaxSize | **string** (int64)
-
-Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
-
-Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
-|| shardingTaskExecutorPoolMinSize | **string** (int64)
-
-Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| shardingTaskExecutorPoolReplicaSetMatching | **string**
-
-On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
-|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
-
-Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
-|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
-
-Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
-|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
-
-Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
-|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
-
-Configures a mongos instance to prewarm its connection pool on startup. ||
-|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
-
-Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
-|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
-
-Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
-
-Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoInfra}
@@ -9367,8 +9206,7 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
+                    "cacheSizeGb": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -9411,31 +9249,14 @@ Hour of the day in UTC (in `HH` format). ||
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string",
-                "flowControlTargetLagSeconds": "string",
-                "flowControlWarnThresholdSeconds": "string",
-                "migrateCloneInsertionBatchDelayMs": "string",
-                "migrateCloneInsertionBatchSize": "string",
-                "orphanCleanupDelaySecs": "string",
-                "persistedChunkCacheUpdateMaxBatchSize": "string",
-                "rangeDeleterBatchDelayMs": "string",
-                "rangeDeleterBatchSize": "string",
-                "mirrorReads": {
-                  "samplingRate": "number",
-                  "maxTimeMs": "string"
-                }
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "minSnapshotHistoryWindowInSeconds": "string"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
+                    "cacheSizeGb": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -9478,31 +9299,14 @@ Hour of the day in UTC (in `HH` format). ||
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string",
-                "flowControlTargetLagSeconds": "string",
-                "flowControlWarnThresholdSeconds": "string",
-                "migrateCloneInsertionBatchDelayMs": "string",
-                "migrateCloneInsertionBatchSize": "string",
-                "orphanCleanupDelaySecs": "string",
-                "persistedChunkCacheUpdateMaxBatchSize": "string",
-                "rangeDeleterBatchDelayMs": "string",
-                "rangeDeleterBatchSize": "string",
-                "mirrorReads": {
-                  "samplingRate": "number",
-                  "maxTimeMs": "string"
-                }
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "minSnapshotHistoryWindowInSeconds": "string"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
+                    "cacheSizeGb": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -9545,23 +9349,7 @@ Hour of the day in UTC (in `HH` format). ||
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string",
-                "flowControlTargetLagSeconds": "string",
-                "flowControlWarnThresholdSeconds": "string",
-                "migrateCloneInsertionBatchDelayMs": "string",
-                "migrateCloneInsertionBatchSize": "string",
-                "orphanCleanupDelaySecs": "string",
-                "persistedChunkCacheUpdateMaxBatchSize": "string",
-                "rangeDeleterBatchDelayMs": "string",
-                "rangeDeleterBatchSize": "string",
-                "mirrorReads": {
-                  "samplingRate": "number",
-                  "maxTimeMs": "string"
-                }
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "minSnapshotHistoryWindowInSeconds": "string"
               }
             }
           },
@@ -9582,11 +9370,7 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -9595,34 +9379,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -9631,34 +9395,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -9667,23 +9411,7 @@ Hour of the day in UTC (in `HH` format). ||
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             }
           },
@@ -9708,26 +9436,7 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "userConfig": {
               "net": {
@@ -9737,26 +9446,7 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "defaultConfig": {
               "net": {
@@ -9766,26 +9456,7 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             }
           },
           "resources": {
@@ -9809,26 +9480,7 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "userConfig": {
               "net": {
@@ -9838,26 +9490,7 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             },
             "defaultConfig": {
               "net": {
@@ -9867,26 +9500,7 @@ Hour of the day in UTC (in `HH` format). ||
                     "string"
                   ]
                 }
-              },
-              "setParameter": {
-                "auditAuthorizationSuccess": "boolean",
-                "readHedgingMode": "string",
-                "shardingTaskExecutorPoolMaxSize": "string",
-                "shardingTaskExecutorPoolMaxConnecting": "string",
-                "shardingTaskExecutorPoolMinSize": "string",
-                "shardingTaskExecutorPoolReplicaSetMatching": "string",
-                "shardingTaskExecutorPoolHostTimeoutMs": "string",
-                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
-                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
-                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
-                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "chunkSize": "string"
+              }
             }
           },
           "configMongocfg": {
@@ -9894,11 +9508,7 @@ Hour of the day in UTC (in `HH` format). ||
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -9907,34 +9517,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -9943,34 +9533,14 @@ Hour of the day in UTC (in `HH` format). ||
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number",
-                    "cacheSize": "number"
-                  },
-                  "indexConfig": {
-                    "prefixCompression": "boolean"
+                    "cacheSizeGb": "number"
                   }
                 }
               },
@@ -9979,23 +9549,7 @@ Hour of the day in UTC (in `HH` format). ||
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string",
-                "compression": {
-                  "compressors": [
-                    "string"
-                  ]
-                }
-              },
-              "setParameter": {
-                "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
-              },
-              "auditLog": {
-                "filter": "string"
-              },
-              "oplog": {
-                "maxSizePercent": "string",
-                "minRetentionHours": "number"
+                "maxIncomingConnections": "string"
               }
             }
           },
@@ -14077,9 +13631,6 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter2)**
 
 `SetParameter` section of mongod configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog2)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage2}
@@ -14118,9 +13669,6 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cacheSize | **number** (double)
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig2}
@@ -14217,10 +13765,10 @@ MongoDB supports the following compressors:
 ||Field | Description ||
 || enableEncryption | **boolean**
 
-If encryption at rest should be enabled or not, MongoDB Enterprise only ||
+If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP2)**
 
-`kmip` section of mongod security config, MongoDB Enterprise only ||
+`kmip` section of mongod security config ||
 |#
 
 ## KMIP {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP2}
@@ -14250,11 +13798,10 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter, should be valid JSON object string ||
+Audit filter ||
 || runtimeConfiguration | **boolean**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess
-!! Available for MongoDB Enterprise only !! ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter2}
@@ -14263,8 +13810,7 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess
 ||Field | Description ||
 || auditAuthorizationSuccess | **boolean**
 
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+Enables the auditing of authorization successes ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
@@ -14273,57 +13819,6 @@ lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
-|| flowControlTargetLagSeconds | **string** (int64)
-
-The target maximum majority committed lag when running with flow control ||
-|| flowControlWarnThresholdSeconds | **string** (int64)
-
-The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
-|| migrateCloneInsertionBatchDelayMs | **string** (int64)
-
-Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
-|| migrateCloneInsertionBatchSize | **string** (int64)
-
-The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
-|| orphanCleanupDelaySecs | **string** (int64)
-
-Minimum delay before a migrated chunk is deleted from the source shard. ||
-|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
-
-Specifies the maximum batch size used for updating the persisted chunk cache. ||
-|| rangeDeleterBatchDelayMs | **string** (int64)
-
-The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| rangeDeleterBatchSize | **string** (int64)
-
-The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
-|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2)**
-
-Specifies the settings for mirrored reads for the mongod instance ||
-|#
-
-## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2}
-
-#|
-||Field | Description ||
-|| samplingRate | **number** (double)
-
-The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
-|| maxTimeMs | **string** (int64)
-
-The maximum time in milliseconds for the mirrored reads ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog2}
-
-#|
-||Field | Description ||
-|| maxSizePercent | **string** (int64)
-
-Oplog maxsize in percents. ||
-|| minRetentionHours | **number** (double)
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -14370,15 +13865,6 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network2)**
 
 `net` section of mongocfg configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter2)**
-
-`setParameter` section of mongocfg configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2)**
-
-`AuditLog` section of mongocfg configuration. ||
-|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog2)**
-
-`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage2}
@@ -14399,9 +13885,6 @@ Configuration of WiredTiger storage engine.
 || engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig2)**
 
 Engine configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig2)**
-
-Index configuration for WiredTiger. ||
 |#
 
 ## EngineConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig2}
@@ -14411,18 +13894,6 @@ Index configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
-|| cacheSize | **number** (double)
-
-The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
-|#
-
-## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig2}
-
-#|
-||Field | Description ||
-|| prefixCompression | **boolean**
-
-Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling2}
@@ -14451,64 +13922,6 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 || maxIncomingConnections | **string** (int64)
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
-|| compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression2)**
-
-Compression settings ||
-|#
-
-## Compression {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression2}
-
-#|
-||Field | Description ||
-|| compressors[] | **enum** (Compressor)
-
-Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:
-- other members of the deployment if the instance is part of a replica set or a sharded cluster
-- mongosh
-- drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
-
-- `COMPRESSOR_UNSPECIFIED`
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
-- `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter2}
-
-#|
-||Field | Description ||
-|| enableFlowControl | **boolean**
-
-Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
-lag under a configurable maximum value. ||
-|| auditAuthorizationSuccess | **boolean**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
-|#
-
-## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog2}
-
-#|
-||Field | Description ||
-|| maxSizePercent | **string** (int64)
-
-Oplog maxsize in percents. ||
-|| minRetentionHours | **number** (double)
-
-The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
@@ -14549,15 +13962,6 @@ Default mongos configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network2)**
 
 Network settings for mongos. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter2)**
-
-`setParameter` section of mongos configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2)**
-
-`AuditLog` section of mongos configuration. ||
-|| chunkSize | **string** (int64)
-
-`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network2}
@@ -14589,61 +13993,6 @@ MongoDB supports the following compressors:
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
-|#
-
-## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter2}
-
-#|
-||Field | Description ||
-|| auditAuthorizationSuccess | **boolean**
-
-Enables the auditing of authorization successes
-https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
-|| readHedgingMode | **string**
-
-Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
-|| shardingTaskExecutorPoolMaxSize | **string** (int64)
-
-Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
-
-Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
-|| shardingTaskExecutorPoolMinSize | **string** (int64)
-
-Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
-|| shardingTaskExecutorPoolReplicaSetMatching | **string**
-
-On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
-|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
-
-Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
-|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
-
-Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
-|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
-
-Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
-|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
-
-Configures a mongos instance to prewarm its connection pool on startup. ||
-|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
-
-Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
-|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
-
-Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
-
-Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
-|#
-
-## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2}
-
-#|
-||Field | Description ||
-|| filter | **string**
-
-Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}

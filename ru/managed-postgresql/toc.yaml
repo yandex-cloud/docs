@@ -417,6 +417,12 @@ items:
                 href: api-ref/grpc/Cluster/deleteHosts.md
               - name: UpdateHosts
                 href: api-ref/grpc/Cluster/updateHosts.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -541,6 +547,12 @@ items:
                 href: api-ref/Cluster/deleteHosts.md
               - name: UpdateHosts
                 href: api-ref/Cluster/updateHosts.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview

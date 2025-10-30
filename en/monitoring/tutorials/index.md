@@ -1,6 +1,7 @@
 ---
 title: Tutorials for {{ monitoring-full-name }}
-description: This page provides a list of {{ monitoring-name }} tutorials.
+description: This page presents a list of {{ monitoring-name }} tutorials.
+sourcePath: en/monitoring_includes/tutorials/index.md
 ---
 
 # Tutorials for {{ monitoring-full-name }}

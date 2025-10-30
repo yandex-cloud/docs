@@ -51,14 +51,14 @@ NVIDIA публикует несколько веток драйверов ([NVI
    sudo apt update
    ```
 
-2. Установите `cuda-compat` (пример для CUDA 12.5):
+1. Установите `cuda-compat` (пример для CUDA 12.5):
 
    ```bash
    sudo apt install -y cuda-compat-12-5
    echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.5/compat:$LD_LIBRARY_PATH' >> ~/.bashrc && source ~/.bashrc
    ```
 
-3. Проверьте текущую конфигурацию:
+1. Проверьте текущую конфигурацию:
 
    ```bash
    nvidia-smi
@@ -122,7 +122,7 @@ NVIDIA публикует несколько веток драйверов ([NVI
 
    {% endcut %}
 
-2. Дальнейшие шаги необходимо выполнять до перезагрузки системы через `sudo reboot`.
+1. Дальнейшие шаги необходимо выполнять до перезагрузки системы через `sudo reboot`.
    Создайте скрипт `/usr/libexec/manage-nvidia`:
 
    ```bash
@@ -140,13 +140,13 @@ NVIDIA публикует несколько веток драйверов ([NVI
    esac
    ```
 
-3. Сделайте скрипт исполняемым:
+1. Сделайте скрипт исполняемым:
 
    ```bash
    sudo chmod +x /usr/libexec/manage-nvidia
    ```
 
-4. Создайте systemd-unit `/etc/systemd/system/manage-nvidia.service`:
+1. Создайте systemd-unit `/etc/systemd/system/manage-nvidia.service`:
 
    ```ini
    [Unit]
@@ -165,7 +165,7 @@ NVIDIA публикует несколько веток драйверов ([NVI
    RequiredBy=nvidia-persistenced.service
    ```
 
-5. Перезагрузите конфигурацию `systemd`, включите автоматический запуск сервиса `manage-nvidia` при загрузке системы и запустите сам сервис:
+1. Перезагрузите конфигурацию `systemd`, включите автоматический запуск сервиса `manage-nvidia` при загрузке системы и запустите сам сервис:
 
    ```bash
    sudo systemctl daemon-reload

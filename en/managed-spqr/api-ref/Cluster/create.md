@@ -101,38 +101,14 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.spqr.v1.MaintenanceWindow)**
             New maintenance window settings for the cluster.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Maintenance operation can be scheduled anytime.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.spqr.v1.WeeklyMaintenanceWindow)**
-                    Maintenance operation can be scheduled on a weekly basis.
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                    The maintenance policy in effect.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
         shardSpecs:
           description: |-
             **[ShardSpec](#yandex.cloud.mdb.spqr.v1.ShardSpec)**
             Descriptions of shards to be created in the SPQR cluster.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  mdbPostgresql:
-                    description: |-
-                      **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)**
-                      Properties of the MDB PostgreSQL cluster
-                      Includes only one of the fields `mdbPostgresql`.
-                    $ref: '#/definitions/MDBPostgreSQL'
+            $ref: '#/definitions/ShardSpec'
       required:
         - folderId
         - name
@@ -581,6 +557,48 @@ apiPlayground:
               Hour of the day in UTC (in `HH` format).
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operation can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.spqr.v1.WeeklyMaintenanceWindow)**
+              Maintenance operation can be scheduled on a weekly basis.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+              The maintenance policy in effect.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
+      ShardSpec:
+        type: object
+        properties:
+          shardName:
+            description: |-
+              **string**
+              Required field. Name of the SPQR shard to create.
+            pattern: ^[a-zA-Z0-9][a-zA-Z0-9-]*$
+            type: string
+          mdbPostgresql:
+            description: |-
+              **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)**
+              Properties of the MDB PostgreSQL cluster
+              Includes only one of the fields `mdbPostgresql`.
+            $ref: '#/definitions/MDBPostgreSQL'
+        required:
+          - shardName
+        oneOf:
+          - required:
+              - mdbPostgresql
 sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/create.md
 ---
 

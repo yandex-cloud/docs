@@ -21,8 +21,8 @@ ldap:
 
 # Logger configuration
 logger:
-  level: <уровень_логирования>
-  format: <формат_вывода>
+  level: "<уровень_логирования>"
+  format: "plain|json"
   file:
     filename: "<путь_к_файлу_с_логами>"
     maxsize: 30
@@ -31,8 +31,8 @@ logger:
 # Sync settings
 sync_settings:
   interval: "600s"
-  allow_to_capture_users: true
-  allow_to_capture_groups: true
+  allow_to_capture_users: true|false
+  allow_to_capture_groups: true|false
   # Remove the following line if you don't need to replace domain
   replacement_domain: "<домен_пула_пользователей>"
   filter:
@@ -40,4 +40,5 @@ sync_settings:
     organization_units:
       - OU=IdPUsersOU,DC=example,DC=com
       - OU=IdPGroupsOU,DC=example,DC=com
+  remove_user_behavior: "remove|block"
 ```

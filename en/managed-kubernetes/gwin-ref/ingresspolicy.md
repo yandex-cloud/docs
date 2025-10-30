@@ -119,7 +119,6 @@ spec:
       stream:
         idleTimeout: "300s"  # close idle connections
       # HTTP router configuration
-      securityProfileID: "security-profile-id"  # WAF protection
       rbac:
         action: "ALLOW"  # access control policy
         principals:

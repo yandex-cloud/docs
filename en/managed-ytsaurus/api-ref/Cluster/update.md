@@ -136,6 +136,24 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
+      ScalePolicy:
+        type: object
+        properties:
+          fixed:
+            description: |-
+              **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale)**
+              Includes only one of the fields `fixed`, `auto`.
+            $ref: '#/definitions/FixedScale'
+          auto:
+            description: |-
+              **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale)**
+              Includes only one of the fields `fixed`, `auto`.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - fixed
+          - required:
+              - auto
       ComputeSpec:
         type: object
         properties:
@@ -149,19 +167,7 @@ apiPlayground:
               $ref: '#/definitions/DiskSpec'
           scalePolicy:
             description: '**[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy)**'
-            oneOf:
-              - type: object
-                properties:
-                  fixed:
-                    description: |-
-                      **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale)**
-                      Includes only one of the fields `fixed`, `auto`.
-                    $ref: '#/definitions/FixedScale'
-                  auto:
-                    description: |-
-                      **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale)**
-                      Includes only one of the fields `fixed`, `auto`.
-                    $ref: '#/definitions/AutoScale'
+            $ref: '#/definitions/ScalePolicy'
           name:
             description: |-
               **string**
@@ -227,6 +233,15 @@ apiPlayground:
           odin:
             description: '**[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)**'
             $ref: '#/definitions/OdinSpec'
+          flavor:
+            description: |-
+              **enum** (Flavor)
+              - `FLAVOR_UNSPECIFIED`
+              - `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use.
+            type: string
+            enum:
+              - FLAVOR_UNSPECIFIED
+              - DEMO
 sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Cluster/update.md
 ---
 
@@ -305,7 +320,8 @@ PATCH https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
     },
     "odin": {
       "checksTtl": "string"
-    }
+    },
+    "flavor": "string"
   }
 }
 ```
@@ -361,6 +377,10 @@ New cluster specification. ||
 || tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)** ||
 || proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)** ||
 || odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)** ||
+|| flavor | **enum** (Flavor)
+
+- `FLAVOR_UNSPECIFIED`
+- `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec}
@@ -559,7 +579,8 @@ Includes only one of the fields `fixed`, `auto`. ||
       },
       "odin": {
         "checksTtl": "string"
-      }
+      },
+      "flavor": "string"
     },
     "createdAt": "string",
     "createdBy": "string",
@@ -766,6 +787,10 @@ Endpoints of the cluster. ||
 || tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec2)** ||
 || proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec2)** ||
 || odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec2)** ||
+|| flavor | **enum** (Flavor)
+
+- `FLAVOR_UNSPECIFIED`
+- `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec2}

@@ -69,21 +69,7 @@ apiPlayground:
           description: |-
             **[AddressSpec](#yandex.cloud.vpc.v1.privatelink.AddressSpec)**
             Private endpoint address specification.
-          oneOf:
-            - type: object
-              properties:
-                addressId:
-                  description: |-
-                    **string**
-                    ID of IP address to associate with private endpoint.
-                    Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
-                  type: string
-                internalIpv4AddressSpec:
-                  description: |-
-                    **[InternalIpv4AddressSpec](#yandex.cloud.vpc.v1.privatelink.InternalIpv4AddressSpec)**
-                    Internal ipv4 address specification.
-                    Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
-                  $ref: '#/definitions/InternalIpv4AddressSpec'
+          $ref: '#/definitions/AddressSpec'
         dnsOptions:
           description: |-
             **[DnsOptions](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
@@ -106,6 +92,26 @@ apiPlayground:
             type: string
         required:
           - subnetId
+      AddressSpec:
+        type: object
+        properties:
+          addressId:
+            description: |-
+              **string**
+              ID of IP address to associate with private endpoint.
+              Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
+            type: string
+          internalIpv4AddressSpec:
+            description: |-
+              **[InternalIpv4AddressSpec](#yandex.cloud.vpc.v1.privatelink.InternalIpv4AddressSpec)**
+              Internal ipv4 address specification.
+              Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
+            $ref: '#/definitions/InternalIpv4AddressSpec'
+        oneOf:
+          - required:
+              - addressId
+          - required:
+              - internalIpv4AddressSpec
       DnsOptions:
         type: object
         properties:

@@ -36,6 +36,11 @@ apiPlayground:
             HTTPS configuration parameters.
           $ref: '#/definitions/CertificateManagerHTTPSConfigParams'
       additionalProperties: false
+      oneOf:
+        - required:
+            - selfManaged
+        - required:
+            - certificateManager
     definitions:
       SelfManagedHTTPSConfigParams:
         type: object

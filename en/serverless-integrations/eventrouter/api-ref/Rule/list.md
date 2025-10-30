@@ -41,6 +41,11 @@ apiPlayground:
             created_at
           type: string
       additionalProperties: false
+      oneOf:
+        - required:
+            - busId
+        - required:
+            - folderId
     body: null
     definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/list.md

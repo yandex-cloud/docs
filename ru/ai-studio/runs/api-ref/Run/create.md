@@ -37,23 +37,7 @@ apiPlayground:
             **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions)**
             Configuration options for truncating the prompt when the token count exceeds a specified limit.
             If specified, these options will override the assistant's prompt truncation settings for this run.
-          oneOf:
-            - type: object
-              properties:
-                autoStrategy:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
-                    Specifies the truncation strategy to use when the prompt exceeds the token limit.
-                  $ref: '#/definitions/AutoStrategy'
-                lastMessagesStrategy:
-                  description: |-
-                    **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy)**
-                    Retains only the last `num_messages` messages in the thread.
-                    If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
-                    Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
-                    Specifies the truncation strategy to use when the prompt exceeds the token limit.
-                  $ref: '#/definitions/LastMessagesStrategy'
+          $ref: '#/definitions/PromptTruncationOptions'
         customCompletionOptions:
           description: |-
             **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions)**
@@ -71,48 +55,12 @@ apiPlayground:
             List of tools that are available for the assistant to use in this run.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  searchIndex:
-                    description: |-
-                      **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
-                      SearchIndexTool tool that performs search across specified indexes.
-                      Includes only one of the fields `searchIndex`, `function`, `genSearch`.
-                    $ref: '#/definitions/SearchIndexTool'
-                  function:
-                    description: |-
-                      **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
-                      Function tool that can be invoked by the assistant.
-                      Includes only one of the fields `searchIndex`, `function`, `genSearch`.
-                    $ref: '#/definitions/FunctionTool'
-                  genSearch:
-                    description: |-
-                      **[GenSearchTool](#yandex.cloud.ai.assistants.v1.GenSearchTool)**
-                      Performs web retrieval and generative synthesis.
-                      Includes only one of the fields `searchIndex`, `function`, `genSearch`.
-                    $ref: '#/definitions/GenSearchTool'
+            $ref: '#/definitions/Tool'
         customResponseFormat:
           description: |-
             **[ResponseFormat](#yandex.cloud.ai.assistants.v1.ResponseFormat)**
             Specifies the format of the model's response.
-          oneOf:
-            - type: object
-              properties:
-                jsonObject:
-                  description: |-
-                    **boolean**
-                    When set to true, the model will respond with a valid JSON object.
-                    Be sure to explicitly ask the model for JSON.
-                    Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
-                    Includes only one of the fields `jsonObject`, `jsonSchema`.
-                  type: boolean
-                jsonSchema:
-                  description: |-
-                    **[JsonSchema](#yandex.cloud.ai.assistants.v1.JsonSchema)**
-                    Enforces a specific JSON structure for the model's response based on a provided schema.
-                    Includes only one of the fields `jsonObject`, `jsonSchema`.
-                  $ref: '#/definitions/JsonSchema'
+          $ref: '#/definitions/ResponseFormat'
       required:
         - assistantId
         - threadId
@@ -139,6 +87,19 @@ apiPlayground:
               **string**
               Text content of the message.
             type: string
+      ContentPart:
+        type: object
+        properties:
+          text:
+            description: |-
+              **[Text](#yandex.cloud.ai.assistants.v1.threads.Text)**
+              Text content of the message part.
+              Includes only one of the fields `text`.
+              Specifies the type of content that the part contains.
+            $ref: '#/definitions/Text'
+        oneOf:
+          - required:
+              - text
       MessageContent:
         type: object
         properties:
@@ -148,16 +109,7 @@ apiPlayground:
               A list of content parts that make up the message.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    text:
-                      description: |-
-                        **[Text](#yandex.cloud.ai.assistants.v1.threads.Text)**
-                        Text content of the message part.
-                        Includes only one of the fields `text`.
-                        Specifies the type of content that the part contains.
-                      $ref: '#/definitions/Text'
+              $ref: '#/definitions/ContentPart'
       MessageData:
         type: object
         properties:
@@ -191,6 +143,36 @@ apiPlayground:
               If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
             type: string
             format: int64
+      PromptTruncationOptions:
+        type: object
+        properties:
+          maxPromptTokens:
+            description: |-
+              **string** (int64)
+              The maximum number of tokens allowed in the prompt.
+              If the prompt exceeds this limit, the thread messages will be truncated.
+              Default max_prompt_tokens: 7000
+            type: string
+            format: int64
+          autoStrategy:
+            description: |-
+              **object**
+              Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+              Specifies the truncation strategy to use when the prompt exceeds the token limit.
+            $ref: '#/definitions/AutoStrategy'
+          lastMessagesStrategy:
+            description: |-
+              **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy)**
+              Retains only the last `num_messages` messages in the thread.
+              If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+              Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+              Specifies the truncation strategy to use when the prompt exceeds the token limit.
+            $ref: '#/definitions/LastMessagesStrategy'
+        oneOf:
+          - required:
+              - autoStrategy
+          - required:
+              - lastMessagesStrategy
       CompletionOptions:
         type: object
         properties:
@@ -237,6 +219,28 @@ apiPlayground:
             type: string
         required:
           - instruction
+      CallStrategy:
+        type: object
+        properties:
+          alwaysCall:
+            description: |-
+              **object**
+              Includes only one of the fields `alwaysCall`, `autoCall`.
+              One of `always_call` or `auto_call`.
+              always_call is used if no strategy is explicitly set
+            $ref: '#/definitions/AlwaysCall'
+          autoCall:
+            description: |-
+              **[AutoCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
+              Includes only one of the fields `alwaysCall`, `autoCall`.
+              One of `always_call` or `auto_call`.
+              always_call is used if no strategy is explicitly set
+            $ref: '#/definitions/AutoCall'
+        oneOf:
+          - required:
+              - alwaysCall
+          - required:
+              - autoCall
       SearchIndexTool:
         type: object
         properties:
@@ -268,23 +272,7 @@ apiPlayground:
               Defines the strategy for triggering search.
               Controls whether search results are always included or returned only when
               the model explicitly calls the tool.
-            oneOf:
-              - type: object
-                properties:
-                  alwaysCall:
-                    description: |-
-                      **object**
-                      Includes only one of the fields `alwaysCall`, `autoCall`.
-                      One of `always_call` or `auto_call`.
-                      always_call is used if no strategy is explicitly set
-                    $ref: '#/definitions/AlwaysCall'
-                  autoCall:
-                    description: |-
-                      **[AutoCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
-                      Includes only one of the fields `alwaysCall`, `autoCall`.
-                      One of `always_call` or `auto_call`.
-                      always_call is used if no strategy is explicitly set
-                    $ref: '#/definitions/AutoCall'
+            $ref: '#/definitions/CallStrategy'
       FunctionTool:
         type: object
         properties:
@@ -328,6 +316,103 @@ apiPlayground:
             type: array
             items:
               type: string
+      SearchFilter:
+        type: object
+        properties:
+          date:
+            description: |-
+              **string**
+              Restrict by document date
+              Includes only one of the fields `date`, `lang`, `format`.
+              Includes only one of the fields date, lang, format.
+            type: string
+          lang:
+            description: |-
+              **string**
+              Restrict by document language. Use ISO 639-1 language codes.
+              Includes only one of the fields `date`, `lang`, `format`.
+              Includes only one of the fields date, lang, format.
+            type: string
+          format:
+            description: |-
+              **enum** (DocFormat)
+              Restrict by document format.
+              Includes only one of the fields `date`, `lang`, `format`.
+              Includes only one of the fields date, lang, format.
+              - `DOC_FORMAT_UNSPECIFIED`
+              - `DOC_FORMAT_PDF`
+              - `DOC_FORMAT_XLS`
+              - `DOC_FORMAT_ODS`
+              - `DOC_FORMAT_RTF`
+              - `DOC_FORMAT_PPT`
+              - `DOC_FORMAT_ODP`
+              - `DOC_FORMAT_SWF`
+              - `DOC_FORMAT_ODT`
+              - `DOC_FORMAT_ODG`
+              - `DOC_FORMAT_DOC`
+            type: string
+            enum:
+              - DOC_FORMAT_UNSPECIFIED
+              - DOC_FORMAT_PDF
+              - DOC_FORMAT_XLS
+              - DOC_FORMAT_ODS
+              - DOC_FORMAT_RTF
+              - DOC_FORMAT_PPT
+              - DOC_FORMAT_ODP
+              - DOC_FORMAT_SWF
+              - DOC_FORMAT_ODT
+              - DOC_FORMAT_ODG
+              - DOC_FORMAT_DOC
+        oneOf:
+          - required:
+              - date
+          - required:
+              - lang
+          - required:
+              - format
+      GenSearchOptions:
+        type: object
+        properties:
+          site:
+            description: |-
+              **[SiteOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
+              Includes only one of the fields `site`, `host`, `url`.
+              Restricts the search to the specific websites, hosts or pages.
+              Includes only one of the fields site, host, url.
+            $ref: '#/definitions/SiteOption'
+          host:
+            description: |-
+              **[HostOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
+              Includes only one of the fields `site`, `host`, `url`.
+              Restricts the search to the specific websites, hosts or pages.
+              Includes only one of the fields site, host, url.
+            $ref: '#/definitions/HostOption'
+          url:
+            description: |-
+              **[UrlOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
+              Includes only one of the fields `site`, `host`, `url`.
+              Restricts the search to the specific websites, hosts or pages.
+              Includes only one of the fields site, host, url.
+            $ref: '#/definitions/UrlOption'
+          enableNrfmDocs:
+            description: |-
+              **boolean**
+              Use the documents inaccessible from the front page.
+            type: boolean
+          searchFilters:
+            description: |-
+              **[SearchFilter](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter)**
+              Restricts the search by date, document formats or language.
+            type: array
+            items:
+              $ref: '#/definitions/SearchFilter'
+        oneOf:
+          - required:
+              - site
+          - required:
+              - host
+          - required:
+              - url
       GenSearchTool:
         type: object
         properties:
@@ -335,30 +420,7 @@ apiPlayground:
             description: |-
               **[GenSearchOptions](#yandex.cloud.ai.assistants.v1.GenSearchOptions)**
               Scoping and filtering rules for the search query
-            oneOf:
-              - type: object
-                properties:
-                  site:
-                    description: |-
-                      **[SiteOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
-                      Includes only one of the fields `site`, `host`, `url`.
-                      Restricts the search to the specific websites, hosts or pages.
-                      Includes only one of the fields site, host, url.
-                    $ref: '#/definitions/SiteOption'
-                  host:
-                    description: |-
-                      **[HostOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
-                      Includes only one of the fields `site`, `host`, `url`.
-                      Restricts the search to the specific websites, hosts or pages.
-                      Includes only one of the fields site, host, url.
-                    $ref: '#/definitions/HostOption'
-                  url:
-                    description: |-
-                      **[UrlOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
-                      Includes only one of the fields `site`, `host`, `url`.
-                      Restricts the search to the specific websites, hosts or pages.
-                      Includes only one of the fields site, host, url.
-                    $ref: '#/definitions/UrlOption'
+            $ref: '#/definitions/GenSearchOptions'
           description:
             description: |-
               **string**
@@ -366,6 +428,34 @@ apiPlayground:
             type: string
         required:
           - description
+      Tool:
+        type: object
+        properties:
+          searchIndex:
+            description: |-
+              **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+              SearchIndexTool tool that performs search across specified indexes.
+              Includes only one of the fields `searchIndex`, `function`, `genSearch`.
+            $ref: '#/definitions/SearchIndexTool'
+          function:
+            description: |-
+              **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
+              Function tool that can be invoked by the assistant.
+              Includes only one of the fields `searchIndex`, `function`, `genSearch`.
+            $ref: '#/definitions/FunctionTool'
+          genSearch:
+            description: |-
+              **[GenSearchTool](#yandex.cloud.ai.assistants.v1.GenSearchTool)**
+              Performs web retrieval and generative synthesis.
+              Includes only one of the fields `searchIndex`, `function`, `genSearch`.
+            $ref: '#/definitions/GenSearchTool'
+        oneOf:
+          - required:
+              - searchIndex
+          - required:
+              - function
+          - required:
+              - genSearch
       JsonSchema:
         type: object
         properties:
@@ -374,6 +464,28 @@ apiPlayground:
               **object**
               The JSON Schema that the model's output must conform to.
             type: object
+      ResponseFormat:
+        type: object
+        properties:
+          jsonObject:
+            description: |-
+              **boolean**
+              When set to true, the model will respond with a valid JSON object.
+              Be sure to explicitly ask the model for JSON.
+              Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+              Includes only one of the fields `jsonObject`, `jsonSchema`.
+            type: boolean
+          jsonSchema:
+            description: |-
+              **[JsonSchema](#yandex.cloud.ai.assistants.v1.JsonSchema)**
+              Enforces a specific JSON structure for the model's response based on a provided schema.
+              Includes only one of the fields `jsonObject`, `jsonSchema`.
+            $ref: '#/definitions/JsonSchema'
+        oneOf:
+          - required:
+              - jsonObject
+          - required:
+              - jsonSchema
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/create.md
 ---
 

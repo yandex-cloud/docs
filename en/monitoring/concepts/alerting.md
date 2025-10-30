@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/concepts/alerting.md
+---
 # Alerting
 
 Alerting in {{ monitoring-full-name }} allows notifying cloud users of changes to metrics. For example, you can set up alerts about changes in your cloud resource status and timely respond to an issue.

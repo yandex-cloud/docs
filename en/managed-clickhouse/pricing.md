@@ -56,11 +56,11 @@ You can choose a host class both for {{ CH }} and {{ ZK }} hosts (according to t
 
 {% note warning %}
 
-In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and with two or more {{ CH }} hosts, 3 {{ ZK }} hosts with the minimal class are automatically created to provide replication and fault tolerance.
+In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and with two or more {{ CH }} hosts, three {{ ZK }} hosts with the lowest class are automatically created to provide replication and fault tolerance.
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
@@ -82,7 +82,7 @@ You are charged for the following:
 
    * Automatic backups in {{ mch-short-name }} include only the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
-   * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
+   * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
     For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
@@ -92,9 +92,9 @@ You are charged for the following:
 
    * The cost of using {{ objstorage-name }} includes both the space used by the backups and the space used by the data itself.
 
-   * Automatic backups in {{ mch-short-name }} include only the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+   * {{ mch-short-name }}'s automatic backup function does not create a new backup each time but saves the DB changes from the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 
 ### Example of cluster cost calculation {#example}
@@ -113,19 +113,17 @@ Let’s calculate the cost of using a cluster with the following properties for 
 
 
 
-
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mch-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mch-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. If the relevant CVoS columns under [Prices for the Russia region](#prices) are blank, this means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
-
 
 
 

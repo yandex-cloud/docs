@@ -1,6 +1,7 @@
 ---
 title: Message routing in {{ monitoring-full-name }}
 description: Message routing features routes, channels, and pipes.
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/routing.md
 ---
 
 # Routing
@@ -8,6 +9,7 @@ description: Message routing features routes, channels, and pipes.
 Message routing features routes, channels, and pipes.
 
 ## routes section {#routes}
+
 This section contains a list of [delivery routes](index.md#routing).
 
 Delivery routes consist of the following elements:
@@ -111,7 +113,7 @@ Example of the `case` element:
             plugin: dev_null
 ```
 
-## channels section {#channels}
+## The channels section {#channels}
 
 You can describe a [channel](index.md#channels) in the `routes`:`channel` section or in the separate `channels` section. You can use channels listed in the separate section in delivery routes, referring to them by name.
 

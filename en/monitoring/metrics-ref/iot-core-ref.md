@@ -2,6 +2,7 @@
 title: '{{ iot-full-name }} metrics'
 description: In this tutorial, you will learn about {{ iot-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/iot-core-ref.md
 ---
 
 # {{ iot-full-name }} metrics

@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/boot-image/list.md
 
 # yc baremetal boot-image list
 
-List images
+List boot-images
 
 #### Command Usage
 

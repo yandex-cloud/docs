@@ -2,6 +2,7 @@
 title: '{{ compute-full-name }} metrics'
 description: In this tutorial, you will learn about {{ compute-name }} metrics.
 editable: false
+sourcePath: en/monitoring_includes/metrics-ref/compute-ref.md
 ---
 
 # {{ compute-full-name }} metrics

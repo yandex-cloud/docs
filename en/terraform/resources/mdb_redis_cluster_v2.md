@@ -134,6 +134,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Attributes) Maintenance window settings of the Redis cluster. (see [below for nested schema](#nestedatt--maintenance_window))
+- `modules` (Attributes) Valkey modules. (see [below for nested schema](#nestedatt--modules))
 - `persistence_mode` (String) Persistence mode.
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `sharded` (Boolean) Redis sharded mode. Can be either true or false.
@@ -255,6 +256,42 @@ Optional:
 
 - `day` (String) Day of week for maintenance window if window type is weekly.
 - `hour` (Number) Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+
+
+<a id="nestedatt--modules"></a>
+### Nested Schema for `modules`
+
+Optional:
+
+- `valkey_bloom` (Attributes) Valkey bloom module settings. (see [below for nested schema](#nestedatt--modules--valkey_bloom))
+- `valkey_json` (Attributes) Valkey json module settings. (see [below for nested schema](#nestedatt--modules--valkey_json))
+- `valkey_search` (Attributes) Valkey search module settings. (see [below for nested schema](#nestedatt--modules--valkey_search))
+
+<a id="nestedatt--modules--valkey_bloom"></a>
+### Nested Schema for `modules.valkey_bloom`
+
+Optional:
+
+- `enabled` (Boolean) Enable Valkey bloom module.
+
+
+<a id="nestedatt--modules--valkey_json"></a>
+### Nested Schema for `modules.valkey_json`
+
+Optional:
+
+- `enabled` (Boolean) Enable Valkey json module.
+
+
+<a id="nestedatt--modules--valkey_search"></a>
+### Nested Schema for `modules.valkey_search`
+
+Optional:
+
+- `enabled` (Boolean) Enable Valkey search module.
+- `reader_threads` (Number) Number of reader threads.
+- `writer_threads` (Number) Number of writer threads.
+
 
 
 <a id="nestedatt--timeouts"></a>

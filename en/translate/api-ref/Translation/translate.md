@@ -57,15 +57,7 @@ apiPlayground:
           description: |-
             **[TranslateGlossaryConfig](#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
             Glossary to be applied for the translation. For more information, see [Glossaries](/docs/translate/concepts/glossary).
-          oneOf:
-            - type: object
-              properties:
-                glossaryData:
-                  description: |-
-                    **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
-                    Pass glossary data in the request. Currently, the only way to pass glossary.
-                    Includes only one of the fields `glossaryData`.
-                  $ref: '#/definitions/GlossaryData'
+          $ref: '#/definitions/TranslateGlossaryConfig'
         speller:
           description: |-
             **boolean**
@@ -108,6 +100,18 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/GlossaryPair'
+      TranslateGlossaryConfig:
+        type: object
+        properties:
+          glossaryData:
+            description: |-
+              **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
+              Pass glossary data in the request. Currently, the only way to pass glossary.
+              Includes only one of the fields `glossaryData`.
+            $ref: '#/definitions/GlossaryData'
+        oneOf:
+          - required:
+              - glossaryData
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/translate.md
 ---
 

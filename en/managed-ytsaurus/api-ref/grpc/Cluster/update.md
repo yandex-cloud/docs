@@ -76,7 +76,8 @@ Updates the specified cluster.
     },
     "odin": {
       "checks_ttl": "google.protobuf.Duration"
-    }
+    },
+    "flavor": "Flavor"
   }
 }
 ```
@@ -125,6 +126,10 @@ New cluster specification. ||
 || tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec)** ||
 || proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec)** ||
 || odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec)** ||
+|| flavor | enum **Flavor**
+
+- `FLAVOR_UNSPECIFIED`
+- `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec}
@@ -315,7 +320,8 @@ Includes only one of the fields `fixed`, `auto`. ||
       },
       "odin": {
         "checks_ttl": "google.protobuf.Duration"
-      }
+      },
+      "flavor": "Flavor"
     },
     "created_at": "google.protobuf.Timestamp",
     "created_by": "string",
@@ -477,6 +483,10 @@ Endpoints of the cluster. ||
 || tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec2)** ||
 || proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec2)** ||
 || odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec2)** ||
+|| flavor | enum **Flavor**
+
+- `FLAVOR_UNSPECIFIED`
+- `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec2}

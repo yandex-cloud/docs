@@ -57,6 +57,19 @@ apiPlayground:
               **string**
               Text content of the message.
             type: string
+      ContentPart:
+        type: object
+        properties:
+          text:
+            description: |-
+              **[Text](#yandex.cloud.ai.assistants.v1.threads.Text)**
+              Text content of the message part.
+              Includes only one of the fields `text`.
+              Specifies the type of content that the part contains.
+            $ref: '#/definitions/Text'
+        oneOf:
+          - required:
+              - text
       MessageContent:
         type: object
         properties:
@@ -66,16 +79,7 @@ apiPlayground:
               A list of content parts that make up the message.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    text:
-                      description: |-
-                        **[Text](#yandex.cloud.ai.assistants.v1.threads.Text)**
-                        Text content of the message part.
-                        Includes only one of the fields `text`.
-                        Specifies the type of content that the part contains.
-                      $ref: '#/definitions/Text'
+              $ref: '#/definitions/ContentPart'
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/create.md
 ---
 

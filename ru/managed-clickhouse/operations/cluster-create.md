@@ -165,6 +165,8 @@ description: Следуя данной инструкции, вы сможете
       
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
 
+        {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
 
       Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
@@ -229,7 +231,12 @@ description: Следуя данной инструкции, вы сможете
       * `--host` — параметры хоста:
         * `type` — тип хоста: `clickhouse` или `zookeeper`.
         * `zone-id` — зона доступности.
+
+        
         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+          {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
 
       
       * `--clickhouse-disk-type` — тип диска.
@@ -475,7 +482,13 @@ description: Следуя данной инструкции, вы сможете
        Где:
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+       
        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+          {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
+
        * `lifecycle.ignore_changes` — устраняет конфликты ресурсов при операциях с пользователями и базами данных, созданными с помощью отдельных ресурсов.
 
        Для пользователя указываются:
@@ -764,9 +777,12 @@ description: Следуя данной инструкции, вы сможете
                 * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
                 * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
                 * `shardName` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
-                * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
                 
+                * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+                   {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -1000,9 +1016,12 @@ description: Следуя данной инструкции, вы сможете
                 * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
                 * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
                 * `shard_name` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
-                * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
                 
+                * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+                   {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 

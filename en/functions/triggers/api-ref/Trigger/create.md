@@ -45,291 +45,7 @@ apiPlayground:
           description: |-
             **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule)**
             Required field. Trigger type.
-          oneOf:
-            - type: object
-              properties:
-                timer:
-                  description: |-
-                    **[Timer](#yandex.cloud.serverless.triggers.v1.Trigger.Timer)**
-                    Rule for a timed trigger.
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
-                            Instructions for invoking a function once.
-                            Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
-                          $ref: '#/definitions/InvokeFunctionOnce'
-                        invokeFunctionWithRetry:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retry.
-                            Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainerWithRetry:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retry.
-                            Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                messageQueue:
-                  description: |-
-                    **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue)**
-                    Rule for a message queue trigger.
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
-                            Instructions for invoking a function once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the queue.
-                          $ref: '#/definitions/InvokeFunctionOnce'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
-                            Instructions for invoking a container once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the queue.
-                          $ref: '#/definitions/InvokeContainerOnce'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the queue.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                iotMessage:
-                  description: |-
-                    **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage)**
-                    Rule for a IoT Core trigger.
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the MQTT topic.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the MQTT topic.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the MQTT topic.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                iotBrokerMessage:
-                  description: |-
-                    **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the MQTT topic.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the MQTT topic.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                            Action to be executed when the there's a new message in the MQTT topic.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                objectStorage:
-                  description: |-
-                    **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                containerRegistry:
-                  description: |-
-                    **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                cloudLogs:
-                  description: |-
-                    **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                logging:
-                  description: |-
-                    **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Instructions for invoking a function with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Instructions for invoking a container with retries as needed.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Instructions for broadcasting to API gateway websocket once.
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                billingBudget:
-                  description: |-
-                    **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                dataStream:
-                  description: |-
-                    **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
-                mail:
-                  description: |-
-                    **[Mail](#yandex.cloud.serverless.triggers.v1.Mail)**
-                    Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
-                  oneOf:
-                    - type: object
-                      properties:
-                        invokeFunction:
-                          description: |-
-                            **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeFunctionWithRetry'
-                        invokeContainer:
-                          description: |-
-                            **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/InvokeContainerWithRetry'
-                        gatewayWebsocketBroadcast:
-                          description: |-
-                            **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-                            Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
-                          $ref: '#/definitions/GatewayWebsocketBroadcast'
+          $ref: '#/definitions/Rule'
       required:
         - folderId
         - rule
@@ -469,6 +185,77 @@ apiPlayground:
           - gatewayId
           - path
           - serviceAccountId
+      Timer:
+        type: object
+        properties:
+          cronExpression:
+            description: |-
+              **string**
+              Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer).
+            type: string
+          payload:
+            description: |-
+              **string**
+              Payload to be passed to function.
+            type: string
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
+              Instructions for invoking a function once.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/InvokeFunctionOnce'
+          invokeFunctionWithRetry:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retry.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainerWithRetry:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retry.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - cronExpression
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeFunctionWithRetry
+          - required:
+              - invokeContainerWithRetry
+          - required:
+              - gatewayWebsocketBroadcast
+      BatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size. Trigger will send the batch of messages to the function
+              when the number of messages in the queue reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Required field. Maximum wait time. Trigger will send the batch of messages to the function when
+              the number of messages in the queue reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: duration
+        required:
+          - cutoff
       InvokeContainerOnce:
         type: object
         properties:
@@ -489,6 +276,690 @@ apiPlayground:
             type: string
         required:
           - containerId
+      MessageQueue:
+        type: object
+        properties:
+          queueId:
+            description: |-
+              **string**
+              Required field. ID of the message queue in Message Queue.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. ID of the service account which has read access to the message queue.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Required field. Batch settings for processing messages in the queue.
+            $ref: '#/definitions/BatchSettings'
+          visibilityTimeout:
+            description: |-
+              **string** (duration)
+              Queue visibility timeout override.
+            type: string
+            format: duration
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
+              Instructions for invoking a function once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/InvokeFunctionOnce'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
+              Instructions for invoking a container once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/InvokeContainerOnce'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - queueId
+          - serviceAccountId
+          - batchSettings
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      IoTMessage:
+        type: object
+        properties:
+          registryId:
+            description: |-
+              **string**
+              Required field. ID of the IoT Core registry.
+            type: string
+          deviceId:
+            description: |-
+              **string**
+              ID of the IoT Core device in the registry.
+            type: string
+          mqttTopic:
+            description: |-
+              **string**
+              MQTT topic whose messages activate the trigger.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - registryId
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      IoTBrokerMessage:
+        type: object
+        properties:
+          brokerId:
+            description: |-
+              **string**
+              Required field. ID of the IoT Core broker.
+            type: string
+          mqttTopic:
+            description: |-
+              **string**
+              MQTT topic whose messages activate the trigger.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - brokerId
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      ObjectStorage:
+        type: object
+        properties:
+          eventType:
+            description: |-
+              **enum** (ObjectStorageEventType)
+              Type (name) of events, at least one value is required.
+              - `OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED`
+              - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
+              - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
+              - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`
+            type: array
+            items:
+              type: string
+              enum:
+                - OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED
+                - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+                - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+                - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
+          bucketId:
+            description: |-
+              **string**
+              ID of the bucket.
+            type: string
+          prefix:
+            description: |-
+              **string**
+              Prefix of the object key. Filter, optional.
+            type: string
+          suffix:
+            description: |-
+              **string**
+              Suffix of the object key. Filter, optional.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      ContainerRegistry:
+        type: object
+        properties:
+          eventType:
+            description: |-
+              **enum** (ContainerRegistryEventType)
+              Type (name) of events, at least one value is required.
+              - `CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`
+            type: array
+            items:
+              type: string
+              enum:
+                - CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED
+                - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
+                - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
+                - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
+                - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
+          registryId:
+            description: |-
+              **string**
+              ID of the registry.
+            type: string
+          imageName:
+            description: |-
+              **string**
+              Docker-image name. Filter, optional.
+            type: string
+          tag:
+            description: |-
+              **string**
+              Docker-image tag. Filter, optional.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      CloudLogsBatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size. Trigger will send the batch of messages to the function
+              when the number of messages in the log group reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Maximum wait time. Trigger will send the batch of messages to the function when
+              the number of messages in the log group reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: duration
+      CloudLogs:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Log group identifiers, at least one value is required.
+            type: array
+            items:
+              type: string
+          batchSettings:
+            description: |-
+              **[CloudLogsBatchSettings](#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings)**
+              Required field. Batch settings for processing log events.
+            $ref: '#/definitions/CloudLogsBatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+        required:
+          - batchSettings
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+      LoggingBatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size. Trigger will send the batch of messages to the associated function
+              when the number of log events reaches this value, or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Maximum wait time. Trigger will send the batch of messages the time since the last batch
+              exceeds the `cutoff` value, regardless of the amount of log events.
+            type: string
+            format: duration
+      Logging:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Log events filter settings.
+            type: string
+          resourceType:
+            description: '**string**'
+            pattern: '[a-zA-Z][-a-zA-Z0-9_.]{1,62}'
+            type: array
+            items:
+              type: string
+          resourceId:
+            description: '**string**'
+            pattern: '[a-zA-Z][-a-zA-Z0-9_.]{1,62}'
+            type: array
+            items:
+              type: string
+          streamName:
+            description: '**string**'
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: array
+            items:
+              type: string
+          levels:
+            description: |-
+              **enum** (Level)
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: array
+            items:
+              type: string
+              enum:
+                - LEVEL_UNSPECIFIED
+                - TRACE
+                - DEBUG
+                - INFO
+                - WARN
+                - ERROR
+                - FATAL
+          batchSettings:
+            description: |-
+              **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings)**
+              Required field. Batch settings for processing log events.
+            $ref: '#/definitions/LoggingBatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - batchSettings
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      BillingBudget:
+        type: object
+        properties:
+          billingAccountId:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+          budgetId:
+            description: '**string**'
+            type: string
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - billingAccountId
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      DataStreamBatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size in bytes. Trigger will send the batch of messages to the associated function
+              when size of log events reaches this value, or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Maximum wait time. Trigger will send the batch of messages the time since the last batch
+              exceeds the `cutoff` value, regardless of the amount of log events.
+            type: string
+            format: duration
+      DataStream:
+        type: object
+        properties:
+          endpoint:
+            description: |-
+              **string**
+              Data stream endpoint.
+            type: string
+          database:
+            description: |-
+              **string**
+              Data stream database.
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream name.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to read data stream.
+            type: string
+          batchSettings:
+            description: |-
+              **[DataStreamBatchSettings](#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/DataStreamBatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      ObjectStorageBucketSettings:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Bucket for saving.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. SA which has write permission on storage.
+            type: string
+        required:
+          - serviceAccountId
+      Mail:
+        type: object
+        properties:
+          email:
+            description: |-
+              **string**
+              Address to receive emails for trigger activation.
+              Field is ignored for write requests and populated on trigger creation.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          attachmentsBucket:
+            description: |-
+              **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings)**
+              Bucket settings for saving attachments.
+            $ref: '#/definitions/ObjectStorageBucketSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      Rule:
+        type: object
+        properties:
+          timer:
+            description: |-
+              **[Timer](#yandex.cloud.serverless.triggers.v1.Trigger.Timer)**
+              Rule for a timed trigger.
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/Timer'
+          messageQueue:
+            description: |-
+              **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue)**
+              Rule for a message queue trigger.
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/MessageQueue'
+          iotMessage:
+            description: |-
+              **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage)**
+              Rule for a IoT Core trigger.
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/IoTMessage'
+          iotBrokerMessage:
+            description: |-
+              **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/IoTBrokerMessage'
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/ObjectStorage'
+          containerRegistry:
+            description: |-
+              **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/ContainerRegistry'
+          cloudLogs:
+            description: |-
+              **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/CloudLogs'
+          logging:
+            description: |-
+              **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/Logging'
+          billingBudget:
+            description: |-
+              **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/BillingBudget'
+          dataStream:
+            description: |-
+              **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/DataStream'
+          mail:
+            description: |-
+              **[Mail](#yandex.cloud.serverless.triggers.v1.Mail)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/Mail'
+        oneOf:
+          - required:
+              - timer
+          - required:
+              - messageQueue
+          - required:
+              - iotMessage
+          - required:
+              - iotBrokerMessage
+          - required:
+              - objectStorage
+          - required:
+              - containerRegistry
+          - required:
+              - cloudLogs
+          - required:
+              - logging
+          - required:
+              - billingBudget
+          - required:
+              - dataStream
+          - required:
+              - mail
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/create.md
 ---
 

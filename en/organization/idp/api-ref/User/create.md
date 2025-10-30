@@ -74,6 +74,11 @@ apiPlayground:
         - username
         - fullName
       additionalProperties: false
+      oneOf:
+        - required:
+            - passwordSpec
+        - required:
+            - passwordHash
     definitions:
       PasswordSpec:
         type: object

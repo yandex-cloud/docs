@@ -48,4 +48,7 @@ A set of methods for managing ClickHouse clusters.
 || [CreateExternalDictionary](createExternalDictionary.md) | Creates an external dictionary for the specified ClickHouse cluster. ||
 || [UpdateExternalDictionary](updateExternalDictionary.md) | Updates an external dictionary for the specified ClickHouse cluster. ||
 || [DeleteExternalDictionary](deleteExternalDictionary.md) | Deletes the specified external dictionary. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified ClickHouse cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified ClickHouse cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified ClickHouse cluster. ||
 |#

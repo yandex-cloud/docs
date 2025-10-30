@@ -29,4 +29,7 @@ A set of methods for managing Greenplum® clusters.
 || [ListBackups](listBackups.md) | Retrieves a list of available backups for the specified Greenplum® cluster. ||
 || [Backup](backup.md) | Creates a backup for the specified Greenplum cluster. ||
 || [Restore](restore.md) | Creates a new Greenplum® cluster using the specified backup. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified Greenplum® cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified Greenplum® cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Greenplum® cluster. ||
 |#

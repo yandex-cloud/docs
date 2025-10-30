@@ -64,21 +64,7 @@ apiPlayground:
             One or more configurations of topics to be created in the Apache Kafka® cluster.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  topicConfig_2_8:
-                    description: |-
-                      **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
-                      Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
-                      User-defined settings for the topic.
-                    $ref: '#/definitions/TopicConfig2_8'
-                  topicConfig_3:
-                    description: |-
-                      **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
-                      Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
-                      User-defined settings for the topic.
-                    $ref: '#/definitions/TopicConfig3'
+            $ref: '#/definitions/TopicSpec'
         userSpecs:
           description: |-
             **[UserSpec](#yandex.cloud.mdb.kafka.v1.UserSpec)**
@@ -121,24 +107,32 @@ apiPlayground:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
             Window of maintenance operations.
-          oneOf:
-            - type: object
-              properties:
-                anytime:
-                  description: |-
-                    **object**
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/AnytimeMaintenanceWindow'
-                weeklyMaintenanceWindow:
-                  description: |-
-                    **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
-                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
-                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+          $ref: '#/definitions/MaintenanceWindow'
       required:
         - folderId
         - name
       additionalProperties: false
     definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory, etc.).
+              All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+            type: string
       KafkaConfig2_8:
         type: object
         properties:
@@ -461,26 +455,31 @@ apiPlayground:
                 - SASL_MECHANISM_UNSPECIFIED
                 - SASL_MECHANISM_SCRAM_SHA_256
                 - SASL_MECHANISM_SCRAM_SHA_512
-      Resources:
+      Kafka:
         type: object
         properties:
-          resourcePresetId:
+          resources:
             description: |-
-              **string**
-              ID of the preset for computational resources available to a host (CPU, memory, etc.).
-              All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
-            type: string
-          diskSize:
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+              Resources allocated to Kafka brokers.
+            $ref: '#/definitions/Resources'
+          kafkaConfig_2_8:
             description: |-
-              **string** (int64)
-              Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
-            type: string
-            format: int64
-          diskTypeId:
+              **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig2_8'
+          kafkaConfig_3:
             description: |-
-              **string**
-              Type of the storage environment for the host.
-            type: string
+              **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig3'
+        oneOf:
+          - required:
+              - kafkaConfig_2_8
+          - required:
+              - kafkaConfig_3
       Zookeeper:
         type: object
         properties:
@@ -554,21 +553,7 @@ apiPlayground:
             description: |-
               **[Kafka](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka)**
               Configuration and resource allocation for Kafka brokers.
-            oneOf:
-              - type: object
-                properties:
-                  kafkaConfig_2_8:
-                    description: |-
-                      **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
-                      Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
-                      Kafka broker configuration.
-                    $ref: '#/definitions/KafkaConfig2_8'
-                  kafkaConfig_3:
-                    description: |-
-                      **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
-                      Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
-                      Kafka broker configuration.
-                    $ref: '#/definitions/KafkaConfig3'
+            $ref: '#/definitions/Kafka'
           zookeeper:
             description: |-
               **[Zookeeper](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
@@ -630,6 +615,11 @@ apiPlayground:
               **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
               Configuration of Kafka UI.
             $ref: '#/definitions/KafkaUIConfig'
+          patchVersion:
+            description: |-
+              **string**
+              Patch or release version ex. 3.9.1, 4.0.1 etc
+            type: string
       TopicConfig2_8:
         type: object
         properties:
@@ -856,6 +846,43 @@ apiPlayground:
               Deprecated. Feature useless for Yandex Cloud.
             deprecated: true
             type: boolean
+      TopicSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the topic.
+            type: string
+          partitions:
+            description: |-
+              **string** (int64)
+              The number of the topic's partitions.
+            type: string
+            format: int64
+          replicationFactor:
+            description: |-
+              **string** (int64)
+              Amount of copies of a topic data kept in the cluster.
+            type: string
+            format: int64
+          topicConfig_2_8:
+            description: |-
+              **[TopicConfig2_8](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8)**
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+              User-defined settings for the topic.
+            $ref: '#/definitions/TopicConfig2_8'
+          topicConfig_3:
+            description: |-
+              **[TopicConfig3](#yandex.cloud.mdb.kafka.v1.TopicConfig3)**
+              Includes only one of the fields `topicConfig_2_8`, `topicConfig_3`.
+              User-defined settings for the topic.
+            $ref: '#/definitions/TopicConfig3'
+        oneOf:
+          - required:
+              - topicConfig_2_8
+          - required:
+              - topicConfig_3
       Permission:
         type: object
         properties:
@@ -959,6 +986,24 @@ apiPlayground:
               Hour of the day in UTC.
             type: string
             format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/create.md
 ---
 
@@ -1078,7 +1123,8 @@ POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters
     },
     "kafkaUiConfig": {
       "enabled": "boolean"
-    }
+    },
+    "patchVersion": "string"
   },
   "topicSpecs": [
     {
@@ -1256,6 +1302,9 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
 
 Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}
@@ -1945,7 +1994,8 @@ Hour of the day in UTC. ||
       },
       "kafkaUiConfig": {
         "enabled": "boolean"
-      }
+      },
+      "patchVersion": "string"
     },
     "networkId": "string",
     "health": "string",
@@ -2228,6 +2278,9 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig2)**
 
 Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka2}

@@ -24,6 +24,36 @@ apiPlayground:
         - runId
       additionalProperties: false
     definitions:
+      FunctionResult:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              The name of the function that was executed.
+            type: string
+          content:
+            description: |-
+              **string**
+              The result of the function call, represented as a string.
+              This field can be used to store the output of the function.
+              Includes only one of the fields `content`.
+            type: string
+        oneOf:
+          - required:
+              - content
+      ToolResult:
+        type: object
+        properties:
+          functionResult:
+            description: |-
+              **[FunctionResult](#yandex.cloud.ai.assistants.v1.FunctionResult)**
+              Represents the result of a function call.
+              Includes only one of the fields `functionResult`.
+            $ref: '#/definitions/FunctionResult'
+        oneOf:
+          - required:
+              - functionResult
       ToolResultList:
         type: object
         properties:
@@ -33,24 +63,7 @@ apiPlayground:
               A list of tool results.
             type: array
             items:
-              oneOf:
-                - type: object
-                  properties:
-                    functionResult:
-                      description: |-
-                        **[FunctionResult](#yandex.cloud.ai.assistants.v1.FunctionResult)**
-                        Represents the result of a function call.
-                        Includes only one of the fields `functionResult`.
-                      oneOf:
-                        - type: object
-                          properties:
-                            content:
-                              description: |-
-                                **string**
-                                The result of the function call, represented as a string.
-                                This field can be used to store the output of the function.
-                                Includes only one of the fields `content`.
-                              type: string
+              $ref: '#/definitions/ToolResult'
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/submit.md
 ---
 

@@ -17,7 +17,7 @@ apiPlayground:
             **string**
             Required field. Name of the user to be updated.
             To get the name of the user use a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
-          pattern: '[a-zA-Z0-9_-]*'
+          pattern: '[a-zA-Z0-9_@.-]*'
           type: string
       required:
         - clusterId
@@ -58,6 +58,7 @@ apiPlayground:
             When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config.max_connections] setting.
             When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
             Minimum value: `10` (default: `50`), when used in session pooling.
+          default: 50`), when used in session pooling
           type: string
           format: int64
         settings:
@@ -68,6 +69,7 @@ apiPlayground:
             **boolean**
             This flag defines whether the user can login to a PostgreSQL database.
             Default value: `true` (login is allowed).
+          default: true` (login is allowed)
           type: boolean
         grants:
           description: |-
@@ -83,6 +85,7 @@ apiPlayground:
             **boolean**
             Deletion Protection inhibits deletion of the user
             Default value: `unspecified` (inherits cluster's deletion_protection)
+          default: unspecified` (inherits cluster's deletion_protection)
           type: boolean
         userPasswordEncryption:
           description: |-
@@ -102,6 +105,18 @@ apiPlayground:
             **boolean**
             Generate password using Connection Manager.
           type: boolean
+        authMethod:
+          description: |-
+            **enum** (AuthMethod)
+            User Auth method
+            - `AUTH_METHOD_UNSPECIFIED`
+            - `AUTH_METHOD_PASSWORD`
+            - `AUTH_METHOD_IAM`
+          type: string
+          enum:
+            - AUTH_METHOD_UNSPECIFIED
+            - AUTH_METHOD_PASSWORD
+            - AUTH_METHOD_IAM
       additionalProperties: false
     definitions:
       Permission:
@@ -175,6 +190,7 @@ apiPlayground:
               The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
               If the wait time is longer than the specified amount, then this statement is aborted.
               Default value: `0` (no control is enforced, a statement waiting time is unlimited).
+            default: 0` (no control is enforced, a statement waiting time is unlimited)
             type: string
             format: int64
           logMinDurationStatement:
@@ -362,7 +378,8 @@ To get the name of the user use a [UserService.List](/docs/managed-postgresql/ap
   ],
   "deletionProtection": "boolean",
   "userPasswordEncryption": "string",
-  "generatePassword": "boolean"
+  "generatePassword": "boolean",
+  "authMethod": "string"
 }
 ```
 
@@ -420,6 +437,13 @@ Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRY
 || generatePassword | **boolean**
 
 Generate password using Connection Manager. ||
+|| authMethod | **enum** (AuthMethod)
+
+User Auth method
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -651,7 +675,8 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
     "userPasswordEncryption": "string",
     "connectionManager": {
       "connectionId": "string"
-    }
+    },
+    "authMethod": "string"
   }
   // end of the list of possible fields
 }
@@ -808,6 +833,13 @@ The default is `` password_encryption `` setting for cluster.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| authMethod | **enum** (AuthMethod)
+
+Auth method for user
+
+- `AUTH_METHOD_UNSPECIFIED`
+- `AUTH_METHOD_PASSWORD`
+- `AUTH_METHOD_IAM` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission2}

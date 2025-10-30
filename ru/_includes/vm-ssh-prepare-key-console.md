@@ -8,3 +8,15 @@
     {% include [where-generated-keys](./compute/create/where-generated-keys.md) %}
 
     {% include [ssh-add-to-org-profile](./compute/create/ssh-add-to-org-profile.md) %}
+
+{% cut "Предупреждение UNPROTECTED PRIVATE KEY FILE" %}
+    
+В Unix-подобных системах после распаковки закрытого ключа в папку `.ssh` ему назначаются слишком высокие права. Из-за этого при подключении к ВМ возникает предупреждение `UNPROTECTED PRIVATE KEY FILE`. Чтобы сократить права, выполните команду:
+
+```bash
+chmod 600 <путь_к_файлу_закрытого_ключа>
+```
+    
+{% endcut %}
+    
+    

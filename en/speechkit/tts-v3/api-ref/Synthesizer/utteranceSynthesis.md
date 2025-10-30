@@ -34,79 +34,13 @@ apiPlayground:
             Optional hints for synthesis.
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  voice:
-                    description: |-
-                      **string**
-                      Name of speaker to use.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    type: string
-                  audioTemplate:
-                    description: |-
-                      **[AudioTemplate](#speechkit.tts.v3.AudioTemplate)**
-                      Template for synthesizing.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    $ref: '#/definitions/AudioTemplate'
-                  speed:
-                    description: |-
-                      **string**
-                      Hint to change speed.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    type: string
-                  volume:
-                    description: |-
-                      **string**
-                      Hint to regulate normalization level.
-                      * For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
-                      * For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    type: string
-                  role:
-                    description: |-
-                      **string**
-                      Hint to specify pronunciation character for the speaker.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    type: string
-                  pitchShift:
-                    description: |-
-                      **string**
-                      Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    type: string
-                  duration:
-                    description: |-
-                      **[DurationHint](#speechkit.tts.v3.DurationHint)**
-                      Hint to limit both minimum and maximum audio duration.
-                      Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
-                      The hint for TTS engine to specify synthesised audio characteristics.
-                    $ref: '#/definitions/DurationHint'
+            $ref: '#/definitions/Hints'
         outputAudioSpec:
           description: |-
             **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
             Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header
-          oneOf:
-            - type: object
-              properties:
-                rawAudio:
-                  description: |-
-                    **[RawAudio](#speechkit.tts.v3.RawAudio)**
-                    The audio format specified in request parameters.
-                    Includes only one of the fields `rawAudio`, `containerAudio`.
-                  $ref: '#/definitions/RawAudio'
-                containerAudio:
-                  description: |-
-                    **[ContainerAudio](#speechkit.tts.v3.ContainerAudio)**
-                    The audio format specified inside the container metadata.
-                    Includes only one of the fields `rawAudio`, `containerAudio`.
-                  $ref: '#/definitions/ContainerAudio'
+          default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header
+          $ref: '#/definitions/AudioFormatOptions'
         loudnessNormalizationType:
           description: |-
             **enum** (LoudnessNormalizationType)
@@ -115,7 +49,7 @@ apiPlayground:
             - `LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED`
             - `MAX_PEAK`: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
             - `LUFS`: The type of normalization based on EBU R 128 recommendation.
-          default: '`LUFS`'
+          default: LUFS
           type: string
           enum:
             - LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED
@@ -127,6 +61,11 @@ apiPlayground:
             Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible.
           type: boolean
       additionalProperties: false
+      oneOf:
+        - required:
+            - text
+        - required:
+            - textTemplate
     definitions:
       TextVariable:
         type: object
@@ -158,79 +97,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/TextVariable'
-      AudioVariable:
-        type: object
-        properties:
-          variableName:
-            description: |-
-              **string**
-              The name of the variable.
-            type: string
-          variableStartMs:
-            description: |-
-              **string** (int64)
-              Start time of the variable in milliseconds.
-            type: string
-            format: int64
-          variableLengthMs:
-            description: |-
-              **string** (int64)
-              Length of the variable in milliseconds.
-            type: string
-            format: int64
-      AudioTemplate:
-        type: object
-        properties:
-          audio:
-            description: |-
-              **[AudioContent](#speechkit.tts.v3.AudioContent)**
-              Audio file.
-            oneOf:
-              - type: object
-                properties:
-                  content:
-                    description: |-
-                      **string** (bytes)
-                      Bytes with audio data.
-                      Includes only one of the fields `content`.
-                      The audio source to read the data from.
-                    type: string
-                    format: bytes
-          textTemplate:
-            description: |-
-              **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
-              Template and description of its variables.
-            $ref: '#/definitions/TextTemplate'
-          variables:
-            description: |-
-              **[AudioVariable](#speechkit.tts.v3.AudioVariable)**
-              Describing variables in audio.
-            type: array
-            items:
-              $ref: '#/definitions/AudioVariable'
-      DurationHint:
-        type: object
-        properties:
-          policy:
-            description: |-
-              **enum** (DurationHintPolicy)
-              Type of duration constraint.
-              - `DURATION_HINT_POLICY_UNSPECIFIED`
-              - `EXACT_DURATION`: Limit audio duration to exact value.
-              - `MIN_DURATION`: Limit the minimum audio duration.
-              - `MAX_DURATION`: Limit the maximum audio duration.
-            type: string
-            enum:
-              - DURATION_HINT_POLICY_UNSPECIFIED
-              - EXACT_DURATION
-              - MIN_DURATION
-              - MAX_DURATION
-          durationMs:
-            description: |-
-              **string** (int64)
-              Constraint on audio duration in milliseconds.
-            type: string
-            format: int64
       RawAudio:
         type: object
         properties:
@@ -266,6 +132,177 @@ apiPlayground:
               - WAV
               - OGG_OPUS
               - MP3
+      AudioFormatOptions:
+        type: object
+        properties:
+          rawAudio:
+            description: |-
+              **[RawAudio](#speechkit.tts.v3.RawAudio)**
+              The audio format specified in request parameters.
+              Includes only one of the fields `rawAudio`, `containerAudio`.
+            $ref: '#/definitions/RawAudio'
+          containerAudio:
+            description: |-
+              **[ContainerAudio](#speechkit.tts.v3.ContainerAudio)**
+              The audio format specified inside the container metadata.
+              Includes only one of the fields `rawAudio`, `containerAudio`.
+            $ref: '#/definitions/ContainerAudio'
+        oneOf:
+          - required:
+              - rawAudio
+          - required:
+              - containerAudio
+      AudioContent:
+        type: object
+        properties:
+          content:
+            description: |-
+              **string** (bytes)
+              Bytes with audio data.
+              Includes only one of the fields `content`.
+              The audio source to read the data from.
+            type: string
+            format: bytes
+          audioSpec:
+            description: |-
+              **[AudioFormatOptions](#speechkit.tts.v3.AudioFormatOptions)**
+              Description of the audio format.
+            $ref: '#/definitions/AudioFormatOptions'
+        oneOf:
+          - required:
+              - content
+      AudioVariable:
+        type: object
+        properties:
+          variableName:
+            description: |-
+              **string**
+              The name of the variable.
+            type: string
+          variableStartMs:
+            description: |-
+              **string** (int64)
+              Start time of the variable in milliseconds.
+            type: string
+            format: int64
+          variableLengthMs:
+            description: |-
+              **string** (int64)
+              Length of the variable in milliseconds.
+            type: string
+            format: int64
+      AudioTemplate:
+        type: object
+        properties:
+          audio:
+            description: |-
+              **[AudioContent](#speechkit.tts.v3.AudioContent)**
+              Audio file.
+            $ref: '#/definitions/AudioContent'
+          textTemplate:
+            description: |-
+              **[TextTemplate](#speechkit.tts.v3.TextTemplate)**
+              Template and description of its variables.
+            $ref: '#/definitions/TextTemplate'
+          variables:
+            description: |-
+              **[AudioVariable](#speechkit.tts.v3.AudioVariable)**
+              Describing variables in audio.
+            type: array
+            items:
+              $ref: '#/definitions/AudioVariable'
+      DurationHint:
+        type: object
+        properties:
+          policy:
+            description: |-
+              **enum** (DurationHintPolicy)
+              Type of duration constraint.
+              - `DURATION_HINT_POLICY_UNSPECIFIED`
+              - `EXACT_DURATION`: Limit audio duration to exact value.
+              - `MIN_DURATION`: Limit the minimum audio duration.
+              - `MAX_DURATION`: Limit the maximum audio duration.
+            type: string
+            enum:
+              - DURATION_HINT_POLICY_UNSPECIFIED
+              - EXACT_DURATION
+              - MIN_DURATION
+              - MAX_DURATION
+          durationMs:
+            description: |-
+              **string** (int64)
+              Constraint on audio duration in milliseconds.
+            type: string
+            format: int64
+      Hints:
+        type: object
+        properties:
+          voice:
+            description: |-
+              **string**
+              Name of speaker to use.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            type: string
+          audioTemplate:
+            description: |-
+              **[AudioTemplate](#speechkit.tts.v3.AudioTemplate)**
+              Template for synthesizing.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            $ref: '#/definitions/AudioTemplate'
+          speed:
+            description: |-
+              **string**
+              Hint to change speed.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            type: string
+          volume:
+            description: |-
+              **string**
+              Hint to regulate normalization level.
+              * For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
+              * For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            type: string
+          role:
+            description: |-
+              **string**
+              Hint to specify pronunciation character for the speaker.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            type: string
+          pitchShift:
+            description: |-
+              **string**
+              Hint to increase (or decrease) speaker's pitch, measured in Hz. Valid values are in range [-1000;1000], default value is 0.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            type: string
+          duration:
+            description: |-
+              **[DurationHint](#speechkit.tts.v3.DurationHint)**
+              Hint to limit both minimum and maximum audio duration.
+              Includes only one of the fields `voice`, `audioTemplate`, `speed`, `volume`, `role`, `pitchShift`, `duration`.
+              The hint for TTS engine to specify synthesised audio characteristics.
+            $ref: '#/definitions/DurationHint'
+        oneOf:
+          - required:
+              - voice
+          - required:
+              - audioTemplate
+          - required:
+              - speed
+          - required:
+              - volume
+          - required:
+              - role
+          - required:
+              - pitchShift
+          - required:
+              - duration
 sourcePath: en/_api-ref/ai/tts/v3/tts-v3/api-ref/Synthesizer/utteranceSynthesis.md
 ---
 

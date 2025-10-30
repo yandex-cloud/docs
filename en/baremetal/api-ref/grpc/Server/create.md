@@ -107,7 +107,9 @@ ID of the configuration to use for the server.
 To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/grpc/Configuration/list#List) request. ||
 || rental_period_id | **string**
 
-A period of time for which the server is rented. ||
+A period of time for which the server is rented.
+
+To get the rental period ID, use a [RentalPeriodService.List](/docs/baremetal/api-ref/grpc/RentalPeriod/list#List) request. ||
 || network_interfaces[] | **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
 
 Network configuration for the server. Specifies how the network interface is configured

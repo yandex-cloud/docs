@@ -65,7 +65,7 @@ output "network_id" {
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `status` (String) Status of the cluster.
 - `user` (List of Object) To manage users, please switch to using a separate resource type `yandex_mdb_mysql_user`. (see [below for nested schema](#nestedatt--user))
-- `version` (String) Version of the MySQL cluster. (allowed versions are: 5.7, 8.0).
+- `version` (String) Version of the MySQL cluster. (allowed versions are: 5.7, 8.0, 8.4).
 
 <a id="nestedblock--access"></a>
 ### Nested Schema for `access`

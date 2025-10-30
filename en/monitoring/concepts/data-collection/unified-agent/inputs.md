@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/inputs.md
+---
 # Inputs
 
 You can specify an input in the `routes`:`input` section. The common input description format is:
@@ -41,20 +44,20 @@ Parameter descriptions:
       plugin: metrics_pull
       config:
         # Metric collection URL.
-        url: http://localhost:12345  # Required.
+        url: http://localhost:12345  # required
 
         # Format of received messages. Only the prometheus value is currently supported.
-        format:  # Required.
+        format:  # required
           # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md).
           prometheus: {}
         
-        metric_name_label:  my_name  # optional, allows you to rename your application's name label because this name is reserved by the agent
+        metric_name_label:  my_name  # optional, allows you to rename your application's name label because this name is reserved by the agent.
 
         # Data source polling frequency.
         # Start times are aligned to the grid of the poll_period size starting from the Unix epoch.
         poll_period: 15s  # optional, the default value is 15 seconds
 
-        # Namespace to place metrics into.
+        # Namespace to place the metrics in.
         # If specified, it will be added as a prefix followed by a dot to every metric name.
         namespace: null  # optional, not set by default
 
@@ -144,12 +147,12 @@ Parameter descriptions:
 
     # Directory where sysfs is mounted and counters will be taken from.
     # If the agent is running in a Docker container, provide the host's /sys into the container using the -v parameter in order to monitor the host.
-    sys_directory: "/sys"  # optional, the default value is "/sys"
+    sys_directory: "/sys"  # optional, the default value is “/sys"
 
     # List of resources to collect statistics from.
     # Key: One out of the following: `cpu`, `memory`, `network`, `storage`, `io`, `kernel`.
     # Value: Level of detail, one out of the following: `basic`, `advanced`.
-    resources:  # Optional.
+    resources:  # optional
         cpu: advanced  # optional, the default value is `basic`
 
         memory: advanced  # optional, the default value is `basic`
@@ -239,7 +242,7 @@ Parameter descriptions:
           # The parameter cannot be used when reading from a rotated file.
           min_bytes_read: 1Mb # optional, the default value is 1kb
 
-          # Line break character.
+          # Line break character
           line_delimiter: "\n" # optional, the default value is "\n"
 
           # Keeping the log file always open. Otherwise, the file opens only when read and the required reading position is set
@@ -250,7 +253,7 @@ Parameter descriptions:
           file_format: auto # optional, the default value is auto
 
           # Maximum frequency for resetting the internal buffer with dearchived data (in milliseconds).
-          # Small values result in efficient use of memory, but increase the load on the CPU.
+          # Small values result in efficient use of memory, but increase the load on the CPU
           archive_shrink_period_ms: 1000 # optional, the default value is 1,000 (one second)
 
           # Treating the path parameter as a search mask for the files that need processing.
@@ -265,7 +268,7 @@ Parameter descriptions:
           # Determines whether to calculate metrics for each input file in addition to aggregated metrics.
           per_file_metrics: false # optional, the default value is false
 
-          # Processing multiline messages.
+          # Processing multiline messages
           multiline:
 
             # Enables multiline message processing.
@@ -277,7 +280,7 @@ Parameter descriptions:
             # Regular expression that determines the beginning of a multiline message.
             # All subsequent lines not matching the regular expression will be joined to the current message.
             # The default value matches the beginning of the line in "2022-07-01 16:50:16,037 WARN" format.
-            multiline_start_prefix: "^(\\d\\d\\d\\d-\\d\\d-\\d\\d)\\s*(\\d\\d:\\d\\d:\\d\\d,\\d\\d\\d)\\s*(\\w*)" # Optional.
+            multiline_start_prefix: "^(\\d\\d\\d\\d-\\d\\d-\\d\\d)\\s*(\\d\\d:\\d\\d:\\d\\d,\\d\\d\\d)\\s*(\\w*)" # optional
 
             # To read log files, you can specify the group number according to the importance level.
             # Not used if set to a value higher than the number of groups in the regular expression.
@@ -285,7 +288,7 @@ Parameter descriptions:
             # It can be subsequently considered during message processing and its delivery to the agent’s output, e.g., by the yc_logs output.
             log_priority_group: 3 # optional, the default value is 3
 
-            # Mapping the logging levels with values from the regular expression group.
+            # Mapping the logging levels with values from the regular expression group
             priority_resources: "RESOURCES"           # optional, the default value is "RESOURCES"
             priority_debug: "DEBUG"                   # optional, the default value is "DEBUG"
             priority_info: "INFO"                     # optional, the default value is "INFO"
@@ -312,7 +315,7 @@ Parameter descriptions:
       host: null  # optional, the default value is null
 
       # Port to run the HTTP server on.
-      port: 22132  # Required.
+      port: 22132  # required
 
       # Path the handler will be registered at.
       path: '/write'  # optional, the default value is '/write'
@@ -330,7 +333,7 @@ Parameter descriptions:
       # If _endpoints_ is specified, the default connection point (/write) is not used.
       # In this mode, you can only specify the host, port, and endpoints elements in the configuration.
       endpoints:  # optional, the default value is []
-        - path: '/my_path'  # Required.
+        - path: '/my_path'  # required
           # Names of HTTP request headers you need to save to the message metadata.
           capture_request_headers: [ ]  # optional, not set by default
 ```

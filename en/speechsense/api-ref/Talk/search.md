@@ -34,45 +34,7 @@ apiPlayground:
             metadata keys filters (user and system)
           type: array
           items:
-            oneOf:
-              - type: object
-                properties:
-                  anyMatch:
-                    description: |-
-                      **[AnyMatchFilter](#yandex.cloud.speechsense.v1.AnyMatchFilter)**
-                      find talk matched by any text filters
-                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
-                    $ref: '#/definitions/AnyMatchFilter'
-                  intRange:
-                    description: |-
-                      **[IntRangeFilter](#yandex.cloud.speechsense.v1.IntRangeFilter)**
-                      find talks with value from int range
-                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
-                    $ref: '#/definitions/IntRangeFilter'
-                  doubleRange:
-                    description: |-
-                      **[DoubleRangeFilter](#yandex.cloud.speechsense.v1.DoubleRangeFilter)**
-                      find talks with value from double range
-                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
-                    $ref: '#/definitions/DoubleRangeFilter'
-                  dateRange:
-                    description: |-
-                      **[DateRangeFilter](#yandex.cloud.speechsense.v1.DateRangeFilter)**
-                      find talks with value from date range
-                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
-                    $ref: '#/definitions/DateRangeFilter'
-                  durationRange:
-                    description: |-
-                      **[DurationRangeFilter](#yandex.cloud.speechsense.v1.DurationRangeFilter)**
-                      find talks with value from duration range
-                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
-                    $ref: '#/definitions/DurationRangeFilter'
-                  booleanMatch:
-                    description: |-
-                      **[BooleanFilter](#yandex.cloud.speechsense.v1.BooleanFilter)**
-                      find talks with value equals boolean
-                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
-                    $ref: '#/definitions/BooleanFilter'
+            $ref: '#/definitions/Filter'
         query:
           description: |-
             **[Query](#yandex.cloud.speechsense.v1.Query)**
@@ -193,6 +155,72 @@ apiPlayground:
           value:
             description: '**boolean**'
             type: boolean
+      Filter:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              metadata key (user.some_key / system.created_at / analysis.speechkit.duration)
+            type: string
+          anyMatch:
+            description: |-
+              **[AnyMatchFilter](#yandex.cloud.speechsense.v1.AnyMatchFilter)**
+              find talk matched by any text filters
+              Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+            $ref: '#/definitions/AnyMatchFilter'
+          intRange:
+            description: |-
+              **[IntRangeFilter](#yandex.cloud.speechsense.v1.IntRangeFilter)**
+              find talks with value from int range
+              Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+            $ref: '#/definitions/IntRangeFilter'
+          doubleRange:
+            description: |-
+              **[DoubleRangeFilter](#yandex.cloud.speechsense.v1.DoubleRangeFilter)**
+              find talks with value from double range
+              Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+            $ref: '#/definitions/DoubleRangeFilter'
+          dateRange:
+            description: |-
+              **[DateRangeFilter](#yandex.cloud.speechsense.v1.DateRangeFilter)**
+              find talks with value from date range
+              Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+            $ref: '#/definitions/DateRangeFilter'
+          durationRange:
+            description: |-
+              **[DurationRangeFilter](#yandex.cloud.speechsense.v1.DurationRangeFilter)**
+              find talks with value from duration range
+              Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+            $ref: '#/definitions/DurationRangeFilter'
+          booleanMatch:
+            description: |-
+              **[BooleanFilter](#yandex.cloud.speechsense.v1.BooleanFilter)**
+              find talks with value equals boolean
+              Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+            $ref: '#/definitions/BooleanFilter'
+          inverse:
+            description: '**boolean**'
+            type: boolean
+          channelNumber:
+            description: |-
+              **string** (int64)
+              channel number to apply filter for, starting with 0. applies to all channels if not specified
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - anyMatch
+          - required:
+              - intRange
+          - required:
+              - doubleRange
+          - required:
+              - dateRange
+          - required:
+              - durationRange
+          - required:
+              - booleanMatch
       Query:
         type: object
         properties:
