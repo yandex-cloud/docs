@@ -17,7 +17,7 @@ description: Контроль {{ k8s }}® (KSPM) контролирует соо
 
 {% include [kspm-alerts](../../_includes/security-deck/kspm-alerts.md) %}
 
-Подробнее см. на странице [{#T}](../operations/kspm.md).
+Подробнее см. на странице [{#T}](../operations/kspm/enable-kspm.md).
 
 ### См. также {#see-also}
 
@@ -25,5 +25,5 @@ description: Контроль {{ k8s }}® (KSPM) контролирует соо
 * [{#T}](cspm.md)
 * [{#T}](ai-assistant.md)
 * [{#T}](../quickstart-overview.md)
-* [{#T}](../operations/kspm.md).
+* [{#T}](../operations/kspm/enable-kspm.md).
 * [{#T}](../security/kspm-roles.md)

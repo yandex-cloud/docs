@@ -1124,6 +1124,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
+      - name: Использование QL-чартов запрещено на уровне подключения
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md
       - name: Subquery source is disallowed in the connection settings
         hidden: true
         href: >-

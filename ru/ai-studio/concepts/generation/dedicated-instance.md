@@ -14,24 +14,30 @@
 
 ## Модели выделенного инстанса {#models}
 
-Все развернутые модели доступны через API, совместимый с [{{ openai }}](../openai-compatibility.md), {{ ml-sdk-name }} и в {{ ai-playground }}. Чтобы развернуть выделенный инстанс, понадобится [роль](../../security/index.md) `ai.models.editor` или выше на каталог. Для обращения к модели достаточно роли `ai.languageModels.user`. 
+Все развернутые модели доступны через API, совместимый с [{{ openai }}](../openai-compatibility.md), {{ ml-sdk-name }} и в {{ ai-playground }}. Чтобы развернуть выделенный инстанс, понадобится [роль](../../security/index.md) `ai.models.editor` или выше на каталог. Для обращения к модели достаточно роли `ai.languageModels.user`.
+
+{% note warning %}
+
+C 10 ноября модели **gpt-oss-20b** и **gpt-oss-120b** будут доступны только в [базовом инстансе](models.md).
+
+{% endnote %}
 
 #|
 || **Модель** | **Контекст** | **Лицензия** ||
 || **Qwen 2.5 VL 32B Instruct**
-[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct) | 4 096 | Лицензия [Apache 2.0]({{ license-apache }}) ||
-|| **Qwen 2.5 72B Instruct** 
-[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct) | 16 384 | [Лицензия Qwen](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE) ||
+[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct) | 32 768 | Лицензия [Apache 2.0]({{ license-apache }}) ||
+|| **Qwen 2.5 7B Instruct** 
+[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) | 32 768 | [Лицензия Qwen](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE) ||
 || **Gemma 3 4B it**
-[Карточка модели](https://huggingface.co/google/gemma-3-4b-it) | 4 096 | [Условия использования Gemma]({{ license-gemma }})  ||
+[Карточка модели](https://huggingface.co/google/gemma-3-4b-it) | 131 072 | [Условия использования Gemma]({{ license-gemma }})  ||
 || **Gemma 3 12B it**
-[Карточка модели](https://huggingface.co/google/gemma-3-12b-it) | 4 096 | [Условия использования Gemma]({{ license-gemma }}) ||
+[Карточка модели](https://huggingface.co/google/gemma-3-12b-it) | 65 536 | [Условия использования Gemma]({{ license-gemma }}) ||
 || **gpt-oss-20b** 
-[Карточка модели](https://huggingface.co/openai/gpt-oss-20b) | 128 000 | Лицензия [Apache 2.0]({{ license-apache }}) ||
+[Карточка модели](https://huggingface.co/openai/gpt-oss-20b) | 32 768  | Лицензия [Apache 2.0]({{ license-apache }}) ||
 || **gpt-oss-120b** 
-[Карточка модели](https://huggingface.co/openai/gpt-oss-120b) | 128 000 | Лицензия [Apache 2.0]({{ license-apache }})  ||
+[Карточка модели](https://huggingface.co/openai/gpt-oss-120b) | 32 768  | Лицензия [Apache 2.0]({{ license-apache }})  ||
 || **T-pro-it-2.0-FP8** 
-[Карточка модели](https://huggingface.co/t-tech/T-pro-it-2.0-FP8) | 40 000 | Лицензия [Apache 2.0]({{ license-apache }}) ||
+[Карточка модели](https://huggingface.co/t-tech/T-pro-it-2.0-FP8) | 32 768 | Лицензия [Apache 2.0]({{ license-apache }}) ||
 |#
 
 ## Конфигурации выделенных инстансов {#config}

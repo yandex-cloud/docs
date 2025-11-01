@@ -9,7 +9,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Select **Yandex MPP Analytics for PostgreSQL**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Select the cluster.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.

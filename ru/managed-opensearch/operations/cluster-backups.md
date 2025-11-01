@@ -11,7 +11,6 @@ keywords:
 
 {{ mos-short-name }} позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами {{ yandex-cloud }}, так и с помощью механизма [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о механизме снапшотов см. в [документации {{ OS }}]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
 
-
 ## Резервное копирование средствами {{ yandex-cloud }} {#cloud-backups}
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
@@ -346,7 +345,7 @@ keywords:
 
 Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
-* [{{ roles.mos.editor }}](../../iam/roles-reference.md#managed-opensearch-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+* [managed-opensearch.restorer](../../iam/roles-reference.md#managed-opensearch-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
 
 

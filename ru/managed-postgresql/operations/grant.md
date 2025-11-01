@@ -30,6 +30,7 @@ description: '{{ PG }} управляет правами доступа к ба�
 * `mdb_admin`
 * `mdb_monitor`
 * `mdb_replication`
+* `mdb_superuser`
 
 {% note info %}
 
@@ -143,6 +144,7 @@ description: '{{ PG }} управляет правами доступа к ба�
        * `mdb_admin`
        * `mdb_monitor`
        * `mdb_replication`
+       * `mdb_superuser`
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 

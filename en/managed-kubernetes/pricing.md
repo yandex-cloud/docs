@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use our [calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+To calculate the cost of using {{ managed-k8s-name }}, use [our calculator](https://yandex.cloud/en/prices?state=f05a4ab8c08f#calculator) on the {{ yandex-cloud }} website or check the pricing info below.
 
 
 {% endnote %}

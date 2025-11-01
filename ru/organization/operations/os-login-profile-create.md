@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
-      1. В поле **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** задайте уникальный числовой идентификатор пользователя (UID) в диапазоне от `1002` до `65534`. Он должен быть уникальным в пределах системы.
+      1. В поле **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** задайте уникальный числовой идентификатор пользователя (UID) в диапазоне от `1002` до `2^63 - 1`. Он должен быть уникальным в пределах системы.
 
           {% include [user-defined-uid-range-notice](../../_includes/organization/user-defined-uid-range-notice.md) %}
 
@@ -116,7 +116,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
-      * `--uid` — уникальный числовой идентификатор пользователя (UID) в диапазоне от `1002` до `65534`. Должен быть уникальным в пределах системы.
+      * `--uid` — уникальный числовой идентификатор пользователя (UID) в диапазоне от `1002` до `2^63 - 1`. Должен быть уникальным в пределах системы.
 
           {% include [user-defined-uid-range-notice](../../_includes/organization/user-defined-uid-range-notice.md) %}
 

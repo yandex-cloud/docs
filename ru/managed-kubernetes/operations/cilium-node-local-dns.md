@@ -42,7 +42,6 @@
    metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
    ---
    apiVersion: v1
    kind: Service
@@ -70,7 +69,6 @@
    metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
    data:
      Corefile: |
        cluster.local:53 {

@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    В [консоли управления]({{ link-console-main }}) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) {{ mos-name }}. Список доступен в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
+    В [консоли управления]({{ link-console-main }}) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) {{ mch-name }}. Список доступен в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
 - CLI {#cli}
 

@@ -111,7 +111,7 @@ description: Вы можете создавать резервные копии 
 
 Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
-* [{{ roles.mch.editor }}](../../iam/roles-reference.md#managed-clickhouse-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+* [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
 
 

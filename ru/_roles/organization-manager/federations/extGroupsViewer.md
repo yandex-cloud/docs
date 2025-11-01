@@ -1,0 +1,1 @@
+Роль `organization-manager.federations.extGroupsViewer` позволяет просматривать список и информацию о [группах пользователей](../../../organization/concepts/groups.md) Identity Hub, привязанных к [федерациям удостоверений](../../../organization/concepts/add-federation.md) в процессе синхронизации с группами пользователей в каталоге Active Directory или другом внешнем источнике.

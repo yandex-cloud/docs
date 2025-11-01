@@ -157,8 +157,10 @@
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
-    
+
+     
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
+
 
      {% note tip %}
 
@@ -260,12 +262,18 @@
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
+     
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
+
+
      * `schema_registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-      
+
+       
+
      * `kafka_ui` — использование [веб-интерфейса {{ kafka-ui }} для {{ KF }}](../concepts/kafka-ui.md): `true` или `false`. Значение по умолчанию — `false`.
+
 
      Чтобы использовать {{ ZK }} в кластере, добавьте к описанию кластера блок `zookeeper`:
 
@@ -422,15 +430,21 @@
                     * `resources.diskTypeId` — тип диска.
 
 
-                * `zoneId` и `brokersCount` — зоны доступности и число хостов-брокеров в каждой зоне.
+                * `zoneId` и `brokersCount` – зоны доступности и число хостов-брокеров в каждой зоне.
+
+                
                 * `assignPublicIp` — доступность хостов-брокеров из интернета: `true` или `false`.
+
+
                 * `schemaRegistry` – управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
                 * `restApiConfig` — конфигурация {{ KF }} REST API. Для доступа к отправке запросов к REST API {{ KF }} укажите `enabled: true`.
                 * `diskSizeAutoscaling` – [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
+                
                 * `kafkaUiConfig` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
+
 
             * `topicSpecs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 
@@ -606,15 +620,22 @@
                     * `resources.disk_type_id` — тип диска.
 
 
-                * `zone_id` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
+                * `zone_id` и `brokers_count` – зоны доступности и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
+
+                
                 * `assign_public_ip` — доступность хостов-брокеров из интернета: `true` или `false`.
+
+
                 * `schema_registry` – управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
                 * `rest_api_config` — конфигурация {{ KF }} REST API. Для доступа к отправке запросов к REST API {{ KF }} укажите `enabled: true`.
                 * `disk_size_autoscaling` – чтобы в кластере не заканчивалось место на диске, укажите [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
-                
+
+                  
+
                 * `kafka_ui_config` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
+
 
             * `topic_specs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 
@@ -783,7 +804,7 @@
         --disk-size <размер_хранилища_ГБ> \
         --assign-public-ip <разрешить_публичный_доступ_к_кластеру> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
-        --deletion-protection
+        --deletion-protection \
         --kafka-ui-enabled <true_или_false>
      ```
 
@@ -811,8 +832,10 @@
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
-    
+
+     
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
+
 
      {% note tip %}
 
@@ -920,12 +943,18 @@
 
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
+     
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
+
+
      * `schema_registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-      
+
+       
+
      * `kafka_ui` — использование [веб-интерфейса {{ kafka-ui }} для {{ KF }}](../concepts/kafka-ui.md): `true` или `false`. Значение по умолчанию — `false`.
+
 
      Чтобы использовать [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology), добавьте к описанию кластера блок `kraft`:
 
@@ -1091,14 +1120,20 @@
                   * `"zoneId": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokersCount": "1"` — три зоны доступности, один хост-брокер в каждой зоне;
                   * `"zoneId": ["<одна_зона_доступности>"], "brokersCount": "3"` — одна зона доступности, три хоста-брокера.
 
+                
                 * `assignPublicIp` — доступность хостов-брокеров из интернета: `true` или `false`.
+
+
                 * `schemaRegistry` – управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
                 * `restApiConfig` – конфигурация {{ KF }} REST API. Для доступа к отправке запросов к REST API {{ KF }} укажите `enabled: true`.
                 * `diskSizeAutoscaling` – [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
+                  
+
                 * `kafkaUiConfig` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
+
 
             * `topicSpecs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 
@@ -1283,14 +1318,20 @@
                   * `"zone_id": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokers_count": {"value":"1"}` — три зоны доступности, один хост-брокер в каждой зоне;
                   * `"zone_id": ["<одна_зона_доступности>"], "brokers_count": {"value":"3"}` — одна зона доступности, три хоста-брокера.
 
+                
                 * `assign_public_ip` — доступность хостов-брокеров из интернета: `true` или `false`.
+
+
                 * `schema_registry` – управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
                 * `rest_api_config` – конфигурация {{ KF }} REST API. Для доступа к отправке запросов к REST API {{ KF }} укажите `enabled: true`.
                 * `disk_size_autoscaling` – чтобы в кластере не заканчивалось место на диске, укажите [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
-                
+
+                  
+
                 * `kafka_ui_config` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
+
 
             * `topic_specs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 
@@ -1473,7 +1514,11 @@
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С одним хостом-брокером.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
+
+  
   * С публичным доступом.
+
+
   * С защитой от непреднамеренного удаления.
 
   Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:

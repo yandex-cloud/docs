@@ -18,7 +18,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Select **Yandex MPP Analytics for PostgreSQL**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -266,7 +266,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Select **Yandex MPP Analytics for PostgreSQL**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:

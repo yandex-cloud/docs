@@ -41,7 +41,7 @@ The cost of billable services is calculated based on the amount of consumed reso
     * [VM computing resources](../compute/pricing.md#prices-instance-resources)
     * [GPU clusters](../compute/pricing.md#prices-gpu-clusters)
     * [Disks, snapshots, and images](../compute/pricing.md#prices-storage)
-    * [File storages](../compute/pricing.md#prices-nfs)
+    * [File storage](../compute/pricing.md#prices-nfs)
 * [{{ container-registry-full-name }}](../container-registry/pricing.md)
 * [{{ dataproc-full-name }}](../data-proc/pricing.md)
 * [{{ yds-full-name }}](../data-streams/pricing.md)

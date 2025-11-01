@@ -9,6 +9,12 @@ keywords:
 
 В этом разделе представлены настройки для подключения к кластеру {{ mtr-name }} с помощью [инструментов командной строки](#cli-tools), из [графических IDE](#connection-ide) и [WebSQL](#websql). О подключении из кода вашего приложения см. [Примеры строк подключения](#connection-strings).
 
+{% note info %}
+
+Если для подключения требуется указывать порт, используйте порт `{{ port-https }}`.
+
+{% endnote %}
+
 ## Инструменты командной строки {#cli-tools}
 
 ### {{ TR }} CLI {#trino-cli}
@@ -36,7 +42,7 @@ keywords:
      1. Введите имя источника данных.
      1. Укажите параметры подключения на вкладке **General**:
         * **Host** — `c-<идентификатор_кластера>.trino.yandexcloud.net`;
-        * **Port** — `443`;
+        * **Port** — `{{ port-https }}`;
         * **User** — `iam`;
         * **Password** — созданный ранее IAM-токен.
   1. Нажмите ссылку **Test Connection** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
@@ -50,7 +56,7 @@ keywords:
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
         * **Хост** — `c-<идентификатор_кластера>.trino.yandexcloud.net`;  
-        * **Порт** — `443`.
+        * **Порт** — `{{ port-https }}`.
         * В блоке **Аутентификация** укажите:
             * Имя пользователя — `iam`;
             * Пароль пользователя — созданный ранее IAM-токен.
@@ -106,22 +112,22 @@ keywords:
       from trino.auth import BasicAuthentication
 
       TIMEOUT = 10
-      COORDINATOR_URL = '<URL_координатора>'
+      COORDINATOR_URL = 'c-<идентификатор_кластера>.trino.yandexcloud.net'
       IAM_TOKEN = os.environ['TOKEN']
 
       def get_version():
           auth = BasicAuthentication(username='iam', password=IAM_TOKEN)
-          with closing(connect(host=COORDINATOR_URL, port=443, auth=auth, request_timeout=TIMEOUT)) as conn:
+          with closing(connect(host=COORDINATOR_URL, port={{ port-https }}, auth=auth, request_timeout=TIMEOUT)) as conn:
               with closing(conn.cursor()) as cur:
                   cur.execute('SELECT version() as version')
                   rows = cur.fetchall()
-                  print(rows[0][0])
+                  print(rows[0])
 
       if __name__ == "__main__":
           get_version()
       ```
 
-      Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** на странице обзора кластера {{ TR }} в [консоли управления]({{ link-console-main }}).
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   1. Подключение:
 
@@ -266,7 +272,7 @@ keywords:
 
       ```
 
-      Вы можете получить идентификатор кластера {{ mtr-name }} в [консоли управления]({{ link-console-main }}), вместе со списком кластеров {{ mtr-name }} в каталоге.
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   1. Сборка и подключение:
 
@@ -303,7 +309,7 @@ keywords:
     "use strict";
     import {BasicAuth, Trino} from 'trino-client';
 
-    const COORDINATOR_URL = '<URL_координатора>'
+    const COORDINATOR_URL = 'c-<идентификатор_кластера>.trino.yandexcloud.net'
     let TOKEN = process.env.TOKEN
 
     async function get_version() {
@@ -316,7 +322,7 @@ keywords:
     get_version();
     ```
 
-    Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** на странице обзора кластера {{ TR }} в [консоли управления]({{ link-console-main }}).
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 

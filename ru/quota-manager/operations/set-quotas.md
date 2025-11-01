@@ -30,7 +30,8 @@ title: Как изменить квоты
 
 Квоты, назначенные по умолчанию, можно посмотреть в документации:
 
-* На общей [странице квот](../../overview/concepts/quotas-limits.md#quotas-limits-default).
+* В [справочнике квот](../all-quotas.md).
+* В разделе [обзора платформы](../../overview/concepts/quotas-limits.md#quotas-limits-default).
 * На странице **Концепции > Квоты и лимиты** для каждого сервиса.
 
 В {{ quota-manager-name }} сброс к значениям по умолчанию не предусмотрен.

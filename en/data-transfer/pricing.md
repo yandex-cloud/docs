@@ -35,7 +35,7 @@ editable: false
 
 {% note info %}
 
-Resource consumption fees are charged for transfers with {{ dt-status-repl }} (`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`), or {{ dt-status-stopping }} (`STOPPING`) statuses. You can [view](operations/transfer.md#list) the transfer status in the list of transfers.
+Resource consumption fees are charged for transfers with the {{ dt-status-repl }} (`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`), or {{ dt-status-stopping }} (`STOPPING`) statuses. You can [view](operations/transfer.md#list) the transfer status in the list of transfers.
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ When calculating the cost, keep in mind that one [worker](concepts/index.md#work
 
 {% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}
 
-### Single data copying from {{ PG }} to {{ CH }} {#copy}
+### One-time data copying from {{ PG }} to {{ CH }} {#copy}
 
 The number of data rows transferred from {{ PG }} to {{ CH }} during the reporting month is 500,000,000. The copying was performed by one worker (2 vCPUs and 4 GB RAM) and took 24 hours.
 
@@ -85,6 +85,6 @@ The number of data rows transferred from {{ PG }} to {{ PG }} during the reporti
 
 ## See also {#see-also}
 
-* [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU).
+* [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU)
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

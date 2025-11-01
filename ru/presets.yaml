@@ -402,9 +402,9 @@ default:
   MG: MongoDB
   mgl-full-name: Yandex Managed Service for GitLab
   mgl-name: Managed Service for GitLab
-  mgp-full-name: Yandex Managed Service for Greenplum®
-  mgp-name: Managed Service for Greenplum®
-  mgp-short-name: Managed Service for Greenplum®
+  mgp-full-name: Yandex MPP Analytics for PostgreSQL
+  mgp-name: Yandex MPP Analytics for PostgreSQL
+  mgp-short-name: Yandex MPP Analytics for PostgreSQL
   microsoft-idp:
     ad-full: Microsoft Active Directory
     ad-short: Active Directory
@@ -1231,6 +1231,18 @@ default:
         12_month|string: "1\_133\_900,00\_₸"
         3_month|string: "1\_267\_300,00\_₸"
         6_month|string: "1\_240\_620,00\_₸"
+      ba-a702-6n-4h-2x25g:
+        1_day|string: "1\_801\_500,00\_₸"
+        1_month|string: "1\_747\_455,00\_₸"
+        12_month|string: "1\_531\_275,00\_₸"
+        3_month|string: "1\_711\_425,00\_₸"
+        6_month|string: "1\_675\_395,00\_₸"
+      ba-a704-4n-2x25g:
+        1_day|string: "1\_167\_000,00\_₸"
+        1_month|string: "1\_131\_990,00\_₸"
+        12_month|string: "991\_950,00\_₸"
+        3_month|string: "1\_108\_650,00\_₸"
+        6_month|string: "1\_085\_310,00\_₸"
       ba-i208-s-10g-p1:
         1_day|string: "251\_625,00\_₸"
         1_month|string: "244\_076,25\_₸"
@@ -1279,6 +1291,18 @@ default:
         12_month|string: "390\_150,00\_₸"
         3_month|string: "436\_050,00\_₸"
         6_month|string: "426\_870,00\_₸"
+      ha-a701-6n-4h-2x25g:
+        1_day|string: "1\_792\_500,00\_₸"
+        1_month|string: "1\_738\_725,00\_₸"
+        12_month|string: "1\_523\_625,00\_₸"
+        3_month|string: "1\_702\_875,00\_₸"
+        6_month|string: "1\_667\_025,00\_₸"
+      ha-a703-4n-2x25g:
+        1_day|string: "1\_132\_500,00\_₸"
+        1_month|string: "1\_098\_525,00\_₸"
+        12_month|string: "962\_625,00\_₸"
+        3_month|string: "1\_075\_875,00\_₸"
+        6_month|string: "1\_053\_225,00\_₸"
       ha-i502-n-25g-gxl4-p1:
         1_day|string: "600\_600,00\_₸"
         1_month|string: "582\_582,00\_₸"
@@ -1376,6 +1400,7 @@ default:
           standard:
             v4:
               preemptible|string: "1\_654,85\_₸"
+            v4|string: "1\_654,85\_₸"
         standard:
           v3-t4:
             preemptible|string: "86,40\_₸"
@@ -1601,7 +1626,6 @@ default:
       v1|string: "0,05\_₸"
     text_generation_alt:
       v1|number: 1
-      v1|string: "1,00\_₸"
     text_generation:
       v1|number: 1
       v1|string: "1,00\_₸"
@@ -3467,6 +3491,18 @@ default:
         12_month|string: "226\_780,00\_₽"
         3_month|string: "253\_460,00\_₽"
         6_month|string: "248\_124,00\_₽"
+      ba-a702-6n-4h-2x25g:
+        1_day|string: "360\_300,00\_₽"
+        1_month|string: "349\_491,00\_₽"
+        12_month|string: "306\_255,00\_₽"
+        3_month|string: "342\_285,00\_₽"
+        6_month|string: "335\_079,00\_₽"
+      ba-a704-4n-2x25g:
+        1_day|string: "233\_400,00\_₽"
+        1_month|string: "226\_398,00\_₽"
+        12_month|string: "198\_390,00\_₽"
+        3_month|string: "221\_730,00\_₽"
+        6_month|string: "217\_062,00\_₽"
       ba-i208-s-10g-p1:
         1_day|string: "50\_325,00\_₽"
         1_month|string: "48\_815,25\_₽"
@@ -3515,6 +3551,18 @@ default:
         12_month|string: "78\_030,00\_₽"
         3_month|string: "87\_210,00\_₽"
         6_month|string: "85\_374,00\_₽"
+      ha-a701-6n-4h-2x25g:
+        1_day|string: "358\_500,00\_₽"
+        1_month|string: "347\_745,00\_₽"
+        12_month|string: "304\_725,00\_₽"
+        3_month|string: "340\_575,00\_₽"
+        6_month|string: "333\_405,00\_₽"
+      ha-a703-4n-2x25g:
+        1_day|string: "226\_500,00\_₽"
+        1_month|string: "219\_705,00\_₽"
+        12_month|string: "192\_525,00\_₽"
+        3_month|string: "215\_175,00\_₽"
+        6_month|string: "210\_645,00\_₽"
       ha-i502-n-25g-gxl4-p1:
         1_day|string: "120\_120,00\_₽"
         1_month|string: "116\_516,40\_₽"
@@ -3612,6 +3660,7 @@ default:
           standard:
             v4:
               preemptible|string: "330,97\_₽"
+            v4|string: "330,97\_₽"
         standard:
           v3-t4:
             preemptible|string: "17,28\_₽"
@@ -3838,7 +3887,6 @@ default:
       v1|string: "0,01\_₽"
     text_generation_alt:
       v1|number: 0.2
-      v1|string: "0,20\_₽"
     text_generation:
       v1|number: 0.2
       v1|string: "0,20\_₽"
@@ -5698,6 +5746,18 @@ default:
         12_month|string: "1\_889,832577\_$"
         3_month|string: "2\_112,165822\_$"
         6_month|string: "2\_067,699173\_$"
+      ba-a702-6n-4h-2x25g:
+        1_day|string: "3\_002,498799\_$"
+        1_month|string: "2\_912,423835\_$"
+        12_month|string: "2\_552,123979\_$"
+        3_month|string: "2\_852,373859\_$"
+        6_month|string: "2\_792,323883\_$"
+      ba-a704-4n-2x25g:
+        1_day|string: "1\_944,999222\_$"
+        1_month|string: "1\_886,649245\_$"
+        12_month|string: "1\_653,249339\_$"
+        3_month|string: "1\_847,749261\_$"
+        6_month|string: "1\_808,849276\_$"
       ba-i208-s-10g-p1:
         1_day|string: "419,374832\_$"
         1_month|string: "406,793587\_$"
@@ -5746,6 +5806,18 @@ default:
         12_month|string: "650,249740\_$"
         3_month|string: "726,749709\_$"
         6_month|string: "711,449715\_$"
+      ha-a701-6n-4h-2x25g:
+        1_day|string: "2\_987,498805\_$"
+        1_month|string: "2\_897,873841\_$"
+        12_month|string: "2\_539,373984\_$"
+        3_month|string: "2\_838,123865\_$"
+        6_month|string: "2\_778,373889\_$"
+      ha-a703-4n-2x25g:
+        1_day|string: "1\_887,499245\_$"
+        1_month|string: "1\_830,874268\_$"
+        12_month|string: "1\_604,374358\_$"
+        3_month|string: "1\_793,124283\_$"
+        6_month|string: "1\_755,374298\_$"
       ha-i502-n-25g-gxl4-p1:
         1_day|string: "1\_000,999600\_$"
         1_month|string: "970,969612\_$"
@@ -5843,6 +5915,7 @@ default:
           standard:
             v4:
               preemptible|string: "2,758082\_$"
+            v4|string: "2,758082\_$"
         standard:
           v3-t4:
             preemptible|string: "0,144000\_$"
@@ -8319,6 +8392,7 @@ default:
         approved:
           tab:
             explore: Метрики
+            info: Общая информация
             recording-rules: Recording rules
         common:
           action_code: Код файла
@@ -8336,6 +8410,7 @@ default:
           action_add-file: Добавить файл
         tab:
           alert-manager-key-value: Конфигурация Alert manager
+          managing-rules: Управление правилами
       querystring:
         action:
           add-query: Добавить запрос
@@ -10646,7 +10721,6 @@ default:
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
             label_managed-gitlab: Managed Service for&nbsp;GitLab
-            label_managed-greenplum: Managed Service for&nbsp;Greenplum
             label_managed-kafka: Managed Service for&nbsp;Kafka
             label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
             label_managed-mongodb: Yandex StoreDoc
@@ -12396,6 +12470,7 @@ default:
         switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
       yagpt:
+        aspect-ratio-key-value: Соотношение сторон
         experiments-page-subtitle: Эксперименты
         foundation-models:
           playground:
@@ -12404,8 +12479,10 @@ default:
           section_title:
             playground: AI Playground
         instruction: Инструкция
+        label_seed: Зерно
         label_temperature-text: Температура
         model: Модель
+        model-using: Использование модели
         playground: AI Playground
         settings: Настройки
         speechkit:
@@ -12419,6 +12496,10 @@ default:
         use-context: Использовать контекст
         YaGPT:
           create-instance_3Ltog: Развернуть инстанс
+          CreateExperiment:
+            foundation-models_playground_image-generation_title_rZxwV: Генерация изображений
+            foundation-models_playground_text-generation_title_xpmcC: Генерация текста
+            foundation-models_playground_text-generation-with-context_title_uYBhM: Генерация текста с учетом контекста
           instances-title_j9Cpb: Инстансы
       ydb:
         browse:

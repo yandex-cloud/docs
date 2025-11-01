@@ -70,7 +70,6 @@ description: Управление доступом в сервисе созда�
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
-
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

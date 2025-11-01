@@ -8,6 +8,10 @@
 
 {% list tabs group=programming_language %}
 
+- Консоль управления {#console}
+
+  Для работы из консоли управления подготовительные действия не требуются.
+
 - SDK {#sdk}
 
   {% include [yandexart-sdk-before-start](../../../_includes/ai-studio/yandexart/yandexart-sdk-before-start.md) %}
@@ -33,6 +37,28 @@
 {% endnote %}
 
 {% list tabs group=programming_language %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть роль `ai.playground.user` или выше.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** или найдите его с помощью строки поиска на дашборде.
+  1. На открывшейся панели выберите ![image](../../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
+
+     ![screen01](../../../_assets/ai-studio/quickstart/yandexart/screen01.png)
+
+  1. Выберите тип генерации — **{{ ui-key.yacloud.yagpt.YaGPT.CreateExperiment.foundation-models_playground_image-generation_title_rZxwV }}**.  
+  1. В блоке **{{ ui-key.yacloud.yagpt.settings }}** укажите параметры генерации:
+
+     * **{{ ui-key.yacloud.yagpt.label_seed }}** — число, на основе которого будет генерироваться изображение. Вы можете сами указать число или задать случайное значение. При одинаковых промте и зерне результаты генераций будут одинаковыми.
+     * **{{ ui-key.yacloud.yagpt.aspect-ratio-key-value }}** — выберите желаемое соотношение сторон изображения.
+
+  1. Напишите запрос в поле ввода снизу и нажмите ![image](../../../_assets/console-icons/arrow-up.svg) или **Enter**. Вы также можете воспользоваться примерами запроса, предлагаемыми сверху. Старайтесь использовать яркие образы, описывайте детали, указывайте стили, если хотите получить изображение определенного вида.
+
+     Созданные диалоги сохраняются на панели **{{ ui-key.yacloud.yagpt.experiments-page-subtitle }}** справа. Нажмите ![image](../../../_assets/console-icons/ellipsis.svg) возле нужного диалога, чтобы переименовать или удалить его.
+
+  1. В блоке **{{ ui-key.yacloud.yagpt.model-using }}** нажмите ![image](../../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через ML SDK для Python.
+
+     ![screen02](../../../_assets/ai-studio/quickstart/yandexart/screen02.png)
 
 - SDK {#sdk}
 

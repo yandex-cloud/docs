@@ -25,7 +25,7 @@ In {{ backup-name }}, you start paying for a {{ compute-name }} instance or {{ b
 
 If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically, so you will have to do it yourself.
 
-If you need to unlink a {{ baremetal-name }} server from a policy, you will still have to do it on your own.
+If you need to unlink a {{ baremetal-name }} from a policy, you will still have to do it on your own.
 
 The minimum billing unit is one resource (VM or {{ baremetal-name }} server) to back up, per hour.
 
@@ -48,7 +48,7 @@ To optimize your costs, consider removing the backups of the deleted VMs or the 
 
 {% endnote %}
 
-The size of resource backups may be less than the resource disk size, e.g., if the disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
+The size of resource backups can fall short of the resource disk size, e.g., if the disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
 
 
 
@@ -78,7 +78,7 @@ The monthly prices are based on 720 hours per month.
 
 ## Cost calculation example {#price-example}
 
-Let’s calculate the cost of {{ backup-name }} for one month for the following configuration:
+Here is an example of calculating the cost of {{ backup-name }} for one month for the following configuration:
 * One VM is linked to backup policies.
 * Total size of backups is 50 GB.
 

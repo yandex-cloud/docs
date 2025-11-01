@@ -30,7 +30,7 @@ items:
     items:
       - name: Предоставить доступ к партнерскому аккаунту
         href: operations/access/partners-account.md
-      - name: Посмотреть потребление клиентов
+      - name: Посмотреть детализацию сабаккаунтов
         href: operations/get-client-stat.md
       - name: Приостановить оказание услуг клиенту
         href: operations/stop-client-services.md

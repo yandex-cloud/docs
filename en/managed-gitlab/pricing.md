@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ mgl-name }}, use [our calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or see the pricing data below.
 
 
 {% endnote %}
@@ -46,19 +46,19 @@ The minimum billing unit is one hour; e.g., you will be charged for 2 hours when
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 * Data storage allocated for your instance.
-* Size of backups stored in {{ objstorage-name }}.
+* Amount of backups stored in {{ objstorage-name }}.
 
 The price covers one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 
 ### Example of instance cost calculation {#example}
 
-The cost of using an instance with the following parameters for 30 days:
+The cost of using an instance with the following properties for 30 days:
 
 * **Instance type**: `s2.micro` (2 vCPU Intel Cascade Lake, 8 GB RAM).
 * **Storage**: 30 GB.
-* **Backups**: Size per backup is 20 GB, retention time is 7 days.
+* **Backups**: 20 GB each, 7-day retention period.
 * **Approval rules**: Disabled.
 
 Calculating the cost of computing resources:
@@ -68,7 +68,7 @@ Calculating the cost of computing resources:
 {% include [usd-managed-gitlab-compute](../_pricing_examples/managed-gitlab/usd-managed-gitlab-compute.md) %}
 
 
-Calculation for storage and backup cost:
+Calculating the cost of storage and backup:
 
 
 
@@ -108,4 +108,4 @@ The price of computing resources depends on the selected [approval rule](concept
 
 ## Licenses {#license}
 
-By default, {{ mgl-name }} uses Community Edition {{ GL }}. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (`Premium` or `Ultimate`), contact [technical support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.
+By default, {{ mgl-name }} uses {{ GL }} Community Edition. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (either `Premium` or `Ultimate`), contact [our support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.

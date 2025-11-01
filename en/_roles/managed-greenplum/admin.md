@@ -7,8 +7,8 @@ Users with this role can:
 * View information about Greenplum® cluster [backups](../../managed-greenplum/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
 * View Greenplum® cluster logs.
 * View information about the results of Greenplum® cluster performance diagnostics.
-* View information about [quotas](../../managed-greenplum/concepts/limits.md#quotas) of Managed Service for Greenplum®.
-* View information about resource operations for Managed Service for Greenplum®.
+* View information about [quotas](../../managed-greenplum/concepts/limits.md#quotas) of Yandex MPP Analytics for PostgreSQL.
+* View information about resource operations for Yandex MPP Analytics for PostgreSQL.
 
 This role includes the `managed-greenplum.editor` permissions.
 

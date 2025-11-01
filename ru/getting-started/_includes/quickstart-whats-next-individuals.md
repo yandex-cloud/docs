@@ -90,7 +90,7 @@
 
     Используйте нейросеть {{ yagpt-name }} для генерации текста в синхронном режиме без дополнения контекста
 
-  * [{{ yandexart-name }}](../../ai-studio/quickstart/yandexart.md).
+  * [{{ yandexart-name }}](../../ai-studio/operations/generation/yandexart-request.md).
 
     Используйте нейросеть {{ yandexart-name }} для генерации изображений.
 

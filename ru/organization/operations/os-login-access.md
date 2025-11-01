@@ -44,6 +44,8 @@ description: Следуя данной инструкции, вы сможете
 
           Добавить в профиль новый SSH-ключ можно в консоли управления при создании ВМ или с помощью инструкции [Добавить SSH-ключ](./add-ssh.md).
 
+          {% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -98,6 +100,12 @@ description: Следуя данной инструкции, вы сможете
 
           Чтобы выключить опцию, передайте значение `false` в этом параметре: `--allow-manage-own-keys=false`.
 
+          {% note info %}
+
+          {% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
+          {% endnote %}
+
       Результат:
 
       ```text
@@ -138,6 +146,12 @@ description: Следуя данной инструкции, вы сможете
           * `enabled` — доступ по {{ oslogin }} при помощи SSH-ключей. Опция позволяет подключаться к ВМ и узлам кластеров {{ k8s }} через {{ yandex-cloud }} CLI по SSH-ключу, сохраненному в профиле пользователя организации. Может принимать значения `true` (опция включена) и `false` (опция выключена).
 
           * `allow_manage_own_keys` — разрешить пользователям загружать собственные SSH-ключи. Позволяет пользователям самостоятельно загружать в свой профиль {{ oslogin }} публичные SSH-ключи для подключения к ВМ и узлам кластеров {{ k8s }}. Чтобы загрузить собственные SSH-ключи, воспользуйтесь инструкцией [Добавить SSH-ключ](./add-ssh.md). Может принимать значения `true` (опция включена) и `false` (опция выключена).
+
+          {% note info %}
+
+          {% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
+          {% endnote %}
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
 

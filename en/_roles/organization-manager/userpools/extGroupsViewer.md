@@ -1,0 +1,1 @@
+The `organization-manager.userpools.extGroupsViewer` role enables viewing the list of and info on Identity Hub [user groups](../../../organization/concepts/groups.md) associated with [user pools](../../../organization/concepts/groups.md) through synchronization with user groups in Active Directory or another external source.

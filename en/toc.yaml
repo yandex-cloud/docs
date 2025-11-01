@@ -75,7 +75,7 @@ items:
     href: managed-spark/index.yaml
   - name: Managed Service for ClickHouse
     href: managed-clickhouse/index.yaml
-  - name: Managed Service for Greenplum®
+  - name: Yandex MPP Analytics for PostgreSQL
     href: managed-greenplum/index.yaml
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
