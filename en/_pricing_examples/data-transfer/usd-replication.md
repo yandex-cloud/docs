@@ -8,7 +8,7 @@ RAM cost:
 
 Data transfer cost:
 
-Free of charge, as 50,000,000 rows is less than the free usage quota.
+50,000,000 rows are free of charge as they are included in the free usage quota.
 
 **Total cost**:
 

@@ -1,4 +1,4 @@
-If a customer consumes $800.00 worth of resources a month, support costs will add up to:
+If a customer consumes $800.00 worth of resources per month, the support cost will be:
 
 > {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} + $800.00 × 0.05 = {% calc [currency=USD] round(({{ sku|USD|support.organization.business.fixed_consumption.v1|number }} + 800,00 × 0,05) × 100) / 100 %}
 > 

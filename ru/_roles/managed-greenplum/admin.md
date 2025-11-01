@@ -7,8 +7,8 @@
 * просматривать информацию о [резервных копиях](../../managed-greenplum/concepts/backup.md) кластеров Greenplum®, создавать и удалять резервные копии кластеров, а также восстанавливать кластеры из резервных копий;
 * просматривать логи работы кластеров Greenplum®;
 * просматривать информацию о результатах диагностики производительности кластеров Greenplum®;
-* просматривать информацию о [квотах](../../managed-greenplum/concepts/limits.md#quotas) сервиса Managed Service for Greenplum®;
-* просматривать информацию об операциях с ресурсами сервиса Managed Service for Greenplum®.
+* просматривать информацию о [квотах](../../managed-greenplum/concepts/limits.md#quotas) сервиса Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию об операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.editor`.
 

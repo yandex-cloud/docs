@@ -62,6 +62,7 @@ description: Различные сценарии использования ко
 
 * [{#T}](pvc-snapshot-restore.md)
 
+
 ### Мониторинг {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)

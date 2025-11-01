@@ -41,45 +41,12 @@
 * `yds-functions` — от его имени будет вызываться [функция](../../functions/concepts/function.md) {{ sf-name }} и будут записываться события в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-short-name }};
 * `postbox-user` — от его имени будут отправляться письма через {{ postbox-name }}.
 
-1. Создайте сервисный аккаунт `yds-functions`:
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-
-      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите имя `yds-functions`.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md) `yds.editor` и `{{ roles-functions-invoker }}`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-
-    {% endlist %}
-
-1. Аналогичным образом создайте сервисный аккаунт `postbox-user` и назначьте ему [роль](../../postbox/security/index.md#postbox-sender) `postbox.sender`.
+{% include [create-service-accounts](../_tutorials_includes/events-from-postbox-to-yds/create-service-accounts.md) %}
 
 
 ## Создайте статический ключ доступа {#static-key}
 
-Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md), который будет использоваться для отправки писем:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** и в списке сервисных аккаунтов выберите `postbox-user`. В открывшемся окне:
-
-      1. На панели сверху нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-      1. Сохраните идентификатор и секретный ключ.
-
-          {% note alert %}
-
-          После закрытия диалога значение ключа будет недоступно.
-
-          {% endnote %}
-
-{% endlist %}
+{% include [create-static-key](../_tutorials_includes/events-from-postbox-to-yds/create-static-key.md) %}
 
 
 ## Создайте базу данных {{ ydb-name }} {#ydb}
@@ -103,85 +70,25 @@
 
 ## Создайте поток данных {{ yds-name }} {#stream}
 
-Создайте [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), в котором будут регистрироваться события {{ postbox-name }}:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** и нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
-  1. В поле **{{ ui-key.yacloud.data-streams.label_database }}** выберите созданную ранее базу данных `postbox-events-ydb`.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя потока данных `postbox-events-stream`.
-  1. В поле **{{ ui-key.yacloud.data-streams.label_meter-mode }}** выберите `{{ ui-key.yacloud.data-streams.label_request-units }}`.
-  1. Другие параметры потока данных оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-{% endlist %}
-
-Дождитесь запуска потока данных. Когда поток станет готов к использованию, его статус изменится с `Creating` на `Active`.
+{% include [create-yds-stream](../_tutorials_includes/events-from-postbox-to-yds/create-yds-stream.md) %}
 
 
 ## Подготовьте ресурсы {{ postbox-name }} {#postbox}
 
-В сервисе {{ postbox-name }} настройте [конфигурацию](../../postbox/concepts/glossary.md#subscription) для регистрации событий в {{ yds-name }}, создайте [адрес](../../postbox/concepts/glossary.md#adress) для отправки писем и [пройдите](../../postbox/operations/check-domain.md) проверку прав на домен.
+{% include [create-pb-resources-intro](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-intro.md) %}
 
 
 ### Создайте конфигурацию {{ postbox-name }} {#config}
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}** и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя конфигурации `postbox-events-config`.
-  1. В блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и в появившейся форме:
-
-      1. В поле **{{ ui-key.yacloud.postbox.label_name }}** укажите название [подписки](../../postbox/concepts/glossary.md#subscription) `postbox-events-subscribe`.
-      1. В поле **{{ ui-key.yacloud.postbox.label_data-stream }}** выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) `postbox-events-stream`.
-      1. Включите опцию **{{ ui-key.yacloud.common.enabled }}**, чтобы активировать подписку.
-
-  1. Другие параметры конфигурации оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
-
-{% endlist %}
+{% include [create-pb-resources-config](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-config.md) %}
 
 
 ### Создайте адрес {{ postbox-name }} {#address}
 
-1. На вашем компьютере сгенерируйте ключ `privatekey.pem` для создания DKIM-подписи. Для этого в терминале выполните команду:
-
-    ```bash
-    openssl genrsa -out privatekey.pem 2048
-    ```
-
-    {% note info %}
-
-    В операционных системах Linux и macOS утилита `openssl` предустановлена. В Windows эту утилиту необходимо предварительно установить. Подробнее см. на [сайте](https://openssl-library.org/) проекта.
-
-    {% endnote %}
-
-1. Создайте адрес {{ postbox-name }}:
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-      1. На панели слева выберите ![at](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-      1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого вы будете отправлять письма. Домен может быть любого уровня и должен принадлежать вам.
-      1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор, например `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую необходимо создать при прохождении [проверки прав на домен](#domain).
-      1. В поле **{{ ui-key.yacloud.postbox.label_configuration-set }}** выберите созданную ранее конфигурацию `postbox-events-config`.
-      1. В поле **{{ ui-key.yacloud.postbox.label_private-key }}** вставьте содержимое файла приватного ключа `privatekey.pem`, созданного на предыдущем шаге.
-      1. Другие параметры адреса оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-      1. В открывшемся списке адресов нажмите на строку с вновь созданным адресом.
-      1. На странице с информацией об адресе в блоке **{{ ui-key.yacloud.postbox.label_signature-verification }}** из поля **{{ ui-key.yacloud.postbox.label_dns-record-value }}** скопируйте и сохраните значение [TXT-записи](../../dns/concepts/resource-record.md#txt).
-
-    {% endlist %}
+{% include [create-pb-resources-address](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-address.md) %}
 
 
-### Пройдите проверку прав на домен {#domain}
+### Пройдите проверку владения доменом {#domain}
 
 {% include [check-domain](../../_includes/postbox/check-domain.md) %}
 
@@ -322,12 +229,7 @@
 
         - Консоль управления {#console}
 
-          1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-          1. Выберите поток данных `postbox-events-stream`.
-          1. Перейдите на вкладку ![text-align-justify](../../_assets/console-icons/text-align-justify.svg) **{{ ui-key.yacloud.data-streams.label_data-introspection }}**.
-
-              На графиках должны отобразиться события отправки писем.
+            {% include [test-function-machinery-check-yds](../_tutorials_includes/events-from-postbox-to-yds/test-function-machinery-check-yds.md) %}
 
         {% endlist %}
 

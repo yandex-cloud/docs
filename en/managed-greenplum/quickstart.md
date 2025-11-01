@@ -40,7 +40,7 @@ Create a {{ GP }} cluster with public access. You can [connect](./operations/con
 To create a cluster:
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Select **Yandex MPP Analytics for PostgreSQL**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
@@ -86,7 +86,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
 Get the cluster ID required to [connect](#connect) to the cluster:
 
-1. In the management console, navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. In the management console, navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
 1. Click the cluster name and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.mdb.cluster.switch_overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 

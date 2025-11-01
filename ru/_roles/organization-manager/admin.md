@@ -38,6 +38,10 @@
 * добавлять пользователей и сервисные аккаунты в группы пользователей и удалять их из групп;
 * просматривать информацию о назначенных правах доступа к группам пользователей и изменять такие права доступа;
 * просматривать список групп, в которые входит тот или иной пользователь, а также список пользователей, которые входят в ту или иную группу;
+* просматривать список и информацию о группах пользователей Identity Hub, привязанных к федерациям удостоверений и пулам пользователей в процессе синхронизации с пользовательскими группами в каталоге Active Directory или другом внешнем источнике;
+* просматривать состав участников групп пользователей Identity Hub, связанных с пользовательскими группами в каталоге Active Directory или другом внешнем источнике, а также управлять составом участников таких групп;
+* привязывать группы пользователей к федерациям удостоверений и пулам пользователей в процессе синхронизации с пользовательскими группами в каталоге Active Directory или другом внешнем источнике, а также отвязывать их;
+* изменять и удалять группы пользователей Identity Hub, связанные с пользовательскими группами в каталоге Active Directory или другом внешнем источнике;
 * просматривать и изменять настройки [refresh-токенов](../../iam/concepts/authorization/refresh-token.md) в организации;
 * просматривать информацию о refresh-токенах пользователей организации и отзывать такие refresh-токены;
 * просматривать информацию о квотах сервиса Identity Hub;
@@ -58,6 +62,6 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator` и `src.repositories.admin`.
+Включает разрешения, предоставляемые ролями `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator`, `organization-manager.groups.externalManager` и `src.repositories.admin`.
 
 Для настройки сопоставления групп пользователей роль должна быть назначена на те группы в Identity Hub, которые вы будете сопоставлять.

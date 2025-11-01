@@ -34,6 +34,8 @@ items:
   - name: Справочник {{ TF }}
     expanded: false
     items:
+      - name: Обзор
+        href: tf-ref/overview.md
       - name: История изменений (англ.)
         href: release-notes.md
       - name: Ресурсы (англ.)

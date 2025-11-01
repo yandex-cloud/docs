@@ -398,9 +398,9 @@ default:
   MG: MongoDB
   mgl-full-name: Yandex Managed Service for GitLab
   mgl-name: Managed Service for GitLab
-  mgp-full-name: Yandex Managed Service for Greenplum®
-  mgp-name: Managed Service for Greenplum®
-  mgp-short-name: Managed Service for Greenplum®
+  mgp-full-name: Yandex MPP Analytics for PostgreSQL
+  mgp-name: Yandex MPP Analytics for PostgreSQL
+  mgp-short-name: Yandex MPP Analytics for PostgreSQL
   microsoft-idp:
     ad-full: Microsoft Active Directory
     ad-short: Active Directory
@@ -1222,6 +1222,18 @@ default:
         12_month|string: ₸1133900.00
         3_month|string: ₸1267300.00
         6_month|string: ₸1240620.00
+      ba-a702-6n-4h-2x25g:
+        1_day|string: ₸1801500.00
+        1_month|string: ₸1747455.00
+        12_month|string: ₸1531275.00
+        3_month|string: ₸1711425.00
+        6_month|string: ₸1675395.00
+      ba-a704-4n-2x25g:
+        1_day|string: ₸1167000.00
+        1_month|string: ₸1131990.00
+        12_month|string: ₸991950.00
+        3_month|string: ₸1108650.00
+        6_month|string: ₸1085310.00
       ba-i208-s-10g-p1:
         1_day|string: ₸251625.00
         1_month|string: ₸244076.25
@@ -1270,6 +1282,18 @@ default:
         12_month|string: ₸390150.00
         3_month|string: ₸436050.00
         6_month|string: ₸426870.00
+      ha-a701-6n-4h-2x25g:
+        1_day|string: ₸1792500.00
+        1_month|string: ₸1738725.00
+        12_month|string: ₸1523625.00
+        3_month|string: ₸1702875.00
+        6_month|string: ₸1667025.00
+      ha-a703-4n-2x25g:
+        1_day|string: ₸1132500.00
+        1_month|string: ₸1098525.00
+        12_month|string: ₸962625.00
+        3_month|string: ₸1075875.00
+        6_month|string: ₸1053225.00
       ha-i502-n-25g-gxl4-p1:
         1_day|string: ₸600600.00
         1_month|string: ₸582582.00
@@ -1367,6 +1391,7 @@ default:
           standard:
             v4:
               preemptible|string: ₸1654.85
+            v4|string: ₸1654.85
         standard:
           v3-t4:
             preemptible|string: ₸86.40
@@ -1592,7 +1617,6 @@ default:
       v1|string: ₸0.05
     text_generation_alt:
       v1|number: 1
-      v1|string: ₸1.00
     text_generation:
       v1|number: 1
       v1|string: ₸1.00
@@ -3458,6 +3482,18 @@ default:
         12_month|string: ₽226780.00
         3_month|string: ₽253460.00
         6_month|string: ₽248124.00
+      ba-a702-6n-4h-2x25g:
+        1_day|string: ₽360300.00
+        1_month|string: ₽349491.00
+        12_month|string: ₽306255.00
+        3_month|string: ₽342285.00
+        6_month|string: ₽335079.00
+      ba-a704-4n-2x25g:
+        1_day|string: ₽233400.00
+        1_month|string: ₽226398.00
+        12_month|string: ₽198390.00
+        3_month|string: ₽221730.00
+        6_month|string: ₽217062.00
       ba-i208-s-10g-p1:
         1_day|string: ₽50325.00
         1_month|string: ₽48815.25
@@ -3506,6 +3542,18 @@ default:
         12_month|string: ₽78030.00
         3_month|string: ₽87210.00
         6_month|string: ₽85374.00
+      ha-a701-6n-4h-2x25g:
+        1_day|string: ₽358500.00
+        1_month|string: ₽347745.00
+        12_month|string: ₽304725.00
+        3_month|string: ₽340575.00
+        6_month|string: ₽333405.00
+      ha-a703-4n-2x25g:
+        1_day|string: ₽226500.00
+        1_month|string: ₽219705.00
+        12_month|string: ₽192525.00
+        3_month|string: ₽215175.00
+        6_month|string: ₽210645.00
       ha-i502-n-25g-gxl4-p1:
         1_day|string: ₽120120.00
         1_month|string: ₽116516.40
@@ -3603,6 +3651,7 @@ default:
           standard:
             v4:
               preemptible|string: ₽330.97
+            v4|string: ₽330.97
         standard:
           v3-t4:
             preemptible|string: ₽17.28
@@ -3829,7 +3878,6 @@ default:
       v1|string: ₽0.01
     text_generation_alt:
       v1|number: 0.2
-      v1|string: ₽0.20
     text_generation:
       v1|number: 0.2
       v1|string: ₽0.20
@@ -5689,6 +5737,18 @@ default:
         12_month|string: $1889.832577
         3_month|string: $2112.165822
         6_month|string: $2067.699173
+      ba-a702-6n-4h-2x25g:
+        1_day|string: $3002.498799
+        1_month|string: $2912.423835
+        12_month|string: $2552.123979
+        3_month|string: $2852.373859
+        6_month|string: $2792.323883
+      ba-a704-4n-2x25g:
+        1_day|string: $1944.999222
+        1_month|string: $1886.649245
+        12_month|string: $1653.249339
+        3_month|string: $1847.749261
+        6_month|string: $1808.849276
       ba-i208-s-10g-p1:
         1_day|string: $419.374832
         1_month|string: $406.793587
@@ -5737,6 +5797,18 @@ default:
         12_month|string: $650.249740
         3_month|string: $726.749709
         6_month|string: $711.449715
+      ha-a701-6n-4h-2x25g:
+        1_day|string: $2987.498805
+        1_month|string: $2897.873841
+        12_month|string: $2539.373984
+        3_month|string: $2838.123865
+        6_month|string: $2778.373889
+      ha-a703-4n-2x25g:
+        1_day|string: $1887.499245
+        1_month|string: $1830.874268
+        12_month|string: $1604.374358
+        3_month|string: $1793.124283
+        6_month|string: $1755.374298
       ha-i502-n-25g-gxl4-p1:
         1_day|string: $1000.999600
         1_month|string: $970.969612
@@ -5834,6 +5906,7 @@ default:
           standard:
             v4:
               preemptible|string: $2.758082
+            v4|string: $2.758082
         standard:
           v3-t4:
             preemptible|string: $0.144000
@@ -8310,6 +8383,7 @@ default:
         approved:
           tab:
             explore: Metrics
+            info: General information
             recording-rules: Recording rules
         common:
           action_code: File code
@@ -8327,6 +8401,7 @@ default:
           action_add-file: Add file
         tab:
           alert-manager-key-value: Alert manager configuration
+          managing-rules: Managing rules
       querystring:
         action:
           add-query: Add query
@@ -10631,7 +10706,6 @@ default:
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
             label_managed-gitlab: Managed Service for&nbsp;GitLab
-            label_managed-greenplum: Managed Service for&nbsp;Greenplum
             label_managed-kafka: Managed Service for&nbsp;Kafka
             label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
             label_managed-mongodb: Yandex StoreDoc
@@ -12381,6 +12455,7 @@ default:
         switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
       yagpt:
+        aspect-ratio-key-value: Aspect ratio
         experiments-page-subtitle: Experiments
         foundation-models:
           playground:
@@ -12389,8 +12464,10 @@ default:
           section_title:
             playground: AI Playground
         instruction: Instructions
+        label_seed: Seed
         label_temperature-text: Temperature
         model: Model
+        model-using: Model usage
         playground: AI Playground
         settings: Settings
         speechkit:
@@ -12404,6 +12481,10 @@ default:
         use-context: Use context
         YaGPT:
           create-instance_3Ltog: Deploy instance
+          CreateExperiment:
+            foundation-models_playground_image-generation_title_rZxwV: Image generation
+            foundation-models_playground_text-generation_title_xpmcC: Text generation
+            foundation-models_playground_text-generation-with-context_title_uYBhM: Context-based text generation
           instances-title_j9Cpb: Instances
       ydb:
         browse:

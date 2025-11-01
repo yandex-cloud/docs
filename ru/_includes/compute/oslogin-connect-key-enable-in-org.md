@@ -3,3 +3,9 @@
 Чтобы подключиться к ВМ по {{ oslogin }} с SSH-ключом, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
 
 Чтобы пользователи могли самостоятельно добавлять SSH-ключи в свои профили {{ oslogin }}, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
+
+{% note info %}
+
+{% include [adding-sa-ssh-keys-notice](../organization/adding-sa-ssh-keys-notice.md) %}
+
+{% endnote %}

@@ -4,7 +4,7 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 
 * View info on the Identity Hub [organization](../../organization/concepts/organization.md) and its settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
-* View the list of the organization’s [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
+* View the list of the organization's [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
 * View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in the Identity Hub organization.
 * View info on the organization’s [identity federations](../../organization/concepts/add-federation.md).
 * View info on identity federation [certificates](../../organization/concepts/add-federation.md#build-trust).
@@ -24,6 +24,7 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 * View the list of the organization users' SSH keys and info on such keys.
 * View info on [user groups](../../organization/concepts/groups.md) and access permissions granted for them.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
+* View the list of and info on Identity Hub user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
 * View info on the [refresh tokens](../../iam/concepts/authorization/refresh-token.md) of the organization’s users and on the refresh token settings.
 * View info on the Identity Hub quotas.
 * View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).

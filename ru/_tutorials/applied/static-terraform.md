@@ -66,9 +66,13 @@
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-    * [Роль](../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+    * [Настройка](../../iam/concepts/access-control/roles.md) прав доступа на каталог — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
     * [Статический ключ доступа](../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
     * [Бакет](../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+    * [Настройка](../../storage/operations/buckets/iam-access.md) прав доступа к бакету с помощью {{ iam-name }} — [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
+    * [Настройка](../../storage/operations/buckets/edit-acl.md) прав доступа к бакету с помощью [ACL {{ objstorage-name }}](../../storage/concepts/acl.md) — [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).
+    * Источник данных о [TLS-сертификате](../../certificate-manager/concepts/imported-certificate.md) — [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate).
+    * [Объект](../../storage/concepts/object.md) в бакете — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
     * [DNS-зона](../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
     * [Ресурсная запись DNS](../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 

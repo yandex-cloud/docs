@@ -121,7 +121,7 @@ links:
   - title: Managed Service for GitLab
     description: GitLab instance management
     href: managed-gitlab/
-  - title: Managed Service for Greenplum®
+  - title: Yandex MPP Analytics for PostgreSQL
     description: Greenplum® cluster management
     href: managed-greenplum/
   - title: Managed Service for Kubernetes®

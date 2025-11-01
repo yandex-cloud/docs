@@ -18,7 +18,7 @@ provider "yandex" {
 }
 
 resource "yandex_iam_service_account" "sa" {
-  name      = "my-sa"
+  name = "my-sa"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
@@ -37,8 +37,7 @@ resource "yandex_storage_bucket" "test" {
   secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
   bucket     = local.domain
   max_size   = 1073741824  
-  acl        = "public-read"
-  
+
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -48,6 +47,24 @@ resource "yandex_storage_bucket" "test" {
   https {
     certificate_id = data.yandex_cm_certificate.example.id
   }
+}
+
+resource "yandex_storage_bucket_iam_binding" "storage_admin" {
+  bucket = local.domain
+  role   = "storage.admin"
+
+  members = [
+    "serviceAccount:${yandex_iam_service_account.sa.id}",
+  ]
+  depends_on = [yandex_storage_bucket.test]
+}
+
+resource "yandex_storage_bucket_grant" "public_read" {
+  bucket = local.domain
+  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+  acl        = "public-read"
+  depends_on = [yandex_storage_bucket_iam_binding.storage_admin]
 }
 
 resource "yandex_cm_certificate" "le-certificate" {

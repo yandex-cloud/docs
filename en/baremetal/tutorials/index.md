@@ -1,6 +1,6 @@
 ---
 title: '{{ baremetal-name }} use cases'
-description: Various {{ baremetal-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ baremetal-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ baremetal-name }} tutorials
@@ -12,3 +12,4 @@ description: Various {{ baremetal-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)
 * [{#T}](./webapp-on-bms-behind-sws.md)
+* [{#T}](./k8s-connect-bms-as-node.md)

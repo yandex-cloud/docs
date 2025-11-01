@@ -15,8 +15,6 @@ editable: false
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
-{% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
-
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
@@ -99,13 +97,15 @@ editable: false
 
 ### Подключение пакета трафика для публичной сети {#bandwidth-package}
 
+_Объем данных_ — это единица тарификации услуги, которая равна объему трафика, передаваемого в течение суток. Цены за сутки использования формируются из расчета 24 часов.
+
+{% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
+
 {% note info %}
 
 Чтобы запросить пакет данных на 100 ТБ, обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 {% endnote %}
-
-_Объем данных_ — это единица тарификации услуги, которая равна объему трафика, передаваемого в течение суток. Цены за сутки использования формируются из расчета 24 часов.
 
 Доступно для подключения:
 

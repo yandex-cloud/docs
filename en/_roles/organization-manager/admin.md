@@ -3,10 +3,10 @@ The `organization-manager.admin` role enables managing organization settings, id
 {% cut "Users with this role can:" %}
 
 * Link a [billing account](../../billing/concepts/billing-account.md) to an [Identity Hub organization](../../organization/concepts/organization.md).
-* View and edit info on the relevant organization under Identity Hub.
+* View and edit info on the relevant Identity Hub organization.
 * View and edit organization settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the relevant organization and modify such permissions.
-* View the list of the organization’s [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
+* View the list of the organization's [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
 * View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in the Identity Hub organization.
 * Remove users from the organization.
 * View info on invites to the organization sent to the users, as well as [send](../../organization/operations/add-account.md#send-invitation) and delete such invites.
@@ -32,14 +32,18 @@ The `organization-manager.admin` role enables managing organization settings, id
 * Delete [MFA factors](../../iam/concepts/users/accounts.md#saml-federation) for federated and [local](../../iam/concepts/users/accounts.md#saml-federation) user accounts.
 * Reset the verification date for federated and local user accounts.
 * View info on the organization's [OS Login](../../organization/concepts/os-login.md) settings and modify them.
-* View the list of users' and [service accounts’](../../iam/concepts/users/service-accounts.md) OS Login [profiles](../../organization/concepts/os-login.md#os-login-profiles), as well as create, modify, and delete such profiles.
+* View the list of users' and [service accounts'](../../iam/concepts/users/service-accounts.md) OS Login [profiles](../../organization/concepts/os-login.md#os-login-profiles), as well as create, modify, and delete such profiles.
 * View the list of the organization users' SSH keys and info on such keys, as well as create, modify, and delete them.
 * View info on [user groups](../../organization/concepts/groups.md), as well as create, modify, and delete them.
 * Add users and service accounts to and remove them from groups.
 * View info on access permissions granted for the relevant user groups and modify such permissions.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
+* View the list of and info on Identity Hub user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
+* View the list of members belonging to Identity Hub user groups associated with user groups in Active Directory or another external source, as well as manage membership in such groups.
+* Associate user groups with identity federations and user pools through synchronization with user groups in Active Directory or another external source, as well as disassociate them.
+* Modify and delete Identity Hub user groups associated with user groups in Active Directory or another external source.
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
-* View the info on the refresh tokens of the organization’s users, as well as revoke such tokens.
+* View the info on the refresh tokens of the organization's users, as well as revoke such tokens.
 * View info on the Identity Hub quotas.
 * View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 * View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
@@ -58,6 +62,6 @@ The `organization-manager.admin` role enables managing organization settings, id
 
 {% endcut %}
 
-This role includes `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator`, and `src.repositories.admin` permissions.
+This role includes the `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator`, `organization-manager.groups.externalManager`, and `src.repositories.admin` permissions.
 
-To configure user group mapping, the role must be assigned for those Identity Hub groups, which you want to configure mapping for.
+To configure user group mapping, the role must be assigned for the Identity Hub groups you intend to map.

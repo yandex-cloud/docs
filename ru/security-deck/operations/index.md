@@ -21,7 +21,10 @@ description: Из статьи вы узнаете, как работать с {
 
 ## Модуль контроля {{ k8s }}® (KSPM) {#k8s}
 
-* [{#T}](kspm.md).
+* [{#T}](kspm/enable-kspm.md).
+* [{#T}](kspm/use-kspm.md).
+* [{#T}](kspm/view-rules.md).
+* [{#T}](kspm/manage-exceptions.md).
 
 ## Модуль Контроль конфигурации ({{ cspm-name }}) {#cspm}
 

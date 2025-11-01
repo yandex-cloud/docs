@@ -10,6 +10,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Получение информации об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
+* [Обновление версии {{ TR }}](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Подключение к кластеру](connect.md)
 * [Техническое обслуживание](cluster-maintenance.md)

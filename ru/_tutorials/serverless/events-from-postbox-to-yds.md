@@ -1,16 +1,18 @@
 # Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}
 
 
-В этом руководстве вы настроите передачу событий [{{ postbox-full-name }}](../../postbox/) в [{{ yds-full-name }}](../../data-streams/) и визуализацию этих событий с помощью [{{ datalens-full-name }}](../../datalens/) для последующего анализа. Источник событий — отправка электронных писем.
+В этом руководстве вы настроите передачу событий [{{ postbox-full-name }}](../../postbox/index.yaml) в [{{ yds-full-name }}](../../data-streams/index.yaml) и визуализацию этих событий с помощью [{{ datalens-full-name }}](../../datalens/index.yaml) для последующего анализа. Источник событий — отправка электронных писем.
 
-Вы сможете реализовать все представленные решения в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} без навыков разработки. Для обработки и хранения данных будут использоваться сервисы [{{ sf-full-name }}](../../functions/) и [{{ ydb-full-name }}](../../ydb/).
+Реализовать предлагаемое решение можно с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }}, даже не имея навыков разработки. Для обработки и хранения данных будут использоваться сервисы [{{ sf-full-name }}](../../functions/index.yaml) и [{{ ydb-full-name }}](../../ydb/index.yaml).
 
 Чтобы настроить передачу событий и их визуализацию:
 
 1. [Подготовьте облако к работе](#before-begin).
+1. [Создайте сервисные аккаунты](#service-accounts).
+1. [Создайте статический ключ доступа](#static-key).
 1. [Настройте базу данных {{ ydb-name }}](#ydb).
 1. [Создайте поток данных {{ yds-name }}](#stream).
-1. [Подготовьте ресурсы {{ postbox-name }} и {{ dns-name }}](#postbox).
+1. [Подготовьте ресурсы {{ postbox-name }}](#postbox).
 1. [Подготовьте ресурсы {{ sf-name }}](#serverless-functions).
 1. [Отправьте письма](#send-letters).
 1. [Настройте визуализацию в {{ datalens-name }}](#datalens).
@@ -34,20 +36,18 @@
 * плата за тариф {{ datalens-short-name }} (см. [тарифы {{ datalens-full-name }}](../../datalens/pricing.md)).
 
 
-### Создайте сервисный аккаунт {#service-account}
+## Создайте сервисные аккаунты {#service-accounts}
 
-{% list tabs group=instructions %}
+Создайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
 
-- Консоль управления {#console}
+* `yds-functions` — от его имени будет вызываться [функция](../../functions/concepts/function.md) {{ sf-name }} и будут записываться данные в [базу данных](../../ydb/concepts/resources.md#database) {{ ydb-short-name }};
+* `postbox-user` — от его имени будут отправляться письма через {{ postbox-name }}.
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `yds-functions`.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md) `yds.editor` и `{{ roles-functions-invoker }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+{% include [create-service-accounts](../_tutorials_includes/events-from-postbox-to-yds/create-service-accounts.md) %}
 
-{% endlist %}
+## Создайте статический ключ доступа {#static-key}
+
+{% include [create-static-key](../_tutorials_includes/events-from-postbox-to-yds/create-static-key.md) %}
 
 
 ## Настройте базу данных {{ ydb-name }} {#ydb}
@@ -61,14 +61,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Укажите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД `postbox-events-ydb`.
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_name }}** укажите `postbox-events-ydb`.
+  1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type_pB7Wx }}`.
+  1. Другие параметры базы данных оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-  Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
+  Дождитесь запуска БД. В процессе создания база данных будет находиться в статусе `Provisioning`, а когда станет готова к использованию, ее статус изменится на `Running`.
 
 {% endlist %}
 
@@ -79,10 +78,10 @@
 
 - Консоль управления {#console}
 
-  1. На странице **{{ ui-key.yacloud.ydb.databases.label_title }}** выберите БД `postbox-events-ydb`.
+  1. На странице **{{ ui-key.yacloud.ydb.databases.label_title }}** выберите вновь созданную БД `postbox-events-ydb`.
   1. Чтобы открыть корневую директорию БД, перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
-  1. Чтобы создать запрос к БД, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**. Откроется страница **{{ ui-key.yacloud.ydb.sql.label_query }}**.
-  1. В поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
+  1. Чтобы создать запрос к БД, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
+  1. В открывшемся поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
 
       ```sql
       CREATE TABLE postbox_events
@@ -110,90 +109,34 @@
 
   1. Нажмите кнопку ![image](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
-      После выполнения запроса появится таблица `postbox_events`.
+      В результате выполнения запроса в базе данных появится новая таблица `postbox_events`.
 
 {% endlist %}
 
 
 ## Создайте поток данных {{ yds-name }} {#stream}
 
-Создайте [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) для регистрации событий.
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
-  1. Укажите базу данных `postbox-events-ydb`.
-  1. Введите имя потока данных `postbox-events-stream`.
-  1. Выберите режим тарификации `{{ ui-key.yacloud.data-streams.label_request-units }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-  Дождитесь запуска потока данных. Когда поток станет готов к использованию, его статус изменится с `Creating` на `Active`.
-
-{% endlist %}
+{% include [create-yds-stream](../_tutorials_includes/events-from-postbox-to-yds/create-yds-stream.md) %}
 
 
-## Подготовьте ресурсы {{ postbox-name }} и {{ dns-name }} {#postbox}
+## Подготовьте ресурсы {{ postbox-name }} {#postbox}
 
-Создайте [адрес](../../postbox/concepts/glossary.md#adress) для отправки писем, [пройдите](../../postbox/operations/check-domain.md) проверку владения доменом и настройте [конфигурацию](../../postbox/concepts/glossary.md#subscription) для регистрации событий в {{ yds-name }}.
+{% include [create-pb-resources-intro](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-intro.md) %}
 
 
-### Создайте адрес {#address}
+### Создайте конфигурацию {{ postbox-name }} {#config}
 
-1. На своем компьютере сгенерируйте ключ `privatekey.pem` для создания DKIM-подписи:
+{% include [create-pb-resources-config](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-config.md) %}
 
-    {% list tabs group=instructions %}
 
-    - Linux {#linux}
+### Создайте адрес {{ postbox-name }} {#address}
 
-      ```bash
-      openssl genrsa -out privatekey.pem 2048
-      ```
-
-    {% endlist %}
-
-1. Создайте адрес:
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-
-      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-      1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Домен может быть любого уровня.
-      1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор, например `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую необходимо создать при прохождении [проверки владения доменом](#domain).
-      1. В поле **{{ ui-key.yacloud.postbox.label_private-key }}** скопируйте содержимое файла приватного ключа `privatekey.pem`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-
-    {% endlist %}
+{% include [create-pb-resources-address](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-address.md) %}
 
 
 ### Пройдите проверку владения доменом {#domain}
 
 {% include [check-domain](../../_includes/postbox/check-domain.md) %}
-
-
-### Создайте конфигурацию {#config}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
-  1. Введите имя конфигурации `postbox-events-config`.
-  1. В блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** нажмите **{{ ui-key.yacloud.common.add }}**:
-
-      1. Введите название [подписки](../../postbox/concepts/glossary.md#subscription) `postbox-events-subscribe`.
-      1. Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) `postbox-events-stream`.
-      1. Включите опцию **{{ ui-key.yacloud.common.enabled }}**, чтобы активировать подписку.
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
-
-{% endlist %}
 
 
 ## Подготовьте ресурсы {{ sf-name }} {#serverless-functions}
@@ -232,8 +175,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите каталог с вашей БД и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, для которой нужно получить эндпоинт и путь.
 
       * Эндпоинт БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** в первой части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`):
@@ -255,7 +198,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -264,7 +208,7 @@
 
   1. Создайте версию функции:
 
-      1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Python 3.12`.
+      1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `{{ python-full-ver }}`.
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
@@ -273,14 +217,14 @@
 
       1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10 {{ ui-key.yacloud_billing.common.units.label_time-sec_many }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `yds-functions`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
               Ключ | Описание | Пример значения
               :--- | :--- | :---
-              `YDB_DATABASE` | Путь БД     | `/ru-central1/b1go123e9vjq********/etnu15kr22********`
+              `YDB_DATABASE` | Путь БД     | `/{{ region-id }}/b1go123e9vjq********/etnu15kr22********`
               `YDB_ENDPOINT` | Эндпоинт БД | `grpcs://ydb.serverless.yandexcloud.net:2135`
               `YDB_TABLE`    | Имя таблицы | `postbox_events`
 
@@ -295,10 +239,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `postbox-events-trigger`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера `postbox-events-trigger`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}** выберите поток данных `postbox-events-stream` и сервисный аккаунт `yds-functions`.
@@ -310,27 +254,23 @@
 
 ## Отправьте письма {#send-letters}
 
-1. [Создайте](../../postbox/quickstart.md#service-account-and-keys) сервисный аккаунт `postbox-user` c ролью `postbox.sender` и статические ключи доступа.
-1. [Отправьте](../../postbox/quickstart.md#send-test-letter) несколько тестовых писем с использованием адреса, созданного [ранее](#address).
-1. Убедитесь, что письма отправлены — проверьте почту, на которую отправлены письма.
-1. Убедитесь, что данные поступают в сервисы:
+1. Удобным вам способом [отправьте](../../postbox/operations/send-email.md#send-email) несколько тестовых писем с использованием адреса {{ postbox-name }} и статического ключа доступа, созданных ранее.
+1. Убедитесь, что письма доставлены. Для этого проверьте почту, на которую вы отправляли эти письма.
+1. Убедитесь, что данные об отправке писем поступают в сервисы:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. Проверьте поток данных:
+      * Проверьте поток данных:
 
-          1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-          1. Выберите поток данных `postbox-events-stream`.
-          1. Перейдите на вкладку ![image](../../_assets/console-icons/text-align-justify.svg) **{{ ui-key.yacloud.data-streams.label_data-introspection }}**.
+          {% include [test-function-machinery-check-yds](../_tutorials_includes/events-from-postbox-to-yds/test-function-machinery-check-yds.md) %}
 
-              На графиках должна отобразиться отправка писем.
+      * Проверьте БД:
 
-      1. Проверьте БД:
-
-          1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-          1. Выберите БД `postbox-events-ydb`.
+          1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+          1. Выберите базу данных `postbox-events-ydb`.
           1. Перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**
           1. Выберите таблицу `postbox_events`.
 
@@ -351,7 +291,7 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите кнопку **Создать подключение**.
+  1. На панели слева выберите ![thunderbolt](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
   1. Выберите коннектор **{{ ydb-short-name }}**.
   1. Укажите параметры подключения:
 
@@ -359,9 +299,10 @@
       * **Сервисный аккаунт** — `yds-functions`.
       * **База данных** — `postbox-events-ydb`.
       * **Время жизни кеша в секундах** — `По умолчанию`.
-      * **Уровень доступа SQL запросов** — `Разрешить подзапросы из датасетов и запросы из чартов`.
+      * Включите опцию **Уровень доступа SQL запросов** и выберите `Разрешить подзапросы в датасетах`.
 
   1. Нажмите кнопку **Создать подключение**.
+  1. В открывшемся окне выберите воркбук, в котором будет создано подключение, и нажмите кнопку **Создать**.
   1. Введите имя подключения `postbox-events-connection` и нажмите **Создать**.
 
 {% endlist %}
@@ -374,10 +315,10 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите кнопку **Создать датасет**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить**.
-  1. Выберите подключение `postbox-events-connection`.
-  1. В меню слева выберите таблицу `postbox-events` и перетащите ее вправо.
+  1. На панели слева выберите ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Датасеты** и нажмите кнопку **Создать датасет**.
+  1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
+  1. В блоке **Подключения** нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить** и выберите созданное ранее подключение `postbox-events-connection`.
+  1. В блоке **Таблицы** выберите таблицу `postbox-events` и перетащите ее вправо.
   1. Нажмите кнопку **Сохранить**.
   1. В открывшемся окне укажите имя датасета `postbox-events-dataset` и нажмите **Создать**.
 
@@ -396,8 +337,9 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите кнопку **Создать чарт**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
+  1. На панели слева выберите ![chart-column](../../_assets/console-icons/chart-column.svg) **Чарты**, нажмите кнопку **Создать чарт** и выберите **Чарт в Wizard**.
+  1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
+  1. В секции слева нажмите ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
   1. Выберите [тип чарта](../../datalens/visualization-ref/line-chart.md) **Столбчатая диаграмма**.
   1. Перетащите измерения:
 
@@ -418,8 +360,9 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите кнопку **Создать чарт**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
+  1. На панели слева выберите ![chart-column](../../_assets/console-icons/chart-column.svg) **Чарты**, нажмите кнопку **Создать чарт** и выберите **Чарт в Wizard**.
+  1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
+  1. В секции слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
   1. Выберите [тип чарта](../../datalens/visualization-ref/line-chart.md) **Таблица**.
   1. Перетащите следующие измерения в секцию **Столбцы**:
 
@@ -446,15 +389,16 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите кнопку **Создать дашборд**.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и нажмите кнопку **Создать дашборд**.
+  1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. Добавьте на дашборд чарты `Количество событий по дням`, `Список событий` и другие, которые вы создали ранее:
 
       1. На нижней панели нажмите **Чарт**.
-      1. В открывшемся окне в поле **Чарт** нажмите кнопку **Выбрать** и выберите `Количество событий по дням`.
+      1. В открывшемся окне нажмите кнопку **Выбрать** и выберите чарт `Количество событий по дням`.
       1. Нажмите кнопку **Добавить**.
-      1. Повторите действия — добавьте другие чарты.
+      1. Повторите действия, чтобы добавить на дашборд чарт `Список событий` и (при необходимости) другие чарты.
 
-  1. Измените размер и положение чартов.
+  1. С помощью мыши измените размер и положение чартов.
   1. Нажмите кнопку **Сохранить**.
   1. В открывшемся окне введите название дашборда `postbox-events-dashboard`.
   1. Нажмите кнопку **Создать**.
@@ -473,3 +417,5 @@
 1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) базу данных {{ ydb-name }}.
 1. [Удалите](../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных {{ yds-name }}.
 1. [Удалите](../../postbox/operations/index.md) адрес и конфигурацию {{ postbox-name }}.
+1. При необходимости [удалите](../../iam/operations/sa/delete.md) созданные сервисные аккаунты.
+1. При необходимости удалите [ресурсную запись](../../dns/operations/resource-record-delete.md) и [публичную зону DNS](../../dns/operations/zone-delete.md).

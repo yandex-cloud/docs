@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 Для работы с квотами доступны интерфейсы: [консоль управления]({{ link-console-quotas }}), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
 
-Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [{#T}](../overview/concepts/quotas-limits.md).
+Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [{#T}](all-quotas.md).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -150,7 +150,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-      * `--quota-id` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `--quota-id` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](all-quotas.md).
       * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
       * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 
@@ -253,7 +253,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](all-quotas.md).
       * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
       * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 
@@ -360,7 +360,7 @@ description: Следуя данной инструкции, вы сможете
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
       * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
       * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](../overview/concepts/quotas-limits.md#quotas-limits-default).
+      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](all-quotas.md).
 
       **Пример запроса**
 
@@ -420,7 +420,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. **Создайте запрос на изменение квоты.**
 
-      [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits.md#quotas-limits-default) и воспользуйтесь методом REST API [Create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
+      [Посмотрите идентификатор квоты](all-quotas.md) и воспользуйтесь методом REST API [Create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
 
       ```bash
       curl \
@@ -500,7 +500,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. **Создайте запрос на изменение квоты.**
 
-      [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits.md#quotas-limits-default) и создайте запрос с помощью вызова gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md):
+      [Посмотрите идентификатор квоты](all-quotas.md) и создайте запрос с помощью вызова gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md):
 
       ```bash
       grpcurl \

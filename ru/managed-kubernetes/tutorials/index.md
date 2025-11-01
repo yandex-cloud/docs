@@ -65,6 +65,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](kubernetes-backup.md)
 * [{#T}](pvc-snapshot-restore.md)
 
+
 ## Мониторинг {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)

@@ -277,8 +277,8 @@ items:
       - name: Мониторинг
         items:
           - name: >-
-              Мониторинг кластера с помощью {{ prometheus-name }} и {{
-              grafana-name }}
+              Мониторинг кластера с помощью {{ prometheus-name }} Operator с
+              поддержкой {{ monitoring-full-name }}
             href: tutorials/prometheus-grafana-monitoring.md
           - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
             href: tutorials/filebeat-oss-monitoring.md

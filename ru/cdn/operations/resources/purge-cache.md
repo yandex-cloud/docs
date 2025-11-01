@@ -24,7 +24,9 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите тип очистки кеша:
 
       * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-full }}` — для очистки кеша всех файлов.
-      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}` — для очистки кеша выбранных файлов. Имена нужных файлов укажите в поле **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}**.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}` — для очистки кеша выбранных файлов. Пути к нужным файлам укажите через запятую в поле **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}**.
+
+          {% include [wildcard-paths-purging-specifics](../../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
@@ -40,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
       yc cdn resource update --help
       ```
 
-  1. Получите список всех ресурсов в каталоге по умолчанию:
+  1. Получите список всех [CDN-ресурсов](../../concepts/resource.md) в каталоге по умолчанию:
 
       ```bash
       yc cdn resource list --format yaml
@@ -87,13 +89,23 @@ description: Следуя данной инструкции, вы сможете
         status: READY
       ```
 
-  1. Очистите кеш файлов, используя аргумент `cache purge`:
+  1. Очистите кеш файлов:
 
       ```bash
-      yc cdn cache purge --resource-id <идентификатор_ресурса> \
-        --path <пути_к_файлам>
+      yc cdn cache purge \
+        --resource-id <идентификатор_ресурса> \
+        --path <путь_к_файлам_1>,<путь_к_файлам_2>,...,<путь_к_файлам_n>
       ```
-      Если не указать параметр `--path` с путями к файлам, будет очищен кеш всех файлов.
+
+      Где:
+      * `--resource-id` — идентификатор CDN-ресурса, в котором необходимо очистить кеш.
+      * `--path` — список путей к файлам CDN-ресурса, кеш для которых необходимо очистить.
+
+          {% include [wildcard-paths-purging-specifics](../../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
+
+          {% include [the-vary-headers-purge-warning](../../../_includes/cdn/the-vary-headers-purge-warning.md) %}
+
+          Если не указать параметр `--path` с путями к файлам, кеш будет очищен для всех файлов ресурса. Подробнее см. в разделе [{#T}](../../concepts/caching.md#purge).
 
       Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 

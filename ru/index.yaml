@@ -132,7 +132,7 @@ links:
   - title: Managed Service for GitLab
     description: Управление инстансами GitLab
     href: managed-gitlab/
-  - title: Managed Service for Greenplum®
+  - title: Yandex MPP Analytics for PostgreSQL
     description: Управление кластерами Greenplum®
     href: managed-greenplum/
   - title: Managed Service for Kubernetes®

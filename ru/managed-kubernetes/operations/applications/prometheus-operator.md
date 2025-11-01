@@ -10,8 +10,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## См. также {#see-also}
 
-* [{{ monitoring-full-name }}](/services/monitoring).
-* [{{ managed-prometheus-full-name }}](../../../monitoring/operations/prometheus/index.md).
-* [Документация Prometheus Remote Storage](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations).
+* [{{ monitoring-full-name }}](/services/monitoring)
+* [{{ managed-prometheus-full-name }}](../../../monitoring/operations/prometheus/index.md)
+* [Документация Prometheus Remote Storage](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations)
 
 {% include [trademark](../../../_includes/monitoring/trademark.md) %}

@@ -98,7 +98,7 @@ keywords:
 
 * **aof-rewrite-incremental-fsync yes**{#setting-rewrite-incremental}
 
-  Включена синхронизация файла AOF через каждые 32 мегабайта сгенерированных данных.
+  Включена синхронизация файла AOF через каждые 4 мегабайта сгенерированных данных.
 
 * **aof-use-rdb-preamble yes**{#setting-rdb-preamble}
 

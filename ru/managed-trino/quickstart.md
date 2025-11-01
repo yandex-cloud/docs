@@ -52,7 +52,10 @@ description: В этой инструкции вы научитесь созда
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
            * **Тип подключения** — `On-premise`.
-           * **URL** — `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+           * **URL** — `jdbc:postgresql://<FQDN_хоста>:{{ port-mpg }}/<имя_БД>`.
+
+             {% include [host address](../_includes/mdb/mpg/fqdn-host.md) %}
+
            * **Имя пользователя** — имя пользователя в кластере {{ mpg-name }}.
            * **Пароль** — пароль пользователя.
 

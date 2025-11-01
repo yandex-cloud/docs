@@ -26,7 +26,7 @@ description: Вы можете создавать резервные копии 
 * удаленного кластера на момент архивации последнего журнала опережающей записи.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles.mpg.editor }}](../../iam/roles-reference.md#managed-postgresql-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-postgresql.restorer](../../iam/roles-reference.md#managed-postgresql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 
 
 {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}

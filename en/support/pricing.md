@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
+To calculate the support cost, use [our calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or see the pricing info below.
 
 
 {% endnote %}
@@ -51,7 +51,7 @@ The basic service plan is provided to all {{ yandex-cloud }} users at no charge.
 ### Business {#business}
 
 This plan is good for business projects requiring 24/7 support.
-The price is calculated based on the amount of resources consumed over the current reporting period (calendar month). To calculate the cost of using the service, use [our calculator](/prices#calculator) or see the calculation methods in the sections below.
+The price is calculated based on the amount of resources consumed over the current reporting period (calendar month). To calculate the support cost, use [our calculator](/prices#calculator) or see the calculation methods in the sections below.
 
 #### Service plan cost {#business-price}
 
