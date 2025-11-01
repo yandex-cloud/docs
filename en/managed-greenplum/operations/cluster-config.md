@@ -29,7 +29,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
   1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -227,7 +227,7 @@ We recommend changing the host class only when the cluster has no active workloa
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Select **Yandex MPP Analytics for PostgreSQL**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:

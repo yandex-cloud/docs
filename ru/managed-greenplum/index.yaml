@@ -1,9 +1,9 @@
-title: Yandex Managed Service for Greenplum®
+title: Yandex MPP Analytics for PostgreSQL
 description:
   - >-
-    Сервис Yandex Managed Service for Greenplum<sup>®</sup> помогает
-    разворачивать и поддерживать кластеры Greenplum<sup>®</sup> версии 6 в
-    инфраструктуре Yandex Cloud.
+    Сервис Yandex MPP Analytics for PostgreSQL помогает разворачивать и
+    поддерживать кластеры Greenplum<sup>®</sup> версии 6 в инфраструктуре Yandex
+    Cloud.
   - >-
     Greenplum<sup>®</sup> — аналитическая колоночная массово-параллельная (<a
     href="https://ru.wikipedia.org/wiki/Массово-параллельная_архитектура">MPP</a>)
@@ -13,14 +13,13 @@ description:
     href="https://ru.wikipedia.org/wiki/Симметричная_многопроцессорность">SMP</a>),
     в которых масштабирование ограничено одним узлом.
   - >-
-    В Yandex Managed Service for Greenplum<sup>®</sup> также доступна СУБД <a
+    В Yandex MPP Analytics for PostgreSQL также доступна СУБД <a
     href="https://cloudberry.apache.org">Cloudberry</a>. Она основана на
     Greenplum<sup>®</sup> версии 7 и будет базовым дистрибутивом для новых
     мажорных версий ядра сервиса.
   - >-
-    Подробнее о Greenplum<sup>®</sup> и Yandex Managed Service for
-    Greenplum<sup>®</sup> см. в разделе <a
-    href="/docs/managed-greenplum/concepts/overview">Обзор</a>.
+    Подробнее о Greenplum<sup>®</sup> и Yandex MPP Analytics for PostgreSQL см.
+    в разделе <a href="/docs/managed-greenplum/concepts/overview">Обзор</a>.
   - >-
     Для сервиса действует <a
     href="https://yandex.ru/legal/cloud_sla/ru">соглашение об уровне
@@ -58,9 +57,9 @@ links:
     description: Информация о доступных программах обучения
     href: training
 meta:
-  title: Yandex Managed Service for Greenplum®
+  title: Yandex MPP Analytics for PostgreSQL
   description: >-
-    Сервис Yandex Managed Service for Greenplum® помогает разворачивать и
+    Сервис Yandex MPP Analytics for PostgreSQL помогает разворачивать и
     поддерживать кластеры Greenplum® в инфраструктуре Yandex Cloud.
   keywords:
     - '{{ mgp-name }}'

@@ -1,9 +1,8 @@
-title: Yandex Managed Service for Greenplum®
+title: Yandex MPP Analytics for PostgreSQL
 description:
   - >-
-    Yandex Managed Service for Greenplum<sup>®</sup> helps you deploy and
-    maintain Greenplum<sup>®</sup> clusters version 6 in the Yandex Cloud
-    infrastructure.
+    Yandex MPP Analytics for PostgreSQL helps you deploy and maintain
+    Greenplum<sup>®</sup> version 6 clusters in the Yandex Cloud infrastructure.
   - >-
     Greenplum<sup>®</sup> is an analytical, column-oriented massively parallel
     processing (<a
@@ -14,13 +13,13 @@ description:
     href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing">SMP</a>)
     systems, where scaling is limited to a single node.
   - >-
-    Yandex Managed Service for Greenplum<sup>®</sup> also provides access to the
-    <a href="https://cloudberry.apache.org">Cloudberry</a> DBMS. Based on
+    Yandex MPP Analytics for PostgreSQL also provides access to the <a
+    href="https://cloudberry.apache.org">Cloudberry</a> DBMS. Based on
     Greenplum<sup>®</sup> version 7, it and will be the basic distribution for
     new major versions of the core.
   - >-
-    Learn more about Greenplum<sup>®</sup> and Yandex Managed Service for
-    Greenplum<sup>®</sup> in <a
+    Learn more about Greenplum<sup>®</sup> and Yandex MPP Analytics for
+    PostgreSQL in <a
     href="/docs/managed-greenplum/concepts/overview">Overview</a>.
   - >-
     This service is subject to a <a
@@ -61,9 +60,9 @@ links:
     description: Service pricing and cost calculation
     href: pricing/
 meta:
-  title: Yandex Managed Service for Greenplum®
+  title: Yandex MPP Analytics for PostgreSQL
   description: >-
-    Yandex Managed Service for Greenplum® enables deploying and maintaining
+    Yandex MPP Analytics for PostgreSQL enables deploying and maintaining
     Greenplum clusters® in the Yandex Cloud infrastructure.
   keywords:
     - '{{ mgp-name }}'

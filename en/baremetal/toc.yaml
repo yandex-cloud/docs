@@ -125,6 +125,10 @@ items:
           Deploying a web app on {{ baremetal-name }} servers with an L7 load
           balancer and {{ sws-name }} protection
         href: tutorials/webapp-on-bms-behind-sws.md
+      - name: >-
+          Connecting a {{ baremetal-name }} server as an external node to a {{
+          managed-k8s-name }} cluster
+        href: tutorials/k8s-connect-bms-as-node.md
   - name: API reference
     items:
       - name: API authentication

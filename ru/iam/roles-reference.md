@@ -538,6 +538,18 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-organizations-owner](../_roles/organization-manager/organizations/owner.md) %}
 
+#### organization-manager.federations.extGroupsViewer {#organization-manager-federations-extGroupsViewer}
+
+{% include [organization-manager.federations.extGroupsViewer](../_roles/organization-manager/federations/extGroupsViewer.md) %}
+
+#### organization-manager.federations.extGroupsManager {#organization-manager-federations-extGroupsManager}
+
+{% include [organization-manager.federations.extGroupsManager](../_roles/organization-manager/federations/extGroupsManager.md) %}
+
+#### organization-manager.federations.extGroupsCleaner {#organization-manager-federations-extGroupsCleaner}
+
+{% include [organization-manager.federations.extGroupsCleaner](../_roles/organization-manager/federations/extGroupsCleaner.md) %}
+
 #### organization-manager.federations.auditor {#organization-manager-federations-auditor}
 
 {% include [organization-manager.federations.auditor](../_roles/organization-manager/federations/auditor.md) %}
@@ -573,6 +585,10 @@ description: В статье приведен полный справочник 
 #### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
 
 {% include [organization-manager-groups-externalConverter](../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
+
+{% include [organization-manager.groups.externalManager](../_roles/organization-manager/groups/externalManager.md) %}
 
 #### organization-manager.groups.editor {#organization-manager-groups-editor}
 
@@ -634,6 +650,22 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-samlApplications-admin](../_roles/organization-manager/samlApplications/admin.md) %}
 
+#### organization-manager.userpools.extGroupsViewer {#organization-manager-userpools-extGroupsViewer}
+
+{% include [organization-manager.userpools.extGroupsViewer](../_roles/organization-manager/userpools/extGroupsViewer.md) %}
+
+#### organization-manager.userpools.extGroupsManager {#organization-manager-userpools-extGroupsManager}
+
+{% include [organization-manager.userpools.extGroupsManager](../_roles/organization-manager/userpools/extGroupsManager.md) %}
+
+#### organization-manager.userpools.extGroupsCleaner {#organization-manager-userpools-extGroupsCleaner}
+
+{% include [organization-manager.userpools.extGroupsCleaner](../_roles/organization-manager/userpools/extGroupsCleaner.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
+
+{% include [organizationmanager-userpools-syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
+
 #### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
 
 {% include [organizationmanager-userpools-auditor](../_roles/organization-manager/userpools/auditor.md) %}
@@ -641,10 +673,6 @@ description: В статье приведен полный справочник 
 #### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
 
 {% include [organizationmanager-userpools-viewer](../_roles/organization-manager/userpools/viewer.md) %}
-
-#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
-
-{% include [organizationmanager-userpools-syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
 
 #### organization-manager.userpools.editor {#organization-manager-userpools-editor}
 

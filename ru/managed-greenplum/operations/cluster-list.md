@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
 
 - CLI {#cli}
 
@@ -82,7 +82,7 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -154,7 +154,7 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
     В списке хостов в колонке **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** указывается роль каждого хоста:

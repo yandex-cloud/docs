@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using {{ objstorage-full-name }}, use the [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check out the pricing in this section.
+To calculate the cost of using {{ objstorage-name }}, use [our calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check the pricing data below.
 
 
 {% endnote %}
@@ -43,15 +43,15 @@ The {{ objstorage-name }} usage cost includes:
 
 ### Using the storage {#rules-storage}
 
-Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
+Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granular per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
 
-### Performing operations with data {#rules-operations}
+### Data operations {#rules-operations}
 
 You pay for data operations according to the following policy:
-* The minimum billing unit for PUT, POST, PATCH, LIST, and TRANSITION operations is 10.
-* The minimum billing unit for GET, HEAD, and OPTIONS operations is 100.
-* You are not charged for deleting data (the DELETE operation).
+* The minimum billing unit for `PUT`, `POST`, `PATCH`, `LIST`, and `TRANSITION` operations is 10.
+* The minimum billing unit for `GET`, `HEAD`, and `OPTIONS` operations is 100.
+* You are not charged for deleting data (the `DELETE` operation).
 
 
 
@@ -64,7 +64,7 @@ You pay for data operations according to the following policy:
 
 ### Data storage {#prices-storage}
 
-The cost of 1 GB per month is fixed and does not depend on the number of days in the month.
+The price per GB per month is fixed and does not depend on the number of days in the month.
 
 
 
@@ -72,9 +72,9 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 {% include [usd.md](../_pricing/storage/usd-used_space.md) %}
 
 
-^1^ The daily cost of data storage service is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
+^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it is lower.
 
-Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
+Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 
 ```text
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
@@ -107,11 +107,11 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% note info %}
 
-You are going to be charged for the GET, HEAD, OPTIONS, PATCH, POST, and PUT operations ending with Error 403 or 404. The cost is calculated based on the standard storage rates.
+You are charged for the `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, and `PUT` operations that resulted in errors 403 or 404. The cost is calculated based on the standard storage rates.
 
 {% endnote %}
 
-The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET, HEAD, and OPTIONS operations in a standard storage per month are free of charge.
+The first 10,000 `PUT`, `POST`, `PATCH`, and `LIST` operations, as well as the first 100,000 `GET`, `HEAD`, and `OPTIONS` operations in a standard storage per month are free of charge.
 
 
 
@@ -122,7 +122,7 @@ The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET
 
 ### Outgoing traffic {#prices-traffic}
 
-When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
+When using {{ objstorage-name }}, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 
 The minimum billing unit is 1 MB. The billing period is a calendar month.
 

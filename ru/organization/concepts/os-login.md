@@ -59,6 +59,8 @@ _Профиль {{ oslogin }}_ определяет параметры, кото
 
 Администратор организации также может разрешить пользователям самостоятельно управлять своими публичными SSH-ключами, для этого нужно дополнительно [включить](../operations/os-login-access.md) опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** в настройках безопасности организации.
 
+{% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
 ### Необходимые условия для использования {{ oslogin }} {#pre-conditions}
 
 {% note info %}

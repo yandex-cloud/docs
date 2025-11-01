@@ -4,7 +4,6 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Concepts
-    expanded: false
     items:
       - name: Overview
         href: concepts/index.md
@@ -19,7 +18,6 @@ items:
       - name: States
         href: concepts/states.md
   - name: Tutorials
-    expanded: false
     items:
       - name: All tutorials
         href: tutorials/index.md
@@ -34,10 +32,10 @@ items:
   - name: Solution library
     href: solution-library.md
   - name: '{{ TF }} reference'
-    expanded: true
+    expanded: false
     items:
       - name: Overview
-        href: tf-ref/yandex-cloud/index.md
+        href: tf-ref/yandex-cloud/overview.md
       - name: Release notes
         href: release-notes.md
       - name: Resources

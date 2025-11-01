@@ -8,7 +8,7 @@
 | 1 vCPU (100%) | {{ sku|USD|compute.hostgroup.cpu.c100.v4|string }} |
 | 1 GB RAM | {{ sku|USD|compute.hostgroup.ram.v4|string }} |
 
-{% cut "Archived types of hosts" %}
+{% cut "Archived host types" %}
 
 | **Intel Cascade Lake**<br>`intel-6230*` | Price per hour, without VAT |
 | --- | --- |

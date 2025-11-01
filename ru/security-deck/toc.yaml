@@ -12,6 +12,8 @@ items:
         href: operations/index.md
       - name: Окружения {{ sd-name }}
         items:
+          - name: Обзор
+            href: operations/workspaces/index.md
           - name: Создать окружение
             href: operations/workspaces/create.md
           - name: Посмотреть дашборд и операции с окружением
@@ -24,20 +26,36 @@ items:
             href: operations/workspaces/delete.md
       - name: Контроль данных ({{ dspm-name }})
         items:
+          - name: Обзор
+            href: operations/dspm/index.md
           - name: Создать источник данных
             href: operations/dspm/create-data-source.md
           - name: Создать сканирование
             href: operations/dspm/create-scan.md
       - name: Контроль {{ k8s }}® (KSPM)
-        href: operations/kspm.md
+        items:
+          - name: Обзор
+            href: operations/kspm/index.md
+          - name: Активировать модуль KSPM
+            href: operations/kspm/enable-kspm.md
+          - name: Работать с дашбордом
+            href: operations/kspm/use-kspm.md
+          - name: Посмотреть правила контроля
+            href: operations/kspm/view-rules.md
+          - name: Управлять исключениями из правил контроля
+            href: operations/kspm/manage-exceptions.md
       - name: Диагностика доступов ({{ ciem-name }})
         items:
+          - name: Обзор
+            href: operations/ciem/index.md
           - name: Просмотреть список доступов
             href: operations/ciem/view-permissions.md
           - name: Отозвать доступ
             href: operations/ciem/revoke-permissions.md
       - name: Контроль конфигурации ({{ cspm-name }})
         items:
+          - name: Обзор
+            href: operations/cspm/index.md
           - name: Посмотреть правила контроля и нарушения
             href: operations/cspm/view-rules.md
           - name: Управлять исключениями из правил контроля

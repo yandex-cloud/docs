@@ -14,5 +14,5 @@ description: В сервисе {{ foundation-models-full-name }} действу�
 #### См. также {#see-also}
 
 * [{#T}](../quickstart/yandexgpt.md)
-* [{#T}](../quickstart/yandexart.md)
+* [{#T}](../operations/generation/yandexart-request.md)
 * [{#T}](../pricing.md)

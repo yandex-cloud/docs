@@ -6,5 +6,5 @@ Where:
 * 720: Number of hours in 30 days.
 * 2: Number of 100% vCPUs.
 * {{ sku|USD|compute.vm.cpu.c100.v3|string }}: Cost of using 100% vCPU per hour.
-* 2: Amount of RAM (in GB).
+* 2: Amount of RAM (GB).
 * {{ sku|USD|compute.vm.ram.v3|string }}: Cost of using 1 GB of RAM per hour.

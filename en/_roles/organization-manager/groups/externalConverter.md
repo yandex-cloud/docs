@@ -1,1 +1,1 @@
-The `organization-manager.groups.externalConverter` role enables adding an attribute with an external group ID to Identity Hub [user groups](../../../organization/concepts/groups.md) when synchronizing with user groups in Active Directory.
+The `organization-manager.groups.externalConverter` role enables adding an attribute with an external group ID to Identity Hub [user groups](../../../organization/concepts/groups.md) when synchronizing with user groups in Active Directory or another external source.

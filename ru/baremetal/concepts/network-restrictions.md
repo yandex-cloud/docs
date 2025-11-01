@@ -31,12 +31,7 @@ MSS в приватной сети | 8870
 
 ### Модель потребления трафика в публичной сети {#bandwidth-for-pubic-network}
 
-
 {% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
-
-Объем данных, ТБ в сутки | Емкость подключения, Гбит/с
---- | ---
-10 | 1 
 
 {% note info %}
 

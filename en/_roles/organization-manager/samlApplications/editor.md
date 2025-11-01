@@ -1,4 +1,4 @@
-The `organization-manager.samlApplications.admin` role enables managing SAML applications and viewing the users added to them.
+The `organization-manager.samlApplications.editor` role enables managing SAML applications and viewing the users added to them.
 
 Users with this role can:
 * View info on SAML applications and the [access permissions](../../../iam/concepts/access-control/index.md) granted for them.

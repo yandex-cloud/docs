@@ -30,7 +30,7 @@
 
 Управление квотами через CLI и API выполняется по идентификатору квоты, который имеет вид `<имя_сервиса>.<имя_ресурса>.<единица_измерения>`. Например: `dns.zones.count`, `serverless.networkPackets.rate`, `mdb.memory.size`. 
 
-Идентификаторы квоты, а также квоты по умолчанию для всех сервисов {{ yandex-cloud}} см. в разделе [{#T}](../../overview/concepts/quotas-limits.md#quotas-limits-default).
+Идентификаторы квоты, а также квоты по умолчанию для всех сервисов {{ yandex-cloud}} см. в разделе [{#T}](../all-quotas.md).
 
 Потребление квот можно узнать в консоли на странице сервиса [{{ quota-manager-name }}]({{ link-console-quotas }}) или с помощью [запроса API](../operations/list-quotas.md).
 

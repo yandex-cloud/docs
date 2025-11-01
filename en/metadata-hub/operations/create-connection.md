@@ -521,7 +521,7 @@ You can create connections of the following types:
   1. Specify the connection name.
   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
-  1. Under **Connection to Greenplum**, select **Managed Service for Greenplum cluster** as the connection type and specify the cluster you need.
+  1. Under **Connection to Greenplum**, select **Yandex MPP Analytics for PostgreSQL cluster** as the connection type and specify the cluster you need.
   1. Under **Authentication**:
       1. Specify the **Username** for the connection.
       1. Select the password setting method:

@@ -19,7 +19,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
     To create a {{ mgp-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Select **Yandex MPP Analytics for PostgreSQL**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.

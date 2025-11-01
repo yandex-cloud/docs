@@ -76,7 +76,7 @@ This scenario assumes you do not have your own equipment at the point of presenc
 
 ### Private connection through a telecom provider connection (L3VPN) {#prc-sp-l3vpn}
 
-This scenario also assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot technically set up BGP peering with the {{ yandex-cloud }} equipment on your own. In this case, the following applies:
+This scenario assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot technically set up BGP peering with the {{ yandex-cloud }} equipment on your own. In this case, the following applies:
 
 * The telecom provider sets up L2 connectivity between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * The telecom provider equipment establishes L3 connectivity and BGP peering with the {{ yandex-cloud }} equipment at the point of presence. This connection integrates into the customer L3VPN, which ensures direct connectivity between your equipment in your data center and {{ yandex-cloud }}.

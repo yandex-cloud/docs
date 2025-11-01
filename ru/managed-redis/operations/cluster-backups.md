@@ -17,7 +17,7 @@ description: Вы можете создавать резервные копии 
 Если при восстановлении кластера из резервной копии вы выбрали тип диска **local-ssd**, добавьте не менее двух хостов на шард.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles.mrd.editor }}](../../iam/roles-reference.md#managed-redis-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-redis.restorer](../../iam/roles-reference.md#managed-redis-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 
 
 {% list tabs group=instructions %}

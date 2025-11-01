@@ -31,7 +31,7 @@ PITR не поддерживается для кластеров с включе
 * удаленного кластера на момент архивации последней коллекции oplog.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles.mmg.editor }}](../../iam/roles-reference.md#managed-mongodb-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-mongodb.restorer](../../iam/roles-reference.md#managed-mongodb-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 
 
 {% list tabs group=instructions %}

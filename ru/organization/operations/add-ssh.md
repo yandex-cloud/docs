@@ -194,6 +194,12 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы пользователи могли самостоятельно загружать SSH-ключи в свои профили, [включите](./os-login-access.md) опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
 
+{% note info %}
+
+{% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
+{% endnote %}
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/os-login-access.md)

@@ -308,7 +308,7 @@ description: Вы можете создавать резервные копии 
 Для нового кластера необходимо задать все параметры, обязательные при создании, кроме типа кластера.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles.mmy.editor }}](../../iam/roles-reference.md#managed-mysql-editor) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 
 
 {% list tabs group=instructions %}

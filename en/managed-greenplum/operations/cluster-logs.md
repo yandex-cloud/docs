@@ -10,7 +10,7 @@
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
     1. Select the service type for which you want to output logs:

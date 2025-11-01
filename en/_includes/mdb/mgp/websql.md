@@ -4,7 +4,7 @@ You can send queries to databases in a {{ mgp-name }} cluster using [{{ websql-f
 
 To connect from {{ websql-name }} to a {{ mgp-name }} cluster, create a connection:
 
-1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
 1. Click the cluster name.
 1. [Enable](../../../managed-greenplum/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** in the cluster settings if it is not enabled yet.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.

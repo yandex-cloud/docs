@@ -34,7 +34,7 @@ items:
             href: operations/activate-commercial.md
       - name: Управление способами оплаты
         items:
-          - name: Привязать другую карту
+          - name: Удалить или привязать другую карту
             href: operations/pin-card.md
           - name: Изменить способ оплаты
             href: operations/change-payment-method.md
