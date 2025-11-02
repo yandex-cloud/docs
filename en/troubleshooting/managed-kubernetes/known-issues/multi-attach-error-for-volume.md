@@ -16,10 +16,11 @@ Such errors can also occur if the pods that should use the `volume` are located 
 
 If you need to use `ReadWriteMany`, we recommend using CSI for our object storage because the volumes based on it support this access mode:
 
-Automatic installation via the marketplace or `Helm` chart is described [here](../../../docs/managed-kubernetes/operations/volumes/s3-csi-integration), and manual integration is described [here](../../../managed-kubernetes/operations/volumes/s3-csi-integration).
+Automatic installation via the marketplace or `Helm` chart is described [here](https://github.com/yandex-cloud/k8s-csi-s3/blob/master/README.md#helm-chart), and manual integration is described [here](https://github.com/yandex-cloud/k8s-csi-s3/blob/master/README.md#manual-installation).
 
 
 ## If the issue persists {#if-issue-still-persists}
 
 If the actions described above did not help solve the issue, you can try to organize storage on your own. Some of the possible solutions also support multiple access (for example, nfs or CEPH). You can read more about this in the [k8s official documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+
 
