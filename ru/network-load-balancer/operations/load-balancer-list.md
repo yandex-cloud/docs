@@ -97,7 +97,7 @@
       * `output "network_load_balancer"` — выходная переменная, которая содержит информацию о дате создания балансировщика:
          * `value` — возвращаемое значение.
 
-      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_lb_network_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/datasource_lb_network_load_balancer).
+      Вместо `created_at` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_lb_network_load_balancer` см. в [документации провайдера]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
   1. Создайте ресурсы:
 

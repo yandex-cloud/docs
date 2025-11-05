@@ -50,6 +50,7 @@ Configure one of the supported data sources:
 * [{{ metrika }}](../source/metrika.md)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [Oracle](../source/oracle.md)
 * [{{ OS }}](../source/opensearch.md)
 
@@ -132,7 +133,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -202,7 +203,7 @@ Connection to the database with explicitly specified network addresses and ports
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

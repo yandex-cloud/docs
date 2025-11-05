@@ -35,7 +35,7 @@ description: Из этой статьи вы узнаете, как настро
    1. Получите [идентификатор пользователя](../../../organization/operations/users-get.md), [сервисного аккаунта](../../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
    1. С помощью команды `yc organization-manager idp userpool set-access-bindings` назначьте роли:
       
-      * Пользователю с аккаунтом на Яндексе:
+      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
          ```bash
          yc organization-manager idp userpool set-access-bindings \

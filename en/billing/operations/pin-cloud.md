@@ -11,7 +11,7 @@ description: Follow this guide to link a cloud to a billing account.
 
 Before linking a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), make sure that the [billing account](../concepts/billing-account.md) has been activated (has the `ACTIVE` or `TRIAL_ACTIVE` [status](../concepts/billing-account-statuses.md)) and the user has all of the following [roles](../../iam/concepts/access-control/roles.md):
 * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the cloud.
-* `billing.accounts.owner` or `editor` for the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
+* `billing.accounts.editor` and higher for the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
 
 ## Linking a cloud {#bind-cloud}
 
@@ -33,8 +33,8 @@ To link a cloud to a billing account or change the billing account a cloud is li
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To link a cloud, a [service account](../../iam/concepts/users/service-accounts.md) must have the `billing.accounts.owner` `editor` [role](../security/index.md#set-role) for the billing account.
-  1. In the configuration file, describe the resources you want to create:
+  To link a cloud, the [service account](../../iam/concepts/users/service-accounts.md) must have the `billing.accounts.editor` [role](../security/index.md#set-role) or higher for the billing account.
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_billing_cloud_binding" "mycloud" {
@@ -47,7 +47,7 @@ To link a cloud to a billing account or change the billing account a cloud is li
      * `billing_account_id`: ID of the billing account to link the cloud to.
      * `cloud_id`: ID of the cloud to link the billing account to.
 
-     For more information about the `yandex_billing_cloud_binding` properties in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/billing_cloud_binding).
+     For more information about the `yandex_billing_cloud_binding` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

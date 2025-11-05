@@ -179,10 +179,26 @@
 
 ```yaml
 #cloud-config
+datasource_list: [Ec2]
 datasource:
   Ec2:
     strict_id: false
 ```
+
+{% note alert %}
+
+В релизах пакета `cloud-init`, начиная с версии `25.1.4`, а также `24.4.1-0ubuntu0~20.04.3+esm1` и `23.1.2-0ubuntu0~18.04.1+esm1`, были внесены [изменения](https://cloudinit.readthedocs.io/en/latest/reference/breaking_changes.html#id3), которые могут повлиять на работу существующих виртуальных машин, созданных из пользовательских образов.
+
+После обновления у таких виртуальных машин может наблюдаться проблема с запуском из [снимка](../../concepts/snapshot.md) или [образа](../../concepts/image.md) загрузочного диска.
+
+Чтобы исправить эту проблему, на существующей ВМ выполните команду:
+
+```bash
+echo "datasource_list: [Ec2]" | sudo tee /etc/cloud/cloud.cfg.d/99999_ds_list.cfg
+```
+
+{% endnote %}
+
 
 ## Установите драйверы для совместимости с GPU {#gpu-drivers}
 

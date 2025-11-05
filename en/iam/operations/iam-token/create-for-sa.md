@@ -190,6 +190,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   ```
 
 
+
 - Java {#java}
 
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
@@ -459,6 +460,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   ```
 
 
+
 - Node.js {#node}
 
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
@@ -496,7 +498,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
           });
   }
   ```
-
+  
+  
   
 
 - PHP {#php}
@@ -714,6 +717,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
   1. Exchange your JWT for an IAM token:
 
+  
       ```go
       import yandexcloud
 
@@ -739,7 +743,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
       def create_iam_token():
         jwt = create_jwt()
         
-        sdk = yandexcloud.SDK(service_account_key=sa_key, endpoint="api.yandexcloud.kz")
+        sdk = yandexcloud.SDK(service_account_key=sa_key)
         iam_service = sdk.client(IamTokenServiceStub)
         iam_token = iam_service.Create(
             CreateIamTokenRequest(jwt=jwt)
@@ -750,6 +754,8 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
         return iam_token.iam_token
       ```
+  
+
 
 - Go {#go}
 
@@ -762,6 +768,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
   1. Exchange your JWT for an IAM token:
 
+  
       ```go
       import (
         "context"
@@ -781,7 +788,6 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
         sdk, err := ycsdk.Build(ctx, ycsdk.Config{
           Credentials: credentials,
-          Endpoint: "api.yandexcloud.kz:443",
         })
         if err != nil {
           panic(err)
@@ -801,6 +807,8 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
         return newKey.IamToken
       }
       ```
+
+
 
 - Node.js {#node}
 

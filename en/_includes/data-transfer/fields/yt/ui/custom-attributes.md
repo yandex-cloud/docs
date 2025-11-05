@@ -1,0 +1,1 @@
+**Custom attributes**: Allows you to add custom attributes to tables created in [YSON](https://ytsaurus.tech/docs/ru/user-guide/storage/yson) format. To add a new attribute, click **+ Attribute** and enter its name and value.

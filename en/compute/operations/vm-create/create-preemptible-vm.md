@@ -319,7 +319,7 @@ To change the type of a VM, such as making it non-preemptible:
 
   1. Delete the `scheduling_policy` field with the `preemptible = true` value.
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:

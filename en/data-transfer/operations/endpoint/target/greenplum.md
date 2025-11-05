@@ -43,6 +43,7 @@ Configure one of the supported data sources:
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ ydb-name }}](../source/ydb.md)
 * [Oracle](../source/oracle.md)
 

@@ -360,7 +360,7 @@ You can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect) provider documentation.
+    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector) provider documentation.
 
 - REST API {#api}
 
@@ -952,7 +952,7 @@ Specify the S3 Sink connector parameters:
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect) provider documentation.
+    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector) provider documentation.
 
 - REST API {#api}
 
@@ -1243,7 +1243,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
         terraform import yandex_mdb_kafka_connector.<connector_name> <cluster_ID>:<connector_name>
         ```
 
-        To learn more about importing connectors, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect#import) provider documentation.
+        To learn more about importing connectors, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector#import) provider documentation.
 
 {% endlist %}
 
@@ -1287,7 +1287,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect) provider documentation.
+    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector) provider documentation.
 
 - REST API {#api}
 

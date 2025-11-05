@@ -4,11 +4,9 @@ description: Follow this guide to configure an {{ objstorage-full-name }} source
 ---
 # Transferring data from a {{ objstorage-full-name }} source endpoint
 
-{% note info %}
 
-{% include [note-preview](../../../../_includes/preview-pp.md) %}
+{% include [storage-preview-disclaimer](../../../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
-{% endnote %}
 
 {{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
 
@@ -52,9 +50,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 
     * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_prefix.title }}**: Prefix for folders and files that may be used when performing a search within the bucket.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only includes files, use the `**` value.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket contains nothing but files, use the `**` value.
 
-- Custom S3-compatible storage {#s3-storage}
+- S3-compatible user storage {#s3-storage}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Bucket name.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: [ID and contents of the AWS key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) used to access a private bucket.
@@ -63,7 +61,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}**: Allow self-signed certificates.
     * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_prefix.title }}**: Prefix for folders and files that may be used when performing a search within the bucket.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only includes files, use the `**` value.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only contains files, use the `**` value.
 
 {% endlist %}
 
@@ -144,6 +142,7 @@ Configure one of the supported data targets:
 * [{{ MY }}](../target/mysql.md)
 * [{{ CH }}](../target/clickhouse.md)
 * [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ GP }}](../target/greenplum.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

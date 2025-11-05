@@ -48,6 +48,7 @@ Configure one of the supported data targets:
 * [{{ PG }}](../target/postgresql.md)
 * [{{ CH }}](../target/clickhouse.md)
 * [{{ GP }}](../target/greenplum.md)
+* [{{ ytsaurus-name }}](../source/yt.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 

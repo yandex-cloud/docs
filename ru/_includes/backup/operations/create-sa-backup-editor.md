@@ -108,8 +108,8 @@
 
   Более подробную информацию о параметрах ресурсов см. в документации провайдера:
 
-  * [yandex_iam_service_account]({{ tf-provider-datasources-link }}/iam_service_account)
-  * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-datasources-link }}/resourcemanager_folder_iam_member)
+  * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+  * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
 
 - API {#api}
 

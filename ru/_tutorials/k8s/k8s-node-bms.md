@@ -150,7 +150,7 @@
 
    ```bash
    sudo mkdir -p /etc/yandex-maintainer
-   cp /kube.config /etc/yandex-maintainer/
+   sudo mv /kube.config /etc/yandex-maintainer/
    ```
 
 1. Выполните следующие команды на сервере {{ baremetal-name }}:

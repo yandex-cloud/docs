@@ -3,6 +3,6 @@ title: Как создать группу пользователей в {{ org-f
 description: Следуя данной инструкции, вы сможете создать группу пользователей в {{ org-name }}.
 ---
 
-# Создать группу {#create-group}
+# Создать группу
 
 {% include [create-group-org](../../_includes/organization/create-group-org.md) %}

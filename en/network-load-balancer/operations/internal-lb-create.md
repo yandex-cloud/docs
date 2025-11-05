@@ -170,7 +170,7 @@ The internal load balancer listener gets a random IP address within the selected
 
         * `healthcheck`: Health check settings. Specify a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-link }}).
 
   1. Create a network load balancer:
 

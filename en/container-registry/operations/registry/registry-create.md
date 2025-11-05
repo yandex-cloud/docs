@@ -40,7 +40,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
      * `folder_id`: Folder ID.
      * `labels`: [Labels](../../../resource-manager/concepts/labels.md) used.
 
-     For more information about resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
+     For more information about resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
   1. Check that the configuration file is correct.
      1. Use the command line to go to the directory where you saved the configuration file:
 

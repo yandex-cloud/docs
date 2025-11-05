@@ -226,7 +226,7 @@ You do not need to restart a VM when adding or deleting [rules](../concepts/secu
      ...
      ```
 
-     For more information about `yandex_vpc_security_group_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/resources/vpc_security_group_rule).
+     For more information about `yandex_vpc_security_group_rule` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_security_group_rule).
 
   1. Check the configuration using this command:
 

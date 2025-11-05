@@ -231,6 +231,7 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 Configure one of the supported data targets:
 
 * [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ mmg-name }} (Managed Service for MongoDB)](../target/mongodb.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

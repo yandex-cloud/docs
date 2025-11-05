@@ -137,6 +137,10 @@ By default, a separate table is created for every partition when data is transfe
 
 ## {{ objstorage-name }} {#object-storage}
 
+
+{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
+
+
 Transfers from the {{ objstorage-name }} data source operate in APPEND-ONLY mode. Deleting a file from {{ objstorage-name }} will not affect the data in the target. When updating a file: if the target contains synthetic keys, then the file strings will be updated in the target; otherwise, they will be appended. By default, the primary key contains two columns: file name and string number in the file.
 
 ## Oracle {#oracle}

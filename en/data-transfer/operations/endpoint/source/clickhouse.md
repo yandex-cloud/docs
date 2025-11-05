@@ -92,7 +92,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -162,7 +162,7 @@ Connection to the database with explicitly specified network addresses and ports
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -182,7 +182,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see [this {{ CH }} article]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
+    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
 
     Leave the lists empty to transfer all the tables.
 
@@ -222,6 +222,7 @@ Connection to the database with explicitly specified network addresses and ports
 
 Configure the target endpoint:
 
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ CH }}](../target/clickhouse.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

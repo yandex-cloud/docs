@@ -37,7 +37,7 @@ items:
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Getting user info
+          - name: Getting information about the user
             href: operations/users-get.md
           - name: Updating user data
             href: operations/user-pools/edit-user.md
@@ -179,6 +179,9 @@ items:
             href: operations/org-list-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
+      - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
+        href: operations/sync-ad.md
+        hidden: true
   - name: Tutorials
     items:
       - name: All tutorials
@@ -217,6 +220,8 @@ items:
                 href: tutorials/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: Zabbix
+            href: tutorials/single-sign-on/saml-zabbix.md
   - name: Concepts
     items:
       - name: Organization
@@ -239,6 +244,9 @@ items:
         href: concepts/mfa.md
       - name: Controlled organizations
         href: concepts/controlled-org.md
+      - name: Syncing with {{ microsoft-idp.ad-short }}
+        href: concepts/ad-sync.md
+        hidden: true
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting

@@ -201,6 +201,7 @@ description: Следуя данной инструкции, вы сможете
      * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
      * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+     * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
   1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Получите информацию об [образе](../../concepts/image.md), из которого надо создать ВМ (идентификатор образа и минимальный размер [диска](../../concepts/disk.md)):
      * Если вы знаете [семейство образа](../../concepts/image.md#family), получите информации о последнем образе в этом семействе:

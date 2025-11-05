@@ -848,7 +848,7 @@ default:
   tf-provider-dt-transfer: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_cluster
   tf-provider-k8s-nodegroup: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_node_group
-  tf-provider-link: https://yandex.cloud/ru/docs/terraform/
+  tf-provider-link: https://yandex.cloud/ru/docs/terraform
   tf-provider-maf: https://yandex.cloud/ru/docs/terraform/resources/airflow_cluster
   tf-provider-mch: https://yandex.cloud/ru/docs/terraform/resources/mdb_clickhouse_cluster
   tf-provider-metastore: https://yandex.cloud/ru/docs/terraform/resources/metastore_cluster

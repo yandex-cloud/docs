@@ -45,6 +45,7 @@ Configure one of the supported data sources:
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ ydb-name }}](../source/ydb.md)
 * [Oracle](../source/oracle.md).
 
@@ -114,7 +115,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -170,7 +171,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

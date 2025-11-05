@@ -171,7 +171,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you will need a [st
      }
      ```
 
-     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
+     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

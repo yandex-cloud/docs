@@ -454,7 +454,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      * `days`: Number of days before transition. The minimum value is `1`. This is a required parameter.
      * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.

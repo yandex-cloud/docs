@@ -6,7 +6,7 @@ IAM-токен — уникальная последовательность с
 
 ## Использование токена {#use}
 
-IAM-токены используются в сервисах {{ yandex-cloud }} для аутентификации. IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md) и [федеративных аккаунтов](../../operations/iam-token/create-for-federation.md).
+IAM-токены используются в сервисах {{ yandex-cloud }} для аутентификации. IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md), [федеративных](../../operations/iam-token/create-for-federation.md) и [локальных](../../operations/iam-token/create-for-local.md) аккаунтов.
 
 Также IAM-токены используются для аутентификации клиентов [Docker](../../../container-registry/operations/authentication.md) и [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) в {{ container-registry-full-name }}.
 
