@@ -61,13 +61,13 @@ Make sure to meet the following prerequisites:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
+  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens, do the following:
 
       1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
@@ -105,7 +105,7 @@ To enable {{ org-name }} to verify the {{ microsoft-idp.adfs-abbreviated }} cert
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -361,9 +361,11 @@ To configure such a policy:
 
 ## Configure group mapping on the federation side {#org-mapping}
 
+{% include [group-mapping-roles-necessary](../../_includes/organization/group-mapping-roles-necessary.md) %}
+
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 

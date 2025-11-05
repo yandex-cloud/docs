@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Associating a {{ backup-full-name }} policy with a VM is available for [{{ TF }} provider]({{ tf-provider-link }}/) `0.127.0` and higher.
+Associating a {{ backup-full-name }} policy with a VM is available for [{{ TF }} provider]({{ tf-provider-link }}) `0.127.0` and higher.
 
 {% endnote %}
 

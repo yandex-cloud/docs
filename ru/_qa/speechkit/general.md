@@ -26,7 +26,7 @@
 
 #### Как сгенерировать IAM-токен {#iam-token}
 
-Вы можете сгенерировать IAM-токен, например, воспользовавшись интерфейсом командной строки {{ yandex-cloud }}. Все способы получения IAM-токена описаны для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md) и [сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md) в документации {{ iam-full-name }}.
+Вы можете сгенерировать IAM-токен, например, воспользовавшись интерфейсом командной строки {{ yandex-cloud }}. Все способы получения IAM-токена описаны для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md), [локального аккаунта](../../iam/operations/iam-token/create-for-federation.md) и [сервисного аккаунта](../../iam/operations/iam-token/create-for-local.md) в документации {{ iam-full-name }}.
 
 Несмотря на то, что срок жизни IAM-токена — не более {{ iam-token-lifetime }}, мы рекомендуем использовать его для аутентификации в сервисе {{ speechkit-name }} как наиболее безопасный способ.
 

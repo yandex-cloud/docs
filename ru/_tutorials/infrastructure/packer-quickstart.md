@@ -27,7 +27,7 @@ Packer создаст и запустит виртуальную машину с
 1. В зависимости от типа аккаунта, от имени которого вы работаете, получите:
 
     * [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport).
-    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунтов.
+    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation), [локального](../../iam/concepts/users/accounts.md#local) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунта.
 
 1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе {{ compute-name }}. У вас должна быть минимальная [роль](../../compute/security/index.md#compute-editor) `compute.editor` на каталог.
 

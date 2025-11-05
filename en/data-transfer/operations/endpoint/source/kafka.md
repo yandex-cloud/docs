@@ -71,7 +71,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-source.md) %}
 
-    Configuration file structure example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -94,7 +94,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -118,7 +118,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
     {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-source.md) %}
 
-    Configuration file structure example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -144,7 +144,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -218,6 +218,7 @@ Configure one of the supported data targets:
 * [{{ objstorage-full-name }}](../target/object-storage.md)
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ OS }}](../target/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

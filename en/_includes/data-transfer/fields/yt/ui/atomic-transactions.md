@@ -1,0 +1,1 @@
+**Atomic transactions**: Enable this if you want transactions for tables to be completely [atomic](https://ytsaurus.tech/docs/ru/user-guide/dynamic-tables/transactions#atomicity) (`atomicity=full` property).

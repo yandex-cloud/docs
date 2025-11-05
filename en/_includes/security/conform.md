@@ -5,9 +5,9 @@
 
 In {{ yandex-cloud }}, measures were implemented to protect personal data pursuant to Resolution No. 1119 and FSTEC Order No. 21 regarding requirements for 1st-level protection (UZ-1).
 
-When a client, acting as an operator, places personal data on {{ yandex-cloud }} resources, the client entrusts Yandex to process this data. {{ yandex-cloud }} undertakes to respect the confidentiality of personal data and ensure the security of personal data while processing it, as well as meet all the legal requirements for protecting the processed personal data.
+When a client, acting as an operator, places personal data on {{ yandex-cloud }} resources, the client entrusts Yandex to process this data. {{ yandex-cloud }} undertakes to respect the confidentiality of personal data and ensure the security of personal data while processing it, as well as meet all legal requirements for protecting the processed personal data.
 
-For more information about {{ yandex-cloud }} compliance with the Federal Law No. 152-FZ on Personal Data, see [Compliance with FZ-152](/security/standards/152-fz).
+For more information on {{ yandex-cloud }} compliance with Federal Law No. 152-FZ on Personal Data, see [Compliance with FZ-152](/security/standards/152-fz).
 
 
 
@@ -22,7 +22,7 @@ For more information, see the [Data Processing Addendum](https://yandex.com/lega
 
 ## ISO/IEC certification {#iso}
 
-The {{ yandex-cloud }} Information Security Management System (ISMS) meets the requirements of the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC). This is evidenced by ISO/IEC 27001, ISO/IEC 27017, and ISO/IEC 27018 certification.
+The {{ yandex-cloud }} Information Security Management System (ISMS) meets the requirements of the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC). This is evidenced by ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, and ISO/IEC 42001:2023 certification.
 
 ISO/IEC 27001 defines the requirements for establishing, implementing, maintaining and continually improving ISMS's. The ISO/IEC 27001 guidelines help organizations guarantee a high level of security for their core information assets.
 
@@ -30,7 +30,9 @@ ISO/IEC 27017 includes a code of practice for information security control for c
 
 ISO/IEC 27018 sets the requirements for the protection of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO/IEC 27001.
 
-For more information about the ISO 27001/27018, ISO 27017, and ISO 27701 certificates issued to {{ yandex-cloud }}, see the [ISO standards](/security/standards/iso-standards) page.
+ISO/IEC 42001:2023 lays down the artificial intelligence (AI) management system requirements. By observing this standard organizations minimize their AI-related risks, increase transparency and trust for AI solutions, optimize AI development and use, and ensure regulatory and ethical compliance.
+
+For more information on the ISO 27001/27018, ISO 27017, and ISO 27701 certificates issued to {{ yandex-cloud }}, see the [ISO standards](/security/standards/iso-standards) page.
 
 ## PCI DSS {#pci-dss}
 
@@ -40,13 +42,13 @@ By ensuring that our cloud infrastructure meets PCI DSS requirements, we enable 
 
 {{ yandex-cloud }} has a certificate of compliance with PCI DSS 3.2.1. Compliance with the standard is checked by a QSA auditor on an annual basis.
 
-For more information about the PCI DSS and PCI DSS AOC certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards](/security/standards/pci) page.
+For more information on the PCI DSS and PCI DSS AOC certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards](/security/standards/pci) page.
 
 ## PCI PIN Security {#pci-pin-security}
 
-The payment card industry standard defines requirements for securely processing and transmitting PIN codes and managing cryptographic keys used to protect PIN codes. {{ yandex-cloud }} Customers can host acquiring and PIN code transaction processing infrastructure components in the cloud.
+The payment card industry standard defines requirements for securely processing and transmitting PIN codes and managing cryptographic keys used to protect PIN codes. {{ yandex-cloud }} customers can host acquiring and PIN code transaction processing infrastructure components in the cloud.
 
-For more information about the PCI PIN Security certificates issued to {{ yandex-cloud }}, see [PCI](/security/standards/pci).
+For more information on the PCI PIN Security certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards](/security/standards/pci) page.
 
 ## PCI 3-D Secure (PCI 3DS) {#pci-3d-secure}
 
@@ -54,7 +56,7 @@ The PCI 3-D Secure (PCI 3DS) standard defines the requirements for infrastructur
 
 {{ yandex-cloud }} customers are able to deploy components implementing the 3-D Secure protocol in the cloud infrastructure.
 
-For more information about the PCI 3DS certificates issued to {{ yandex-cloud }}, see [PCI](/security/standards/pci).
+For more information on the PCI 3DS certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards](/security/standards/pci) page.
 
 ## GOST R 57580.1-2017 {#gost}
 
@@ -66,7 +68,7 @@ The {{ yandex-cloud }} platform got a statement of evaluation of compliance with
 
 {{ yandex-cloud }} services can thus be used by systemically important credit institutions, credit institutions providing payment infrastructure services for systemically important payment systems, and credit institutions with significant role in the payment services market.
 
-For more information about the GOST R 57580.1-2017 certificates issued to {{ yandex-cloud }}, see [GOST R 57580](/security/standards/gost-p-57580).
+For more information on the GOST R 57580.1-2017 certificates issued to {{ yandex-cloud }}, see the [GOST R 57580](/security/standards/gost-p-57580) page.
 
 ## Cloud Security Alliance {#csa}
 
@@ -80,9 +82,9 @@ We also participate in the Trusted Cloud Provider program that shows our commitm
 
 ## Central Registry of Russian Computer and Database Software{#reestr}
 
-{{ yandex-cloud }} is listed in the software registry created pursuant to Article 12.1 of the Federal Law On Information, Information Technologies, and Information Protection under the basic class "02.05 Software tools for cloud and distributed computing, visualization tools, and data storage systems" and additional classes "02.09 Database management systems", "04.07 Linguistic software", and "04.13 Systems for collecting, storing, processing, analyzing, modeling, and visualizing datasets".
+{{ yandex-cloud }} is listed in the Russian Software Register created pursuant to Article 12.1 of the Federal Law on Information, Information Technologies, and Information Protection under the basic class 02.05 (software tools for cloud and distributed computing, visualization tools, and data storage systems) and additional classes: 02.09 (database management systems), 04.07 (linguistic software), and 04.13 (systems for collecting, storing, processing, analyzing, modeling, and visualizing datasets).
 
 The fact of the listing proves that {{ yandex-cloud }} and its individual services of the mentioned classes have been developed in Russia — potentially an advantage for organizations enforcing stricter requirements for the use of domestic software.
 
-For more information on the inclusion of {{ yandex-cloud }} in the registries of software and hosting providers, see [State Registries of the Russian Federation](/security/standards/software-registry).
+For more information on the inclusion of {{ yandex-cloud }} into registries of software and hosting providers, see [State Registries of the Russian Federation](/security/standards/software-registry).
 

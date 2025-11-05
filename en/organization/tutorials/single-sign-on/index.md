@@ -1,5 +1,5 @@
 ---
-title: Setting up single sign-on (SSO) for apps
+title: Setting up SSO for applications
 description: Setting up integration between {{ org-full-name }} and third-party applications using SAML and OIDC.
 ---
 
@@ -8,3 +8,4 @@ description: Setting up integration between {{ org-full-name }} and third-party 
 * Grafana Cloud
    * [{#T}](./grafana/saml-grafana.md)
    * [{#T}](./grafana/oidc-grafana.md)
+* [Zabbix](./saml-zabbix.md)

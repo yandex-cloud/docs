@@ -8,6 +8,12 @@ In {{ kms-full-name }}, you can encrypt and decrypt small amounts of data (up to
 
 ## Encrypt data {#encryption}
 
+{% note info %}
+
+Changes caused by [eventually consistent operations](../../../kms/concepts/consistency.md) require up to three hours to become encryptable.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -17,7 +23,7 @@ In {{ kms-full-name }}, you can encrypt and decrypt small amounts of data (up to
   * `--id`: ID of the [KMS key](../../../kms/concepts/key.md). Make sure you set either the `--id` or `--name` flag.
   * `--name`: Name of the KMS key. Make sure you set either the `--id` or `--name` flag.
   * `--version-id` (optional): [Version](../../../kms/concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
-  * `--plaintext-file`: Input file with plaintext.
+  * `--plaintext-file`: Input plaintext file.
   * `--aad-context-file` (optional): Input file with [AAD context](../../../kms/concepts/symmetric-encryption.md#add-context).
   * `--ciphertext-file`: Output file with ciphertext.
 
@@ -36,6 +42,12 @@ In {{ kms-full-name }}, you can encrypt and decrypt small amounts of data (up to
 
 ## Decrypt data {#decryption}
 
+{% note info %}
+
+Changes caused by [eventually consistent operations](../../../kms/concepts/consistency.md) require up to three hours to become decryptable.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -44,7 +56,7 @@ In {{ kms-full-name }}, you can encrypt and decrypt small amounts of data (up to
 
   * `--id`: ID of the [KMS key](../../../kms/concepts/key.md). Make sure you set either the `--id` or `--name` flag.
   * `--name`: Name of the KMS key. Make sure you set either the `--id` or `--name` flag.
-  * `--ciphertext-file`: Input file with plaintext.
+  * `--ciphertext-file`: Input plaintext file.
   * `--aad-context-file` (optional): Input file with [AAD context](../../../kms/concepts/symmetric-encryption.md#add-context).
   * `--plaintext-file`: Output file with ciphertext.
 

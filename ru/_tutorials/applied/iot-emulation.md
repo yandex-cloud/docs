@@ -50,7 +50,7 @@
 
 ## Установите {{ TF }} {#install-terraform}
 
-С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: [виртуальные машины](../../compute/concepts/vm.md), [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: [виртуальные машины](../../compute/concepts/vm.md), [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
 
 {% include [terraform_install](../_tutorials_includes/terraform-install.md) %}
 

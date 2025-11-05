@@ -24,9 +24,9 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 ### Service roles {#service-roles}
 
-#### billing.accounts.owner {#billing-accounts-owner}
+#### billing.accounts.member {#billing-accounts-member}
 
-{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
@@ -36,25 +36,25 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
 
+#### billing.partners.editor {#billing-partners-editor}
+
+{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
-
-#### billing.accounts.admin {#billing-accounts-admin}
-
-{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
-
-#### billing.accounts.member {#billing-accounts-member}
-
-{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
 
-#### billing.partners.editor {#billing-partners-editor}
+#### billing.accounts.admin {#billing-accounts-admin}
 
-{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
+{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.owner {#billing-accounts-owner}
+
+{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -83,7 +83,8 @@ The table below provides a list of operations available to each role type.
 | Topping up your personal account using a bank account    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Generating a new reconciliation report                            | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Activating promo codes                                    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Linking clouds to billing accounts                  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Linking a cloud organization and other entities to a billing account | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Link with a cloud organization                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Creating details export                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Creating budget                                        | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Resource allocation                                 | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -96,7 +97,6 @@ The table below provides a list of operations available to each role type.
 | Changing billing details                          | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Changing bank cards                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Changing payment methods                                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
-| Activating trial period                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Activating paid version                                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Topping up your personal account using a credit or debit card    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Accepting commercial offers                      | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |

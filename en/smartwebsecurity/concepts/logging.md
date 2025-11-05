@@ -104,7 +104,7 @@ The description of SWS log fields is given in the table below.
 || `dry_run_exceeded_quota_names` | Names of the ARL rules with the number of requests above the limit in dry run mode. ||
 |#
 
-To analyze {{ sws-name }} logs, make requests that include the fields and field combinations you need. Check the examples of ready-made requests in [{#T}](../operations/configure-logging.md#filtration).
+To analyze {{ sws-name }} logs, make requests that include the fields and field combinations you need. Check the examples of ready-made requests in [Examples of preset log filters](../operations/configure-logging.md#filtration).
 
 ## Using logs when setting up protection {#log-uses}
 

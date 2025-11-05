@@ -1,6 +1,6 @@
 # Encrypting data using the {{ yandex-cloud }} SDK
 
-You can use {{ kms-full-name }} with the {{ yandex-cloud }}  SDK. The SDK is available for [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), and [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+You can use {{ kms-full-name }} with the {{ yandex-cloud }} SDK. The SDK is available for [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), and [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
 The {{ yandex-cloud }} SDK is most convenient for encrypting small amounts of data (the limit on the size of plaintext is 32 KB). To encrypt larger amounts of data, we recommend using the [AWS Encryption SDK](../../../kms/tutorials/encrypt/aws-encryption-sdk.md) or [Google Tink](../../../kms/tutorials/encrypt/google-tink.md). They encrypt data using [envelope encryption](../../../kms/concepts/envelope.md).
 
@@ -116,6 +116,12 @@ The `token` variable is your [OAuth token](../../../iam/concepts/authorization/o
 
 
 ## Data encryption and decryption {#enc-dec}
+
+{% note info %}
+
+Changes caused by [eventually consistent operations](../../../kms/concepts/consistency.md) require up to three hours to become encryptable and decryptable.
+
+{% endnote %}
 
 Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code uses the following variables: 
 * `endpoint`: `{{ api-host }}:443`.

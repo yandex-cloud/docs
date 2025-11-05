@@ -92,7 +92,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
-      resource "yandex_kms_symmetric_encryption_key_iam_member" "key-viewers" {
+      resource "yandex_kms_symmetric_key_iam_member" "key-viewers" {
         symmetric_encryption_key_id = "<key_ID>"
 
         role    = "<role>"
@@ -106,7 +106,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       * `role`: [Role](../security/index.md#roles-list) being assigned.
       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
+      For more information about `yandex_kms_symmetric_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
   1. Create the resources:
 
@@ -230,7 +230,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       ```hcl
       # Role 1
-      resource "yandex_kms_symmetric_encryption_key_iam_member" "key-viewers" {
+      resource "yandex_kms_symmetric_key_iam_member" "key-viewers" {
         symmetric_encryption_key_id = "<key_ID>"
 
         role    = "<role_1>"
@@ -238,7 +238,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       }
 
       # Role 2
-      resource "yandex_kms_symmetric_encryption_key_iam_member" "key-editors" {
+      resource "yandex_kms_symmetric_key_iam_member" "key-editors" {
         symmetric_encryption_key_id = "<key_ID>"
 
         role    = "<role_2>"
@@ -252,7 +252,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       * `role`: [Role](../security/index.md#roles-list) being assigned.
       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about `yandex_kms_symmetric_encryption_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
+      For more information about `yandex_kms_symmetric_key_iam_member` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
   1. Create the resources:
 

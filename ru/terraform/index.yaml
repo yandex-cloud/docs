@@ -18,7 +18,7 @@ links:
     href: tutorials/
   - title: Провайдер {{ yandex-cloud }}
     description: Справочник ресурсов и источников данных {{ yandex-cloud }}
-    href: tf-ref/overview.md
+    href: tf-ref/overview
 meta:
   title: Terraform в Yandex Cloud
   description: >-

@@ -63,14 +63,14 @@
 
     Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-    * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-    * [Подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-    * [Группы безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-    * [Образ ВМ](../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-    * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-    * [Кластер {{ MY }}](../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-link }}/mdb_mysql_cluster)
-    * База данных {{ MY }} — [yandex_mdb_mysql_database]({{ tf-provider-link }}/mdb_mysql_database)
-    * Пользователь {{ MY }} — [yandex_mdb_mysql_user]({{ tf-provider-link }}/mdb_mysql_user)
+    * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+    * [Подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+    * [Группы безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+    * [Образ ВМ](../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+    * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+    * [Кластер {{ MY }}](../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster)
+    * База данных {{ MY }} — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database)
+    * Пользователь {{ MY }} — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user)
 
 1. В файле `opencart.auto.tfvars` задайте пользовательские параметры:
 

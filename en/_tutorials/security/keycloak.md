@@ -43,7 +43,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
     {% note info %}
 
-    To enable employees on a corporate network or the internet to use {{ keycloak }} for authentication in your application, deploy the {{ keycloak }} IdP server on the network and set up a public address. For more information, see the [{{ keycloak }}](https://www.keycloak.org/server/hostname) documentation.
+    To enable employees on a corporate network or the internet to use {{ keycloak }} for authentication in your application, deploy the {{ keycloak }} IdP server on the network and set up a public address. For more information, see [this {{ keycloak }} guide](https://www.keycloak.org/server/hostname).
 
     {% endnote %}
 
@@ -75,13 +75,13 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
+  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens, do the following:
 
       1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
@@ -127,7 +127,7 @@ To make sure that {{ org-name }} can verify the {{ keycloak }} server certificat
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -270,9 +270,11 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 ## Configure group mapping on the federation side {#org-mapping}
 
+{% include [group-mapping-roles-necessary](../../_includes/organization/group-mapping-roles-necessary.md) %}
+
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -327,7 +329,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
       ```
 
       Where:
-      * `folder_id`: Folder the role is assigned for.
+      * `folder_id`: The folder the role is assigned for.
 
       For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider documentation.
 

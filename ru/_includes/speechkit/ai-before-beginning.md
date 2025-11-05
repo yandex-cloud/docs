@@ -2,9 +2,9 @@
 
 {% list tabs group=authentication %}
 
-- Аккаунт на Яндексе или федеративный аккаунт {#yandex-account}
+- Аккаунт на Яндексе, федеративный или локальный аккаунт {#yandex-account}
 
-  1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
+  1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного](../../iam/operations/iam-token/create-for-federation.md) или [локального](../../iam/operations/iam-token/create-for-local.md) аккаунта.
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роли `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}` или выше.
   1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 

@@ -6,6 +6,7 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 # Preparing for a transfer
 
 
+
 ## Preparing a source {#source}
 
 ### {{ AB }} sources {#source-airbyte}

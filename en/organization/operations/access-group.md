@@ -3,7 +3,7 @@ title: How to assign permissions to a user group in {{ org-full-name }}
 description: In this article, you will learn how to configure access for a user group in {{ org-name }}.
 ---
 
-## Assigning a role for an entire organization {#access-organization}
+# Assigning a role for an entire organization
 
 To enable group members to use {{ yandex-cloud }} resources within an organization, assign the appropriate [roles](../../iam/concepts/access-control/roles.md) to the group.
 

@@ -89,7 +89,7 @@
      * `access_key`: ID of the service account static access key for the queue. If it is not specified in the queue configuration, the ID from the provider configuration is used.
      * `secret_key`: Secret part of the static access key. If no secret key is set in the queue configuration, the key from the provider configuration is used.
 
-     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
 

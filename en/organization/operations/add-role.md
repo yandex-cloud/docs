@@ -67,7 +67,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
         * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
         * `federatedUser:<user_ID>`: Federated user ID.
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Create the resources:
 

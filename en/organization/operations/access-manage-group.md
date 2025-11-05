@@ -3,7 +3,7 @@ title: How to set up access to manage a user group in {{ org-full-name }}
 description: Follow this guide to set up access to manage a user group in {{ org-name }}.
 ---
 
-## Configuring group management access {#access-manage-group}
+# Configuring group management access
 
 You can grant access to a user group to:
 
@@ -14,11 +14,11 @@ You can grant access to a user group to:
 
 To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the group. To choose the ones you need, [learn](../security/index.md#roles-list) about the service's roles.
 
-### Assigning a role {#add-access-binding}
+## Assigning a role {#add-access-binding}
 
 {% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-object.md) %}
 
-### Assigning multiple roles {#set-access-bindings}
+## Assigning multiple roles {#set-access-bindings}
 
 {% list tabs group=instructions %}
 
@@ -124,6 +124,6 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
 {% endlist %}
 
-### Revoking a role {#remove-access-binding}
+## Revoking a role {#remove-access-binding}
 
 {% include [accessbinding-remove](../../_includes/organization/accessbinding-remove.md) %}

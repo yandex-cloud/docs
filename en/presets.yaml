@@ -2,6 +2,9 @@ default:
   360-standard-current-version: 1.0.0
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   AB: Airbyte®
+  ad-sync-agent: Identity Hub AD Sync Agent
+  ad-sync-agent-linuxlink: https://storage.yandexcloud.net/yc-identityhub-sync/install.sh
+  ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
@@ -840,7 +843,7 @@ default:
   tf-provider-dt-transfer: https://yandex.cloud/en/docs/terraform/resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://yandex.cloud/en/docs/terraform/resources/kubernetes_cluster
   tf-provider-k8s-nodegroup: https://yandex.cloud/en/docs/terraform/resources/kubernetes_node_group
-  tf-provider-link: https://yandex.cloud/en/docs/terraform/
+  tf-provider-link: https://yandex.cloud/en/docs/terraform
   tf-provider-maf: https://yandex.cloud/en/docs/terraform/resources/airflow_cluster
   tf-provider-mch: https://yandex.cloud/en/docs/terraform/resources/mdb_clickhouse_cluster
   tf-provider-metastore: https://yandex.cloud/ru/docs/terraform/resources/metastore_cluster

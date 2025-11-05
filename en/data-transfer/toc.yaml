@@ -107,6 +107,12 @@ items:
                 href: operations/endpoint/source/ydb.md
               - name: Target
                 href: operations/endpoint/target/yandex-database.md
+          - name: '{{ ytsaurus-name }}'
+            items:
+              - name: Source
+                href: operations/endpoint/source/yt.md
+              - name: Target
+                href: operations/endpoint/target/yt.md
       - name: Managing transfer process
         href: operations/transfer.md
       - name: Working with databases during transfer
