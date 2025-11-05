@@ -175,7 +175,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
      * `max_age_seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional parameter.
      * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional parameter.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.

@@ -79,7 +79,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-source.md) %}
 
-    Configuration file structure example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -103,7 +103,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -133,7 +133,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
-    Configuration file structure example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -160,7 +160,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -181,7 +181,7 @@ For OnPremise, all fields are filled in manually.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
-        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
+        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
 
         {% note warning %}
 
@@ -283,6 +283,7 @@ Configure one of the supported data targets:
 * [{{ objstorage-full-name }}](../target/object-storage.md)
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ OS }}](../target/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

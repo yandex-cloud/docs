@@ -16,7 +16,7 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -263,7 +263,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
     

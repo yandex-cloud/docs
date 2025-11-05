@@ -29,6 +29,7 @@ keywords:
 
    * [аккаунт на Яндексе](../../iam/operations/iam-token/create.md);
    * [сервисный аккаунт](../../iam/operations/iam-token/create-for-sa.md);
+   * [локальный аккаунт](../../iam/operations/iam-token/create-for-local.md);
    * [федеративный аккаунт](../../iam/operations/iam-token/create-for-federation.md).
 
 1. Выполните запрос к API, например, с помощью cURL. В параметрах авторизации укажите имя пользователя и пароль.

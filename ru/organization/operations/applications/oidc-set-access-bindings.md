@@ -33,7 +33,7 @@ description: Из этой статьи вы узнаете, как настро
 
    1. С помощью команды `yc organization-manager idp application oauth application set-access-bindings` назначьте роли:
       
-      * Пользователю с аккаунтом на Яндексе:
+      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
          ```bash
          yc organization-manager idp application oauth application set-access-bindings \

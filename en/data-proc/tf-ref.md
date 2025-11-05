@@ -21,4 +21,4 @@ description: This page describes the {{ TF }} provider’s resources and data so
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/datasource_dataproc_cluster) | [{{ dataproc-name }} cluster](./concepts/index.md#resources) information |
+| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/dataproc_cluster) | [{{ dataproc-name }} cluster](./concepts/index.md#resources) information |

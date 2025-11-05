@@ -204,7 +204,7 @@ description: Follow this guide to create a device.
       }
       ```
       
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
       
    1. Make sure the configuration files are correct.
       

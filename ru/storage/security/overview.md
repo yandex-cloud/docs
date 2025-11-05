@@ -48,10 +48,11 @@ description: Управление доступом в сервисе {{ objstora
 
 [{{ iam-name }}](./index.md) — основной способ управления доступом в {{ yandex-cloud }} с помощью назначения ролей. Позволяет базово разграничить доступы, подробнее см. [{#T}](./index.md#roles-list).
 
-Получатели доступа: 
+Получатели доступа:
 * аккаунт на Яндексе;
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
-* [федеративный пользователь](../../iam/concepts/federations.md);
+* [федеративный пользователь](../../iam/concepts/users/accounts.md#saml-federation);
+* [локальный пользователь](../../iam/concepts/users/accounts.md#local)
 * [системная группа](../../iam/concepts/access-control/system-group.md);
 * [публичная группа](../../iam/concepts/access-control/public-group.md).
 
@@ -70,7 +71,8 @@ description: Управление доступом в сервисе {{ objstora
 Получатели доступа: 
 * аккаунт на Яндексе;
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
-* [федеративный пользователь](../../iam/concepts/federations.md);
+* [федеративный пользователь](../../iam/concepts/users/accounts.md#saml-federation);
+* [локальный пользователь](../../iam/concepts/users/accounts.md#local)
 * [системная группа](../../iam/concepts/access-control/system-group.md);
 * [публичная группа](../../iam/concepts/access-control/public-group.md).
 
@@ -83,7 +85,8 @@ description: Управление доступом в сервисе {{ objstora
 Получатели доступа: 
 * аккаунт на Яндексе;
 * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md);
-* [федеративный пользователь](../../iam/concepts/federations.md);
+* [федеративный пользователь](../../iam/concepts/users/accounts.md#saml-federation);
+* [локальный пользователь](../../iam/concepts/users/accounts.md#local)
 * анонимный пользователь.
 
 Доступ выдается на [бакет](../concepts/bucket.md), [объект](../concepts/object.md) или группу объектов.

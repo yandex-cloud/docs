@@ -38,6 +38,8 @@ items:
         href: operations/pin-cloud.md
       - name: Добавить пользователя в сабаккаунт
         href: operations/add-user-sub-account.md
+      - name: Настроить квоты для клиентов
+        href: operations/manage-quotas.md
   - name: Управление доступом
     href: security/index.md
   - name: Термины и определения

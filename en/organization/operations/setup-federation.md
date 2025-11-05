@@ -15,7 +15,7 @@ To set up federated authentication, follow these steps:
 
 For IdP-specific examples, see our tutorials:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
@@ -127,7 +127,7 @@ For IdP-specific examples, see our tutorials:
 
   1. Create a configuration file describing the federation.
 
-      Configuration file structure example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -302,7 +302,7 @@ When informing {{ org-full-name }} that a user has been authenticated, the IdP s
           ```bash
           yc organization-manager federation saml certificate create --federation-name <federation_name> \
             --name "<certificate_name>" \
-            --certificate-file <certificate_file_path>
+            --certificate-file <path_to_certificate_file>
           ```
 
     - API {#api}
@@ -460,7 +460,7 @@ Set up the SAML application for the message to contain:
 
 For more information on how to set up a SAML application, consult you IdP's documentation or contact their support. You can also find examples of IdP-specific setups in our tutorials:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).

@@ -10,6 +10,8 @@
 Количество запросов в секунду, асинхронный режим (получение ответа) | 50
 Количество запросов в час, асинхронный режим (запрос) | 5 000
 Количество запросов в секунду на [токенизацию](../ai-studio/text-generation/api-ref/grpc/Tokenizer/index.md) | 50
+**[Выделенные инстансы](../ai-studio/concepts/generation/dedicated-instance.md)** |
+Количество одновременных выделенных инстансов | 1 
 **Пакетный режим работы моделей**
 Количество запусков в час | 10
 Количество запусков в сутки | 100
@@ -26,7 +28,7 @@
 Количество загруженных датасетов | 100 
 Максимальный размер одного датасета | 5 ГБ
 Общий объем датасетов | 300 ГБ
-**[MCP-серверы](../ai-studio/concepts/mcp-hub/index.md#servers)**
+**[MCP-серверы](../ai-studio/concepts/mcp-hub/index.md#servers)** |
 Количество MCP-серверов в облаке | 30 
 Количество [инструментов](../ai-studio/concepts/assistant/tools/index.md) в одном сервере | 50
 **[Голосовые агенты](../ai-studio/concepts/agents/realtime.md)** ([модель](../ai-studio/concepts/agents/realtime.md#model) `{{ realtime-model }}`) |

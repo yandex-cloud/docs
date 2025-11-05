@@ -50,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Install {{ TF }} {#install-terraform}
 
-Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [images](../../compute/concepts/image.md). For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as [VMs](../../compute/concepts/vm.md), [disks](../../compute/concepts/disk.md), or [images](../../compute/concepts/image.md). For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
 {% include [terraform_install](../_tutorials_includes/terraform-install.md) %}
 

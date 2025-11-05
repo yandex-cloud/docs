@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  Чтобы посмотреть роли [пользователя с аккаунтом на Яндексе](../../concepts/users/accounts.md#passport), [федеративного пользователя](../../concepts/users/accounts.md#saml-federation) или [сервисного аккаунта](../../concepts/users/service-accounts.md) на облако:
+  Чтобы посмотреть роли [пользователя с аккаунтом на Яндексе](../../concepts/users/accounts.md#passport), [федеративного](../../concepts/users/accounts.md#saml-federation), [локального](../../concepts/users/accounts.md#local) пользователя или [сервисного аккаунта](../../concepts/users/service-accounts.md) на облако:
 
     {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Получите идентификатор аккаунта:
       1. [Инструкция](../sa/get-id.md) для сервисных аккаунтов.
-      1. [Инструкция](../../../organization/operations/users-get.mdd) для пользователей с аккаунтом на Яндексе и федеративных пользователей.
+      1. [Инструкция](../../../organization/operations/users-get.md) для пользователей с аккаунтом на Яндексе, федеративных и локальных пользователей.
   1. Получите идентификатор или имя желаемого ресурса.
   1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Получите идентификатор аккаунта:
         1. [Инструкция](../sa/get-id.md) для сервисных аккаунтов.
-        1. [Инструкция](../../../organization/operations/users-get.mdd) для пользователей с аккаунтом на Яндексе и федеративных пользователей.
+        1. [Инструкция](../../../organization/operations/users-get.md) для пользователей с аккаунтом на Яндексе, федеративных и локальных пользователей.
     1. Получите идентификатор или имя желаемого ресурса.
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

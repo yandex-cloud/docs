@@ -1,6 +1,6 @@
 # Управление ключами {{ kms-full-name }} с {{ TF-full }}
 
-[{{ TF }}-провайдер]({{ tf-provider-link }}/) для {{ yandex-cloud }} поддерживает работу с ключами {{ kms-full-name }}.
+[{{ TF }}-провайдер]({{ tf-provider-link }}) для {{ yandex-cloud }} поддерживает работу с ключами {{ kms-full-name }}.
 
 ## Добавление ключа {#add}
 
@@ -24,5 +24,5 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../../kms/security/index.md).
-* [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}/).
+* [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).
 * [Шифрование данных с помощью CLI и API {{ yandex-cloud }}](../../kms/operations/key.md).

@@ -15,9 +15,11 @@ drsr:
 
 # LDAP client settings
 ldap:
-  host: "ldap://<IP-адрес_контроллера_домена>:389"
-  username: "ldap_username"
-  password: "ldap_password"
+  host: "ldaps://<IP-адрес_контроллера_домена>:636"
+  username: "<имя_пользователя_Active_Directory>"
+  password: "<пароль_пользователя_Active_Directory>"
+  certificate_path: "<путь_к_сертификату>"
+  insecure_skip_verify: false|true
 
 # Logger configuration
 logger:

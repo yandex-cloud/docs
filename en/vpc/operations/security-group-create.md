@@ -138,7 +138,7 @@ To create a new [security group](../concepts/security-groups.md):
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
      
   1. Make sure the configuration files are correct.
      

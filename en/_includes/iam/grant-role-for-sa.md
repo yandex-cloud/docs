@@ -70,7 +70,7 @@ To assign a role for a resource:
      * `role`: Role to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required parameter.
      * `member`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is assigned to. Use this format: `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
 
@@ -234,7 +234,7 @@ To grant a service account permissions to access an organization, you need the `
      * `role`: Role to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource. This is a required parameter.
      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is assigned to. Use this format: `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
     

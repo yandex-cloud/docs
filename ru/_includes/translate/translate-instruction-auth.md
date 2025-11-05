@@ -20,7 +20,7 @@
 - IAM-токен {#iam-token}
 
   1. [Получите идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть [роль](../../translate/security/index.md#translate-user) `{{ roles-translate-user }}` или выше. Идентификатор каталога должен передаваться в теле каждого запроса в поле `folderId`.
-  1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md) или [сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
+  1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md), [локального аккаунта](../../iam/operations/iam-token/create-for-local.md) или [сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
   
       Передавайте полученный токен в заголовке `Authorization` каждого запроса в формате:
 

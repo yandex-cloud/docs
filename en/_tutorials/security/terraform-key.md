@@ -1,6 +1,6 @@
 # Managing {{ kms-full-name }} keys with {{ TF-full }}
 
-The [{{ TF }} provider]({{ tf-provider-link }}/) for {{ yandex-cloud }} supports the use of {{ kms-full-name }} keys.
+The [{{ TF }} provider]({{ tf-provider-link }}) for {{ yandex-cloud }} supports the use of {{ kms-full-name }} keys.
 
 ## Adding keys {#add}
 
@@ -24,5 +24,5 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../../kms/security/index.md).
-* [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}/).
+* [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}).
 * [Encrypting data using the {{ yandex-cloud }}](../../kms/operations/key.md) CLI and API.

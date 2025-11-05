@@ -5,7 +5,7 @@ description: 'Follow this guide to manage a transfer: get a list of transfers or
 
 # Managing transfer process
 
-You can:
+However, you can:
 * [Get a list of transfers](#list).
 * [Get detailed information about a transfer](#get).
 * [Create a transfer](#create).
@@ -166,7 +166,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
         {% note info %}
 
-        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. It can be up to 63 characters long.
+        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. The name may be up to 63 characters long.
 
         {% endnote %}
 
@@ -431,7 +431,7 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 
 {% endnote %}
 
-For more information, see [{#T}](../concepts/transfer-lifecycle.md).
+Learn more in [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}

@@ -66,7 +66,7 @@ To enable object locks:
       * `object_lock_configuration`: Object lock settings:
         * `object_lock_enabled`: Enables object locks. You must enable bucket versioning to set this property. This is an optional parameter.
 
-      For more information about the bucket parameters you can specify using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the bucket parameters you can specify using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 

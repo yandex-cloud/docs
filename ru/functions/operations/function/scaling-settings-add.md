@@ -180,7 +180,7 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
-        Подробнее о параметрах ресурсов см. [yandex_function]({{ tf-provider-resources-link }}/yandex_function) и [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/yandex_function_scaling_policy).
+        Подробнее о параметрах ресурсов см. [yandex_function]({{ tf-provider-resources-link }}/function) и [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
 
     1. Проверьте конфигурацию командой:
         

@@ -128,7 +128,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
      * `deletion_protection`: Deletion protection flag. To enable protection, set to `true`. To disable protection, set to `false`. The default value is `false`. This is an optional parameter.
      * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional parameter.
 
-     For more information about `yandex_lockbox_secret` properties, see [this {{ TF }} provider article]({{ tf-provider-link }}Resources/lockbox_secret).
+     For more information about `yandex_lockbox_secret` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/lockbox_secret).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

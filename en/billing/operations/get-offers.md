@@ -17,7 +17,7 @@ Commercial offer statuses:
 {% note info %}
 
 The user needs the `billing.accounts.viewer` [role](../security/index.md#billing-accounts-viewer) to view offers.
-The user needs the `billing.accounts.owner` or `billing.accounts.editor` [role](../security/index.md#billing-accounts-owner) to accept offers.
+The user needs the `billing.accounts.owner` [role](../security/index.md#billing-accounts-owner) to accept offers.
 
 {% endnote %}
 

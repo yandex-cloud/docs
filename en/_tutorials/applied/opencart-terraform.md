@@ -63,14 +63,14 @@ To set up your OpenCart online store with {{ TF }}:
 
     For more information about the properties of {{ TF }} resources, see these {{ TF }} guides:
 
-    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
-    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
-    * [Security groups](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
-    * [VM image](../../compute/concepts/image.md): [yandex_compute_image]({{ tf-provider-link }}/compute_image)
-    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-link }}/compute_instance)
-    * [{{ MY }} cluster](../../managed-mysql/concepts/index.md): [yandex_mdb_mysql_cluster]({{ tf-provider-link }}/mdb_mysql_cluster)
-    * DB {{ MY }}: [yandex_mdb_mysql_database]({{ tf-provider-link }}/mdb_mysql_database)
-    * User {{ MY }}: [yandex_mdb_mysql_user]({{ tf-provider-link }}/mdb_mysql_user)
+    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
+    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
+    * [Security groups](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
+    * [VM image](../../compute/concepts/image.md): [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
+    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
+    * [{{ MY }} cluster](../../managed-mysql/concepts/index.md): [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster)
+    * DB {{ MY }}: [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database)
+    * User {{ MY }}: [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user)
 
 1. In the `opencart.auto.tfvars` file, set the following user-defined properties:
 

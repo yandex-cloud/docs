@@ -3,7 +3,7 @@ title: Organization membership
 description: Organization members are users who belong to an organization and can access the services within it.
 ---
 
-## Organization membership
+# Organization membership
 
 [Organization](organization.md) members are [users](../../overview/roles-and-resources.md#users) who belong to an organization and can access the services within it.
 

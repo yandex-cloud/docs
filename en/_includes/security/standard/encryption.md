@@ -20,7 +20,7 @@ If your corporate information security policy specifies key size and [rotation](
 
 #### 4.1 Disk encryption is enabled in {{ compute-full-name }} {#compute-encryption}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT17 | High |
 
@@ -153,7 +153,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 
 To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [Encryption](../../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT1 | Medium |
 
@@ -215,7 +215,7 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 
 When using [{{ objstorage-name }}](../../../storage/), make sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) bucket policy to make sure running without TLS is disabled for the bucket.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT2 | High |
 
@@ -249,7 +249,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 
 [{{ alb-name }}](../../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [listener setup description](../../../application-load-balancer/concepts/application-load-balancer.md#listener) in the {{ alb-full-name }} documentation.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT3 | High |
 
@@ -324,7 +324,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 
 [{{ api-gw-name }}](../../../api-gateway/) supports secure connections over HTTPS. You can link your own domain and upload your own security certificate to access your [API gateway](../../../api-gateway/concepts/index.md) over HTTPS.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT4 | Medium |
 
@@ -372,7 +372,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 
 [{{ cdn-name }}](../../../cdn/) supports secure connections to origins over HTTPS. You can also upload your own security certificate to access your [CDN resource](../../../cdn/concepts/resource.md) over HTTPS.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT5 | Low |
 
@@ -433,7 +433,7 @@ For client-side encryption, we recommend that you use the following libraries:
 
 For a comparison of libraries, see the {{ kms-short-name }} documentation, [Which encryption method should I choose?](../../../kms/tutorials/encrypt/).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT7 | High |
 
@@ -451,9 +451,9 @@ By default, all data on {{ compute-full-name }} disks is encrypted at the storag
 
 We also recommend encrypting disks and [disk snapshots](../../../compute/concepts/snapshot.md) using {{ kms-full-name }} custom [symmetric keys](../../../kms/concepts/key.md). This approach allows you to:
 * Protect against the potential threats of data isolation breach and compromise at the virtual infrastructure level.
-* Control the encryption and lifecycle of {{ kms-short-name }} keys, as well as manage them. For more information, see [{#T}](../../../kms/operations/key.md).
-* Improve access control to the data on your disk by setting permissions for {{ kms-short-name }} keys. For more information, see [{#T}](../../../kms/operations/key-access.md).
-* Use {{ at-full-name }} to track encryption and decryption operations performed using your {{ kms-short-name }} key. For more information, see [{#T}](../../../kms/concepts/index.md#keys-audit).
+* Control the encryption and lifecycle of {{ kms-short-name }} keys, as well as manage them. Learn more in [{#T}](../../../kms/operations/key.md).
+* Improve access control to the data on your disk by setting permissions for {{ kms-short-name }} keys. Learn more in [{#T}](../../../kms/operations/key-access.md).
+* Use {{ at-full-name }} to track encryption and decryption operations performed using your {{ kms-short-name }} key. Learn more in [{#T}](../../../kms/concepts/index.md#keys-audit).
 
 You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
@@ -461,7 +461,7 @@ You can encrypt the following types of disks:
 * Non-replicated SSD (`network-ssd-nonreplicated`)
 * Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`)
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT8 | Medium |
 
@@ -491,7 +491,7 @@ To use the HSM, when creating a key, select AES-256 HSM as the algorithm type. T
 
 We recommend using HSMs for {{ kms-short-name }} keys to enhance the security level.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | CRYPT9 | Informational |
 
@@ -543,8 +543,8 @@ We recommend that you grant granular permissions for specific keys in the {{ kms
 For more information about security measures for access control, see [Authentication and access control](../../../security/standard/authentication.md).
 
 To check the {{ kms-short-name }} key access permissions, check who has access permissions for:
-* Organization, cloud, or folder: `admin`, `editor`, `kms.admin`, `kms.editor`, `kms.keys.encrypterDecrypter`.
-* Keys: `kms.keys.encrypterDecrypter` and `kms.editor`.
+* Organization, cloud, or folder (such permissions as `admin`, `editor`, `kms.admin`, `kms.editor`, or `kms.keys.encrypterDecrypter`).
+* Keys (`kms.keys.encrypterDecrypter` and `kms.editor`).
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -739,7 +739,7 @@ You can learn how to use the service in the [{{ lockbox-short-name }} documentat
 
 {% note info %}
 
-When working in {{ TF }}, we recommend using a script to [fill in](https://terraform-provider.yandexcloud.net/Resources/lockbox_secret_version) the contents of a secret. This ensures that its contents do not remain in the `.tfstate` file.
+When working in {{ TF }}, we recommend using a script to [fill in]({{ tf-provider-resources-link }}/lockbox_secret_version) the contents of a secret. This ensures that its contents do not remain in the `.tfstate` file.
 
 {% endnote %}
 
@@ -775,7 +775,7 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -789,7 +789,7 @@ When working with {{ serverless-containers-name }} or {{ sf-name }}, it is often
 
 If you specify secret information in environment variables, it can be viewed by any cloud user with permissions to view and use a function, which causes information security risks.
 
-We recommend using Serverless integration with {{ lockbox-short-name }} for that. You can use a specific secret from {{ lockbox-full-name }} and a service account with access rights to this secret to use it in a function or container. 
+We recommend using Serverless integration with {{ lockbox-short-name }} for that. You can specify a particular secret from {{ lockbox-full-name }} and a service account with access permissions for this secret to use it in a function or container. 
 
 Make sure that the secrets are used as described above. 
 

@@ -92,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
       ```hcl
-      resource "yandex_kms_symmetric_encryption_key_iam_member" "key-viewers" {
+      resource "yandex_kms_symmetric_key_iam_member" "key-viewers" {
         symmetric_encryption_key_id = "<идентификатор_ключа>"
 
         role    = "<роль>"
@@ -106,7 +106,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Подробнее о параметрах ресурса `yandex_kms_symmetric_encryption_key_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
+      Подробнее о параметрах ресурса `yandex_kms_symmetric_key_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
   1. Создайте ресурсы:
 
@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы сможете
   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
   1. С помощью одной из команд ниже назначьте роли:
 
-     * Пользователю с аккаунтом на Яндексе:
+     * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
         ```bash
         yc kms symmetric-key set-access-bindings \
@@ -230,7 +230,7 @@ description: Следуя данной инструкции, вы сможете
 
       ```hcl
       # Роль 1
-      resource "yandex_kms_symmetric_encryption_key_iam_member" "key-viewers" {
+      resource "yandex_kms_symmetric_key_iam_member" "key-viewers" {
         symmetric_encryption_key_id = "<идентификатор_ключа>"
 
         role    = "<роль_1>"
@@ -238,7 +238,7 @@ description: Следуя данной инструкции, вы сможете
       }
 
       # Роль 2
-      resource "yandex_kms_symmetric_encryption_key_iam_member" "key-editors" {
+      resource "yandex_kms_symmetric_key_iam_member" "key-editors" {
         symmetric_encryption_key_id = "<идентификатор_ключа>"
 
         role    = "<роль_2>"
@@ -252,7 +252,7 @@ description: Следуя данной инструкции, вы сможете
       * `role` — назначаемая [роль](../security/index.md#roles-list).
       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Подробнее о параметрах ресурса `yandex_kms_symmetric_encryption_key_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_encryption_key_iam_member).
+      Подробнее о параметрах ресурса `yandex_kms_symmetric_key_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
   1. Создайте ресурсы:
 

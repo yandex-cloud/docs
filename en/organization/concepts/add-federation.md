@@ -4,7 +4,7 @@
 
 This technology is called _identity federation_, which implies storing all usernames and passwords with a trusted _Identity Provider (IdP)_. While a service provider (SP), e.g., {{ yandex-cloud }}, refers users to the identity provider's (IdP's) server for authentication.
 
-If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. In which case you do not need to create a new Yandex account for every employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
+If your company has a user and access management system (e.g., {{ microsoft-idp.ad-short }} or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. In which case you do not need to create a new Yandex account for every employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
 
 ## Configuring federations in {{ org-full-name }} {#federation-usage}
 
@@ -18,7 +18,7 @@ Since authentication takes place on the IdP server side, you can configure a mor
 
 You can set up identity federations for different identity providers:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
@@ -51,6 +51,8 @@ You set up a relying party trust between an {{ org-name }} identity federation a
 In [organizations](organization.md) with many [users](membership.md), you may need to issue the same access permissions for {{ yandex-cloud }} resources to more than one user. In which case it is easier to issue roles and permissions to [groups](groups.md) rather than individual users.
 
 If you have created user groups in your identity provider or plan to do so, you can [map user groups](../operations/federation-group-mapping.md) between the IdP and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
+
+{% include [group-mapping-roles-necessary](../../_includes/organization/group-mapping-roles-necessary.md) %}
 
 ## Authenticating in a federation {#saml-authentication}
 

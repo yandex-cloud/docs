@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
    helm install \
         --namespace velero \
         --create-namespace \
-        --set configuration.backupStorageLocation.bucket=<имя_бакета> \
+        --set backupStorageLocationCustom.bucket=<имя_бакета> \
         --set serviceaccountawskeyvalue_generated.accessKeyID=<идентификатор_ключа> \
         --set serviceaccountawskeyvalue_generated.secretAccessKey=<секретный_ключ> \
         velero ./velero/

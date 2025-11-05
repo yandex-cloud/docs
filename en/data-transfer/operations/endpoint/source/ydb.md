@@ -65,7 +65,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}**: Add paths to the {{ ydb-name }} tables and directories to transfer.
 
-      Table and directory names must meet the ID naming rules in {{ ydb-short-name }}. Escaping double quotes is not required. The `/` character is used as a path delimiter. For more information, see the [{{ ydb-short-name }} documentation]({{ ydb.docs }}/concepts/connect#database).
+      Table and directory names must meet the ID naming rules in {{ ydb-short-name }}. Escaping double quotes is not required. The `/` character is used as a path delimiter. For more information, see [this {{ ydb-short-name }} guide]({{ ydb.docs }}/concepts/connect#database).
 
       Adding new paths when editing an endpoint used in {{ dt-type-copy-repl }} transfers in the {{ dt-status-repl }} status will not result in uploading the data history of these tables. To add a table with its historical data, use the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** field in the [transfer settings](../../transfer.md#update).
 
@@ -132,7 +132,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
   ```
 
 
-  For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 
@@ -145,6 +145,7 @@ Configure one of the supported data targets:
 * [{{ objstorage-full-name }}](../target/object-storage.md)
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ ydb-full-name }}](../target/yandex-database.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

@@ -1,0 +1,1 @@
+You can also view the synchronization results in the [{{ org-full-name }}]({{ link-org-cloud-center }}) interface: new users and groups from {{ microsoft-idp.ad-short }} should appear in the selected user pool.

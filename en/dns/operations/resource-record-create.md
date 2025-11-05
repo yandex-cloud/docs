@@ -120,7 +120,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
         * `ttl`: Record TTL (Time to Live), i.e., time in seconds before the record updates. This is an optional setting.
         * `data`: Record value. This is an optional setting.
 
-     For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
+     For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 
   1. Apply the changes:
 

@@ -3,7 +3,7 @@
 To configure user access to {{ yandex-cloud }} resources using [group mapping](../concepts/add-federation.md#group-mapping):
 
 1. [Create user groups](#create-group) in {{ org-name }}.
-1. [Configure access rights](#access) to {{ yandex-cloud }} resources.
+1. [Configure their access permissions](#access) to {{ yandex-cloud }} resources.
 1. Create user groups in your [identity provider](../concepts/add-federation.md#federation-usage) and add users to them.
 
     {% note info %}
@@ -16,16 +16,18 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
     Identity providers offer guides on how to set up group mapping:
 
-   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md)
-   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md)
-   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md)
-   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU)
+   * [{{ keycloak }}](../tutorials/federations/group-mapping/keycloak.md).
+   * [{{ microsoft-idp.adfs-full }}](../tutorials/federations/group-mapping/adfs.md).
+   * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/group-mapping/entra-id.md).
+   * [Google](https://support.google.com/a/answer/11143403?sjid=815248229840499495-EU).
 
 1. Set up user group mapping in the federation settings:
 
+    {% include [group-mapping-roles-necessary](../../_includes/organization/group-mapping-roles-necessary.md) %}
+
     {% list tabs group=instructions %}
 
-    - {{ cloud-center }} interface {#cloud-center}
+    - {{ cloud-center }} UI {#cloud-center}
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
 
@@ -50,7 +52,7 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+      1. In the {{ TF }} configuration file, describe the resources you want to create:
 
           ```hcl
           # Enabling federated user group mapping
@@ -84,7 +86,7 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
           * `internal_group_id`: {{ org-name }} group name.
           * `external_group_id`: Name of an identity provider group.
 
-          For more information about the `yandex_organizationmanager_group_mapping_item` resource parameters, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+          For more information about `yandex_organizationmanager_group_mapping_item` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
       1. Create the resources:
 
           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
