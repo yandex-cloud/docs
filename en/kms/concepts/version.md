@@ -36,7 +36,13 @@ Destroying any version of a key means destroying all data encrypted with it. Bef
 
 {% endnote %}
 
-To destroy previous key versions without negative consequences, use the [reEncrypt](../api-ref/SymmetricCrypto/reEncrypt) method. This operation decrypts the transmitted ciphertext and then re-encrypts it with the primary version of the key.
+To destroy previous key versions without negative consequences, use the [reEncrypt](../api-ref/SymmetricCrypto/reEncrypt) method. This operation decrypts the transmitted ciphertext and then re-encrypts it with the primary key version.
+
+{% note info %}
+
+Changes caused by [eventually consistent operations](./consistency.md) become _visible_ to the reEncrypt method with a delay of up to three hours.
+
+{% endnote %}
 
 For safety reasons, destruction is not immediate. You can [schedule a version for destruction](../operations/version#delete) by setting the time to elapse before destruction. The scheduled version gets the `Scheduled For Destruction` status: you cannot use it for encryption or decryption but you still can restore it. When the destruction time comes, the status changes to `Destroyed` and the version gets permanently deleted.
 

@@ -9927,6 +9927,8 @@ default:
             button_create-network: Создать сеть
             button_create-subnetwork: Создать подсеть
       components:
+        AsideNavigation:
+          label_all-services_6sGQy: Все сервисы
         ChatCommon:
           ChatsMenuHeader:
             action_create-chat_97ZqE: Новый чат
@@ -10284,9 +10286,18 @@ default:
           title_scheduled-scan: Сканирование Docker-образов по расписанию
         switch_registry: Реестры
       dashboard:
+        dashboard_j9z5M: Дашборд
         DashboardPage:
           AiStudioSection:
             section_title_1sDGx: AI Studio
+          CreateResourceDialog:
+            search_kV4c1: Поиск по сервисам
+          ResourceSearch:
+            placeholder_3my5Y: Поиск сервисов
+          ResourcesSection:
+            create-resources_rGA1t: Создать ресурс
+            title_7kYbU: Ресурсы
+        label_create-resource_4KN3M: Создать ресурс
         label_permissions_gAtoT: Разрешения
       data-catalog:
         action_create-catalog: Cоздать каталог

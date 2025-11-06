@@ -91,53 +91,90 @@ CPU core workload.
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
 
 ## Service metrics {#managed-kafka-metrics}
-| Name<br/>Type, units | Description |
-| ----- | ----- |
-| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, milliseconds | Leader broker switch rate per unit of time. In a normal state, it is `0`. Its value may increase during maintenance, which does not indicate a problem.<br/>Additional labels: `quantile`. |
-| `kafka_controller_KafkaController_ActiveControllerCount`<br/>`DGAUGE`, count | Number of active controllers |
-| `kafka_controller_KafkaController_GlobalTopicCount`<br/>`DGAUGE`, count | Number of topics |
-| `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, count | Number of offline partitions |
-| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, count | Imbalance count in the preferred replica. In a normal state, it is `0`. |
-| `kafka_group_topic_partition_lag`<br/>`DGAUGE`, count | Message lag: Difference between the consumer offset and the partition's latest offset. |
-| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, count | Partition's current consumer group offset. |
-| `kafka_log_Log_LogStartOffset`<br/>`DGAUGE`, count | Partition's first offset. |
-| `kafka_log_Log_LogEndOffset`<br/>`DGAUGE`, count | Partition's last offset. |
-| `kafka_log_Log_Size`<br/>`DGAUGE`, bytes | Disk’s partition size. |
-| `kafka_host_count`<br/>`DGAUGE`, count | Number of hosts in the cluster |
-| `kafka_is_alive`<br/>`DGAUGE`, 0/1 | Broker health indicator.<br/>It can be either `1` if a broker is alive or `0` if it is not. |
-| `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, count | Number of enqueued requests |
-| `kafka_network_RequestMetrics_Errors`<br/>`DGAUGE`, count | Number of errors.<br/>Additional labels: `request`. |
-| `kafka_network_RequestMetrics_LocalTimeMs`<br/>`DGAUGE`, milliseconds | Time it takes the leader broker to process a request.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_RequestMetrics_MessageConversionsTimeMs`<br/>`DGAUGE`, milliseconds | Message format conversion time.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_RequestMetrics_RemoteTimeMs`<br/>`DGAUGE`, milliseconds | Follower broker wait time.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_RequestMetrics_RequestQueueTimeMs`<br/>`DGAUGE`, milliseconds | Request queue wait time.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_RequestMetrics_Requests`<br/>`DGAUGE`, count | Number of requests.<br/>Additional labels: `request`. |
-| `kafka_network_RequestMetrics_ResponseQueueTimeMs`<br/>`DGAUGE`, milliseconds | Response queue wait time.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_RequestMetrics_ResponseSendTimeMs`<br/>`DGAUGE`, milliseconds | Response send time.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_RequestMetrics_TotalTimeMs`<br/>`DGAUGE`, milliseconds | Total request execution time.<br/>Additional labels: `request` and `quantile`. |
-| `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent`<br/>`DGAUGE`, % | Average network processor idle percentage. Its value ranges from `0` (fully utilized) to `1` (completely idle). |
-| `kafka_server_BrokerTopicMetrics_BytesIn`<br/>`DGAUGE`, bytes | Incoming data size |
-| `kafka_server_BrokerTopicMetrics_BytesOut`<br/>`DGAUGE`, bytes | Outgoing data size |
-| `kafka_server_BrokerTopicMetrics_FailedFetchRequests`<br/>`DGAUGE`, count | Number of requests received with errors |
-| `kafka_server_BrokerTopicMetrics_FailedProduceRequests`<br/>`DGAUGE`, count | Number of requests processed with errors |
-| `kafka_server_BrokerTopicMetrics_MessagesIn`<br/>`DGAUGE`, count | Number of written messages |
-| `kafka_server_BrokerTopicMetrics_ReplicationBytesIn`<br/>`DGAUGE`, bytes | Replicated data size |
-| `kafka_server_KafkaRequestHandlerPool_RequestHandlerAvgIdlePercent_count`<br/>`DGAUGE`, % | Average request handler idle percentage. Its value ranges from `0` (fully utilized) to `1` (completely idle). |
-| `kafka_server_KafkaServer_BrokerState`<br/>`DGAUGE` | Broker state:<br/>0: `Not Running`<br/>1: `Starting`<br/>2: `Recovering from Unclean Shutdown`<br/>3: `Running as Broker`<br/>4: `Running as Controller`<br/>5: `Pending Controlled ShutdownStates`<br/>6: `Broker Shutting Down` |
-| `kafka_server_ReplicaFetcherManager_MaxLag`<br/>`DGAUGE`, count | Maximum lag of message replication between the follower and leader brokers.<br/>Additional labels: `clientId`.  |
-| `kafka_server_ReplicaManager_LeaderCount`<br/>`DGAUGE`, count | Number of partitions led by the broker |
-| `kafka_server_ReplicaManager_OfflineReplicaCount`<br/>`DGAUGE`, count | Number of partitions with no leader broker. These partitions do not support message writes or reads. |
-| `kafka_server_ReplicaManager_PartitionCount`<br/>`DGAUGE`, count | Number of partitions per broker |
-| `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, count | Number of partitions with the leader being reassigned |
-| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, count | Number of partitions with in-sync replica (ISR) count below the set minimum |
-| `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, count | Number of partitions with ISR count below the replication factor |
-| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, milliseconds | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. |
-| `kafka_shard_count`<br/>`DGAUGE`, count | Number of active shards |
-| `kafka_topic_partition_high_water_mark`<br/>`DGAUGE`, count | Partition max offset |
-| `kafka_topic_partition_low_water_mark`<br/>`DGAUGE`, count | Partition min offset |
+
+#|
+|| **Name**<br/>**Type, units** | **Description** ||
+|| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, milliseconds | Leader broker switch rate per unit of time. In a normal state, it is `0`. Its value may increase during maintenance, which does not indicate a problem.<br/>Additional labels: `quantile`. ||
+|| `kafka_controller_KafkaController_ActiveControllerCount`<br/>`DGAUGE`, count | Number of active controllers. ||
+|| `kafka_controller_KafkaController_GlobalTopicCount`<br/>`DGAUGE`, count | Number of topics ||
+|| `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, count | Number of offline partitions. ||
+|| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, count | Imbalance count in the preferred replica. In a normal state, it is `0`. ||
+|| `kafka_group_topic_partition_lag`<br/>`DGAUGE`, count | Message lag: Difference between the consumer offset and the partition's latest offset. ||
+|| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, count | Partition's current consumer group offset. ||
+|| `kafka_log_Log_LogStartOffset`<br/>`DGAUGE`, count | Partition's first offset. ||
+|| `kafka_log_Log_LogEndOffset`<br/>`DGAUGE`, count | Partition's last offset. ||
+|| `kafka_log_Log_Size`<br/>`DGAUGE`, bytes | Disk’s partition size. ||
+|| `kafka_host_count`<br/>`DGAUGE`, count | Number of hosts in the cluster ||
+|| `kafka_is_alive`<br/>`DGAUGE`, `0`/`1` | Broker health indicator. The metric calculation algorithm depends on whether there are any [highly available topics (further referred to as HA topics)](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts) and which state their partition leaders have:
+* If the broker has at least one HA topic, the algorithm checks only HA topics. The number of replicas each HA topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
+* If the broker has no HA topics, the algorithm checks all topics. The number of replicas each topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
+
+For more information about the `Minimum number of in-sync replicas`, see the [{{ KF }} settings section](../../../managed-kafka/concepts/settings-list.md#topic-settings).
+
+It can be either `1` if a broker is alive or `0` if it is not. ||
+|| `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, count | Number of enqueued requests ||
+|| `kafka_network_RequestMetrics_Errors`<br/>`DGAUGE`, count | Number of errors.<br/>Additional labels: `request`. ||
+|| `kafka_network_RequestMetrics_LocalTimeMs`<br/>`DGAUGE`, milliseconds | Time it takes the leader broker to process a request.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_MessageConversionsTimeMs`<br/>`DGAUGE`, milliseconds | Message format conversion time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_RemoteTimeMs`<br/>`DGAUGE`, milliseconds | Follower broker wait time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_RequestQueueTimeMs`<br/>`DGAUGE`, milliseconds | Request queue wait time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_Requests`<br/>`DGAUGE`, count | Number of requests.<br/>Additional labels: `request`. ||
+|| `kafka_network_RequestMetrics_ResponseQueueTimeMs`<br/>`DGAUGE`, milliseconds | Response queue wait time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_ResponseSendTimeMs`<br/>`DGAUGE`, milliseconds | Response send time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_TotalTimeMs`<br/>`DGAUGE`, milliseconds | Total request execution time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent`<br/>`DGAUGE`, % | Average network processor idle percentage. Its value ranges from `0` (fully utilized) to `1` (completely idle). ||
+|| `kafka_server_BrokerTopicMetrics_BytesIn`<br/>`DGAUGE`, bytes | Incoming data size ||
+|| `kafka_server_BrokerTopicMetrics_BytesOut`<br/>`DGAUGE`, bytes | Outgoing data size ||
+|| `kafka_server_BrokerTopicMetrics_FailedFetchRequests`<br/>`DGAUGE`, count | Number of requests received with errors ||
+|| `kafka_server_BrokerTopicMetrics_FailedProduceRequests`<br/>`DGAUGE`, count | Number of requests processed with errors ||
+|| `kafka_server_BrokerTopicMetrics_MessagesIn`<br/>`DGAUGE`, count | Number of written messages ||
+|| `kafka_server_BrokerTopicMetrics_ReplicationBytesIn`<br/>`DGAUGE`, bytes | Replicated data size ||
+|| `kafka_server_KafkaRequestHandlerPool_RequestHandlerAvgIdlePercent_count`<br/>`DGAUGE`, % | Average request handler idle percentage. Its value ranges from `0` (fully utilized) to `1` (completely idle). ||
+|| `kafka_server_KafkaServer_BrokerState`<br/>`DGAUGE` | Broker state:
+
+* 0: `Not Running`
+* 1: `Starting`
+* 2: `Recovering from Unclean Shutdown`
+* 3: `Running as Broker`
+* 4: `Running as Controller`
+* 5: `Pending Controlled ShutdownStates`
+* 6: `Broker Shutting Down` ||
+|| `kafka_server_ReplicaFetcherManager_MaxLag`<br/>`DGAUGE`, count | Maximum lag of message replication between the follower and leader brokers.<br/>Additional labels: `clientId`.  ||
+|| `kafka_server_ReplicaManager_LeaderCount`<br/>`DGAUGE`, count | Number of partitions led by the broker ||
+|| `kafka_server_ReplicaManager_OfflineReplicaCount`<br/>`DGAUGE`, count | Number of partitions with no leader broker. These partitions do not support message writes or reads. ||
+|| `kafka_server_ReplicaManager_PartitionCount`<br/>`DGAUGE`, count | Number of partitions per broker ||
+|| `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, count | Number of partitions with the leader being reassigned ||
+|| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, count | Number of partitions with in-sync replica (ISR) count below the set minimum ||
+|| `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, count | Number of partitions with ISR count below the replication factor ||
+|| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, milliseconds | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. ||
+|| `kafka_shard_count`<br/>`DGAUGE`, count | Number of active shards ||
+|| `kafka_topic_partition_high_water_mark`<br/>`DGAUGE`, count | Partition max offset ||
+|| `kafka_topic_partition_low_water_mark`<br/>`DGAUGE`, count | Partition min offset ||
+|#
 
 {% note info %}
 
 This section lists only basic {{ mkf-name }} metrics delivered to {{ monitoring-name }}. For information on all {{ mkf-name }} metrics, see the [official documentation](https://kafka.apache.org/documentation.html#monitoring).
 
 {% endnote %}
+
+## Other metrics {#managed-kafka-other-metrics}
+
+#|
+|| **Name**<br/>**Type, units** | **Description** ||
+|| `can_read`<br/>`DGAUGE`, `0`/`1` | Host read access indicator. The metric calculation algorithm depends on whether there are any [highly available topics (further referred to as HA topics)](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts) and which state their partition leaders have:
+* If the host has at least one HA topic, the algorithm checks only HA topics. Each HA topic’s partition leader must be online.
+* If the host has no HA topics, the algorithm checks all topics. Each topic’s partition leader must be online.
+
+It can be either `1` if the host is available for reads or `0` if it is not. ||
+|| `can_write`<br/>`DGAUGE`, `0`/`1` | Host write access indicator. The metric calculation algorithm depends on whether there are any [highly available topics (further referred to as HA topics)](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts) and which state their partition leaders have:
+* If the host has at least one HA topic, the algorithm checks only HA topics. The number of replicas each HA topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
+* If the host has no HA topics, the algorithm checks all topics. The number of replicas each topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
+
+For more information about the `Minimum number of in-sync replicas`, see the [{{ KF }} settings section](../../../managed-kafka/concepts/settings-list.md#topic-settings).
+
+Additionally, the [storage](../../../managed-kafka/concepts/storage.md) is checked for available space. It should be more than 5%. If there is not enough space, the host is unavailable for writes.
+
+It can be either `1` if the host is available for writes or `0` if it is not. ||
+|#
+

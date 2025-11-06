@@ -1,6 +1,7 @@
 ---
 title: Creating an assistant with the {{ vector-store-name }} tool
 description: Follow this guide to create a personalized assistant in {{ assistant-api }} which generates responses based on information from a search index using {{ vector-store-name }}.
+noIndex: true
 ---
 
 # Creating a RAG assistant with the {{ vector-store-name }} tool
@@ -52,7 +53,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+      * `<instruction_for_search_strategy>`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
 
   1. Run the file you created:
 
@@ -73,19 +74,19 @@ To use the examples:
 
       Response:  According to the information I found, a visa to Bali is 300 rubles. However, note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip.
 
-      * Contents of fragment No. 1: ('**Bali is a tropical paradise full of unforgettable experiences!**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you will need a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements.',)
+      * Contents of fragment No. 1: ('**Bali is a tropical paradise full of unforgettable experiences!**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Enjoy its natural beauty, try local cuisine, and make new friends. **What do I need for the trip?** To enter Indonesia, you will need a visa. Here is the list of documents you need to get a visa:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements.',)
       * Search index ID in fragment No. 1: fvtacpbi0cg3********
       * Search index type settings in fragment No. 1: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
       * Source file ID for fragment No. 1: fvtg6bmrdvb3********
       * Source file MIME type for fragment No. 1: text/plain
 
-      * Contents of fragment No. 2: ('* Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles. Don't miss out on the opportunity to visit this beautiful island for a vibrant vacation! Book your Bali vacation today. **We look forward to seeing you!**',)
+      * Contents of fragment No. 2: ('* Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles. Don't miss out on the opportunity to visit this beautiful island for a vibrant vacation! Book your Bali vacation today! **We look forward to seeing you!**',)
       * Search index ID in fragment No. 2: fvtacpbi0cg3********
       * Search index type settings in fragment No. 2: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
       * Source file ID for fragment No. 2: fvtg6bmrdvb3********
       * Source file MIME type for fragment No. 2: text/plain
 
-      * Contents of fragment No. 3: ('**What do I need for the trip?** To enter Indonesia, you will need a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles.',)
+      * Contents of fragment No. 3: ('**What do I need for the trip?** To enter Indonesia, you will need a visa. Here is the list of documents you need to get a visa:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles.',)
       * Search index ID in fragment No. 3: fvtacpbi0cg3********
       * Search index type settings in fragment No. 3: TextSearchIndexType(chunking_strategy=StaticIndexChunkingStrategy(max_chunk_size_tokens=700, chunk_overlap_tokens=300))
       * Source file ID for fragment No. 3: fvtg6bmrdvb3********
@@ -324,7 +325,7 @@ To use the examples:
           Where:
           * `modelUri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `searchIndexIds`: Search index ID you got at the previous step.
-          * `instruction`: Prompt with an instruction for the model on how to access the search index. Here is an example: `Search through the knowledge base only if the user has specifically asked you to do so`.
+          * `instruction`: Prompt with an instruction for the model on how to access the search index. For example: `Search through the knowledge base only if the user has specifically asked you to do so`.
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash
@@ -602,7 +603,7 @@ To use the examples:
 
           {% endcut %}
 
-          As you can see from the result, in the `content` field, the AI ​​assistant returned the model's response generated without using the uploaded knowledge base. This is due to the fact that the index access [strategy](../../concepts/assistant/tools/vector-store.md) settings contain an instruction to use the knowledge base only if the user specifically asks for it.
+          As you can see from the result, in the `content` field, the AI assistant returned the model's response generated without using the uploaded knowledge base. The reason is that the index access [strategy](../../concepts/assistant/tools/vector-store.md) settings contain an instruction to use the knowledge base only if the user specifically asks for it.
   1. Now, in the thread, create a new message that asks for access to the knowledge base:
 
       1. Modify the `message.json` request body file to create a message by specifying the updated text of the request in the context of the uploaded knowledge base file:
@@ -808,7 +809,7 @@ To use the examples:
                         "content": [
                           {
                             "text": {
-                              "content": "**Bali is a tropical paradise full of unforgettable experiences.**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Discover breathtaking landscapes, taste delicious local dishes, and make new friends. **What do I need for the trip?** To enter Indonesia, you will need a visa. To obtain it, you will need the following documents:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles. Don't miss out on the opportunity to visit this beautiful island for a vibrant vacation! Book your Bali vacation today. **We look forward to seeing you!**"
+                              "content": "**Bali is a tropical paradise full of unforgettable experiences.**\n\nWe invite you to spend an amazing vacation in Bali. This magical Indonesian island is famous for its beautiful beaches, unique culture, and warm hospitality of its people. Enjoy its natural beauty, try local cuisine, and make new friends. **What do I need for the trip?** To enter Indonesia, you will need a visa. Here is the list of documents you need to get a visa:\n* Passport valid for at least 6 months from your entry date. * Two photos meeting consulate requirements. * Hotel booking confirmation or a letter for alternative accommodation. * Round-trip booking or tickets. * Form filled out in English. Note that requirements may change, so be sure to check the current information on the consulate or visa center's website when planning your trip. The visa fee is 300 rubles. Don't miss out on the opportunity to visit this beautiful island for a vibrant vacation! Book your Bali vacation today! **We look forward to seeing you!**"
                             }
                           }
                         ]

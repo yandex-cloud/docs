@@ -234,6 +234,8 @@ items:
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
       - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md

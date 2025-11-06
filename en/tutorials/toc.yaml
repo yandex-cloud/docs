@@ -218,6 +218,8 @@ items:
                 href: security/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: security/single-sign-on/grafana/oidc-grafana.md
+          - name: Zabbix
+            href: security/single-sign-on/saml-zabbix.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -483,7 +485,9 @@ items:
             href: dataplatform/clickhouse-dns-peering.md
           - name: Integrating {{ dns-name }} and a corporate DNS service
             href: infrastructure-management/dns-integration.md
-          - name: Creating an ACME resolver webhook for responses to DNS01 checks
+          - name: >-
+              Creating an ACME resolver webhook for responses to DNS01
+              challenges
             href: infrastructure-management/cert-manager-webhook.md
       - name: GPU
         items:
@@ -533,7 +537,7 @@ items:
             href: container-infrastructure/running-pod-gpu.md
           - name: Using node groups with GPUs and no pre-installed drivers
             href: container-infrastructure/driverless-gpu.md
-          - name: Setting up Time-Slicing GPUs
+          - name: Setting up time-slicing GPUs
             href: container-infrastructure/time-slicing-gpu.md
           - name: Migrating resources to a different availability zone
             href: container-infrastructure/migration-to-an-availability-zone.md
@@ -545,9 +549,9 @@ items:
             href: container-infrastructure/k8s-connect-bms-as-node.md
           - name: Setting up and testing scaling
             items:
-              - name: Horizontal application scaling in a cluster
+              - name: Horizontal scaling of an application in a cluster
                 href: container-infrastructure/autoscaling.md
-              - name: Vertical application scaling in a cluster
+              - name: Vertical scaling of an application in a cluster
                 href: container-infrastructure/vpa-autoscaling.md
               - name: Updating the Metrics Server parameters
                 href: container-infrastructure/metrics-server.md
@@ -555,13 +559,13 @@ items:
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Installing NGINX
             items:
-              - name: Installing NGINX Ingress Controller with {{ lets-encrypt }}
+              - name: Installing an NGINX ingress controller with {{ lets-encrypt }}
                 href: container-infrastructure/ingress-cert-manager.md
               - name: >-
-                  Installing NGINX Ingress Controller with a {{
-                  certificate-manager-name }} certificate
+                  Installing an NGINX ingress controller with a certificate from
+                  {{ certificate-manager-name }}
                 href: container-infrastructure/nginx-ingress-certificate-manager.md
-          - name: Usage {{ container-registry-name }}
+          - name: Using {{ container-registry-name }}
             items:
               - name: Integration with {{ container-registry-name }}
                 href: container-infrastructure/container-registry.md
@@ -581,7 +585,7 @@ items:
             items:
               - name: Integration with a corporate DNS zone
                 href: container-infrastructure/custom-dns.md
-              - name: DNS autoscaling based on cluster size
+              - name: DNS autoscaling based on the cluster size
                 href: container-infrastructure/dns-autoscaler.md
               - name: Setting up NodeLocal DNS Cache
                 href: container-infrastructure/node-local-dns.md
@@ -779,9 +783,10 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Converting a video to a GIF in Python
             href: serverless/video-converting-queue.md
-          - name: Integrating {{ speechsense-name }} with Bitrix24
+          - name: '{{ speechsense-name }} integration with {{ bitrix24-name }}'
             href: speechsense/bitrix24.md
-            hidden: true
+          - name: '{{ speechsense-name }} integration with {{ amocrm-name }}'
+            href: speechsense/amocrm.md
   - name: Building a data platform
     items:
       - name: All tutorials

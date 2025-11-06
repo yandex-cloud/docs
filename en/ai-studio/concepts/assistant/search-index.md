@@ -1,3 +1,9 @@
+---
+title: Search indexes in {{ assistant-api }}
+description: This section describes search index types and use cases in {{ assistant-api }}.
+noIndex: true
+---
+
 # Search indexes
 
 {% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
@@ -146,7 +152,7 @@ The final hybrid search output will depend on the strategy used to combine the r
 The ways of estimating text and vector search quality are different. To interpret search results correctly, you need to normalize their rankings. You can select normalization type using the `normalization_strategy` [parameter](../../searchindex/api-ref/grpc/SearchIndex/create.md#yandex.cloud.ai.assistants.v1.searchindex.HybridSearchIndex):
 
 * `MIN_MAX`: [Min-max normalization](https://en.wikipedia.org/wiki/Feature_scaling#Rescaling_(min-max_normalization)), where the normalized results fall within the range of 0 to 1. The min-max normalization increases the spread between the highest and lowest search result rankings. By default, the `MIN_MAX` normalization is used.
-* `L2`: L2 normalization based on Euclidean distances. The L2 normalization mitigates the impact of the highest and lowest rankings on the overall search results.
+* `L2`: [L2 normalization](https://en.wikipedia.org/wiki/Cosine_similarity#L2-normalized_Euclidean_distance) based on Euclidean distances. The L2 normalization mitigates the impact of the highest and lowest rankings on the overall search results.
 
 {% note tip %}
 

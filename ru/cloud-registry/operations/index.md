@@ -24,14 +24,23 @@ description: В этом разделе собраны пошаговые инс
 * [Скачать Helm-чарт из реестра](helm/pull.md)
 * [Удалить Helm-чарт из реестра](helm/delete.md)
 
-### Maven {#maven}
+### Java {#java}
 
 * [Настроить Maven](maven/installation.md)
 
-### npm {#npm}
+### Node.js {#nodejs}
 
 * [Настроить npm](npm/installation.md)
 
 ### NuGet {#nuget}
 
 * [Настроить NuGet](nuget/installation.md)
+
+### Python {#python}
+
+* [Настроить PyPI](pypi/installation.md)
+
+### Binary {#binary}
+
+* [Загрузить binary-артефакт](binary/push.md)
+* [Скачать binary-артефакт](binary/pull.md)

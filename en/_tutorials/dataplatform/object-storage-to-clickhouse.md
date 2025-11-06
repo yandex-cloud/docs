@@ -2,11 +2,7 @@
 
 
 
-{% note info %}
-
-The functionality for loading data from {{ objstorage-name }} in {{ data-transfer-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
+{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
 You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
@@ -23,9 +19,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for this solution includes:
 
 * Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster fee: Use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per-transfer fee: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -37,7 +33,7 @@ Set up the infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration, using the following settings:
+    1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
 
         * Number of {{ CH }} hosts: Minimum of 2 to enable replication within the cluster.
         * Public access to cluster hosts: Allowed.
@@ -161,7 +157,7 @@ Set up the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
 
-        1. Create the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type [transfer](../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -170,7 +166,7 @@ Set up the infrastructure:
         1. In the `object-storage-to-clickhouse.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: `1` (create a transfer).
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -190,11 +186,11 @@ Set up the infrastructure:
 
 ## Test the transfer {#verify-transfer}
 
-To verify that the transfer is operational, check the copy and replication processes.
+To verify that the transfer is operational, test the copy and replication processes.
 
 ### Test the copy operation {#verify-copy}
 
-1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in your target {{ mch-name }} cluster.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to `db1` in your target {{ mch-name }} cluster.
 
 1. Run this query:
 
@@ -254,12 +250,12 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Transfer](../../data-transfer/operations/transfer.md#delete).
 * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Bucket [objects](../../storage/operations/objects/delete.md).
-* Delete other resources using the method matching their creation method:
+* Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 

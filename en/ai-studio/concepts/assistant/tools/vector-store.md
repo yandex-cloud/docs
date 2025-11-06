@@ -1,9 +1,12 @@
 ---
 title: '{{ retrieval-tool-name }} in {{ assistant-api }}'
 description: This section describes {{ retrieval-tool-name }}, an {{ assistant-api }} tool you can use to create personalized assistants able to implement a retrieval augmented generation scenario based on information retrieved from search indexes.
+noIndex: true
 ---
 
 # {{ retrieval-tool-name }}
+
+{% include [assistants-do-not-use](../../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 {{ retrieval-tool-name }} enables the AI assistant to search for information for the response in your own files (knowledge base). {{ retrieval-tool-name }} comes with the specially trained [paraphrase model](../rephraser.md), which rephrases users' queries to improve search quality.
 
@@ -77,7 +80,7 @@ For your AI assistant to be able to use {{ retrieval-tool-name }} based on an ac
 
 {% endlist %}
 
-Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. Here is an example:
+Search usage instructions which you provide in a strategy is essentially a [prompt](../../index.md#prompt) telling the assistant when it should access the search index. For example:
 
 ```json
 "instruction": "Search through the knowledge base only if the user has specifically asked you to do so."

@@ -1,6 +1,10 @@
 # Migrating data from {{ objstorage-name }} to a {{ mmy-full-name }} cluster using {{ data-transfer-full-name }}
 
 
+
+{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
+
+
 With {{ data-transfer-name }}, you can transfer data from an {{ objstorage-name }} object storage to a {{ mmy-name }} target cluster.
 
 To transfer data:
@@ -16,10 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mmy-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -37,7 +41,7 @@ Set up the infrastructure:
     1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
 
-    1. [Create a target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration, using the following settings:
+    1. [Create a target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
@@ -66,7 +70,7 @@ Set up the infrastructure:
         * Target endpoint.
         * Transfer.
 
-    1. Specify the following in `data-transfer-objs-mmy.tf`:
+    1. In the `data-transfer-objs-mmy.tf` file, specify the following:
 
         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -157,15 +161,15 @@ Set up the infrastructure:
 
                    Select a source cluster from the list and specify its connection settings.
 
-        1. Create the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type [transfer](../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-objs-mmy.tf` file, specify these variables:
+        1. In the `data-transfer-objs-mmy.tf` file, specify the following variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -226,12 +230,12 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete other resources using the method matching their creation method:
+Delete other resources using the same method used for their creation:
 
 {% list tabs group=resources %}
 
@@ -242,7 +246,7 @@ Delete other resources using the method matching their creation method:
     1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
     
-    1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+    1. If you have created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
 - {{ TF }} {#tf}

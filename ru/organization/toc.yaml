@@ -244,6 +244,8 @@ items:
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: SonarQube
+            href: tutorials/single-sign-on/saml-sonarqube.md
   - name: Концепции
     items:
       - name: Организация

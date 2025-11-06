@@ -1,10 +1,10 @@
-# {{ PG }} version upgrade
+# Upgrading {{ PG }} version
 
-You can upgrade a {{ mpg-name }} cluster to version 17 or lower.
+You can upgrade a {{ mpg-name }} cluster to any version up to and including version 17.
 
 {% note info %}
 
-You cannot upgrade a regular cluster version to versions optimized for _1C:Enterprise_ (e.g., from version 14 to version 14-1c).
+Upgrade from a standard cluster version to an _1C:Enterprise_ version (e.g., 14 to 14-1c) is not supported.
 
 {% endnote %}
 
@@ -14,35 +14,35 @@ To upgrade the version, the cluster storage must have at least 10% free space, w
 
 {% endnote %}
 
-You can only upgrade to a version that immediately follows the current one, e.g., from version 14 to 15. Upgrades to higher versions are performed in steps. For example, for {{ PG }}, the upgrade sequence from version 13 to 15 is: 13 → 14 → 15.
+You can only upgrade to the next sequential version, e.g., from 14 to 15. Upgrading to later versions is performed in stages. For example, to upgrade {{ PG }} from version 13 to 15, follow this sequence: 13 → 14 → 15.
 
-In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
+In single-host clusters, only the master host is taken offline for upgrades. Such clusters are unavailable for reading and writing during upgrades.
 
 In multi-host clusters, upgrades follow the procedure below:
 
-1. The master is unavailable during upgrades. During this time, the replicas continue running in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After an upgrade, the master is not returned to a running state until all the replicated hosts are upgraded. It is temporarily unavailable even for reading.
-1. The replicas are sequentially made unavailable and upgraded. The replicas are queued randomly. Following an upgrade, the replicas are returned to a running state in read-only mode.
+1. The master host is taken offline for an upgrade. During this time, replicas operate in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After the upgrade, the master host stays offline, even for reads, until all replicas are upgraded.
+1. Replicas are taken offline for an upgrade, one by one. The replicas are queued randomly. Once upgraded, replicas resume operation in read-only mode.
 
-    A two-host cluster is unavailable while its replica is upgrading. In a cluster of three or more hosts, at least one replica will be available for reading.
+    A two-host cluster will be unavailable during the upgrade of its replica. In a cluster of three or more hosts, at least one replica will be always available for reading.
 
-1. The master returns to a running state.
+1. The master host resumes its operation.
 
-To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+For information on minor version upgrades and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
-## Before a version upgrade {#before-update}
+## Pre-upgrade steps {#before-update}
 
-Make sure the upgrade does not disrupt your applications:
+Make sure the upgrade will not disrupt your applications:
 
-1. See {{ PG }} [changelog](https://www.postgresql.org/docs/release/) for how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
-1. Try a version upgrade on a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
+1. Check the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to see how upgrades might affect your applications or installed [extensions](./extensions/cluster-extensions.md).
+1. Try upgrading a test cluster. You can [deploy](cluster-backups.md#restore) it from a main cluster’s backup.
+1. [Back up](cluster-backups.md) the main cluster immediately before upgrading.
 
 ## Upgrading a cluster {#start-update}
 
 {% note alert %}
 
-* Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of a {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
+* After the DBMS upgrade, you cannot revert a cluster to the previous version.
+* Whether a {{ PG }} version upgrade succeeds depends on multiple factors, including your cluster’s configuration and the nature of the stored data. We recommend you first [upgrade a test cluster](#before-update) with the same data and configuration.
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ Make sure the upgrade does not disrupt your applications:
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the cluster you need from the list and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -61,7 +61,7 @@ Make sure the upgrade does not disrupt your applications:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To upgrade a cluster to {{ PG }} 15 or lower:
+  To upgrade a cluster to {{ PG }} version 15 or lower:
 
   1. Get a list of your {{ PG }} clusters using this command:
 
@@ -69,7 +69,7 @@ Make sure the upgrade does not disrupt your applications:
      {{ yc-mdb-pg }} cluster list
      ```
 
-  1. Get information about the cluster you need and check the {{ PG }} version in the `config.version` parameter:
+  1. Get the target cluster details and check its {{ PG }} version in the `config.version` setting:
 
      ```bash
      {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
@@ -84,13 +84,13 @@ Make sure the upgrade does not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
        For more information about creating this file, see [this guide](cluster-create.md).
 
-       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+       For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
 
-    1. In the `cluster_config` section of the required {{ mpg-name }} cluster, add the `version` field or edit the existing one:
+    1. Add the `version` field to the `cluster_config` section of the target {{ mpg-name }} cluster, or modify its value if it already exists:
 
        ```hcl
        resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -137,15 +137,15 @@ Make sure the upgrade does not disrupt your applications:
 
      Where:
 
-     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
-       In this case, only one parameter is provided.
+       Here, we provide only one setting.
 
      * `configSpec.version`: New {{ PG }} version.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -182,37 +182,37 @@ Make sure the upgrade does not disrupt your applications:
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
      * `config_spec.version`: New {{ PG }} version.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+Once you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 Cluster upgrade time depends on the database size.
 
 {% note tip %}
 
-Contact [support]({{ link-console-support }}) if you have issues upgrading to version 17.
+If you encounter issues while upgrading to version 17, contact [technical support]({{ link-console-support }}).
 
 {% endnote %}
 
 ## Examples {#examples}
 
-Let's assume you need to upgrade a cluster from version 14 to version 15.
+Suppose you need to upgrade a cluster from version 14 to 15.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   1. To get a list of clusters and find out their IDs and names, run this command:
+   1. To get a list of clusters with their IDs and names, run this command:
 
       ```bash
       {{ yc-mdb-pg }} cluster list

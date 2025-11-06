@@ -20,9 +20,9 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% endnote %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 {% include [vat](../_includes/vat.md) %}
 
@@ -33,7 +33,7 @@ When using {{ maf-name }}, you pay for:
 * Computing resources of cluster components.
 * Amount of outgoing traffic.
 
-Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 1.5 hours.
+Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
 Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.md) is charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 

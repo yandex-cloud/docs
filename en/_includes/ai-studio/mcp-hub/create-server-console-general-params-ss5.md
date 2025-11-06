@@ -1,1 +1,1 @@
-Optionally, to keep a log of the MCP server you are creating, turn on the **Enable logging** option and configure the logging settings.
+Optionally, turn on the **Enable logging** option and configure the logging settings to keep a log of the MCP server you are creating.

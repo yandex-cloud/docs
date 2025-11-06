@@ -1,0 +1,1 @@
+Optionally, enable **Specify network** to specify a [cloud network](../../../vpc/concepts/network.md) to host your MCP server instances.

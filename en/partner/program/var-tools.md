@@ -12,17 +12,18 @@ The partner program participants have access to the following tools:
 * [Deal registration as part of a scheduled procurement](#tender)
 * [Project registration](#project-reg)
 * [Presale assistance](#presale)
-* [Quickstart program](#acceleration)
+* [Quick-start program](#acceleration)
 * [Co-marketing program](#co-marketing)
 * [Partner catalog](#catalog)
 * [Professional services](#pro)
 * [{{ marketplace-full-name }}](#marketplace)
 * [Telegram channel for partners](#tg-channel)
-* [Partner kit](#kit)
+* [Partner Kit](#kit)
 
 ## Deal registration {#deal-reg}
 
 Deal registration is a partner protection tool that rewards the partner for generating a deal for {{ yandex-cloud }}. You register a deal with a customer who has never worked with {{ yandex-cloud }} before. For registering a deal, you will get up to 15% on top of your [partner bonus](./var.md#premium) for as long as the customer remains linked to you.
+
 
 
 ### Deal registration conditions for the Russia region {#deal-reg-conditions}
@@ -177,7 +178,7 @@ To submit a presale request:
 
 ## Quick-start program {#acceleration}
 
-Our step-by-step quick-start program helps partners achieve their first sales with {{ yandex-cloud }}. Your participation in the program will considerably advance your knowledge of {{ yandex-cloud }} services, generate new deals, and contribute to successful implementation of your projects based on {{ yandex-cloud }} services, plus get you a [technology specialization](../specializations/index.md).
+Our step-by-step quick-start program helps partners achieve their first sales with {{ yandex-cloud }}. Your participation in the program will considerably advance your knowledge of {{ yandex-cloud }} services, generate new deals, contribute to successful implementation of your projects based on {{ yandex-cloud }} services, plus get you a [technology specialization](../specializations/index.md).
 
 The program is split between the two key areas: sales and technology. In each one, you will have a dedicated manager assigned. The manager will guide you through every step of the program and provide support with:
 
@@ -296,7 +297,7 @@ Proactive assistance is aimed at preventing potential issues and optimizing your
 
 
 
-## Partner kit {#kit}
+## Partner Kit {#kit}
 
 Our partner kit is an exclusive package of materials you get with your welcome email. It contains all the tools and information you need to successfully get started and continue with the partner program.
 
@@ -322,11 +323,11 @@ Our partner kit contains:
   
   Critical document confirming the conformity of {{ yandex-cloud }} services to Russian laws and regulations on personal data.
 
-* Partner badges:
+* Partner Badges:
   
   Icons and logos to use on your website, confirming your company's status as a {{ yandex-cloud }} partner.
 
-* Partner marketing kit:
+* Partner Marketing Kit:
   
   Marketing materials including the essentials for creating advertisements and a partner [co-marketing](#co-marketing) presentation. These materials will help you promote your services and reinforce your brand.
 

@@ -134,6 +134,8 @@ Loading a shared library will cause {{ PG }} the master host to restart.
      --extensions <extension_name>,<extension_name>...
   ```
 
+  You may get errors when installing multiple extensions. Learn more about possible causes of errors and how to troubleshoot them in [FAQ](../../qa/errors.md#cli-extensions-error).
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
@@ -154,11 +156,11 @@ Loading a shared library will cause {{ PG }} the master host to restart.
       }
       ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -248,7 +250,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 

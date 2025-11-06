@@ -1,5 +1,4 @@
 title: Yandex Cloud Registry
-stage: preview
 href: index.yaml
 items:
   - name: Начало работы
@@ -50,6 +49,12 @@ items:
             items:
               - name: Настроить PyPI
                 href: operations/pypi/installation.md
+          - name: Binary-артефакт
+            items:
+              - name: Загрузить binary-артефакт в реестр
+                href: operations/binary/push.md
+              - name: Скачать binary-артефакт из реестра
+                href: operations/binary/pull.md
   - name: Концепции
     items:
       - name: Обзор
@@ -70,6 +75,8 @@ items:
             href: concepts/art-nuget.md
           - name: Python-артефакт
             href: concepts/art-python.md
+          - name: Binary-артефакт
+            href: concepts/art-binary.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

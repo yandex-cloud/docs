@@ -1,6 +1,7 @@
 ---
 title: Creating a RAG search assistant with file and index metadata
 description: Follow this guide to use {{ assistant-api }} to create a personalized assistant that draws information from external sources with file and index level metadata specified.
+noIndex: true
 ---
 
 # Creating an AI assistant for RAG with source file and index metadata preserved

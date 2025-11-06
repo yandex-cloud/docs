@@ -19,6 +19,55 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [activate-user-ui](../../../_includes/organization/activate-user-ui.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для активации федеративных пользователей:
+
+     ```bash
+     yc organization-manager federation saml reactivate-user-accounts --help
+     ```
+
+  1. Получите список федераций в организации:
+
+     ```bash
+     yc organization-manager federation saml list \
+       --organization-id <идентификатор_организации>
+     ```
+
+     Где `--organization-id` — [идентификатор организации](../organization-get-id.md), в которой нужно получить список федераций.
+
+  1. Получите список деактивированных пользователей федерации:
+
+     ```bash
+     yc organization-manager federation saml list-user-accounts <идентификатор_федерации> \
+       --organization-id <идентификатор_организации> \
+       --filter active=false
+     ```
+
+     Где:
+
+     * `<идентификатор_федерации>` — идентификатор федерации, в которой нужно получить список пользователей.
+     * `--organization-id` — идентификатор организации, в которой находится федерация.
+     * `--filter active=false` — фильтр для получения только деактивированных пользователей.
+
+  1. Чтобы активировать пользователей, передайте их идентификаторы в команде:
+
+     ```bash
+     yc organization-manager federation saml reactivate-user-accounts <идентификатор_федерации> \
+       --subject-ids <идентификатор_пользователя_1>,<идентификатор_пользователя_2>,...,<идентификатор_пользователя_N> \
+       --organization-id <идентификатор_организации>
+     ```
+
+     Где:
+     
+     * `<идентификатор_федерации>` — идентификатор федерации, в которой нужно активировать пользователей.
+     * `--subject-ids` — список идентификаторов пользователей, которых необходимо активировать.
+     * `--organization-id` — идентификатор организации, в которой находится федерация.
+
 {% endlist %}
 
 

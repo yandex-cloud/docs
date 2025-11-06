@@ -1,4 +1,12 @@
+---
+title: Rephrasing queries in {{ assistant-api }}
+description: This section describes rephrasing queries in {{ assistant-api }}.
+noIndex: true
+---
+
 # Rephrasing queries
+
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 {{ assistant-api }} offers a model fine-tuned to correct typos and rephrase a query based on your chat history with the assistant. This is helpful when extensive search index data is used to generate responses in highly context-aware interactions.
 

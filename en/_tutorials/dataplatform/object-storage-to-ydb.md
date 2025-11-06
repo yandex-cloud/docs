@@ -1,6 +1,10 @@
 # Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
 
+
+{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
+
+
 You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -14,14 +18,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
-* {{ ydb-name }} database fee. The charge depends on the usage mode:
+* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ ydb-name }} database fee. Pricing is based on the deployment model:
 
-	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	* In serverless mode, you pay for data operations and storage volume.
+	* In dedicated instance mode, you pay for computing resource usage, dedicated databases, and disk storage.
 	
-    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+    For details, see [{{ ydb-name }} pricing](../../ydb/pricing/index.md).
 
 
 ## Getting started {#before-you-begin}
@@ -145,7 +149,7 @@ Set up the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the service account named `s3-ydb-account`.
 
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -154,7 +158,7 @@ Set up the infrastructure:
         1. In the `object-storage-to-ydb.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: `1` (create a transfer).
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -174,7 +178,7 @@ Set up the infrastructure:
 
 ## Test the transfer {#verify-transfer}
 
-To verify that the transfer is operational, check the copy and replication processes.
+To verify that the transfer is operational, test the copy and replication processes.
 
 ### Test the copy process {#verify-copy}
 
@@ -266,12 +270,12 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Transfer](../../data-transfer/operations/transfer.md#delete).
 * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Bucket [objects](../../storage/operations/objects/delete.md).
-* Delete other resources using the method matching their creation method:
+* Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 

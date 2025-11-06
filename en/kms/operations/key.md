@@ -10,7 +10,7 @@ To create a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
@@ -22,7 +22,7 @@ To create a key:
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  The key is created together with its first version: click the key in the list to open a page with its attributes.
+  When creating a key, you create its first version; to open a page with its attributes, click the key in the list.
 
 - CLI {#cli}
 
@@ -43,7 +43,7 @@ To create a key:
   * `--rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
   * `--deletion-protection`: Key deletion protection. To create a key without deletion protection, do not specify the `--deletion-protection` parameter.
 
-  The key is created along with its first version. It is specified in the `primary_version` field.
+  When creating a key, you create its first version. It is specified in the `primary_version` field.
 
 - {{ TF }} {#tf}
 
@@ -61,7 +61,13 @@ To create a key:
 
 ## Edit a key {#update}
 
-After creating a key, you can change any of its attributes. If you change the encryption algorithm, the new algorithm is used starting with the next key version. To immediately create a new version and make it the default version, rotate the key.
+After creating a key, you can change any of its attributes. If you change the encryption algorithm, the new algorithm is used starting with the next key version. To create a new version right away and make it the default one, [rotate the key](#rotate).
+
+{% note info %}
+
+The change of the key status from `Active` to `Inactive` is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+
+{% endnote %}
 
 To edit a key:
 
@@ -69,7 +75,7 @@ To edit a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -115,7 +121,7 @@ To edit a key:
      ...
      ```
 
-     For more information about the `yandex_kms_symmetric_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
+     For more information about `yandex_kms_symmetric_key` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/kms_symmetric_key).
   1. Check the configuration using this command:
 
      ```bash
@@ -134,14 +140,14 @@ To edit a key:
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the key update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -159,13 +165,15 @@ To edit a key:
 
 When a key is rotated, a new version is generated and immediately set as the default version. You can set up automatic rotation, but you can also rotate a key manually at any time.
 
+{% include [rotation-delay](../../_includes/kms/rotation-delay.md) %}
+
 To rotate a key:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
@@ -203,7 +211,7 @@ To destroy a key:
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. In the line with the key, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -254,14 +262,14 @@ To destroy a key:
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -274,6 +282,12 @@ To destroy a key:
   Use the [delete](../../kms/api-ref/SymmetricKey/delete.md) REST API method for the [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Delete](../../kms/api-ref/grpc/SymmetricKey/delete.md) gRPC API call.
 
 {% endlist %}
+
+{% note info %}
+
+Deleting a key is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+
+{% endnote %}
 
 ## See also {#see-also}
 

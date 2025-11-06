@@ -15,3 +15,4 @@ _Артефакт [NuGet](https://ru.wikipedia.org/wiki/NuGet)_ — это фа�
 * [{#T}](./art-java.md)
 * [{#T}](./art-nodejs.md)
 * [{#T}](./art-python.md)
+* [{#T}](./art-binary.md)

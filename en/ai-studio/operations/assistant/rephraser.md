@@ -1,6 +1,12 @@
-# Creating an assistant for RAG with query rephrasing
+---
+title: Creating a RAG assistant with query rephrasing
+description: Follow this guide to create a RAG assistant in {{ assistant-api }} with query rephrasing.
+noIndex: true
+---
 
-In {{ assistant-api }}, you can enable an additional rephrasing model to make search index queries more accurate. Rephrasing will correct errors and typos and help you out if the response requires massive volumes of indexed data and heavily relies on the conversation context.
+# Creating a RAG assistant with query rephrasing
+
+In {{ assistant-api }}, you can enable an additional paraphrasing model to retrieve more relevant information from search indexes. Rephrasing will correct errors and typos and help you out if the response requires massive volumes of indexed data and heavily relies on the conversation context.
 
 {% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 

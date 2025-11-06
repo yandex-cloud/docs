@@ -126,7 +126,6 @@ These connection types are not available for export and import.
 * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
 * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 * [1C Extractor](../operations/connection/create-extractor1c.md)
-* [Bitrix24](../operations/connection/create-bitrix24.md)
 * MoySklad
 * Equeo
 * Kontur.Market

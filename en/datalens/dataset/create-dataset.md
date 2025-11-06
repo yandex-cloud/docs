@@ -145,7 +145,7 @@ You can join data from source tables.
 1. Select the fields to join the tables on. You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
-   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
+   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. For example:
    
      ```sql
      SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
@@ -176,7 +176,9 @@ You can add fields to a dataset from data source tables or create [calculated fi
 1. In the dataset, go to the **Fields** tab.
 1. At the top of the screen, click ![icon](../../_assets/console-icons/plus.svg) **Add field**.
 
+   
    ![screenshot](../../_assets/datalens/dataset/dataset-new-field.png)
+
 
 1. Create a field:
 
@@ -259,7 +261,9 @@ To update fields in a dataset:
    * If a field is present in both the dataset and the data source, the field will be updated, e.g., its type will change.
    * If a field is present in the dataset but missing in the data source, that field will be marked in red. Delete it from the dataset or [replace](#replace-field) it with a different field from the data source.
 
+   
    ![screenshot](../../_assets/datalens/dataset/dataset-update-fields.png)
+
 
 1. In the top-right corner, click **Save**.
 
@@ -293,7 +297,9 @@ To perform operations with fields, click ![image](../../_assets/console-icons/el
 
 You can select multiple dataset fields at once to delete, hide, or display them, change their type or aggregation.
 
+
 ![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
+
 
 To select the field range, hold the **Shift** key and set the beginning and end of the range with your mouse. You can select multiple ranges. To select each of the field ranges, hold **Ctrl** and click the first field in the range, then hold **Shift** and click the last field in the range.
 
@@ -395,7 +401,7 @@ For more information on object access, see [{#T}](../security/index.md).
 
 ## Deleting a dataset {#delete}
 
-Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**. If you get an error when opening the linked object window, click **Retry**.
+Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**. If an error appears when opening the linked object window, try clicking the **Retry** button.
 
 To delete a dataset:
 

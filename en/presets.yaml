@@ -9917,6 +9917,8 @@ default:
             button_create-network: Create network
             button_create-subnetwork: Create subnet
       components:
+        AsideNavigation:
+          label_all-services_6sGQy: All services
         ChatCommon:
           ChatsMenuHeader:
             action_create-chat_97ZqE: New chat
@@ -10272,9 +10274,18 @@ default:
           title_scheduled-scan: Scheduled Docker image scans
         switch_registry: Registries
       dashboard:
+        dashboard_j9z5M: Dashboard
         DashboardPage:
           AiStudioSection:
             section_title_1sDGx: AI Studio
+          CreateResourceDialog:
+            search_kV4c1: Search services
+          ResourceSearch:
+            placeholder_3my5Y: Search services
+          ResourcesSection:
+            create-resources_rGA1t: Create resource
+            title_7kYbU: Resources
+        label_create-resource_4KN3M: Create resource
         label_permissions_gAtoT: Permissions
       data-catalog:
         action_create-catalog: Create catalog

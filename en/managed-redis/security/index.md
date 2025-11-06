@@ -1,32 +1,32 @@
 ---
 title: Access management in {{ mrd-full-name }}
-description: Access management in {{ VLK }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ VLK }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mrd-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [Resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
+* [Roles required for specific actions](#required-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `mdb.admin` role, `managed-redis.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
 ![image](../../_assets/mdb/roles-managed-redis.svg)
 
@@ -79,9 +79,9 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## Roles required {#required-roles}
+## What roles are required {#required-roles}
 
-To use the service, you need the [{{ roles.mrd.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mrd.viewer }}` role enables you only to view the list of clusters.
+To use the service, you need the [{{ roles.mrd.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mrd.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mrd.editor }}` role or higher.
 
@@ -92,5 +92,5 @@ You can always assign a role with more permissions. For example, you can assign 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

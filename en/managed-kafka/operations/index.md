@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mkf-full-name }}
-description: This page provides a list of step-by-step guides for {{ mkf-name }}.
+description: This page presents a list of step-by-step guides for {{ mkf-name }}.
 ---
 
 # Step-by-step guides for {{ mkf-name }}
@@ -15,6 +15,7 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Getting a list of cluster hosts](cluster-hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster {#connect}

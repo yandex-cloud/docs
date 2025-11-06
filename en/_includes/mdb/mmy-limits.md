@@ -10,6 +10,8 @@
 `mdb.memory.size` | 512 GB ||
 || Total storage capacity for all clusters per cloud 
 `mdb.ssd.size` | 4,096 GB ||
+|| Number of GPUs 
+`mdb.gpu.count` | 0 ||
 |#
 
 #### Limits {#mmy-limits}

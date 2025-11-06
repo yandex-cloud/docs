@@ -1,13 +1,14 @@
 ---
 title: Creating an assistant with the WebSearch tool
-description: Follow this guide to create a personalized assistant in {{ assistant-api }} which generates responses based on information obtained from a search engine using WebSearch.
+description: Follow this guide to use the {{ assistant-api }} to create a personalized assistant for generative responses based on information obtained from a search engine via WebSearch.
+noIndex: true
 ---
 
 # Creating an assistant with the WebSearch tool
 
-{% include [assistants-preview-stage](../../../_includes/ai-studio/assistants-preview-stage.md) %}
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a retrieval augmented generation ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) scenario based on information from external sources, and save the context of requests to the model.
 
 The WebSearch [tool](../../concepts/assistant/tools/web-search.md) enables AI assistants to retrieve information from internet sources.
 
@@ -303,7 +304,7 @@ To use the examples:
           }
           ```
 
-          Now you get a response saying the run is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
+          {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
   1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
       ```bash
