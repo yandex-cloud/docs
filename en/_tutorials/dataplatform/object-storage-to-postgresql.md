@@ -2,11 +2,7 @@
 
 
 
-{% note info %}
-
-The functionality for loading data from {{ objstorage-name }} in {{ data-transfer-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
+{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
 You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
@@ -23,9 +19,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for this solution includes:
 
 * Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mpg-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -150,14 +146,14 @@ Set up the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the new endpoints.
 
     - {{ TF }} {#tf}
 
-        1. In the `objstorage-to-postgres.tf` file, specify these variables:
+        1. In the `objstorage-to-postgres.tf` file, specify the following variables:
 
             * `source_endpoint_id`: ID of the source endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -201,12 +197,12 @@ Data successfully migrated.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Transfer](../../data-transfer/operations/transfer.md#delete).
 * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 * Bucket [objects](../../storage/operations/objects/delete.md).
-* Delete other resources using the method matching their creation method:
+* Delete other resources using the same method used for their creation:
 
     {% list tabs group=resources %}
 

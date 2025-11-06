@@ -13,6 +13,26 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
 
+## Display parameters {#view-parameters}
+
+To configure the features and appearance of embedded objects, you can use special parameters which you provide in the link:
+
+* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are:
+
+  * 30 seconds for dashboards.
+  * 15 seconds for charts.
+
+* `_theme`: Specifies the object's appearance. Possible values:
+
+  * `light`: Light theme.
+  * `dark`: Dark theme.
+
+* `_lang`: In charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
+
+Provide the parameters formatted as `<parameter_name>=<value>`. For example, to set the auto-update time to 50 seconds, specify `_autoupdate=50`.
+
+Add this parameter to the object's address after the `?` character before the hash with the token. You can provide them together with [unsigned parameters](#unsigned-parameters). To provide multiple parameters, list them separated by `&` (ampersand).
+
 ## How to embed a private object {#how-to-private-embed}
 
 1. Create a key for embedding:
@@ -286,7 +306,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
       {% endlist %}
 
-1. Add an embedding link to your website or app, e.g.:
+1. Add the embedding link to your website or application. For example:
 
       {% list tabs group=datalens_public %}
 

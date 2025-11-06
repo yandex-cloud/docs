@@ -1,15 +1,15 @@
 ---
 title: How to add chart info in {{ datalens-full-name }}
-description: Follow this guide to add chart info.
+description: Follow this guide to add chart info in {{ datalens-full-name }}.
 ---
 
-# Adding chart info
+# Adding chart info in {{ datalens-full-name }}
 
 To add chart info, do the following:
 
 1. Open the chart to add info for.
 1. Click ![image](../../../_assets/console-icons/circle-info.svg) at the top of the screen.
-1. Enter the description and click **Save**.
+1. Enter the information and click **Save**.
 
    {% cut "Adding chart info" %}
 
@@ -35,7 +35,7 @@ To add chart info, do the following:
 
 1. In the top-right corner, click **Save**.
 
-As a result, all users will see the ![image](../../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the chart. Clicking it will open the **Chart info** window with the description.
+As a result, all users will see the ![image](../../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the chart. Clicking it will open the **Chart info** window with the information.
 
 {% cut "Viewing chart info" %}
 
@@ -59,4 +59,4 @@ As a result, all users will see the ![image](../../../_assets/console-icons/circ
 
 {% endcut %}
 
-To remove chart info, save an empty description in the **Chart info** window. Users will no longer see the ![image](../../../_assets/console-icons/circle-info.svg) icon.
+To remove chart info, save an empty field in the **Chart info** window. Users will no longer see the ![image](../../../_assets/console-icons/circle-info.svg) icon.

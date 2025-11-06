@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for VMs and cluster hosts if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
@@ -188,7 +188,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * Fee for {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in {{ managed-k8s-name }} cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
@@ -398,7 +398,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

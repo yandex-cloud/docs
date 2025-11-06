@@ -1,12 +1,18 @@
 # Symmetric data encryption
 
-In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (up to 32 KB) in [symmetric encryption](../concepts/symmetric-encryption.md) mode using the CLI and API. For more information about the available encryption methods, see [{#T}](../tutorials/encrypt/index.md).
+In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (up to 32 KB) in [symmetric encryption](../concepts/symmetric-encryption.md) mode using the CLI, {{ TF }}, and API. For more information about the available encryption methods, see [{#T}](../tutorials/encrypt/index.md).
 
 ## Getting started {#before-you-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 ## Encrypt data {#encryption}
+
+{% note info %}
+
+Changes caused by [eventually consistent operations](../concepts/consistency.md) require up to three hours to become encryptable.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -55,6 +61,12 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 {% endlist %}
 
 ## Decrypt data {#decryption}
+
+{% note info %}
+
+Changes caused by [eventually consistent operations](../concepts/consistency.md) require up to three hours to become decryptable.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

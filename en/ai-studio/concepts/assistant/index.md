@@ -5,14 +5,15 @@ keywords:
   - keyword: RAG
   - keyword: AI assistant
   - keyword: AI assistant
-  - keyword: chatbot
+  - keyword: chat bot
+noIndex: true
 ---
 
 # {{ assistant-api }}
 
 {% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-{{ assistant-api }} is a {{ foundation-models-name }} tool for creating AI assistants. It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating AI assistants. It can be used to create personalized assistants, implement a retrieval augmented generation ([RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)) scenario based on information from external sources, and save the context of requests to the model.
 
 ![ai-assistant](../../../_assets/ai-studio/ai-assistant.svg)
 

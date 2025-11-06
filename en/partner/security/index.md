@@ -8,7 +8,7 @@ description: In this article, you will learn what service and primitive roles ar
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
-## What roles partner program has {#roles-list}
+## Roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -109,7 +109,7 @@ The tables below provide a list of operations available to each role type. Full 
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) ||
-|| Delete a billing account |
+|| Deleting a billing account |
 ![image](../../_assets/common/yes.svg) |
 ![image](../../_assets/common/no.svg) |
 ![image](../../_assets/common/no.svg) |

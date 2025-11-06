@@ -6,11 +6,11 @@ description: Access management in {{ SPQR }}, a database creation and management
 # Access management in {{ mspqr-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
+* [Roles required for specific actions](#required-roles).
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 

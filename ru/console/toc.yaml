@@ -9,6 +9,8 @@ items:
         href: quickstart/cloud-shell.md
   - name: Пошаговые инструкции
     items:
+      - name: Переход в сервис и создание ресурсов {{ yandex-cloud }}
+        href: operations/select-service.md
       - name: Изменение настроек консоли управления
         href: operations/update.md
       - name: Управление {{ cloud-shell-name }}

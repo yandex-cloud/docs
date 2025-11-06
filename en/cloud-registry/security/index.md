@@ -1,15 +1,15 @@
 ---
 title: Access management in {{ cloud-registry-full-name }}
-description: Access management in {{ cloud-registry-full-name }}, a secure storage service for software artifacts. For access to {{ cloud-registry-name }} resources, assign to the user the required roles from the list below.
+description: Access management in {{ cloud-registry-full-name }}, a secure storage service for software artifacts. To allow a user access to {{ cloud-registry-name }} resources, assign them the roles from the list below.
 ---
 
 # Access management in {{ cloud-registry-full-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. As long as a user has no roles assigned, all operations are forbidden.
 
-To allow access to {{ cloud-registry-name }} resources, assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
+To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ cloud-registry-name }} resources, assign them the roles from the list below.
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -21,9 +21,11 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 You can also assign a role for [{{ cloud-registry-name }} registries](../concepts/registry.md) as well as directories inside them.
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 In {{ cloud-registry-name }}, you can manage access using both service and primitive roles.
+
+{% include [cloud-registry](../../_mermaid/roles/cloud-registry.md) %}
 
 ### Service roles {#service-roles}
 

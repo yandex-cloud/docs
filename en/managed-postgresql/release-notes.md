@@ -35,7 +35,6 @@ Now you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }}
 ## October 2024 {#oct-2024}
 
 * Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
-* Added the `mdb_superuser` [role](concepts/roles.md) for users who are not database owners but need to manage privileges as owners.
 
 ## September 2024 {#sep-2024}
 

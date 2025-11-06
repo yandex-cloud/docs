@@ -1,9 +1,6 @@
 title: Yandex Cloud Registry
 description:
   - >-
-    <em>Сервис Yandex Cloud Registry находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - >-
     Yandex Cloud Registry — сервис для безопасного хранения <a
     href="/docs/cloud-registry/concepts/artifacts">артефактов</a> программного
     обеспечения, которые используются при разработке и развертывании приложений.

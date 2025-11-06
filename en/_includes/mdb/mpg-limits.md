@@ -2,7 +2,6 @@
 
 #|
 || Type of limit | Value ||
-|| Connection time-to-live | 12 hours ||
 || Number of clusters per cloud 
 `mdb.clusters.count` | 16 ||
 || Total number of processor cores for all database hosts per cloud 
@@ -11,6 +10,8 @@
 `mdb.memory.size` | 512 GB ||
 || Total storage capacity for all clusters per cloud 
 `mdb.ssd.size` | 4,096 GB ||
+|| Number of GPUs 
+`mdb.gpu.count` | 0 ||
 |#
 
 #### Limits {#mpg-limits}

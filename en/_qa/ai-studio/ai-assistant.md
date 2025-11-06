@@ -58,7 +58,7 @@ Just like with generative models, you pay for both request and model response [t
 
 #### How can I estimate the number of tokens in text files beforehand? {#pre-estimate-number-of-tokens}
 
-To estimate the text size in tokens, use a tokenizer. For more information, see [{#T}](../../ai-studio/operations/generation/evaluate-request.md).
+To estimate the text size in tokens, use a tokenizer. Learn more in [{#T}](../../ai-studio/operations/generation/evaluate-request.md).
 
 #### Do I get charged for the model's response to a request that triggered the ethics filter? {#is-triggered-response-charged}
 
@@ -66,7 +66,9 @@ No, you do not get charged for such responses.
 
 #### Do I get charged for creating search indexes, uploading files through the Files API, or storing files and indexes? {#is-until-ttl-expires-charged}
 
-{{ assistant-api }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. Creating or storing files, threads, or indexes is free of charge.
+{% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
+
+Creating or storing files, threads, or indexes is free of charge.
 
 ## Working with indexes {#indexes}
 
@@ -84,7 +86,7 @@ To set up a knowledge base for your AI assistant:
 
 Upload your documents to the assistant's [search index](../../ai-studio/concepts/assistant/search-index.md). The assistant will then return answers that include both links to the source documents and exact text chunks the model used to generate the response.
 
-For more information, see [{#T}](../../ai-studio/operations/assistant/create-with-searchindex.md).
+Learn more in [{#T}](../../ai-studio/operations/assistant/create-with-searchindex.md).
 
 #### How do I add, update, or delete documents from the index? {#add-update-delete-operations}
 

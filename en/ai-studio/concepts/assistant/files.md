@@ -1,4 +1,12 @@
+---
+title: Source files with additional information for {{ assistant-api }}
+description: This section describes source files with additional information for {{ assistant-api }}.
+noIndex: true
+---
+
 # Source files
+
+{% include [assistants-do-not-use](../../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 For your model to use external information sources to respond to requests, upload supplementary data files through the [Files API](../../files/api-ref/grpc/index.md) and [create](../../searchindex/api-ref/grpc/SearchIndex/create.md) a [_search index_](./search-index.md) for them. You can upload up to 10,000 files with the maximum size of 128 MB per file. The same file can be included into several search indexes at the same time.
 
@@ -6,7 +14,7 @@ For all {{ assistant-api }} limitations, see [{#T}](../limits.md).
 
 {% include [searchindex-filetypes](../../../_includes/ai-studio/searchindex-filetypes.md) %}
 
-[Markdown](https://en.wikipedia.org/wiki/Markdown) is the optimal search index source as many models are trained on this format and are more likely to interpret it correctly. Use the [docling](https://github.com/DS4SD/docling) [Python](https://www.python.org/) library to convert files, even those with complex formatting, into Markdown. For more information, see [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md).
+[Markdown](https://en.wikipedia.org/wiki/Markdown) is the optimal search index source as many models are trained on this format and are more likely to interpret it correctly. Use the [docling](https://github.com/DS4SD/docling) [Python](https://www.python.org/) library to convert files, even those with complex formatting, into Markdown. Learn more in [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md).
 
 {% note info %}
 

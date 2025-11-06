@@ -17,21 +17,22 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
 
   1. In the [management console]({{ link-console-main }}), select a folder for which your account has the [`serverless.mcpGateways.editor`](../../security/index.md#serverless-mcpGateways-editor) and [`serverless.mcpGateways.anonymousInvoker`](../../security/index.md#serverless-mcpGateways-anonymousInvoker) roles or higher.
   1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
-  1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers**, and in the window that opens:
+  1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers** and click **Create MCP server**. In the window that opens, do the following:
 
       1. Under **Add Method**, select ![plug-connection](../../../_assets/console-icons/plug-connection.svg) **Connect**.
       1. Under **Tools**, click **Add tools** and in the window that opens:
 
           {% include [create-server-add-external-steps](../../../_includes/ai-studio/mcp-hub/create-server-add-external-steps.md) %}
 
-      1. Under **Server settings**:
+      1. Under **Server parameters**:
 
           1. {% include [create-server-console-general-params-ss1](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss1.md) %}
           1. {% include [create-server-console-general-params-ss2](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss2.md) %}
           1. {% include [create-server-console-general-params-ss3](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss3.md) %}
           1. {% include [create-server-console-general-params-ss4](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss4.md) %}
+          1. {% include [create-server-console-general-params-ss4-1](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss4-1.md) %}
           1. {% include [create-server-console-general-params-ss5](../../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss5.md) %}
-      1. Click **Add**.
+      1. Click **Save**.
 
 {% endlist %}
 

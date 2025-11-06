@@ -70,7 +70,7 @@ To use the AWS tools, follow these steps:
 
           {% note alert %}
 
-          After you close the dialog, the private key value will become unavailable.
+          After you close this dialog, the key value will no longer be available.
 
           {% endnote %}
 
@@ -108,7 +108,7 @@ To use the AWS tools, follow these steps:
           secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
           ```
 
-      1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+      1. Save `key_id` and `secret`. You will not be able to get the secret key again.
 
     - API {#api}
 

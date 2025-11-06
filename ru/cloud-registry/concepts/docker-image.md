@@ -37,3 +37,4 @@ Docker-образ и все его версии хранятся в реестр
 * [{#T}](./art-nodejs.md)
 * [{#T}](./art-nuget.md)
 * [{#T}](./art-python.md)
+* [{#T}](./art-binary.md)

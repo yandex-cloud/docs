@@ -498,7 +498,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
      }
      ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -720,7 +720,7 @@ The `removeShard` operation will be called for the shard being deleted and will 
             yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteShard
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name, with the [list of shards in the cluster](#list-shards).
 
     1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

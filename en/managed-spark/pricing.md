@@ -8,7 +8,17 @@ editable: false
 
 In this section, you can find the {{ msp-full-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
+{% note tip %}
 
+
+
+To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=301760ee7702#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+
+
+
+{% endnote %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -28,7 +38,7 @@ When using {{ msp-full-name }}, you pay for:
 * Computing resources of cluster components.
 * Outgoing traffic from {{ yandex-cloud }}.
 
-Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 1.5 hours.
+Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -63,3 +73,4 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

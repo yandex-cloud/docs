@@ -9,7 +9,9 @@ You enter into an agreement with a customer yourself.
 
 #### Where can I get sample agreements? {#examples-of-contracts}
 
-You can use your own agreement template or the examples we provide you with in the [Partner Kit](../../partner/program/var-tools.md#kit), namely:
+You can use your own agreement template or the examples we provide you with in the [Partner Kit](../../partner/program/var-tools.md#kit):
+
+Types of our partners' agreements that you can find in the Partner Kit:
 
 * Simple agreements for providing services without an agent fee. These agreements allow you to include both the cost of using {{ yandex-cloud }} services and that of support and maintenance services for you as a partner company.
 * Commission agreements which, as some experts believe, are more consistent with the subject of agreements for _services to provide access to cloud resources_ in terms of their wording for taxation purposes.

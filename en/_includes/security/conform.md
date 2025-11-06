@@ -48,7 +48,7 @@ For more information on the PCI DSS and PCI DSS AOC certificates issued to {{ ya
 
 The payment card industry standard defines requirements for securely processing and transmitting PIN codes and managing cryptographic keys used to protect PIN codes. {{ yandex-cloud }} customers can host acquiring and PIN code transaction processing infrastructure components in the cloud.
 
-For more information on the PCI PIN Security certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards](/security/standards/pci) page.
+For more information on the PCI PIN Security certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards page](/security/standards/pci).
 
 ## PCI 3-D Secure (PCI 3DS) {#pci-3d-secure}
 
@@ -56,7 +56,7 @@ The PCI 3-D Secure (PCI 3DS) standard defines the requirements for infrastructur
 
 {{ yandex-cloud }} customers are able to deploy components implementing the 3-D Secure protocol in the cloud infrastructure.
 
-For more information on the PCI 3DS certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards](/security/standards/pci) page.
+For more information on the PCI 3DS certificates issued to {{ yandex-cloud }}, see the [PCI Security Standards page](/security/standards/pci).
 
 ## GOST R 57580.1-2017 {#gost}
 
@@ -68,7 +68,7 @@ The {{ yandex-cloud }} platform got a statement of evaluation of compliance with
 
 {{ yandex-cloud }} services can thus be used by systemically important credit institutions, credit institutions providing payment infrastructure services for systemically important payment systems, and credit institutions with significant role in the payment services market.
 
-For more information on the GOST R 57580.1-2017 certificates issued to {{ yandex-cloud }}, see the [GOST R 57580](/security/standards/gost-p-57580) page.
+For more information on the GOST R 57580.1-2017 certificates issued to {{ yandex-cloud }}, see the [GOST R 57580 page](/security/standards/gost-p-57580).
 
 ## Cloud Security Alliance {#csa}
 
@@ -80,7 +80,7 @@ For a high-level description of platform security measures in one of the most po
 
 We also participate in the Trusted Cloud Provider program that shows our commitment to a comprehensive security approach, including through continuous improvement of our employees' skills and active involvement in the international professional community.
 
-## Central Registry of Russian Computer and Database Software{#reestr}
+## Central Registry of Russian Computer and Database Software {#reestr}
 
 {{ yandex-cloud }} is listed in the Russian Software Register created pursuant to Article 12.1 of the Federal Law on Information, Information Technologies, and Information Protection under the basic class 02.05 (software tools for cloud and distributed computing, visualization tools, and data storage systems) and additional classes: 02.09 (database management systems), 04.07 (linguistic software), and 04.13 (systems for collecting, storing, processing, analyzing, modeling, and visualizing datasets).
 

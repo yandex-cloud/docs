@@ -15,7 +15,7 @@ A single-host cluster does not provide high availability. If the master host VM 
 
 {% note warning %}
 
-We do not recommend creating a cluster having a single host.
+We do not recommend creating a single-host cluster.
 
 {% endnote %}
 

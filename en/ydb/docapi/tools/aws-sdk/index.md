@@ -19,17 +19,17 @@ This section describes how to use the AWS SDK for several programming languages 
 
    {% cut "How do I find out the Document API endpoint of a database?" %}
 
-   1. Go to the [management console]({{ link-console-main }}).
+   1. Navigate to the [management console]({{ link-console-main }}).
    1. Select the folder and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Select the DB you want to query.
    1. In the menu on the left, go to the **{{ ui-key.yacloud.common.overview }}** section.
    1. The endpoint value is in the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** line.
 
-      > Example of an endpoint value:
+      >Example of an endpoint value:
       >
-      > ```text
-      > {{ ydb.aws-ep }}
-      > ```
+      >```text
+      >{{ ydb.aws-ep }}
+      >```
 
    {% endcut %}
 
@@ -47,40 +47,40 @@ Configure the environment for your programming language:
 
 - Java {#java}
 
-   The examples in the section on building Java applications are based on [Apache Maven](https://maven.apache.org/).
+  The examples in the section on building Java applications are based on [Apache Maven](https://maven.apache.org/).
 
-   To learn more about the AWS SDK for Java, see the [AWS documentation](https://aws.amazon.com/sdk-for-java/).
+  For more information about the AWS SDK for Java, see the [AWS documentation](https://aws.amazon.com/sdk-for-java/).
 
 - Python {#python}
 
-   1. [Install](https://www.python.org/downloads/) Python 3.8 or higher.
-   1. Install the Boto3 library:
+  1. [Install](https://www.python.org/downloads/) Python 3.8 or higher.
+  1. Install the Boto3 library:
 
-      ```bash
-      pip install boto3
-      ```
+     ```bash
+     pip install boto3
+     ```
 
-      For more information about the AWS SDK for Python (Boto), see the [AWS documentation](https://aws.amazon.com/sdk-for-python/).
+     For more information about the AWS SDK for Python (Boto), see the [AWS documentation](https://aws.amazon.com/ru/sdk-for-python/).
 
 - PHP {#php}
 
-   1. Install [PHP](https://www.php.net/).
-   1. Configure the [AWS SDK for PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
+  1. Install [PHP](https://www.php.net/).
+  1. Configure the [AWS SDK for PHP](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html).
 
-   To learn more about the AWS SDK for PHP, see the [AWS documentation](https://aws.amazon.com/sdk-for-php/).
+  For more information about the AWS SDK for PHP, see the [AWS documentation](https://aws.amazon.com/sdk-for-php/).
 
 - Node.js {#node}
 
-   1. Install [Node.js](https://nodejs.org/).
-   1. Install [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
+  1. Install [Node.js](https://nodejs.org/).
+  1. Install [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
 
-   To learn more about the AWS SDK for Node.js, see the [documentation](https://aws.amazon.com/sdk-for-node-js/).
+  For more information about the AWS SDK for Node.js, see the [documentation](https://aws.amazon.com/sdk-for-node-js/).
 
 - Ruby {#ruby}
 
-   1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
-   1. Install [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html).
+  1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
+  1. Install [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html).
 
-   To learn more about the AWS SDK for Ruby, see the [documentation](https://aws.amazon.com/sdk-for-ruby/).
+  For more information about the AWS SDK for Ruby, see the [documentation](https://aws.amazon.com/sdk-for-ruby/).
 
 {% endlist %}

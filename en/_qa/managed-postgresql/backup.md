@@ -1,28 +1,26 @@
-#### Can I restore a cluster backup to a running {{ mpg-short-name }} instance in a different cloud network? {#diff-network}
+#### Can I restore a cluster backup to a running {{ mpg-short-name }} instance in another cloud network? {#diff-network}
 
-You can only recover a cluster from a backup within a single cloud network.
+Yes, you can switch to another cloud network when restoring a cluster from a backup.
 
-To migrate data between cloud networks, follow the [migration guide](../../managed-postgresql/tutorials/replication-overview.md).
+#### Can I change the retention period for automatic backups? {#backup-retain-days}
 
-#### Can I change the retention period of automatic backups? {#backup-retain-days}
+You can set the retention period for automatic backups during cluster [creation](../../managed-postgresql/operations/cluster-create.md) or [modification](../../managed-postgresql/operations/update.md#change-additional-settings).
 
-When [creating](../../managed-postgresql/operations/cluster-create.md) or [modifying](../../managed-postgresql/operations/update.md#change-additional-settings) a cluster, you can set the retention period for automatic backups.
+#### Do I need the wal2json plugin if I am only doing data replication and not copying? {#wal2json}
 
-#### Do I need the wal2json plugin if data is only replicated but not copied? {#wal2json}
+Yes, you need this plugin even if you do not copy data.
 
-Yes, you need the plugin even if you do not copy data.
+#### Can I download a database backup to my local machine? {#backup-local-dump}
 
-#### Can I make a local dump of a database backup? {#backup-local-dump}
-
-You cannot use the service to make a local dump of a DB backup from {{ yandex-cloud }} but you can use the [pg_dump utility]({{ pg.docs.org }}/current/app-pgdump.html).
+While {{ yandex-cloud }} service does not support local backup downloads, you can use the [pg_dump utility]({{ pg.docs.org }}/current/app-pgdump.html) as an alternative.
 
 #### How do I move a local {{ PG }} database dump to {{ yandex-cloud }}? {#dump-to-yc}
 
-Follow the steps described in [Migrating databases](../../managed-postgresql/tutorials/data-migration.md).
+Follow the steps described in this [Migrating databases tutorial](../../managed-postgresql/tutorials/data-migration.md).
 
-#### How do I migrate a database or table from one cluster to another? {#transfer-db-table}
+#### How do I migrate a database or a table from one cluster to another? {#transfer-db-table}
 
-You can migrate a database or table using {{ data-transfer-name }} or [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+You can migrate a database or a table using {{ data-transfer-name }} or [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
 For more information on using {{ data-transfer-name }} for migration, see [Database migration](../../managed-postgresql/tutorials/outbound-replication.md).
 
@@ -40,12 +38,12 @@ For more information on using {{ data-transfer-name }} for migration, see [Datab
 
 #### How do I restore a backup to an existing cluster? {#restore-existing-cluster}
 
-You can restore a backup only to a new cluster.
+You can only restore a backup to a new cluster.
 
-#### How do I restore a cluster to the selected backup state? {#cluster-existing-backup}
+#### How do I restore a cluster to the state of the selected backup? {#cluster-existing-backup}
 
-You can restore a backup only to a new cluster.
+You can only restore a backup to a new cluster.
 
-#### Can I recover a single database from a backup? {#restore-one-database}
+#### Can I restore a single database from a backup? {#restore-one-database}
 
 No, you cannot select specific databases. You can only restore the entire cluster with all its databases.

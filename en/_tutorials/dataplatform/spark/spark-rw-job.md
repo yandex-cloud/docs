@@ -23,7 +23,7 @@ In this tutorial, you will learn how to use the following {{ metastore-name }} a
 
   {{ IBRG }} commits each write to the table as a new metadata snapshot. Then, you can access these snapshots by specifying a time point or snapshot ID.
 
-To implement the above example:
+To implement the above example, do the following:
 
 1. [Set up your infrastructure](#infra).
 1. [Prepare and run a PySpark job](#prepare-job).

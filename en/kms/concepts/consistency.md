@@ -1,13 +1,14 @@
 # Key consistency
 
-The REST API [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md), [decrypt](../../kms/api-ref/SymmetricCrypto/decrypt.md), [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource and the gRPC API [SymmetricCryptoService/Encrypt](../../kms/api-ref/grpc/SymmetricCrypto/encrypt.md), [SymmetricCryptoService/Decrypt](../../kms/api-ref/grpc/SymmetricCrypto/decrypt.md), and [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md) method calls are eventually consistent operations. It takes **up to three hours** for the updates they make to take effect.
+Some operations are [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). The changes they produce take **up to three hours** to take effect. These operations include:
 
-[Eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) operations require **up to three hours** for the changes to take effect:
 * Rotating keys (automatically and manually).
 * Changing the primary version of a key.
 * Changing the key status to `Inactive`.
 * Scheduling a key version for destruction.
 * Deleting a key.
+
+The REST API methods [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md), [decrypt](../../kms/api-ref/SymmetricCrypto/decrypt.md), [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) for the [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) resource and the gRPC API calls [SymmetricCryptoService/Encrypt](../../kms/api-ref/grpc/SymmetricCrypto/encrypt.md), [SymmetricCryptoService/Decrypt](../../kms/api-ref/grpc/SymmetricCrypto/decrypt.md), and [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md) may not see the changes introduced by eventually consistent operations for up to three hours, e.g., encryption will use the old key version if rotation took place less than three hours ago.
 
 [Strongly consistent](https://en.wikipedia.org/wiki/Strong_consistency) operations take effect without delay:
 * Creating keys.

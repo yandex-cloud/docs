@@ -11,3 +11,4 @@ description: Настройка интеграции {{ org-full-name }} со с
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [Zabbix](./saml-zabbix.md)
 * [{{ mos-name }}](./saml-opensearch.md)
+* [SonarQube](./saml-sonarqube.md)

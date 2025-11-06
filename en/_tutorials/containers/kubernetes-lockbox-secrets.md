@@ -78,13 +78,13 @@ The cost of resources for syncing secrets includes:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate
      ```
 
-     {{ TF }} will show any errors found in your configuration files.
+     {{ TF }} will display any configuration errors detected in your files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -101,7 +101,7 @@ The cost of resources for syncing secrets includes:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Install the `jq` utility:
+1. Install `jq`:
 
    ```bash
    sudo apt update && sudo apt install jq
@@ -114,7 +114,7 @@ The cost of resources for syncing secrets includes:
 1. Install [External Secrets Operator](/marketplace/products/yc/external-secrets) by following [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md).
 1. [Assign the service account](../../lockbox/operations/secret-access.md) you created when installing the External Secrets Operator the `lockbox.payloadViewer` role for the [previously created](#deploy-infrastructure) `lockbox-secret`.
 
-## Configure the {{ managed-k8s-name }} cluster {#configure-k8s}
+## Set up a {{ managed-k8s-name }} cluster {#configure-k8s}
 
 1. Create a `ns` [namespace](../../managed-kubernetes/concepts/index.md#namespace) to store External Secrets Operator objects in:
 
@@ -180,7 +180,7 @@ The cost of resources for syncing secrets includes:
    ```bash
    kubectl --namespace ns get secret k8s-secret \
      --output=json | \
-     jq --raw-output ."data"."password" | \
+     jq --raw-output '."data"."password"' | \
      base64 --decode
    ```
 

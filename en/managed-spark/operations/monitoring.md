@@ -23,7 +23,7 @@ To view detailed information on the state of a {{ SPRK }} cluster:
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 

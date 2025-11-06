@@ -1,21 +1,23 @@
-The `name` label stores the metric name.
+The `name` label contains the metric name.
 
 All {{ data-transfer-name }} metrics share the following labels:
 
 Label | Value
 --- | ---
-service | Service ID: `data-transfer`
-job_index | [Worker](../../../data-transfer/concepts/index.md#worker) index to distinguish workers used in [parallel data copying](../../../data-transfer/concepts/sharded.md)
+service | ID of the service: `data-transfer`.
+job_index | [Worker](../../../data-transfer/concepts/index.md#worker) index to distinguish workers used for [parallel data copying](../../../data-transfer/concepts/sharded.md)
 src_id | [Source](../../../data-transfer/transfer-matrix.md) ID
 target_type | [Target](../../../data-transfer/transfer-matrix.md) type, e.g., `mongo`
-resource_id | [Transfer](../../../data-transfer/concepts/index.md#transfer) ID in {{ data-transfer-name }}
+resource_id | [Transfer](../../../data-transfer/concepts/index.md#transfer) or [endpoint](../../../data-transfer/concepts/index.md#endpoint) ID depending on resource type.
+resource_type | Type of resource the operation was started or completed on. The possible values are `endpoint` and `transfer`.
 dst_id | Target ID
 source_type | Source type, e.g., `mongo`
-operation_type (except for the `replication.*` metrics) | Operation type, e.g., `Activate`
+operation_type (except for the `replication.*` and `operations.*` metrics) | Type of operation either started or completed. The values correspond to possible operations on `resource_type`.<br/>For a transfer: `Activate`, `Upload`, `ReUpload`, `Start`, `Restart`, `Stop`, `Verify`, `AddTables`, `RemoveTables`, `Deactivate`, `Checksum`, `Replication`, `Termination`, `TestEndpoint`.<br/>For an endpoint: `Create`, `Update`, `Delete`.
+
 
 ## CPU metrics {#data-transfer-cpu-metrics}
 
-These metrics show processor core workload.
+CPU core workload.
 
 Labels shared by all CPU metrics:
 
@@ -26,7 +28,7 @@ component | System component, e.g., `psutil`
 Name</br>Type, units | Description
 ----- | -----
 `cpu.counts`</br>`COUNTER`, count | Number of CPUs allocated for data transfer in a worker
-`proc.cpu`</br>`DGAUGE`, % | These metrics show processor core workload.
+`proc.cpu`</br>`DGAUGE`, % | CPU core workload.
 `proc.descriptors`</br>`DGAUGE`, count | Number of open file descriptors
 `proc.ram`</br>`DGAUGE`, bytes | RAM usage
 
@@ -81,7 +83,7 @@ Name</br>Type, units | Description</br>Labels
 `publisher.time.push_ms`</br>`DGAUGE`, milliseconds | Time spent sending data to target
 `publisher.time.transform_ms`</br>`DGAUGE`, milliseconds | Time spent on data transformation
 `replication.running`</br>`DGAUGE`, 0/1 | Current replication state.</br>It can take either of these two values:<ul><li>`1`: Launched.</li><li>`0`: Stopped.</li></ul>
-`replication.start.unix`</br>`DGAUGE`, count | Replication start timestamp in Unix epoch format
+`replication.start.unix`</br>`DGAUGE`, number | Replication start timestamp in Unix epoch format
 `runtime.alloc`</br>`COUNTER`, bytes | Memory allocated but not yet released.</br>This metric features the `component` label containing a system component, e.g., `psutil`.
 `runtime.heapIdle`</br>`COUNTER`, bytes | Dynamic memory allocation, which is currently idle.</br>This metric features the `component` label containing a system component, e.g., `psutil`.
 `runtime.heapInuse`</br>`COUNTER`, bytes | Dynamic memory allocation, which is actively used.</br>This metric features the `component` label containing a system component, e.g., `psutil`.
@@ -109,4 +111,4 @@ Name</br>Type, units | Description</br>Labels
 `storage.target_rows`</br>`DGAUGE`, count |  Number of data target rows.</br>This metric features the `table` label containing a DB table or collection.
 `task.snapshot.remainder.table`</br>`DGAUGE`, count | Number of rows awaiting transfer.</br>This metric features the `table` label containing a DB table or collection.
 `task.snapshot.reminder.total`</br>`DGAUGE`, count | Total remaining rows to transfer.</br>This metric features the `table` label containing a DB table or collection.
-`task.status`</br>`DGAUGE`, 0/1 | Status of the operation in progress.</br>It can take either of these two values:<ul><li>`1`: Active issue.</li><li>`0`: Inactive issue.</li></ul>
+`task.status`</br>`DGAUGE`, 0/1 | Status of the operation in progress.</br>The possible values include:<ul><li>`1`: Active issue.</li><li>`0`: Inactive issue.</li></ul>

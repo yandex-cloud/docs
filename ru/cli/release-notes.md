@@ -7,6 +7,75 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.174.0 (06.11.25) {#version0.174.0}
+
+#### Изменения в CLI {#cli}
+
+Добавлен параметр `subject-id` в команду `yc init`.
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ alb-name }}
+
+Добавлена поддержка поля `path` для ALB session affinity по сookieЖ
+  * `yc application-load-balancer backend-group update`;
+  * `yc application-load-balancer backend-group create`.
+
+##### {{ baremetal-full-name }}
+
+Добавлена группа команд `yc baremetal private-cloud-connection`:
+  * `yc baremetal private-cloud-connection get`;
+  * `yc baremetal private-cloud-connection list`;
+  * `yc baremetal private-cloud-connection create`;
+  * `yc baremetal private-cloud-connection delete`.
+
+##### {{ iam-full-name }}
+
+Добавлена команда для просмотра списка шаблонов политик доступа:
+  * `yc iam access-policy-template list`.
+
+##### {{ org-full-name }}
+
+* Добавлена группа команд `yc organization-manager idp application saml application` для управления SAML-приложениями:
+  * `yc iam organization-manager idp application saml application get`;
+  * `yc iam organization-manager idp application saml application list`;
+  * `yc iam organization-manager idp application saml application create`;
+  * `yc iam organization-manager idp application saml application update`;
+  * `yc iam organization-manager idp application saml application delete`;
+  * `yc iam organization-manager idp application saml application suspend`;
+  * `yc iam organization-manager idp application saml application reactivate`;
+  * `yc iam organization-manager idp application saml application list-operations`;
+  * `yc iam organization-manager idp application saml application list-assignments`;
+  * `yc iam organization-manager idp application saml application add-assignments`;
+  * `yc iam organization-manager idp application saml application remove-assignments`;
+  * `yc iam organization-manager idp application saml application list-access-bindings`;
+  * `yc iam organization-manager idp application saml application set-access-bindings`;
+  * `yc iam organization-manager idp application saml application update-access-bindings`.
+
+* Добавлена группа команд `yc organization-manager idp application saml signature-certificate` для управления SAML-сертификатами:
+  * `yc iam organization-manager idp application saml signature-certificate get`;
+  * `yc iam organization-manager idp application saml signature-certificate list`;
+  * `yc iam organization-manager idp application saml signature-certificate create`;
+  * `yc iam organization-manager idp application saml signature-certificate update`;
+  * `yc iam organization-manager idp application saml signature-certificate delete`.
+
+##### {{ mgp-full-name }}
+
+В команду `yc managed-greenplum cluster update` добавлен параметр `--connection-pooling-idle-in-transaction-timeout`
+  * `yc managed-greenplum cluster update`.
+
+##### {{ mpg-name }}
+
+Добавлены методы аутентификации для пользователя `AUTH_METHOD_PASSWORD` и `AUTH_METHOD_IAM` в команды:
+  * `yc managed-postgresql user create`;
+  * `yc managed-postgresql user update`.
+
+##### {{ objstorage-full-name }}
+
+Исправлена ошибка фильтрации загружаемых объектов в команде `yc storage s3 cp`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.173.0 (30.10.25) {#version0.173.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -28,8 +97,6 @@ description: На странице представлены релизы CLI, а
 
 * Добавлена поддержка сервиса {{ mspqr-full-name}}. Используйте команды `yc managed-sharded-postgresql`.
 * В `yc init` добавлен параметр `userpool-id`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.172.0 (27.10.25) {#version0.172.0}
 

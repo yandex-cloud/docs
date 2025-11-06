@@ -97,6 +97,86 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-postgresql/security/index.md) на доступ к ним.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mpg-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          postgresql = {
+            managed_cluster_id = "<идентификатор_кластера>"
+            
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.postgresql` — параметры подключения к кластеру {{ mpg-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-postgresql/security/index.md) на доступ к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mpg-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
@@ -171,6 +251,86 @@ description: Пошаговые инструкции по работе с {{ con
         Идентификатор кластера можно получить со [списком кластеров](../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
       
       * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-clickhouse/security.md) на доступ к ним.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mch-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          clickhouse = {
+            managed_cluster_id = "<идентификатор_кластера>"
+            
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.clickhouse` — параметры подключения к кластеру {{ mch-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-clickhouse/security.md) на доступ к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -247,6 +407,86 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-mysql/security/index.md) на доступ к ним.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mmy-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          mysql = {
+            managed_cluster_id = "<идентификатор_кластера>"
+            
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.mysql` — параметры подключения к кластеру {{ mmy-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-mysql/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-mysql/security/index.md) на доступ к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mmy-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
@@ -320,6 +560,86 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-redis/security/index.md) на доступ к ним.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mrd-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          valkey = {
+            managed_cluster_id = "<идентификатор_кластера>"
+            
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.valkey` — параметры подключения к кластеру {{ mrd-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-redis/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-redis/security/index.md) на доступ к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mrd-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
@@ -391,6 +711,77 @@ description: Пошаговые инструкции по работе с {{ con
       * `--managed-cluster-id` — идентификатор кластера.
 
         Идентификатор кластера можно получить со [списком кластеров](../../managed-opensearch/operations/cluster-list.md#list-clusters) в каталоге.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mos-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          opensearch = {
+            managed_cluster_id = "<идентификатор_кластера>"
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.opensearch` — параметры подключения к кластеру {{ mos-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-opensearch/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -467,6 +858,86 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../storedoc/security/index.md) на доступ к ним.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mmg-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          mongodb = {
+            managed_cluster_id = "<идентификатор_кластера>"
+            
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.mongodb` — параметры подключения к кластеру {{ mmg-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../storedoc/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../storedoc/security/index.md) на доступ к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   Чтобы создать подключение к кластеру {{ mmg-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
@@ -506,6 +977,151 @@ description: Пошаговые инструкции по работе с {{ con
          [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
          
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать подключение к кластеру {{ mkf-name }}:
+
+  1. Посмотрите описание команды CLI для создания подключения:
+
+      ```bash
+      yc metadata-hub connection-manager connection create kafka --help
+      ```
+
+  1. Создайте подключение, выполнив команду:
+      
+      ```bash
+      yc metadata-hub connection-manager connection create kafka \
+        --name <имя_подключения> \
+        --description "<описание_подключения>" \
+        --supported-mechanisms <список_механизмов_аутентификации> \
+        --labels <список_меток> \
+        --user <имя_пользователя> \
+        --password <пароль> \
+        --managed-cluster-id <идентификатор_кластера>
+      ```
+
+      Где:
+
+      * `--name` — имя подключения.
+
+      * `--description` — описание подключения.
+
+      * `--supported-mechanisms` — список механизмов аутентификации. Возможные значения:
+        
+        * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
+        * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
+        * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+
+        [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+
+      * `--labels` — список меток в формате `"<ключ>":"<значение>"`, через запятую.
+
+      * `--user` — имя пользователя для подключения к кластеру.
+
+      * `--password` — пароль пользователя.
+      
+      * `--managed-cluster-id` — идентификатор кластера.
+
+        Идентификатор кластера можно получить со [списком кластеров](../../managed-kafka/operations/cluster-list.md#list-clusters) в каталоге.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mkf-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          kafka = {
+            managed_cluster_id = "<идентификатор_кластера>"
+
+            auth = {
+              sasl = {
+                user     = "<имя_пользователя>"
+                password = { 
+                  raw = "<пароль>"
+                }
+                supported_mechanisms = [
+                  <список_механизмов_аутентификации>
+                ]
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.kafka` — параметры подключения к кластеру {{ mkf-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со списком кластеров [здесь](../../managed-kafka/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `auth` — параметры аутентификации. Укажите один из блоков:
+
+          * `sasl` — параметры SASL-аутентификации:
+            
+            * `user` — имя пользователя для подключения к кластеру.
+            * `password.raw` — пароль пользователя.
+            * `supported_mechanisms` — список механизмов аутентификации. Возможные значения:
+              
+              * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
+              * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
+              * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+
+              [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+          
+          * `disabled` — отключает аутентификацию.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mkf-name }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) для ресурса [Connection](../connection-manager/api-ref/grpc/Connection/).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection).
+
+{% endlist %}
 
 {% endlist %}
 
@@ -573,9 +1189,89 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--managed-cluster-id` — идентификатор кластера.
 
-        Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
+        Идентификатор кластера можно получить со [списком кластеров](../../managed-greenplum/operations/cluster-list.md#list-clusters) в каталоге.
       
       * `--databases` — список баз данных, через запятую. Убедитесь, что у пользователя есть [необходимые права](../../managed-greenplum/security/index.md) на доступ к ним.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к кластеру {{ mgp-name }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          greenplum = {
+            managed_cluster_id = "<идентификатор_кластера>"
+            
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.greenplum` — параметры подключения к кластеру {{ mgp-name }}:
+
+        * `managed_cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](../../managed-greenplum/operations/cluster-list.md#list-clusters) в каталоге.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть [необходимые права](../../managed-greenplum/security/index.md) на доступ к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к кластеру.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -642,12 +1338,117 @@ description: Пошаговые инструкции по работе с {{ con
         --password <пароль> \
         --hosts <список_хостов> \
         --databases <список_БД> \
-        --ca-ce../connection-manager/api-ref/rtificate <путь_к_сертификату>
+        --ca-certificate <путь_к_сертификату>
       ```
 
       Где:
 
       {% include [Описание параметров](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ PG }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          postgresql = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.postgresql` — параметры подключения к пользовательской инсталляции {{ PG }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -722,7 +1523,7 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--labels` — список меток в формате `"<ключ>":"<значение>"`, через запятую.
       
-      * `--user` — имя пользователя для подключения к кластеру.
+      * `--user` — имя пользователя для подключения к базе данных.
       
       * `--password` — пароль пользователя.
       
@@ -735,6 +1536,117 @@ description: Пошаговые инструкции по работе с {{ con
       * `--ca-certificate` — путь к файлу CA-сертификата для TLS.
         
         По умолчанию [TLS](../../glossary/tls.md) включен. Чтобы отключить его, используйте флаг `--tls-disabled`.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ CH }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          clickhouse = {
+            cluster = {
+              hosts = [
+                {
+                  host       = "<хост_1>"
+                  http_port  = <http_порт_1>
+                  shard_name = "<имя_шарда_1>"
+                  tcp_port   = <tcp_порт_1>
+                },
+                {
+                  host       = "<хост_2>"
+                  http_port  = <http_порт_2>
+                  shard_name = "<имя_шарда_2>"
+                  tcp_port   = <tcp_порт_2>
+                },
+                ...
+                {
+                  host       = "<хост_N>"
+                  http_port  = <http_порт_N>
+                  shard_name = "<имя_шарда_N>"
+                  tcp_port   = <tcp_порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.clickhouse` — параметры подключения к пользовательской инсталляции {{ CH }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host`, `http_port`, `shard_name` и `tcp_port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -806,6 +1718,111 @@ description: Пошаговые инструкции по работе с {{ con
 
       {% include [Описание параметров](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ MY }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          mysql = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.mysql` — параметры подключения к пользовательской инсталляции {{ MY }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ MY }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
@@ -873,7 +1890,7 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--labels` — список меток в формате `"<ключ>":"<значение>"`, через запятую.
       
-      * `--user` — имя пользователя для подключения к кластеру.
+      * `--user` — имя пользователя для подключения к базе данных.
       
       * `--password` — пароль пользователя.
       
@@ -886,6 +1903,114 @@ description: Пошаговые инструкции по работе с {{ con
       * `--ca-certificate` — путь к файлу CA-сертификата для TLS.
       
         По умолчанию [TLS](../../glossary/tls.md) включен. Чтобы отключить его, используйте флаг `--tls-disabled`.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ RD }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          redis = {
+            cluster = {
+              hosts = [
+                {
+                  host       = "<хост_1>"
+                  port       = <порт_1>
+                  shard_name = "<имя_шарда_1>"
+                },
+                {
+                  host       = "<хост_2>"
+                  port       = <порт_2>
+                  shard_name = "<имя_шарда_2>"
+                },
+                ...
+                {
+                  host       = "<хост_N>"
+                  port       = <порт_N>
+                  shard_name = "<имя_шарда_N>"
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.redis` — параметры подключения к пользовательской инсталляции {{ RD }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host`, `port` и `shard_name`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -952,6 +2077,111 @@ description: Пошаговые инструкции по работе с {{ con
       Где:
 
       {% include [Описание параметров](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ VLK }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          valkey = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.valkey` — параметры подключения к пользовательской инсталляции {{ VLK }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1020,7 +2250,7 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--labels` — список меток в формате `"<ключ>":"<значение>"`, через запятую.
       
-      * `--user` — имя пользователя для подключения к кластеру.
+      * `--user` — имя пользователя для подключения к базе данных.
       
       * `--password` — пароль пользователя.
       
@@ -1029,6 +2259,91 @@ description: Пошаговые инструкции по работе с {{ con
       * `--ca-certificate` — путь к файлу CA-сертификата для TLS.
       
         По умолчанию [TLS](../../glossary/tls.md) включен. Чтобы отключить его, используйте флаг `--tls-disabled`.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ TR }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          trino = {
+            cluster = {
+              coordinator = {
+                  host = "<хост>"
+                  port = <порт>
+              }
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.trino` — параметры подключения к пользовательской инсталляции {{ TR }}:
+        
+        * `cluster.coordinator` — параметры координатора: `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1099,7 +2414,7 @@ description: Пошаговые инструкции по работе с {{ con
       
       * `--labels` — список меток в формате `"<ключ>":"<значение>"`, через запятую.
       
-      * `--user` — имя пользователя для подключения к кластеру.
+      * `--user` — имя пользователя для подключения к базе данных.
       
       * `--password` — пароль пользователя.
       
@@ -1108,6 +2423,102 @@ description: Пошаговые инструкции по работе с {{ con
       * `--ca-certificate` — путь к файлу CA-сертификата для TLS.
       
         По умолчанию [TLS](../../glossary/tls.md) включен. Чтобы отключить его, используйте флаг `--tls-disabled`.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ OS }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          opensearch = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.opensearch` — параметры подключения к пользовательской инсталляции {{ OS }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1175,6 +2586,111 @@ description: Пошаговые инструкции по работе с {{ con
 
       {% include [Описание параметров](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ MG }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          mongodb = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.mongodb` — параметры подключения к пользовательской инсталляции {{ MG }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
@@ -1221,6 +2737,177 @@ description: Пошаговые инструкции по работе с {{ con
          [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ KF }}:
+
+  1. Посмотрите описание команды CLI для создания подключения:
+
+      ```bash
+      yc metadata-hub connection-manager connection create kafka --help
+      ```
+
+  1. Создайте подключение, выполнив команду:
+      
+      ```bash
+      yc metadata-hub connection-manager connection create kafka \
+        --name <имя_подключения> \
+        --description "<описание_подключения>" \
+        --supported-mechanisms <список_механизмов_аутентификации> \
+        --labels <список_меток> \
+        --user <имя_пользователя> \
+        --password <пароль> \
+        --hosts <список_хостов> \
+        --ca-certificate <путь_к_сертификату>
+      ```
+
+      Где:
+
+      * `--name` — имя подключения.
+
+      * `--description` — описание подключения.
+
+      * `--supported-mechanisms` — список механизмов аутентификации. Возможные значения:
+        
+        * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
+        * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
+        * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+
+        [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+
+      * `--labels` — список меток в формате `"<ключ>":"<значение>"`, через запятую.
+
+      * `--user` — имя пользователя для подключения к кластеру.
+
+      * `--password` — пароль пользователя.
+      
+      * `--hosts` — список хостов в формате `<хост>:<порт>`, через запятую.
+      
+      * `--ca-certificate` — путь к файлу CA-сертификата для TLS.
+        
+        По умолчанию [TLS](../../glossary/tls.md) включен. Чтобы отключить его, используйте флаг `--tls-disabled`.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ KF }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          kafka = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            auth = {
+              sasl = {
+                user     = "<имя_пользователя>"
+                password = { 
+                  raw = "<пароль>"
+                }
+                supported_mechanisms = [
+                  <список_механизмов_аутентификации>
+                ]
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.kafka` — параметры подключения к пользовательской инсталляции {{ KF }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `auth` — параметры аутентификации. Укажите один из блоков:
+
+          * `sasl` — параметры SASL-аутентификации:
+            
+            * `user` — имя пользователя для подключения к кластеру.
+            * `password.raw` — пароль пользователя.
+            * `supported_mechanisms` — список механизмов аутентификации. Возможные значения:
+              
+              * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
+              * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
+              * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+
+              [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+          
+          * `disabled` — отключает аутентификацию.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ KF }}, воспользуйтесь методом REST API [Connection.Create](../connection-manager/api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster).
 
 {% endlist %}
 
@@ -1286,6 +2973,111 @@ description: Пошаговые инструкции по работе с {{ con
       Где:
 
       {% include [Описание параметров](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ GP }}:
+
+  1. Опишите в конфигурационном файле создаваемый ресурс.
+  
+      Пример структуры конфигурационного файла:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<локальное_имя_подключения>" {
+        name        = "<имя_подключения>"
+        description = "<описание_подключения>"
+        
+        labels = {
+          "<ключ_1>" = "<значение_1>"
+          "<ключ_2>" = "<значение_2>"
+          ...
+          "<ключ_N>" = "<значение_N>"
+        }
+        
+        params = {
+          greenplum = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<хост_1>"
+                  port = <порт_1>
+                },
+                {
+                  host = "<хост_2>"
+                  port = <порт_2>
+                },
+                ...
+                {
+                  host = "<хост_N>"
+                  port = <порт_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<путь_к_сертификату>"
+                }
+              }
+            }
+
+            databases = [
+              "<база_данных_1>",
+              "<база_данных_2>",
+              ...
+              "<база_данных_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<имя_пользователя>"
+                password = {
+                  raw = "<пароль>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя подключения
+
+      * `description` — описание подключения.
+
+      * `labels` — набор меток в формате `"<ключ>" = "<значение>"`.
+
+      * `params.greenplum` — параметры подключения к пользовательской инсталляции {{ GP }}:
+        
+        * `cluster.hosts` — список хостов. Для каждого хоста укажите параметры `host` и `port`.
+
+        * `cluster.tls_params` — параметры [TLS](../../glossary/tls.md). Укажите один из блоков:
+        
+          * `tls.ca_certificate` — путь к файлу CA-сертификата для TLS.
+          * `disabled` — отключает TLS. По умолчанию TLS включен.
+
+        * `databases` — список баз данных. Убедитесь, что у пользователя есть необходимые права доступа к ним.
+
+        * `auth.user_password.user` — имя пользователя для подключения к базе данных.
+
+        * `auth.user_password.password.raw` — пароль пользователя.
+
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
