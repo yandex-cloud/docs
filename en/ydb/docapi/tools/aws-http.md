@@ -11,12 +11,12 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
 ## Getting started {#before-you-begin}
 
-1. If you do not have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../../cli/quickstart.md#install).
+1. If you do not have the {{ yandex-cloud }} CLI installed yet, [install and initialize it](../../../cli/quickstart.md#install).
 1. Prepare the Document API endpoint of the [created database](../../operations/manage-databases.md).
 
     {% cut "How do I find out the Document API endpoint of a database?" %}
 
-    1. Go to the [management console]({{ link-console-main }}).
+    1. Navigate to the [management console]({{ link-console-main }}).
     1. Select the folder and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select the database you want to query.
     1. In the menu on the left, go to the **{{ ui-key.yacloud.common.overview }}** section.

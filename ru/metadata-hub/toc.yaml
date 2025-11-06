@@ -34,6 +34,8 @@ items:
         href: security/connection-manager-roles.md
       - name: Справочник CLI (англ.)
         href: ../cli/cli-ref/metadata-hub/cli-ref/connection-manager/index.md
+      - name: Справочник {{ TF }}
+        href: connman-tf-ref.md
       - name: Справочник API
         items:
           - name: Аутентификация в API

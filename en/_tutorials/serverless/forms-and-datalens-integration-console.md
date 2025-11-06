@@ -4,7 +4,7 @@
 To set up integration of {{ forms-name }} and {{ datalens-name }} via the management console, follow these steps:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
-1. [Create a {{ sf-full-name }} function](#create-function).
+1. [Create a function in {{ sf-full-name }}](#create-function).
 1. [Create a form in {{ forms-name }}](#create-form).
 1. [Configure a connection and binding to data in {{ yq-full-name }}](#yq-integration).
 1. [Set up fetching data in {{ datalens-name }}](#set-up-datalens).
@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [paid-resources](../_tutorials_includes/forms-and-datalens-paid-resources.md) %}
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Set up the infrastructure {#prepare-infrastructure}
 
 ### Create a service account {#create-service-account}
 
@@ -28,8 +28,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `forms-integration-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles. 
@@ -49,8 +49,8 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you need.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Enter the bucket **{{ ui-key.yacloud.storage.bucket.settings.field_name }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -63,10 +63,10 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you need.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Open the bucket you [created earlier](#create-s3-bucket).
-  1. Go to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens:
 
@@ -83,13 +83,13 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `forms-integration` service account.
-  1. Go to **{{ ui-key.yacloud.common.overview }}**.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Navigate to **{{ ui-key.yacloud.common.overview }}**.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.  
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. In the window that opens, **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}**, you will see **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** and **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Save them, as you will need them later.
+  1. In the window that opens, **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}**, you will see **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** and **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Save them for later.
 
 {% endlist %}
 
@@ -99,8 +99,8 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you need.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. Enter the secret's **{{ ui-key.yacloud.common.name }}**: `static-key`.
   1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
@@ -124,8 +124,8 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you need.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** in the top-right corner.
       1. Enter the function **{{ ui-key.yacloud.common.name }}**: `forms-function`.  
@@ -133,7 +133,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
   1. Create a function version:  
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select the runtime environment: **Python**.
-      1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+      1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Select the function creation **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
       1. In the function editor window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**.

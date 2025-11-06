@@ -57,7 +57,7 @@ Example of the contents of a text generation model tuning dataset:
 
 ## Text classification datasets {#classifier}
 
-When creating datasets for text classification, try to give meaningful names to classes. 
+When creating datasets for text classification, try to give meaningful names to classes.
 
 The following limits apply when tuning a classifier model based on {{ yagpt-name }}:
 
@@ -65,15 +65,15 @@ The following limits apply when tuning a classifier model based on {{ yagpt-name
 |---|---|---|
 | Number of examples per dataset | 100 | 50,000 |
 | Number of classes | 1 | 100 |
-| Number of same class examples per dataset| 1 | — |
+| Number of same class examples per dataset | 1 | — |
 | Class name length, in characters | — | 100 |
 | Number of [tokens](../generation/tokens.md) in the text of the request to classify | — | 8,000 |
 
 We recommend tuning models on datasets containing at least 1,000 examples and at least 100 examples for each class.
 
-### Binary and multi-class classification {#multiclass}
+### Multi-class classification {#multiclass}
 
-Multi-class and binary classification datasets should contain examples of texts and their classification. Each line contains a separate example in JSON format. Each example can only be assigned to one class.
+Multi-class classification datasets should contain examples of texts and their classification data. Each line contains a separate example in JSON format. Each example can only be assigned to one class.
 
 ```json
 {"text":"<text_1>","<class_1>":0,"<class_2>":0,"<class_3>":1}
@@ -82,13 +82,11 @@ Multi-class and binary classification datasets should contain examples of texts 
 {"text":"<text_4>","<class_1>":0,"<class_2>":0,"<class_3>":1}
 ```
 
-{% include [binary](../../../_includes/ai-studio/classifier/binary-example.md) %}
-
 {% include [multiclass](../../../_includes/ai-studio/classifier/multiclass-example.md) %}
 
 ### Multi-label classification {#multilable}
 
-Multi-label classification datasets should contain examples of texts and their classification. Each text can belong to more than one class at the same time. Each dataset line contains a separate example in JSON format.
+Multi-label classification datasets should contain examples of texts and their classification data. Each text can belong to more than one class at the same time. Each dataset line contains a separate example in JSON format.
 
 ```json
 {"text":"<text_1>","<class_1>":0,"<class_2>":0,"<class_3>":1}
@@ -97,6 +95,20 @@ Multi-label classification datasets should contain examples of texts and their c
 ```
 
 {% include [multiclass](../../../_includes/ai-studio/classifier/multilable-example.md) %}
+
+### Binary classification {#binary}
+
+Binary classification datasets should contain examples of texts and their classification attributes. Each dataset line contains a separate example in JSON format.
+
+```json
+{"text":"<text_1>","<class>":1}
+{"text":"<text_2>","<class>":0}
+{"text":"<text_3>","<class>":1}
+```
+
+{% include [binary](../../../_includes/ai-studio/classifier/binary-example.md) %}
+
+Even though binary classification is a variety of multi-class classification, in practical terms, when working with binary classification, it makes more sense to operate with classification probability. To create a binary classification dataset, specify the `TextClassificationMultilabel` type.
 
 ## Embedding datasets {#embeddings}
 

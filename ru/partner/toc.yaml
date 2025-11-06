@@ -28,6 +28,8 @@ items:
     href: portal.md
   - name: Пошаговые инструкции
     items:
+      - name: Создать аккаунт клиента
+        href: operations/create-account.md
       - name: Предоставить доступ к партнерскому аккаунту
         href: operations/access/partners-account.md
       - name: Посмотреть детализацию сабаккаунтов

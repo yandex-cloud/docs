@@ -67,7 +67,7 @@ This section contains links to application forms and other useful links for part
 * Presale request form
 * Application form for registering a partner deal or project
 * Application form for registering a partner deal on Yandex Tracker
-* Partner kit
+* Partner Kit
 * Telegram channel for partners
 * Links to legal documents
 
@@ -92,6 +92,6 @@ In this section, you will find the following information:
 * Statistics for the entire period of your participation in the referral program, such as the number of registrations and created billing accounts or the total bonus amount.
 * Referrer company data.
 * **Referral links** tab: List of referral links with current statuses and relevant statistics. Here, you can create new links and edit existing ones.
-* **Referrals** tab: List of your customers who have used the referral link, registered in {{ yandex-cloud }}, and created a billing account.
+* **Referrals** tab: List of your referrals who have used the referral link, registered in {{ yandex-cloud }}, and created a billing account.
 * **Bonus** tab: Commission accrual history.
 * **Payments** tab: Commission withdrawal history.

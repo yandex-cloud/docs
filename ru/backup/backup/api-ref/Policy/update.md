@@ -454,11 +454,15 @@ apiPlayground:
               - `COMMAND_TYPE_UNSPECIFIED`
               - `PRE_COMMAND`: Launch command before backup execution
               - `POST_COMMAND`: Launch command after backup execution
+              - `PRE_DATA_COMMAND`: Launch command before data capture (snapshot execution)
+              - `POST_DATA_COMMAND`: Launch command after data capture (snapshot execution)
             type: string
             enum:
               - COMMAND_TYPE_UNSPECIFIED
               - PRE_COMMAND
               - POST_COMMAND
+              - PRE_DATA_COMMAND
+              - POST_DATA_COMMAND
           wait:
             description: |-
               **boolean**
@@ -1202,7 +1206,9 @@ Type of command: pre or post
 
 - `COMMAND_TYPE_UNSPECIFIED`
 - `PRE_COMMAND`: Launch command before backup execution
-- `POST_COMMAND`: Launch command after backup execution ||
+- `POST_COMMAND`: Launch command after backup execution
+- `PRE_DATA_COMMAND`: Launch command before data capture (snapshot execution)
+- `POST_DATA_COMMAND`: Launch command after data capture (snapshot execution) ||
 || wait | **boolean**
 
 Wait command finish before launching backup ||
@@ -1911,7 +1917,9 @@ Type of command: pre or post
 
 - `COMMAND_TYPE_UNSPECIFIED`
 - `PRE_COMMAND`: Launch command before backup execution
-- `POST_COMMAND`: Launch command after backup execution ||
+- `POST_COMMAND`: Launch command after backup execution
+- `PRE_DATA_COMMAND`: Launch command before data capture (snapshot execution)
+- `POST_DATA_COMMAND`: Launch command after data capture (snapshot execution) ||
 || wait | **boolean**
 
 Wait command finish before launching backup ||

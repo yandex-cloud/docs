@@ -3,6 +3,7 @@
 {{ ai-studio-full-name }} provides {{ ml-sdk-full-name }}, a library of tools and code examples for Python development. {{ ml-sdk-name }} employs a standardized method of working with foundation models and simplifies integration with other {{ yandex-cloud }} services.
 
 The {{ ml-sdk-name }} library implements the synchronous and asynchronous Python interfaces based on gRPC API calls of {{ ai-studio-name }} services. {{ ml-sdk-name }} offers the following features:
+
 * [Text and image generation](../concepts/generation/index.md) based on any supported [model](../concepts/generation/models.md).
 * Working with [embeddings](../concepts/embeddings.md).
 * Working with [{{ yagpt-name }}-based classifiers](../concepts/classifier/index.md).
@@ -34,22 +35,36 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` ob
       If set explicitly, the `auth` field value can be one of the following:
 
       * `string`: As a string, you can provide:
+
           * [IAM token](../../iam/concepts/authorization/iam-token.md) of a user or [service account](../../iam/concepts/users/service-accounts.md).
           * Secret part of the service account [API key](../../iam/concepts/authorization/api-key.md).
           * [OAuth token](../../iam/concepts/authorization/oauth-token.md) of a user account.
 
           The SDK will automatically determine the type of authentication data.
-      * Object of one of the following classes:
+      * Object of one of the following [classes](../sdk-ref/auth.md#authentication-methods-classes):
 
-          * `APIKeyAuth`: Allows you to explicitly set authentication by the provided API key. For example: `auth = APIKeyAuth('<API_key>')`.
-          * `IAMTokenAuth`: Allows you to explicitly set authentication by the provided API token. For example: `auth = IAMTokenAuth('<IAM_token>')`.
-          * `OAuthTokenAuth`: Allows you to explicitly set authentication by the provided OAuth token. For example: `auth = OAuthTokenAuth('<OAuth_token>')`.
-          * `MetadataAuth`: Allows you to explicitly set authentication as the service account specified in the {{ compute-full-name }} VM [metadata](../../compute/concepts/vm-metadata.md). For example: `auth = MetadataAuth()`.
-          * `EnvIAMTokenAuth`: Allows you to explicitly set authentication using the IAM token specified in the `YC_TOKEN` or any other environment variable. For example: `auth = EnvIAMTokenAuth()` or `auth = EnvIAMTokenAuth("ENV_VAR")`.
+          * [APIKeyAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.APIKeyAuth): Allows you to explicitly set authentication by the provided API key.
+             For example: `auth = APIKeyAuth('<api_key>')`.
 
-              The SDK obtains the IAM token from this environment variable with each request, so you can occasionally update the IAM token in the environment variable yourself outside the SDK. This authentication option is optimal for use with a [service agent](../../datasphere/operations/community/create-ssa.md) in {{ ml-platform-full-name }} if that service has [access](../../iam/concepts/service-control.md) to other resources in the user's cloud.
-          * `YandexCloudCLIAuth`: Allows you to explicitly set authentication as a [user](../../iam/concepts/users/accounts.md) or service account [specified](../../cli/operations/index.md#auth) in the [{{ yandex-cloud }} CLI](../../cli/index.yaml) profile on the user's computer. For example: `auth = YandexCloudCLIAuth()`.
-          * `NoAuth`: Specifies that no authentication data will be provided. For example: `auth = NoAuth()`.
+          * [EnvIAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.EnvIAMTokenAuth): Allows you to explicitly set authentication using the IAM token specified in `YC_TOKEN` or any other environment variable.
+             For example: `auth = EnvIAMTokenAuth()` or `auth = EnvIAMTokenAuth("env_var")`.
+
+            The SDK obtains the IAM token from this environment variable with each request, so you can occasionally update the IAM token in the environment variable yourself outside the SDK. This authentication option is optimal for use with a [service agent](../../datasphere/operations/community/create-ssa.md) in {{ ml-platform-full-name }} if that service has [access](../../iam/concepts/service-control.md) to other resources in the user's cloud.
+
+          * [IAMTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.IAMTokenAuth): Allows you to explicitly set authentication by the provided IAM token.
+             For example: `auth = IAMTokenAuth('<iam_token>')`.
+
+          * [MetadataAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.MetadataAuth): Allows you to explicitly set authentication under the service account specified in the {{ compute-full-name }} [VM metadata](../../compute/concepts/vm-metadata.md).
+             For example: `auth = MetadataAuth()`.
+
+          * [NoAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.NoAuth): Allows you to specify that no authentication data will be provided.
+             For example: `auth = NoAuth()`.
+
+          * [OAuthTokenAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.OAuthTokenAuth): Allows you to explicitly set authentication by the provided OAuth token.
+             For example: `auth = OAuthTokenAuth('<oauth_token>')`.
+
+          * [YandexCloudCLIAuth](../sdk-ref/auth.md#yandex_cloud_ml_sdk.auth.YandexCloudCLIAuth): Allows you to explicitly set authentication as a [user](../../iam/concepts/users/accounts.md) or service account [specified](../../cli/operations/index.md#auth) in the [{{ yandex-cloud }} CLI](../../cli/index.yaml) profile on the user's computer.
+             For example: `auth = YandexCloudCLIAuth()`.
 
           You can get these classes by importing them from the ML SDK library. For example:
 

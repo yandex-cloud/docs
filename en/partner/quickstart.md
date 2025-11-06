@@ -71,7 +71,7 @@ If you have already provided a billing account at [Step 3](#step-3), proceed to 
 The billing account requirements are as follows: {#restrictions}
 
 * Billing account type: [Business account](../billing/concepts/billing-account.md#ba-types).
-* Business account owner: Business residing in the Russian Federation.
+* A business account issued to a business residing in the Russian Federation.
 * Payment method: **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}**.
 
 1. Click **Create billing account**.

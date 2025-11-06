@@ -1,11 +1,7 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
 
-{% note info %}
-
-The functionality for loading data from {{ objstorage-name }} in {{ data-transfer-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
+{% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
 You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table using {{ data-transfer-name }}. To do this:
@@ -22,10 +18,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mgp-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mgp-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 * Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee per transfer: Based on computational resource usage and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -170,7 +166,7 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the new endpoints.
 
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -200,11 +196,11 @@ The support cost for this solution includes:
 
 ## Test the transfer {#verify-transfer}
 
-To verify that the transfer is operational, check the copy and replication processes.
+To verify that the transfer is operational, test the copy and replication processes.
 
 ### Test the copy process {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the `db1` database in your target {{ mgp-name }} cluster.
+1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in your target {{ mgp-name }} cluster.
 
 1. Run this request:
 
@@ -258,13 +254,13 @@ To verify that the transfer is operational, check the copy and replication proce
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 * [Transfer](../../data-transfer/operations/transfer.md#delete)
 * [Source endpoint](../../data-transfer/operations/endpoint/index.md#delete)
 * [Target endpoint](../../data-transfer/operations/endpoint/index.md#delete)
 * [Objects](../../storage/operations/objects/delete.md) from the bucket
-* Delete other resources using the method matching their creation method:
+* Delete other resources using the same method used for their creation:
 
     {% list tabs group=instructions %}
 

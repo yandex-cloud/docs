@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/cluster-update.md
-          - name: '{{ KF }} version upgrade'
+          - name: Upgrading {{ KF }} version
             href: operations/cluster-version-update.md
           - name: Managing disk space
             href: operations/storage-space.md
@@ -25,6 +25,8 @@ items:
             href: operations/cluster-hosts.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection

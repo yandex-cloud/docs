@@ -6,11 +6,11 @@ description: Access management in Apache Kafka, a database creation and manageme
 # Access management in {{ mkf-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
+* [Resources you can assign a role for](#resources).
 * [What roles this service has](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -24,7 +24,7 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 
 To allow access to {{ mkf-name }} resources (clusters, hosts, cluster backups, partitions, topics, and users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
-## What roles this service has {#roles-list}
+## Roles this service has {#roles-list}
 
 The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
@@ -40,9 +40,6 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
-#### managed-kafka.restorer {#managed-kafka-restorer}
-
-{% include [managed-kafka.restorer](../../_roles/managed-kafka/restorer.md) %}
 
 #### managed-kafka.editor {#managed-kafka-editor}
 
@@ -68,9 +65,6 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
-#### mdb.restorer {#mdb-restorer}
-
-{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

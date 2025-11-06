@@ -25,7 +25,7 @@ Common instance models are subject to the update rules described in [Model lifec
 || **{{ yandexart-name }}** </br>`art://<folder_ID>/yandex-art/latest` | — | — | Asynchronous ||
 |#
 
-Gemma 3 27B processes Base64-encoded images. The model can handle images of any aspect ratio thanks to an adaptive algorithm that scales the longer side of the image to 896 pixels while preserving important visual details. Each image uses 256 context [tokens](./tokens.md).
+Gemma 3 27B works with Base64-encoded images. The model can handle images of any aspect ratio thanks to an adaptive algorithm that scales the longer side of the image to 896 pixels while preserving important visual details. Each image uses 256 context [tokens](./tokens.md).
 
 {% include [release-cycle](../../../_includes/ai-studio/release-cycle.md) %}
 

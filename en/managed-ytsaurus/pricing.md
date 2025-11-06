@@ -10,8 +10,15 @@ editable: false
 
 {% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
 
-In this section, you can find the {{ myt-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
+In this section, you can find the {{ myt-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
+{% note tip %}
+
+
+
+{% endnote %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -72,11 +79,11 @@ You are charged for the following:
       * Assuming the storage node is for a `non-replicated SSD` with `N` size, the service disk size is `0,1 × N`, rounded up in increments of 93 GB.
 
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds counts as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 **Configurable components:**
 * **Exec node**: One `c8-m32` configuration instance: 8 vCPUs and 32 GB RAM.

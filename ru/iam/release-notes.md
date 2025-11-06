@@ -8,6 +8,12 @@ description: В разделе представлена история изме�
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## III квартал 2025 {#q3-2025}
+
+* [Добавлена](../organization/operations/view-subject-access-bindings.md) возможность посмотреть список доступов субъекта с помощью [CLI](../cli/cli-ref/iam/cli-ref/access-analyzer/) и [API](../iam/api-ref/AccessAnalyzer/). {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Реализовано управление секретами OAuth-клиентов с помощью [CLI](../cli/cli-ref/iam/cli-ref/oauth-client-secret/) и [API](../iam/api-ref/OAuthClientSecret/). {{ tag-cli }} {{ tag-api }}
+* В [CLI](../cli/cli-ref/iam/cli-ref/oauth-client/) и [API](../iam/api-ref/OAuthClient/) добавлена группа команд для управления OAuth-клиентами. {{ tag-cli }} {{ tag-api }}
+
 ## II квартал 2025 {#q2-2025}
 
 * Добавлено создание и использование [Refresh-токенов](concepts/authorization/refresh-token.md). {{ tag-cli }}

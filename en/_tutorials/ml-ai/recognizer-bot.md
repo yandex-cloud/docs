@@ -39,6 +39,13 @@ The cost of Telegram bot support includes:
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
 1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
+1. Extract the `ffmpeg` and `ffprobe` binary files from the archive and run these commands to make them executable:
+
+    ```bash
+    chmod +x ffmpeg
+    chmod +x ffprobe
+    ```
+
 1. Create a ZIP archive with the function code:
 
    1. Create a file named `index.py` and paste the code below to it.
@@ -195,8 +202,9 @@ The cost of Telegram bot support includes:
       yandex-speechkit==1.5.0
       ```
 
-   1. Add the `index.py` and `requirements.txt` files, and the `ffmpeg` and `ffprobe` binary files from the downloaded archive with the FFmpeg package into the `index.zip` archive.
-   1. Create an {{ objstorage-name }} [bucket](../../storage/operations/buckets/create.md) and [upload the created ZIP archive into it](../../storage/operations/objects/upload.md).
+   1. Add the `index.py`, `requirements.txt`, `ffmpeg`, and `ffprobe` files into the ZIP archive.
+
+1. Create an {{ objstorage-name }} [bucket](../../storage/operations/buckets/create.md) and [upload the created ZIP archive into it](../../storage/operations/objects/upload.md).
 
 ## Register your Telegram bot {#bot-register}
 
@@ -361,7 +369,7 @@ Create a function to process user actions in the chat.
      * `environment`: Environment variables.
      * `package`: Name of the bucket containing the uploaded `index.zip` archive with the function source code.
 
-     For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
 
   1. Make sure the configuration files are correct.
 

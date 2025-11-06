@@ -21,7 +21,7 @@ We do not recommend creating a single-host cluster.
 
 A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
 
-A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). Such clusters are suitable for production environments with high availability and performance requirements.
+A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). Such clusters are suitable for production environments subject to high availability and performance requirements.
 
 For more information, see [Planning cluster topology](planning-cluster-topology.md).
 
@@ -31,7 +31,7 @@ High availability is achived through [replication and master failover](replicati
 
 * Clusters uses streaming replication. Each replica host receives a replication stream from another host, typically the master. {{ mpg-name }} manages replication streams in the cluster [automatically](replication.md#replication-auto), but you can [manage them manually](../operations/hosts.md#update) if you need to. When you set the replication source manually, the replicas will [have a number of limitations](replication.md#replication-manual).
 * By default, clusters provide automatic failover of master hosts. You can disable auto failover, but if the master fails, you will need to select a new master and [perform the failover](../operations/update.md#start-manual-failover) manually.
-* If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable after master failover.
+* If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
 
 {% note warning %}
 

@@ -119,9 +119,10 @@ items:
         href: tutorials/index.md
       - name: Uploading data automatically using {{ sw-full-name }}
         href: tutorials/auto-upload.md
-      - name: Integration with Bitrix24
+      - name: Integration with {{ amocrm-name }}
+        href: tutorials/amocrm.md
+      - name: Integration with {{ bitrix24-name }}
         href: tutorials/bitrix24.md
-        hidden: true
   - name: Concepts
     items:
       - name: Resource hierarchy

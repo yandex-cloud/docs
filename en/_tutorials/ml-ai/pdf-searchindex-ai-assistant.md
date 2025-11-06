@@ -1,6 +1,6 @@
 # Creating an AI assistant with RAG from PDF files with complex formatting
 
-{% include [assistants-preview-stage](../../_includes/ai-studio/assistants-preview-stage.md) %}
+{% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
 This tutorial provides an example of creating an [AI assistant](../../ai-studio/concepts/assistant/index.md) which will search through information in a source with complex formatting and tabular data and analyze the results using the {{ gpt-pro }} RC [text generation model](../../ai-studio/concepts/generation/models.md).
 
@@ -132,7 +132,7 @@ You will create a search index, sourced from a Markdown file. You will then ask 
     Over the nine months prior to September 30, 2024, Yandex issued loans worth 6.5 billion rubles.
     ```
 
-    As you can see, the hybrid search returned a better result: the answers to all three questions are correct.
+    As you can see, the hybrid search provided a better result: the answers to all three questions are correct.
 
 
 ### Improve your assistant {#improve-assistant}

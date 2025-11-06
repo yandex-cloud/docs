@@ -61,4 +61,4 @@ Each subaccount uses its own [technical support plan](../../support/pricing.md),
 
 You can ask your questions on grants or working with {{ yandex-cloud }} by contacting [support]({{ link-console-support }}) in the {{ yandex-cloud }} console. The support team will also contact the partner program team, if required.
 
-You can ask your questions about the program terms or share your feedback at [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or via the partner chat.
+You can ask questions about the terms of the program or share your opinion at [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or in the partner chat.

@@ -1,6 +1,6 @@
 * [Why do I get an error when using the TimescaleDB extension?](#timescale)
 
-* [What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
+* [What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
 
 * [What should I do if I get the `SSL is required` error when connecting?](#ssl-req)
 
@@ -33,3 +33,5 @@
 * [Why do I get the `cannot execute <SQL_command> in a read-only transaction` error?](#read-only-error)
 
 * [What should I do if logs display the `too many connections for role "monitor"` error?](#monitor-role-error)
+
+* [Why do I get an error when trying to install multiple extensions in the CLI?](#cli-extensions-errors)

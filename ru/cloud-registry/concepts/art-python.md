@@ -18,3 +18,4 @@ _Артефакт Python_ — это файл пакета, содержащий
 * [{#T}](./art-java.md)
 * [{#T}](./art-nodejs.md)
 * [{#T}](./art-nuget.md)
+* [{#T}](./art-binary.md)

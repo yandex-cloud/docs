@@ -38,6 +38,26 @@ description: Пошаговые инструкции по работе с {{ con
 
       Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы удалить подключение, созданное с помощью {{ TF }}:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Удалите описание подключения.
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+
 - API {#api}
   
   Чтобы удалить подключение {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) или методом gRPC API [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) и передайте в запросе идентификатор подключения.

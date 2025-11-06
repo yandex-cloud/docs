@@ -46,7 +46,14 @@ A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
 
 Each condition has the form `<field> <operator> <value>`, where:
-1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
+1. `<field>` is the field name. Currently you can use filtering on these fields only:
+- `id`: ID of the instance.
+- `name`: name of the instance.
+- `created_at`: timestamp representing the moment in time the instance was created at.
+- `status`: [status](/docs/compute/concepts/vm-statuses) of the instance.
+- `zone_id`: ID of the [availability zone](/docs/overview/concepts/geo-scope) where the instance resides.
+- `platform_id`: ID of the hardware [platform configuration](/docs/compute/concepts/vm-platforms) the instance is created on.
+- `host_id`: ID of the [dedicated host](/docs/compute/concepts/dedicated-host) that the instance belongs to.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
 String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||

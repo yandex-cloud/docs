@@ -4,13 +4,19 @@ You can make key versions primary (a primary key version is used for encryption 
 
 ## Make a version primary {#make-primary}
 
+{% note info %}
+
+Updating the primary version of a key is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+
+{% endnote %}
+
 To make a version primary:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the key you need in the list to open its attribute page.
@@ -68,7 +74,7 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
   To destroy a version:
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the key you need in the list to open its attribute page.
@@ -114,6 +120,12 @@ At the scheduled time and date, the key version is permanently destroyed: if you
 
 {% endlist %}
 
+{% note info %}
+
+Scheduling a key version deletion is an [eventually consistent](../concepts/consistency.md) operation. Changes caused by such operations take effect with a delay of up to three hours.
+
+{% endnote %}
+
 ## Cancel version destruction {#cancel-delete}
 
 If you scheduled the destruction of a key version, you can cancel it before the scheduled date:
@@ -122,7 +134,7 @@ If you scheduled the destruction of a key version, you can cancel it before the 
 
 - Management console {#console}
 
-  1. Log in to the [management console]({{ link-console-main }}).
+  1. Go to the [management console]({{ link-console-main }}).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click the key you need in the list to open its attribute page.

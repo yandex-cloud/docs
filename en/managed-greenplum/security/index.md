@@ -15,9 +15,9 @@ keywords:
 
 In this section, you will learn:
 
-* [What resources you can assign a role for](#resources).
+* [Resources you can assign a role for](#resources).
 * [What roles this service has](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [What roles are required for specific actions](#required-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -31,9 +31,9 @@ To assign a role for a resource, a user should have the `mdb.admin` role, `manag
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles existing in this service {#roles-list}
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
 ![image](../../_assets/mdb/roles-managed-greenplum.svg)
 

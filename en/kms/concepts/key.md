@@ -31,7 +31,9 @@ A {{ kms-short-name }} symmetric key may have the following parameters:
 
 ## Using a symmetric key {#use}
 
-You can use a symmetric key in data encryption and decryption operations if you have the appropriate [roles](../security/index.md#roles-list) assigned. You can temporarily disable operations with a key by revoking roles or changing its status to `Inactive`. For more information, see [{#T}](../security/index.md).
+You can use a symmetric key in data encryption and decryption operations if you have the appropriate [roles](../security/index.md#roles-list) assigned. For more information, see [{#T}](../security/index.md).
+
+Also, you can temporarily disable operations with a key by revoking roles or changing its status to `Inactive`.
 
 ## Deleting a key {#delete}
 

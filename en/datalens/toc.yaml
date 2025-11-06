@@ -779,7 +779,7 @@ items:
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
-      - name: Adding a description to a chart
+      - name: Adding chart info
         href: operations/chart/add-description.md
       - name: Versioning
         href: concepts/chart/versioning.md
@@ -823,7 +823,7 @@ items:
             href: operations/dashboard/add-text.md
           - name: Adding a title to a dashboard
             href: operations/dashboard/add-title.md
-          - name: Adding a description to a dashboard
+          - name: Adding dashboard info
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
             href: operations/dashboard/add-support-message.md

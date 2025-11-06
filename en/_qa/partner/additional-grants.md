@@ -1,4 +1,4 @@
-# Partner program: Additional grants
+# Additional grants within the partner program
 
 #### What are additional grants for? {#additional-grants}
 

@@ -5,9 +5,10 @@ description: Access management in {{ api-gw-full-name }}, an API gateway service
 
 # Access management in {{ api-gw-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. With no roles assigned, a user cannot perform most operations.
+In this section, you will learn about:
 
-To allow access to {{ api-gw-name }} resources (API gateways), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
+* [What resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

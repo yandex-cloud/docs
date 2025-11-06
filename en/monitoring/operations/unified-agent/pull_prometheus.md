@@ -148,9 +148,9 @@ You can also use this method to deliver metrics from any custom applications tha
        * `url`: Public address of the VM hosting the test app that delivers metrics.
        * `metric_name_label`: Determines which label the agent writes the metric name for the {{ prometheus-name }} data to. By default, the `name` label is used, which may cause a conflict if your app already uses this label. In which case you get this error when writing metrics:
 
-       ```bash
-       label name 'name' is reserved
-       ```
+         ```bash
+         label name 'name' is reserved
+         ```
 
        To avoid an error, specify any other unique name.
 

@@ -36,7 +36,8 @@ To create a [security group](../../../vpc/concepts/security-groups.md):
      --- | --- | --- | --- | --- | ---
      Egress | any | All | Any | CIDR | 0.0.0.0/0
      Ingress | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
-     Ingress | ext-https | 443 | TCP | CIDR | 0.0.0.0/0
+     Inbound | ext-https | 443 | TCP | CIDR | 0.0.0.0/0
+     Inbound | ext-ssh | 22 | TCP | CIDR | 0.0.0.0/0
 
      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -69,7 +70,7 @@ To create a VM:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network where you created the `wordpress` security group and the [subnet](../../../vpc/concepts/network.md#subnet) to connect your VM to. If you do not have a subnet, [create](../../../vpc/operations/subnet-create.md) one.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` for the VM to get a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you had reserved one.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `wordpress` security group.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:

@@ -38,7 +38,7 @@ When installing an OS from a custom image, you can select the [boot mode](./serv
 
 To [install](../operations/servers/reinstall-os-from-own-image.md) an OS from a custom image, employ the [server KVM console](../operations/servers/server-kvm.md) to mount the custom image on the server's virtual CD drive, then boot from it as follows:
 
-1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
+1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens, do the following:
 
     1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../operations/image-upload.md) custom OS image in the `user-iso` directory.
     1. Click **Connect CD/DVD**.

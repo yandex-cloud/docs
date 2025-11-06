@@ -13,7 +13,7 @@ The community edition is distributed under the [Timescale license (TSL)](https:/
 
 The version installed in a {{ mpg-name }} cluster is TimescaleDB Apache 2 Edition, and its features are limited compared to the community version.
 
-#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -35,7 +35,7 @@ To fix this error:
 
 #### What should I do if I get the `SSL is required` error when connecting? {#ssl-req}
 
-The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
+The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. However, you can:
 
 * [Obtain an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert) and add it to the application you are using to connect to the cluster.
 * [Disable public access to hosts](../../managed-postgresql/operations/hosts.md#update) and connect to the cluster from a VM located in the same cloud network.
@@ -48,11 +48,11 @@ Connecting to cluster hosts may fail with the following error:
 too many active clients for user (pool_size for user <username> reached <limit_value>)
 ```
 
-By default, a cluster reserves 50 connections to each host per user. If the connection limit per user is reached, any attempt to establish a new connection will fail with an error.
+By default, a cluster reserves 50 connections per host for each user. If the connection limit per user is reached, any attempt to establish a new connection will fail with an error.
 
 Solution: Increase the connection limit in the [**Conn limit** setting](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit).
 
-To learn how to update {{ PG }} settings at the user level, see [this tutorial](../../managed-postgresql/operations/cluster-users.md#update-settings).
+For instructions on updating {{ PG }} settings at the user level, see [this guide](../../managed-postgresql/operations/cluster-users.md#update-settings).
 
 #### Why do I get an error when connecting to a custom database? {#database-error}
 
@@ -143,7 +143,7 @@ The errors occur because the target cluster does not have the user (or the privi
 To resolve the errors:
 
 1. In the target cluster, [add a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the migrated database and the same name as the user who created the logical dump in the source cluster.
-1. Use this user to [restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to the user who is restoring the logical dump.
+1. As this user, [restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to another account you want to use to restore the logical dump.
 
 #### What should I do if I get the `replication slot already exists` error when performing logical replication? {#repl-slot-exists}
 
@@ -230,3 +230,29 @@ For more information on how to connect to the master host, see [Connecting to a 
 #### What should I do if logs display the `too many connections for role "monitor"` error? {#monitor-role-error}
 
 The `monitor` user is reserved for monitoring purposes in a {{ mpg-name }} cluster. You can ignore `too many connections` warnings for this user.
+
+#### Why do I get an error when trying to install multiple extensions in the CLI? {#cli-extensions-errors}
+
+Installing multiple extensions in the CLI may fail with one of these errors:
+
+* `ERROR: accepts 1 arg(s), received 2`
+
+   This error may occur due to an incorrect command format.
+
+   Solution: Make sure to list the extensions with no spaces in between. Here is an example:
+
+   ```bash
+   {{ yc-mdb-pg }} database update db1 --cluster-id {{ cluster-id }} --extensions cube,pg_logic,timescaledb
+   ```
+
+* `ERROR: rpc error: code = InvalidArgument desc = Invalid extensions '<extension_name>', allowed extension: <extension_list>`
+
+  You may get this error if an extension in the list is incompatible with the {{ PG }} version in the cluster.
+
+  Solution: Check the compatibility of the extensions specified in the command in the [list of supported extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql).
+
+* `ERROR: rpc error: code = InvalidArgument desc = The specified extension '<extension_name>' is not present in shared_preload_libraries`
+
+  This error may occur if the cluster does not contain the required shared library.
+
+  Solution: Check the shared library requirements in the [list of supported extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql). To add the required library, when [updating the {{ PG }} cluster settings](../../managed-postgresql/operations/update.md#change-postgresql-config), specify its name in the [Shared preload libraries parameter](../../managed-postgresql/concepts/settings-list.md#setting-shared-libraries).

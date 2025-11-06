@@ -8,6 +8,25 @@ description: В разделе представлена история изме�
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## Октябрь 2025 {#october-2025}
+
+* Реализовано управление [политикой MFA](./concepts/mfa.md#mfa-policies) в организации с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/) и [API](./api-ref/grpc/MfaEnforcement/). {{ tag-cli }} {{ tag-api }}
+* Добавлены команды [блокировки](../cli/cli-ref/organization-manager/cli-ref/federation/saml/suspend-user-accounts.md) и [разблокировки](../cli/cli-ref/organization-manager/cli-ref/federation/saml/reactivate-user-accounts.md) пользователей SAML-федераций в CLI и [API](saml/api-ref/Federation/reactivateUserAccounts.md). {{ tag-cli }} {{ tag-api }}
+* Добавлена возможность автоматической генерации пароля при создании пользователя в [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/create.md) и [API](idp/api-ref/User/create.md), а также команда [сброса пароля](operations/user-pools/reset-user-password.md#cli_1) с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reset-password.md). {{ tag-cli }} {{ tag-api }}
+* В [CLI](../cli/cli-ref/organization-manager/cli-ref/group/list-effective.md) реализован [просмотр](operations/get-users-groups.md#cli_1) групп внутри организации, в которых состоит пользователь. {{ tag-cli }}
+* Добавлена возможность управления парольными политиками при [создании](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/create.md) и [обновлении](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/update.md) пула пользователей с помощью CLI и [API](idp/api-ref/Userpool/update.md). {{ tag-cli }} {{ tag-api }}
+* Добавлены команды для управления OAuth-приложениями в [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/application/oauth/) и [API](idp/application/oauth/api-ref/Application/). {{ tag-cli }} {{ tag-api }}
+* Добавлена поддержка параметра `domain` для работы с доменами при управлении пулами пользователей в [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/domain/) и [API](idp/api-ref/Userpool/addDomain.md). {{ tag-cli }} {{ tag-api }}
+
+## III квартал 2025 {#q3-2025}
+
+* Реализована концепция управления [пулами пользователей](./concepts/user-pools.md) в организации. {{ tag-con }} {{ tag-cli }}
+* В CLI и API добавлены группы команд для управления [пулами пользователей](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/) и [локальными пользователями](../cli/cli-ref/organization-manager/cli-ref/idp/user/). {{ tag-cli }} {{ tag-api }}
+* Добавлены команды для управления доменами SAML-федераций с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/) и [API](saml/api-ref/Federation/). {{ tag-cli }} {{ tag-api }}
+* Вернули [настройку](./operations/federation-group-mapping.md) прав доступа к ресурсам {{ yandex-cloud }} с помощью сопоставления групп федеративных пользователей. {{ tag-con }} {{ tag-tf }}
+* [Добавлена](./operations/enable-2fa-access.md) возможность требовать включения двухфакторной аутентификации для всех пользователей организации с аккаунтом на Яндексе. {{ tag-con }}
+* Реализована возможность [активировать пользователей](./operations/user-pools/activate-user), которые ранее были деактивированы, с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reactivate.md) и [API](idp/api-ref/User/reactivate.md). {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
 ## II квартал 2025 {#q2-2025}
 
 * Сервис {{ org-name }} вышел в [Public Preview](../overview/concepts/launch-stages.md).

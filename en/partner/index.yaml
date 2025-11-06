@@ -9,13 +9,13 @@ description:
   - >-
     The <a href="https://partners.yandex.cloud">partner portal</a> helps you
     manage customers, track their consumption, register deals and projects, view
-    partner bonuses and rebates, and manage referral links.
+    partner bonuses and accrued rebates, and manage referral links.
   - >-
     To learn how to publish your products and sell them to Yandex Cloud
-    customers, refer to the <a href="/docs/marketplace/quickstart">Yandex Cloud
-    Marketplace</a> documentation.
+    customers, see the <a href="/docs/marketplace/quickstart">Yandex Cloud
+    Marketplace</a>.
 links:
-  - title: Partnership program
+  - title: Partner program
     description: Accept customer payments and manage document flow on your own.
     href: program/var
   - title: Partner portal

@@ -5,6 +5,16 @@ description: This section contains {{ video-name }} release notes.
 
 # {{ video-full-name }} release notes
 
+## July – September 2025 {#jul-sep-2025}
+
+* Added [neural features](concepts/videos.md#ai-capabilities) to increase video availability and audience reach: summarization, neural translation, and automatic subtitle generation. These operate based on [Yandex](https://habr.com/ru/companies/yandex/articles/792608/) ML models and get regular updates.
+
+* Added support video content monetization based on the [Yandex Advertising Network](https://yandex.ru/support/partner/en/yan-rules/video). Advertising is configured at the [channel](operations/channels/settings.md#ad-settings) level: you can select a video ad category aligned with the subject matter of your videos.
+
+* Added the ability to [specify domains](operations/channels/settings.md#channel-settings) to allow the videos only on particular websites. The videos will not play on other domains.
+
+* On August 1, 2025, {{ video-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now subject to the [pricing policy](pricing.md).
+
 ## November – December 2024 {#nov-dec-2024}
 
 * Implemented [channel](concepts/index.md#channels) search by name on the {{ video-name }} [home page]({{ link-video-main }}).
@@ -12,7 +22,7 @@ description: This section contains {{ video-name }} release notes.
 
 ## October 2024 {#oct-2024}
 
-* Published video player SDK for [iOS](./sdk/ios-sdk.md).
+* Published a video player SDK for [iOS](./sdk/ios-sdk.md).
 
 ## September 2024 {#sep-2024}
 

@@ -11,6 +11,8 @@
 `mdb.memory.size` | 512 GB ||
 || Total storage capacity for all clusters per cloud 
 `mdb.ssd.size` | 4,096 GB ||
+|| Number of GPUs 
+`mdb.gpu.count` | 0 ||
 |#
 
 #### Limits {#mch-limits}
@@ -25,7 +27,7 @@
 | Number of hosts per shard when using an HDD or SSD network storage or an ultra high-speed network storage with three replicas (SSD)                              | 1                                                                                                                                                     | 7                                                |
 | Number of hosts in a shard when using non-replicated SSD storage                                                                                                               | 3                                                                                                                                                     | 7                                                |
 | Number of hosts in a shard when using local SSD storage                                                                                                                     | 2                                                                                                                                                     | 7                                                |
-| Total number of hosts per cluster                                                                                                                                                          | 1                                                                                                                                                     | 353 (50 shards × 7 hosts + 3 {{ ZK }} hosts)    |
+| Total number of hosts per cluster                                                                                                                                                          | 1                                                                                                                                                     | 355 (50 shards × 7 hosts + 5 {{ ZK }} hosts)    |
 | Amount of data per host when using network HDD or SSD storage (for Intel Broadwell and Intel Cascade Lake)                                             | 10 GB                                                                                                                                                 | 4,096 GB                                          |
 | Amount of data per host when using network HDD or SSD storage (for Intel Ice Lake)                                                                  | 10 GB                                                                                                                                                 | 8,192 GB                                          |
 | Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network storage with three replicas (SSD)                                   | 93 GB                                                                                                                                                 | 16,368 GB                                        |
