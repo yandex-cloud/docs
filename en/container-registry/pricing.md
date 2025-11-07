@@ -24,11 +24,11 @@ The {{ container-registry-name }} usage cost includes:
 
 ### Using the storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granular per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% note warning %}
 
-If multiple [Docker images](concepts/docker-image.md) in the same registry use the same layers, you are not charged repeatedly for storing each reused layer. A layer's [digest](concepts/docker-image.md#version) indicates whether the layer is unique.
+If multiple [Docker images](concepts/docker-image.md) in the same registry use the same layers, you are not charged repeatedly for storing each re-used layer. Whether the layer is unique is determined by its [hash](concepts/docker-image.md#version).
 
 {% endnote %}
 
@@ -49,7 +49,7 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 {% include [usd.md](../_pricing/container-registry/usd.md) %}
 
 
-Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
+Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 
 ```text
 Storage_cost = Price_per_GB_per_month * 15 * 12 / 24 / 30

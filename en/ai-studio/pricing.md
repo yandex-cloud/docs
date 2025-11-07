@@ -67,6 +67,17 @@ The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddi
 
 You can use the {{ assistant-api }}, {{ responses-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
 
+{% note info %}
+
+Prices for using Web Search tool with text and voice agents will come into effect on November 20, 2025.
+
+{% endnote %}
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-tools.md) %}
+
+
 ### Using voice agents {#rules-voice-assistant}
 
 The cost of using voice agents consists of your fees for speech recognition (input audio), speech synthesis (output audio), and text generation using the speech-realtime-250923.

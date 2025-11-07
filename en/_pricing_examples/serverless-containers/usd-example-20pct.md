@@ -4,17 +4,17 @@
 
 Where:
 
-* {{ sku|USD|serverless.containers.compute.memory|pricingRate.10|string }}: Price per 1 GB×hour in excess of 10 GB×hour per month.
+* {{ sku|USD|serverless.containers.compute.memory|pricingRate.10|string }}: Price per 1 GB/hr (over 10 GB/hr per month).
 * 2: Amount of RAM.
-* 150 / 3,600,000 converts milliseconds to hours, as RAM usage time is calculated in GB×hour.
+* 150 / 3,600,000: Converting milliseconds to hours, since RAM usage time is calculated in GB/hr.
 * 3,000,000: Number of container invocations.
-* 10: RAM usage time free of charge.
-* {{ sku|USD|serverless.containers.compute.cpu|pricingRate.5|string }}: Price per 1 hour of CPU usage in excess of 5 vCPUs × hour per month.
+* 10: RAM usage time that is free of charge.
+* {{ sku|USD|serverless.containers.compute.cpu|pricingRate.5|string }}: Price per hour of CPU usage beyond 5 vCPU/hr per month.
 * 0.2: Number of vCPU cores.
-* 150 / 3,600,000 converts milliseconds to hours, as CPU usage time is calculated in GB×hour.
+* 150 / 3,600,000: Converting milliseconds to hours, since CPU usage time is calculated in GB/hr.
 * 3,000,000: Number of container invocations.
-* 5: CPU usage time free of charge.
-* {{ sku|USD|serverless.containers.invocations|pricingRate.1|string }}: Price per 1 million container invocations in excess of 1 million per month.
+* 5: CPU usage time that is free of charge.
+* {{ sku|USD|serverless.containers.invocations|pricingRate.1|string }}: Price per 1,000,000 container invocations beyond 1,000,000 per month.
 * 3,000,000: Number of container invocations.
-* 1,000,000: Subtracted because the first million calls are free of charge.
+* 1,000,000: Subtracted since the first 1,000,000 calls are free of charge.
 * 1,000,000: Divisor to calculate the number of millions of container invocations.

@@ -41,6 +41,13 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025 год {#2025-articles}
 
+
+* AI‑агенты: переход от инструментов к автономным исполнителям в бизнесе. [Статья](https://yandex.cloud/ru/blog/ai-agents).
+
+* Клиенты {{ ai-studio-full-name }} увеличили потребление генеративных нейросетей в облаке в пять раз. [Статья](https://yandex.cloud/ru/blog/yandex-ai-studio-results-october-2025).
+
+* {{ stackland-full-name }}: новое инфраструктурное решение для разработки AI‑сервисов. [Статья](https://yandex.cloud/ru/blog/yandex-cloud-stackland).
+
 * {{ yagpt-name }} 5.1 Pro: открыли доступ к флагманской модели для бизнеса. [Статья](https://yandex.cloud/ru/blog/yandexgpt-5-1-pro).
 
 * От карточек товаров до обучения сотрудников: как ИИ трансформирует современный ритейл. [Статья](https://yandex.cloud/ru/blog/ai-in-retail).
@@ -53,7 +60,9 @@ description: Видеозаписи конференций и вебинаров
 
 * Как писать промты для нейросетей: инструкция, примеры и советы. [Статья](https://yandex.cloud/ru/blog/gpt-prompting-guide).
 
+
 * Нейросети Яндекса помогли врачам ускорить разработку новых методов лечения. [Статья](https://yandex.cloud/ru/blog/local-ethics-committee).
+
 
 * RAG: учим искусственный интеллект работать с новыми данными. [Статья](https://yandex.cloud/ru/blog/posts/2025/05/retrieval-augmented-generation-basics).
 
@@ -66,6 +75,7 @@ description: Видеозаписи конференций и вебинаров
 * Нейросети для текста: применение в бизнесе. [Статья](https://yandex.cloud/ru/blog/posts/2025/03/ai-for-texts).
 
 * Fine‑tuning языковых моделей: как адаптировать ИИ для решения специализированных задач. [Статья](https://yandex.cloud/ru/blog/posts/2025/03/fine-tuning).
+
 
 * Встречаем {{ yagpt-name }} 5 — в Алисе, облаке и опенсорсе. [Статья](https://habr.com/ru/companies/yandex/articles/885218/).
 

@@ -8,4 +8,4 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-{{ coi }} VMs are charged as per the [{{ compute-name }} pricing rules](../compute/pricing.md). The use of Docker images from the {{ container-registry-name }} is charged as per the [{{ container-registry-name }} pricing rules](../container-registry/pricing.md).
+{{ coi }} VMs are charged as per the [{{ compute-name }} pricing](../compute/pricing.md). The use of Docker images from the {{ container-registry-name }} is charged as per the [{{ container-registry-name }} pricing](../container-registry/pricing.md).

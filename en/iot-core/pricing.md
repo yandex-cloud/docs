@@ -46,7 +46,7 @@ The [broker](concepts/index.md#broker) is at the [Preview](../overview/concepts/
 
 ### MQTT {#mqtt}
 
-List of commands charged under {{ iot-name }}: 
+Here are the commands that are charged under {{ iot-name }}: 
 * `CONNECT`: Connect a client (device or registry) to the service's MQTT server.
 * `PUBLISH`: Send a message from the client (device or registry) to the service's MQTT server.
 * `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the service's MQTT server.
