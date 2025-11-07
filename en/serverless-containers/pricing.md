@@ -23,7 +23,7 @@ In {{ serverless-containers-name }}, you pay for the number of container invocat
 Computing resources are billed based on the number of processor cores (vCPUs), the [level of core performance](../compute/concepts/performance-levels.md), memory allocated for the application, and application running time:
 
 * The number of cores specified when creating a revision is measured in vCPUs and is a positive real number.
-* The core performance level specified when creating a revision is measured in %.
+* The core performance level specified when creating a revision is measured as percentage.
 * The memory size specified when creating a revision is measured in GB.
 * The total container time is measured in hours and is rounded up to a multiple of 100 ms.
 
@@ -46,24 +46,24 @@ You are only charged for the container invocations that have caused your applica
 
 ### Examples of cost calculation {#example}
 
-Example of calculating the cost of a container with the following parameters:
+Example of calculating the cost of a container with the following properties:
 
 * **Amount of memory specified when creating a revision**: 2 GB.
 * **Number of cores**: 20% vCPU.
 * **Number of container invocations**: 3,000,000.
-* **Execution time of each invocation**: 150 ms.
+* **Execution time of each invocations**: 150 ms.
 
 
 
 {% include [usd-example-20pct](../_pricing_examples/serverless-containers/usd-example-20pct.md) %}
 
 
-Example of calculating the cost of a container with the following parameters:
+Example of calculating the cost of a container with the following properties:
 
 * **Amount of memory specified when creating a revision**: 2 GB.
 * **Number of cores**: 100% vCPU.
 * **Number of container invocations**: 3,000,000.
-* **Execution time of each invocation**: 150 ms.
+* **Execution time of each invocations**: 150 ms.
 
 
 

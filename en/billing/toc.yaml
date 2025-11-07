@@ -180,139 +180,181 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-          - name: Overview
-            href: api-ref/grpc/index.md
-          - name: BillingAccount
+          - name: Billing
             items:
               - name: Overview
-                href: api-ref/grpc/BillingAccount/index.md
-              - name: Get
-                href: api-ref/grpc/BillingAccount/get.md
-              - name: List
-                href: api-ref/grpc/BillingAccount/list.md
-              - name: ListBillableObjectBindings
-                href: api-ref/grpc/BillingAccount/listBillableObjectBindings.md
-              - name: BindBillableObject
-                href: api-ref/grpc/BillingAccount/bindBillableObject.md
-              - name: ListAccessBindings
-                href: api-ref/grpc/BillingAccount/listAccessBindings.md
-              - name: UpdateAccessBindings
-                href: api-ref/grpc/BillingAccount/updateAccessBindings.md
-          - name: Budget
+                href: api-ref/grpc/index.md
+              - name: BillingAccount
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/BillingAccount/index.md
+                  - name: Get
+                    href: api-ref/grpc/BillingAccount/get.md
+                  - name: List
+                    href: api-ref/grpc/BillingAccount/list.md
+                  - name: ListBillableObjectBindings
+                    href: api-ref/grpc/BillingAccount/listBillableObjectBindings.md
+                  - name: BindBillableObject
+                    href: api-ref/grpc/BillingAccount/bindBillableObject.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/BillingAccount/listAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/BillingAccount/updateAccessBindings.md
+              - name: Budget
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Budget/index.md
+                  - name: Get
+                    href: api-ref/grpc/Budget/get.md
+                  - name: List
+                    href: api-ref/grpc/Budget/list.md
+                  - name: Create
+                    href: api-ref/grpc/Budget/create.md
+              - name: Customer
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Customer/index.md
+                  - name: List
+                    href: api-ref/grpc/Customer/list.md
+                  - name: Invite
+                    href: api-ref/grpc/Customer/invite.md
+                  - name: CreateResellerServed
+                    href: api-ref/grpc/Customer/createResellerServed.md
+                  - name: Activate
+                    href: api-ref/grpc/Customer/activate.md
+                  - name: Suspend
+                    href: api-ref/grpc/Customer/suspend.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
+              - name: Service
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Service/index.md
+                  - name: Get
+                    href: api-ref/grpc/Service/get.md
+                  - name: List
+                    href: api-ref/grpc/Service/list.md
+              - name: Sku
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Sku/index.md
+                  - name: Get
+                    href: api-ref/grpc/Sku/get.md
+                  - name: List
+                    href: api-ref/grpc/Sku/list.md
+          - name: Billing usage
             items:
               - name: Overview
-                href: api-ref/grpc/Budget/index.md
-              - name: Get
-                href: api-ref/grpc/Budget/get.md
-              - name: List
-                href: api-ref/grpc/Budget/list.md
-              - name: Create
-                href: api-ref/grpc/Budget/create.md
-          - name: Customer
-            items:
-              - name: Overview
-                href: api-ref/grpc/Customer/index.md
-              - name: List
-                href: api-ref/grpc/Customer/list.md
-              - name: Invite
-                href: api-ref/grpc/Customer/invite.md
-              - name: CreateResellerServed
-                href: api-ref/grpc/Customer/createResellerServed.md
-              - name: Activate
-                href: api-ref/grpc/Customer/activate.md
-              - name: Suspend
-                href: api-ref/grpc/Customer/suspend.md
-          - name: Operation
-            items:
-              - name: Overview
-                href: api-ref/grpc/Operation/index.md
-              - name: Get
-                href: api-ref/grpc/Operation/get.md
-              - name: Cancel
-                href: api-ref/grpc/Operation/cancel.md
-          - name: Service
-            items:
-              - name: Overview
-                href: api-ref/grpc/Service/index.md
-              - name: Get
-                href: api-ref/grpc/Service/get.md
-              - name: List
-                href: api-ref/grpc/Service/list.md
-          - name: Sku
-            items:
-              - name: Overview
-                href: api-ref/grpc/Sku/index.md
-              - name: Get
-                href: api-ref/grpc/Sku/get.md
-              - name: List
-                href: api-ref/grpc/Sku/list.md
+                href: usage/api-ref/grpc/index.md
+              - name: ConsumptionCore
+                items:
+                  - name: Overview
+                    href: usage/api-ref/grpc/ConsumptionCore/index.md
+                  - name: GetBillingAccountUsageReport
+                    href: >-
+                      usage/api-ref/grpc/ConsumptionCore/getBillingAccountUsageReport.md
+                  - name: GetCloudUsageReport
+                    href: usage/api-ref/grpc/ConsumptionCore/getCloudUsageReport.md
+                  - name: GetFolderUsageReport
+                    href: usage/api-ref/grpc/ConsumptionCore/getFolderUsageReport.md
+                  - name: GetServiceUsageReport
+                    href: >-
+                      usage/api-ref/grpc/ConsumptionCore/getServiceUsageReport.md
+                  - name: GetSKUUsageReport
+                    href: usage/api-ref/grpc/ConsumptionCore/getSKUUsageReport.md
+                  - name: GetResourceUsageReport
+                    href: >-
+                      usage/api-ref/grpc/ConsumptionCore/getResourceUsageReport.md
+                  - name: GetLabelKeyUsageReport
+                    href: >-
+                      usage/api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport.md
+              - name: Metadata
+                items:
+                  - name: Overview
+                    href: usage/api-ref/grpc/Metadata/index.md
+                  - name: GetUsage
+                    href: usage/api-ref/grpc/Metadata/getUsage.md
+                  - name: GetLabel
+                    href: usage/api-ref/grpc/Metadata/getLabel.md
+                  - name: GetCloud
+                    href: usage/api-ref/grpc/Metadata/getCloud.md
+                  - name: GetResourceIDs
+                    href: usage/api-ref/grpc/Metadata/getResourceIDs.md
       - name: REST
         items:
-          - name: Overview
-            href: api-ref/index.md
-          - name: BillingAccount
+          - name: Billing
             items:
               - name: Overview
-                href: api-ref/BillingAccount/index.md
-              - name: Get
-                href: api-ref/BillingAccount/get.md
-              - name: List
-                href: api-ref/BillingAccount/list.md
-              - name: ListBillableObjectBindings
-                href: api-ref/BillingAccount/listBillableObjectBindings.md
-              - name: BindBillableObject
-                href: api-ref/BillingAccount/bindBillableObject.md
-              - name: ListAccessBindings
-                href: api-ref/BillingAccount/listAccessBindings.md
-              - name: UpdateAccessBindings
-                href: api-ref/BillingAccount/updateAccessBindings.md
-          - name: Budget
-            items:
-              - name: Overview
-                href: api-ref/Budget/index.md
-              - name: Get
-                href: api-ref/Budget/get.md
-              - name: List
-                href: api-ref/Budget/list.md
-              - name: Create
-                href: api-ref/Budget/create.md
-          - name: Customer
-            items:
-              - name: Overview
-                href: api-ref/Customer/index.md
-              - name: List
-                href: api-ref/Customer/list.md
-              - name: Invite
-                href: api-ref/Customer/invite.md
-              - name: CreateResellerServed
-                href: api-ref/Customer/createResellerServed.md
-              - name: Activate
-                href: api-ref/Customer/activate.md
-              - name: Suspend
-                href: api-ref/Customer/suspend.md
-          - name: Operation
-            items:
-              - name: Overview
-                href: api-ref/Operation/index.md
-              - name: Get
-                href: api-ref/Operation/get.md
-              - name: Cancel
-                href: api-ref/Operation/cancel.md
-          - name: Service
-            items:
-              - name: Overview
-                href: api-ref/Service/index.md
-              - name: Get
-                href: api-ref/Service/get.md
-              - name: List
-                href: api-ref/Service/list.md
-          - name: Sku
-            items:
-              - name: Overview
-                href: api-ref/Sku/index.md
-              - name: Get
-                href: api-ref/Sku/get.md
-              - name: List
-                href: api-ref/Sku/list.md
+                href: api-ref/index.md
+              - name: BillingAccount
+                items:
+                  - name: Overview
+                    href: api-ref/BillingAccount/index.md
+                  - name: Get
+                    href: api-ref/BillingAccount/get.md
+                  - name: List
+                    href: api-ref/BillingAccount/list.md
+                  - name: ListBillableObjectBindings
+                    href: api-ref/BillingAccount/listBillableObjectBindings.md
+                  - name: BindBillableObject
+                    href: api-ref/BillingAccount/bindBillableObject.md
+                  - name: ListAccessBindings
+                    href: api-ref/BillingAccount/listAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/BillingAccount/updateAccessBindings.md
+              - name: Budget
+                items:
+                  - name: Overview
+                    href: api-ref/Budget/index.md
+                  - name: Get
+                    href: api-ref/Budget/get.md
+                  - name: List
+                    href: api-ref/Budget/list.md
+                  - name: Create
+                    href: api-ref/Budget/create.md
+              - name: Customer
+                items:
+                  - name: Overview
+                    href: api-ref/Customer/index.md
+                  - name: List
+                    href: api-ref/Customer/list.md
+                  - name: Invite
+                    href: api-ref/Customer/invite.md
+                  - name: CreateResellerServed
+                    href: api-ref/Customer/createResellerServed.md
+                  - name: Activate
+                    href: api-ref/Customer/activate.md
+                  - name: Suspend
+                    href: api-ref/Customer/suspend.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
+              - name: Service
+                items:
+                  - name: Overview
+                    href: api-ref/Service/index.md
+                  - name: Get
+                    href: api-ref/Service/get.md
+                  - name: List
+                    href: api-ref/Service/list.md
+              - name: Sku
+                items:
+                  - name: Overview
+                    href: api-ref/Sku/index.md
+                  - name: Get
+                    href: api-ref/Sku/get.md
+                  - name: List
+                    href: api-ref/Sku/list.md
   - name: '{{ at-name }} events'
     href: at-ref.md

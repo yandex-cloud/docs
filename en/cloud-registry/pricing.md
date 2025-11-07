@@ -52,4 +52,3 @@ These prices apply starting September 15, 2025.
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-

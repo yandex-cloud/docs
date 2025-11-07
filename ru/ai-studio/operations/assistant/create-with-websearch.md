@@ -12,12 +12,6 @@ noIndex: true
 
 Получать информацию из источников в интернете AI-ассистентам позволяет [инструмент](../../concepts/assistant/tools/web-search.md) WebSearch.
 
-{% note info %}
-
-Использование инструмента WebSearch тарифицируется как [генеративный ответ](../../../search-api/pricing.md) сервиса {{ search-api-full-name }}.
-
-{% endnote %}
-
 ## Перед началом работы {#before-begin}
 
 Чтобы воспользоваться примерами:

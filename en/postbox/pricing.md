@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ postbox-name }}, use [our calculator](https://yandex.cloud/en/prices?state=d41eb2e392e8#calculator) on the {{ yandex-cloud }} website or see the pricing info below.
 
 
 {% endnote %}
@@ -24,7 +24,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% note info %}
 
-By default, {{ postbox-name }} has quotas (e.g., on the number of emails you send), which you can increase by requesting support. For more information, see [{#T}](concepts/limits.md).
+By default, {{ postbox-name }} has quotas (e.g., on the number of emails you send), which you can increase by submitting a support request. For more information, see [{#T}](concepts/limits.md).
 
 {% endnote %}
 
@@ -56,7 +56,7 @@ Calculating cost of 65,500 emails per month:
 
 {% note info %}
 
-If looking to send over 10,000,000 emails per month, contact [support]({{ link-console-support }}) or your account manager for special terms.
+If you want to send over 10,000,000 emails per month, contact [support]({{ link-console-support }}) or your account manager for special terms.
 
 {% endnote %}
 
