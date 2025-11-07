@@ -35,6 +35,9 @@ The `organization-manager.editor` role enables managing organization settings, i
 * View info on access permissions granted for user groups.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View the list of and info on Identity Hub user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
+* View info on a subscription to the paid-for Identity Hub features.
+* View info on stats regarding the use of the quotes within a subscription to the paid-for Identity Hub features.
+* View the list of users who employ the Identity Hub authentication quota in the current [reporting period](../../billing/concepts/reporting-period.md).
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
 * View the info on the refresh tokens of the organization's users, as well as revoke such tokens.
 * View info on the Identity Hub quotas.

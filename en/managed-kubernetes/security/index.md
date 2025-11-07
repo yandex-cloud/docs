@@ -26,7 +26,7 @@ You can also [assign a role for a separate cluster](../operations/kubernetes-clu
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/managed-kubernetes/security/service-roles-hierarchy.svg)
+{% include [managed-kubernetes](../../_mermaid/roles/managed-kubernetes.md) %}
 
 ### Roles required to access the {{ k8s }} API {#k8s-api}
 

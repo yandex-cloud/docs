@@ -1,7 +1,7 @@
 # Installing OIDC Authentication
 
 
-[OIDC Authentication]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) is an application for authenticating users in a {{ managed-k8s-name }} cluster with third-party authentication providers supporting the following identity and access management protocols: [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), [Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/active-directory-domain-services), [LDAP]https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol, or [GitHub](https://github.com/). OIDC Authentication uses [OAuth 2.0](https://oauth.net/2/) to issue user access tokens by ID and secret key received from the provider.
+[OIDC Authentication]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) is an application for authenticating users in a {{ managed-k8s-name }} cluster with third-party authentication providers supporting the following identity and access management protocols: [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), [{{ microsoft-idp.ad-short }}](https://docs.microsoft.com/windows-server/identity/ad-ds/active-directory-domain-services), [LDAP]https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol, or [GitHub](https://github.com/). OIDC Authentication uses [OAuth 2.0](https://oauth.net/2/) to issue user access tokens by ID and secret key received from the provider.
 
 The application has two components:
 
@@ -49,7 +49,7 @@ The solution is powered by [Pinniped](https://pinniped.dev).
     * **Supervisor domain certificate**: Paste the `cert.json` file contents.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -126,14 +126,14 @@ The solution is powered by [Pinniped](https://pinniped.dev).
    1. Install `pinniped-cli`.
    1. Copy the public configuration. In the public configuration file, specify the local path to `pinniped-cli` in the `users.user.exec.command` parameter.
 
-1. Specify the public configuration file when running commands in the cluster. Here is an example:
+1. Specify the public configuration file when running commands in the cluster, e.g.:
 
    ```shell
    kubectl get namespaces \
      --kubeconfig "$HOME/public_config.yaml"
    ```
 
-   When first running the `kubectl` command, the employee will be redirected to the browser to authenticate with OIDC and issue an OAuth token for accessing the cluster.
+   When first running the `kubectl` command, the employee will be redirected to the browser to get authenticated with OIDC and issue an OAuth token to access the cluster.
 
    Further `kubectl` commands will run without authentication until the access token expires.
 

@@ -26,7 +26,7 @@ To create a VM with a custom configuration script:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Set](create-linux-vm.md) the required VM parameters.
@@ -56,7 +56,7 @@ To create a VM with a custom configuration script:
 
   Where:
 
-  * `--name`: VM name. Follow these naming requirements:
+  * `--name`: VM name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -109,7 +109,7 @@ To create a VM with a custom configuration script:
 
 - API {#api}
 
-  To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. Here is an example:
+  To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. For example:
 
   ```json
   {
@@ -235,7 +235,8 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
     - <public_SSH_key>
   write_files:
     - path: "/usr/local/etc/yc-install.sh"
-      permissions: "755"
+      permissions: "0755"
+      owner: <username>:<username>
       content: |
         #!/bin/bash
 
@@ -251,6 +252,9 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
         # Save YC params
         echo "Saving YC params to the ~/.bashrc"
         cat << EOF >> $HOME/.bashrc
+          export PATH="$HOME/yandex-cloud/bin:$PATH"
+          export YC_CLI_VM_ID="${VM_ID:-unknown}"
+        EOF
       defer: true
   runcmd:
     - [su, <username>, -c, "/usr/local/etc/yc-install.sh"]

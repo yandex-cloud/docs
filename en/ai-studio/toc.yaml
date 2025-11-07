@@ -335,6 +335,9 @@ items:
             href: sdk-ref/sync/chat/completions
             hidden: true
           - name: Domain
+            href: sdk-ref/sync/chat/text_embeddings
+            hidden: true
+          - name: Domain
             href: sdk-ref/async/models/completions
             hidden: true
           - name: Domain
@@ -348,6 +351,9 @@ items:
             hidden: true
           - name: Domain
             href: sdk-ref/async/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/text_embeddings
             hidden: true
           - name: Result types for models
             href: sdk-ref/types/model_results

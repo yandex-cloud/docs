@@ -43,6 +43,7 @@ Syntax:
 |`--connection-pooling-mode`|<b>`string`</b><br/>Connection pooler pooling mode Values: 'session', 'transaction'|
 |`--connection-pooling-size`|<b>`int`</b><br/>Connection pooler size|
 |`--connection-pooling-client-idle-timeout`|<b>`int`</b><br/>Connection pooler client idle timeout|
+|`--connection-pooling-idle-in-transaction-timeout`|<b>`int`</b><br/>Connection pooler idle in transaction timeout|
 |`--pxf-connection-timeout`|<b>`int`</b><br/>Timeout for pxf connections|
 |`--pxf-upload-timeout`|<b>`int`</b><br/>Timeout for uploading pxf connections|
 |`--pxf-max-threads`|<b>`int`</b><br/>The maximum number of PXF tomcat threads.|

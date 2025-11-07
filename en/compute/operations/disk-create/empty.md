@@ -15,7 +15,7 @@ You can create an empty disk of the specified size.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
-  1. Enter a name for the disk. Follow these naming requirements:
+  1. Enter a name for the disk. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -27,7 +27,7 @@ You can create an empty disk of the specified size.
   1. Select the required block size (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB.
   1. Specify the required disk size. The maximum disk size depends on the specified block size.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk [snapshots](../../concepts/snapshot.md), if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk [snapshots](../../concepts/snapshot.md). For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 

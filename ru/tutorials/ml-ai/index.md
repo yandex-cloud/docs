@@ -44,5 +44,5 @@ description: Различные сценарии использования ма
 ## Использование генеративных нейросетей {{ foundation-models-full-name }} {#generative-neuronets}
 
 * [{#T}](pdf-searchindex-ai-assistant.md)
-* [{#T}](qwen-vsc-integration.md)
+* [{#T}](ai-model-ide-integration.md)
 * [{#T}](tg-bot-assistant.md)

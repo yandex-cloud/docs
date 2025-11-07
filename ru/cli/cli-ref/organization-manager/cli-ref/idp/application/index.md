@@ -20,6 +20,7 @@ Aliases:
 #### Command Tree
 
 - [yc organization-manager idp application oauth](oauth/index.md) — Manage oauth applications and related resources
+- [yc organization-manager idp application saml](saml/index.md) — Manage SAML applications and related resources
 
 #### Global Flags
 

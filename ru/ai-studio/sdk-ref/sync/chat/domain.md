@@ -12,3 +12,5 @@ This class provides functionality for working with the [Yandex Cloud OpenAI Comp
 **completions**\: *[ChatCompletions](completions.md#yandex_cloud_ml_sdk._chat.completions.function.ChatCompletions)*{#yandex_cloud_ml_sdk._chat.Chat.completions}
 
 Chat API subdomain for working with text-generation models
+
+**text\_embeddings**\: *[ChatEmbeddings](text_embeddings.md#yandex_cloud_ml_sdk._chat.text_embeddings.function.ChatEmbeddings)*{#yandex_cloud_ml_sdk._chat.Chat.text_embeddings}

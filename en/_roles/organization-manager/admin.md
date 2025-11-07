@@ -42,6 +42,10 @@ The `organization-manager.admin` role enables managing organization settings, id
 * View the list of members belonging to Identity Hub user groups associated with user groups in Active Directory or another external source, as well as manage membership in such groups.
 * Associate user groups with identity federations and user pools through synchronization with user groups in Active Directory or another external source, as well as disassociate them.
 * Modify and delete Identity Hub user groups associated with user groups in Active Directory or another external source.
+* Link Identity Hub to a billing account.
+* View info on a subscription to the paid-for Identity Hub features.
+* View info on stats regarding the use of the quotes within a subscription to the paid-for Identity Hub features, as well as edit these quotas.
+* View the list of users who employ the Identity Hub authentication quota in the current [reporting period](../../billing/concepts/reporting-period.md).
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
 * View the info on the refresh tokens of the organization's users, as well as revoke such tokens.
 * View info on the Identity Hub quotas.
@@ -62,6 +66,6 @@ The `organization-manager.admin` role enables managing organization settings, id
 
 {% endcut %}
 
-This role includes the `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator`, `organization-manager.groups.externalManager`, and `src.repositories.admin` permissions.
+This role includes the `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator`, `organization-manager.groups.externalManager`, `organization-manager.idpInstances.admin`, and `src.repositories.admin` permissions.
 
 To configure user group mapping, the role must be assigned for the Identity Hub groups you intend to map.

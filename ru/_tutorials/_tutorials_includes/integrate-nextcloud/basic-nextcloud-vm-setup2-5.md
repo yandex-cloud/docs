@@ -1,0 +1,1 @@
+В открывшемся окне на панели слева выберите ![person](../../../_assets/console-icons/person.svg) **Your apps**.

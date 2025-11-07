@@ -98,13 +98,13 @@ Request parameters are provided in XML format:
 
 Tag | Description
 ----- | -----
-`SelectObjectContentRequest` | Root-level tag used for providing request parameters.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest`.
-`Expression` | SQL expression used to query object data.<br/><br/>Data type: String.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/Expression`.
-`ExpressionType` | Expression type used for the request.<br/><br/>Data type: String.<br/><br/>The acceptable value is `SQL`.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/ExpressionType`.
-`InputSerialization` | Description of data format in the queried object.<br/><br/>Data type: `InputSerialization`.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/InputSerialization`.
-`OutputSerialization` | Description of the returned data format.<br/><br/>Data type: `OutputSerialization`.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/OutputSerialization`.
-`RequestProgress` | Tag that indicates whether regular notifications on the request progress are enabled.<br/><br/>Data type: `RequestProgress`.<br/><br/>This tag is optional.<br/><br/>Path: `/SelectObjectContentRequest/RequestProgress`.
-`ScanRange` | Tag that specifies the byte range of the object to get the records from. A record is processed when its first byte is within the range. It is used only for objects in CSV format.<br/><br/>Data type: `ScanRange`.<br/><br/>This tag is optional.<br/><br/>Path: `/SelectObjectContentRequest/ScanRange`.
+`SelectObjectContentRequest` | Root-level tag for providing request parameters.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest`.
+`Expression` | SQL expression used to query object data.<br/><br/>Data type: string.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/Expression`.
+`ExpressionType` | Expression type used for the request.<br/><br/>Data type: string.<br/><br/>Acceptable values: `SQL`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/ExpressionType`.
+`InputSerialization` | Description of data format in the requested object.<br/><br/>Data type: `InputSerialization`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/InputSerialization`.
+`OutputSerialization` | Description of the returned data format.<br/><br/>Data type: `OutputSerialization`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/OutputSerialization`.
+`RequestProgress` | Tag that indicates whether regular notifications on the request progress are enabled.<br/><br/>Data type: `RequestProgress`.<br/><br/>Required: no.<br/><br/>Path: `/SelectObjectContentRequest/RequestProgress`.
+`ScanRange` | Tag that specifies the byte range of the object to get the records from. A record is processed when its first byte is within the range. It is used only for objects in CSV format.<br/><br/>Data type: `ScanRange`.<br/><br/>Required: no.<br/><br/>Path: `/SelectObjectContentRequest/ScanRange`.
 
 ## Response {#response}
 
@@ -149,10 +149,10 @@ A successful response contains additional data in XML format with the schema des
 Tag | Description
 ----- | -----
 `Payload` | Root-level tag used for providing response parameters.<br/><br/>Path: `/Payload`.
-`Cont` | Message indicating that the request is being processed.<br/><br/>Path: `/Payload/Cont`.
-`End` | Message indicating that the request has been processed.<br/><br/>Path: `/Payload/End`.
+`Cont` | Message indicating the request is being processed.<br/><br/>Path: `/Payload/Cont`.
+`End` | Message indicating the request has been processed.<br/><br/>Path: `/Payload/End`.
 `Progress` | Information about the request progress.<br/><br/>Path: `/Payload/Progress`.
 `Records` | Request result.<br/>Path: `/Payload/Records`.
-`Stats` | Statistics on the processed data, which is sent once at the end of the request.<br/>Path: `/Payload/Stats`.
+`Stats` | Statistics on the processed data. It is sent once at the end of the request.<br/>Path: `/Payload/Stats`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

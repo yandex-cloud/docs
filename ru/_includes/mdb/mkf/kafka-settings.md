@@ -160,7 +160,7 @@
 
 * **Offsets retention minutes** {{ tag-all }} {#settings-offsets-retention-minutes}
 
-    Компенсация времени хранения после потери группой всех потребителей (в минутах).
+    Время хранения смещений для неактивных [групп потребителей](../../../managed-kafka/concepts/producers-consumers.md#consumer-groups) (в минутах).
 
     Минимальное значение — `1`, значение по умолчанию — `10080`.
 

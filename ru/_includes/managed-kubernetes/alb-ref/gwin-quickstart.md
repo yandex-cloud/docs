@@ -43,8 +43,9 @@ Gwin — инструмент для управления балансировщ
    * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — если используются облачные сертификаты, зарегистрированные в сервисе [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager.editor) — если используются сертификаты кластера {{ managed-k8s-name }}. В этом случае контроллер создает соответствующие им облачные сертификаты.
    * [compute.viewer](../../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
-   *  [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer) — чтобы контроллер мог определить, в какой сети нужно развернуть L7-балансировщик.
+   * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer) — чтобы контроллер мог определить, в какой сети нужно развернуть L7-балансировщик.
    * (опционально) [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor) — для подключения [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }} к виртуальному хосту L7-балансировщика.
+   * (опционально) [logging.writer](../../../logging/security/index.md#logging-writer) — если в ресурсе [Gateway](../../../managed-kubernetes/alb-ref/gateway.md) указана [лог-группа](../../../logging/concepts/log-group.md) для записи логов L7-балансировщика в {{ cloud-logging-full-name }}.
 
 1. [Создайте авторизованный ключ доступа](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
@@ -218,6 +219,8 @@ Gwin — инструмент для управления балансировщ
       metadata:
         name: example-gateway
         namespace: example-ns
+        annotations:
+          gwin.yandex.cloud/securityGroups: <идентификаторы_групп_безопасности_балансировщика>
       spec:
         gatewayClassName: gwin-default
         listeners:
@@ -306,6 +309,7 @@ Gwin — инструмент для управления балансировщ
           gwin.yandex.cloud/groupName: example
           gwin.yandex.cloud/externalIPv4Address: auto
           gwin.yandex.cloud/rules.allowedMethods: "GET"
+          gwin.yandex.cloud/securityGroups: <идентификаторы_групп_безопасности_балансировщика>
       spec:
         ingressClassName: gwin-default
         rules:

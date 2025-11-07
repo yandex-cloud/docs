@@ -89,13 +89,23 @@ OperationStatus(done: ‘bool’, error: ‘OperationErrorInfo | None’, respon
 
 *property* **is\_running**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.operation.OperationStatus.is_running}
 
+Check if operation execution is still in progress.
+
 *property* **is\_succeeded**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.operation.OperationStatus.is_succeeded}
+
+Check if operation execution completed successfully.
 
 *property* **is\_failed**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.operation.OperationStatus.is_failed}
 
+Check if operation execution failed.
+
 *property* **is\_finished**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.operation.OperationStatus.is_finished}
 
+Check if operation execution finished.
+
 *property* **status\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._types.operation.OperationStatus.status_name}
+
+Get operation execution status name.
 
 ## *class* yandex\_cloud\_ml\_sdk.\_types.operation.**OperationErrorInfo**{#yandex_cloud_ml_sdk._types.operation.OperationErrorInfo}
 

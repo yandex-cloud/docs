@@ -4,6 +4,12 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
 ## Changing general and advanced instance settings {#change-settings}
 
+{% note warning %}
+
+During [instance type](../../concepts/index.md#config) or disk size update, your {{ GL }} instance will be temporarily unavailable.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -19,7 +25,7 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
   1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
-      * Change the [instance type](../../concepts/index.md#config). From the current instance type, you can only upgrade to a higher-performance type, e.g., from `s2.micro` to `s2.small`. You cannot downgrade to a lower-performance instance type.
+      * Change the instance type. From the current instance type, you can only upgrade to a higher-performance type, e.g., from `s2.micro` to `s2.small`. You cannot downgrade to a lower-performance instance type.
       * Select another [security group](../../../vpc/concepts/security-groups.md) or create a new one:
 
         * Click **{{ ui-key.yacloud.component.network-subnet-select.button_create-security-group }}**.
@@ -64,11 +70,11 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
       Where:
 
-      * `--new-name`: New instance name, unique within {{ yandex-cloud }}. The naming requirements are as follows:
+      * `--new-name`: New instance name, unique within {{ yandex-cloud }}. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--resource-preset-id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
+      * `--resource-preset-id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. Possible values:
 
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
@@ -84,7 +90,7 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
           {% endnote %}
 
-      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
+      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. Possible values:
 
           * `BASIC`
           * `STANDARD`
@@ -117,7 +123,7 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file that defines your infrastructure.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
       For more information about creating this file, see [Creating a {{ GL }} instance](instance-create.md#create).
 
@@ -137,14 +143,14 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
       Where:
 
-      * `resource_preset_id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
+      * `resource_preset_id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. Possible values:
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
           * `s2.medium`: 8 vCPUs, 32 GB RAM
           * `s2.large`: 16 vCPUs, 64 GB RAM
 
       * `disk_size`: Disk size in GB.
-      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
+      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. Possible values:
 
           * `BASIC`
           * `STANDARD`
@@ -157,11 +163,11 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
       For more information about `yandex_gitlab_instance` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/gitlab_instance).
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -171,7 +177,7 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
       {{ yc-mdb-gl }} instance list
       ```
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/gitlab_instance).
+  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
 
 - API {#api}
 

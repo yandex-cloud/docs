@@ -7,6 +7,8 @@ description: На данной странице приведен список с
 
 С помощью сервисных ролей [{{ sw-name }}](../concepts/index.md#workflows) вы можете управлять доступом пользователей к [рабочим процессам](../concepts/workflows/workflow.md) {{ sw-name }}.
 
+{% include [serverless-integrations-workflows](../../_mermaid/roles/serverless-integrations-workflows.md) %}
+
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
 {% include [serverless.workflows.auditor](../../_roles/serverless/workflows/auditor.md) %}

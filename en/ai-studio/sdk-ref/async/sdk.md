@@ -55,16 +55,16 @@ Domain for working with batch tasks
 
 Domain for working with [Yandex Cloud OpenAI Compatible API\_BaseSDK\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility).
 
-**\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_cloud_ml_sdk.AsyncYCloudML.__init__i}
+**\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id=Undefined*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_cloud_ml_sdk.AsyncYCloudML.__init__i}
 
 Construct a new asynchronous sdk instance.
 
 #|
 || Parameters | 
 
-- **folder\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Yandex Cloud folder identifier which will be billed for models usage.
+- **folder\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Yandex Cloud folder identifier which will be billed for models usage. In case of default Undefined value, the parameter will be taken from the environment variable **YC\_FOLDER\_ID**.
 - **endpoint** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – domain:port pair for Yandex Cloud API or any other grpc compatible target. In case of **None** passed it turns off service endpoint discovery mechanism and requires **service\_map** to be passed.
-- **auth** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseAuth*](../internals/bases.md#yandex_cloud_ml_sdk._auth.BaseAuth) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – string with API Key, IAM token or one of yandex\_cloud\_ml\_sdk.auth objects; in case of default Undefined value, there will be a mechanism to get token from environment
+- **auth** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseAuth*](../internals/bases.md#yandex_cloud_ml_sdk._auth.BaseAuth) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – string with API Key, IAM token or one of yandex\_cloud\_ml\_sdk.auth objects; in case of default Undefined value, the token will be taken from one of the environment variables: **YC\_OAUTH\_TOKEN**, **YC\_TOKEN**, **YC\_IAM\_TOKEN**, or **YC\_API\_KEY**.
 - **service\_map** (*Dict[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – a way to redefine endpoints for one or more cloud subservices with a format of dict **{"service\_name": "service\_address"}**.
 - **enable\_server\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – when passed bool, we will add *x-data-logging-enabled: <value>* to all of requests, which will enable or disable logging of user data on server side. It will do something only on those parts of backends which supports this option.
 - **verify** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*pathlib.Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*os.PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – SSL certificates (a.k.a CA bundle) used to verify the identity of requested hosts. Either *True* (default CA bundle), a path to an SSL certificate file, or *False* (which will disable verification).
@@ -226,15 +226,71 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 - [Search API domain](search_api.md)
   - [**AsyncSearchAPIDomain**](search_api.md#yandex_cloud_ml_sdk._search_api.domain.AsyncSearchAPIDomain)
     - [**AsyncSearchAPIDomain.generative**](search_api.md#yandex_cloud_ml_sdk._search_api.domain.AsyncSearchAPIDomain.generative)
-  - [**AsyncGenerativeSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction)
-    - [**AsyncGenerativeSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction.__call__i)
-    - [**AsyncGenerativeSearchFunction.available\_formats**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction.available_formats)
-  - [**AsyncGenerativeSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch)
-    - [**AsyncGenerativeSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.run)
-    - [**AsyncGenerativeSearch.as\_tool()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.as_tool)
-    - [**AsyncGenerativeSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.config)
-    - [**AsyncGenerativeSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.configure)
-    - [**AsyncGenerativeSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.uri)
+    - [**AsyncSearchAPIDomain.web**](search_api.md#yandex_cloud_ml_sdk._search_api.domain.AsyncSearchAPIDomain.web)
+    - [**AsyncSearchAPIDomain.image**](search_api.md#yandex_cloud_ml_sdk._search_api.domain.AsyncSearchAPIDomain.image)
+    - [**AsyncSearchAPIDomain.by\_image**](search_api.md#yandex_cloud_ml_sdk._search_api.domain.AsyncSearchAPIDomain.by_image)
+  - [Generative search](search_api.md#generative-search)
+    - [**AsyncGenerativeSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction)
+      - [**AsyncGenerativeSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction.__call__i)
+      - [**AsyncGenerativeSearchFunction.available\_formats**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.function.AsyncGenerativeSearchFunction.available_formats)
+    - [**AsyncGenerativeSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch)
+      - [**AsyncGenerativeSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.run)
+      - [**AsyncGenerativeSearch.as\_tool()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.as_tool)
+      - [**AsyncGenerativeSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.config)
+      - [**AsyncGenerativeSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.configure)
+      - [**AsyncGenerativeSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.generative.generative.AsyncGenerativeSearch.uri)
+  - [Web search](search_api.md#id2)
+    - [**AsyncWebSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.web.function.AsyncWebSearchFunction)
+      - [**AsyncWebSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.function.AsyncWebSearchFunction.__call__i)
+    - [**AsyncWebSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch)
+      - [**AsyncWebSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.run)
+      - [**AsyncWebSearch.run\_deferred()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.run_deferred)
+      - [**AsyncWebSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.config)
+      - [**AsyncWebSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.configure)
+      - [**AsyncWebSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.web.web.AsyncWebSearch.uri)
+    - [**AsyncWebSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult)
+      - [**AsyncWebSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.next_page)
+      - [**AsyncWebSearchResult.next\_page\_deferred()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.next_page_deferred)
+      - [**AsyncWebSearchResult.count()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.count)
+      - [**AsyncWebSearchResult.docs**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.docs)
+      - [**AsyncWebSearchResult.index()**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.index)
+      - [**AsyncWebSearchResult.xml**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.xml)
+      - [**AsyncWebSearchResult.groups**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.groups)
+      - [**AsyncWebSearchResult.page**](search_api.md#yandex_cloud_ml_sdk._search_api.web.result.AsyncWebSearchResult.page)
+  - [Image search](search_api.md#image-search)
+    - [**AsyncImageSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.image.function.AsyncImageSearchFunction)
+      - [**AsyncImageSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.function.AsyncImageSearchFunction.__call__i)
+    - [**AsyncImageSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch)
+      - [**AsyncImageSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.run)
+      - [**AsyncImageSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.config)
+      - [**AsyncImageSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.configure)
+      - [**AsyncImageSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.image.image.AsyncImageSearch.uri)
+    - [**AsyncImageSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult)
+      - [**AsyncImageSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.next_page)
+      - [**AsyncImageSearchResult.count()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.count)
+      - [**AsyncImageSearchResult.docs**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.docs)
+      - [**AsyncImageSearchResult.index()**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.index)
+      - [**AsyncImageSearchResult.xml**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.xml)
+      - [**AsyncImageSearchResult.groups**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.groups)
+      - [**AsyncImageSearchResult.page**](search_api.md#yandex_cloud_ml_sdk._search_api.image.result.AsyncImageSearchResult.page)
+  - [Search by image](search_api.md#id5)
+    - [**AsyncByImageSearchFunction**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.function.AsyncByImageSearchFunction)
+      - [**AsyncByImageSearchFunction.\_\_call\_\_()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.function.AsyncByImageSearchFunction.__call__i)
+    - [**AsyncByImageSearch**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch)
+      - [**AsyncByImageSearch.run()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.run)
+      - [**AsyncByImageSearch.run\_from\_url()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.run_from_url)
+      - [**AsyncByImageSearch.run\_from\_id()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.run_from_id)
+      - [**AsyncByImageSearch.config**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.config)
+      - [**AsyncByImageSearch.configure()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.configure)
+      - [**AsyncByImageSearch.uri**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.AsyncByImageSearch.uri)
+    - [**AsyncByImageSearchResult**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult)
+      - [**AsyncByImageSearchResult.next\_page()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.next_page)
+      - [**AsyncByImageSearchResult.count()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.count)
+      - [**AsyncByImageSearchResult.docs**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.docs)
+      - [**AsyncByImageSearchResult.index()**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.index)
+      - [**AsyncByImageSearchResult.images**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.images)
+      - [**AsyncByImageSearchResult.cbir\_id**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.cbir_id)
+      - [**AsyncByImageSearchResult.page**](search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.AsyncByImageSearchResult.page)
 - [Datasets domain](datasets.md)
   - [**AsyncDatasets**](datasets.md#yandex_cloud_ml_sdk._datasets.domain.AsyncDatasets)
     - [**AsyncDatasets.get()**](datasets.md#yandex_cloud_ml_sdk._datasets.domain.AsyncDatasets.get)
@@ -303,3 +359,4 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 - [Chat domain](chat/domain.md)
   - [**AsyncChat**](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat)
     - [**AsyncChat.completions**](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat.completions)
+    - [**AsyncChat.text\_embeddings**](chat/domain.md#yandex_cloud_ml_sdk._chat.AsyncChat.text_embeddings)

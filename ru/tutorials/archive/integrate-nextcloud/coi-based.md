@@ -10,3 +10,4 @@ description: С помощью данного руководства вы раз
 #### См. также {#see-also}
 
 * [{#T}](./fault-tolerant.md)
+* [{#T}](./terraform.md)

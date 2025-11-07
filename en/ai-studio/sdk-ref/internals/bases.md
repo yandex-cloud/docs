@@ -402,31 +402,57 @@ Returns the maximum number of prompt tokens allowed for the assistant.
 
 ## *class* yandex\_cloud\_ml\_sdk.\_runs.domain.**BaseRuns**{#yandex_cloud_ml_sdk._runs.domain.BaseRuns}
 
+Class for Runs operations. Provides core functionality for managing assistant execution in streams.
+
+For usage examples see [runs example](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/{link}/assistants/runs.py).
+
 ## *class* yandex\_cloud\_ml\_sdk.\_runs.run.**BaseRun**{#yandex_cloud_ml_sdk._runs.run.BaseRun}
 
 BaseRun(id: ‘str’, \_sdk: ‘BaseSDK’, assistant\_id: ‘str’, thread\_id: ‘str’, created\_by: ‘str’, created\_at: ‘datetime’, labels: ‘dict[str, str] | None’, custom\_temperature: ‘float | None’, custom\_max\_tokens: ‘int | None’, custom\_prompt\_truncation\_options: ‘PromptTruncationOptions | None’, custom\_response\_format: ‘ResponseType | None’)
 
 **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.id}
 
+Unique run identifier
+
 **assistant\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.assistant_id}
+
+ID of the assistant used
 
 **thread\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.thread_id}
 
+ID of the thread used
+
 **created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.created_by}
+
+Creator of the run
 
 **created\_at**\: *datetime*{#yandex_cloud_ml_sdk._runs.run.BaseRun.created_at}
 
+Creation timestamp
+
 **labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.labels}
+
+Optional metadata labels
 
 **custom\_temperature**\: *[float](https://docs.python.org/3/library/functions.html#float) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.custom_temperature}
 
+Custom temperature setting
+
 **custom\_max\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.custom_max_tokens}
+
+Custom max tokens setting
 
 **custom\_prompt\_truncation\_options**\: *[PromptTruncationOptions](../types/assistants.md#yandex_cloud_ml_sdk._assistants.prompt_truncation_options.PromptTruncationOptions) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.custom_prompt_truncation_options}
 
+Custom prompt truncation options
+
 **custom\_response\_format**\: *ResponseType | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.custom_response_format}
 
+Custom response format
+
 *property* **custom\_max\_prompt\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._runs.run.BaseRun.custom_max_prompt_tokens}
+
+Get max prompt tokens from truncation options if set.
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_api.domain.**BaseSearchAPIDomain**{#yandex_cloud_ml_sdk._search_api.domain.BaseSearchAPIDomain}
 
@@ -435,6 +461,18 @@ Domain for working with [Yandex Search API](https://yandex.cloud/docs/search-api
 **generative**\: *[BaseGenerativeSearchFunction](#yandex_cloud_ml_sdk._search_api.generative.function.BaseGenerativeSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.BaseSearchAPIDomain.generative}
 
 API for [generative response](https://yandex.cloud/docs/search-api/concepts/generative-response) service
+
+**web**\: *[BaseWebSearchFunction](#yandex_cloud_ml_sdk._search_api.web.function.BaseWebSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.BaseSearchAPIDomain.web}
+
+API for [web search](https://yandex.cloud/ru/docs/search-api/concepts/web-search) service
+
+**image**\: *[BaseImageSearchFunction](#yandex_cloud_ml_sdk._search_api.image.function.BaseImageSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.BaseSearchAPIDomain.image}
+
+API for [text image search](https://yandex.cloud/ru/docs/search-api/concepts/image-search#search-by-text-query) service
+
+**by\_image**\: *[BaseByImageSearchFunction](#yandex_cloud_ml_sdk._search_api.by_image.function.BaseByImageSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.BaseSearchAPIDomain.by_image}
+
+API for [search by image](https://yandex.cloud/ru/docs/search-api/concepts/image-search#search-by-image) service
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.function.**BaseGenerativeSearchFunction**{#yandex_cloud_ml_sdk._search_api.generative.function.BaseGenerativeSearchFunction}
 
@@ -521,7 +559,7 @@ A class for search indexes. It is a part of Assistants API and it provides the f
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.search\_index.**BaseSearchIndex**{#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex}
 
-BaseSearchIndex(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’, \_deleted: ‘bool’, expiration\_config: ‘ExpirationConfig’)
+This class represents a search index with associated operations.
 
 **expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_cloud_ml_sdk._types.expiration.ExpirationConfig)*{#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex.expiration_config}
 
@@ -529,87 +567,147 @@ BaseSearchIndex(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’,
 
 ## *class* yandex\_cloud\_ml\_sdk.\_datasets.domain.**BaseDatasets**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets}
 
+This class provides methods to create and manage datasets of a specific type.
+
 **completions**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.completions}
+
+a helper for autocompletion text-to-text generation tasks
 
 **text\_classifiers\_multilabel**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.text_classifiers_multilabel}
 
+a helper for autocompletion multilabel text classification tasks
+
 **text\_classifiers\_multiclass**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.text_classifiers_multiclass}
+
+a helper for autocompletion multiclass text classification tasks
 
 **text\_classifiers\_binary**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.text_classifiers_binary}
 
+a helper for autocompletion binary text classification tasks
+
 **text\_embeddings\_pair**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.text_embeddings_pair}
+
+a helper for autocompletion pairwise text embeddings tasks
 
 **text\_embeddings\_triplet**{#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.text_embeddings_triplet}
 
+a helper for autocompletion triplet text embeddings tasks
+
 **draft\_from\_path**(*path*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *task\_type=Undefined*, *upload\_format=Undefined*, *name=Undefined*, *description=Undefined*, *metadata=Undefined*, *labels=Undefined*, *allow\_data\_logging=Undefined*){#yandex_cloud_ml_sdk._datasets.domain.BaseDatasets.draft_from_path}
+
+Create a new dataset draft from a specified path.
 
 #|
 || Parameters | 
 
-- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path to the data file or directory.
+- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the type of task for the dataset.
+- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the format in which the data should be uploaded.
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the name of the dataset.
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a description of the dataset.
+- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – metadata associated with the dataset.
+- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a set of labels for the dataset.
+- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a flag indicating if data logging is allowed. ||
 || Return type | [*DatasetDraftT*](../types/other.md#yandex_cloud_ml_sdk._datasets.draft.DatasetDraftT) ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_datasets.dataset.**BaseDataset**{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset}
 
-BaseDataset(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’, \_deleted: ‘bool’, folder\_id: ‘str’, name: ‘str | None’, description: ‘str | None’, metadata: ‘str | None’, created\_by: ‘str’, created\_at: ‘datetime’, updated\_at: ‘datetime’, labels: ‘dict[str, str] | None’, allow\_data\_logging: ‘bool’, status: ‘DatasetStatus’, task\_type: ‘str’, rows: ‘int’, size\_bytes: ‘int’, validation\_errors: ‘tuple[ValidationErrorInfo, …]’)
+This class represents methods for operating with datasets.
 
 **folder\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.folder_id}
 
+the ID of the folder which contains the dataset
+
 **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.name}
+
+the name of the dataset
 
 **description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.description}
 
+a description of the dataset
+
 **metadata**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.metadata}
+
+metadata associated with the dataset
 
 **created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.created_by}
 
+the user who created the dataset
+
 **created\_at**\: *datetime*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.created_at}
+
+the timestamp when the dataset was created
 
 **updated\_at**\: *datetime*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.updated_at}
 
+the timestamp when the dataset was last updated
+
 **labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.labels}
+
+a dictionary of labels associated with the dataset
 
 **allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.allow_data_logging}
 
+indicates if data logging is allowed for this dataset
+
 **status**\: *[DatasetStatus](../types/datasets.md#yandex_cloud_ml_sdk._datasets.status.DatasetStatus)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.status}
+
+the current status of the dataset
 
 **task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.task_type}
 
+the type of task associated with the dataset
+
 **rows**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.rows}
+
+the number of rows in the dataset
 
 **size\_bytes**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.size_bytes}
 
+the size of the dataset in bytes
+
 **validation\_errors**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ValidationErrorInfo](../types/datasets.md#yandex_cloud_ml_sdk._datasets.dataset.ValidationErrorInfo)*]... ,{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.validation_errors}
+
+a tuple of validation errors associated with the dataset
 
 **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._datasets.dataset.BaseDataset.id}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_datasets.draft.**BaseDatasetDraft**{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft}
 
-BaseDatasetDraft(\_domain: ‘BaseDatasets’, task\_type: ‘str | None’ = None, path: ‘PathLike | None’ = None, upload\_format: ‘str | None’ = None, name: ‘str | None’ = None, description: ‘str | None’ = None, metadata: ‘str | None’ = None, labels: ‘dict[str, str] | None’ = None, allow\_data\_logging: ‘bool | None’ = None)
+This class allows users to create a draft representation of a dataset without immediately interacting with the server. This draft serves as a structure for storing configuration settings, enabling users to edit the dataset’s properties before finalizing the upload.
 
 **task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.task_type}
 
+the type of task associated with the dataset
+
 **path**\: *[PathLike](../types/other.md#yandex_cloud_ml_sdk._types.misc.PathLike) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.path}
+
+the file path to the dataset
 
 **upload\_format**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.upload_format}
 
+the format in which the dataset will be uploaded
+
 **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.name}
+
+the name of the dataset
 
 **description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.description}
 
+a description of the dataset
+
 **metadata**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.metadata}
+
+metadata associated with the dataset
 
 **labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.labels}
 
+labels for categorizing the dataset
+
 **allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.allow_data_logging}
+
+a flag indicating if iyt is allowed to use the dataset to improve the models quality. Default false.
 
 **configure**(*\*\*kwargs*){#yandex_cloud_ml_sdk._datasets.draft.BaseDatasetDraft.configure}
 
@@ -646,6 +744,10 @@ Get concatenated string of all text parts in the message by joining all string p
 
 ## *class* yandex\_cloud\_ml\_sdk.\_batch.domain.**BaseBatch**{#yandex_cloud_ml_sdk._batch.domain.BaseBatch}
 
+Сlass for managing batch operations in Yandex Cloud ML SDK.
+
+For usage examples see [batch example](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/{link}/completions/batch.py).
+
 ## *class* yandex\_cloud\_ml\_sdk.\_types.batch.operation.**BaseBatchTaskOperation**{#yandex_cloud_ml_sdk._types.batch.operation.BaseBatchTaskOperation}
 
 *property* **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._types.batch.operation.BaseBatchTaskOperation.id}
@@ -662,6 +764,8 @@ This class provides functionality for working with the [Yandex Cloud OpenAI Comp
 
 Chat API subdomain for working with text-generation models
 
+**text\_embeddings**\: *[BaseChatEmbeddings](#yandex_cloud_ml_sdk._chat.text_embeddings.function.BaseChatEmbeddings)*{#yandex_cloud_ml_sdk._chat.BaseChat.text_embeddings}
+
 ## *class* yandex\_cloud\_ml\_sdk.\_chat.completions.function.**BaseChatCompletions**{#yandex_cloud_ml_sdk._chat.completions.function.BaseChatCompletions}
 
 A class for working with chat completions models.
@@ -670,7 +774,7 @@ This class provides the core functionality for creating chat model instances and
 
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_cloud_ml_sdk._chat.completions.function.BaseChatCompletions.__call__i}
 
-Create a chat model instance for generating completions.
+Create a model instance in selected chat subdomain (completions, embeddings, etc)
 
 Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model>/<version>’.
 
@@ -709,3 +813,109 @@ Configure the model with specified parameters.
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.config}
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.completions.model.BaseChatModel.uri}
+
+## *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.function.**BaseChatEmbeddings**{#yandex_cloud_ml_sdk._chat.text_embeddings.function.BaseChatEmbeddings}
+
+**\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_cloud_ml_sdk._chat.text_embeddings.function.BaseChatEmbeddings.__call__i}
+
+Create a model instance in selected chat subdomain (completions, embeddings, etc)
+
+Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model>/<version>’.
+
+#|
+|| Parameters | 
+
+- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The name or URI of the model.
+- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The version of the model to use. Defaults to ‘latest’. ||
+|| Return type | [*ModelTypeT*](../types/other.md#yandex_cloud_ml_sdk._types.model.ModelTypeT) ||
+|#
+
+## *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.model.**BaseChatEmbeddingsModel**{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel}
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *dimensions=Undefined*, *encoding\_format=Undefined*, *extra\_query=Undefined*){#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.configure}
+
+#|
+|| Parameters | 
+
+- **dimensions** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*)
+- **encoding\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*EncodingFormatType*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.text_embeddings.config.EncodingFormatType)*]*)
+- **extra\_query** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*QueryType*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.QueryType)*]*) ||
+|| Return type | Self ||
+|#
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.config}
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.uri}
+
+## *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.function.**BaseWebSearchFunction**{#yandex_cloud_ml_sdk._search_api.web.function.BaseWebSearchFunction}
+
+Web search function for creating search object which provides methods for invoking web search.
+
+**\_\_call\_\_**(*search\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *localization=Undefined*, *sort\_order=Undefined*, *sort\_mode=Undefined*, *group\_mode=Undefined*, *groups\_on\_page=Undefined*, *docs\_in\_group=Undefined*, *max\_passages=Undefined*, *region=Undefined*, *user\_agent=Undefined*, *metadata=Undefined*){#yandex_cloud_ml_sdk._search_api.web.function.BaseWebSearchFunction.__call__i}
+
+Creates web search object which provides methods for web search.
+
+To learn more about parameters and their formats and possible values, refer to [web search documentation](https://yandex.cloud/ru/docs/search-api/concepts/web-search#parameters)
+
+#|
+|| Parameters | 
+
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search query typo correction setting
+- **localization** ([*Localization*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.Localization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*Localization*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.Localization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search response notifications language. Affects the text in the **found-docs-human** tag and error messages
+- **sort\_order** ([*SortOrder*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortOrder) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SortOrder*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortOrder)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search results sorting order
+- **sort\_mode** ([*SortMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SortMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search results sorting mode rule
+- **group\_mode** ([*GroupMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.GroupMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*GroupMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.GroupMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Result grouping method.
+- **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of groups that can be returned per page.
+- **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of documents that can be returned per group.
+- **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of passages that can be used when generating a document.
+- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
+- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
+- **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+|| Return type | [*WebSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearchTypeT) ||
+|#
+
+## *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.function.**BaseImageSearchFunction**{#yandex_cloud_ml_sdk._search_api.image.function.BaseImageSearchFunction}
+
+Image search function for creating search object which provides methods for invoking image search.
+
+**\_\_call\_\_**(*search\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *format=Undefined*, *size=Undefined*, *orientation=Undefined*, *color=Undefined*, *site=Undefined*, *docs\_on\_page=Undefined*, *user\_agent=Undefined*){#yandex_cloud_ml_sdk._search_api.image.function.BaseImageSearchFunction.__call__i}
+
+Creates image search object which provides methods for image search.
+
+To learn more about parameters and their formats and possible values, refer to [image search documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#parameters)
+
+#|
+|| Parameters | 
+
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search query typo correction setting.
+- **format** ([*ImageFormat*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageFormat*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images in a particular format.
+- **size** ([*ImageSize*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageSize) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageSize*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageSize)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images of a particular size.
+- **orientation** ([*ImageOrientation*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageOrientation*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images with a particular orientation.
+- **color** ([*ImageColor*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageColor) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageColor*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageColor)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images containing a particular color.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of results per search result page.
+- **docs\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of results per search result page.
+- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results. ||
+|| Return type | [*ImageSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearchTypeT) ||
+|#
+
+## *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.function.**BaseByImageSearchFunction**{#yandex_cloud_ml_sdk._search_api.by_image.function.BaseByImageSearchFunction}
+
+ByImage search function for creating search object which provides methods for invoking by\_image search.
+
+**\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *site=Undefined*){#yandex_cloud_ml_sdk._search_api.by_image.function.BaseByImageSearchFunction.__call__i}
+
+Creates by\_image search object which provides methods for search by image.
+
+To learn more about parameters and their formats and possible values, refer to [search by image documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#request-body-by-pic)
+
+#|
+|| Parameters | 
+
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Results filtering.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Restricts the search to the specific website. ||
+|| Return type | [*ByImageSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearchTypeT) ||
+|#

@@ -7,7 +7,32 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 0.170.0 (13/10/25) {#version0.170.0}
+### Version 0.171.0 (20/10/25) {#version0.171.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ dns-name }}
+
+Added the `yc dns zone move` command to migrate a DNS zone to a different folder.
+
+##### {{ org-name }}
+
+* Added a new feature to the `yc organization-manager idp user create` command: you can now create a user without specifying a password. The password will be generated automatically.
+* Added the `yc organization-manager idp user reset-password` command to reset a user password.
+
+##### {{ iam-name }}
+
+Added the `yc iam access-analyzer list-subject-access-bindings` command to get access bindings by subject.
+
+##### {{ mtr-name }}
+
+* For configuring a {{ mtr-name }} cluster's trusted certificates, added the following flags to the `yc managed-trino cluster create` and `yc managed-trino cluster update` commands:
+  * `--trusted-certs-from-files`: To provide a list of trusted certificate files.
+  * `--remove-trusted-certs`: To delete all trusted certificates.
+
+## Previous releases {#previous-release}
+
+### Version 0.170.0 (16/10/25) {#version0.170.0}
 
 #### Changes in {{ yandex-cloud }} services
 
@@ -17,23 +42,67 @@ Added the `yc managed-postgresql connect` command to connect users with IAM auth
 
 ##### {{ maf-name }}
 
-Added DAG processor configuration for Airflow 3.0 and higher.
+Added dag-processor configuring for Airflow 3.0 and higher.
+
+##### {{ interconnect-name }}
+
+* Added a command to get info about a resource by its ID.
+* Added the `get-by-vpc-network-id` and `get-by-cic-private-connection-id` commands.
+
+##### {{ org-name }}
+
+* Added the `yc organization-manager group list-effective` command to output groups within an organization that a specific user is a member of.
+* Added an ability to manage password policies when creating or updating a user pool.
+* Added the `yc organization-manager idp application oauth application` command group for OAuth app management:
+  * `yc organization-manager idp application oauth application get`
+  * `yc organization-manager idp application oauth application list`
+  * `yc organization-manager idp application oauth application create`
+  * `yc organization-manager idp application oauth application update`
+  * `yc organization-manager idp application oauth application delete`
+  * `yc organization-manager idp application oauth application suspend`
+  * `yc organization-manager idp application oauth application reactivate`
+  * `yc organization-manager idp application oauth application list-operations`
+  * `yc organization-manager idp application oauth application list-assignments`
+  * `yc organization-manager idp application oauth application add-assignments`
+  * `yc organization-manager idp application oauth application remove-assignments`
+  * `yc organization-manager idp application oauth application list-access-bindings`
+  * `yc organization-manager idp application oauth application add-access-bindings`
+  * `yc organization-manager idp application oauth application set-access-bindings`
+  * `yc organization-manager idp application oauth application update-access-bindings`
+  * `yc organization-manager idp application oauth application remove-access-bindings`
 
 ##### {{ mgp-name }}
 
-* For the `yc managed-greenplum cluster create` command, changed the default version to 6.28.
-* For the `yc managed-greenplum connect` command with IAM authentication, deleted the `--user` option. The user is now defined automatically.
+* For the `yc managed-greenplum cluster create` cluster create command, changed the default version to 6.28.
+* For the `yc managed-greenplum connect` command using IAM authentication, deleted the `--user` option. The user is now identified automatically.
 
 ##### {{ objstorage-short-name }}
 
 Added a check for the maximum object size in the `yc storage s3 cp` command.
 
-##### {{ org-name }}
+##### {{ baremetal-name }}
 
-* Added the `yc organization-manager group list-effective` command to output groups to which the user belongs within an organization.
-* Added an ability to manage password policies when creating or updating a user pool.
+Added the `yc baremetal rental-period list` command that returns available rent periods for a server.
 
-## Previous releases {#previous-release}
+##### {{ cr-name }}
+
+Provided more specific descriptions of the `yc cloudrouter routing-instance create`, `yc cloudrouter routing-instance upsert-prefixes`, and `yc cloudrouter routing-instance remove-prefixes` commands and added examples.
+
+##### {{ mtr-name }}
+
+Added the following commands for creating and updating Hudi catalogs for {{ mtr-name }}:
+  * `yc managed-trino catalog create hudi`
+  * `yc managed trino catalog update hudi`
+
+##### {{ myt-name }}
+
+Added {{ myt-name }} cluster management commands:
+  * `yc managed-ytsaurus cluster get`
+  * `yc managed-ytsaurus cluster start`
+  * `yc managed-ytsaurus cluster stop`
+  * `yc managed-ytsaurus cluster delete`
+  * `yc managed-ytsaurus cluster list`
+  * `yc managed-ytsaurus cluster get-configuration`
 
 ### Version 0.169.0 (01/10/25) {#version0.169.0}
 

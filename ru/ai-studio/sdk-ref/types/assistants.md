@@ -7,7 +7,7 @@ yandex\_cloud\_ml\_sdk.\_types.expiration.**ExpirationProtoTypeT\_contra** = *Ty
 
 **Type:**[**TypeVar**](https://docs.python.org/3/library/typing.html#typing.TypeVar)
 
-Contravariant [**TypeVar**](https://docs.python.org/3/library/typing.html#typing.TypeVar) bound to **typing.Union**[**yandex.cloud.ai.assistants.v1.assistant\_pb2.Assistant**, **yandex.cloud.ai.assistants.v1.searchindex.search\_index\_pb2.SearchIndex**, **yandex.cloud.ai.assistants.v1.threads.thread\_pb2.Thread**, **yandex.cloud.ai.files.v1.file\_pb2.File**].
+Contravariant [**TypeVar**](https://docs.python.org/3/library/typing.html#typing.TypeVar) bound to [**typing.Union**](https://docs.python.org/3/library/typing.html#typing.Union)[**yandex.cloud.ai.assistants.v1.assistant\_pb2.Assistant**, **yandex.cloud.ai.assistants.v1.searchindex.search\_index\_pb2.SearchIndex**, **yandex.cloud.ai.assistants.v1.threads.thread\_pb2.Thread**, **yandex.cloud.ai.files.v1.file\_pb2.File**].
 
 ## *class* yandex\_cloud\_ml\_sdk.\_types.expiration.**ExpirationPolicy**{#yandex_cloud_ml_sdk._types.expiration.ExpirationPolicy}
 
