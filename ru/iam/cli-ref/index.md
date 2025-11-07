@@ -26,6 +26,8 @@ Syntax:
 	- [yc iam access-key delete](access-key/delete.md) — Delete the specified access key
 	- [yc iam access-key get](access-key/get.md) — Show information about the specified access key
 	- [yc iam access-key list](access-key/list.md) — List access keys for the specified service account
+- [yc iam access-policy-template](access-policy-template/index.md) — Manage access policy templates
+	- [yc iam access-policy-template list](access-policy-template/list.md) — List available access policy templates
 - [yc iam api-key](api-key/index.md) — Manage service account API keys
 	- [yc iam api-key create](api-key/create.md) — Create an API key for the specified service account
 	- [yc iam api-key delete](api-key/delete.md) — Delete the specified API key

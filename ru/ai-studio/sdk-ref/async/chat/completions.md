@@ -11,7 +11,7 @@ This class provides the core functionality for creating chat model instances and
 
 *async* **list**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_cloud_ml_sdk._chat.completions.function.AsyncChatCompletions.list}
 
-Returns all available chat models.
+Returns all available models in selected subdomain (completions, embeddings, etc)
 
 #|
 || Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. ||
@@ -20,7 +20,7 @@ Returns all available chat models.
 
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_cloud_ml_sdk._chat.completions.function.AsyncChatCompletions.__call__i}
 
-Create a chat model instance for generating completions.
+Create a model instance in selected chat subdomain (completions, embeddings, etc)
 
 Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model>/<version>’.
 

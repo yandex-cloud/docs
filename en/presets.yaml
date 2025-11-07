@@ -7826,7 +7826,6 @@ default:
         organizations: Organizations
         repositories: Repositories
         settings: Settings
-        tab_secrets: Secrets
         value_role-org-owner: Organization owner
       ui_modules_cicd:
         value_status-created: Queued
@@ -7839,17 +7838,13 @@ default:
       ui_modules_repo:
         action_cicd: CI/CD
         action_commit: Commit changes
-        action_create-file: Create file
         button_commit: Commit changes
-        button_commit-and-go-to-read-mode: Commit and back to read mode
         button_use-template: Use template
         field_after-commit-action: After commit action
         field_commit-branch: Commit branch
         field_text_commit-directly-to-the-branch: 'Commit directly to the branch:'
-        file: File
         option_just-commit: Just commit
         title_navigation-code: Code
-        title_navigation-repository-settings: Repository settings
       ui_modules_repoCreate:
         button_browse-templates: Browse templates
         button_create-repo: Create repository
@@ -7859,15 +7854,8 @@ default:
         title_new-repo-details: Your new repository details
         title_owner-field: Owner
         title_repo-field: Name
-      ui_modules_repoMain:
-        action_go-to-browse: Browse all repository files
       ui_modules_repoSettings:
         field_description: Description
-      ui_modules_secrets:
-        action_add-secret: Add secret
-        action_new-secrete: New secret
-        field_name: Name
-        field_secret: Secret
       ui_modules_serviceConnections:
         button_add-connection: New service connection
         button_create-connection: Create service connection
@@ -9434,6 +9422,7 @@ default:
         button_resource-content-purge-cache: Purge cache
         button_resource-create: Create resource
         button_resource-deactivate-raw-logs: Deactivate
+        button_wizard-create: Create and continue
         column_name: Name
         field_access: End-user access to content
         field_address-acl: IP-based access
@@ -9512,6 +9501,7 @@ default:
         label_source-type: Origin type
         label_status-active: Active
         label_status-backup: Backup
+        label_use-bucket-site: Use bucket site
         value_active: Active
         value_backup: Backup
         value_certificate-custom: Use from Certificate Manager
@@ -10280,13 +10270,18 @@ default:
             section_title_1sDGx: AI Studio
           CreateResourceDialog:
             search_kV4c1: Search services
+          QuickActions:
+            label_marketplace_1sDGx: Marketplace
           ResourceSearch:
             placeholder_3my5Y: Search services
           ResourcesSection:
             create-resources_rGA1t: Create resource
             title_7kYbU: Resources
+        label_access_2bch9: Access rights
         label_create-resource_4KN3M: Create resource
+        label_notifications_uWDue: Service notifications
         label_permissions_gAtoT: Permissions
+        label_quotas_gAtoT: Quotas
       data-catalog:
         action_create-catalog: Create catalog
         action_edit-domain: Edit domain

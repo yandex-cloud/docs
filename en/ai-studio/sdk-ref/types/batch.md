@@ -81,13 +81,23 @@ LineErrorInfo(line\_number: ‘int’, message: ‘str’)
 
 *property* **is\_running**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus.is_running}
 
+Check if operation execution is still in progress.
+
 *property* **is\_succeeded**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus.is_succeeded}
+
+Check if operation execution completed successfully.
 
 *property* **is\_failed**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus.is_failed}
 
+Check if operation execution failed.
+
 *property* **is\_finished**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus.is_finished}
 
+Check if operation execution finished.
+
 *property* **status\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus.status_name}
+
+Get operation execution status name.
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._types.batch.status.BatchTaskStatus.__new__i}
 

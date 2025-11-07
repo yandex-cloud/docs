@@ -26,6 +26,7 @@ Syntax:
 |`--login`|Indicates whether the user can login.|
 |`--grants`|<b>`value[,value]`</b><br/>Roles granted to the user.|
 |`--generate-password`|Generate password using Connection Manager.|
+|`--auth-method`|<b>`string`</b><br/>Authentication method for the user. Values: 'auth-method-password', 'auth-method-iam'|
 |`--lock-timeout`|<b>`int`</b><br/>Lock timeout in milliseconds.|
 |`--log-min-duration-statement`|<b>`int`</b><br/>Log minimal duration statement in milliseconds.|
 |`--temp-file-limit`|<b>`int`</b><br/>Temporary file limit in bytes.|

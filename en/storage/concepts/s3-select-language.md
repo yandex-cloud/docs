@@ -205,7 +205,7 @@ SELECT s.CAST FROM S3Object s
 
 * `unary_op expression`. In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, e.g., the unary minus that changes the sign of a number.
 
-  Example:
+  Here is an example:
 
   ```sql
   SELECT -5 FROM S3Object
@@ -225,7 +225,7 @@ SELECT s.CAST FROM S3Object s
 
 * `func_name`. In this expression, `func_name` is the name of a callable scalar function.
 
-  Example:
+  Here is an example:
 
   ```sql
   SELECT CAST(status AS INT) FROM S3Object
@@ -233,7 +233,7 @@ SELECT s.CAST FROM S3Object s
 
 * `expression [ NOT ] BETWEEN expression AND expression`. Checks if a value belongs to a range.
 
-  Example:
+  Here is an example:
 
   ```sql
   SELECT x FROM S3Object WHERE x BETWEEN -1 AND 1
@@ -251,7 +251,7 @@ The following functions are supported:
 | `MIN` | Minimum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `MAX` | Maximum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `SUM` | Sum of values | `INT`, `FLOAT`, or `DECIMAL` | Same as input |
-| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL` if the input type is `INT`;<br/>otherwise, same as input. |
+| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL` if the input type is `INT`;<br/>otherwise, same as input |
 
 Examples:
 

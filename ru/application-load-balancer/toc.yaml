@@ -209,6 +209,8 @@ items:
             href: tutorials/integrate-nextcloud/coi-based.md
           - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
             href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
       - name: >-
           Развертывание веб-приложения на серверах {{ baremetal-name }} с
           L7-балансировщиком и защитой {{ sws-name }}

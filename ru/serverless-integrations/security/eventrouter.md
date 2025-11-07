@@ -7,6 +7,8 @@ description: На данной странице приведен список с
 
 С помощью сервисных ролей [{{ er-name }}](../concepts/index.md#eventrouter) вы можете управлять доступом пользователей к ресурсам {{ er-name }} — [шинам](../concepts/eventrouter/bus.md), [коннекторам](../concepts/eventrouter/connector.md) и [правилам](../concepts/eventrouter/rule.md).
 
+{% include [serverless-integrations-eventrouter](../../_mermaid/roles/serverless-integrations-eventrouter.md) %}
+
 #### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
 
 {% include [serverless.eventrouter.auditor](../../_roles/serverless/eventrouter/auditor.md) %}

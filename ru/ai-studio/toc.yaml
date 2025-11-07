@@ -338,6 +338,9 @@ items:
             href: sdk-ref/sync/chat/completions
             hidden: true
           - name: Domain
+            href: sdk-ref/sync/chat/text_embeddings
+            hidden: true
+          - name: Domain
             href: sdk-ref/async/models/completions
             hidden: true
           - name: Domain
@@ -351,6 +354,9 @@ items:
             hidden: true
           - name: Domain
             href: sdk-ref/async/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/text_embeddings
             hidden: true
           - name: Result types for models
             href: sdk-ref/types/model_results
@@ -963,8 +969,8 @@ items:
         href: tutorials/models-fine-tuning.md
       - name: Создание AI-агента с помощью {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
-      - name: Интеграция модели Qwen3 в Visual Studio Code
-        href: tutorials/qwen-vsc-integration.md
+      - name: Интеграция генеративных моделей в Visual Studio Code
+        href: tutorials/ai-model-ide-integration.md
       - name: Создание интеллектуального ассистента для Telegram
         href: tutorials/tg-bot-assistant.md
       - name: >-

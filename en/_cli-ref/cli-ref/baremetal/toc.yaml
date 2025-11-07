@@ -46,6 +46,20 @@ items:
         href: cli-ref/image/get.md
       - name: list
         href: cli-ref/image/list.md
+  - name: private-cloud-connection
+    items:
+      - name: Overview
+        href: cli-ref/private-cloud-connection/index.md
+      - name: create
+        href: cli-ref/private-cloud-connection/create.md
+      - name: delete
+        href: cli-ref/private-cloud-connection/delete.md
+      - name: get
+        href: cli-ref/private-cloud-connection/get.md
+      - name: list
+        href: cli-ref/private-cloud-connection/list.md
+      - name: update
+        href: cli-ref/private-cloud-connection/update.md
   - name: private-subnet
     items:
       - name: Overview

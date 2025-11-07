@@ -201,13 +201,23 @@ TuningTaskInfo(id: ‘str’, \_sdk: ‘BaseSDK’, task\_id: ‘str’, operati
 
 *property* **is\_failed**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningTaskStatus.is_failed}
 
+Check if operation execution failed.
+
 *property* **is\_finished**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningTaskStatus.is_finished}
+
+Check if operation execution finished.
 
 *property* **is\_running**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningTaskStatus.is_running}
 
+Check if operation execution is still in progress.
+
 *property* **is\_succeeded**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningTaskStatus.is_succeeded}
 
+Check if operation execution completed successfully.
+
 *property* **status\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningTaskStatus.status_name}
+
+Get operation execution status name.
 
 **done**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_cloud_ml_sdk._tuning.tuning_task.TuningTaskStatus.done}
 

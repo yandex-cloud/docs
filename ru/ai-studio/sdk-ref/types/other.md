@@ -359,6 +359,14 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_cloud\_ml\_sdk.\_types.operation.**OperationStatusTypeT**{#yandex_cloud_ml_sdk._types.operation.OperationStatusTypeT}
 
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.web.**WebSearchTypeT**{#yandex_cloud_ml_sdk._search_api.web.web.WebSearchTypeT}
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.image.**ImageSearchTypeT**{#yandex_cloud_ml_sdk._search_api.image.image.ImageSearchTypeT}
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.by\_image.**ByImageSearchTypeT**{#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearchTypeT}
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.types.**XMLSearchDocumentTypeT**{#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT}
+
 ## Miscellaneous types
 
 ### *class* yandex\_cloud\_ml\_sdk.\_types.misc.**Undefined**{#yandex_cloud_ml_sdk._types.misc.Undefined}
@@ -389,25 +397,31 @@ yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonVal**{#yandex_cloud_ml_sdk._types.s
 
 Recurrent json object
 
-Alias of **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]
 
 yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonArray**{#yandex_cloud_ml_sdk._types.schemas.JsonArray}
 
 Json array
 
-Alias of [**list**](https://docs.python.org/3/library/stdtypes.html#list)[**Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**list**](https://docs.python.org/3/library/stdtypes.html#list)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
 
 yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonObject**{#yandex_cloud_ml_sdk._types.schemas.JsonObject}
 
 Json object
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
 
 yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaType**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaType}
 
 Type for json schema
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
+
+yandex\_cloud\_ml\_sdk.\_types.schemas.**QueryType**{#yandex_cloud_ml_sdk._types.schemas.QueryType}
+
+Type alias for model arguments
+
+Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]
 
 *typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonSchemaResponseType**{#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType}
 
@@ -418,7 +432,7 @@ Dict with json schema response settings
 #|
 || Required Keys | 
 
-- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format
+- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format
 - **strict** ([**bool**](https://docs.python.org/3/library/functions.html#bool))
 - **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
 |#
@@ -427,13 +441,13 @@ yandex\_cloud\_ml\_sdk.\_types.schemas.**ResponseType**{#yandex_cloud_ml_sdk._ty
 
 Types availailable for response format
 
-Alias of **Union**[**Literal**[**'json'**], [**JsonSchemaResponseType**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[**Literal**[**'json'**], [**JsonSchemaResponseType**](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
 
 yandex\_cloud\_ml\_sdk.\_types.schemas.**ParametersType**{#yandex_cloud_ml_sdk._types.schemas.ParametersType}
 
 Types available for function call parameters
 
-Alias of **Union**[[**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]], [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_cloud_ml_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]], [**type**](https://docs.python.org/3/library/functions.html#type)]
 
 *typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**JsonObjectProtoFormat**{#yandex_cloud_ml_sdk._types.schemas.JsonObjectProtoFormat}
 
@@ -456,7 +470,7 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format ||
+- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format ||
 |#
 
 *typeddict* yandex\_cloud\_ml\_sdk.\_types.schemas.**EmptyProtoFormat**{#yandex_cloud_ml_sdk._types.schemas.EmptyProtoFormat}
@@ -474,7 +488,7 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), **Union**[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]])
+- **schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_cloud_ml_sdk._types.schemas.JsonObject)]]]])
 - **strict** ([**bool**](https://docs.python.org/3/library/functions.html#bool))
 - **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
 |#
@@ -503,15 +517,23 @@ Here we are transforming 1) http\_schema <- schema\_from\_response\_format(respo
 
 ### *class* yandex\_cloud\_ml\_sdk.\_tools.tool\_call\_list.**HttpToolCallList**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._tools.tool_call_list.HttpToolCallList}
 
+### *class* yandex\_cloud\_ml\_sdk.\_types.enum.**UnknownEnumValue**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue}
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.utils.**NestedDict**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._search_api.utils.NestedDict}
+
 ## Completions-related types
 
 ### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType}
 
 yandex\_cloud\_ml\_sdk.\_chat.completions.config.**ChatReasoningModeType**{#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningModeType}
 
-type alias for reasoning mode representation
-
 alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘low’, ‘medium’, ‘high’] | [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘LOW’, ‘MEDIUM’, ‘HIGH’] | [**ChatReasoningMode**](#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode)
+
+### *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.config.**EncodingFormatType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.text_embeddings.config.EncodingFormatType}
+
+yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.config.**EncodingFormatType**{#yandex_cloud_ml_sdk._chat.text_embeddings.config.EncodingFormatType}
+
+alias of [**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[‘float’]
 
 ### *class* yandex\_cloud\_ml\_sdk.\_chat.completions.config.**QueryType**{#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._chat.completions.config.QueryType}
 

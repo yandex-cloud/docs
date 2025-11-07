@@ -30,7 +30,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select the required block size.
   1. Specify the required disk size.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk [snapshots](../../concepts/snapshot.md), if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk [snapshots](../../concepts/snapshot.md). For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      When creating a disk, you can only select a single snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
@@ -112,7 +112,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      * `size`: Non-replicated disk size, which must be a multiple of 93 GB.
      * `block_size`: Block size in bytes (minimum storage unit on the disk). The maximum disk size depends on the specified block size. By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
-     * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md)
+     * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
      * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional parameter.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
@@ -177,7 +177,7 @@ You can only create a disk in an existing disk placement group.
 
       If you select a [partition placement](../../concepts/disk-placement-group.md#partition) group, specify the number of the partition you want to add the disk to.
   1. Specify the required disk size.
-  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk snapshots, if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.

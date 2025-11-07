@@ -108,14 +108,14 @@ The disk size must be a multiple of 93 GB.
      ```
 
      Where:
-     * `name`: Disk name. Use the following name format:
+     * `name`: Disk name. Follow these naming requirements:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
      * `type`: Disk type, `ssd-io-m3`.
      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). The availability zone for your disk must match the zone of the placement group where you want to create it. We recommend creating disks in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.
      * `size`: Disk size in GB. This must be a multiple of 93 GB. The maximum disk size depends on the specified block size.
-     * `block_size`: Block size in bytes (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](empty-disk-blocksize.md).
+     * `block_size`: Block size in bytes (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. Learn more in [{#T}](empty-disk-blocksize.md).
      * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an [encrypted](../../concepts/encryption.md) disk. This is an optional parameter.
 
          {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}

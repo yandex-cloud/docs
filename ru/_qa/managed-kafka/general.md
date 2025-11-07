@@ -87,3 +87,30 @@ The revocation function was unable to check revocation for the certificate
 #### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mkf-short-name }}? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Как отследить потерю сообщений в топике {{ KF }}? {#lost-messages}
+
+Если в топике используется политика очистки лога `Delete` с малым временем жизни сегмента, сообщения могут удаляться раньше, чем их прочитает [группа потребителей](../../managed-kafka/concepts/producers-consumers.md#consumer-groups). Отследить потерю сообщений можно с помощью [метрик](../../managed-kafka/metrics.md) сервиса {{ mkf-name }}, поставляемых в [{{ monitoring-name }}](../../monitoring/concepts/index.md).
+
+Чтобы отследить потерю сообщений:
+
+1. Используя сервис [{{ monitoring-full-name }}]({{ link-monitoring }}), [отобразите на одном графике](../../monitoring/operations/metric/metric-explorer.md#add-graph) метрики `kafka_group_topic_partition_offset` и `kafka_log_Log_LogStartOffset`:
+   * Для `kafka_group_topic_partition_offset` укажите метки:
+       * `service = managed-kafka`,
+       * `name = kafka_group_topic_partition_offset`,
+       * `host = <FQDN_хоста>`,
+       * `topic = <имя_топика>`,
+       * `partition = <номер_раздела>`,
+       * `group = <имя_группы_потребителей>`.
+   * Для `kafka_log_Log_LogStartOffset` укажите метки: 
+       * `service = managed-kafka`,
+       * `name = kafka_log_Log_LogStartOffset`,
+       * `host = <FQDN_хоста>`,
+       * `topic = <имя_топика>`,
+       * `partition = <номер_раздела>`.
+1. Подождите, пока в топик будет записано достаточно сообщений для анализа.
+1. Перейдите в сервис [{{ monitoring-full-name }}]({{ link-monitoring }}) и проанализируйте поведение созданных ранее метрик:
+   * Если значение `kafka_log_Log_LogStartOffset` больше `kafka_group_topic_partition_offset` на всем периоде наблюдения, выбранная группа потребителей успевает вычитывать все новые сообщения из указанного сегмента топика.
+   * Если есть моменты времени, когда значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений.
+
+Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/retention-policy.md).

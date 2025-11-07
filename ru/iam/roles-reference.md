@@ -686,6 +686,14 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-userpools-admin](../_roles/organization-manager/userpools/admin.md) %}
 
+#### organization-manager.idpInstances.viewer {#organization-manager-idpInstances-viewer}
+
+{% include [organization-manager.idpInstances.viewer](../_roles/organization-manager/idpInstances/viewer.md) %}
+
+#### organization-manager.idpInstances.admin {#organization-manager-idpInstances-admin}
+
+{% include [organization-manager.idpInstances.admin](../_roles/organization-manager/idpInstances/admin.md) %}
+
 Подробнее см. [{#T}](../organization/security/index.md).
 
 
