@@ -1,0 +1,8 @@
+В стоимость предлагаемого решения входят: 
+* плата за [диски](../../../compute/concepts/disk.md), [снимки дисков](../../../compute/concepts/snapshot.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в {{ objstorage-name }} и [операции](../../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
+* плата за использование управляемой БД {{ MY }} (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md));
+* при использовании {{ dns-full-name }} плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы {{ dns-name }}](../../../dns/pricing.md));
+* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) (см. [тарифы {{ alb-full-name }}](../../../application-load-balancer/pricing.md));
+* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы {{ cloud-logging-full-name }}](../../../logging/pricing.md)).

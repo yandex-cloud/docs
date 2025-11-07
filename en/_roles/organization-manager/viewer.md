@@ -25,6 +25,9 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 * View info on [user groups](../../organization/concepts/groups.md) and access permissions granted for them.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View the list of and info on Identity Hub user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
+* View info on a subscription to the paid-for Identity Hub features.
+* View info on stats regarding the use of the quotes within a subscription to the paid-for Identity Hub features.
+* View the list of users who employ the Identity Hub authentication quota in the current [reporting period](../../billing/concepts/reporting-period.md).
 * View info on the [refresh tokens](../../iam/concepts/authorization/refresh-token.md) of the organization’s users and on the refresh token settings.
 * View info on the Identity Hub quotas.
 * View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
@@ -32,4 +35,4 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 
 {% endcut %}
 
-This role includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, and `organization-manager.userpools.viewer` permissions.
+This role includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, `organization-manager.userpools.viewer`, and `organization-manager.idpInstances.viewer` permissions.

@@ -38,7 +38,7 @@
 ### Примеры использования {#examples-bwh}
 
 * [{#T}](../tutorials/protected-access-to-content/index.md)
-* [{#T}](../tutorials/cdn-hosting.md)
+* [{#T}](../tutorials/cdn-hosting/index.md)
 
 
 ## Время ответа от источника {#timeout}

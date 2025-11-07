@@ -313,6 +313,8 @@ items:
             href: archive/integrate-nextcloud/coi-based.md
           - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
             href: archive/integrate-nextcloud/fault-tolerant.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
+            href: archive/integrate-nextcloud/terraform.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства
@@ -684,7 +686,13 @@ items:
           - name: >-
               Статический сайт в {{ objstorage-name }} с доступом через {{
               cdn-name }}
-            href: applied/cdn-hosting.md
+            items:
+              - name: Обзор
+                href: applied/cdn-hosting/index.md
+              - name: Консоль управления, CLI, API
+                href: applied/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: applied/cdn-hosting/terraform.md
           - name: Сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
@@ -907,7 +915,7 @@ items:
             href: dataplatform/managed-schema-registry-rest.md
           - name: Использование Confluent Schema Registry с {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
-      - name: Отслеживание утери сообщений в топике {{ KF }}
+      - name: Отслеживание потери сообщений в топике {{ KF }}
         href: dataplatform/retention-policy.md
       - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
@@ -1666,8 +1674,8 @@ items:
               форматированием
             href: ml-ai/pdf-searchindex-ai-assistant.md
           - name: >-
-              Интеграция Qwen3 в Visual Studio Code в качестве ассистента для
-              написания кода
-            href: ml-ai/qwen-vsc-integration.md
+              Интеграция генеративных моделей в Visual Studio Code в качестве
+              ассистента для написания кода
+            href: ml-ai/ai-model-ide-integration.md
           - name: Создание интеллектуального ассистента для Telegram
             href: ml-ai/tg-bot-assistant.md

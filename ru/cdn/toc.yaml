@@ -88,7 +88,13 @@ items:
       - name: >-
           Настройка хостинга статического сайта в бакете {{ objstorage-full-name
           }} с доступом через {{ cdn-full-name }}
-        href: tutorials/cdn-hosting.md
+        items:
+          - name: Обзор
+            href: tutorials/cdn-hosting/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
   - name: Концепции
     items:
       - name: Обзор сервиса

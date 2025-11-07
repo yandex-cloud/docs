@@ -19,6 +19,8 @@ description: Управление доступом в сервисе для от
 
 Для управления правами доступа в {{ postbox-name }} можно использовать как сервисные, так и примитивные роли.
 
+{% include [postbox](../../_mermaid/roles/postbox.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### postbox.sender {#postbox-sender}

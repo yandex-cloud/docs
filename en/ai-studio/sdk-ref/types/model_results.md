@@ -95,17 +95,17 @@ special status for message with only usage data; used in some SDK places
 
 A class representing usage statistics for a completion request.
 
-**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.Usage.input_text_tokens}
-
-the number of tokens in the input text
-
 **completion\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.Usage.completion_tokens}
 
 the number of tokens generated in the completion
 
+**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.Usage.input_text_tokens}
+
+the number of tokens in the input text
+
 **total\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.Usage.total_tokens}
 
-the total number of tokens used (input + completion)
+the total number of tokens used
 
 ### *class* yandex\_cloud\_ml\_sdk.\_models.completions.result.**CompletionUsage**{#yandex_cloud_ml_sdk._models.completions.result.CompletionUsage}
 
@@ -115,17 +115,17 @@ A class representing detailed usage statistics for a completion request, includi
 
 the number of tokens used for reasoning in the completion
 
-**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.CompletionUsage.input_text_tokens}
-
-the number of tokens in the input text
-
 **completion\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.CompletionUsage.completion_tokens}
 
 the number of tokens generated in the completion
 
+**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.CompletionUsage.input_text_tokens}
+
+the number of tokens in the input text
+
 **total\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._models.completions.result.CompletionUsage.total_tokens}
 
-the total number of tokens used (input + completion)
+the total number of tokens used
 
 ## Embeddings
 
@@ -154,6 +154,48 @@ the version of the model used for generating embeddings
 Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
+
+### *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.result.**ChatEmbeddingsModelResult**{#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult}
+
+Represents the result of a text embeddings model.
+
+It holds the embedding vector, the number of tokens, and the version of the model that is used to generate embeggings.
+
+**embedding**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[float](https://docs.python.org/3/library/functions.html#float)*]... ,{#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult.embedding}
+
+the embedding vector as a tuple of floats
+
+**model**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult.model}
+
+URI of the chat model used for generating the result
+
+**usage**\: *[EmbeddingsUsage](#yandex_cloud_ml_sdk._chat.text_embeddings.result.EmbeddingsUsage) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult.usage}
+
+Usage statistics for the embedding request
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult.count}
+
+**index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_cloud_ml_sdk._chat.text_embeddings.result.ChatEmbeddingsModelResult.index}
+
+Raises ValueError if the value is not present.
+
+Supporting start and stop arguments is optional, but recommended.
+
+### *class* yandex\_cloud\_ml\_sdk.\_chat.text\_embeddings.result.**EmbeddingsUsage**{#yandex_cloud_ml_sdk._chat.text_embeddings.result.EmbeddingsUsage}
+
+A class representing usage statistics for chat embedding requests.
+
+*property* **prompt\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.text_embeddings.result.EmbeddingsUsage.prompt_tokens}
+
+Alias for input\_text\_tokens for compatibility with chat naming.
+
+**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.text_embeddings.result.EmbeddingsUsage.input_text_tokens}
+
+the number of tokens in the input text
+
+**total\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.text_embeddings.result.EmbeddingsUsage.total_tokens}
+
+the total number of tokens used
 
 ## Text classifiers
 
@@ -432,14 +474,14 @@ Extends the base Usage class with chat-specific convenience properties.
 
 Alias for input\_text\_tokens for compatibility with chat naming.
 
-**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.completions.result.ChatUsage.input_text_tokens}
-
-the number of tokens in the input text
-
 **completion\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.completions.result.ChatUsage.completion_tokens}
 
 the number of tokens generated in the completion
 
+**input\_text\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.completions.result.ChatUsage.input_text_tokens}
+
+the number of tokens in the input text
+
 **total\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._chat.completions.result.ChatUsage.total_tokens}
 
-the total number of tokens used (input + completion)
+the total number of tokens used

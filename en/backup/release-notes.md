@@ -5,6 +5,18 @@ description: This section contains {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+* Released the service for [General Availability](../overview/concepts/launch-stages.md) in the Kazakhstan [region](../overview/concepts/region.md).
+* Updated the [yc backup provider activate](./cli-ref/provider/activate.md) {{ yandex-cloud }} CLI command with a step requiring explicit confirmation of [backup provider activation](./operations/activate-service.md), as well as the `--force` flag for activation without confirmation.
+* Added new settings for [backup policies](./concepts/policy.md):
+    * Executing commands before and after taking a backup.
+    * New run schedule type where you set the interval between the end and start of backups.
+* Added new {{ monitoring-full-name }} metrics:
+    * `agent_alive`: [{{ backup-name }} agent](./concepts/agent.md) activity indicator.
+    * `agent_version_available`: Availability indicator for a new {{ backup-name }} agent version.
+    * `error`: Backup errors.
+
 ## Q2 2025 {#q2-2025}
 
 * Implemented automatic connection of {{ baremetal-full-name }} servers to {{ backup-name }} when ordering them from the [management console]({{ link-console-main }}).

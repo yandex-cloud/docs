@@ -96,7 +96,13 @@ items:
           - name: Поддержка собственного домена
             href: operations/hosting/own-domain.md
           - name: Поддержка нескольких доменных имен
-            href: operations/hosting/multiple-domains.md
+            items:
+              - name: Обзор
+                href: operations/hosting/multiple-domains/index.md
+              - name: Консоль управления, CLI и API
+                href: operations/hosting/multiple-domains/console.md
+              - name: '{{ TF }}'
+                href: operations/hosting/multiple-domains/terraform.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
   - name: Практические руководства
@@ -326,10 +332,18 @@ items:
             href: tutorials/integrate-nextcloud/coi-based.md
           - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
             href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
       - name: >-
           Настройка хостинга статического сайта в бакете {{ objstorage-full-name
           }} с доступом через {{ cdn-full-name }}
-        href: tutorials/cdn-hosting.md
+        items:
+          - name: Обзор
+            href: tutorials/cdn-hosting/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
       - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
         href: tutorials/spark-objstorage-integration.md
   - name: Концепции

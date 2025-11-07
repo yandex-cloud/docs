@@ -11,7 +11,21 @@ Domain for working with [Yandex Search API](https://yandex.cloud/docs/search-api
 
 API for [generative response](https://yandex.cloud/docs/search-api/concepts/generative-response) service
 
-## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.function.**GenerativeSearchFunction**{#yandex_cloud_ml_sdk._search_api.generative.function.GenerativeSearchFunction}
+**web**\: *[WebSearchFunction](#yandex_cloud_ml_sdk._search_api.web.function.WebSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.SearchAPIDomain.web}
+
+API for [web search](https://yandex.cloud/ru/docs/search-api/concepts/web-search) service
+
+**image**\: *[ImageSearchFunction](#yandex_cloud_ml_sdk._search_api.image.function.ImageSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.SearchAPIDomain.image}
+
+API for [text image search](https://yandex.cloud/ru/docs/search-api/concepts/image-search#search-by-text-query) service
+
+**by\_image**\: *[ByImageSearchFunction](#yandex_cloud_ml_sdk._search_api.by_image.function.ByImageSearchFunction)*{#yandex_cloud_ml_sdk._search_api.domain.SearchAPIDomain.by_image}
+
+API for [search by image](https://yandex.cloud/ru/docs/search-api/concepts/image-search#search-by-image) service
+
+## Generative search
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.function.**GenerativeSearchFunction**{#yandex_cloud_ml_sdk._search_api.generative.function.GenerativeSearchFunction}
 
 Generative search function for creating search object which provides methods for invoking generative search.
 
@@ -46,7 +60,7 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
 *property* **available\_formats**{#yandex_cloud_ml_sdk._search_api.generative.function.GenerativeSearchFunction.available_formats}
 
-## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.generative.**GenerativeSearch**{#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch}
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.generative.**GenerativeSearch**{#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch}
 
 Generative search class which provides concrete methods for working with Search API and incapsulates search setting.
 
@@ -115,3 +129,416 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive and
 |#
 
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.generative.generative.GenerativeSearch.uri}
+
+## Web search
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.function.**WebSearchFunction**{#yandex_cloud_ml_sdk._search_api.web.function.WebSearchFunction}
+
+Web search function for creating search object which provides methods for invoking web search.
+
+**\_\_call\_\_**(*search\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *localization=Undefined*, *sort\_order=Undefined*, *sort\_mode=Undefined*, *group\_mode=Undefined*, *groups\_on\_page=Undefined*, *docs\_in\_group=Undefined*, *max\_passages=Undefined*, *region=Undefined*, *user\_agent=Undefined*, *metadata=Undefined*){#yandex_cloud_ml_sdk._search_api.web.function.WebSearchFunction.__call__i}
+
+Creates web search object which provides methods for web search.
+
+To learn more about parameters and their formats and possible values, refer to [web search documentation](https://yandex.cloud/ru/docs/search-api/concepts/web-search#parameters)
+
+#|
+|| Parameters | 
+
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search query typo correction setting
+- **localization** ([*Localization*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.Localization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*Localization*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.Localization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search response notifications language. Affects the text in the **found-docs-human** tag and error messages
+- **sort\_order** ([*SortOrder*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortOrder) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SortOrder*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortOrder)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search results sorting order
+- **sort\_mode** ([*SortMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SortMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search results sorting mode rule
+- **group\_mode** ([*GroupMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.GroupMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*GroupMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.GroupMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Result grouping method.
+- **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of groups that can be returned per page.
+- **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of documents that can be returned per group.
+- **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of passages that can be used when generating a document.
+- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
+- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
+- **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+|| Return type | [*WebSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.web.web.WebSearchTypeT) ||
+|#
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.web.**WebSearch**{#yandex_cloud_ml_sdk._search_api.web.web.WebSearch}
+
+Web search class which provides concrete methods for working with Web Search API and incapsulates search setting.
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.config}
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *search\_type=Undefined*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *localization=Undefined*, *sort\_order=Undefined*, *sort\_mode=Undefined*, *group\_mode=Undefined*, *groups\_on\_page=Undefined*, *docs\_in\_group=Undefined*, *max\_passages=Undefined*, *region=Undefined*, *user\_agent=Undefined*, *metadata=Undefined*){#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.configure}
+
+Returns the new object with config fields overrode by passed values.
+
+To learn more about parameters and their formats and possible values, refer to [web search documentation](https://yandex.cloud/ru/docs/search-api/concepts/web-search#parameters)
+
+#|
+|| Parameters | 
+
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search query typo correction setting
+- **localization** ([*Localization*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.Localization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*Localization*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.Localization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search response notifications language. Affects the text in the **found-docs-human** tag and error messages
+- **sort\_mode** ([*SortMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SortMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search results sorting mode rule
+- **sort\_order** ([*SortOrder*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortOrder) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SortOrder*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SortOrder)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search results sorting order
+- **group\_mode** ([*GroupMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.GroupMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*GroupMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.GroupMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Result grouping method.
+- **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Maximum number of groups that can be returned per page.
+- **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Maximum number of documents that can be returned per group.
+- **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Maximum number of passages that can be used when generating a document.
+- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search country or region ID that affects the document ranking rules.
+- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
+- **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.uri}
+
+**run**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['parsed'] = 'parsed'*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [WebSearchResult](#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult){#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.run}
+
+**run**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['xml', 'html']*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [bytes](https://docs.python.org/3/library/stdtypes.html#bytes)
+
+Run a search query with given **query** and search settings of this web search object.
+
+To change initial search settings use **.configure** method:
+
+```python
+>>> search = sdk.search_api.web(search_type='BE')
+>>> search = search.configure(search_type='RU')
+```
+
+#|
+|| Parameters | 
+
+- **query** – Search query text.
+- **format** – With default **parsed** value call returns a parsed Yandex Cloud ML SDK object; with other values method returns a raw bytes string.
+- **page** – Requested page number.
+- **timeout** – Timeout, or the maximum time to wait for the request to complete in seconds. ||
+|| Returns | Parsed search results object or bytes string depending on **format** parameter. ||
+|#
+
+**run\_deferred**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['parsed'] = 'parsed'*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [Operation](../types/operation.md#yandex_cloud_ml_sdk._types.operation.Operation)[[WebSearchResult](#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult)]{#yandex_cloud_ml_sdk._search_api.web.web.WebSearch.run_deferred}
+
+**run\_deferred**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['xml', 'html']*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [Operation](../types/operation.md#yandex_cloud_ml_sdk._types.operation.Operation)[[bytes](https://docs.python.org/3/library/stdtypes.html#bytes)]
+
+Run a deferred search query with given **query** and search settings of this web search object.
+
+To change initial search settings use **.configure** method:
+
+```python
+>>> search = sdk.search_api.web(search_type='BE')
+>>> search = search.configure(search_type='RU')
+```
+
+#|
+|| Parameters | 
+
+- **query** – Search query text.
+- **format** – With default **parsed** value call returns an operation with parsed Yandex Cloud ML SDK return; with other values method returns an operation with raw bytes string return.
+- **page** – Requested page number.
+- **timeout** – Timeout, or the maximum time to wait for the request to complete in seconds. ||
+|| Returns | Operation with parsed search results object or bytes string return depending on **format** parameter. ||
+|#
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.web.result.**WebSearchResult**{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult}
+
+A class representing the partially parsed result of a Web search request with XML format.
+
+**next\_page**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=None*){#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.next_page}
+
+Run a web search request with previous search parameters except page number being increment by one.
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) – Timeout, or the maximum time to wait for the request to complete in seconds; if not given, initial timeout value from original search request are being used. ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+**next\_page\_deferred**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=None*){#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.next_page_deferred}
+
+Launch a deferred web search request with previous search parameters except page number being increment by one.
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) – Timeout, or the maximum time to wait for the request to complete in seconds; if not given, initial timeout value from original search request are being used. ||
+|| Return type | [*Operation*](../types/operation.md#yandex_cloud_ml_sdk._types.operation.Operation)[[*WebSearchResult*](#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult)] ||
+|#
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.count}
+
+*property* **docs**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[XMLSearchDocumentTypeT](../types/other.md#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT)*]... ,{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.docs}
+
+Returns all documents within search response.
+
+**index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.index}
+
+Raises ValueError if the value is not present.
+
+Supporting start and stop arguments is optional, but recommended.
+
+**xml**\: *[bytes](https://docs.python.org/3/library/stdtypes.html#bytes)*{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.xml}
+
+Non-parsed XML result of search request.
+
+**groups**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SearchGroup](../types/search_api.md#yandex_cloud_ml_sdk._search_api.types.SearchGroup)[[XMLSearchDocumentTypeT](../types/other.md#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT)*]... ,]{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.groups}
+
+Parsed values of <group> tags within the response.
+
+**page**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._search_api.web.result.WebSearchResult.page}
+
+Returned search page number.
+
+## Image search
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.function.**ImageSearchFunction**{#yandex_cloud_ml_sdk._search_api.image.function.ImageSearchFunction}
+
+Image search function for creating search object which provides methods for invoking image search.
+
+**\_\_call\_\_**(*search\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *format=Undefined*, *size=Undefined*, *orientation=Undefined*, *color=Undefined*, *site=Undefined*, *docs\_on\_page=Undefined*, *user\_agent=Undefined*){#yandex_cloud_ml_sdk._search_api.image.function.ImageSearchFunction.__call__i}
+
+Creates image search object which provides methods for image search.
+
+To learn more about parameters and their formats and possible values, refer to [image search documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#parameters)
+
+#|
+|| Parameters | 
+
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search query typo correction setting.
+- **format** ([*ImageFormat*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageFormat*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images in a particular format.
+- **size** ([*ImageSize*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageSize) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageSize*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageSize)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images of a particular size.
+- **orientation** ([*ImageOrientation*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageOrientation*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images with a particular orientation.
+- **color** ([*ImageColor*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageColor) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageColor*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageColor)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Searching for images containing a particular color.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of results per search result page.
+- **docs\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of results per search result page.
+- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results. ||
+|| Return type | [*ImageSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.image.image.ImageSearchTypeT) ||
+|#
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.image.**ImageSearch**{#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch}
+
+Image search class which provides concrete methods for working with Image Search API and incapsulates search setting.
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.config}
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *search\_type=Undefined*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *format=Undefined*, *size=Undefined*, *orientation=Undefined*, *color=Undefined*, *site=Undefined*, *docs\_on\_page=Undefined*, *user\_agent=Undefined*){#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.configure}
+
+Returns the new object with config fields overrode by passed values.
+
+To learn more about parameters and their formats and possible values, refer to [image search documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#parameters)
+
+#|
+|| Parameters | 
+
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Search query typo correction setting
+- **format** ([*ImageFormat*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageFormat*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Searching for images in a particular format.
+- **size** ([*ImageSize*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageSize) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageSize*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageSize)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Searching for images of a particular size.
+- **orientation** ([*ImageOrientation*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageOrientation*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageOrientation)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Searching for images with a particular orientation.
+- **color** ([*ImageColor*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageColor) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*ImageColor*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.ImageColor)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Searching for images containing a particular color.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Number of results per search result page.
+- **docs\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Number of results per search result page.
+- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results. ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.uri}
+
+**run**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['parsed'] = 'parsed'*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [ImageSearchResult](#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult){#yandex_cloud_ml_sdk._search_api.image.image.ImageSearch.run}
+
+**run**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['xml']*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [bytes](https://docs.python.org/3/library/stdtypes.html#bytes)
+
+Run a search query with given **query** and search settings of this image search object.
+
+To change initial search settings use **.configure** method:
+
+```python
+>>> search = sdk.search_api.image(search_type='BE')
+>>> search = search.configure(search_type='RU')
+```
+
+#|
+|| Parameters | 
+
+- **query** – Search query text.
+- **format** – With default **parsed** value call returns a parsed Yandex Cloud ML SDK object; with other values method returns a raw bytes string.
+- **page** – Requested page number.
+- **timeout** – Timeout, or the maximum time to wait for the request to complete in seconds. ||
+|| Returns | Parsed search results object or bytes string depending on **format** parameter. ||
+|#
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.image.result.**ImageSearchResult**{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult}
+
+A class representing the partially parsed result of a Image search request with XML format.
+
+**next\_page**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=None*){#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.next_page}
+
+Run a image search request with previous search parameters except page number being increment by one.
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) – Timeout, or the maximum time to wait for the request to complete in seconds; if not given, initial timeout value from original search request are being used. ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.count}
+
+*property* **docs**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[XMLSearchDocumentTypeT](../types/other.md#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT)*]... ,{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.docs}
+
+Returns all documents within search response.
+
+**index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.index}
+
+Raises ValueError if the value is not present.
+
+Supporting start and stop arguments is optional, but recommended.
+
+**xml**\: *[bytes](https://docs.python.org/3/library/stdtypes.html#bytes)*{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.xml}
+
+Non-parsed XML result of search request.
+
+**groups**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SearchGroup](../types/search_api.md#yandex_cloud_ml_sdk._search_api.types.SearchGroup)[[XMLSearchDocumentTypeT](../types/other.md#yandex_cloud_ml_sdk._search_api.types.XMLSearchDocumentTypeT)*]... ,]{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.groups}
+
+Parsed values of <group> tags within the response.
+
+**page**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._search_api.image.result.ImageSearchResult.page}
+
+Returned search page number.
+
+## Search by image
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.function.**ByImageSearchFunction**{#yandex_cloud_ml_sdk._search_api.by_image.function.ByImageSearchFunction}
+
+ByImage search function for creating search object which provides methods for invoking by\_image search.
+
+**\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *site=Undefined*){#yandex_cloud_ml_sdk._search_api.by_image.function.ByImageSearchFunction.__call__i}
+
+Creates by\_image search object which provides methods for search by image.
+
+To learn more about parameters and their formats and possible values, refer to [search by image documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#request-body-by-pic)
+
+#|
+|| Parameters | 
+
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Results filtering.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Restricts the search to the specific website. ||
+|| Return type | [*ByImageSearchTypeT*](../types/other.md#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearchTypeT) ||
+|#
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.by\_image.**ByImageSearch**{#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch}
+
+ByImage search class which provides concrete methods for working with ByImage Search API and incapsulates search setting.
+
+**run**(*image\_data*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *page=0*, *timeout=60*){#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.run}
+
+Run a search query with given **image\_data** bytes and search settings of this by\_image search object.
+
+To change initial search settings use **.configure** method:
+
+```python
+>>> search = sdk.search_api.by_image(site="ya.ru")
+>>> search = search.configure(site="yandex.ru")
+```
+
+#|
+|| Parameters | 
+
+- **image\_data** ([*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes)) – The image data to use for the search.
+- **page** ([*int*](https://docs.python.org/3/library/functions.html#int)) – Requested page number.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Timeout, or the maximum time to wait for the request to complete in seconds. ||
+|| Returns | Parsed search results object. ||
+|| Return type | [*ByImageSearchResult*](#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult) ||
+|#
+
+**run\_from\_url**(*url*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *page=0*, *timeout=60*){#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.run_from_url}
+
+Run a search query with given image located at **url** and search settings of this by\_image search object.
+
+To change initial search settings use **.configure** method:
+
+```python
+>>> search = sdk.search_api.by_image(site="ya.ru")
+>>> search = search.configure(site="yandex.ru")
+```
+
+#|
+|| Parameters | 
+
+- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The image url to use for the search.
+- **page** ([*int*](https://docs.python.org/3/library/functions.html#int)) – Requested page number.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Timeout, or the maximum time to wait for the request to complete in seconds. ||
+|| Returns | Parsed search results object. ||
+|| Return type | [*ByImageSearchResult*](#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult) ||
+|#
+
+**run\_from\_id**(*cbir\_id*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *page=0*, *timeout=60*){#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.run_from_id}
+
+Run a search query with given CBIR ID of the image and search settings of this by\_image search object.
+
+To change initial search settings use **.configure** method:
+
+```python
+>>> search = sdk.search_api.by_image(site="ya.ru")
+>>> search = search.configure(site="yandex.ru")
+```
+
+#|
+|| Parameters | 
+
+- **id** – CBIR ID of the image to use for the search.
+- **page** ([*int*](https://docs.python.org/3/library/functions.html#int)) – Requested page number.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Timeout, or the maximum time to wait for the request to complete in seconds.
+- **cbir\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Returns | Parsed search results object. ||
+|| Return type | [*ByImageSearchResult*](#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult) ||
+|#
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_cloud_ml_sdk._types.model.ConfigTypeT)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.config}
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *site=Undefined*){#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.configure}
+
+Returns the new object with config fields overrode by passed values.
+
+To learn more about parameters and their formats and possible values, refer to [search by image documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#request-body-by-pic)
+
+#|
+|| Parameters | 
+
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_cloud_ml_sdk._types.schemas.yandex_cloud_ml_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Results filtering.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – Restricts the search to the specific website. ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.by_image.by_image.ByImageSearch.uri}
+
+### *class* yandex\_cloud\_ml\_sdk.\_search\_api.by\_image.result.**ByImageSearchResult**{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult}
+
+A class representing the result of a search by image request.
+
+**next\_page**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=None*){#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.next_page}
+
+Run a search by image request with previous search parameters except page number being increment by one.
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) – Timeout, or the maximum time to wait for the request to complete in seconds; if not given, initial timeout value from original search request are being used. ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.count}
+
+*property* **docs**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ByImageSearchDocument](../types/search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchDocument)*]... ,{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.docs}
+
+Synonym for .images attribute
+
+**index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.index}
+
+Raises ValueError if the value is not present.
+
+Supporting start and stop arguments is optional, but recommended.
+
+**images**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ByImageSearchDocument](../types/search_api.md#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchDocument)*]... ,{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.images}
+
+**cbir\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.cbir_id}
+
+**page**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._search_api.by_image.result.ByImageSearchResult.page}
+
+Returned search page number.

@@ -86,19 +86,19 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
       ```
 
       Where:
-      * `--name`: Disk name. The naming requirements are as follows:
+      * `--name`: Disk name. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `--source-snapshot-name`: Source snapshot name. Instead of a name, you can provide the source snapshot ID in the `--source-snapshot-id` parameter.
-      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) you are creating the disk in.
-      * `--description`: Text description of the new disk. This is an optional setting.
-      * `--hardware-generation-id`: Hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. The possible values are:
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
+      * `--description`: Text description of the new disk. This is an optional parameter.
+      * `--hardware-generation-id`: Hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional parameter. Possible values:
 
           {% include [generation-types-cli](../../../_includes/compute/generation-types-cli.md) %}
 
           If not specified, the disk will get the same hardware generation assigned as the source snapshot.
-      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
+      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional parameter. Possible values:
 
           * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
           * `pci_topology=v2`: `PCI_TOPOLOGY_V2` topology.
@@ -129,7 +129,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
           pci_topology: PCI_TOPOLOGY_V2
       ```
 
-      For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
+      For more information about the `yc compute disk create` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Get a list of disks in the default folder:
 
@@ -203,13 +203,13 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
       ```
 
       Where:
-      * `name`: Disk name. The naming requirements are as follows:
+      * `name`: Disk name. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) you are creating the disk in.
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
       * `snapshot_id`: ID of the snapshot you are creating the disk based on.
-      * `hardware_generation`: Block of settings describing the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. It includes the following blocks of settings:
+      * `hardware_generation`: Settings describing the virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional parameter. It includes the following blocks of settings:
 
           {% include [generation-types-tf](../../../_includes/compute/generation-types-tf.md) %}
 

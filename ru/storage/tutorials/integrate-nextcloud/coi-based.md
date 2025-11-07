@@ -11,3 +11,4 @@ canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/coi-based'
 #### См. также {#see-also}
 
 * [{#T}](./fault-tolerant.md)
+* [{#T}](./terraform.md)

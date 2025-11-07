@@ -23,39 +23,59 @@ the timestamp when the file was created
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.index\_type.**BaseSearchIndexType**{#yandex_cloud_ml_sdk._search_indexes.index_type.BaseSearchIndexType}
 
-BaseSearchIndexType(chunking\_strategy: ‘BaseIndexChunkingStrategy | None’ = None)
+A class for search index types.
 
 **chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.BaseSearchIndexType.chunking_strategy}
 
+the strategy used for chunking the index
+
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.index\_type.**TextSearchIndexType**{#yandex_cloud_ml_sdk._search_indexes.index_type.TextSearchIndexType}
 
-TextSearchIndexType(chunking\_strategy: ‘BaseIndexChunkingStrategy | None’ = None)
+A class which represents a text search index type.
 
 **chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.TextSearchIndexType.chunking_strategy}
 
+the strategy used for chunking the index
+
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.index\_type.**VectorSearchIndexType**{#yandex_cloud_ml_sdk._search_indexes.index_type.VectorSearchIndexType}
 
-VectorSearchIndexType(chunking\_strategy: ‘BaseIndexChunkingStrategy | None’ = None, doc\_embedder\_uri: ‘str | None’ = None, query\_embedder\_uri: ‘str | None’ = None)
+A class which represents a vector search index type.
 
 **doc\_embedder\_uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.VectorSearchIndexType.doc_embedder_uri}
 
+URI for the document embedder
+
 **query\_embedder\_uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.VectorSearchIndexType.query_embedder_uri}
+
+URI for the query embedder
 
 **chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.VectorSearchIndexType.chunking_strategy}
 
+the strategy used for chunking the index
+
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.index\_type.**HybridSearchIndexType**{#yandex_cloud_ml_sdk._search_indexes.index_type.HybridSearchIndexType}
 
-HybridSearchIndexType(chunking\_strategy: ‘BaseIndexChunkingStrategy | None’ = None, text\_search\_index: ‘TextSearchIndexType | None’ = None, vector\_search\_index: ‘VectorSearchIndexType | None’ = None, normalization\_strategy: ‘IndexNormalizationStrategy | str | int | None’ = None, combination\_strategy: ‘BaseIndexCombinationStrategy | None’ = None)
+A class which represents a hybrid search index type combining text and vector search indices.
 
 **text\_search\_index**\: *[TextSearchIndexType](#yandex_cloud_ml_sdk._search_indexes.index_type.TextSearchIndexType) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.HybridSearchIndexType.text_search_index}
 
+the text search index associated with the hybrid index
+
 **vector\_search\_index**\: *[VectorSearchIndexType](#yandex_cloud_ml_sdk._search_indexes.index_type.VectorSearchIndexType) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.HybridSearchIndexType.vector_search_index}
+
+the vector search index associated with the hybrid index
 
 **normalization\_strategy**\: *[IndexNormalizationStrategy](#yandex_cloud_ml_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy) | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.HybridSearchIndexType.normalization_strategy}
 
+the strategy for normalizing index results
+
 **combination\_strategy**\: *[BaseIndexCombinationStrategy](#yandex_cloud_ml_sdk._search_indexes.combination_strategy.BaseIndexCombinationStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.HybridSearchIndexType.combination_strategy}
 
+the strategy for combining results from different indices
+
 **chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.index_type.HybridSearchIndexType.chunking_strategy}
+
+the strategy used for chunking the index
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.chunking\_strategy.**BaseIndexChunkingStrategy**{#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy}
 
@@ -77,15 +97,27 @@ the number of overlapping tokens between consecutive chunks
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.combination\_strategy.**BaseIndexCombinationStrategy**{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.BaseIndexCombinationStrategy}
 
+A class for index combination strategies.
+
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.combination\_strategy.**MeanIndexEvaluationTechnique**{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique}
+
+A class with enumeration for mean index evaluation techniques.
 
 **MEAN\_EVALUATION\_TECHNIQUE\_UNSPECIFIED** = *0*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique.MEAN_EVALUATION_TECHNIQUE_UNSPECIFIED}
 
+an unspecified mean evaluation technique
+
 **ARITHMETIC** = *1*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique.ARITHMETIC}
+
+the arithmetic mean, calculated as the sum of values divided by the count of values
 
 **GEOMETRIC** = *2*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique.GEOMETRIC}
 
+the geometric mean, calculated as the n-th root of the product of n values
+
 **HARMONIC** = *3*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique.HARMONIC}
+
+the harmonic mean, calculated as the reciprocal of the arithmetic mean of the reciprocals of the values
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique.__new__i}
 
@@ -156,11 +188,15 @@ the denominator of a rational number in lowest terms
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.combination\_strategy.**MeanIndexCombinationStrategy**{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy}
 
-MeanIndexCombinationStrategy(mean\_evaluation\_technique: ‘MeanIndexEvaluationTechnique | None’, weights: ‘Collection[float] | None’)
+A class which contains mean index combination strategy with evaluation technique and weights.
 
 **mean\_evaluation\_technique**\: *[MeanIndexEvaluationTechnique](#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.mean_evaluation_technique}
 
+the technique used for mean evaluation
+
 **weights**\: *[Collection](https://docs.python.org/3/library/typing.html#typing.Collection)[[float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.weights}
+
+the weights associated with the evaluation technique
 
 **\_\_init\_\_**(*mean\_evaluation\_technique*, *weights*){#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.__init__i}
 
@@ -174,9 +210,11 @@ MeanIndexCombinationStrategy(mean\_evaluation\_technique: ‘MeanIndexEvaluation
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.combination\_strategy.**ReciprocalRankFusionIndexCombinationStrategy**{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy}
 
-ReciprocalRankFusionIndexCombinationStrategy(k: ‘int | None’ = None)
+A class which describes reciprocal rank fusion index combination strategy. Reciprocal rank fusion is a method for combining multiple result sets with different relevance indicators into a single result set.
 
 **k**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy.k}
+
+the parameter k for RRFscore. Default is 60.
 
 **\_\_init\_\_**(*k=None*){#yandex_cloud_ml_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy.__init__i}
 

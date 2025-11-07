@@ -7832,7 +7832,6 @@ default:
         organizations: Организации
         repositories: Репозитории
         settings: Настройки
-        tab_secrets: Секреты
         value_role-org-owner: Владелец организации
       ui_modules_cicd:
         value_status-created: В очереди
@@ -7845,17 +7844,13 @@ default:
       ui_modules_repo:
         action_cicd: Автоматизации
         action_commit: Сохранить изменения
-        action_create-file: Создать файл
         button_commit: Сохранить изменения
-        button_commit-and-go-to-read-mode: Сохранить и вернуться в режим чтения
         button_use-template: Использовать шаблон
         field_after-commit-action: Действие после сохранения изменений
         field_commit-branch: Ветка изменений
         field_text_commit-directly-to-the-branch: 'Сохранить непосредственно в ветку:'
-        file: Файл
         option_just-commit: Просто сохранить
         title_navigation-code: Код
-        title_navigation-repository-settings: Настройки репозитория
       ui_modules_repoCreate:
         button_browse-templates: Просмотр шаблонов
         button_create-repo: Создать репозиторий
@@ -7865,15 +7860,8 @@ default:
         title_new-repo-details: Сведения о новом репозитории
         title_owner-field: Владелец
         title_repo-field: Название
-      ui_modules_repoMain:
-        action_go-to-browse: Просмотр всех файлов репозитория
       ui_modules_repoSettings:
         field_description: Описание
-      ui_modules_secrets:
-        action_add-secret: Добавить секрет
-        action_new-secrete: Новый секрет
-        field_name: Название
-        field_secret: Секрет
       ui_modules_serviceConnections:
         button_add-connection: Новое сервисное подключение
         button_create-connection: Создать сервисное подключение
@@ -9444,6 +9432,7 @@ default:
         button_resource-content-purge-cache: Очистить кеш
         button_resource-create: Создать ресурс
         button_resource-deactivate-raw-logs: Выключить
+        button_wizard-create: Создать и продолжить
         column_name: Название
         field_access: Доступ конечных пользователей к контенту
         field_address-acl: Доступ по IP-адресам
@@ -9522,6 +9511,7 @@ default:
         label_source-type: Тип источника
         label_status-active: Основной
         label_status-backup: Резервный
+        label_use-bucket-site: Использовать сайт бакета
         value_active: Основной
         value_backup: Резервный
         value_certificate-custom: Сертификат из Certificate Manager
@@ -10292,13 +10282,18 @@ default:
             section_title_1sDGx: AI Studio
           CreateResourceDialog:
             search_kV4c1: Поиск по сервисам
+          QuickActions:
+            label_marketplace_1sDGx: Маркетплейс
           ResourceSearch:
             placeholder_3my5Y: Поиск сервисов
           ResourcesSection:
             create-resources_rGA1t: Создать ресурс
             title_7kYbU: Ресурсы
+        label_access_2bch9: Права доступа
         label_create-resource_4KN3M: Создать ресурс
+        label_notifications_uWDue: Сервисные уведомления
         label_permissions_gAtoT: Разрешения
+        label_quotas_gAtoT: Квоты
       data-catalog:
         action_create-catalog: Cоздать каталог
         action_edit-domain: Редактировать домен

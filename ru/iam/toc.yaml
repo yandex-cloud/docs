@@ -202,6 +202,12 @@ items:
             href: cli-ref/access-key/get.md
           - name: list
             href: cli-ref/access-key/list.md
+      - name: access-policy-template
+        items:
+          - name: Overview
+            href: cli-ref/access-policy-template/index.md
+          - name: list
+            href: cli-ref/access-policy-template/list.md
       - name: api-key
         items:
           - name: Overview

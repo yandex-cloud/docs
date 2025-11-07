@@ -432,6 +432,78 @@ items:
                         href: cli-ref/idp/application/oauth/application/suspend.md
                       - name: update
                         href: cli-ref/idp/application/oauth/application/update.md
+              - name: saml
+                items:
+                  - name: Overview
+                    href: cli-ref/idp/application/saml/index.md
+                  - name: application
+                    items:
+                      - name: Overview
+                        href: cli-ref/idp/application/saml/application/index.md
+                      - name: add-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/add-access-bindings.md
+                      - name: add-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/add-assignments.md
+                      - name: create
+                        href: cli-ref/idp/application/saml/application/create.md
+                      - name: delete
+                        href: cli-ref/idp/application/saml/application/delete.md
+                      - name: get
+                        href: cli-ref/idp/application/saml/application/get.md
+                      - name: list
+                        href: cli-ref/idp/application/saml/application/list.md
+                      - name: list-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-access-bindings.md
+                      - name: list-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-assignments.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-operations.md
+                      - name: list-supported-attribute-values
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-supported-attribute-values.md
+                      - name: reactivate
+                        href: cli-ref/idp/application/saml/application/reactivate.md
+                      - name: remove-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/remove-access-bindings.md
+                      - name: remove-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/remove-assignments.md
+                      - name: set-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/set-access-bindings.md
+                      - name: suspend
+                        href: cli-ref/idp/application/saml/application/suspend.md
+                      - name: update
+                        href: cli-ref/idp/application/saml/application/update.md
+                      - name: update-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/update-assignments.md
+                  - name: signature-certificate
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/update.md
           - name: user
             items:
               - name: Overview

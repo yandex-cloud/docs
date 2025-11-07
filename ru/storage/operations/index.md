@@ -47,5 +47,5 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](hosting/setup.md)
 * [{#T}](hosting/own-domain.md)
-* [{#T}](hosting/multiple-domains.md)
+* [{#T}](hosting/multiple-domains/index.md)
 * [{#T}](hosting/certificate.md)

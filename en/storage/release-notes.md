@@ -5,6 +5,18 @@ description: This section contains {{ objstorage-name }} release notes.
 
 # {{ objstorage-full-name }} release notes
 
+## Q3 2025 {#q3-2025}
+
+* The TLS protocol versions 1.0 and 1.1 are no longer supported.
+* Support for [conditional writes](./concepts/object.md#conditional-writes) has been implemented in the S3 API.
+* Added new resources to the {{ TF }} provider:
+  * [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding): [Configuration](operations/buckets/iam-access.md) of bucket access permissions via {{ iam-name }}.
+  * [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant): [Configuration](./operations/buckets/edit-acl.md) of bucket access permissions via the [{{ objstorage-name }} ACL](./concepts/acl.md).
+  * [yandex_storage_bucket_policy]({{ tf-provider-resources-link }}/storage_bucket_policy): [Bucket policy](concepts/policy.md) [management](./operations/buckets/policy.md).
+* Added the [yc storage s3 presign](./cli-ref/s3/presign.md) command to the [{{ yandex-cloud }} CLI](../cli/quickstart.md) to [create pre-signed URLs](./concepts/pre-signed-urls.md).
+* Added the `--tags` parameter for bucket [label](./concepts/tags.md) management to these {{ yandex-cloud }} CLI commands: [yc storage bucket create](./cli-ref/bucket/create.md) and [yc storage bucket update](./cli-ref/bucket/update.md).
+* Fixed an error where in some cases, when deleting objects based on prefix using the management console, access policy rules were not considered.
+
 ## Q2 2025 {#q2-2025}
 
 * In the [management console]({{ link-console-main }}), you can now enable [encryption](./concepts/encryption.md) and [versioning](./concepts/versioning.md) when creating a [bucket](./concepts/bucket.md).
@@ -26,7 +38,7 @@ description: This section contains {{ objstorage-name }} release notes.
 ## Q1 2025 {#q1-2025}
 
 * The [{{ yandex-cloud }} CLI](../cli/quickstart.md) now supports commands you need to use [object labels](./concepts/tags.md#object-tags) and [multipart uploads of objects](./concepts/multipart.md).
-* You can now get authenticated in {{ objstorage-name }} from {{ TF }} via an [IAM token](../iam/concepts/authorization/iam-token.md). For more information, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+* You can now get authenticated in {{ objstorage-name }} from {{ TF }} via an [IAM token](../iam/concepts/authorization/iam-token.md). For more information, see this [provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 * Up-to-date [AWS SDK](./tools/sdk/index.md) and [AWS CLI](./tools/aws-cli.md) versions are now supported.
 
 ## Q4 2024 {#q4-2024}

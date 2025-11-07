@@ -1,6 +1,6 @@
 ---
 title: Развертывание Nextcloud в инфраструктуре {{ yandex-cloud }} вручную
-description: С помощью данного руководства вы вручную развернете в {{ yandex-cloud }} отказоустойчивую инфраструктуру, реализующую решение Nextcloud в интеграции с объектным хранилищем {{ objstorage-name }}.
+description: С помощью данного руководства вы вручную развернете в {{ yandex-cloud }} отказоустойчивую инфраструктуру, реализующую решение Nextcloud в интеграции с объектным хранилищем {{ objstorage-full-name }}.
 canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/fault-tolerant'
 ---
 
@@ -11,3 +11,4 @@ canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/fault-tolerant
 #### См. также {#see-also}
 
 * [{#T}](./coi-based.md)
+* [{#T}](./terraform.md)

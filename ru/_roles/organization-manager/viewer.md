@@ -25,6 +25,9 @@
 * просматривать информацию о [группах пользователей](../../organization/concepts/groups.md) и о назначенных правах доступа к таким группам;
 * просматривать список групп, в которые входит тот или иной пользователь, а также список пользователей, которые входят в ту или иную группу;
 * просматривать список и информацию о группах пользователей Identity Hub, привязанных к федерациям удостоверений и пулам пользователей в процессе синхронизации с пользовательскими группами в каталоге Active Directory или другом внешнем источнике;
+* просматривать информацию о подписке на платные возможности сервиса Identity Hub;
+* просматривать информацию о статистике использования квот по подписке на платные возможности сервиса Identity Hub;
+* просматривать список пользователей, которые в текущем [отчетном периоде](../../billing/concepts/reporting-period.md) используют квоту для аутентификации в Identity Hub;
 * просматривать информацию о [refresh-токенах](../../iam/concepts/authorization/refresh-token.md) пользователей организации, а также о настройках refresh-токенов в организации;
 * просматривать информацию о квотах сервиса Identity Hub;
 * просматривать информацию о действующем [тарифном плане](../../support/pricing.md#effective-plans) технической поддержки;
@@ -32,4 +35,4 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer` и `organization-manager.userpools.viewer`.
+Включает разрешения, предоставляемые ролями `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, `organization-manager.userpools.viewer` и `organization-manager.idpInstances.viewer`.

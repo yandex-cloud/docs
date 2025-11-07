@@ -32,6 +32,12 @@ Syntax:
 - [yc baremetal image](image/index.md) — Manage images
 	- [yc baremetal image get](image/get.md) — Show information about the specified image
 	- [yc baremetal image list](image/list.md) — List images. Pass the  '--folder-id = baremetal-standard-images' flag to get general images
+- [yc baremetal private-cloud-connection](private-cloud-connection/index.md) — Manage private cloud connections
+	- [yc baremetal private-cloud-connection create](private-cloud-connection/create.md) — Create a private cloud connection
+	- [yc baremetal private-cloud-connection delete](private-cloud-connection/delete.md) — Delete the specified private cloud connection
+	- [yc baremetal private-cloud-connection get](private-cloud-connection/get.md) — Show information about the specified private cloud connection
+	- [yc baremetal private-cloud-connection list](private-cloud-connection/list.md) — List private cloud connections
+	- [yc baremetal private-cloud-connection update](private-cloud-connection/update.md) — Update the specified private cloud connection
 - [yc baremetal private-subnet](private-subnet/index.md) — Manage private subnet
 	- [yc baremetal private-subnet add-labels](private-subnet/add-labels.md) — Add labels to specified private subnet
 	- [yc baremetal private-subnet create](private-subnet/create.md) — Create a private subnet
