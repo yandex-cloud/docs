@@ -1,6 +1,6 @@
-| Resource category | Price per million messages, without VAT |
+| Resource category | Price per 1,000,000 messages, without VAT |
 | ----- | ----- |
-| 100000 messages or less per month | Free of charge |
-| Message count, up to 1 million | $1.036833 |
-| Message count, from 1 million to 5 million | $0.936000 |
-| Message count, 5 million or more | $0.835167 |
+| First 100,000 messages per month | Free of charge |
+| Message count, up to 1,000,000 | $1.036833 |
+| Message count, from 1,000,000 to 5,000,000 | $0.936000 |
+| Message count, over 5,000,000 | $0.835167  |

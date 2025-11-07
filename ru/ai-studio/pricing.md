@@ -265,7 +265,7 @@ _{{ price-per-hour-count-per-second }}_
 
 Использование {{ assistant-api }}, {{ responses-api }} и хранение файлов и поисковых индексов не тарифицируется. Потребленные токены оплачиваются по правилам и тарифам [моделей](#rules-generating) {{ model-gallery-name }}. 
 
-#### Использование голосовых агентов {#rules-voice-assistant}
+#### Использование голосовых агентов {#rules-voice-agents}
 
 Стоимость использования голосовых агентов состоит из стоимости распознавания речи (входящее аудио), стоимости синтеза речи (исходящее аудио) и стоимости генерации текста с помощью модели speech-realtime-250923.
 
@@ -310,6 +310,35 @@ _{{ price-per-hour-count-per-second }}_
 
 
 {% endcut %}
+
+#### Использование инструментов в агентах {#rules-tools}
+
+Вызов инструментов {{ assistant-api }} не тарифицируется. 
+
+Вызов инструмента поиска по файлам File Search в текстовых и голосовых агентах не тарифицируется.
+
+Вызов инструмента поиска в интернете Web Search в текстовых и голосовых агентах не тарифицируется до 17 ноября 2025 года. 
+
+{% note info %}
+
+Цены ниже начнут действовать с 20 ноября 2025 года.
+
+{% endnote %}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-embedding.md](../_pricing/yandexgpt/rub-tools.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-tools.md) %}
+
+{% endlist %}
+
+
 
 ### {{ mcp-hub-name }} {#mcp-hub}
 

@@ -150,6 +150,10 @@ items:
             href: concepts/agents/index.md
           - name: Голосовые агенты
             href: concepts/agents/realtime.md
+          - name: Инструменты
+            items:
+              - name: Поиск в интернете
+                href: concepts/agents/tools/websearch.md
           - name: '{{ assistant-api }}'
             items:
               - name: AI-Ассистенты
