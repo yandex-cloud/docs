@@ -215,7 +215,7 @@ Read-Only:
 
 Required:
 
-- `disk_size` (Number) Size of the disk in in gigabytes.
+- `disk_size` (Number) Size of the disk in gigabytes.
 - `resource_preset_id` (String) ID of the resource preset that determines the number of CPU cores and memory size for the host.
 
 Optional:
