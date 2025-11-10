@@ -7,6 +7,19 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.175.0 (10.11.25) {#version0.175.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ org-name }}
+
+Добавлены недостающие поля в команды управления SAML-приложениями:
+
+* `organization-manager idp application saml application create`;
+* `organization-manager idp application saml application update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.174.0 (06.11.25) {#version0.174.0}
 
 #### Изменения в CLI {#cli}
@@ -73,8 +86,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ objstorage-full-name }}
 
 Исправлена ошибка фильтрации загружаемых объектов в команде `yc storage s3 cp`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.173.0 (30.10.25) {#version0.173.0}
 

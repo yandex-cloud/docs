@@ -44,4 +44,8 @@ description: Следуя данной инструкции, вы сможете
      +----------------------+--------------------+----------------------+--------------------------------+--------+-----------------------------------------+----------------------------------+--------+---------------------+---------------------+
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.List](../../idp/application/oauth/api-ref/Application/list.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/List](../../idp/application/oauth/api-ref/grpc/Application/list.md).
+
 {% endlist %}

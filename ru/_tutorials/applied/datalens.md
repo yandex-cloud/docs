@@ -55,7 +55,7 @@
   1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `15`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** укажите:
 
-      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`.
+      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`.
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** — `standard`.
       * Класс — `{{ s3-c2-m8 }}`.
 
@@ -86,7 +86,7 @@
       1. Нажмите значок ![image](../../_assets/console-icons/pencil.svg).
       1. В открывшемся окне включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** и **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** и **Доступ из консоли управления**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
   Создание кластера может занять несколько минут.
@@ -435,8 +435,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
-  1. В меню слева выберите **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль, который вы задали для доступа к БД, и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. В меню слева выберите **SQL**.
+  1. В поле **Пароль** введите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
   1. Выберите папку `public`.
   1. Посмотрите результаты обработки данных в таблицах `iot_events` и `iot_position`.
 
@@ -490,8 +490,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
-  1. В меню слева выберите **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** укажите пароль, который вы задали для доступа к БД, и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. В меню слева выберите **SQL**.
+  1. В поле **Пароль** укажите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
   1. Выберите папку `public`.
   1. Посмотрите изменения в таблице `iot_events`.
 

@@ -54,4 +54,8 @@
      * `--phone-number` — номер телефона пользователя. Необязательный параметр.
      * `--password` — пароль пользователя. Необязательный параметр. Если пароль не задан, он сгенерируется автоматически. Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.Create](../../organization/idp/api-ref/User/create.md) для ресурса [User](../../organization/idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Create](../../organization/idp/api-ref/grpc/User/create.md).
+
 {% endlist %}

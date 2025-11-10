@@ -213,7 +213,7 @@
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
 
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+        * **Доступ из консоли управления**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -346,8 +346,8 @@
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **SQL**.
-  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль.
-  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. В поле **Пароль** введите пароль.
+  1. Нажмите кнопку **Подключиться**.
   1. В окне справа напишите SQL-запрос:
 
      ```sql
@@ -394,7 +394,7 @@
      SETTINGS date_time_input_format='best_effort';
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Нажмите кнопку **Выполнить**.
 
 {% endlist %}
 

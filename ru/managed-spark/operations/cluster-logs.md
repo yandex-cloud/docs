@@ -29,6 +29,6 @@
         yc logging read --group-name <имя_лог-группы> --follow
         ```
 
-        Вы можете посмотреть имя лог-группы на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_overview }}** кластера {{ SPRK }}.
+        Вы можете посмотреть имя лог-группы на вкладке **{{ ui-key.yacloud.common.overview }}** кластера {{ SPRK }}.
 
 {% endlist %}

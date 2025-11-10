@@ -25,4 +25,8 @@
       yc organization-manager idp userpool domain get <идентификатор_пула> <домен>
       ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.GetDomain](../../organization/idp/api-ref/Userpool/getDomain.md) для ресурса [Userpool](../../organization/idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/GetDomain](../../organization/idp/api-ref/grpc/Userpool/getDomain.md).
+
 {% endlist %}

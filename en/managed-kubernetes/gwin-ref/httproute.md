@@ -18,6 +18,8 @@ HTTPRoute resources must be attached to [Gateway](./gateway.md) resources to fun
   * [HTTPRouteRule](#httprouterule)
   * [HTTPRouteMatch](#httproutematch)
   * [HTTPPathMatch](#httppathmatch)
+  * [HTTPHeaderMatch](#httpheadermatch)
+  * [HTTPQueryParamMatch](#httpqueryparammatch)
   * [HTTPRouteFilter](#httproutefilter)
   * [HTTPHeaderFilter](#httpheaderfilter)
   * [HTTPRequestRedirectFilter](#httprequestredirectfilter)
@@ -62,6 +64,17 @@ spec:
           headers:  # header matching
             - name: "X-Version"
               value: "v1"
+              type: Exact  # match type: Exact or RegularExpression
+            - name: "X-User-Agent"
+              value: "^Mozilla.*"
+              type: RegularExpression  # regex pattern matching
+          queryParams:  # query parameter matching
+            - name: "version"
+              value: "v2"
+              type: Exact  # match type: Exact or RegularExpression
+            - name: "debug"
+              value: "true|false"
+              type: RegularExpression  # regex pattern matching
       filters:  # modify requests before routing
         - type: RequestHeaderModifier
           requestHeaderModifier:
@@ -178,16 +191,27 @@ metadata:
     
     # HTTP specific settings
     gwin.yandex.cloud/rules.http.upgradeTypes: "websocket"  # supported upgrade protocols
+    gwin.yandex.cloud/rules.http.regexRewrite.regex: "^/service/([^/]+)(/.*)$"  # regex pattern for path rewriting
+    gwin.yandex.cloud/rules.http.regexRewrite.substitute: "\\2/instance/\\1"  # substitution pattern with capture groups
+    
+    # Host rewriting
+    gwin.yandex.cloud/rules.hostRewrite.auto: "true"  # automatically rewrite host to backend target
+    gwin.yandex.cloud/rules.hostRewrite.replace: "backend.example.com"  # static host replacement
     
     # Security
     gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
     gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
     
     # Rate limiting
-    gwin.yandex.cloud/hosts.rateLimit.allRequests.perSecond: "100"  # global rate limit
-    gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # global rate limit
-    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # per-IP rate limit
-    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # per-IP rate limit
+    gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond: "100"  # route-level rate limit for all requests
+    gwin.yandex.cloud/rules.rateLimit.allRequests.perMinute: "6000"  # route-level rate limit for all requests
+    gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perSecond: "10"  # route-level rate limit per IP
+    gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perMinute: "600"  # route-level rate limit per IP
+
+    gwin.yandex.cloud/hosts.rateLimit.allRequests.perSecond: "100"  # host-level rate limit for all requests
+    gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # host-level rate limit for all requests
+    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # host-level rate limit per IP
+    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # host-level rate limit per IP
     
     # RBAC configuration
     gwin.yandex.cloud/rules.rbac.action: "ALLOW"  # default RBAC action
@@ -288,6 +312,29 @@ metadata:
 | `gwin.yandex.cloud/rules.timeout` <br> _(duration)_ <br> Overall timeout for HTTP connection between load balancer and backend. The maximum time the connection is kept alive, regardless of data transfer. Default: 60s. On timeout, returns UNAVAILABLE status. _NOTE_: In HTTPRoute you can use rules[].timeouts.backendRequest field instead, it overrides annotation value. <br> Example: `60s` |
 | `gwin.yandex.cloud/rules.idleTimeout` <br> _(duration)_ <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | `gwin.yandex.cloud/rules.http.upgradeTypes` <br> _(comma separated strings)_ <br> Supported HTTP Upgrade header values. <br> Example: `websocket` |
+
+#### Route rate limiting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond` <br> _(number)_ <br> Route-level rate limit for all requests per second. <br> Example: `100` |
+| `gwin.yandex.cloud/rules.rateLimit.allRequests.perMinute` <br> _(number)_ <br> Route-level rate limit for all requests per minute. <br> Example: `6000` |
+| `gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perSecond` <br> _(number)_ <br> Route-level rate limit per IP address per second. <br> Example: `10` |
+| `gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perMinute` <br> _(number)_ <br> Route-level rate limit per IP address per minute. <br> Example: `600` |
+
+#### Host rewriting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.hostRewrite.auto` <br> _(boolean)_ <br> Automatically replaces the host with that of the target backend. Cannot be used together with `hostRewrite.replace`. <br> Example: `true` |
+| `gwin.yandex.cloud/rules.hostRewrite.replace` <br> _(string)_ <br> Static host replacement value for HTTP/1.1 Host headers and HTTP/2 :authority pseudo-headers. Cannot be used together with `hostRewrite.auto`. <br> Example: `backend.example.com` |
+
+#### Path rewriting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.http.regexRewrite.regex` <br> _(string)_ <br> Regular expression pattern to match portions of the path for rewriting. Used together with `regexRewrite.substitute`. <br> Example: `^/service/([^/]+)(/.*)$` |
+| `gwin.yandex.cloud/rules.http.regexRewrite.substitute` <br> _(string)_ <br> Substitution string for path rewriting with capture group support. Pattern `^/service/([^/]+)(/.*)$` with substitution `\\2/instance/\\1` transforms `/service/foo/v1/api` to `/v1/api/instance/foo`. <br> Example: `\\2/instance/\\1` |
 
 #### Security configuration
 
@@ -400,8 +447,8 @@ HTTPRouteMatch defines the predicate used to match requests to a given action. M
 | Field | Description |
 |-------|-------------|
 | path | **[HTTPPathMatch](#httppathmatch)** <br> HTTP request path matcher. |
-| headers | **[]HTTPHeaderMatch** <br> HTTP request header matchers. |
-| queryParams | **[]HTTPQueryParamMatch** <br> HTTP query parameter matchers. |
+| headers | **[[]HTTPHeaderMatch](#httpheadermatch)** <br> HTTP request header matchers. |
+| queryParams | **[[]HTTPQueryParamMatch](#httpqueryparammatch)** <br> HTTP query parameter matchers. |
 | method | **string** <br> HTTP method to match. <br> Example: `GET`, `POST`, `PUT`. |
 
 ### HTTPPathMatch
@@ -414,6 +461,30 @@ HTTPPathMatch describes how to select a HTTP route by matching the HTTP request 
 |-------|-------------|
 | type | **string** <br> Path match type. `Exact` for exact path match, `PathPrefix` for path prefix match. <br> Example: `Exact`, `PathPrefix`. |
 | value | **string** <br> Path value to match against. <br> Example: `/api/v1`, `/`. |
+
+### HTTPHeaderMatch
+
+HTTPHeaderMatch describes how to select a HTTP route by matching HTTP request headers.
+
+*Appears in*: [HTTPRouteMatch](#httproutematch)
+
+| Field | Description |
+|-------|-------------|
+| type | **string** <br> Type specifies how to match against the value of the header. `Exact` for exact header value match, `RegularExpression` for regex pattern match. <br> Example: `Exact`, `RegularExpression`. |
+| name | **string** <br> Name of the HTTP Header to be matched. Name matching is case insensitive. <br> Example: `X-Version`, `Authorization`. |
+| value | **string** <br> Value of HTTP Header to be matched. For `RegularExpression` type, this should be a valid regex pattern. <br> Example: `v1`, `^Bearer .*`. |
+
+### HTTPQueryParamMatch
+
+HTTPQueryParamMatch describes how to select a HTTP route by matching HTTP query parameters.
+
+*Appears in*: [HTTPRouteMatch](#httproutematch)
+
+| Field | Description |
+|-------|-------------|
+| type | **string** <br> Type specifies how to match against the value of the query parameter. `Exact` for exact parameter value match, `RegularExpression` for regex pattern match. <br> Example: `Exact`, `RegularExpression`. |
+| name | **string** <br> Name of the HTTP query param to be matched. This must be an exact string match. <br> Example: `version`, `debug`. |
+| value | **string** <br> Value of HTTP query param to be matched. For `RegularExpression` type, this should be a valid regex pattern. <br> Example: `v2`, `true|false`. |
 
 ### HTTPRouteFilter
 

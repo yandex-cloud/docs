@@ -120,7 +120,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `12`.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
-        * Specify the `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v2 }}` platform.
+        * Specify the `Intel Cascade Lake` platform.
         * Select the `burstable` type.
         * Specify the `b2.medium` class.
 
@@ -150,7 +150,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
         For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **Access from the management console**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -170,10 +170,10 @@ Wait for the cluster status to change to `Alive`.
 - Management console {#console}
 
     1. Select the `my-pg-database` cluster.
-    1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
-    1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_username }}** field, specify the name of the user who owns the DB created in the previous step.
-    1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password specified when creating the cluster.
-    1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+    1. Navigate to the **SQL** tab.
+    1. In the **Database username** field, specify the name of the user who owns the DB created in the previous step.
+    1. In the **Password** field, enter the password specified when creating the cluster.
+    1. Click **Connect**.
 
 {% endlist %}
 
@@ -229,7 +229,7 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
         )
         ```
 
-    1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+    1. Click **Execute**.
 
     Wait until a message confirms that the query is complete.
 

@@ -21,4 +21,8 @@
 
       Где `--domain` — ваш домен.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Federation.GetDomain](../../organization/saml/api-ref/Federation/getDomain.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/GetDomain](../../organization/saml/api-ref/grpc/Federation/getDomain.md).
+
 {% endlist %}

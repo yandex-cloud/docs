@@ -37,7 +37,12 @@
 
 ## Подготовьте ресурсы {#create-resources}
 
-1. [Скачайте](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
+1. Клонируйте [репозиторий](https://sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless) с исходным кодом, необходимым для создания бота, для этого в терминале выполните команду [git](https://git-scm.com/):
+
+    ```bash
+    git clone https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless.git
+    ```
+
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `{{ roles-editor }}` и `{{ roles-functions-invoker }}` на ваш каталог. 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}

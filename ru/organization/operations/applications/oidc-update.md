@@ -102,6 +102,10 @@ description: Следуя данной инструкции, вы сможете
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Update](../../idp/application/oauth/api-ref/Application/update.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md).
+
 {% endlist %}
 
 ## Измените конфигурацию поставщика услуг {#update-sp}
@@ -173,7 +177,9 @@ description: Следуя данной инструкции, вы сможете
      status: ACTIVE
      ```
 
-  1. Если вы изменили набор атрибутов пользователей, которые будут доступны поставщику услуг (`--scopes`), укажите их 
+- API {#api}
+
+  Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
 
 {% endlist %}
 
@@ -220,6 +226,10 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Не забудьте указать новый секрет в настройках на стороне поставщика услуг. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
 
 {% endlist %}
 

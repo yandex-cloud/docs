@@ -83,4 +83,8 @@ description: Из этой статьи вы узнаете, как настро
         --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
       ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.SetAccessBindings](../../idp/application/oauth/api-ref/Application/setAccessBindings.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/SetAccessBindings](../../idp/application/oauth/api-ref/grpc/Application/setAccessBindings.md).
+
 {% endlist %}

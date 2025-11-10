@@ -55,7 +55,7 @@ The example is based on the minimum values of [host](../../managed-postgresql/co
   1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** list, select `15`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, specify:
 
-      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}**: `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`.
+      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}**: `standard`.
       * Class: `{{ s3-c2-m8 }}`.
 
@@ -86,7 +86,7 @@ The example is based on the minimum values of [host](../../managed-postgresql/co
       1. Click ![image](../../_assets/console-icons/pencil.svg).
       1. In the window that opens, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** and **Access from the management console**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
   It may take a few minutes to create a cluster.
@@ -435,8 +435,8 @@ Create a data processing function, test it, and review the result of data proces
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the `my-pg-database` cluster.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-  1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password you set to access the database and click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. In the left-hand menu, select **SQL**.
+  1. In the **Password** field, enter the password you set to access the database and click **Connect**.
   1. Select the `public` folder.
   1. View the data processing result in the `iot_events` and `iot_position` tables.
 
@@ -490,8 +490,8 @@ Shortly after creating the trigger, you can check how it works.
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the `my-pg-database` cluster.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-  1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, specify the password you set to access the database and click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. In the left-hand menu, select **SQL**.
+  1. In the **Password** field, specify the password you set to access the database and click **Connect**.
   1. Select the `public` folder.
   1. View the changes in the `iot_events` table.
 

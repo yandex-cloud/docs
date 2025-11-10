@@ -62,8 +62,11 @@ description: Следуя данной инструкции, вы сможете
      * `--default-subdomain` — [домен](../../concepts/domains.md) по умолчанию. Будет использоваться, если к пулу не привязаны другие домены.
      * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
-{% endlist %}
+- API {#api}
 
+  Воспользуйтесь методом REST API [Userpool.Create](../../idp/api-ref/Userpool/create.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Create](../../idp/api-ref/grpc/Userpool/create.md).
+
+{% endlist %}
 #### См. также {#see-also}
 
 * [{#T}](../add-account.md#add-local-user)

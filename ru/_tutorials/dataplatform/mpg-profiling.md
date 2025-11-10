@@ -15,7 +15,7 @@
 ## Перед началом работы {#before-start}
 
 1. Выберите базы данных для диагностики.
-1. [Включите в кластере опцию](../../managed-postgresql/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+1. [Включите в кластере опцию](../../managed-postgresql/operations/update.md#change-additional-settings) **Доступ из консоли управления**.
 1. [Активируйте сбор статистики](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) о сессиях и запросах.
 1. [Включите модуль `auto_explain`](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) для расширенного логирования планов выполнения запросов.
 1. Чтобы в лог производительности попадало больше запросов, [в настройках СУБД](../../managed-postgresql/operations/update.md#change-postgresql-config) уменьшите значение [параметра `log_min_duration_statement`](../../managed-postgresql/concepts/settings-list.md#setting-log-min-duration-statement).
@@ -57,7 +57,7 @@
 
     {% note tip %}
 
-    Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** на странице управления кластером.
+    Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **SQL** на странице управления кластером.
 
     Подробнее см. в разделе [{#T}](../../managed-postgresql/operations/web-sql-query.md).
 

@@ -50,7 +50,7 @@
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`;
         * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `22.8 LTS`; 
     * {{ ui-key.yacloud.mdb.forms.new_section_resource }}:
-        * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`;
+        * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`;
         * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** — `standart`;
         * **{{ ui-key.yacloud.mdb.forms.section_resource }}** — `{{ s3-c2-m8 }}`;
     * {{ ui-key.yacloud.mdb.forms.section_disk }} — `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`;

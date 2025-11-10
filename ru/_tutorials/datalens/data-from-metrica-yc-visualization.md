@@ -84,7 +84,7 @@
  
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**
+        * **Доступ из консоли управления**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.

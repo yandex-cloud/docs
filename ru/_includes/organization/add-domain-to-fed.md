@@ -43,4 +43,8 @@
 
       Сохраните значение поля `value`, оно понадобится для [подтверждения домена](../../organization/operations/user-pools/validate-domain.md).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Federation.AddDomain](../../organization/saml/api-ref/Federation/addDomain.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/AddDomain](../../organization/saml/api-ref/grpc/Federation/addDomain.md).
+
 {% endlist %}

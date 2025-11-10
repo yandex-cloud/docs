@@ -15,7 +15,7 @@ To detect potential issues in a cluster, [use tools](../../managed-postgresql/tu
 ## Getting started {#before-start}
 
 1. Select databases to troubleshoot.
-1. [Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**](../../managed-postgresql/operations/update.md#change-additional-settings) option in the cluster.
+1. [Enable the **Access from the management console**](../../managed-postgresql/operations/update.md#change-additional-settings) option in the cluster.
 1. [Activate statistics collection](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) about sessions and queries.
 1. [Enable the `auto_explain`](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) module for extended query execution plan logging.
 1. If you want more queries to appear in the performance log, reduce the [`log_min_duration_statement`](../../managed-postgresql/concepts/settings-list.md#setting-log-min-duration-statement) value in the [DBMS settings](../../managed-postgresql/operations/update.md#change-postgresql-config).
@@ -57,7 +57,7 @@ There are several ways to optimize problematic queries:
 
     {% note tip %}
 
-    To visualize the execution plans of the available queries, use the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab on the cluster management page.
+    To visualize the execution plans of the available queries, use the **SQL** tab on the cluster management page.
 
     For more information, see [{#T}](../../managed-postgresql/operations/web-sql-query.md).
 

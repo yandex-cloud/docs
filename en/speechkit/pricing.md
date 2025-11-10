@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of speech [synthesis](https://yandex.cloud/en/prices?state=ba3807f79625#calculator) and [recognition](https://yandex.cloud/en/prices?state=82857f5d8751#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of speech [synthesis](https://yandex.cloud/en/prices?state=ba3807f79625#calculator) and [recognition](https://yandex.cloud/en/prices?state=82857f5d8751#calculator), use our calculator on the {{ yandex-cloud }} website or see the pricing data below.
 
 
 {% endnote %}
@@ -35,12 +35,12 @@ The cost of using {{ speechkit-name }} for speech synthesis depends on the versi
 
 #### API v1 {#api-v1}
 
-For the [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary.md)).
+For the [API v1](tts/request.md), the cost is calculated based on the total number of characters sent to generate speech from text in a calendar month ([reporting period](../billing/concepts/glossary.md)).
 
 
 #### API v3 {#api-v3}
 
-The cost of using the [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. The cost is calculated for a calendar month ([Reporting period](../billing/concepts/glossary.md)).
+The cost of using the [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of sent synthesis requests. The cost is calculated for a calendar month ([reporting period](../billing/concepts/glossary.md)).
 
 By default, speech synthesis requests have these limitations: {{ tts-v3-count }} and {{ tts-v3-time }}. To synthesize longer phrases, you can use `unsafe_mode` or [streaming mode](tts/index.md#streaming). In this case, you will be charged per 250 characters, e.g.:
 
@@ -64,7 +64,7 @@ The number of characters in a request is determined considering spaces and speci
 
 ### Using speech recognition {#rules-stt}
 
-The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. The cost is calculated for a calendar month ([Reporting period](../billing/concepts/glossary.md)).
+The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. The cost is calculated for a calendar month ([reporting period](../billing/concepts/glossary.md)).
 
 #### Streaming speech recognition {#rules-stt-streaming}
 
@@ -79,7 +79,7 @@ The billing unit is a 15-second segment of a single-channel audio file. Shorter 
 
 {% note warning %}
 
-In [streaming mode](stt/streaming.md), billing begins as soon as you send a [message with recognition settings](stt/streaming.md#specification-msg). If you do not send any audio after this message, it will be treated as one consumed billing unit.
+In [streaming mode](stt/streaming.md), the billing starts as soon as you send a [message with recognition settings](stt/streaming.md#specification-msg). If you do not send any audio after this message, it will be treated as one consumed billing unit.
 
 {% endnote %}
 
@@ -94,13 +94,13 @@ In [streaming mode](stt/streaming.md), billing begins as soon as you send a [mes
 >    **Explanation:** The length of each audio is rounded up to 15 seconds. Thus, we have two segments, 15 seconds each.
 
 
-#### Asynchronous recognition with {#rules-stt-long}
+#### Asynchronous recognition {#rules-stt-long}
 
 These rules apply when using [asynchronous recognition](stt/transcribation.md).
 
 The billing unit is a one-second segment of two-channel audio. Shorter segments are rounded up. The number of channels is rounded up to an even number.
 
-The minimum billable amount is 15 seconds for every pair of channels. Shorter audio fragments are billed as 15 seconds.
+The minimum billable amount is 15 seconds for every two channels. Shorter audio fragments are billed as 15 seconds.
 
 **Examples of rounding the length of audio**
 
@@ -149,12 +149,12 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 
 
-## Cost calculation examples {#price-example}
+## Examples of cost calculation {#price-example}
 
 
 ### Speech synthesis using API v1 {#price-example-tts-v1}
 
-The cost of using {{ speechkit-short-name }} for speech synthesis using the API v1 with the following parameters:
+The cost of using {{ speechkit-short-name }} for speech synthesis using the API v1 with the following properties:
 
 * **Number of characters sent per month**: 2023.
 
@@ -168,9 +168,9 @@ The cost is calculated as follows:
 
 ### Speech synthesis using API v3 {#price-example-tts-v3}
 
-The cost of using {{ speechkit-short-name }} for speech synthesis using the API v3 with the following parameters:
+The cost of using {{ speechkit-short-name }} for speech synthesis using the API v3 with the following properties:
 
-* **Number of requests sent**: 3.
+* **Number of sent requests**: 3.
 * **Number of characters in requests**: 150, 300, 600.
 
 
@@ -183,7 +183,7 @@ The cost is calculated as follows:
 
 ### Streaming speech recognition {#price-example-stt-streaming}
 
-The cost of using {{ speechkit-short-name }} for streaming speech recognition with the following parameters:
+The cost of using {{ speechkit-short-name }} for streaming speech recognition with the following properties:
 
 * **Number of audio fragments**: 2.
 * **Duration of audio fragments**: 5 seconds, 37 seconds.
@@ -199,7 +199,7 @@ The cost is calculated as follows:
 
 ### Synchronous speech recognition {#price-example-stt-short}
 
-The cost of using {{ speechkit-short-name }} for synchronous speech recognition with the following parameters:
+The cost of using {{ speechkit-short-name }} for synchronous speech recognition with the following properties:
 
 * **Number of audio fragments**: 2.
 * **Duration of audio fragments**: 5 seconds, 37 seconds.
@@ -214,7 +214,7 @@ The cost is calculated as follows:
 
 ### Asynchronous speech recognition {#price-example-stt-long}
 
-The cost of using {{ speechkit-short-name }} for asynchronous speech recognition with the following parameters:
+The cost of using {{ speechkit-short-name }} for asynchronous speech recognition with the following properties:
 
 * **Number of audio fragments**: 4.
 * **Duration of audio fragments**: 5 seconds, 5 seconds, 15.5 seconds, 15.5 seconds.
@@ -231,7 +231,7 @@ The cost is calculated as follows:
 
 ### Asynchronous speech recognition in deferred mode {#price-example-stt-long-deferred}
 
-The cost of using {{ speechkit-short-name }} for asynchronous speech recognition in deferred mode with the following parameters:
+The cost of using {{ speechkit-short-name }} for asynchronous speech recognition in deferred mode with the following properties:
 
 * **Number of audio fragments**: 3.
 * **Duration of audio fragments**: 2 seconds, 14 seconds, 19.5 seconds.

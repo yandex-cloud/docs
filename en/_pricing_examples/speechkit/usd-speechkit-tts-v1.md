@@ -4,5 +4,5 @@
 
 Where:
 
-* {{ sku|USD|speechkit.tts_gpu.v1|string }}: Cost per 1M characters.
+* {{ sku|USD|speechkit.tts_gpu.v1|string }}: Cost per 1,000,000 characters.
 * {{ sku|USD|speechkit.tts_gpu.v1|string }} / 1,000,000: Cost per character.

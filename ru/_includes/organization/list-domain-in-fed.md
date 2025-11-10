@@ -18,4 +18,8 @@
       yc organization-manager federation saml list-domains <имя_или_идентификатор_федерации>
       ```
       
+- API {#api}
+
+  Воспользуйтесь методом REST API [Federation.ListDomains](../../organization/saml/api-ref/Federation/listDomains.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/ListDomains](../../organization/saml/api-ref/grpc/Federation/listDomains.md).
+
 {% endlist %}

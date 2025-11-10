@@ -38,4 +38,8 @@
        --domain my-domain.ru
      ```
 
+- API {#api}
+
+   Воспользуйтесь методом REST API [Federation.ValidateDomain](../../organization/saml/api-ref/Federation/validateDomain.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/ValidateDomain](../../organization/saml/api-ref/grpc/Federation/validateDomain.md).
+
 {% endlist %}

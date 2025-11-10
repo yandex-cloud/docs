@@ -29,6 +29,6 @@
         yc logging read --group-name <log_group_name> --follow
         ```
 
-        You can view the log group name on the **{{ ui-key.yacloud.mdb.cluster.switch_overview }}** tab of the {{ mtr-name }} cluster.
+        You can view the log group name on the **{{ ui-key.yacloud.common.overview }}** tab of the {{ mtr-name }} cluster.
 
 {% endlist %}

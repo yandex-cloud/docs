@@ -248,7 +248,7 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       * Выберите сервисный аккаунт `yq-sa`.
-      * Включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+      * Включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **Доступ из консоли управления**.
 
   1. Остальные настройки можно оставить по умолчанию.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
@@ -263,7 +263,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `clickhouse` и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}**.
+  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `clickhouse` и перейдите на вкладку **SQL**.
   1. Введите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**, указанные при создании кластера.
   1. В окно ввода справа последовательно выполните SQL-запросы:
 
@@ -279,7 +279,7 @@
      INSERT INTO items(id, description) VALUES(2, 'TV')
      ```
 
-  1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Нажмите **Выполнить**.
 
 {% endlist %}
 
@@ -330,7 +330,7 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
      * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, например `db1`.
      * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **Доступ из консоли управления**.
   1. Остальные настройки можно оставить по умолчанию.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -344,7 +344,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `postgresql` и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
+  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `postgresql` и перейдите на вкладку **SQL**.
   1. Введите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**, указанные при создании кластера.
   1. В окно ввода справа последовательно выполните SQL-запросы:
 

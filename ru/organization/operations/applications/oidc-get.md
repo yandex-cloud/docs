@@ -48,4 +48,8 @@ description: Следуя данной инструкции, вы получит
      updated_at: "2025-10-22T11:53:21.689383Z"
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Get](../../idp/application/oauth/api-ref/Application/get.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Get](../../idp/application/oauth/api-ref/grpc/Application/get.md).
+
 {% endlist %}

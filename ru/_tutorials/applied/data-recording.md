@@ -120,7 +120,7 @@
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `12`.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
-        * Укажите платформу `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v2 }}`.
+        * Укажите платформу `Intel Cascade Lake`.
         * Выберите тип `burstable`.
         * Укажите класс `b2.medium`.
 
@@ -150,7 +150,7 @@
         Для базы данных, которая создается вместе с кластером, устанавливаются настройки набора символов (кодировки) `LC_CTYPE=C` и `LC_COLLATE=C`. После создания эти настройки изменить нельзя, но вы можете [создать новую базу](../../managed-postgresql/operations/databases.md#add-db) с нужными настройками.
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опцию **Доступ из консоли управления**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -170,10 +170,10 @@
 - Консоль управления {#console}
 
     1. Выберите кластер `my-pg-database`.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-    1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_username }}** укажите имя пользователя, который владеет БД, созданной на предыдущем шаге.
-    1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль, указанный при создании кластера.
-    1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+    1. Перейдите на вкладку **SQL**.
+    1. В поле **Имя пользователя БД** укажите имя пользователя, который владеет БД, созданной на предыдущем шаге.
+    1. В поле **Пароль** введите пароль, указанный при создании кластера.
+    1. Нажмите кнопку **Подключиться**.
 
 {% endlist %}
 
@@ -229,7 +229,7 @@
         )
         ```
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+    1. Нажмите кнопку **Выполнить**.
 
     Дождитесь появления надписи о завершении выполнения запроса.
 
