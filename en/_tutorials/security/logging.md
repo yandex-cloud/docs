@@ -182,7 +182,7 @@ To create a cluster and a database:
      * Select the `alb-logging-sg-cluster` security group.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add a host to be accessible from outside {{ yandex-cloud }}. To do this, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **Access from the management console** and **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
   1. Leave the default values in all other fields.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -211,9 +211,9 @@ You need to create a log table in advance:
   After [creating the cluster](#set-up-db-create-cluster), you will be automatically redirected to the **{{ ui-key.yacloud.mdb.clusters.label_title }}** page.
 
   1. Wait until `alb-logging-cluster` changes its status to **Alive**, then select this cluster.
-  1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
+  1. Navigate to the **SQL** tab.
   1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
-  1. Select the database you created together with the cluster and click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. Select the database you created together with the cluster and click **Connect**.
   1. In the edit window, enter the following request:
 
      ```sql
@@ -226,7 +226,7 @@ You need to create a log table in advance:
      );
      ```
 
-  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Click **Execute**.
   1. Wait until a message confirms that the request is complete.
 
 {% endlist %}
@@ -588,7 +588,7 @@ To create a trigger:
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
      1. Select `alb-logging-cluster`.
-     1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
+     1. Navigate to the **SQL** tab.
      1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
      1. Select the database you created together with the cluster, and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
      1. Click the `load_balancer_requests` table. You should now see the first rows of this table with your requests to the load balancer.

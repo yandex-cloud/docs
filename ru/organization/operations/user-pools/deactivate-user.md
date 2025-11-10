@@ -70,6 +70,10 @@ description: Следуя данной инструкции, вы сможете
      * `--organization-id` — идентификатор организации, в которой находится федерация.
      * `--reason` — причина деактивации. Необязательный параметр.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Federation.Suspend](../../saml/api-ref/Federation/suspendUserAccounts.md) для ресурса [Federation](../../saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Suspend](../../saml/api-ref/grpc/Federation/suspendUserAccounts.md).
+
 {% endlist %}
 
 ## Деактивировать локального пользователя {#deactivate-local}
@@ -106,6 +110,10 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где `--reason` — причина деактивации. Необязательный параметр.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.Suspend](../../idp/api-ref/User/suspend.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Suspend](../../idp/api-ref/grpc/User/suspend.md).
 
 {% endlist %}
 

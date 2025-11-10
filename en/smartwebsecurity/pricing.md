@@ -112,11 +112,11 @@ One resource unit supports these peak performance thresholds (thresholds for aut
 * 300 new connections per second.
 * 22 MB (176 Mbit) of traffic per second (covers both incoming and outgoing traffic).
 
-The default minimum number of proxy server resource units is 6 (2 in each availability zone).
+The group of resource units is automatically scaled depending on the external load on the proxy server nodes. The group size is calculated so that the load on each unit does not exceed the threshold values.
 
-The system automatically scales the resource unit group based on the proxy server node’s external workload. The system calculates the group size to ensure resource unit utilization remains below specified thresholds.
+By default, the minimum number of proxy server resource units is 6 (2 in each availability zone). If needed, the minimum number of resource units can be increased upon request.
 
-Proxy server usage is billed hourly. You are charged based on the highest number of resource units running during each hour.
+Proxy server usage is billed hourly. You are charged for the minimum number of resource units running during the hour.
 
 Traffic protection from DDoS attacks at the L3-L4 levels is charged according to the volume of [legitimate](concepts/rules.md#rule-action) traffic in GB.
 

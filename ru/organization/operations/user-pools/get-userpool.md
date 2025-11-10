@@ -34,4 +34,8 @@ description: Следуя данной инструкции, вы получит
      yc organization-manager idp userpool get <идентификатор_пула>
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.Get](../../idp/api-ref/Userpool/get.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Get](../../idp/api-ref/grpc/Userpool/get.md).
+
 {% endlist %}

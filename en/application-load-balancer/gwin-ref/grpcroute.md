@@ -155,15 +155,24 @@ metadata:
     gwin.yandex.cloud/rules.timeout: "60s"  # overall connection timeout
     gwin.yandex.cloud/rules.idleTimeout: "300s"  # idle connection timeout
     
+    # Host rewriting
+    gwin.yandex.cloud/rules.hostRewrite.auto: "true"  # automatically rewrite host to backend target
+    gwin.yandex.cloud/rules.hostRewrite.replace: "grpc.backend.example.com"  # static host replacement
+    
     # Security
     gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
     gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
     
     # Rate limiting
-    gwin.yandex.cloud/hosts.rateLimit.allRequests.perSecond: "100"  # global rate limit
-    gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # global rate limit
-    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # per-IP rate limit
-    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # per-IP rate limit
+    gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond: "100"  # route-level rate limit for all requests
+    gwin.yandex.cloud/rules.rateLimit.allRequests.perMinute: "6000"  # route-level rate limit for all requests
+    gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perSecond: "10"  # route-level rate limit per IP
+    gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perMinute: "600"  # route-level rate limit per IP
+
+    gwin.yandex.cloud/hosts.rateLimit.allRequests.perSecond: "100"  # host-level rate limit for all requests
+    gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # host-level rate limit for all requests
+    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # host-level rate limit per IP
+    gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # host-level rate limit per IP
     
     # RBAC configuration
     gwin.yandex.cloud/rules.rbac.action: "ALLOW"  # default RBAC action
@@ -239,6 +248,22 @@ metadata:
 |------------|
 | `gwin.yandex.cloud/rules.timeout` <br> _(duration)_ <br> Overall timeout for gRPC connection between load balancer and backend. <br> Example: `60s` |
 | `gwin.yandex.cloud/rules.idleTimeout` <br> _(duration)_ <br> Idle timeout for gRPC connection. <br> Example: `300s` |
+
+#### Route rate limiting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond` <br> _(number)_ <br> Route-level rate limit for all requests per second. <br> Example: `100` |
+| `gwin.yandex.cloud/rules.rateLimit.allRequests.perMinute` <br> _(number)_ <br> Route-level rate limit for all requests per minute. <br> Example: `6000` |
+| `gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perSecond` <br> _(number)_ <br> Route-level rate limit per IP address per second. <br> Example: `10` |
+| `gwin.yandex.cloud/rules.rateLimit.requestsPerIP.perMinute` <br> _(number)_ <br> Route-level rate limit per IP address per minute. <br> Example: `600` |
+
+#### Host rewriting
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.hostRewrite.auto` <br> _(boolean)_ <br> Automatically replaces the host with that of the target backend. Cannot be used together with `hostRewrite.replace`. <br> Example: `true` |
+| `gwin.yandex.cloud/rules.hostRewrite.replace` <br> _(string)_ <br> Static host replacement value for gRPC :authority pseudo-headers. Cannot be used together with `hostRewrite.auto`. <br> Example: `grpc.backend.example.com` |
 
 #### Security configuration
 

@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=431d2333ac46#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using {{ translate-full-name }}, use [our calculator](https://yandex.cloud/en/prices?state=431d2333ac46#calculator) on the {{ yandex-cloud }} website or see the pricing info below.
 
 
 {% endnote %}
@@ -29,7 +29,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ### Translation and language detection {#rules-translate-detect}
 
-The cost of using {{ translate-full-name }} is calculated based on the total number of characters submitted in translation and language detection requests within a calendar month ([Reporting period](../billing/concepts/reporting-period.md)). [Translation requests](operations/translate.md) are charged only for text translation. Unless explicitly specified in the translation request, source language detection is included in the translation charge. Language detection will be chargeable if you submit a separate [language detection request](operations/detect.md).
+The cost of using {{ translate-full-name }} is calculated based on the total number of characters submitted in translation and language detection requests within a calendar month ([reporting period](../billing/concepts/reporting-period.md)). [Translation requests](operations/translate.md) are charged only for text translation. Unless explicitly specified in the translation request, source language detection is included in the translation charge. Language detection will be chargeable if you submit a separate [language detection request](operations/detect.md).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 

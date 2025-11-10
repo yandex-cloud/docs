@@ -36,5 +36,8 @@ description: Следуя данной инструкции, вы сможете
 
       Где `--userpool-id` — идентификатор пула, список пользователей которого нужно получить.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.List](../../idp/api-ref/User/list.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/List](../../idp/api-ref/grpc/User/list.md).
 
 {% endlist %}

@@ -9578,11 +9578,6 @@ default:
         cluster:
           databases:
             popup-add_button_add: Создать
-          explore:
-            button_execute: Выполнить
-            button_submit-creds: Подключиться
-            label_password: Пароль
-            label_username: Имя пользователя БД
           format-schemas:
             button-action_add-format-schema: Создать схему
             dialog:
@@ -9600,7 +9595,6 @@ default:
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_dictionaries: Словари
-          switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_format-schemas: Схемы формата данных
           switch_hosts: Хосты
@@ -9723,7 +9717,9 @@ default:
         label_author: Автор
         label_auto: Автоматически
         label_filters: Фильтры
+        label_grpc: GRPC
         label_http: HTTP
+        label_http2: HTTP/2
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
@@ -9863,7 +9859,9 @@ default:
         image-field:
           button_custom-image: Укажите ссылку
         internal-v4-address-field:
+          button_internal-address-reserve: Зарезервировать
           field_internal-ipv4-address: Внутренний IPv4 адрес
+          label_internal-address-title: IP-адрес
         ip-address-form:
           label_button-save: Сохранить
           label_field-search-type: Тип поиска
@@ -9971,7 +9969,10 @@ default:
           edit:
             label_title: Изменение группы виртуальных машин
           overview:
+            label_authority: Хост
+            label_host: Хост
             label_instance-address: Публичный IP-адрес
+            label_service-name: Имя сервиса
             section_instances-state: Состояния виртуальных машин
           switch_instances: Виртуальные машины
         groups:
@@ -11079,6 +11080,7 @@ default:
             label_add-listener: Добавить обработчик
             label_add-target-group: Добавить целевую группу
             label_address-type: Публичный адрес
+            label_advanced: Дополнительно
             label_edit-health-check: Настроить
             label_internal: Внутренний
             label_target-group-id: Целевая группа
@@ -11370,7 +11372,6 @@ default:
           switch_jobs: Задания
           switch_monitoring: Мониторинг
           switch_network: Сеть
-          switch_overview: Обзор
           switch_subclusters: Подкластеры
           switch_users: Пользователи
           title_migration-alert-action: Мигрировать данные
@@ -11424,7 +11425,6 @@ default:
           additional-field-datatransfer: Доступ из Data Transfer
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
-          additional-field-websql: Доступ из консоли управления
           additional-field-websql-service: Доступ из WebSQL
           additional-field-yandex-query_ru: Доступ из Yandex Query
           backup-retain-period: Срок хранения автоматических резервных копий, дней
@@ -11500,8 +11500,6 @@ default:
           network_field_subnetwork: Подсеть
           network_field_zone: Зона доступности
           new_section_resource: Ресурсы
-          resource_presets_field_gen_v2: Intel Cascade Lake
-          resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
           resource_presets_field-type: Тип
           section_additional: Дополнительные настройки
@@ -11644,7 +11642,6 @@ default:
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_diagnostics: Диагностика производительности
-          switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_hosts: Хосты
           switch_logs: Логи
@@ -12375,6 +12372,7 @@ default:
           popup-create_button_create: Зарезервировать
           popup-create_field_advanced: Дополнительно
           popup-create_field_deletion-protection: Защита от удаления
+          popup-create_field_internal-v4-address: Внутрений IPv4 адрес
           popup-create_field_zone: Зона доступности
         button_move-vpc-object: Переместить
         gateways:
@@ -14588,7 +14586,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.3
+        tag: v1.20.4
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

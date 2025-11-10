@@ -213,7 +213,7 @@ To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable these options:
 
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+        * **Access from the management console**.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -346,8 +346,8 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
 
   1. Select the `s3-logs` cluster.
   1. Navigate to the **SQL** tab.
-  1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password.
-  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. In the **Password** field, enter the password.
+  1. Click **Connect**.
   1. In the window on the right, write this SQL query:
 
      ```sql
@@ -394,7 +394,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
      SETTINGS date_time_input_format='best_effort';
      ```
 
-  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Click **Execute**.
 
 {% endlist %}
 
