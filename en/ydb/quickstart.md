@@ -261,7 +261,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. To manage your DBs from the command line, [install](https://{{ ydb.docs }}/reference/ydb-cli/install) the {{ ydb-short-name }} CLI.
+  1. To manage your DBs from the command line, [install]({{ ydb.docs }}/reference/ydb-cli/install) the {{ ydb-short-name }} CLI.
   1. To authenticate the {{ ydb-short-name }} CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
 
      ```bash
