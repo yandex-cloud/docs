@@ -1,239 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   width="800"
-   height="130"
-   version="1.1"
-   id="svg10"
-   sodipodi:docname="SQL-structure-scheme01.svg"
-   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview10"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.69650018"
-     inkscape:cx="504.66606"
-     inkscape:cy="-206.0301"
-     inkscape:window-width="1280"
-     inkscape:window-height="961"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
-  <!-- Определение стрелки -->
-  <defs
-     id="defs1">
-    <marker
-       id="arrow"
-       markerWidth="10"
-       markerHeight="10"
-       refX="0"
-       refY="3"
-       orient="auto"
-       markerUnits="strokeWidth">
-      <path
-         d="M 0,0 V 6 L 9,3 Z"
-         fill="#4e496b"
-         id="path1" />
-    </marker>
-  </defs>
-  <!-- Блоки -->
-  <g
-     transform="matrix(0.62081559,0,0,0.68738406,49.652912,49.653334)"
-     id="g1">
-    <rect
-       width="120"
-       height="40"
-       fill="#ffffff"
-       stroke="#5282ff"
-       stroke-width="2"
-       rx="5"
-       ry="5"
-       id="rect1"
-       x="0"
-       y="0" />
-    <text
-       x="60"
-       y="20"
-       font-family="Arial"
-       font-size="14px"
-       fill="#000000"
-       dominant-baseline="middle"
-       text-anchor="middle"
-       id="text1">SELECT</text>
-  </g>
-  <g
-     transform="matrix(0.62081559,0,0,0.68738406,179.39979,49.653334)"
-     id="g2">
-    <rect
-       width="120"
-       height="40"
-       fill="#ffffff"
-       stroke="#5282ff"
-       stroke-width="2"
-       rx="5"
-       ry="5"
-       id="rect2"
-       x="0"
-       y="0" />
-    <text
-       x="60"
-       y="20"
-       font-family="Arial"
-       font-size="14px"
-       fill="#000000"
-       dominant-baseline="middle"
-       text-anchor="middle"
-       id="text2">FROM</text>
-  </g>
-  <g
-     transform="matrix(0.62081559,0,0,0.68738406,309.40047,49.653334)"
-     id="g3">
-    <rect
-       width="120"
-       height="40"
-       fill="#ffffff"
-       stroke="#5282ff"
-       stroke-width="2"
-       rx="5"
-       ry="5"
-       id="rect3"
-       x="0"
-       y="0" />
-    <text
-       x="60"
-       y="20"
-       font-family="Arial"
-       font-size="14px"
-       fill="#000000"
-       dominant-baseline="middle"
-       text-anchor="middle"
-       id="text3">WHERE</text>
-  </g>
-  <g
-     transform="matrix(0.62081559,0,0,0.68738406,438.89354,49.653334)"
-     id="g4">
-    <rect
-       width="120"
-       height="40"
-       fill="#ffffff"
-       stroke="#5282ff"
-       stroke-width="2"
-       rx="5"
-       ry="5"
-       id="rect4"
-       x="0"
-       y="0" />
-    <text
-       x="60"
-       y="20"
-       font-family="Arial"
-       font-size="14px"
-       fill="#000000"
-       dominant-baseline="middle"
-       text-anchor="middle"
-       id="text4">GROUP BY</text>
-  </g>
-  <g
-     transform="matrix(0.62081559,0,0,0.68738406,567.9389,49.578996)"
-     id="g5">
-    <rect
-       width="120"
-       height="40"
-       fill="#ffffff"
-       stroke="#5282ff"
-       stroke-width="2"
-       rx="5"
-       ry="5"
-       id="rect5"
-       x="0"
-       y="0" />
-    <text
-       x="60"
-       y="20"
-       font-family="Arial"
-       font-size="14px"
-       fill="#000000"
-       dominant-baseline="middle"
-       text-anchor="middle"
-       id="text5">HAVING</text>
-  </g>
-  <g
-     transform="matrix(0.62081559,0,0,0.68738406,697.22992,49.399527)"
-     id="g6">
-    <rect
-       width="120"
-       height="40"
-       fill="#ffffff"
-       stroke="#5282ff"
-       stroke-width="2"
-       rx="5"
-       ry="5"
-       id="rect6"
-       x="0"
-       y="0" />
-    <text
-       x="60"
-       y="20"
-       font-family="Arial"
-       font-size="14px"
-       fill="#000000"
-       dominant-baseline="middle"
-       text-anchor="middle"
-       id="text6">ORDER BY</text>
-  </g>
-  <!-- Стрелки: начало стрелок укорочено на 10px, конец как было -->
-  <line
-     x1="124.65839"
-     y1="63.401016"
-     x2="161.90733"
-     y2="63.401016"
-     stroke="#4e496b"
-     stroke-width="1.83397"
-     marker-end="url(#arrow)"
-     id="line6" />
-  <line
-     x1="254.6591"
-     y1="63.401016"
-     x2="291.90802"
-     y2="63.401016"
-     stroke="#4e496b"
-     stroke-width="1.83397"
-     marker-end="url(#arrow)"
-     id="line7" />
-  <line
-     x1="384.40594"
-     y1="63.401016"
-     x2="421.65488"
-     y2="63.401016"
-     stroke="#4e496b"
-     stroke-width="1.83397"
-     marker-end="url(#arrow)"
-     id="line8" />
-  <line
-     x1="513.89905"
-     y1="63.401016"
-     x2="551.14801"
-     y2="63.401016"
-     stroke="#4e496b"
-     stroke-width="1.83397"
-     marker-end="url(#arrow)"
-     id="line9" />
-  <line
-     x1="642.80322"
-     y1="63.401016"
-     x2="680.05219"
-     y2="63.401016"
-     stroke="#4e496b"
-     stroke-width="1.83397"
-     marker-end="url(#arrow)"
-     id="line10" />
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="130">
+    <defs>
+        <marker id="arrow" markerHeight="10" markerUnits="strokeWidth" markerWidth="10" orient="auto" refX="0" refY="3">
+            <path fill="#4e496b" d="M0 0v6l9-3Z"/>
+        </marker>
+    </defs>
+    <g transform="matrix(.62082 0 0 .68738 49.653 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">SELECT</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 179.4 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">FROM</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 309.4 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">WHERE</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 438.894 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">GROUP BY</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 567.939 49.579)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">HAVING</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 697.23 49.4)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">ORDER BY</text>
+    </g>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M124.658 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M254.659 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M384.406 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M513.899 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M642.803 63.401h37.249"/>
 </svg>

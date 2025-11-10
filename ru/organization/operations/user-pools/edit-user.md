@@ -61,4 +61,8 @@ description: Следуя данной инструкции, вы сможете
      * `--email` — новая электронная почта пользователя.
      * `--phone-number` — новый номер телефона пользователя.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.Update](../../idp/api-ref/User/update.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Update](../../idp/api-ref/grpc/User/update.md).
+
 {% endlist %}

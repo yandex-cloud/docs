@@ -50,4 +50,8 @@
 
       Сохраните значение поля `value`, оно понадобится для [подтверждения домена](../../organization/operations/user-pools/validate-domain.md).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.AddDomain](../../organization/idp/api-ref/Userpool/addDomain.md) для ресурса [Userpool](../../organization/idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/AddDomain](../../organization/idp/api-ref/grpc/Userpool/addDomain.md).
+
 {% endlist %}

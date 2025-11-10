@@ -18,23 +18,23 @@ editable: false
 
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
-When using {{ ml-platform-name }}, you pay for the use of computing resources: the computation and instance running time is charged per second.
+When using {{ ml-platform-name }}, you pay for the use of computing resources, with the computation and instance running time charged per second.
 
 ### Billing unit {#unit}
 
-Pricing is based on a billing unit. The number of billing units spent on computation depends on:
+The pricing is based on billing units. The number of billing units spent on computation depends on:
 * Computing resource capacity.
 * Computation time.
 
   The computation time is rounded up to an integer of seconds.
 
-One billing unit represents the cost of using one CPU core for one second. The number of units depends on the computing resource configuration.
+One billing unit equals the cost of using one CPU core for one second. The number of units depends on the computing resource configuration.
 
 ### {{ ds-nb }} {#dedicated}
 
 When performing computations and training models in {{ ml-platform-name }} notebooks, you pay for the whole time the VM is used since the first computations are run in a notebook until the VM is released, regardless of whether any computations were performed after the first run. If you run computations using {{ dataproc-name }} clusters, they are [charged separately](#data-proc).
 
-You are separately charged for [data storage](#storage) in datasets and project storage expansion.
+You are also separately charged for [data storage](#storage) in datasets and project storage expansion.
 
 ### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
 
@@ -50,19 +50,19 @@ You pay for additional [node instance disks](#prices-storage) separately.
 
 The cost of computations in {{ dataproc-name }} clusters includes:
 * Computing resources of the selected {{ ml-platform-name }} configuration.
-* The {{ dataproc-name }} cluster's full lifetime duration according to the [{{ dataproc-full-name }}](../data-proc/pricing.md) pricing policy.
+* The {{ dataproc-name }} cluster's full lifetime duration as per the [{{ dataproc-full-name }} pricing policy](../data-proc/pricing.md).
 
-Learn more about [integration with {{ dataproc-name }}](concepts/data-processing.md).
+You can learn more about integration with {{ dataproc-name }} [here](concepts/data-processing.md).
 
 ### Disk space usage {#storage}
 
-Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#prices-storage) exceeding {{ ml-project-size }} is paid for separately. For more information about pricing, see [{#T}](concepts/limits.md).
+Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the project size [quota]({{ link-console-quotas }}), the entire requested [storage capacity](#prices-storage) exceeding {{ ml-project-size }} is paid for separately. For more information about quotas and limits, see [{#T}](concepts/limits.md).
 
-You will be charged separately for data stored inside [datasets](#prices-storage) and file storages.
+You will be charged separately for the data stored inside [datasets](#prices-storage) and file storages.
 
-If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In which case you will pay for data storage according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
+If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, you will pay for data storage according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
-[Model storage](#prices-storage) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
+[Storing models](#prices-storage) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -92,7 +92,7 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 
 ### {{ ds-nb }} {#price-example-notebook}
 
-Cost of using {{ ml-platform-name }} with the following parameters:
+Cost of using {{ ml-platform-name }} with the following properties:
 
 * **Computing resources**: g1.1 configuration with 8 CPUs and 1 GPU
 * **VM usage time**: 10 minutes
@@ -106,7 +106,7 @@ The cost of using the service will be:
 
 ### {{ ds-inf }} {#price-example-node}
 
-Cost of using {{ ds-inf }} with the following parameters:
+Cost of using {{ ds-inf }} with the following properties:
 
 * **Number of instances per node**: 2.
 * **Instance configuration**: g1.1 with 8 CPUs and 1 GPU.

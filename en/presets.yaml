@@ -9568,11 +9568,6 @@ default:
         cluster:
           databases:
             popup-add_button_add: Create
-          explore:
-            button_execute: Execute
-            button_submit-creds: Connect
-            label_password: Password
-            label_username: Database username
           format-schemas:
             button-action_add-format-schema: Create schema
             dialog:
@@ -9590,7 +9585,6 @@ default:
           switch_databases: Databases
           switch_datalens: DataLens
           switch_dictionaries: Dictionaries
-          switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_format-schemas: Data format schemas
           switch_hosts: Hosts
@@ -9713,7 +9707,9 @@ default:
         label_author: Author
         label_auto: Auto
         label_filters: Filters
+        label_grpc: GRPC
         label_http: HTTP
+        label_http2: HTTP/2
         label_https: HTTPS
         label_key: Key
         label_list: List
@@ -9853,7 +9849,9 @@ default:
         image-field:
           button_custom-image: Enter link
         internal-v4-address-field:
+          button_internal-address-reserve: Reserve
           field_internal-ipv4-address: Internal IPv4 address
+          label_internal-address-title: IP-address
         ip-address-form:
           label_button-save: Save
           label_field-search-type: Search type
@@ -9961,7 +9959,10 @@ default:
           edit:
             label_title: Changing an instance group
           overview:
+            label_authority: Authority
+            label_host: Host
             label_instance-address: Public IP address
+            label_service-name: Service name
             section_instances-state: VM states
           switch_instances: Virtual machines
         groups:
@@ -11067,6 +11068,7 @@ default:
             label_add-listener: Add listener
             label_add-target-group: Add target group
             label_address-type: Public address
+            label_advanced: Advanced
             label_edit-health-check: Configure
             label_internal: Internal
             label_target-group-id: Target group
@@ -11358,7 +11360,6 @@ default:
           switch_jobs: Jobs
           switch_monitoring: Monitoring
           switch_network: Network
-          switch_overview: Overview
           switch_subclusters: Subclusters
           switch_users: Users
           title_migration-alert-action: Migrate data
@@ -11412,7 +11413,6 @@ default:
           additional-field-datatransfer: Access from Data Transfer
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
-          additional-field-websql: Access from the management console
           additional-field-websql-service: WebSQL access
           additional-field-yandex-query_ru: Yandex Query access
           backup-retain-period: Retention period for automatic backups, days
@@ -11488,8 +11488,6 @@ default:
           network_field_subnetwork: Subnet
           network_field_zone: Availability zone
           new_section_resource: Resources
-          resource_presets_field_gen_v2: Intel Cascade Lake
-          resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Platform
           resource_presets_field-type: Type
           section_additional: Advanced settings
@@ -11632,7 +11630,6 @@ default:
           switch_databases: Databases
           switch_datalens: DataLens
           switch_diagnostics: Performance diagnostics
-          switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_hosts: Hosts
           switch_logs: Logs
@@ -12363,6 +12360,7 @@ default:
           popup-create_button_create: ' Reserve'
           popup-create_field_advanced: Advanced
           popup-create_field_deletion-protection: Deletion protection
+          popup-create_field_internal-v4-address: Internal IPv4 address
           popup-create_field_zone: Availability zone
         button_move-vpc-object: Move
         gateways:
@@ -14576,7 +14574,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.3
+        tag: v1.20.4
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

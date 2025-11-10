@@ -39,4 +39,8 @@ description: Следуя данной инструкции, вы сможете
 
      Где `--subject_id` — идентификатор нужного пользователя, полученный на предыдущем шаге.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Group.ListEffective](../../organization/api-ref/Group/listEffective.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/ListEffective](../../organization/api-ref/grpc/Group/listEffective.md).
+
 {% endlist %}

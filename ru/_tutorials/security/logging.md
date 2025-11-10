@@ -182,7 +182,7 @@
      * Выберите группу безопасности `alb-logging-sg-cluster`.
    
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хост, который будет доступен извне {{ yandex-cloud }}. Для этого включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** и **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **Доступ из консоли управления** и **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
   1. Остальные поля оставьте заполненными по умолчанию.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -211,9 +211,9 @@
   После [создания кластера](#set-up-db-create-cluster) вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
 
   1. Дождитесь, когда статус кластера `alb-logging-cluster` изменится на **Alive**, и выберите этот кластер.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
+  1. Перейдите на вкладку **SQL**.
   1. Выберите пользователя, [созданного вместе с кластером](#set-up-db-create-cluster), и введите его пароль.
-  1. Выберите базу данных, созданную вместе с кластером, и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. Выберите базу данных, созданную вместе с кластером, и нажмите кнопку **Подключиться**.
   1. В окне редактирования введите следующий запрос:
   
      ```sql
@@ -226,7 +226,7 @@
      );
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Нажмите кнопку **Выполнить**.
   1. Дождитесь появления надписи о завершении выполнения запроса.
   
 {% endlist %}
@@ -588,7 +588,7 @@
    
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
      1. Выберите кластер `alb-logging-cluster`.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
+     1. Перейдите на вкладку **SQL**.
      1. Выберите пользователя, [созданного вместе с кластером](#set-up-db-create-cluster), и введите его пароль.
      1. Выберите базу данных, созданную вместе с кластером, и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
      1. Нажмите на таблицу `load_balancer_requests`. Вы должны увидеть первые строки этой таблицы, соответствующие вашим запросам к балансировщику.

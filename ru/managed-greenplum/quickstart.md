@@ -87,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 Получите идентификатор кластера, который потребуется при [подключении](#connect):
 
 1. В консоли управления перейдите на страницу каталога и выберите сервис **Yandex MPP Analytics for PostgreSQL**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.mdb.cluster.switch_overview }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}**.
 1. Скопируйте идентификатор кластера из блока **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Подключитесь к кластеру {#connect}

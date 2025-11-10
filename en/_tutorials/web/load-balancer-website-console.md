@@ -55,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, open the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the following: 
 
-          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
           * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
           * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`

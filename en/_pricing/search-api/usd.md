@@ -1,4 +1,4 @@
-| Service | Price per 1,000 requests,<br/>without VAT |
+| Service  | Cost per 1,000 requests,<br/>without VAT |
 |---------|-------------------------------------|
 | Daytime synchronous requests      | {{ sku|USD|searchapi.requests.sync.v3|string }} |
 | Daytime deferred requests    	    | {{ sku|USD|searchapi.requests.async.v3|string }} |

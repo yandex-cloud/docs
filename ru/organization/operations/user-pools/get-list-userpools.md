@@ -37,4 +37,8 @@ description: Следуя данной инструкции, вы сможете
 
       Где `--organization-id` — [идентификатор организации](../organization-get-id.md), список пулов пользователей которой нужно получить.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.List](../../idp/api-ref/Userpool/list.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/List](../../idp/api-ref/grpc/Userpool/list.md).
+
 {% endlist %}

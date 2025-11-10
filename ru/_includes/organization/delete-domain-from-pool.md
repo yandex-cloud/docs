@@ -25,4 +25,8 @@
      yc organization-manager idp userpool domain delete <идентификатор_пула> <домен>
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.DeleteDomain](../../organization/idp/api-ref/Userpool/deleteDomain.md) для ресурса [Userpool](../../organization/idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/DeleteDomain](../../organization/idp/api-ref/grpc/Userpool/deleteDomain.md).
+
 {% endlist %}

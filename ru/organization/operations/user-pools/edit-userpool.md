@@ -56,4 +56,8 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — новое описание пула пользователей.
      * `--labels` — новый список [меток](../../../resource-manager/concepts/labels.md). Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.Update](../../idp/api-ref/Userpool/update.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Update](../../idp/api-ref/grpc/Userpool/update.md).
+
 {% endlist %}

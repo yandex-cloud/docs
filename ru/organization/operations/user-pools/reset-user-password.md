@@ -52,6 +52,10 @@ description: Следуя данной инструкции, вы сможете
 
       Сохраните сгенерированный пароль и передайте его пользователю. После закрытия командной оболочки посмотреть новый пароль будет невозможно.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.GeneratePassword](../../idp/api-ref/User/generatePassword.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/GeneratePassword](../../idp/api-ref/grpc/User/generatePassword.md).
+
 {% endlist %}
 
 Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
@@ -91,5 +95,9 @@ description: Следуя данной инструкции, вы сможете
       Пароль должен быть не короче семи символов, содержать как минимум одну латинскую букву в верхнем регистре, одну — в нижнем регистре, одну цифру и один специальный символ. 
 
       {% endnote %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.SetOwnPassword](../../idp/api-ref/User/setOwnPassword.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/SetOwnPassword](../../idp/api-ref/grpc/User/setOwnPassword.md).
 
 {% endlist %}

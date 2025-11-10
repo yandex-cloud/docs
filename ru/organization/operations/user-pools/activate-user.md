@@ -68,6 +68,10 @@ description: Следуя данной инструкции, вы сможете
      * `--subject-ids` — список идентификаторов пользователей, которых необходимо активировать.
      * `--organization-id` — идентификатор организации, в которой находится федерация.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Federation.Reactivate](../../saml/api-ref/Federation/reactivateUserAccounts.md) для ресурса [Federation](../../saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Reactivate](../../saml/api-ref/grpc/Federation/reactivateUserAccounts.md).
+
 {% endlist %}
 
 
@@ -102,6 +106,10 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc organization-manager idp user reactivate <идентификатор_пользователя>
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [User.Reactivate](../../idp/api-ref/User/reactivate.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/Reactivate](../../idp/api-ref/grpc/User/reactivate.md).
 
 {% endlist %}
 
