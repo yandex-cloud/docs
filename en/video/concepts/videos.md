@@ -97,3 +97,4 @@ You can also generate timecodes automatically by enabling video [summarization](
 
 * [Getting started with video hosting](../hosting.md)
 * [Getting started with API](../api-ref/quickstart.md)
+* [How to enable monetization](../operations/channels/settings.md#ad-settings)

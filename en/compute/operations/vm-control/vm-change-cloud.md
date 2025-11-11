@@ -139,7 +139,7 @@ While directly moving a VM to a different cloud is not supported, you can create
 
     {% endlist %}
 
-1. [Add a user](../../../iam/operations/users/create.md) from the target cloud (where you want to move your VM) to the cloud hosting the folder with the source image.
+1. [Add a user](../../../organization/operations/add-account.md) from the target cloud (where you want to move your VM) to the cloud hosting the folder with the source image.
 1. [Assign](../../../iam/operations/roles/grant.md) the target cloud user the `{{ roles-cloud-member }}` and `{{ roles-image-user }}` roles for the cloud hosting the folder with the source image.
 1. Create a new image in the target cloud:
 

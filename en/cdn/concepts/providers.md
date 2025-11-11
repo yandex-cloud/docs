@@ -8,7 +8,9 @@ _CDN provider_ is a content delivery service provider.
 
 Both providers offer the same capabilities and support the same interfaces for resource and CDN origin management: the [management console]({{ link-console-main }}), [CLI](../cli-ref/index.md), [{{ TF }}](../tf-ref.md), and [API](../api-ref/authentication.md).
 
-However, the metrics providers send to [{{ monitoring-full-name }}](../../monitoring/) are different:
+If you use the EdgeCDN provider, its own [limits](limits.md#cdn-limits) and [restrictions](limits.md#other-restrictions) apply.
+
+The metrics providers send to [{{ monitoring-full-name }}](../../monitoring/) are different:
 * [{{ cdn-full-name }} provider metrics](../metrics-yc.md)
 * [EdgeCDN provider metrics](../metrics.md)
 

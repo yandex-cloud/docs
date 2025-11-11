@@ -1,0 +1,1 @@
+Once you install the agent, the VM will be added to **{{ backup-name }}** in the ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab and you will be able to [associate](../../backup/operations/policy-vm/attach-and-detach-vm.md) it with a [{{ backup-name }} policy](../../backup/concepts/policy.md).

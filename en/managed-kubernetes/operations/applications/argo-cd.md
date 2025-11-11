@@ -20,21 +20,21 @@ description: Follow this guide to install Agro CD.
 
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Argo CD](/marketplace/products/yc/argo-cd) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `argo-cd-space`. If you leave the default namespace, Argo CD may work incorrectly.
    * **Application name**: Specify the application name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run this command:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_argo-cd.helmChart.name }} \
@@ -48,13 +48,13 @@ description: Follow this guide to install Agro CD.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   If you set `namespace` to the default namespace, Argo CD may work incorrectly. We recommend you to specify a value different from all existing namespaces (e.g., `argo-cd-space`).
+   If you set `namespace` to the default namespace, Argo CD may work incorrectly. We recommend specifying a value different from all the existing namespaces, e.g., `argo-cd-space`.
 
 ## Access to the application {#application-access}
 
-You can open Argo CD via [localhost](#open-via-localhost), using a [dedicated IP address](#go-to-static-address) through [{{ network-load-balancer-full-name }}](../../../network-load-balancer), or by [URL](#open-via-alb) through an L7 [{{ alb-full-name }}](../../../application-load-balancer). The first method is easier to configure and does not require additional costs for load balancers. However, the application is only available through `localhost` as long as port redirection is active and load balancers provide continuous access to Argo CD.
+You can open Argo CD via [localhost](#open-via-localhost), using a [dedicated IP address](#go-to-static-address) through a [{{ network-load-balancer-full-name }}](../../../network-load-balancer), or using a [URL](#open-via-alb) through an L7 [{{ alb-full-name }}](../../../application-load-balancer). The first method is easier to configure and does not involve additional costs for load balancers. However, the application is only available through `localhost` as long as port redirection is active and load balancers provide continuous access to Argo CD.
 
-Before you set up access to Argo CD, get the administrator password (`admin`):
+Before you set up access to Argo CD, get the `admin` password:
 
 ```bash
 kubectl --namespace <namespace> get secret argocd-initial-admin-secret \
@@ -68,13 +68,13 @@ You will need the password for authorization in Argo CD.
 1. Configure Argo CD port redirection to your local computer:
 
    ```bash
-   kubectl port-forward service/<app_name>-argocd-server \
+   kubectl port-forward service/<application_name>-argocd-server \
      --namespace <namespace> 8080:443
    ```
 
-   In the command, specify the application name you had set during installation.
+   In the command, specify the application name you set during installation.
 
-1. Follow the `https://localhost:8080` link and log in with administrator credentials.
+1. Go to `https://localhost:8080` and log in with the administrator credentials.
 
 ### Opening the application through a dedicated IP address via {{ network-load-balancer-name }} {#go-to-static-address}
 
@@ -97,11 +97,11 @@ You will need the password for authorization in Argo CD.
        app.kubernetes.io/name: argocd-server
    ```
 
-   In the specification, specify the namespace you installed Argo CD in.
+   In the specification, enter the namespace where you installed Argo CD.
 
    The specification giving no IP address, the load balancer will get a dynamic public IP address. You can add a field named `spec.loadBalancerIP` and specify a [pre-reserved](../../../vpc/operations/get-static-ip.md) static IP address in it.
 
-   For details on the specification, see [this service reference](../../nlb-ref/service.md).
+   For details on the specification, see [this reference](../../nlb-ref/service.md).
 
 1. Apply the specification and create a network load balancer:
 
@@ -124,9 +124,9 @@ You will need the password for authorization in Argo CD.
 
    {% endlist %}
 
-1. Follow the `https://<load_balancer_IP_address>` link and log in with administrator credentials.
+1. Go to `https://<load_balancer_IP_address>` and log in with the administrator credentials.
 
-### Opening the application by URL through {{ alb-name }} {#open-via-alb}
+### Opening the application using a URL through an {{ alb-name }} {#open-via-alb}
 
 1. {% include [create-zone](../../../_includes/managed-kubernetes/create-public-zone.md) %}
 
@@ -138,12 +138,14 @@ You will need the password for authorization in Argo CD.
 
 1. [Install the {{ alb-name }}](alb-ingress-controller.md) ingress controller.
 
+   {% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 1. While you need a `NodePort` service to work with an L7 {{ alb-name }}, Argo CD runs a server with a `ClusterIP` service. Change the service type:
 
    1. Open the file with the `Service` object description:
 
       ```bash
-      kubectl -n <namespace> edit svc <app_name>-argocd-server
+      kubectl -n <namespace> edit svc <application_name>-argocd-server
       ```
 
    1. Replace the `type` value with `NodePort`:
@@ -211,9 +213,9 @@ You will need the password for authorization in Argo CD.
     kubectl apply -f ingress.yaml
     ```
 
-    This will create an `Ingress` resource. ALB Ingress Controller will use its configuration to automatically deploy your L7 {{ alb-name }}.
+    This will create an `Ingress` resource. The ALB Ingress Controller will use its configuration to automatically deploy your L7 {{ alb-name }}.
 
-1. Make sure you created the L7 load balancer. To do this, run the following command:
+1. Make sure you created the L7 load balancer by running this command:
 
     ```bash
     kubectl get ingress argocd-ingress
@@ -226,9 +228,9 @@ You will need the password for authorization in Argo CD.
     argocd-ingress  <none>  <domain_name>  51.250.**.***  80, 443  15h
     ```    
 
-1. [Add an A record](../../../dns/operations/resource-record-create.md) to your domain's zone. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}.
+1. [Add an A record](../../../dns/operations/resource-record-create.md) to your domain zone. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}.
 
-1. Open the `https://<domain_name>` link in your browser and log in with administrator credentials.
+1. Open `https://<domain_name>` in your browser and log in with the administrator credentials.
 
    {% include [check-sg-if-url-unavailable-lvl3](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
@@ -238,4 +240,4 @@ You will need the password for authorization in Argo CD.
 
 ## See also {#see-also}
 
-* [Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/).
+* [Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/)

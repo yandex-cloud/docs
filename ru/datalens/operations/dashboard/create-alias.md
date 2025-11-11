@@ -3,7 +3,7 @@ title: Как добавить алиас в {{ datalens-full-name }}
 description: Следуя данной инструкции, вы сможете добавить алиас для виджетов в {{ datalens-full-name }}.
 ---
 
-# Создание алиаса
+# Создание алиаса в {{ datalens-full-name }}
 
 
 Чтобы добавить [алиас](../../dashboard/link.md#alias) для пары виджетов:

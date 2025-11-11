@@ -5,7 +5,8 @@
 {% include [what-for-to-use-sa-with-vm](../../../_includes/compute/what-for-to-use-sa-with-vm.md) %}
 
 Для сервисного аккаунта сделана упрощенная аутентификация через API и CLI изнутри ВМ. Чтобы пройти аутентификацию:
-1. Если у вас еще нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md) и [настройте права доступа для него](../../../iam/operations/sa/assign-role-for-sa.md).
+1. Если у вас еще нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md).
+1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md), соответствующую действиям, которые вы хотите выполнять изнутри ВМ. Например, для управления ресурсами {{ compute-name }} это может быть [роль](../../../iam/roles-reference.md#compute-admin) `compute.admin` на каталог или примитивная [роль](../../security/index.md#primitive-roles) `editor`.
 1. [Привяжите сервисный аккаунт](#link-sa-with-instance) к ВМ.
 1. [Аутентифицируйтесь изнутри ВМ](#auth-inside-vm).
 
@@ -17,7 +18,11 @@
 
 ## Аутентификация изнутри ВМ {#auth-inside-vm}
 
-Чтобы аутентифицироваться изнутри ВМ от имени привязанного сервисного аккаунта:
+{% note warning %}
+
+Упрощенная аутентификация в API или CLI {{ yandex-cloud }} изнутри ВМ возможна только от имени сервисного аккаунта, [привязанного](#link-sa-with-instance) к ВМ.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -57,7 +62,7 @@
 
      Результат:
 
-     ```
+     ```text
      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
      ```
 

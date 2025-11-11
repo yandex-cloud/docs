@@ -5,12 +5,14 @@ description: In this tutorial, you will learn how to create or update {{ alb-nam
 
 # Creating or updating {{ alb-name }} resources using {{ managed-k8s-name }} configuration
 
-To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-ingress-controller/index.md) and {{ managed-k8s-full-name }} [Gateway API](../tools/k8s-gateway-api/index.md), create YAML configuration files describing {{ k8s }} resources, e.g., `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute`, etc.
+To manage {{ alb-name }} resources using an [ingress controller](../tools/k8s-ingress-controller/index.md) and {{ managed-k8s-full-name }} [Gateway API](../tools/k8s-gateway-api/index.md), create YAML configuration files describing {{ k8s }} resources, e.g., `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute`, etc.
+
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 ## Getting started {#prerequisites}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Install the Ingress controller](k8s-ingress-controller-install.md) or [Gateway API](k8s-gateway-api-install.md).
+1. [Install the ingress controller](k8s-ingress-controller-install.md) or [Gateway API](k8s-gateway-api-install.md).
 1. Create a resource. For available resource configurations, see [{#T}](../tools/index.md).
 
 ## Applying a configuration {#apply}

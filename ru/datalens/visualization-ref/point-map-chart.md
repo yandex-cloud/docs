@@ -1,4 +1,9 @@
-# Точечная карта ![](../../_assets/datalens/heatmap.svg)
+---
+title: Точечная карта в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Точечная карта.
+---
+
+# Точечная карта ![](../../_assets/datalens/heatmap.svg) в {{ datalens-full-name }}
 
 Каждая точка откладывается по своим географическим координатам.
 

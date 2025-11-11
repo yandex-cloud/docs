@@ -1,12 +1,10 @@
 ---
-title: Создание L7-балансировщика {{ alb-full-name }} с профилем безопасности {{ sws-name }}
-description: Следуя этому руководству, вы создадите тестовый веб-сервер, развернете L7-балансировщик {{ alb-name }}, который будет распределять трафик на тестовый веб-сервер, и защитите созданную инфраструктуру с помощью профиля безопасности {{ sws-name }}.
-canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile'
+title: Создание L7-балансировщика {{ alb-full-name }} с профилем безопасности {{ sws-full-name }}
+description: В этом руководстве вы создадите тестовый веб-сервер, развернете L7-балансировщик {{ alb-name }} и защитите созданную инфраструктуру с помощью профиля безопасности {{ sws-name }}.
+canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/'
 ---
 
-# Создание L7-балансировщика {{ alb-full-name }} с профилем безопасности {{ sws-name }}
-
-{% include notitle [balancer-with-sws-profile](../../../_tutorials/security/balancer-with-sws-profile/index.md) %}
+{% include [balancer-with-sws-profile](../../../_tutorials/security/balancer-with-sws-profile.md) %}
 
 * [Консоль управления](console.md) — используйте консоль управления {{ yandex-cloud }}, чтобы создать инфраструктуру в пошаговом режиме.
 * [{{ TF }}](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации {{ TF }}, а затем разверните инфраструктуру с помощью [{{ TF }}-провайдера {{ yandex-cloud }}]({{ tf-docs-link }}).

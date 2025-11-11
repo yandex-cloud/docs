@@ -3,7 +3,7 @@ title: Инструкция по созданию подключения к Orac
 description: Из статьи вы узнаете, как подключиться к Oracle Database в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к Oracle Database
+# Создание подключения к Oracle Database в {{ datalens-full-name }}
 
 
 {% note warning %}

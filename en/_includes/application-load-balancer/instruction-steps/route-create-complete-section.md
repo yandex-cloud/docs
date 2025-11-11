@@ -103,6 +103,8 @@
         --http-router-name <HTTP_router_name>
       ```
 
+      {% include [Terraform timeouts](../terraform-timeout-router-and-host.md) %}
+
 - API {#api}
 
   Use the [update](../../../application-load-balancer/api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../../../application-load-balancer/api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../../../application-load-balancer/api-ref/grpc/VirtualHost/update.md) gRPC API call.

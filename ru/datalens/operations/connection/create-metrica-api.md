@@ -1,9 +1,9 @@
 ---
 title: Как создать подключение к Metrica в {{ datalens-full-name }}
-description: Следуя данной инструкции, вы сможете создать подключение к Metrica.
+description: Следуя данной инструкции, вы сможете создать подключение к Metrica в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к Metrica
+# Создание подключения к Metrica в {{ datalens-full-name }}
 
 
 {% include [datalens-metrica-pro-note](../../../_includes/datalens/datalens-metrica-pro-note.md) %}

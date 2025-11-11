@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.TYPE_CAST.FAILED
-description: На странице приведено описание ошибки ERR.DS_API.TYPE_CAST.FAILED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.TYPE_CAST.FAILED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Ошибка преобразования типа данных.
 ---
 
-# Ошибка преобразования типа данных
+# [{{ datalens-full-name }}] Ошибка преобразования типа данных
 
 `ERR.DS_API.TYPE_CAST.FAILED`
 

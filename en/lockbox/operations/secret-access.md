@@ -10,7 +10,7 @@ description: Follow this guide to configure access to a secret.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click the name of the secret you need.
   1. On the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -39,7 +39,7 @@ description: Follow this guide to configure access to a secret.
 
         Where:
         * `--id`: Secret ID.
-        * `--user-account-id`: [User ID](../../iam/operations/users/get.md).
+        * `--user-account-id`: [User ID](../../organization/operations/users-get.md).
         * `--role`: [Role](../security/index.md#roles-list).
 
       * To a [service account](../../iam/concepts/users/service-accounts.md):
@@ -78,15 +78,15 @@ description: Follow this guide to configure access to a secret.
 
       * `secret_id`: Secret ID.
       * `role`: [Role](../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about `yandex_lockbox_secret_iam_member` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
+      For more information about the `yandex_lockbox_secret_iam_member` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
   1. Create the resources
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
       
-      {{ TF }} will create all required resources. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc lockbox secret list-access-binding <secret_ID>

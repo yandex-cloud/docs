@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.FILE.PARSE_FAILED.INVALID_EXCEL
-description: На странице приведено описание ошибки ERR.FILE.PARSE_FAILED.INVALID_EXCEL.
+title: Ошибка {{ datalens-full-name }} ERR.FILE.PARSE_FAILED.INVALID_EXCEL
+description: На странице приведено описание ошибки {{ datalens-full-name }} Неверный формат файла.
 ---
 
-# Неверный формат файла
+# [{{ datalens-full-name }}] Неверный формат файла
 
 `ERR.FILE.PARSE_FAILED.INVALID_EXCEL`
 

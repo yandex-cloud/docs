@@ -22,7 +22,7 @@ To delete a [backend group](../concepts/backend-group.md):
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backend group name and select **{{ ui-key.yacloud.common.delete }}**.
 
-     To delete multiple backend groups at once, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+     To do this with multiple groups, select the groups to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -94,6 +94,8 @@ To delete a [backend group](../concepts/backend-group.md):
      ```bash
      yc alb backend-group list
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
 
 - API {#api}
 

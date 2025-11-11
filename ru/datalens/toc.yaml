@@ -782,6 +782,8 @@ items:
             href: operations/chart/add-parameter-chart.md
       - name: Добавление информации о чарте
         href: operations/chart/add-description.md
+      - name: Открытие чарта как таблицы
+        href: operations/chart/open-as-table.md
       - name: Версионирование
         href: concepts/chart/versioning.md
       - name: Экспорт данных из чартов
@@ -846,6 +848,8 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Изменение настроек дашборда
             href: operations/dashboard/dash-settings.md
+          - name: Запрет Нейроаналитика на дашборде
+            href: operations/dashboard/dashboard-neuroanalyst-off.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
           - name: Добавление селектора JS на дашборд

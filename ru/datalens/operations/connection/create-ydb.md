@@ -1,9 +1,9 @@
 ---
-title: Как создать подключение к {{ ydb-name }}
-description: Следуя данной инструкции, вы сможете создать подключение к {{ ydb-name }}.
+title: Как создать подключение к {{ ydb-name }} в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к {{ ydb-name }} в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к {{ ydb-short-name }}
+# Создание подключения к {{ ydb-short-name }} в {{ datalens-full-name }}
 
 {% note info %}
 

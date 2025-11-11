@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN
-description: На странице приведено описание ошибки ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN
+description: На странице приведено описание ошибки {{ datalens-full-name }} Invalid user token.
 ---
 
-# Invalid user token
+# [{{ datalens-full-name }}] Invalid user token
 
 `ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN`
 

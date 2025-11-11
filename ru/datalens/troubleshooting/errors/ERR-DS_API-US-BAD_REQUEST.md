@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.US.BAD_REQUEST
-description: На странице приведено описание ошибки ERR.DS_API.US.BAD_REQUEST.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.US.BAD_REQUEST
+description: На странице приведено описание ошибки {{ datalens-full-name }} Ошибка в запросе к объекту.
 ---
 
-# Ошибка в запросе к объекту
+# [{{ datalens-full-name }}] Ошибка в запросе к объекту
 
 `ERR.DS_API.US.BAD_REQUEST`
 

@@ -9,6 +9,7 @@ keywords:
 
 # Сервисные подключения в {{ vpc-full-name }}
 
+
 {% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
 
 **Сервисное подключение** (Private Endpoint) предоставляет прямую IP-связность между ресурсами внутри {{ vpc-short-name }} и сервисами {{ yandex-cloud }}, которые размещаются за пределами {{ vpc-short-name }}. 

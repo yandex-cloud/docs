@@ -107,6 +107,15 @@ The computing resources may have the following configurations:
   1 | 24 | 16 | 64
   1 | 24 | 32 | 128
 
+* GPU PLATFORM V4 (`gpu-platform-v4`):
+
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
+  --- | --- | --- | ---
+  1 | 141 | 22 | 220
+  2 | 242 | 44 | 440
+  4 | 484 | 88 | 880
+  8 | 968 | 180 | 1800
+
 VM GPUs are provided in full. For example, if a configuration has four GPUs specified, your VM will have four full-featured GPU devices.
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}

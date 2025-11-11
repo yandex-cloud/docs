@@ -69,7 +69,7 @@ The alert comes with the `severity: critical` label, which is used to route noti
 
    1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select or create a workspace.
-   1. Navigate to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}** tab.
    1. If you have not uploaded any files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
    1. To add another file, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
    1. To replace the existing file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}** to its right.
@@ -120,11 +120,13 @@ The alert comes with the `severity: critical` label, which is used to route noti
            "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
        ```
 
+{% endlist %}
+
 Once you create the alerting rules, they will start to be computed to generate the `ALERTS` and `ALERTS_FOR_STATE` metrics. Set up Alert Manager to send notifications.
 
-For more on file operations and rule computation, see [{#T}](./recording-rules.md).
+You can monitor alert statuses in the [management console]({{ link-monitoring }}), on a separate tab: **{{ prometheus-name }}** → **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}**.
 
-{% endlist %}
+For more on file operations and rule computation, see [{#T}](./recording-rules.md).
 
 ## Setting up Alert Manager {#alert-manager-create}
 

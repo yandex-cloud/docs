@@ -109,7 +109,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
             http_match {
               http_method = ["<HTTP_method_1>","<HTTP_method_2>",...,"<HTTP_method_n>"]
               path {
-                prefix = "<request_path_prefix>/"
+                prefix = "/<request_path_prefix>/"
                 # or exact = "<request_path>"
                 # or regex = "<regular_expression>"
               }
@@ -189,6 +189,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       ```bash
       yc alb http-router get <HTTP_router_name>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

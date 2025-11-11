@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH
-description: На странице приведено описание ошибки ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH
+description: На странице приведено описание ошибки {{ datalens-full-name }} Columns in JOIN have different types.
 ---
 
-# Columns in JOIN have different types
+# [{{ datalens-full-name }}] Columns in JOIN have different types
 
 `ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH`
 

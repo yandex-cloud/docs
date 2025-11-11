@@ -55,7 +55,7 @@ To get started in {{ yandex-cloud }}:
      1. **{{ ui-key.yacloud.yagpt.label_temperature-text }}**: Enter a value between `0` and `1` for the model's response variability. With a higher value, you get a more unpredictable result.
      1. **{{ ui-key.yacloud.yagpt.instruction }}**: Describe your task, the appropriate writing style, limits, and other requirements for the model. .
      1. **{{ ui-key.yacloud.yagpt.use-context }}**: Change the generation type.
-     1. **{{ ui-key.yacloud.yagpt.use-assistant }}**: If this option is enabled, {{ ai-playground }} will work based on [{{ assistant-api }}](../concepts/assistant/index.md).
+     1. **Use an assistant**: If this option is enabled, {{ ai-playground }} will work based on [{{ assistant-api }}](../concepts/assistant/index.md).
 
   1. Click ![image](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.yagpt.train-modal }}** if you want to [train the model](../concepts/tuning/index.md) to follow a complex response format.
   1. Click ![image](../../_assets/console-icons/code.svg) **View code** to get the code for a request to the model via the ML SDK for Python or [cURL](https://curl.haxx.se).

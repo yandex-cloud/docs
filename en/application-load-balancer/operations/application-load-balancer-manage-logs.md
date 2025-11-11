@@ -1,6 +1,6 @@
 # Setting up L7 load balancer logging
 
-You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs](../concepts/application-load-balancer.md#logging) to [{{ cloud-logging-full-name }}](../../logging/).
+You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs](../concepts/monitoring.md#logging) to [{{ cloud-logging-full-name }}](../../logging/).
 
 ## Enabling logging {#enable-logs}
 
@@ -47,7 +47,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      Where:
      * `--enable`: Enable logging.
      * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
-     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule settings:
+     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
        * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
        * `percent`: Log discard rate.
 
@@ -103,11 +103,13 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  This will enable logging for the specified load balancer. You can check the logging status and other load balancer settings in the [management console]({{ link-console-main }}) or using this CLI command:
+      This will enable logging for the specified load balancer. You can check the logging status and other load balancer settings in the [management console]({{ link-console-main }}) or using this CLI command:
 
-  ```bash
-  yc alb load-balancer get <load_balancer_name>
-  ```
+      ```bash
+      yc alb load-balancer get <load_balancer_name>
+      ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 
@@ -127,9 +129,9 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Change the {{ cloud-logging-name }} log group storing your load balancer logs.
      1. Edit [log discard rules](../concepts/application-load-balancer.md#discard-logs-rules):
-        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update HTTP status codes.
-        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update HTTP status code classes.
-        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update gRPC codes.
+        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
+        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the HTTP status code classes.
+        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the log discard rate.
 
         To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
@@ -157,7 +159,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
 
      Where:
      * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
-     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule settings:
+     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
        * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
        * `percent`: Log discard rate.
 
@@ -213,11 +215,13 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  This will update logging settings for the specified load balancer. You can check the load balancer settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      This will update logging settings for the specified load balancer. You can check the load balancer settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
-  ```bash
-  yc alb load-balancer get <load_balancer_name>
-  ```
+      ```bash
+      yc alb load-balancer get <load_balancer_name>
+      ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 
@@ -289,6 +293,8 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      ```bash
      yc alb load-balancer get <load_balancer_name>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

@@ -2,13 +2,13 @@
 
 This section describes L7 load balancer log fields. 
 
-The load balancer provides logs in JSON format. Each log entry corresponds to one client request processed by the load balancer. 
+Logs are provided in JSON format. Each log entry corresponds to one client request processed by the load balancer. 
 
-For more information, see [Logging](./concepts/application-load-balancer.md#logging).
+For more information, see [Logging](./concepts/monitoring.md#logging).
 
 Field | Description
 ---- | ----
-`type` | Request type. The possible values are: <ul><li>`http`: HTTP/1.0 or HTTP/1.1 without encryption.</li><li>`https`: HTTP/1.0 or HTTP/1.1 with TLS encryption, i.e., HTTPS or HTTP over TLS.</li><li>`h2`: HTTP/2.</li><li>`h3`: HTTP/3.</li><li>`grpc`: gRPC without encryption.</li><li>`grpcs`: gRPC with TLS encryption.</li></ul>
+`type` | Request type. The possible values are: <ul><li>`http`: HTTP/1.0 or HTTP/1.1 without encryption.</li><li>`https`: HTTP/1.0 or HTTP/1.1 with TLS encryption, i.e., HTTPS or HTTP over TLS.</li><li>`h2`: HTTP/2.</li><li>`h3`: HTTP3.</li><li>`grpc`: gRPC without encryption.</li><li>`grpcs`: gRPC with TLS encryption.</li></ul>
 `time` | Date and time when the load balancer received the first byte of the client request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, i.e., `<YYYY>-<MM>-<DD>T<hh>:<mm>:<ss>Z`, where `Z` is the universal coordinated time (UTC).
 `http_method` | HTTP request method.
 `authority` | For HTTP/1.0 and HTTP/1.1: `Host` header value. For other supported protocols: `:authority` pseudo-header value.
@@ -58,4 +58,4 @@ Field | Description
 &ensp; `backend_response_time` | Latency between the load balancer sending the last request byte to the backend and receiving the first response byte
 &ensp; `response_rx_time` | Latency between the load balancer receiving the first and last bytes of the backend response
 &ensp; `response_tx_time` | Latency between the load balancer sending the first and last bytes of the response
-`x_forwarded_for` | [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) request header containing the originating `client_ip` followed by all intermediate proxy/LB IP addresses the request traversed. For example:<ul><li>`x_forwarded_for: 50.0.0.1` shows that the request came from the client directly, with its `client_ip` added to the header by {{ alb-name }}.</li><li>Conversely, `x_forwarded_for: 50.0.0.1,40.0.0.1` shows that the request passed through a proxy server, with its IP address added after `client_ip` by {{ alb-name }}.</li></ul>
+`x_forwarded_for` | Value of the incoming request [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) header containing the IP addresses of the forwarding nodes. `client_ip` comes first, followed by IP addresses of any intermediate nodes, if any. Here is an example:<ul><li>`x_forwarded_for: 50.0.0.1` shows that the request came from the client directly, with its `client_ip` added to the header by {{ alb-name }}.</li><li>Conversely, `x_forwarded_for: 50.0.0.1,40.0.0.1` shows that the request passed through a proxy server, with its IP address added after `client_ip` by {{ alb-name }}.</li></ul>

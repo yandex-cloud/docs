@@ -42,7 +42,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
      yc kms symmetric-key list
      ```
 
-  1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
+  1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
   1. Use one of these commands to assign a role:
 
      * To a user:
@@ -173,7 +173,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
      yc kms symmetric-key list
      ```
 
-  1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
+  1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
   1. Use one of the commands below to assign roles:
 
      * To a Yandex account user:
@@ -208,7 +208,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
           --access-binding role=<role>,subject=group:<group_ID>
         ```
 
-     Provide a separate `--access-binding` parameter for each role. For example:
+     Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc kms symmetric-key set-access-bindings \

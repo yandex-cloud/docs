@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT
-description: На странице приведено описание ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT
+description: На странице приведено описание ошибки {{ datalens-full-name }} Inconsistent aggregation among operands.
 ---
 
-# Inconsistent aggregation among operands
+# [{{ datalens-full-name }}] Inconsistent aggregation among operands
 
 `ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT`
 

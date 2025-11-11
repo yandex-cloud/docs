@@ -45,43 +45,7 @@ To connect a Linux VM to {{ backup-name }}:
 
 ## Install the {{ backup-name }} agent {#connect-vm}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-1. Install the {{ backup-name }} agent on the VM:
-
-    {% list tabs group=operating_system %}
-
-    - Ubuntu {#ubuntu}
-
-      ```bash
-      sudo apt update && \
-      sudo apt install -y jq && \
-      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
-      ```
-
-      Result:
-
-      ```text
-      ...
-      Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
-      ```
-
-    - CentOS {#centos}
-
-      ```bash
-      sudo yum install epel-release -y && \
-      sudo yum update -y && \
-      sudo yum install jq -y && \
-      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
-      ```
-
-      Result:
-
-      ```text
-      ...
-      Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
-      ```
-
-    {% endlist %}
+{% include [install-agent-linux](../../_includes/backup/operations/install-agent-linux.md) %}
 
 After that, you can link your VM to [backup policies](../concepts/policy.md).
 

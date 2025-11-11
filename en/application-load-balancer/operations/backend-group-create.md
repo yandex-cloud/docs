@@ -256,6 +256,8 @@ To create a [backend group](../concepts/backend-group.md):
      yc alb backend-group list
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
+
 - API {#api}
 
   Use the [create](../api-ref/BackendGroup/create.md) REST API method for the [BackendGroup](../api-ref/BackendGroup/index.md) resource or the [BackendGroupService/Create](../api-ref/grpc/BackendGroup/create.md) gRPC API call.

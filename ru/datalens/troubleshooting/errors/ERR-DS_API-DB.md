@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB
-description: На странице приведено описание ошибки ERR.DS_API.DB.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB
+description: На странице приведено описание ошибки {{ datalens-full-name }} Ошибка выполнения запроса в источнике данных.
 ---
 
-# Ошибка выполнения запроса в источнике данных
+# [{{ datalens-full-name }}] Ошибка выполнения запроса в источнике данных
 
 `ERR.DS_API.DB`
 

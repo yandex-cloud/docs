@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB.CHYT.AUTH_FAILED
-description: На странице приведено описание ошибки ERR.DS_API.DB.CHYT.AUTH_FAILED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.AUTH_FAILED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Authentication failed.
 ---
 
-# Authentication failed
+# [{{ datalens-full-name }}] Authentication failed
 
 `ERR.DS_API.DB.CHYT.AUTH_FAILED`
 

@@ -11,11 +11,11 @@ To delete an L7 load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
+  1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you want to delete, then select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer and select **{{ ui-key.yacloud.common.delete }}**.
 
-     To delete many load balancers at once, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+     For multiple load balancers, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -104,7 +104,7 @@ To delete an L7 load balancer:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash
@@ -118,6 +118,8 @@ To delete an L7 load balancer:
      ```bash
      yc alb load-balancer list
      ```
+
+  {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 
