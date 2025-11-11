@@ -26,7 +26,7 @@ description: Follow this guide to connect to a node via {{ oslogin }}.
 
 1. [Enable access to nodes from the internet](./node-group/node-group-update.md#node-internet-access) for the node group containing the node you need to connect to.
 
-1. Make sure the account you are using to connect to the node [has one of these roles](../../iam/operations/roles/grant.md) assigned:
+1. Make sure the account you are using to connect to the node [has one of these roles](../../iam/operations/roles/grant.md):
 
     * `compute.osLogin`: To access the node without sudo permissions.
     * `compute.osAdminLogin`: To access the node with sudo permissions.
@@ -37,7 +37,7 @@ Set up your cluster node for connection:
 
 1. Make sure to enable [external access](./node-group/node-group-update.md#node-internet-access) for the node.
 
-1. Activate node access via {{ oslogin }} by changing the method of connecting to nodes.
+1. Enable node access via {{ oslogin }} by changing the method of connecting to nodes.
 
     {% include [node-connect-mode-reconciling-warning](../../_includes/managed-kubernetes/node-connect-mode-reconciling-warning.md) %}
 
@@ -47,8 +47,8 @@ Set up your cluster node for connection:
 
         1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** section in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
         1. Click the name of the {{ managed-k8s-name }} cluster.
-        1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
-        1. Select the required node group.
+        1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+        1. Select the node group you need.
         1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
         1. Select **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
@@ -78,7 +78,7 @@ Set up your cluster node for connection:
             --metadata enable-oslogin=true
           ```
 
-          You can request the name of a node group with a [list of node groups in the folder](./node-group/node-group-list.md#list).
+          You can get the name of a node group with the [list of node groups in the folder](./node-group/node-group-list.md#list).
 
           {% include [note-oslogin-ssh-warning](../../_includes/managed-kubernetes/note-oslogin-ssh-warning.md) %}
 
@@ -88,9 +88,9 @@ Set up your cluster node for connection:
 
           For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
 
-      1. Add the `instance_template.metadata` parameter to the node group description, or change it if it already exists.
+      1. Add the `instance_template.metadata` property to the node group description, or change it if it already exists.
 
-          In this parameter, specify the `enable-oslogin` metadata key with the `true` value:
+          In this property, specify the `enable-oslogin` metadata key with the `true` value:
 
           ```hcl
           resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -117,13 +117,15 @@ Set up your cluster node for connection:
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      For more information, see the [{{ TF }}]({{ tf-provider-k8s-nodegroup }}) provider documentation.
+          {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+      For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
     - API {#api}
 
       1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
+      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) API method, providing the following in your request:
 
           * Node group ID in the `nodeGroupId` parameter.
 
@@ -131,7 +133,7 @@ Set up your cluster node for connection:
 
             {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-          * `nodeTemplate.metadata` parameter listing all existing node group metadata as `key=value` pairs without modification.
+          * `nodeTemplate.metadata` parameter listing all existing node group metadata as `key=value` pairs without any changes.
 
             For the `enable-oslogin` key, replace the current value with `true`. If there is no such key, add it.
 
@@ -172,13 +174,13 @@ Set up your cluster node for connection:
 
 ## Connect to the node using the CLI {#connect-via-cli}
 
-1. View the description of the CLI command for connection to the node:
+1. View the description of the CLI command for connecting to the node:
 
     ```bash
     yc compute ssh --help
     ```
 
-1. To find out the name of the node you need, get a list of cluster nodes.
+1. To find out the name of the node you need, get a list of cluster nodes:
 
     ```bash
     {{ yc-k8s }} node-group list-nodes --name <node_group_name>
@@ -201,13 +203,13 @@ Set up your cluster node for connection:
     yc compute ssh --name <node_name>
     ```
 
-## Connect to the node using the SSH {#connect-via-ssh}
+## Connect to the node over SSH {#connect-via-ssh}
 
 1. [Export the {{ oslogin }} certificate](../../compute/operations/vm-connect/os-login-export-certificate.md).
 
    {% note info %}
 
-   The certificate is valid for one hour. After this time has elapsed, you will need to export a new certificate to connect to the node.
+   The certificate is valid for one hour. Afterwards, you will need to export a new certificate to connect to the node.
 
    {% endnote %}
 
@@ -252,12 +254,12 @@ Set up your cluster node for connection:
 1. Connect to the VM:
 
     ```bash
-    ssh -i <certificate_file_path> <user_login>@<node_public_IP_address>
+    ssh -i <path_to_certificate_file> <user_login>@<node_public_IP_address>
     ```
 
     Where:
 
-    * `<path_to_certificate_file>`: Path to the previously saved `Identity` file of the certificate. For example, `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
+    * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
     * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). It is also appended to the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
     * `<node_public_IP_address>`: Public IP address of the node obtained earlier.
 
@@ -269,4 +271,4 @@ Set up your cluster node for connection:
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-    Type `yes` in the terminal and press **Enter**.
+    Type `yes` into the terminal and press **Enter**.

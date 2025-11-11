@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API
-description: На странице приведено описание ошибки ERR.DS_API.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API
+description: На странице приведено описание ошибки {{ datalens-full-name }} Internal server error.
 ---
 
-# Internal server error
+# [{{ datalens-full-name }}] Internal server error
 
 `ERR.DS_API`
 

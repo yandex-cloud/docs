@@ -13,7 +13,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. На странице создания бакета:
 
@@ -63,7 +63,7 @@
 
       {% endnote %}
 
-      1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в который нужно загрузить образ.
+      1. В [консоли управления]({{ link-console-main }}) [перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в который нужно загрузить образ.
       1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и в правом верхнем углу экрана нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
       1. В открывшемся окне выберите файл с образом и нажмите **Открыть**.
       1. В окне загрузки объектов нажмите **{{ ui-key.yacloud.storage.button_upload }}** и дождитесь завершения загрузки.
@@ -103,7 +103,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и выберите нужный бакет.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и выберите нужный бакет.
       1. Нажмите на имя объекта с загруженным ISO-образом.
       1. В правом верхнем углу экрана нажмите кнопку ![link](../../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}**.
       1. Нажмите **{{ ui-key.yacloud.storage.file.button_generate }}**.

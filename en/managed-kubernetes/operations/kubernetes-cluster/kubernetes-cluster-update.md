@@ -7,7 +7,7 @@ description: Follow this guide to update a {{ managed-k8s-name }} cluster.
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-## Changing {{ managed-k8s-name }} clusters {#update-cluster}
+## Updating a {{ managed-k8s-name }} cluster {#update-cluster}
 
 {% note warning %}
 
@@ -27,7 +27,7 @@ You can change the following parameters of a [{{ managed-k8s-name }}](../../conc
 
   {% note alert %}
 
-  Do not delete the security groups bound to a running {{ managed-k8s-name }} cluster as this might result in disruptions in its operation and data loss.
+  Do not delete security groups associated with a running {{ managed-k8s-name }} cluster as this may disrupt its operation and result in data loss.
 
   {% endnote %}
 
@@ -35,12 +35,12 @@ You can change the following parameters of a [{{ managed-k8s-name }}](../../conc
 
   {% note warning %}
 
-  * If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
+  * If you change the subnet mask for a running {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
   * After changing the subnet mask, you must recreate the cluster node groups.
 
   {% endnote %}
 
-To learn how to change a cluster's [availability zone](../../../overview/concepts/geo-scope.md), see [{#T}](../../tutorials/migration-to-an-availability-zone.md).
+Learn how to change a cluster [availability zone](../../../overview/concepts/geo-scope.md) in [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 
 {% list tabs group=instructions %}
 
@@ -50,7 +50,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-  1. Change the required parameters in the window that opens.
+  1. Change the parameters in the window that opens.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -88,7 +88,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
      Where:
      * `--new-name`: {{ managed-k8s-name }} cluster name.
      * `--description`: {{ managed-k8s-name }} cluster description.
-     * `--service-account-id`, `--service-account-name`: Service account for {{ managed-k8s-name }} cluster management.
+     * `--service-account-id`, `--service-account-name`: Service account for managing the {{ managed-k8s-name }} cluster.
      * `--node-service-account-id`, `--node-service-account-name`: Service account for managing the {{ managed-k8s-name }} nodes.
      * `--security-group-ids`: {{ managed-k8s-name }} cluster security groups.
 
@@ -130,13 +130,15 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     For more information, see the [{{ TF }}]({{ tf-provider-k8s-cluster }}) provider documentation.
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
   To update {{ managed-k8s-name }} cluster parameters, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
-  To edit the settings for sending logs to {{ cloud-logging-name }}, configure their `masterSpec.masterLogging` parameter values.
+  To edit the settings for sending logs to {{ cloud-logging-name }}, configure their values in the `masterSpec.masterLogging` parameter.
 
 {% endlist %}
 
@@ -338,7 +340,9 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 

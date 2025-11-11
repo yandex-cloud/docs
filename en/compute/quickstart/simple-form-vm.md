@@ -31,26 +31,26 @@ This simple form allows you to create a VM with basic settings. To configure adv
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-simple-title }}**.
+1. Select **Basic setup**.
 
     {% include [console-default-variant](../../_includes/compute/console-default-variant.md) %}
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_simple-image }}**, select an [image](../concepts/image.md) and a Linux-based OS version.
+1. Under **Operating systems and products**, select an [image](../concepts/image.md) and a Linux-based OS version.
 
     To see the list of all available images, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations or create a custom one. To create a custom configuration:
-    * Select ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.component.compute.resources.option_resources-custom-config }}**.
+    * Select ![image](../../_assets/console-icons/gear.svg) **Custom configuration**.
     * Specify the required number of vCPUs, [guaranteed vCPU share](../concepts/performance-levels.md), and amount of RAM.
     * Make your VM [preemptible](../concepts/preemptible-vm.md), if required.
-1. Optionally, configure the boot [disk](../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_disks }}**:
+1. Optionally, configure the boot [disk](../concepts/disk.md) under **Discs**:
     * Select the [disk type](../concepts/disk.md#disks_types).
     * Specify the required disk size.
 1. Optionally, add a secondary disk:
-    * Under **{{ ui-key.yacloud.compute.instances.create.section_disks }}**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+    * Under **Discs**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
     * Select the [disk type](../concepts/disk.md#disks_types).
     * Specify the required disk size.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-name }}** field, specify the VM name.
+    * In the **VM name** field, specify the VM name.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -67,13 +67,13 @@ This simple form allows you to create a VM with basic settings. To configure adv
       {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 
     * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select an IP address assignment method:
-      * `{{ ui-key.yacloud.component.compute.network-select.switch_dynamic }}`: To assign a random IP address from the {{ yandex-cloud }} IP address pool.
+      * `Dynamic`: To assign a random IP address from the {{ yandex-cloud }} IP address pool.
 
         Stopping a VM releases its dynamic IP address. When you start the VM again, it will get a new public IP address. If you reboot a VM, it retains its dynamic public IP address.
 
-      * `{{ ui-key.yacloud.component.compute.network-select.switch_static }}`: To select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
+      * `Static`: To select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
 
-1. Expand the **{{ ui-key.yacloud.compute.instances.create.section_predefined }}** section and view the default VM parameters.
+1. Expand the **Preset parameters** section and view the default VM parameters.
 
     To customize these parameters, see the tutorial for [advanced VM creation](quick-create-linux.md).
 

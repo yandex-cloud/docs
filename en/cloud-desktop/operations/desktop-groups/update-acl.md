@@ -12,9 +12,12 @@ description: In this tutorial, you will learn how to change access permissions f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the desktop group.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the desktop group whose access permissions you want to change, then select **Configure ACL**.
-  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the permissions as you see fit.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. Select the desktop group to update access permissions for.
+  1. In the left-hand panel, select ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
+  1. Click **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.
+  1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window that opens, grant or revoke permissions as needed.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -26,7 +29,7 @@ description: In this tutorial, you will learn how to change access permissions f
 
   {% note alert %}
 
-  The `set-access-binding` command rewrites desktop group access permissions. All current group roles will be deleted.
+  The `set-access-bindings` command completely overwrites access permissions for the desktop group. All current group roles will be deleted.
 
   {% endnote %}
 
@@ -53,7 +56,7 @@ description: In this tutorial, you will learn how to change access permissions f
       Where `--access-binding` contains access permission settings:
 
       * `role`: [Role](../../security/index.md#roles-list).
-      * `subject`: Type and ID of the [entity](../../../iam/concepts/access-control/index.md#subject) assigned the role.
+      * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, the following command will assign roles to multiple users and a single service account:
 
@@ -64,7 +67,7 @@ description: In this tutorial, you will learn how to change access permissions f
         --access-binding role=editor,serviceAccount=ajel6l0jcb9s********
       ```
 
-      To assign a role to an entity without rewriting its other roles, use the `yc desktops group add-access-bindings` [command](../../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md). For example, the following command will assign a role to a service account:
+      To assign a role to a subject without rewriting its other roles, use the `yc desktops group add-access-bindings` [command](../../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md). For example, the following command will assign a role to a service account:
 
       ```bash
       yc desktops group add-access-bindings \

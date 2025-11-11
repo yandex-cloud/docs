@@ -8,7 +8,7 @@ route {
     http_match {
       http_method = ["<HTTP_method_1>","<HTTP_method_2>",...,"<HTTP_method_n>"]
       path {
-        prefix = "<request_path_prefix>/"
+        prefix = "/<request_path_prefix>/"
         # or exact = "<request_path>"
         # or regex = "<regular_expression>"
       }

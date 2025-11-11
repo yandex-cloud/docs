@@ -2,6 +2,31 @@
 
 {{ managed-k8s-full-name }} [release channels](./concepts/release-channels-and-updates.md) receive updates in the set order. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
+## Q3 2025 {#q3-2025}
+
+### New features {#q3-2025-new-features}
+
+* Now you can select a [master configuration](./concepts/index.md#master-resources) using [{{ TF }}](../terraform/) and the [{{ yandex-cloud }} CLI](../cli/) when creating or updating a cluster. For more information, see [{#T}](./operations/kubernetes-cluster/kubernetes-cluster-create.md).
+* Now you can [access the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using a {{ iam-full-name }} workload identity federation](./tutorials/wlif-managed-k8s-integration.md). Now you can exchange {{ k8s }} service account tokens for {{ yandex-cloud }} IAM tokens for simple authentication and authorization in the cloud from cluster pods.
+* Added support for authentication in [{{ cloud-registry-full-name }}](../cloud-registry/) using a node group service account. To access {{ cloud-registry-name }} registries, [assign](../iam/operations/sa/assign-role-for-sa.md) the `cloud-registry.artifacts.puller` [role](../cloud-registry/security/index.md#cloud-registry-artifacts-puller) to the node group service account.
+* Added support for simultaneous [upscaling](./concepts/volume.md#volume-expansion) of multiple persistent volumes mounted on a single node. For more information, see [{#T}](./operations/volumes/volume-expansion.md).
+
+### Improvements {#q3-2025-improvements}
+
+* Added support for {{ k8s }} [1.33](https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/). For more information, see [{#T}](./concepts/release-channels-and-updates.md).
+* Updated the [containerd](https://containerd.io/) runtime to version [1.7.27](https://github.com/containerd/containerd/releases/tag/v1.7.27) for clusters with {{ k8s }} 1.30 or higher.
+* Starting with {{ k8s }} version 1.30, the node OS changed from Ubuntu 20.04 to Ubuntu 22.04. When you update node groups within these versions, new nodes are automatically created from an Ubuntu 22.04 VM image. For more information, see [{#T}](./concepts/node-os-update.md).
+* [Cluster Autoscaler](./concepts/autoscale.md#ca) now checks [zones](../overview/concepts/geo-scope.md) for availability when selecting a node group for scaling. The system will no longer try to autoscale node groups in zones that are unavailable.
+
+### Fixes {#q3-2025-problems-solved}
+
+* Fixed an error where, during the updating of master resources, the cluster would get the `Running` status before the update operation was completed.
+* Fixed an error that disrupted the master's connectivity with nodes in tunnel clusters when migrating the master from one subnet to another. The issue rendered the {{ k8s }} Webhook and Aggregated API inoperable on the newly migrated master.
+
+### Other updates {#q3-2025-other-changes}
+
+Removed the option to disable upscaling of master resources in response to increased load; the feature is now enabled for all {{ managed-k8s-name }} clusters. Removed from the [{{ managed-k8s-full-name }}® service level](https://yandex.com/legal/cloud_sla_kb/en/) document the clause requiring that said feature must be enabled in master settings.
+
 ## Q2 2025 {#q2-2025}
 
 ### New features {#q2-2025-new-features}
@@ -32,7 +57,7 @@
 
 * You can now configure [computing resources](./concepts/index.md#master-resources) for masters using the [quotas](./concepts/limits.md#managed-k8s-quotas) we added.
 * Updated the master configuration types: 
-  * _Basic_: Contains one master host in a single availability zone. Its former name is _zonal_.
+  * _Base_: Contains one master host in a single availability zone. Its former name is _zonal_.
   * _Highly available in three availability zones_: Contains three master hosts in three different availability zones. Its former name is _regional_.
   * _Highly available in one availability zone_: Contains three master hosts in one availability zone and one subnet. This is a new configuration.
 

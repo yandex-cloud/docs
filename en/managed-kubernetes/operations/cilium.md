@@ -1,6 +1,6 @@
 # Configuring the Cilium network policy controller
 
-This scenario shows the [implementation of L3/L4 and L7 network policies](https://docs.cilium.io/en/v1.10/gettingstarted/http/) that are managed by the [Cilium network policy controller](../concepts/network-policy.md#cilium).
+This tutorial shows the [implementation of L3/L4 and L7 network policies](https://docs.cilium.io/en/v1.10/gettingstarted/http/) that are managed by the [Cilium network policy controller](../concepts/network-policy.md#cilium).
 
 To use the Cilium network policy controller in a cluster:
 * [Install and configure Hubble UI, a network activity monitoring tool](#install-hubble-ui).
@@ -10,7 +10,7 @@ To use the Cilium network policy controller in a cluster:
 
 ## Getting started {#before-you-begin}
 
-### Set up your infrastructure {#deploy-infrastructure}
+### Set up the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -33,7 +33,7 @@ To use the Cilium network policy controller in a cluster:
 
         * Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
-    1. [Create a node group for the cluster](node-group/node-group-create.md) in any suitable configuration.
+    1. [Create a node group for the cluster](node-group/node-group-create.md) with any suitable configuration.
 
         Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, select the following values:
 
@@ -46,19 +46,19 @@ To use the Cilium network policy controller in a cluster:
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-    1. Download the [k8s-cilium.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cilium-setup/blob/main/k8s-cilium.tf) configuration file to the same working directory. This file will be used to create the following resources:
+    1. Download the [k8s-cilium.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cilium-setup/blob/main/k8s-cilium.tf) configuration file to the same working directory. You will need this file to create the following resources:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * {{ managed-k8s-name }} cluster.
         * Node group for the cluster.
-        * [Service account](../../iam/concepts/users/service-accounts.md) the cluster and its node group need to operate.
+        * [Service account](../../iam/concepts/users/service-accounts.md) for the cluster and its node group.
 
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-    1. Specify the following in the `k8s-cilium.tf` file:
+    1. In `k8s-cilium.tf`, specify the following:
 
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the cluster and node groups.
@@ -71,6 +71,8 @@ To use the Cilium network policy controller in a cluster:
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+        {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
 
 {% endlist %}
 
@@ -114,7 +116,7 @@ To use the Cilium network policy controller in a cluster:
 
     {% endcut %}
 
-1. Display a list of the cluster nodes running Cilium:
+1. Get a list of the cluster nodes running Cilium:
 
     ```bash
     kubectl get cn
@@ -364,7 +366,7 @@ To use the Cilium network policy controller in a cluster:
 
     {% endcut %}
 
-1. Check Cilium status after installing Hubble UI:
+1. Check the Cilium status after installing Hubble UI:
 
     ```bash
     cilium status
@@ -557,9 +559,9 @@ To use the Cilium network policy controller in a cluster:
     kubectl -n kube-system exec daemonset/cilium -- cilium endpoint list
     ```
 
-    Make sure network policies are disabled for all endpoints: their status under `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` should be set to `Disabled`.
+    Make sure the network policies are disabled for all endpoints: their status under `POLICY (ingress) ENFORCEMENT` and `POLICY (egress) ENFORCEMENT` should be set to `Disabled`.
 
-    {% cut "Example of a part of a command result" %}
+    {% cut "Example of a command result part" %}
 
     ```text
     Defaulted container "cilium-agent" out of: cilium-agent, clean-cilium-state (init), install-cni-binaries (init)
@@ -597,20 +599,20 @@ To use the Cilium network policy controller in a cluster:
    Ship landed
    ```
 
-1. Go to the Hubble UI web interface and view data streams for pods and services in the `default` namespace.
+1. Go to the Hubble UI web interface and view data streams for your pods and services in the `default` namespace.
 
     The verdict for all data streams should be `forwarded`.
 
 ## Create an L3/L4 network policy {#l3-l4-policy}
 
-Apply an L3/L4 network policy to disable the `xwing` pod's access to `deathstar`. Access rules for the `tiefighter` pod remain unchanged.
+Apply the L3/L4 network policy to disable the `xwing` pod access to `deathstar`. Access rules for the `tiefighter` pod remain unchanged.
 
-For access differentiation, the following {{ k8s }} labels are assigned to pods when creating them:
+For access control, the following {{ k8s }} labels are assigned to pods when creating them:
 
 * `org: empire` for the `tiefighter` pod.
 * `org: alliance` for the `xwing` pod.
 
-The L3/L4 network policy only allows the `org: empire` labeled pods to access `deathstar`.
+The L3/L4 network policy only allows pods with the `org: empire` label to access `deathstar`.
 
 1. Create a file named `sw_l3_l4_policy.yaml` with the policy specification:
 
@@ -658,9 +660,9 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
     kubectl -n kube-system exec daemonset/cilium -- cilium endpoint list
     ```
 
-    Make sure the inbound direction policy is enabled for the endpoint associated with the `k8s:class=deathstar` label: its status under `POLICY (ingress) ENFORCEMENT` should be `Enabled`.
+    Make sure the ingress policy is enabled for the endpoint associated with the `k8s:class=deathstar` label: its status under `POLICY (ingress) ENFORCEMENT` should be `Enabled`.
 
-    {% cut "Example of a part of a command result" %}
+    {% cut "Example of a command result part" %}
 
     ```text
     Defaulted container "cilium-agent" out of: cilium-agent, clean-cilium-state (init), install-cni-binaries (init)
@@ -701,7 +703,7 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
 
    Press **Ctrl** + **C** to abort the command. The network policy has denied this pod access to the service.
 
-1. Learn how the policy works:
+1. Check how the policy works:
 
    * To view the policy specification and status, run this command:
 
@@ -709,16 +711,16 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
      kubectl describe cnp rule1
      ```
 
-   * Go to the Hubble UI web interface and view data streams for pods and services in the `default` namespace.
+   * Go to the Hubble UI web interface and view data streams for your pods and services in the `default` namespace.
 
         * The verdict for streams from `tiefighter` to `deathstar.default.svc.cluster.local/v1/request-landing` should be `forwarded`.
         * The verdict for streams from `xwing` to `deathstar.default.svc.cluster.local/v1/request-landing` should be `dropped`.
 
 ## Create an L7 network policy {#l7-policy}
 
-In this part of the scenario, we will change the access policy for the `tiefighter` pod:
+In this part of the tutorial, we will change the access policy for the `tiefighter` pod:
 
-* Access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` API method will be disabled.
+* Access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` API method will be denied.
 * Access to the `deathstar.default.svc.cluster.local/v1/request-landing` API method will remain unchanged.
 
 Access for the `xwing` pod will remain unchanged. This pod cannot access `deathstar`.
@@ -799,7 +801,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    Ship landed
    ```
 
-1. Make sure access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` method is disabled for the `tiefighter` pod:
+1. Make sure access to the `deathstar.default.svc.cluster.local/v1/exhaust-port` method is denied for the `tiefighter` pod:
 
    ```bash
    kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
@@ -819,7 +821,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
 
    Press **Ctrl** + **C** to abort the command.
 
-1. Learn how the policy works:
+1. Check how the policy works:
 
    * To view the policy specification and status, run this command:
 
@@ -827,7 +829,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
      kubectl describe cnp rule1
      ```
 
-   * Go to the Hubble UI web interface and view data streams for pods and services in the `default` namespace:
+   * Go to the Hubble UI web interface and view data streams for the pods and services in the `default` namespace:
 
         * The verdict for streams from `tiefighter` to `deathstar.default.svc.cluster.local/v1/request-landing` should be `forwarded`.
         * The verdict for streams from `tiefighter` to `deathstar.default.svc.cluster.local/v1/exhaust-port` should be `dropped`.
@@ -842,7 +844,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
   1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+  1. If you used static public IP addresses to access your cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.
 
 - {{ TF }} {#tf}
 

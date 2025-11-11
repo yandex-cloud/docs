@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN
-description: На странице приведено описание ошибки ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN
+description: На странице приведено описание ошибки {{ datalens-full-name }} Unknown referenced source column.
 ---
 
-# Unknown referenced source column
+# [{{ datalens-full-name }}] Unknown referenced source column
 
 `ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`
 

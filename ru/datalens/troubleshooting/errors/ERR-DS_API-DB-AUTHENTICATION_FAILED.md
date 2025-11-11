@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB.AUTHENTICATION_FAILED
-description: На странице приведено описание ошибки ERR.DS_API.DB.AUTHENTICATION_FAILED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.AUTHENTICATION_FAILED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Database authentication failed.
 ---
 
-# Database authentication failed
+# [{{ datalens-full-name }}] Database authentication failed
 
 `ERR.DS_API.DB.AUTHENTICATION_FAILED`
 

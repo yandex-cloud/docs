@@ -26,7 +26,7 @@ For more information on how to [set up a secure virtual environment](../standard
 
 &#x2713; **Automated vulnerability scanning**: Use free network scanners, such as nmap, OpenVAS, OWASP ZAP, or host-based agents, such as [Wazuh](/marketplace/products/opennix/wazuh).
 
-&#x2713; **Regular backups**: Configure scheduled [disk snapshots](../../compute/operations/snapshot-control/create-schedule.md) using {{ compute-full-name }} or [automatic VM backups](../../backup/quickstart.md) using {{ backup-full-name }}.
+&#x2713; **Regular backups**: Configure scheduled [disk snapshots](../../compute/operations/snapshot-control/create-schedule.md) using {{ compute-full-name }} or [automatic VM backups](../../backup/quickstart/existing-vm.md) using {{ backup-full-name }}.
 
 ## Network security {#network-security}
 

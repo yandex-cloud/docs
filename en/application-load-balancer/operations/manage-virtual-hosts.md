@@ -103,13 +103,15 @@ To create a virtual host:
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc alb virtual-host get <virtual_host_name> \
         --http-router-name <HTTP_router_name>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 
@@ -128,7 +130,7 @@ To update a virtual host:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your virtual host.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the virtual host.
-  1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens, do the following:
 
       1. Optionally, in the **{{ ui-key.yacloud.alb.label_authority }}** field, update the settings and specify:
 
@@ -188,7 +190,7 @@ To update a virtual host:
 
           To modify multiple HTTP headers in a request, include `--modify-request-header` as many times as needed.
 
-          This is an optional parameter; if omitted, request headers go to the backend unchanged.
+          This is an optional parameter; if omitted, request headers are provided to the backend unchanged.
 
           To clear all request header modification settings for the virtual host, provide the `--clear-request-header-modifications` parameter in the command.
       * `--modify-response-header`: Response HTTP header modification settings in `<property>=<value>` format. Available properties: 
@@ -197,13 +199,13 @@ To update a virtual host:
 
           To modify multiple HTTP headers in a response, include `--modify-response-header` as many times as needed.
 
-          This is an optional parameter; if omitted, response headers go to the client unchanged.
+          This is an optional parameter; if omitted, response headers are provided to the client unchanged.
 
           To clear all response HTTP header modification settings for the virtual host, provide the `--clear-response-header-modifications` parameter in the command.
       * `--rate-limit`: Request rate limit. Available properties:
           * `rps` or `rpm`: Number of incoming requests per second or per minute.
           * `all-requests`: Limits all incoming requests.
-          * `requests-per-ip`: Limits requests per client IP address.
+          * `requests-per-ip` Applies the limit per client IP address.
 
           You can configure only one type of rate limit per virtual host, either `all-requests` or `requests-per-ip`.
 
@@ -297,6 +299,8 @@ To update a virtual host:
         --http-router-name <HTTP_router_name>
       ```
 
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
+
 - API {#api}
 
   Use the [update](../api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../api-ref/grpc/VirtualHost/update.md) gRPC API call.
@@ -360,13 +364,15 @@ To delete a virtual host:
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} will update the required resources. You can check for your resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc alb virtual-host list \
         --http-router-name <HTTP_router_name>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

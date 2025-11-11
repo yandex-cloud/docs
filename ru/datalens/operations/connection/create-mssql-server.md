@@ -3,7 +3,7 @@ title: Инструкция по созданию подключения к {{ M
 description: Из статьи вы узнаете, как подключиться к {{ MS }} Server в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к {{ MS }}
+# Создание подключения к {{ MS }} в {{ datalens-full-name }}
 
 
 {% note warning %}

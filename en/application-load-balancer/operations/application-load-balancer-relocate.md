@@ -123,6 +123,8 @@ To move an [L7 load balancer](../concepts/application-load-balancer.md) backend 
          yc alb load-balancer get <load_balancer_name>
          ```
 
+         {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
+
    - API {#api}
 
      Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
@@ -131,7 +133,7 @@ To move an [L7 load balancer](../concepts/application-load-balancer.md) backend 
 
 1. [Set up](../../vpc/operations/security-group-add-rule.md) a [security group](../../vpc/concepts/security-groups.md) for the load balancer if needed. For proper load balancer operation, its security groups must allow outbound connections to the subnet addresses in your VM’s new availability zone.
 1. [Move](../../compute/operations/vm-control/vm-change-zone.md) your VM to the new availability zone.
-1. [Add](../../application-load-balancer/operations/target-group-update.md#add-targets) your VM to the load balancer target group and [delete](../../application-load-balancer/operations/target-group-update.md#remove-targets) its old entry.
+1. [Add](../../application-load-balancer/operations/target-group-update.md#add-targets) new VMs to the load balancer's target group and [delete](../../application-load-balancer/operations/target-group-update.md#remove-targets) the old ones.
 1. Make sure the load balancer identifies your VM status as `HEALTHY`:
 
    {% list tabs group=instructions %}

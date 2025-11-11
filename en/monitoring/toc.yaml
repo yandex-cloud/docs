@@ -135,7 +135,7 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md
-      - name: Alert settings in {{ monitoring-name }}
+      - name: Configuring dashboards and alerts for {{ at-name }}
         href: tutorials/alerts-monitoring.md
       - name: Searching for the {{ mpg-name }} cluster performance issues
         href: tutorials/mpg-performance-problems.md
@@ -175,7 +175,7 @@ items:
     href: security/index.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:

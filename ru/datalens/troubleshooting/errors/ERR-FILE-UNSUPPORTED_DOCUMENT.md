@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.FILE.UNSUPPORTED_DOCUMENT
-description: На странице приведено описание ошибки ERR.FILE.UNSUPPORTED_DOCUMENT.
+title: Ошибка {{ datalens-full-name }} ERR.FILE.UNSUPPORTED_DOCUMENT
+description: На странице приведено описание ошибки {{ datalens-full-name }} File check failed.
 ---
 
-# File check failed
+# [{{ datalens-full-name }}] File check failed
 
 `ERR.FILE.UNSUPPORTED_DOCUMENT`
 

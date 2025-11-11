@@ -1967,10 +1967,6 @@ default:
           cpu:
             c100|month|string: "5\_932,80\_₸"
             c100|string: "8,24\_₸"
-            c20|month|string: "1\_705,68\_₸"
-            c20|string: "2,3690\_₸"
-            c5|month|string: "148,32\_₸"
-            c5|string: "0,2060\_₸"
             c50|month|string: "2\_781,00\_₸"
             c50|string: "3,8625\_₸"
           ram|month|string: "3\_337,20\_₸"
@@ -1979,10 +1975,6 @@ default:
           cpu:
             c100|month|string: "6\_220,80\_₸"
             c100|string: "8,64\_₸"
-            c20|month|string: "1\_788,48\_₸"
-            c20|string: "2,4840\_₸"
-            c5|month|string: "155,52\_₸"
-            c5|string: "0,2160\_₸"
             c50|month|string: "2\_916,00\_₸"
             c50|string: "4,05\_₸"
           ram|month|string: "3\_499,20\_₸"
@@ -4231,10 +4223,6 @@ default:
           cpu:
             c100|month|string: "1\_186,56\_₽"
             c100|string: "1,6480\_₽"
-            c20|month|string: "341,1360\_₽"
-            c20|string: "0,4738\_₽"
-            c5|month|string: "29,6640\_₽"
-            c5|string: "0,0412\_₽"
             c50|month|string: "556,20\_₽"
             c50|string: "0,7725\_₽"
           ram|month|string: "667,44\_₽"
@@ -4243,10 +4231,6 @@ default:
           cpu:
             c100|month|string: "1\_244,16\_₽"
             c100|string: "1,7280\_₽"
-            c20|month|string: "357,6960\_₽"
-            c20|string: "0,4968\_₽"
-            c5|month|string: "31,1040\_₽"
-            c5|string: "0,0432\_₽"
             c50|month|string: "583,20\_₽"
             c50|string: "0,81\_₽"
           ram|month|string: "699,84\_₽"
@@ -6478,10 +6462,6 @@ default:
           cpu:
             c100|month|string: "9,887996\_$"
             c100|string: "0,013733\_$"
-            c20|month|string: "2,842799\_$"
-            c20|string: "0,003948\_$"
-            c5|month|string: "0,247200\_$"
-            c5|string: "0,000343\_$"
             c50|month|string: "4,634998\_$"
             c50|string: "0,006437\_$"
           ram|month|string: "5,561998\_$"
@@ -6490,10 +6470,6 @@ default:
           cpu:
             c100|month|string: "10,367996\_$"
             c100|string: "0,014400\_$"
-            c20|month|string: "2,980799\_$"
-            c20|string: "0,004140\_$"
-            c5|month|string: "0,259200\_$"
-            c5|string: "0,000360\_$"
             c50|month|string: "4,859998\_$"
             c50|string: "0,006750\_$"
           ram|month|string: "5,831998\_$"
@@ -9288,7 +9264,6 @@ default:
           value_overwrite-older: Перезаписать только существующие файлы
         label_backups: Резервные копии
         label_baremetal-instances: Серверы BareMetal
-        label_create: Подключён
         label_instances: Виртуальные машины
         label_navigate-to-journal-action: Открыть журнал резервирования
         label_policies: Политики копирования
@@ -9796,11 +9771,9 @@ default:
             field_subnetwork: Подсеть
             section_additional: Дополнительно
             switch_auto: Автоматически
-            switch_dynamic: Динамический
             switch_list: Список
             switch_manual: Вручную
             switch_none: Без адреса
-            switch_static: Статический
           one-to-one-nat-form:
             button_submit: Добавить
             field_advanced: Дополнительно
@@ -9821,7 +9794,6 @@ default:
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU
             label_tab-standard: Standard
-            option_resources-custom-config: Своя конфигурация
         condition-column:
           condition_and: и
           condition_full-trafic: Весь трафик
@@ -10134,7 +10106,6 @@ default:
             field_coi-tty: Выделить TTY для Docker-контейнера
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
-            field_instance-name: Имя ВМ
             field_key: SSH-ключ
             field_security-groups: Группы безопасности
             field_service-account: Сервисный аккаунт
@@ -10146,22 +10117,17 @@ default:
             image_value_marketplace: Marketplace
             label_add-network-interface: Добавить сетевой интерфейс
             label_title: Создание виртуальной машины
-            option_create-form-extended-title: Расширенная настройка
-            option_create-form-simple-title: Простая настройка
             placeholder_search_marketplace-product: Поиск продукта
             section_access: Доступ
             section_additional: Дополнительно
             section_backup: Cloud Backup
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
-            section_disks: Диски
             section_image: Образ загрузочного диска
             section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение
             section_platform: Вычислительные ресурсы
-            section_predefined: Предустановленные параметры
-            section_simple-image: Операционные системы и продукты
             section_storages: Диски и файловые хранилища
             unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
@@ -12496,7 +12462,6 @@ default:
             stt:
               title: Распознавание речи
         train-modal: Дообучить модель
-        use-assistant: Использовать ассистента
         use-context: Использовать контекст
         YaGPT:
           create-instance_3Ltog: Развернуть инстанс
@@ -14634,7 +14599,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.3
+        tag: v1.0.4
     yc_ingress-nginx:
       helmChart:
         name: >-

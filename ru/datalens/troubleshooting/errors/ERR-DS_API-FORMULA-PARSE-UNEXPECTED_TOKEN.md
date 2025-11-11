@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN
-description: На странице приведено описание ошибки ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN
+description: На странице приведено описание ошибки {{ datalens-full-name }} Ошибка в синтаксисе формулы.
 ---
 
-# Ошибка в синтаксисе формулы
+# [{{ datalens-full-name }}] Ошибка в синтаксисе формулы
 
 `ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN`
 

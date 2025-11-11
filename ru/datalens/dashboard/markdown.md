@@ -1,4 +1,9 @@
-# Markdown
+---
+title: Markdown в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как использовать язык разметки Markdown в {{ datalens-full-name }}.
+---
+
+# Markdown в {{ datalens-full-name }}
 
 {{ datalens-short-name }} позволяет использовать язык разметки Markdown в виджете [{#T}](./widget.md#text) на дашборде.
 Вы можете разместить поясняющий текст, ссылки, таблицу, изображение или выделить значимые моменты с помощью форматирования.

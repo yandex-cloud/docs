@@ -1,9 +1,9 @@
 ---
 title: Справочник визуализаций в {{ datalens-full-name }}
-description: Из статьи вы узнаете, какие чарты доступны в {{ datalens-short-name }}.
+description: Из статьи вы узнаете, какие чарты доступны в {{ datalens-full-name }}.
 ---
 
-# Справочник визуализаций
+# Справочник визуализаций в {{ datalens-full-name }}
 
 
 

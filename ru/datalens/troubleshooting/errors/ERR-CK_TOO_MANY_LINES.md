@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.CK.TOO_MANY_LINES
-description: На странице приведено описание ошибки ERR.CK.TOO_MANY_LINES.
+title: Ошибка {{ datalens-full-name }} ERR.CK.TOO_MANY_LINES
+description: На странице приведено описание ошибки {{ datalens-full-name }} Too many series on the chart.
 ---
 
-# Too many series on the chart
+# [{{ datalens-full-name }}] Too many series on the chart
 
 `ERR.CK.TOO_MANY_LINES`
 

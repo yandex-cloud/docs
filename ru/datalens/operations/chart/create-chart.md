@@ -1,9 +1,9 @@
 ---
 title: Как создать чарт в {{ datalens-full-name }}
-description: Следуя данной инструкции, вы сможете создать чарт.
+description: Следуя данной инструкции, вы сможете создать чарт в {{ datalens-full-name }}.
 ---
 
-# Создание чарта
+# Создание чарта в {{ datalens-full-name }}
 
 ## Создать чарт {#create-chart}
 

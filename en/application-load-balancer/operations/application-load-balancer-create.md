@@ -354,7 +354,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       * `allocation_policy`: L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zones and subnet IDs.
       * `listener`: Description of parameters for the L7 load balancer [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener). This is an optional setting. You can specify one or multiple listeners.
 
-          * `name`: Listener name. Use the following name format:
+          * `name`: Listener name. Follow these naming requirements:
 
               {% include [name-format](../../_includes/name-format.md) %}
 
@@ -381,7 +381,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
             * `sni_handler`: SNI listener description.
 
-                * `name`: Listener name. Use the following name format:
+                * `name`: Listener name. Follow these naming requirements:
 
                   {% include [name-format](../../_includes/name-format.md) %}
 
@@ -434,6 +434,8 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
           ```bash
           yc alb load-balancer list
           ```
+
+          {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

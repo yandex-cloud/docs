@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT
-description: На странице приведено описание ошибки ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT
+description: На странице приведено описание ошибки {{ datalens-full-name }} Data source timed out.
 ---
 
-# Data source timed out
+# [{{ datalens-full-name }}] Data source timed out
 
 `ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT`
 

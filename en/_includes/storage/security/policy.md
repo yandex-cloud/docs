@@ -119,7 +119,7 @@ If you are using the old domain (`console.cloud.yandex.*`) together with the new
 
 
 
-You can retrieve the user ID by following [this guide](../../../iam/operations/users/get.md) in the {{ iam-full-name }} documentation.
+You can retrieve the user ID by following [this guide](../../../organization/operations/users-get.md) in the {{ iam-full-name }} documentation.
 
 
 ## Bucket access via a chain of reverse proxy servers {#access-via-reverse-proxy}
@@ -311,7 +311,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-#### Rule that provides each user and service account with full access to a folder with the name matching the [user ID](../../../iam/operations/users/get.md) or [service account ID](../../../iam/operations/sa/get-id.md): {#full-access-user-service-account-folder}
+#### Rule that provides each user and service account with full access to a folder with the name matching the [user ID](../../../organization/operations/users-get.md) or [service account ID](../../../iam/operations/sa/get-id.md): {#full-access-user-service-account-folder}
 
   ```json
   {

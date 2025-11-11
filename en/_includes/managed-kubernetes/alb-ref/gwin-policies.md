@@ -6,7 +6,7 @@ The controller supports the [Ingress](https://kubernetes.io/docs/concepts/servic
 
 Additional features offered by {{ alb-name }}:
 
-* [Logging](../../../application-load-balancer/concepts/application-load-balancer.md#logging) and setting up log discard rules.
+* [Logging](../../../application-load-balancer/concepts/monitoring.md#logging) and setting up log discard rules.
 * [Autoscaling](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) with resource unit control.
 * [Zonal traffic management](../../../application-load-balancer/concepts/application-load-balancer.md#lb-location) for high availability of services.
 * Flexible load balancing settings, including [traffic locality](../../../application-load-balancer/concepts/backend-group.md#locality) and [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
@@ -104,7 +104,7 @@ Policies operate only within a single {{ k8s }} namespace.
 
 {% endnote %}
 
-## Merging configurations {#config}
+## Merging configurations {#merge-config}
 
 If multiple configuration sources are applied to a single resource, they merge. Settings merge recursively: nested objects join together at all levels. 
 

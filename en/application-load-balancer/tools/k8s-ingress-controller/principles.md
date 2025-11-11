@@ -5,6 +5,8 @@ description: In this tutorial, you will learn about the {{ alb-name }} ingress c
 
 # How the {{ alb-name }} ingress controller works
 
+{% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 An [{{ alb-name }} ingress controller for {{ managed-k8s-name }}](index.md) is running two [pods](../../../managed-kubernetes/concepts/index.md#pod):
 
 * The leader pod, i.e., `yc-alb-ingress-controller-*`, manages {{ alb-name }} resource creation and updates. You can use its logs to monitor resource operations.
@@ -82,7 +84,7 @@ For an {{ alb-name }} load balancer deployed according to the `Ingress` configur
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
+  1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create the load balancer.
   1. On the {{ managed-k8s-name }} cluster page, navigate to the ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.

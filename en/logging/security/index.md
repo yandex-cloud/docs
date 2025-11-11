@@ -13,7 +13,7 @@ To assign a role for a resource, a user should have the `logging.admin` role or 
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -36,9 +36,11 @@ You can also assign roles for individual resources within the service:
 
 {% endlist %}
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
-The list below shows {{ cloud-logging-name }} roles.
+The list below shows all roles used for access control in {{ cloud-logging-name }}.
+
+{% include [logging](../../_mermaid/roles/logging.md) %}
 
 ### Service roles {#service-roles}
 

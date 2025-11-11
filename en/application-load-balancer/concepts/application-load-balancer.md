@@ -76,7 +76,7 @@ The minimum number of resource units per availability zone
 
 : If you expect higher loads on the load balancer, you can increase the minimum number of resource units per zone in advance to avoid waiting for it to increase following the load.
 
-  The default minimum is 2. You cannot set a limit lower than 2 resource units per zone.
+  The default minimum is 2. You cannot set a limit lower than two resource units per zone.
 
 Maximum total number of resource units
 
@@ -97,7 +97,7 @@ For {{ alb-name }} to provide load balancer availability as specified in the [se
 
 ### Zonal shift mechanism {#zonal-shift}
 
-You can configure your load balancer to temporarily deny one or more availability zones. You can disable zones [manually](../operations/manage-zone/start-and-cancel-shift.md) or [allow](../operations/manage-zone/allow-and-deny-shift.md) the system to auto-disable zones during incidents. If a zone is unavailable, {{ yandex-cloud }} technicians disable it. As soon as the zone is back on track, it gets re-enabled, and uniform traffic distribution is resumed.
+You can configure your load balancer to temporarily deny one or more availability zones. You can disable zones [manually](../operations/manage-zone/start-and-cancel-shift.md) or [allow](../operations/manage-zone/allow-and-deny-shift.md) the system to auto-disable zones during incidents. If a zone is unavailable, {{ yandex-cloud }} technicians disable it. Once the zone is back on track, it is re-enabled, so your traffic is distributed evenly again.
 
 Once a zone is disabled, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
 
@@ -107,7 +107,7 @@ By manually disabling an availability zone, you can:
 
 * Reduce its traffic load during localized issues, e.g., after a faulty app release on your backend or an incident caused by high traffic or misconfiguration. This helps prevent service disruption or quickly restore app functionality for your users.
 
-* Test the resilience of your load balancer and traffic failover mechanisms. This way, you can proactively identify potential weaknesses, apply fixes, and optimize your load balancer settings in advance.
+* Test the resilience of your load balancer and traffic failover mechanisms. Thus, you can proactively identify potential weaknesses, apply fixes, and optimize your load balancer settings in advance.
 
 ## Listener {#listener}
 
@@ -135,140 +135,6 @@ One load balancer can serve both regular and encrypted traffic on different port
 The listener can accept HTTP traffic on port 80 and redirect traffic to HTTPS port 443. The listener gets an HTTP request from a client and returns a response with HTTP code 302. Further requests will be accepted at port 443 via HTTPS.
 
 If an HTTPS listener is used, specify a [certificate](../../certificate-manager/concepts/imported-certificate.md) from {{ certificate-manager-name }} that will be used to terminate TLS connections.
-
-## Statistics {#stats}
-
-{% note info %}
-
-For **{{ ui-key.yacloud.alb.label_listener-type-stream }}** listeners, the system does not collect statistics on individual HTTP requests.
-
-{% endnote %}
-
-Load balancer statistics are automatically logged in the [{{ monitoring-full-name }}](../../monitoring/) metrics. The following dashboards and measures are available:
-
-* **HTTP statistics**:
-
-  * **RPS**: Number of load balancer requests per second.
-  * **4XX**, **5XX**: Number of load balancer responses containing HTTP codes 4XX and 5XX and the [corresponding gRPC codes](../../api-design-guide/concepts/errors.md#error-list) per second.
-  * **Request size**: Total volume of load balancer requests per second.
-  * **Response size**: Total volume of load balancer responses per second.
-  * **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
-
-* **Capacity statistics**:
-
-  * **Active connections**: Number of active connections.
-  * **Connections per second**: Number of connections per second.
-  * **Requests per second**: Number of requests per second.
-  * **Bytes per second**: Amount of data handled per second.
-
-For a full list of metrics delivered to {{ monitoring-full-name }}, see the [reference](../metrics.md).
-
-{{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
-
-For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
-
-## Logging {#logging}
-
-You can [configure](../operations/application-load-balancer-manage-logs.md) the delivery of load balancer logs to a {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md).
-
-For more information on how to view logs, see [{#T}](../operations/application-load-balancer-get-logs.md).
-
-The [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) header value is logged as per [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). You can find the full list of logged parameters in the [log reference](../logs-ref.md).
-
-You can also [send load balancer logs to a PostgreSQL DB](../tutorials/logging.md).
-
-### Log discard rules {#discard-logs-rules}
-
-Writing and storing logs in {{ cloud-logging-name }} is charged based on the service [pricing rules](../../logging/pricing.md#prices). To log less data, add log discard rules.
-
-Possible rules:
-
-#|
-|| **Rule** | **Value** ||
-||**HTTP codes**
-|
-* `100`: Continue
-* `101`: Switching Protocol
-* `102`: Processing
-* `200`: OK
-* `201`: Created
-* `202`: Accepted
-* `203`: Non Authoritative Information
-* `204`: No Content
-* `205`: Reset Content
-* `206`: Partial Content
-* `207`: Multi-Status
-* `300`: Multiple Choices
-* `301`: Moved Permanently
-* `302`: Found
-* `303`: See Other
-* `304`: Not Modified
-* `305`: Use Proxy
-* `307`: Temporary Redirect
-* `308`: Permanent Redirect
-* `400`: Bad Request
-* `401`: Unauthorized
-* `402`: Payment Required
-* `403`: Forbidden
-* `404`: Not Found
-* `405`: Method Not Allowed
-* `406`: Not Acceptable
-* `407`: Proxy Authentication Required
-* `408`: Request Timeout
-* `409`: Conflict
-* `410`: Gone
-* `411`: Length Required
-* `412`: Precondition Failed
-* `413`: Request Entity Too Large
-* `414`: Request-URI Too Long
-* `415`: Unsupported Media Type
-* `416`: Requested Range Not Satisfiable
-* `417`: Expectation Failed
-* `418`: I'm a teapot
-* `419`: Insufficient Space on Resource
-* `420`: Method Failure
-* `422`: Unprocessable Entity
-* `423`: Locked
-* `424`: Failed Dependency
-* `428`: Precondition Required
-* `429`: Too Many Requests
-* `431`: Request Header Fields Too Large
-* `451`: Unavailable For Legal Reasons
-* `500`: Internal Server Error
-* `501`: Not Implemented
-* `502`: Bad Gateway
-* `503`: Service Unavailable
-* `504`: Gateway Timeout
-* `505`: HTTP Version Not Supported
-* `507`: Insufficient Storage
-* `511`: Network Authentication Required||
-||**HTTP code classes**
-|
-* `1XX`
-* `2XX`
-* `3XX`
-* `4XX`
-* `5XX`
-* `ALL`||
-||**gRPC codes**
-|
-* `GRPC_OK`
-* `GRPC_CANCELLED`
-* `GRPC_UNKNOWN`
-* `GRPC_INVALID_ARGUMENT`
-* `GRPC_DEADLINE_EXCEEDED`
-* `GRPC_NOT_FOUND`
-* `GRPC_ALREADY_EXISTS`
-* `GRPC_PERMISSION_DENIED`
-* `GRPC_UNAUTHENTICATED`
-* `GRPC_RESOURCE_EXHAUSTED`
-* `GRPC_FAILED_PRECONDITION`
-* `GRPC_ABORTED`
-* `GRPC_OUT_OF_RANGE`
-* `GRPC_UNIMPLEMENTED`
-* `GRPC_INTERNAL`
-* `GRPC_UNAVAILABLE`||
-|#
 
 ## Use cases {#examples}
 

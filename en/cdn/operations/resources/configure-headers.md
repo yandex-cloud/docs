@@ -5,13 +5,15 @@ description: Follow this guide to configure request and response HTTP headers.
 
 # Configuring HTTP headers of requests and responses
 
-To configure HTTP request and response headers for a resource:
-
 {% note info %}
 
 The `Access-Control-Allow-Origin` header for the CORS configuration is configured under **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**. For more information, see [{#T}](configure-cors.md).
 
 {% endnote %}
+
+{% include [edge-cdn-restrictions](../../../_includes/cdn/edge-cdn-restrictions.md) %}
+
+To configure HTTP request and response headers for a resource:
 
 {% list tabs group=instructions %}
 
@@ -182,7 +184,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```bash

@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS
-description: На странице приведено описание ошибки ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS
+description: На странице приведено описание ошибки {{ datalens-full-name }} Incompatible dimensions.
 ---
 
-# Incompatible dimensions
+# [{{ datalens-full-name }}] Incompatible dimensions
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS`
 

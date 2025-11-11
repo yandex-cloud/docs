@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB.CANNOT_PARSE
-description: На странице приведено описание ошибки ERR.DS_API.DB.CANNOT_PARSE.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CANNOT_PARSE
+description: На странице приведено описание ошибки {{ datalens-full-name }} Cannot parse.
 ---
 
-# Cannot parse
+# [{{ datalens-full-name }}] Cannot parse
 
 `ERR.DS_API.DB.CANNOT_PARSE`
 

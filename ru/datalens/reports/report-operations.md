@@ -22,6 +22,7 @@ description: Следуя данной инструкции, вы научите
 * [Настроить масштабирование](#scaling-settings)
 * [Включить предпросмотр](#report-preview)
 * [Экспортировать отчет](#report-export)
+* [Запретить использование Нейроаналитика](#report-neuroanalyst-off)
 
 ## Создать отчет {#create-report}
 
@@ -350,3 +351,7 @@ description: Следуя данной инструкции, вы научите
 ## Экспортировать отчет {#report-export}
 
 Чтобы экспортировать отчет, нажмите кнопку **Экспорт**. Отчет экспортируется в файл формата `.pdf`.
+
+## Запретить использование Нейроаналитика {#report-neuroanalyst-off}
+
+{% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}

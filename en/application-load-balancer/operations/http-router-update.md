@@ -114,7 +114,7 @@ To update HTTP router parameters:
      yc alb http-router get <HTTP_router_ID>
      ```
 
-
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 
@@ -126,11 +126,11 @@ To update HTTP router parameters:
 
 To add a new route to your HTTP router's [virtual host](../concepts/http-router.md#virtual-host):
 
-{% include [console-update-http-route-naming-step](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
+{% include [route-create-complete-section](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
 
 ## Change your virtual host’s route order {#change-route-order}
 
-To reorder routes in a [virtual host](../concepts/http-router.md#virtual-host) of an HTTP router:
+To change route order in the [virtual host](../concepts/http-router.md#virtual-host) of the HTTP router:
 
 {% include [reorder-routes-complete-section](../../_includes/application-load-balancer/instruction-steps/reorder-routes-complete-section.md) %}
 
@@ -224,6 +224,8 @@ To change the route timeout for an HTTP router:
       ```bash
       yc alb virtual-host get <virtual_host_ID>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

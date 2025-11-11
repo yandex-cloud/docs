@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.US.ACCESS_DENIED
-description: На странице приведено описание ошибки ERR.DS_API.US.ACCESS_DENIED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.US.ACCESS_DENIED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Access denied.
 ---
 
-# Access denied
+# [{{ datalens-full-name }}] Access denied
 
 `ERR.DS_API.US.ACCESS_DENIED`
 

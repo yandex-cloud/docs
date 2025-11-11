@@ -1,7 +1,8 @@
 **Type of limit** | **Value**
 ----- | -----
-Maximum weekly number of non-empty suggestions per user | 3,000
-Maximum weekly number of chats per user | 400
+Maximum number of non-empty suggestions per user | 3,000 per week
+Maximum number of [IDE plugin]({{ link-src-docs }}/code-assistant/concepts/#chat) chat queries per user | 1,000 per week
+Maximum number of [{{ src-full-name }} UI]({{ link-src-docs }}/sourcecraft/operations/ca-chat) chat queries per user | 500 per day
 
 {% note info %}
 

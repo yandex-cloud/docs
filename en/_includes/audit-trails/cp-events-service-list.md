@@ -44,6 +44,7 @@
 * [{{ network-load-balancer-full-name }}](../../audit-trails/concepts/events.md#network-load-balancer)
 * [{{ objstorage-full-name }}](../../audit-trails/concepts/events.md#objstorage)
 * [{{ yq-full-name }}](../../audit-trails/concepts/events.md#yq)
+* [{{ myt-full-name}}](../../audit-trails/concepts/events.md#ytsaurus)
 * [{{ resmgr-full-name }}](../../audit-trails/concepts/events.md#resmgr)
 * [{{ search-api-full-name }}](../../audit-trails/concepts/events.md#searchapi)
 * [{{ serverless-containers-full-name }}](../../audit-trails/concepts/events.md#serverless-containers)

@@ -41,11 +41,26 @@ description: Из статьи вы узнаете про нейроаналит
 
 ## Запрет на использование Нейроаналитика {#prohibit}
 
-По умолчанию пользователи {{ datalens-name }} могут использовать Нейроаналитика. Пользователь с ролью `{{ roles-datalens-admin }}` может отключить эту возможность на уровне экземпляра {{ datalens-short-name }}:
-  
-1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
-1. Отключите опцию **Нейроаналитик** (по умолчанию она включена). После этого AI-помощники пропадут из интерфейса {{ datalens-name }} у всех пользователей экземпляра.
+По умолчанию пользователи {{ datalens-name }} могут использовать Нейроаналитика. Пользователь с ролью `{{ roles-datalens-admin }}` может отключить эту возможность на уровне экземпляра {{ datalens-short-name }} или точечно на уровне настроек дашборда или отчета:
 
+{% list tabs %}
+
+
+- Экземпляр {{ datalens-short-name }}
+
+  1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
+  1. Отключите опцию **Нейроаналитик** (по умолчанию она включена). После этого AI-помощники пропадут из интерфейса {{ datalens-name }} у всех пользователей экземпляра.
+
+
+- Дашборд
+
+  {% include [datalens-dashboard-neuroanalyst-off](../../_includes/datalens/operations/datalens-dashboard-neuroanalyst-off.md) %}
+
+- Отчет
+
+  {% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}
+
+{% endlist %}
 
 ## Настройка пользовательского промта {#user-promt}
 

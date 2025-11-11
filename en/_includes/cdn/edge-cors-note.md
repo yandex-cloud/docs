@@ -1,0 +1,1 @@
+When you use the [EdgeCDN provider](../../cdn/concepts/providers.md), the maximum number of CORS domains when responding to client requests is 20. Learn more about [limits and restrictions](../../cdn/concepts/limits.md).

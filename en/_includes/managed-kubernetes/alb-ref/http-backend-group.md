@@ -1,6 +1,8 @@
 # `HttpBackendGroup` resource fields
 
-`HttpBackendGroup` enables you to combine {{ k8s }} service backends into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+`HttpBackendGroup` enables you to group backends, i.e., {{ k8s }} services processing traffic. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
 You need to add a reference to `HttpBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md).
 
@@ -49,15 +51,15 @@ Where:
 
 * `apiVersion`: `alb.yc.io/v1alpha1`
 * `kind`: `HttpBackendGroup`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
   
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the name format, see the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource. For more information, see the [relevant configuration](../../../application-load-balancer/k8s-ref/ingress.md).
+    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
 
     Do not mistake this name for the {{ alb-name }} backend group name.
 
@@ -67,9 +69,9 @@ Where:
   
   * `backends` (`[]HttpBackend`)
   
-    Group backends.
+    List of backends in the group.
     
-    * `name` (`string`, required)
+    * `name` (`string`; this is a required field)
     
       Backend name.
     
@@ -89,7 +91,7 @@ Where:
 
     * `service` (`ServiceBackend`)
 
-      [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) backend for processing requests.
+      Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) to process requests as a backend.
 
       The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
@@ -105,7 +107,7 @@ Where:
 
       You must specify a bucket or {{ k8s }} `service` for the backend. You cannot specify both at the same time.
       
-      * `name` (`string`, required)
+      * `name` (`string`; this is a required field)
       
         Bucket name.
         
@@ -121,7 +123,7 @@ Where:
       
       * `trustedCa` (`string`)
       
-        X.509 certificate in PEM format.
+        Contents of the X.509 certificate issued by a certificate authority in PEM format.
 
     * `healthChecks` (`[]HealthChecks`)
 
@@ -143,15 +145,15 @@ Where:
 
         Cluster node port for checking application availability. This port should match the `spec.ports.nodePort` value of the `NodePort` [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource.
 
-        The application will listen for health check requests on `http://<node_IP_address>:<port>/<path>`.
+        The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
 
       * `healthyThreshold` (`int32`)
 
-        Number of consecutive successful checks required before considering the application endpoint healthy.
+        Number of consecutive successful checks required to consider the application endpoint healthy.
 
       * `unhealthyThreshold` (`int32`)
 
-        Number of consecutive failed checks required before considering the application endpoint unhealthy.
+        Number of consecutive failed checks required to consider the application endpoint unhealthy.
 
       * `timeout` (`string`)
 
@@ -171,11 +173,11 @@ Where:
 
       * `balancerMode` (`string`)
 
-        Traffic distribution mode. It is an algorithm according to which the load balancer distributes traffic across backend endpoints. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. [Learn more about each mode](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
+        Traffic distribution mode. It is an algorithm according to which the load balancer distributes traffic across backend endpoints. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. Learn more about each mode [here](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
 
       * `panicThreshold` (`int64`)
 
-        Minimum percentage of healthy endpoints. If the percentage of healthy endpoints falls below the specified value, it will trigger the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
+        Percentage of healthy endpoints. If the percentage of healthy endpoints falls below the specified value, it will trigger the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
 
         The default value is `0`, which means the panic mode will never be activated.
 

@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG
-description: На странице приведено описание ошибки ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG
+description: На странице приведено описание ошибки {{ datalens-full-name }} Window function has no aggregated expressions among its arguments.
 ---
 
-# Window function has no aggregated expressions among its arguments
+# [{{ datalens-full-name }}] Window function has no aggregated expressions among its arguments
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG`
 

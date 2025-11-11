@@ -1,31 +1,33 @@
-# Configuring a {{ alb-full-name }} L7 load balancer using an Ingress controller
+# Configuring a {{ alb-full-name }} using an ingress controller
 
-[{{ alb-full-name }}](../../application-load-balancer/) helps with load balancing and traffic distribution across applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+[{{ alb-full-name }}](../../application-load-balancer/) helps balance the load and distribute traffic between your applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), you need an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
-To set up access to the applications running in your {{ managed-k8s-name }} cluster via an {{ alb-name }} L7 load balancer:
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
+To set up access to the applications running in your {{ managed-k8s-name }} cluster via an {{ alb-name }} (L7 load balancer):
 
 1. [Set up the Ingress resource and test applications](#create-ingress-and-apps).
 1. [Optionally, configure the Ingress resource group](#configure-group).
 1. [Make sure the {{ managed-k8s-name }} cluster applications are accessible via {{ alb-name }}](#verify-setup).
 
-For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
+For full configuration of the resources for the {{ alb-name }} ingress controller, see the following sections:
 
 * [Ingress](../../managed-kubernetes/alb-ref/ingress.md): Backend traffic distribution and load balancer configuration rules.
 * [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md), [GrpcBackendGroup](../../managed-kubernetes/alb-ref/grpc-backend-group.md): Combining backends into groups.
-* [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
+* [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md): Managing multiple ingress controllers in a {{ k8s }} cluster.
 * [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -60,11 +62,11 @@ The support cost includes:
 The [Ingress resource](../../application-load-balancer/k8s-ref/ingress.md) defines:
 
 * L7 load balancer parameters set using annotations.
-* Rules for distribution of incoming traffic between [{{ k8s }} services](../../application-load-balancer/k8s-ref/service-for-ingress.md).
+* Rules for incoming traffic distribution between [{{ k8s }} services.](../../application-load-balancer/k8s-ref/service-for-ingress.md)
 
-    Services acting as {{ alb-name }} backends may be specified in the Ingress resource either directly or as part of [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) backend groups.
+    Services acting as {{ alb-name }} backends may be specified in the Ingress resource either directly or as part of [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) or [GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) backend groups.
 
-Create test applications and an Ingress resource:
+Create test applications and Ingress resource:
 
 {% list tabs %}
 
@@ -274,7 +276,7 @@ Create test applications and an Ingress resource:
 
      {% endcut %}
 
-  1. In the same directory, create a file named `ingress.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }} L7 load balancer:
+  1. In the same directory, create a file named `ingress.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }}:
 
      ```yaml
      apiVersion: networking.k8s.io/v1
@@ -320,19 +322,19 @@ Create test applications and an Ingress resource:
 
      Where:
 
-     * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }} L7 load balancer.
+     * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }}.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
-       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete its [IP address](../../vpc/concepts/address.md). To avoid this, use a reserved IP address.
+       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) removes its [IP address](../../vpc/concepts/address.md). To avoid this, use a reserved IP address.
 
      * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped so that a separate load balancer serves each group.
 
        You can use any group name instead of `my-ingress-group`. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
-     Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controllers version 0.2.0 and later map backend groups directly to the `backend.service` configuration. This may cause collisions when upgrading the ALB Ingress Controller. To avoid them, check the [upgrade restrictions](../../managed-kubernetes/operations/applications/upgrade-alb-ingress-controller.md) for your infrastructure.
+     Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controller 0.2.0 and later maps backend groups directly to the `backend.service` configuration. This may cause collisions when upgrading the controller. To avoid them, check the [upgrade restrictions](../../managed-kubernetes/operations/applications/upgrade-alb-ingress-controller.md) for your infrastructure.
 
-     Optionally, enter the advanced settings for the load balancer:
+     Optionally, specify the additional settings for the load balancer:
 
      {% cut "Additional settings" %}
 
@@ -349,8 +351,8 @@ Create test applications and an Ingress resource:
 
        {% endnote %}
 
-     * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
-     * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
+     * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if you select `ingress.alb.yc.io/internal-ipv4-address`.
+     * `ingress.alb.yc.io/protocol`: Protocol for connections between the load balancer and backends:
        * `http`: HTTP/1.1. This is a default value.
        * `http2`: HTTP/2.
        * `grpc`: gRPC.
@@ -358,21 +360,21 @@ Create test applications and an Ingress resource:
 
         {% note warning %}
 
-        For [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, you can only use this annotation in the [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
+        For [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) 0.2.0 and later, you can only use this annotation in the [Service](../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
 
-        Annotations applied to `Ingress` resources sharing the same service and backend group settings will be processed correctly. However, this mechanism is obsolete and will not be supported going forward.
+        Annotations specified in `Ingress` resources sharing a single service with the same backend group settings apply correctly. However, this feature is deprecated and will be discontinued.
 
         {% endnote %}
 
         The acceptable value is `tls`: TLS without certificate validation.
 
         If this annotation is not specified, the load balancer will connect to the backends without encryption.
-     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
+     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path with the specified value.
      * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
      * `ingress.alb.yc.io/request-timeout`: Maximum connection request timeout.
      * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle timeout.
 
-       The `request-timeout` and `idle-timeout` values must be specified with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
+       Make sure to provide the `request-timeout` and `idle-timeout` values with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
        * `ns`, nanoseconds
        * `us`, microseconds
        * `ms`, milliseconds
@@ -380,9 +382,9 @@ Create test applications and an Ingress resource:
        * `m`, minutes
        * `h`, hours
 
-     * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, plus enable [WAF](../../smartwebsecurity/concepts/waf.md) and [limit the load](../../smartwebsecurity/concepts/arl.md) on the resource you are protecting.
+     * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that ensures protection against DDoS attacks and bots, enables [WAF](../../smartwebsecurity/concepts/waf.md) and [limits the load](../../smartwebsecurity/concepts/arl.md) on the protected resource.
 
-       To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
+       To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
 
        ```yaml
        ingress.alb.yc.io/security-profile-id: <security_profile_ID>
@@ -390,36 +392,36 @@ Create test applications and an Ingress resource:
 
        {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
-     * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
+     * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If set to `true`, the support is enabled. This setting only applies when `pathType` is set to `Exact`.
 
      * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value. The default value is `0`, which means the panic mode will never be activated.
 
-     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic will be evenly distributed across other availability zones. The default value is `0`. [Learn more about locality-aware routing here](../../application-load-balancer/concepts/backend-group.md#locality).
+     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic will be evenly distributed across other availability zones. The default value is `0`. For more info on locality-aware routing, see [this guide](../../application-load-balancer/concepts/backend-group.md#locality).
 
-     * `ingress.alb.yc.io/autoscale-max-size`: Maximum total number of resource units. By default, it is unlimited. Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone. [Learn more about the autoscaling settings here](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+     * `ingress.alb.yc.io/autoscale-max-size`: Maximum total number of resource units. By default, it is unlimited. Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone. Learn more about the autoscaling settings [here](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
-     * `ingress.alb.yc.io/modify-header-response-append`: Adds a string to the response header value. The header and string should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-response-append`: Adds a string to the response header value. To specify the header and string, use this format:
 
        ```yaml
        ingress.alb.yc.io/modify-header-response-append: <name_of_header_to_edit>=<string>
        ```
 
-     * `ingress.alb.yc.io/modify-header-response-replace`: Replaces the response header value. The header and its new value should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-response-replace`: Replaces the response header value. To specify the header and its new value, use this format:
 
        ```yaml
        ingress.alb.yc.io/modify-header-response-replace: <name_of_header_to_edit>=<new_header_value>
        ```
 
-     * `ingress.alb.yc.io/modify-header-response-rename`: Renames the response header. The header and its new name should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-response-rename`: Renames the response header. To specify the header and its new name, use this format:
 
        ```yaml
        ingress.alb.yc.io/modify-header-response-rename: <name_of_header_to_edit>=<new_header_name>
        ```
 
-     * `ingress.alb.yc.io/modify-header-response-remove`: Removes the response header. The header to remove should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-response-remove`: Removes the response header. To specify the header to remove, use this format:
 
        ```yaml
-       ingress.alb.yc.io/modify-header-response-remove: <name_of_header_to_delete>=true
+       ingress.alb.yc.io/modify-header-response-remove: <name_of_header_to_remove>=true
        ```
 
      * `ingress.alb.yc.io/modify-header-request-append`: Adds a string to the request header value. The header and string should be specified in the following format:
@@ -428,22 +430,22 @@ Create test applications and an Ingress resource:
        ingress.alb.yc.io/modify-header-request-append: <name_of_header_to_edit>=<string>
        ```
 
-     * `ingress.alb.yc.io/modify-header-request-replace`: Replaces the request header value. The header and its new value should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-request-replace`: Replaces the request header value. To specify the header and its new value, use this format:
 
        ```yaml
        ingress.alb.yc.io/modify-header-request-replace: <name_of_header_to_edit>=<new_header_value>
        ```
 
-     * `ingress.alb.yc.io/modify-header-request-rename`: Renames the request header. The header and its new name should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-request-rename`: Renames the request header. To specify the header and its new name, use this format:
 
        ```yaml
        ingress.alb.yc.io/modify-header-request-rename: <name_of_header_to_edit>=<new_header_name>
        ```
 
-     * `ingress.alb.yc.io/modify-header-request-remove`: Removes the request header. The header to remove should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-request-remove`: Removes the request header. To specify the header to remove, use this format:
 
        ```yaml
-       ingress.alb.yc.io/modify-header-request-remove: <name_of_header_to_delete>=true
+       ingress.alb.yc.io/modify-header-request-remove: <name_of_header_to_remove>=true
        ```
 
      * `ingress.alb.yc.io/session-affinity-header`: Sets an HTTP header for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity). To specify the header, use this format:
@@ -458,7 +460,7 @@ Create test applications and an Ingress resource:
        ingress.alb.yc.io/session-affinity-cookie: name=<cookie_name>,ttl=<cookie_lifetime>
        ```
 
-       The `ttl` value must be specified with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
+       Make sure to provide the `ttl` value with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
        * `ns`, nanoseconds
        * `us`, microseconds
        * `ms`, milliseconds
@@ -474,19 +476,19 @@ Create test applications and an Ingress resource:
 
      {% endcut %}
 
-     If you use several Ingress controllers, create an [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md) resource for each of them. In the `Ingress` configuration, specify the `IngressClass` you need in the `spec.ingressClassName` field.
+     If you use several ingress controllers, create an [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md) resource for each of them. In the `Ingress` configuration, specify the `IngressClass` you need in the `spec.ingressClassName` field.
 
      For more information about the `Ingress` resource settings, see [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
 
-  1. Create {{ k8s }} applications and the Ingress resource:
+  1. Create {{ k8s }} applications and Ingress resource:
 
      ```bash
      kubectl apply -f .
      ```
 
-     ALB Ingress Controller will automatically deploy the [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) using the Ingress resource configuration.
+     The ALB ingress controller will automatically deploy an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) using the Ingress resource configuration.
 
-  1. Wait until the {{ alb-name }} L7 load balancer is created and assigned a public IP address. This may take several minutes.
+  1. Wait until the L7 load balancer is created and assigned a public IP address. This may take several minutes.
 
      To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
@@ -497,7 +499,7 @@ Create test applications and an Ingress resource:
 
         The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
 
-  1. Make sure the load balancer was created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
+  1. Make sure the load balancer was created. To do this, run the following command and verify that the `ADDRESS` field in the output contains a value:
 
      ```bash
      kubectl get ingress alb-demo-tls
@@ -628,7 +630,7 @@ Create test applications and an Ingress resource:
      spec:
        backends: # List of backends.
          - name: alb-demo-1
-           weight: 70 # Backend relative weight when distributing traffic. The load will be distributed in proportion to the weights of the group's other backends. Specify the weight even if you have only one backend in the group.
+           weight: 70 # Backend relative weight in traffic distribution. Traffic will be distributed in proportion to the weights of other backends in the group. Specify the weight even if the group contains only one backend.
            service:
               name: alb-demo-1
               port:
@@ -639,9 +641,9 @@ Create test applications and an Ingress resource:
              name: <bucket_name>
      ```
 
-     Optionally, enter the advanced settings for the backend group:
+     Optionally, specify the additional settings for the backend group:
      * `spec.backends.useHttp2`: `HTTP/2` mode.
-     * `spec.backends.tls`: Certificate from the certificate authority the load balancer will trust when establishing a secure connection with backend endpoints. Specify the certificate contents in the `trustedCa` field in plain text.
+     * `spec.backends.tls`: CA certificate trusted by the load balancer when establishing a secure connection to backend endpoints. Specify the certificate contents in the `trustedCa` field in plain text.
 
      Learn more in [{#T}](../../application-load-balancer/concepts/backend-group.md).
 
@@ -676,17 +678,17 @@ Create test applications and an Ingress resource:
      ```
 
      Where:
-     * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }} L7 load balancer.
+     * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }}.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
-       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete its [IP address](../../vpc/concepts/address.md). To avoid this, use a reserved IP address.
+       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) removes its [IP address](../../vpc/concepts/address.md). To avoid this, use a reserved IP address.
 
      * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped so that a separate load balancer serves each group.
 
        You can use any group name instead of `my-ingress-group`. Make sure it meets the naming [requirements]({{ k8s-docs }}/concepts/overview/working-with-objects/names/).
 
-     Optionally, enter the advanced settings for the load balancer.
+     Optionally, specify the additional settings for the load balancer.
 
      {% include [alb-ingress-balancer-additional-settings](../_tutorials_includes/alb-ingress-balancer-additional-settings.md) %}
 
@@ -701,17 +703,17 @@ Create test applications and an Ingress resource:
 
        {% endnote %}
 
-     * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
-     * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
+     * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if you select `ingress.alb.yc.io/internal-ipv4-address`.
+     * `ingress.alb.yc.io/protocol`: Protocol for connections between the load balancer and backends:
        * `http`: HTTP/1.1. This is a default value.
        * `http2`: HTTP/2.
        * `grpc`: gRPC.
-     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
+     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path with the specified value.
      * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
      * `ingress.alb.yc.io/request-timeout`: Maximum connection request timeout.
      * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle timeout.
 
-       The `request-timeout` and `idle-timeout` values must be specified with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
+       Make sure to provide the `request-timeout` and `idle-timeout` values with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
        * `ns`, nanoseconds
        * `us`, microseconds
        * `ms`, milliseconds
@@ -719,9 +721,9 @@ Create test applications and an Ingress resource:
        * `m`, minutes
        * `h`, hours
 
-     * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, plus enable [WAF](../../smartwebsecurity/concepts/waf.md) and [limit the load](../../smartwebsecurity/concepts/arl.md) on the resource you are protecting.
+     * `ingress.alb.yc.io/security-profile-id`: Support for [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) that ensures protection against DDoS attacks and bots, enables [WAF](../../smartwebsecurity/concepts/waf.md) and [limits the load](../../smartwebsecurity/concepts/arl.md) on the protected resource.
 
-       To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
+       To enable support for {{ sws-full-name }}, specify the previously created {{ sws-name }} [profile](../../smartwebsecurity/concepts/profiles.md) in the Ingress annotation:
 
        ```yaml
        ingress.alb.yc.io/security-profile-id: <security_profile_ID>
@@ -729,18 +731,18 @@ Create test applications and an Ingress resource:
 
        {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
-     * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
+     * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If set to `true`, the support is enabled. This setting only applies when `pathType` is set to `Exact`.
 
      For more information about the Ingress resource settings, see [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
-  1. Create the {{ k8s }} app, `HttpBackendGroup` resource, and `Ingress` resource:
+  1. Create a {{ k8s }} app, `HttpBackendGroup` resource, and `Ingress` resource:
 
      ```bash
      kubectl apply -f .
      ```
 
-    ALB Ingress Controller will automatically deploy the [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) using the Ingress resource configuration.
+    The ALB ingress controller will automatically deploy an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) using the Ingress resource configuration.
 
-  1. Wait until the {{ alb-name }} L7 load balancer is created and assigned a public IP address. This may take several minutes.
+  1. Wait until the L7 load balancer is created and assigned a public IP address. This may take several minutes.
 
      To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
@@ -751,7 +753,7 @@ Create test applications and an Ingress resource:
 
         The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
 
-  1. Make sure the load balancer was created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
+  1. Make sure the load balancer was created. To do this, run the following command and verify that the `ADDRESS` field in the output contains a value:
 
      ```bash
      kubectl get ingress alb-demo-tls
@@ -766,15 +768,15 @@ Create test applications and an Ingress resource:
 
 {% endlist %}
 
-By default, the {{ alb-name }} Ingress controller receives application health check requests from the L7 load balancer on TCP port `10501` and health checks the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If `kube-proxy` is healthy, then, even though an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+By default, the {{ alb-name }} ingress controller listens for application health check requests from the L7 load balancer on TCP port `10501` and checks the health of [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If `kube-proxy` is healthy, then, even though an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod running that application or to a different node.
 
-You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) resource parameters to customize health checks. Learn more in [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) or [GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) resource settings to customize health checks. Learn more in [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
-## (Optional) Configure the Ingress resource group {#configure-group}
+## Optionally, configure the Ingress resource group {#configure-group}
 
 If you specified a name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation when setting up the Ingress resource, you can specify logging settings for the L7 load balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress resource group settings in the `IngressGroupSettings` optional resource:
 
-1. Create a `settings.yaml` file with your logging settings and the custom log group ID, e.g.:
+1. Create a file named `settings.yaml` with your logging settings and custom log group ID, such as the following:
 
     ```yaml
     apiVersion: alb.yc.io/v1alpha1
@@ -822,19 +824,19 @@ If you specified a name for the Ingress resource group settings in the `ingress.
      https://<your_domain>/app2
      ```
 
-     Make sure the applications are accessible via the {{ alb-name }} L7 load balancer and return pages with the `This is APP#1` and `This is APP#2` text, respectively.
+     Make sure the applications are accessible via the {{ alb-name }} and return pages showing `This is APP#1` and `This is APP#2`, respectively.
 
      {% include [Configuring security groups if the resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
    - Ingress resource for a backend group
 
-     Open the application's URI in your browser:
+     Open the application URI in your browser:
 
      ```http
      https://<your_domain>/app1
      ```
 
-     Make sure the targets are accessible via the {{ alb-name }} L7 load balancer.
+     Make sure the targets are accessible via the {{ alb-name }}.
 
      {% include [Configuring security groups if the resource is unavailable](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
@@ -842,7 +844,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the {{ alb-name }} target groups](../../application-load-balancer/operations/target-group-delete.md).

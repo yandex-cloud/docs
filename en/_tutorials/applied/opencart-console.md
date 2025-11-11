@@ -28,7 +28,7 @@ To create a VM:
   1. In the list of services, select **{{ compute-short-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **VMs**.
   1. Click **Create VM**.
-  1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
+  1. Select **Advanced setup**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `OpenCart` and select a public [OpenCart](/marketplace/products/yc/opencart-3) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
