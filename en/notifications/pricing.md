@@ -10,18 +10,18 @@ editable: false
 
 {% note warning %}
 
-Prices for {{ cns-name }} resources apply starting November 20, 2025.
+The below prices for the {{ cns-name }} resources are effective as of November 20, 2025.
 
 {% endnote %}
 
 
 ## What goes into the cost of using {{ cns-name }} {#rules}
 
-The following services are charged when using the service:
+When using {{ cns-name }}, you are charged for the following:
 
-* Processing push notification sending events — mobile push notifications and browser push notifications.
-* Processing SMS notification sending events within the Russian Federation.
-* Processing requests for transferring to the operator to register individual sender names for sending SMS — a monthly fee for registering and using individual sender names with four operators: Beeline, MegaFon, MTS, and t2.
+* Processing push notification sending events (for both mobile and browser notifications).
+* Processing requests and sending them to mobile network providers for registering individual sender names for sending text messages. This includes monthly payment for registering and using individual sender names with four mobile providers: Beeline, MegaFon, MTS, and T2.
+* Processing text message notification sending events within Russia.
 
 {% note info %}
 
@@ -34,16 +34,16 @@ By default, {{ cns-name }} has limits on sending notifications. For more informa
 
 ### Push notification sending events {#push}
 
-Push notifications are sent to mobile platforms (Google Android, Apple iOS, etc.) and browsers (via the WebPush protocol). Payment is made for every 1,000 sent events (notifications).
+Push notifications are sent to both mobile platforms, such as Google Android and Apple iOS, and to browsers through WebPush. You are charged for every 1,000 notification sending events that were processed.
 
-The sending of mobile push notifications and browser notifications is summed up during billing.
+Mobile and browser push notification sending events are billed together.
 
 
 #### Cost calculation example {#push-example}
 
-During the month, 1,500 events of sending mobile push notifications and 700 browser push notifications were received.
+Let’s assume 1,500 push notifications were sent to mobile and 700 more, to browser, over a month.
 
-2200 events are subject to billing. No fee is charged for the first 1000 events. The cost of the next 1200 will be:
+This means 2,200 events are billable. The first 1,000 events are free of charge. For the rest 1,200, you will pay:
 
 
 
@@ -51,22 +51,22 @@ During the month, 1,500 events of sending mobile push notifications and 700 brow
 
 
 
-### Registration of individual sender names {#registration}
+### Registering individual sender names {#registration}
 
-An individual sender name allows you to process SMS notification delivery events on behalf of a name other than {{ yandex-cloud }}. The name is registered with the following operators in the Russian Federation: Beeline, MegaFon, MTS, and t2.
+With an individual sender name, one can process text message notification delivery events on behalf of a user other than {{ yandex-cloud }}. One can only register such a name with one of the following Russian mobile network providers: Beeline, MegaFon, MTS, and T2.
 
-A fee for registering an individual sender name is charged monthly until the name is deregistered at the customer's request.
+Registering an individual sender name is billed monthly, until such a name is unregistered upon the customer’s request.
 
-The cost does not depend on how many days the name was registered in the month. The cost also does not depend on the number of processed notifications and SMS sent from this name. It is charged even if no notifications were sent.
+The cost does not depend on the number of days in the month over which such name has been registered. It does not depend on the number of processed notifications and text messages sent on behalf of such name either. You are charged even though you did not send any notifications.
 
 
 #### Cost calculation example {#registration-example}
 
-An individual sender for processing SMS sending events was registered on January 20 and deregistered on March 5.
+Let’s assume you registered an individual sender name for processing text message sending events on January 20, and then unregistered it on March 5.
 
-3 months of using this sender are billed: January, February, March.
+This means three months are billable: January, February, and March.
 
-Calculation of the cost of using the registered name:
+Cost calculation of using a registered name:
 
 
 
@@ -74,22 +74,22 @@ Calculation of the cost of using the registered name:
 
 
 
-### SMS notification sending events {#sms}
+### Text message notification sending events {#sms}
 
-Messages can only be sent within the Russian Federation. Payment is made for each sent event (message). If a message is split into several parts when sending (due to exceeding the size of 140 bytes — 70 Cyrillic characters or 160 Latin characters), each part is subject to payment.
+You can only send text messages across Russia. Each event (sent text message) is billable. A message over 140 B (160 Latin characters or 70 Cyrillic characters) is broken down into a few parts, each of which is billable.
 
-The cost of sending an event to send a message depends on its type (promotional/authorization/service/transactional). By default, all processed events (messages) are considered promotional. To have an event billed with a different type, a template must be pre-registered. At the moment, to register a template, you need to create a request to support and provide examples of templated messages to determine the possibility of templating and further template registration.
+The cost of processing an event for sending a text message depends on such message’s type: whether it is a commercial, authentication, service, or transaction message. By default, all processed events (messages) are deemed commercial. If you want your messages billed as another type, you need to create a template first. Currently, to register a template, you need to sendexamples of your messages to [our support]({{ link-console-support }}). We will then determine whether creating a template and registering it is available for your case.
 
-For sending SMS notification events to subscribers of some operators, billing can be implemented in packages. Packages are calculated individually for each subscriber who receives an SMS notification sending event. More details are in the [calculation example](#sms-example).
+Processing the events of sending of text messages to subscribers of certain mobile providers can be charged per package. The cost of such packages is calculated individually for each subscriber that gets a text message. See the [cost calculation example](#sms-example) below for more information.
 
-Notifications sent in the sandbox (when the SMS notification channel is in the Sandbox state) are billed according to the service prices.
+Sandbox notifications (those sent when the text message notification channel is in the `Sandbox` status) are charged as per the {{ cns-name }} pricing.
 
 
 #### Cost calculation example {#sms-example}
 
-From a common sender name, there were 100 events of sending SMS notifications to MTS subscribers and 100 events to Beeline subscribers (of which 30 were sent to the same subscriber, and the remaining 70 to different subscribers).
+Let’s assume that, under a general sender name, you sent 100 messages to MTS subscribers, and 100 more, to Beeline subscribers (out of those, 30 were sent to the same subscriber, and 70 more, to different subscribers).
 
-If templates were not registered, all events are considered promotional.
+Since you do not have any registered templates, all events are deemed commercial.
 
 
 
@@ -102,9 +102,9 @@ If templates were not registered, all events are considered promotional.
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-### Push notification billing {#prices-push}
+### Push notifications {#create-channel}
 
-Payment is charged for sending push notifications to mobile devices and browsers.
+You are charged for push notifications sent to mobile devices and through browsers.
 
 
 
@@ -112,7 +112,7 @@ Payment is charged for sending push notifications to mobile devices and browsers
 
 
 
-### Registration of individual sender names billing {#prices-registration}
+### Registering individual sender names {#prices-registration}
 
 
 
@@ -120,9 +120,9 @@ Payment is charged for sending push notifications to mobile devices and browsers
 
 
 
-### SMS notification billing {#prices-sms}
+### Text message notifications {#prices-sms}
 
-The cost of sending SMS depends on the mobile operator and the type of SMS.
+The cost for sending text messages depends on the mobile network provider and message type.
 
 
 #### Beeline {#sms-beeline}
@@ -148,8 +148,7 @@ The cost of sending SMS depends on the mobile operator and the type of SMS.
 {% include [usd-sms-mts](../_pricing/notifications/usd-sms-mts.md) %}
 
 
-
-#### t2 {#sms-tele2}
+#### Т2 {#sms-tele2}
 
 
 
@@ -157,7 +156,7 @@ The cost of sending SMS depends on the mobile operator and the type of SMS.
 
 
 
-#### Other operators {#sms-others}
+#### Other providers {#sms-others}
 
 
 
@@ -166,7 +165,7 @@ The cost of sending SMS depends on the mobile operator and the type of SMS.
 
 {% note info %}
 
-If you want to send more notifications, contact [support]({{ link-console-support }}).
+If you want to send more notifications, contact [our support]({{ link-console-support }}).
 
 {% endnote %}
 

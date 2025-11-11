@@ -15,7 +15,7 @@ Use an {{ objstorage-name }} bucket to demonstrate how to set up content deliver
 ## Getting started {#before-you-begin}
 
 1. Make sure you have a domain name and can access the DNS settings on your DNS hosting provider’s website. This is typically your domain registrar.
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -26,6 +26,8 @@ Use an {{ objstorage-name }} bucket to demonstrate how to set up content deliver
    1. [Enable public access](../storage/operations/buckets/bucket-availability.md) to the objects in the bucket and the object list.
    1. [Upload your content](../storage/operations/objects/upload.md) to the bucket.
 
+      {% include [create-other-resources](../_includes/cdn/create-other-resources-note.md) %}
+      
 ## Create a CDN resource {#create-cdn-resource}
 
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
@@ -35,6 +37,9 @@ Use an {{ objstorage-name }} bucket to demonstrate how to set up content deliver
       * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
       * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
       * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+
+        {% include [create-other-resources](../_includes/cdn/create-other-resources-note.md) %}
+
       * In the **{{ ui-key.yacloud.cdn.label_bucket }}** field, select the bucket you created in {{ objstorage-name }}.
       * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
       * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the primary domain name you will use in your website links to CDN-hosted content, e.g., `cdn.example.com`.

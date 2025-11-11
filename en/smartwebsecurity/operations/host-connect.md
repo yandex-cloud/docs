@@ -23,6 +23,8 @@ The way you connect a security profile depends on who manages the [{{ alb-full-n
 
     To learn more about the ingress controller settings, see the [{{ managed-k8s-full-name }} documentation](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
+    {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
     {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
 {% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
@@ -164,7 +166,7 @@ To connect a security profile to a virtual host:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resources for updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc alb http-router get <HTTP_router_ID>

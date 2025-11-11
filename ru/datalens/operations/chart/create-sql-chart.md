@@ -1,9 +1,9 @@
 ---
-title: Создание QL-чарта
-description: Следуя данной инструкции, вы сможете создать QL-чарт.
+title: Создание QL-чарта в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать QL-чарт в {{ datalens-full-name }}.
 ---
 
-# Создание QL-чарта
+# Создание QL-чарта в {{ datalens-full-name }}
 
 
 

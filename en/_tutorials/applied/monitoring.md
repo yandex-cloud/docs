@@ -3,7 +3,7 @@
 
 In this tutorial, you will set up monitoring and notifications for changes in readings of the sensors connected to [{{ iot-name }}](../../iot-core/). To emulate sensors, we will use [{{ sf-full-name }}](../../functions/). If you have any connected sensors, use them.
 
-You do not need to create or configure [VMs](../../compute/concepts/vm.md), as all steps in this tutorial are entirely based on serverless computing in {{ sf-name }}. The source code used in this tutorial is available on [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring).
+You do not need to create or configure [VMs](../../compute/concepts/vm.md), as all steps in this tutorial are entirely based on serverless computing in {{ sf-name }}. For the source code discussed in the tutorial, visit [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring).
 
 To configure monitoring of sensor readings in the server room:
 1. [Get your cloud ready](#before-you-begin).
@@ -40,7 +40,7 @@ The support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are using to complete this tutorial.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the registry, e.g., `my-registry`.
   1. In the **{{ ui-key.yacloud.common.password }}** field, set a password for registry access. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
@@ -58,7 +58,7 @@ The support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Select the registry you created in the previous step.
   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left-hand menu.
   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
@@ -170,7 +170,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the function named `my-device-emulator-function`.
+  1. Select the `my-device-emulator-function` function.
   1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, which is the most recently created function.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
@@ -423,7 +423,7 @@ Create a temperature variation chart:
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** tab.
-  1. Next to the dashboard name, click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
+  1. Next to the dashboard name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
   1. In the bottom section, click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. Create a query for the chart:
 
@@ -456,7 +456,7 @@ If you change the baselines in the environment variables of the emulation functi
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the function named `my-device-emulator-function`.
+  1. Select the `my-device-emulator-function` function.
   1. Click the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** tab.
   1. Change some original variable values as you like under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** in the **{{ ui-key.yacloud_components.forms.label_value }}** field at the bottom of the window.
 
@@ -494,14 +494,14 @@ Customize a list of recipients and select a notification method.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** tab.
   1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
-  1. In the **{{ ui-key.yacloud_monitoring.channel.field_name }}** field, enter a name for the channel, e.g., `my-message-channel`.
+  1. In the **{{ ui-key.yacloud_monitoring.channel.field_name }}** field, specify a name for the channel, e.g., `my-message-channel`.
   1. In the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`.
 
       You can also set up notifications through text messages, push, or Telegram.
 
   1. In the **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** list, select an account.
 
-      You can select multiple recipients for notifications. You can specify the accounts of users having access to your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) as recipients. Learn more about how to add users to {{ yandex-cloud }} [here](../../iam/operations/users/create.md).
+      You can select multiple recipients for notifications. You can specify the accounts of users having access to your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) as recipients. Learn more about how to add users to {{ yandex-cloud }} [here](../../organization/operations/add-account.md).
   1. Click **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
 
 {% endlist %}

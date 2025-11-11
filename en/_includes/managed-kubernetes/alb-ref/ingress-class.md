@@ -2,6 +2,8 @@
 
 The `IngressClass` resource is a class of [Ingress](../../../application-load-balancer/k8s-ref/ingress.md) resources supporting simultaneous use of multiple ingress controllers, e.g., {{ alb-name }} and NGINX. Each `IngressClass` resource specifies a distinct ingress controller. This enables traffic routing across multiple `Ingress` controllers within the same application and {{ managed-k8s-name }} cluster.
 
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+
 When using multiple ingress controllers, explicitly declare the target controller for each `Ingress` resource. To do this, specify the relevant controller’s `IngressClass` in the [spec.ingressClassName](../../../application-load-balancer/k8s-ref/ingress.md#spec) field of the `Ingress` resource.
 
 `IngressClass` is a standard {{ k8s }} resource. Its fields and annotations are described below. For more information on configuring and using `IngressClass` resources, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class). See a GitHub [example](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class) for configuring `Ingress` resources and routing traffic across multiple ingress controllers.
@@ -67,7 +69,7 @@ annotations:
 || **Field**      | **Value / Type** | **Description** ||
 || `name`        | `string`             | **This is a required field**.
 
-Resource name. For more information about the name format, see the relevant [{{ k8s }} article](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
 This name is also specified in the [spec.ingressClassName](../../../application-load-balancer/k8s-ref/ingress.md#spec) field of the `Ingress` resource. ||
 || `labels`      | `map[string]string`  | {{ k8s }}: Metrics for {{ k8s }} object management and monitoring.

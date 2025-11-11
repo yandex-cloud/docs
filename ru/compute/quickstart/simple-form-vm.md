@@ -31,26 +31,26 @@ keywords:
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. Выберите вариант **{{ ui-key.yacloud.compute.instances.create.option_create-form-simple-title }}**.
+1. Выберите вариант **Простая настройка**.
 
     {% include [console-default-variant](../../_includes/compute/console-default-variant.md) %}
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_simple-image }}** выберите один из [образов](../concepts/image.md) и версию операционной системы на базе Linux.
+1. В блоке **Операционные системы и продукты** выберите один из [образов](../concepts/image.md) и версию операционной системы на базе Linux.
 
     Чтобы посмотреть список всех доступных образов, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите одну из готовых конфигураций или создайте свою. Чтобы создать свою конфигурацию:
-    * Выберите опцию ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.component.compute.resources.option_resources-custom-config }}**.
+    * Выберите опцию ![image](../../_assets/console-icons/gear.svg) **Своя конфигурация**.
     * Укажите необходимое количество и [гарантированную долю](../concepts/performance-levels.md) vCPU, а также объем RAM.
     * При необходимости сделайте ВМ [прерываемой](../concepts/preemptible-vm.md).
-1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_disks }}** настройте загрузочный [диск](../concepts/disk.md):
+1. (Опционально) В блоке **Диски** настройте загрузочный [диск](../concepts/disk.md):
     * Выберите [тип диска](../concepts/disk.md#disks_types).
     * Задайте нужный размер диска.
 1. (Опционально) Добавьте дополнительный диск:
-    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disks }}** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+    * В блоке **Диски** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
     * Выберите [тип диска](../concepts/disk.md#disks_types).
     * Задайте нужный размер диска.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-    * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-name }}** укажите имя ВМ.
+    * В поле **Имя ВМ** укажите имя ВМ.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -67,13 +67,13 @@ keywords:
       {% include [vm-connect-linux](../../_includes/vm-connect-linux.md) %}
 
     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
-      * `{{ ui-key.yacloud.component.compute.network-select.switch_dynamic }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
+      * `Динамический` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
 
         Динамический IP-адрес высвобождается при остановке виртуальной машины. При следующем запуске ВМ назначается новый публичный IP-адрес. При перезагрузке ВМ динамический публичный IP-адрес сохраняется.
 
-      * `{{ ui-key.yacloud.component.compute.network-select.switch_static }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
+      * `Статический` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
 
-1. Раскройте блок **{{ ui-key.yacloud.compute.instances.create.section_predefined }}** и посмотрите параметры ВМ, заданные по умолчанию.
+1. Раскройте блок **Предустановленные параметры** и посмотрите параметры ВМ, заданные по умолчанию.
 
     Значения этих параметров можно будет задать при [продвинутом создании ВМ](quick-create-linux.md).
 

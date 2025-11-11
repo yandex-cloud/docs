@@ -1,0 +1,1 @@
+Before you get started with {{ backup-name }}, make sure you have a linked [billing account](../../billing/concepts/billing-account.md) and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`.

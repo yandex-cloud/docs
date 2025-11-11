@@ -11,9 +11,9 @@ To change L7 load balancer settings:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
+  1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Click the name of the load balancer you need.
+  1. Click your load balancer’s name.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the load balancer settings:
 
@@ -298,7 +298,7 @@ To change L7 load balancer settings:
      terraform plan
      ```
 
-     You will see a detailed list of new resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
 
@@ -314,6 +314,8 @@ To change L7 load balancer settings:
      yc alb load-balancer get <load_balancer_name>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
+
 - API {#api}
 
   Use the [update](../api-ref/LoadBalancer/update.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource or the [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md) gRPC API call.
@@ -328,10 +330,10 @@ To delete a listener from your L7 load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
+  1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer you need, then select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the listener you want to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the appropriate listener name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -417,7 +419,7 @@ To delete a listener from your L7 load balancer:
      terraform plan
      ```
 
-     You will see a detailed list of new resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
 
@@ -432,6 +434,8 @@ To delete a listener from your L7 load balancer:
      ```bash
      yc alb load-balancer get <L7_load_balancer_name>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

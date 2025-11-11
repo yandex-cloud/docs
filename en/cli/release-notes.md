@@ -7,6 +7,43 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.173.0 (30/10/25) {#version0.173.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mch-name }}
+
+Added the `engine` parameter for selecting and displaying the {{ CH }} database engine type to the following commands:
+  * `yc managed-clickhouse database create`
+  * `yc managed-clickhouse database get`
+  * `yc managed-clickhouse database list`
+
+##### {{ baremetal-name }}
+
+Added the `yc baremetal image` command for working with images:
+* `yc baremetal image get`
+* `yc baremetal image list`
+
+#### Changes to the CLI {#cli}
+
+* Added support for {{ mspqr-full-name}}. Use the `yc managed-sharded-postgresql` commands.
+* Added the `userpool-id` parameter to `yc init`.
+
+## Previous releases {#previous-release}
+
+### Version 0.172.0 (27/10/25) {#version0.172.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ org-name }}
+
+* Added the `yc organization-manager mfa-enforcement` command group.
+* Added commands for managing SAML federation users:
+  * `yc organization-manager federation saml suspend-user-accounts`: To suspend users.
+  * `yc organization-manager federation saml reactivate-user-accounts`: To reactivate users.
+
+* Fixed the processing error of the `--is-active` flag in the `yc organization-manager idp user create` command where users were created as active.
+
 ### Version 0.171.0 (20/10/25) {#version0.171.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -30,8 +67,6 @@ Added the `yc iam access-analyzer list-subject-access-bindings` command to get a
   * `--trusted-certs-from-files`: To provide a list of trusted certificate files.
   * `--remove-trusted-certs`: To delete all trusted certificates.
 
-## Previous releases {#previous-release}
-
 ### Version 0.170.0 (16/10/25) {#version0.170.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -42,7 +77,7 @@ Added the `yc managed-postgresql connect` command to connect users with IAM auth
 
 ##### {{ maf-name }}
 
-Added dag-processor configuring for Airflow 3.0 and higher.
+Added DAG processor configuration for Airflow 3.0 and higher.
 
 ##### {{ interconnect-name }}
 
@@ -51,7 +86,7 @@ Added dag-processor configuring for Airflow 3.0 and higher.
 
 ##### {{ org-name }}
 
-* Added the `yc organization-manager group list-effective` command to output groups within an organization that a specific user is a member of.
+* Added the `yc organization-manager group list-effective` command to output groups to which the user belongs within an organization.
 * Added an ability to manage password policies when creating or updating a user pool.
 * Added the `yc organization-manager idp application oauth application` command group for OAuth app management:
   * `yc organization-manager idp application oauth application get`
@@ -73,8 +108,8 @@ Added dag-processor configuring for Airflow 3.0 and higher.
 
 ##### {{ mgp-name }}
 
-* For the `yc managed-greenplum cluster create` cluster create command, changed the default version to 6.28.
-* For the `yc managed-greenplum connect` command using IAM authentication, deleted the `--user` option. The user is now identified automatically.
+* For the `yc managed-greenplum cluster create` command, changed the default version to 6.28.
+* For the `yc managed-greenplum connect` command with IAM authentication, deleted the `--user` option. The user is now defined automatically.
 
 ##### {{ objstorage-short-name }}
 
@@ -197,7 +232,7 @@ Fixed the display of the number of cores and added the processor frequency value
 
 ##### {{ cr-name }} {#cloud-routing}
 
-Added a command for Routing Instance management: `yc cloudrouter routing-instance update-networks`.
+Added a command for routing instance management: `yc cloudrouter routing-instance update-networks`.
 
 ##### {{ compute-name }} {#compute}
 
@@ -878,7 +913,7 @@ Added commands to link instances to reserved instance pools.
 
 ##### {{ objstorage-name }} {#storage}
 
-* Added the `yc storage s3api list-objects` command for getting a list of bucket objects.
+* Added the `yc storage s3api list-objects` command to get a list of bucket objects.
 
 ##### Managed database services {#managed-db}
 

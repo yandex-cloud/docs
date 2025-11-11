@@ -5,18 +5,20 @@ description: The ingress controller is an {{ alb-name }} tool for creating and m
 
 # Ingress controller for {{ managed-k8s-name }}
 
+{% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 The ingress controller is an {{ alb-name }} tool for creating and managing load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-Once you install an ingress controller in your cluster, it  will automatically deploy [L7 load balancers](../../concepts/application-load-balancer.md) with all required {{ alb-name }} components configured according to your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource specifications.
+Once you install an ingress controller in your cluster, it will automatically deploy [L7 load balancers](../../concepts/application-load-balancer.md) with all required {{ alb-name }} components configured according to your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource specifications.
 
 For more detials about configuring {{ alb-name }} ingress controller resources, see the following sections:
 
 * [Ingress](../../k8s-ref/ingress.md): Traffic routing and controller configuration.
 * [HttpBackendGroup](../../k8s-ref/http-backend-group.md) and [GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md): Combining backends into groups.
 * [IngressClass](../../k8s-ref/ingress-class.md): Managing multiple ingress controllers in a {{ k8s }} cluster.
-* [Service](../../k8s-ref/service-for-ingress.md): {{ k8s }} backend service description.
+* [Service](../../k8s-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
 
-## Sample configuration {#example}
+## Configuration example {#example}
 
 Below you can see an abbreviated `Ingress` resource configuration example describing a load balancer that receives HTTPS requests and routes them to one of two service backends based on their URI paths.
 

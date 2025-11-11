@@ -57,7 +57,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --node-labels <k8s_label_key=k8s_label_value>
        --version <{{ k8s }}_version_on_group_nodes> \
        --node-name <node_name_template> \
-       --node-taints <taint_policies> \
+       --node-taints <taints> \
        --container-network-settings pod-mtu=<MTU_value_for_group_pods>
      ```
 
@@ -68,7 +68,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--core-fraction`: [Guaranteed share of vCPUs](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
      * `--disk-size`: [Disk size](../../../compute/concepts/disk.md#maximum-disk-size) of the {{ managed-k8s-name }} node.
-     * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node: `network-nvme` or `network-hdd`.
+     * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
      * Type of scaling:
 
        * `--fixed-size`: Fixed number of nodes in a {{ managed-k8s-name }} node group.
@@ -116,7 +116,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-     * `--node-taints`: {{ k8s }} [taint policies](../../concepts/index.md#taints-tolerations). You can specify multiple values.
+     * `--node-taints`: {{ k8s }} [taints](../../concepts/index.md#taints-tolerations). You can specify multiple values.
      * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with Calico or Cilium network policy controllers.
 
      Result:
@@ -163,6 +163,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
           --placement-group <placement_group_name_or_ID>
         ```
 
+      {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
+
 - {{ TF }} {#tf}
 
   To create a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
@@ -179,6 +181,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        instance_template {
          name       = "<node_name_template>"
          platform_id = "<platform_for_nodes>"
+         placement_policy {
+           placement_group_id = "<placement_group>"
+         }
          network_acceleration_type = "<network_acceleration_type>"
          container_runtime {
            type = "containerd"
@@ -217,6 +222,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
        * `platform_id`: {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
+       * `placement_group_id`: [Placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes.
+
+          {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
+
        * `network_acceleration_type`: [Network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
          * `standard`: No acceleration.
          * `software-accelerated`: Software-accelerated network.
@@ -319,6 +328,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
 - API {#api}
 
   Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and provide the following in the request:
@@ -359,11 +370,15 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
   * To enable {{ managed-k8s-name }} group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), provide their names in the `allowedUnsafeSysctls` parameter.
 
-  * To set [taint policies](../../concepts/index.md#taints-tolerations), provide their values in the `nodeTaints` parameter.
+  * To set [taints](../../concepts/index.md#taints-tolerations), provide their values in the `nodeTaints` parameter.
 
   * To set a template for {{ managed-k8s-name }} node names, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * To specify a [placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes, provide the placement group ID in the `nodeTemplate.placementPolicy.placementGroupId` parameter.
+
+    {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
 
   * To add metadata for nodes, provide it in the `nodeTemplate.metadata` parameter.
 
@@ -416,7 +431,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
   * [Subnet ID](../../../vpc/operations/subnet-get-info.md), e.g., `e9bj3s90g9hm********`.
   * Assigning public and internal IP addresses to nodes: Enabled.
 * [{{ k8s }} label](../../concepts/index.md#node-labels): `node-label1=node-value1`.
-* {{ k8s }} [taint policy](../../concepts/index.md#taints-tolerations): `taint1=taint-value1:NoSchedule`.
+* {{ k8s }} [taint](../../concepts/index.md#taints-tolerations): `taint1=taint-value1:NoSchedule`.
 * [Cloud label](../../concepts/index.md#node-labels): `template-label1=template-value1`.
 * Permission to use [unsafe kernel parameters](../../concepts/index.md#config): Enabled. We added the `kernel.msg*` and `net.core.somaxconn` parameters.
 * VM being the only node of the group: [Preemptible](../../../compute/concepts/preemptible-vm.md).

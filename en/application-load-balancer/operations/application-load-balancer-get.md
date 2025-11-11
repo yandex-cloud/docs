@@ -83,7 +83,7 @@ title: How to get information about an L7 load balancer in {{ alb-full-name }}
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources and display their output variables in the terminal. To check the results, run this command:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

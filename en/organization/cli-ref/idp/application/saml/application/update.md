@@ -23,9 +23,17 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the SAML application.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--group-distribution-type`|<b>`string`</b><br/>Specifies the group distribution type for the SAML application. Values: 'none', 'assigned-groups', 'all-groups'|
+|`--group-attribute-name`|<b>`string`</b><br/>Name of the SAML attribute that contains group information.|
 |`--entity-id`|<b>`string`</b><br/>Service provider entity ID.|
+|`--acs-url`|<b>`value[,value]`</b><br/>Assertion Consumer Service URL. Can be specified multiple times.|
+|`--acs-url-index`|<b>`value[,value]`</b><br/>Optional index for ACS URL. Must be specified for all --acs-url flags or omitted entirely. Example: --acs-url url1 --acs-url-index 1 --acs-url url2 --acs-url-index 0|
+|`--slo-url`|<b>`value[,value]`</b><br/>Single Logout Service URL. Can be specified multiple times.|
+|`--slo-response-url`|<b>`value[,value]`</b><br/>Optional response URL for SLO. Must match the number of --slo-url flags if provided. Use empty string ("") for not specified response URLs.|
+|`--slo-protocol-binding`|<b>`value[,value]`</b><br/>Protocol binding for SLO (HTTP_POST or HTTP_REDIRECT). Required and must match the number of --slo-url flags.|
 |`--signature-mode`|<b>`string`</b><br/>Signature mode for SAML assertions and responses (ASSERTIONS, RESPONSE, or RESPONSE_AND_ASSERTIONS). Values: 'assertions', 'response', 'response-and-assertions'|
+|`--signature-certificate-id`|<b>`string`</b><br/>ID of the signature certificate to use.|
 |`--name-id-format`|<b>`string`</b><br/>NameID format (PERSISTENT or EMAIL). Values: 'persistent', 'email'|
+|`--attribute`|<b>`value[,value]`</b><br/>Attribute mapping in format 'name=value'. Can be specified multiple times.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

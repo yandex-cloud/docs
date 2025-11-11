@@ -3,6 +3,8 @@
 
 Follow this tutorial to deploy an autoscaling [gRPC](https://grpc.io/docs/) service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 To deploy the service and perform load testing:
 
 1. [Get your cloud ready](#before-you-begin).
@@ -206,7 +208,7 @@ This tutorial will use a gRPC service as a test target.
 
    The IP address should appear in the `ADDRESS` column. Otherwise, the load balancer was not created or it was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
 
-1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} pointing to the load balancer's public IP address. If you are using ExternalDNS with a plugin for {{ dns-name }}, this record will be created automatically.
+1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} pointing to the load balancer's public IP address. If you are using ExternalDNS with the {{ dns-name }} plugin, this record will be created automatically.
 
 
 ## Configure horizontal pod autoscaling {#configure-autoscaling}

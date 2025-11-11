@@ -20,11 +20,11 @@ description: Follow this guide to configure autoscaling.
 
 {% note warning %}
 
-You can only enable automatic scaling of this type when creating a [{{ managed-k8s-name }} node group](../concepts/index.md#node-group).
+You can only enable autoscaling of this type when creating a [{{ managed-k8s-name }} node group](../concepts/index.md#node-group).
 
 {% endnote %}
 
-To create an autoscalable {{ managed-k8s-name }} node group:
+To create an autoscaling {{ managed-k8s-name }} node group:
 
 {% list tabs group=instructions %}
 
@@ -32,23 +32,23 @@ To create an autoscalable {{ managed-k8s-name }} node group:
 
   [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following parameters:
   * Scaling **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`.
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: Specify the number of {{ managed-k8s-name }} nodes to remain in the group at minimum load.
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: Specify the maximum number of {{ managed-k8s-name }} nodes allowed in the group.
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: Number of {{ managed-k8s-name }} nodes to be created together with the group (this number must be between the minimum and the maximum number of nodes in the group).
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: Number of {{ managed-k8s-name }} nodes to remain in the group at the minimum workload.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: Maximum number of {{ managed-k8s-name }} nodes allowed in the group.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: Number of {{ managed-k8s-name }} nodes to create together with the group. This number must be between the minimum and the maximum number of nodes in the group.
 
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Review the command to create a {{ managed-k8s-name }} node group:
+  1. Check the command to create a {{ managed-k8s-name }} node group:
 
      ```bash
      {{ yc-k8s }} node-group create --help
      ```
 
-  1. Create an autoscalable {{ managed-k8s-name }} node group:
+  1. Create an autoscaling {{ managed-k8s-name }} node group:
 
      ```bash
      {{ yc-k8s }} node-group create \
@@ -64,16 +64,16 @@ To create an autoscalable {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the node group.
 
      For more information about creating this file, see [{#T}](../operations/node-group/node-group-create.md).
-  1. Add a description of the new node group by specifying the autoscaling settings under `scale_policy.auto_scale`:
+  1. Add a description of the new node group and specify the autoscaling settings under `scale_policy.auto_scale`:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node_group_name>" {
      ...
        scale_policy {
          auto_scale {
-           min     = <minimum_number_of_nodes_per_group>
-           max     = <maximum_number_of_nodes_per_group>
-           initial = <initial_number_of_nodes_per_group>
+           min     = <minimum_number_of_nodes_in_group>
+           max     = <maximum_number_of_nodes_in_group>
+           initial = <initial_number_of_nodes_in_group>
          }
        }
      }
@@ -87,11 +87,13 @@ To create an autoscalable {{ managed-k8s-name }} node group:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
 {% endlist %}
 
 {{ k8s-ca }} is managed on the {{ managed-k8s-name }} side.
 
-For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca). The default parameters are described in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
+Learn more about {{ k8s-ca }} in [{#T}](../concepts/autoscale.md#ca). You can find the default parameters in [this {{ k8s }} guide](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
 
 See also [{#T}](../qa/cluster-autoscaler.md).
 
@@ -119,7 +121,7 @@ See also [{#T}](../qa/cluster-autoscaler.md).
 
 {% endlist %}
 
-For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hpa).
+Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
 
 ## Configuring vertical pod autoscaling {#vpa}
 
@@ -127,7 +129,7 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
 
 - CLI {#cli}
 
-  1. Install {{ k8s-vpa }} from the following [repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
+  1. Install the {{ k8s-vpa }} from [this repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
 
      ```bash
      cd /tmp && \
@@ -136,7 +138,7 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
        ./vpa-up.sh
      ```
 
-  1. Create a configuration file called `vpa.yaml` for your application:
+  1. Create a configuration file named `vpa.yaml` for your application:
 
      ```yaml
      apiVersion: autoscaling.k8s.io/v1
@@ -149,10 +151,10 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
          kind:       Deployment
          name:       <application_name>
      updatePolicy:
-       updateMode: "<VPA_runtime_mode>"
+       updateMode: "<VPA_update_mode>"
      ```
 
-     Where `updateMode` is the {{ k8s-vpa }} runtime mode, `Auto` or `Off`.
+     Where `updateMode` is the {{ k8s-vpa }} operation mode, `Auto` or `Off`.
 
   1. Create a {{ k8s-vpa }} for your application:
 
@@ -168,15 +170,15 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
 
 {% endlist %}
 
-For more information about {{ k8s-vpa }}, see [{#T}](../concepts/autoscale.md#vpa).
+Learn more about {{ k8s-vpa }} in [{#T}](../concepts/autoscale.md#vpa).
 
 ## Deleting Terminated pods {#delete-terminated}
 
-Sometimes during autoscaling, {{ managed-k8s-name }} node pods are not deleted and stay in the **Terminated** status. This happens because the [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) fails to timely delete these pods.
+Sometimes during autoscaling, {{ managed-k8s-name }} node pods are not removed and stay in the **Terminated** state. This happens because the [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) fails to timely clean up these pods.
 
-You can delete the stuck {{ managed-k8s-name }} pods:
+You can remove terminated {{ managed-k8s-name }} pods:
 * [Manually](#manually)
-* [Automatically using CronJob](#automatically-cronjob)
+* [Automatically using a CronJob](#automatically-cronjob)
 
 ### Manually {#manually}
 
@@ -187,9 +189,9 @@ kubectl get pods --all-namespaces | grep -i Terminated \
 | awk '{print $1, $2}' | xargs -n2 kubectl delete pod -n
 ```
 
-### Automatically using CronJob {#automatically-cronjob}
+### Automatically using a CronJob {#automatically-cronjob}
 
-To delete stuck {{ managed-k8s-name }} pods automatically:
+To remove terminated {{ managed-k8s-name }} pods automatically:
 1. [Set up a CronJob](#setup-cronjob).
 1. [Check the results of your CronJob jobs](#check-cronjob).
 
@@ -197,7 +199,7 @@ If you no longer need the CronJob, [delete it](#delete-cronjob).
 
 #### Setting up automatic deletion in a CronJob {#setup-cronjob}
 
-1. Create a `cronjob.yaml` file with a specification for the [CronJob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/#creating-a-cron-job) and the resources needed to run it:
+1. Create a file named `cronjob.yaml` with a specification for the [CronJob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/#creating-a-cron-job) and resources to run it:
 
    ```yaml
    ---
@@ -268,7 +270,7 @@ If you no longer need the CronJob, [delete it](#delete-cronjob).
    clusterrolebinding.rbac.authorization.k8s.io/terminated-pod-cleaner created
    ```
 
-1. Check that the CronJob has been created:
+1. Make sure the CronJob has been created:
 
    ```bash
    kubectl get cronjob terminated-pod-cleaner
@@ -281,11 +283,11 @@ If you no longer need the CronJob, [delete it](#delete-cronjob).
    terminated-pod-cleaner  */5 * * * *  False    0       <none>         4s
    ```
 
-   After the interval specified in the `SCHEDULE`, a time value will appear in the `LAST SCHEDULE` column. This means that the task was successfully executed or ended with an error.
+   After the interval specified in `SCHEDULE`, a time value will appear in the `LAST SCHEDULE` column. This means that the job run has finished successfully or finished failed.
 
 #### Checking the results of CronJob jobs {#check-cronjob}
 
-1. Retrieve a list of jobs:
+1. Get a list of jobs:
 
    ```bash
    kubectl get jobs
@@ -311,7 +313,7 @@ If you no longer need the CronJob, [delete it](#delete-cronjob).
    kubectl logs <pod_name>
    ```
 
-   The log will include a list of deleted {{ managed-k8s-name }} pods. If the log is empty, this means that there were no {{ managed-k8s-name }} pods in the **Terminated** status when the job ran.
+   The log will include a list of removed {{ managed-k8s-name }} pods. If the log is empty, this means that there were no {{ managed-k8s-name }} **Terminated** pods when the job ran.
 
 #### Deleting the CronJob {#delete-cronjob}
 

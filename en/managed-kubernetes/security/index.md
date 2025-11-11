@@ -138,7 +138,7 @@ With the {{ k8s }} RBAC, you can provide users with granular access to cluster n
       name: <account_ID>
     ```
 
-To learn more about getting the account ID, see [Getting user information](../../iam/operations/users/get.md).
+To learn more about getting the account ID, see [Getting user information](../../organization/operations/users-get.md).
 
 Check if you can create resources in the cluster. In other namespaces, you will have no permissions to create or edit resources.
 

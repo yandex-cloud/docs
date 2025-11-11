@@ -1,13 +1,13 @@
 * `--http-router-name`: Name of the HTTPS router you are creating the route in.
 
     Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
-* `--virtual-host-name`: Name of the virtual host you are creating the route in.
-* `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which to route the requests. For example: `--match-http-method GET,POST,OPTIONS`. This is an optional parameter. If not specified, requests with any methods will be routed.
-* Path-based routing condition parameters:
+* `--virtual-host-name`: Name of the virtual host where the route is created.
+* `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which requests need to be routed, e.g., `--match-http-method GET,POST,OPTIONS`. This is an optional parameter. If not specified, requests with any methods will be routed.
+* Parameters with path-based routing conditions:
 
     * `--exact-path-match`: Route requests with the same path as the specified one. For example, to route all requests, specify the `/` path.
-    * `--prefix-path-match`: Route requests whose path starts with the specified prefix. For example: `myapp/`.
-    * `--regex-path-match`: Route requests whose path matches the specified [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). For example: `[a-z]{10}[0-9]{3}\/`.
+    * `--prefix-path-match`: Route requests whose path starts with the specified prefix, e.g., `/myapp/`.
+    * `--regex-path-match`: Route requests whose path matches the specified [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), e.g., `\/[a-z]{10}[0-9]{3}\/`.
 
     {% note info %}
 

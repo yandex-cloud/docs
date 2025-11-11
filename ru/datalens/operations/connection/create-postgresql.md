@@ -3,7 +3,7 @@ title: Инструкция по созданию подключения к {{ P
 description: Из статьи вы узнаете, как подключиться к {{ PG }} в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к {{ PG }}
+# Создание подключения к {{ PG }} в {{ datalens-full-name }}
 
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note-ip.md) %}

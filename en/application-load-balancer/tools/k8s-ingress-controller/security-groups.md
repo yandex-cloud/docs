@@ -5,7 +5,9 @@ description: To ensure proper operation of the ingress controller and Gateway AP
 
 # Configuring security groups for {{ managed-k8s-name }} {{ alb-name }} tools 
 
-To ensure proper operation of the [ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), you must configure appropriate [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and [load balancer](../../concepts/application-load-balancer.md).
+To ensure proper operation of the [ingress controller](index.md) and [Gateway API](../k8s-gateway-api/index.md), you must configure appropriate [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and [{{ alb-name }}](../../concepts/application-load-balancer.md).
+
+{% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 We recommend using separate security groups for your cluster, node groups, and load balancer, although a shared group is also permitted.
 

@@ -1,6 +1,8 @@
 # GrpcBackendGroup resource fields
 
-`GrpcBackendGroup` enables you to combine {{ k8s }} service backends processing gRPC traffic into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+`GrpcBackendGroup` enables you to group backends, i.e., {{ k8s }} services processing gRPC traffic. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
 You need to add a reference to `GrpcBackendGroup` to the [`Ingress`](../../../application-load-balancer/k8s-ref/ingress.md) resource. This `Ingress` resource must have the `ingress.alb.yc.io/protocol: grpc` annotation.
 
@@ -88,15 +90,15 @@ Where:
 
 * `apiVersion`: `alb.yc.io/v1alpha1`
 * `kind`: `GrpcBackendGroup`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
   
   Resource metadata.
 
-  * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the name format, see the relevant [{{ k8s }} guides](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource. For more information, see the [relevant configuration](../../../application-load-balancer/k8s-ref/ingress.md).
+    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
 
     Do not mistake this name for the {{ alb-name }} backend group name.
 
@@ -106,9 +108,9 @@ Where:
 
   * `backends` (`[]GrpcBackend`)
   
-    List of the group backends.
+    List of backends in the group.
     
-    * `name` (`string`, required)
+    * `name` (`string`; this is a required field)
     
       Backend name.
     
@@ -116,13 +118,13 @@ Where:
 
       Backend weight. Backends in a group receive traffic in proportion to their weights.
 
-      You should either specify weights for all backends in a group, or not specify them at all. If weights are not specified, traffic will be equally distributed between backends.
+      You should either specify weights for all backends in a group, or not specify them at all. If weights are not specified, traffic will be equally distributed across backends.
 
       A backend with zero or negative weight will not be receiving traffic.
 
     * `service` (`ServiceBackend`)
 
-      [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#service) service backend for processing requests.
+      Reference to the [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#service) service to process requests as a backend.
 
       The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
@@ -140,13 +142,13 @@ Where:
       
       * `trustedCa` (`string`)
       
-        X.509 certificate in PEM format.
+        Contents of the X.509 certificate issued by a certificate authority in PEM format.
 
     * `healthChecks` (`[]HealthChecks`)
 
       Custom [health checks](../../../application-load-balancer/concepts/backend-group.md#health-checks) settings for {{ managed-k8s-name }} cluster applications.
 
-      By default, the {{ alb-name }} Ingress controller receives L7 load balancer health check requests on TCP port `10501`. Then it checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. Given that kube-proxy is healthy, the process is as follows: if an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod or node.
+      By default, the {{ alb-name }} Ingress controller receives L7 load balancer health check requests on TCP port `10501`. Then it checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. Given that kube-proxy is healthy, the process is as follows: if an application does not respond in a particular pod, {{ k8s }} redirects traffic to a different pod or node.
       
       You can use `healthChecks` settings to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
 
@@ -162,15 +164,15 @@ Where:
 
         Cluster node port for checking application availability. This port should match the `spec.ports.nodePort` value of the `NodePort` [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource.
 
-        The application will listen for health check requests on `http://<node_IP_address>:<port>/<path>`.
+        The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
 
       * `healthyThreshold` (`int32`)
 
-        Number of consecutive successful checks required before considering the application endpoint healthy.
+        Number of consecutive successful checks required to consider the application endpoint healthy.
 
       * `unhealthyThreshold` (`int32`)
 
-        Number of consecutive failed checks required before considering the application endpoint unhealthy.
+        Number of consecutive failed checks required to consider the application endpoint unhealthy.
 
       * `timeout` (`string`)
 

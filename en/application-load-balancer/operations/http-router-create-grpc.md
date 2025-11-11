@@ -187,6 +187,8 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
       yc alb http-router get <HTTP_router_name>
       ```
 
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
+
 - API {#api}
 
   Use the [create](../api-ref/HttpRouter/create.md) REST API method for the [HttpRouter](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Create](../api-ref/grpc/HttpRouter/create.md) gRPC API call.
