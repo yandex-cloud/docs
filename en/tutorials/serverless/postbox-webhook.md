@@ -1,0 +1,12 @@
+---
+title: How to integrate {{ postbox-full-name }} with external systems via webhooks
+description: In this tutorial, you will set up streaming of {{ postbox-full-name }} events to {{ yds-full-name }} and triggering webhooks in external systems with a {{ sf-full-name }} function.
+keywords:
+  - webhook
+  - webhook integration
+  - webhook
+  - integration via webhooks
+  - setting up webhooks
+---
+
+{% include [postbox-webhook](../../_tutorials/serverless/postbox-webhook.md) %}

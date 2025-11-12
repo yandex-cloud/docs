@@ -36,11 +36,120 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for creating an OIDC app:
+
+     ```bash
+     yc organization-manager idp application oauth application create --help
+     ```
+
+  1. Create an OAuth client:
+
+     ```bash
+     yc iam oauth-client create \
+       --name <OAuth_client_name> \
+       --scopes <attribute>[,<attribute>]
+     ```
+
+     Where:
+
+     * `--name`: OAuth client name.
+     * `--scopes`: User attributes that will be available to the service provider. Specify one or more attributes, comma-separated, in `<attribute1>,<attribute2>` format. Possible attributes:
+       * `openid`: User ID. Required attribute.
+       * `profile`: Additional user details, such as first name, last name, and avatar.
+       * `email`: User email address.
+       * `address`: User home address.
+       * `phone`: User phone number.
+       * `groups`: [User groups](../../concepts/groups.md) in the organization.
+
+     Result:
+
+     ```text
+     id: ajeqqip130i1********
+     name: test-oauth-client
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
+
+     Save the `id` field value: you will need it to create and configure your app.
+
+  1. Create a secret for your OAuth client:
+
+     ```bash
+     yc iam oauth-client-secret create --oauth-client-id <OAuth_client_ID>
+     ```
+
+     Result:
+
+     ```text
+     oauth_client_secret:
+       id: ajeq9jfrmc5t********
+       oauth_client_id: ajeqqip130i1********
+       masked_secret: yccs__939233b8ac****
+       created_at: "2025-10-21T10:14:17.861652377Z"
+     secret_value: yccs__939233b8ac********
+     ```
+
+     Save the `secret_value` field value: you will need it to [configure your app](#setup-application) on the service provider side.
+  
+  1. Create an OIDC app:
+
+     ```bash
+     yc iam organization-manager idp application oauth application create \
+       --organization-id <organization_ID> \
+       --name <application_name> \
+       --description <application_description> \
+       --client-id <OAuth_client_ID> \
+       --authorized-scopes <attribute>[,<attribute>] \
+       --group-distribution-type all-groups \
+       --labels <key>=<value>[,<key>=<value>]
+     ```
+
+     Where:
+
+     * `--organization-id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
+     * `--name`: OIDC app name. This is a required parameter. The name must be unique within the organization and follow the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description`: OIDC app description. This is an optional parameter.
+     * `--client-id`: OAuth client ID you got in Step 2. This is a required parameter.
+     * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
+     * `--group-distribution-type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
+       * `all-groups`: Service provider will get all groups the user belongs to.
+
+          The maximum number of groups to change hands is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
+       * `assigned-groups`: Of all the user's groups, the service provider will only get the ones explicitly [specified](#users-and-groups).
+       * `none`: Service provider will not get any of the groups the user belongs to.
+     * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
+
+     Result:
+
+     ```text     
+     id: ek0o663g4rs2********
+     name: oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
 {% endlist %}
 
 ## Set up your application {#setup-application}
 
-To integrate an external application with the OIDC application you created in {{ org-name }}, complete the setup on the service provider side and in {{ org-name }}.
+To integrate an external application with the OIDC application you created in {{ org-name }}, complete the setup both on the service provider side and in {{ org-name }}.
 
 ### Set up integration on the service provider side {#setup-sp}
 
@@ -82,14 +191,51 @@ Before configuring your OIDC application in {{ org-name }}, get the redirect URI
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
   1. {% include [oidc-app-update-sp-settings](../../../_includes/organization/oidc-app-update-sp-settings.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for setting up the OAuth client:
+
+     ```bash
+     yc iam oauth-client update --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc iam oauth-client update \
+       --id <OAuth_client_ID> \
+       --redirect-uris <address>[,<address>]
+     ```
+
+     Where:
+
+     * `--id`: OAuth client ID.
+     * `--redirect-uris`: Specify the address or addresses you got from the service provider in `<address1>,<address2>` format.
+
+     Result:
+
+     ```text
+     id: ajeqqip130i1********
+     name: test-oauth-client
+     redirect_uris:
+       - https://example.com
+       - https://example.ru
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
 
 {% endlist %}
 
 ### Configure users and groups {#users-and-groups}
 
-To permit your organization's users to authenticate in an external app with a {{ org-name }} OIDC application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to this OIDC application:
+For your organization's users to be able to authenticate in an external app with a {{ org-name }} OIDC application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to this OIDC application:
 
 {% note info %}
 

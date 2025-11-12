@@ -98,7 +98,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role to assign. This is a required parameter.
+     * `role`: Role. This is a required parameter.
 
        {% note info %}
 
@@ -107,7 +107,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        {% endnote %}
 
      * `member`: User to assign the role to. This is a required parameter. It may have one of the following values:
-       * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
+       * `userAccount:<user_ID>`: [User ID](../../../organization/operations/users-get.md).
        * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md).
        * `system:group:organization:<organization_ID>:users`: [Organization](../../../organization/quickstart.md) ID to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
@@ -149,9 +149,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -248,11 +248,11 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
+  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
-  1. Make sure the resource has no roles assigned that you would not want to lose:
+  1. Make sure the resource has no important roles assigned before proceeding:
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
@@ -281,7 +281,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role to assign. This is a required parameter.
+     * `role`: Role. This is a required parameter.
 
        {% note info %}
 
@@ -332,9 +332,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -381,7 +381,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
+  The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
@@ -433,7 +433,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role to assign. This is a required parameter.
+     * `role`: Role. This is a required parameter.
 
        {% note info %}
 
@@ -479,9 +479,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -513,8 +513,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 - CLI {#cli}
 
   1. Select a role from the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
-  1. [Get the user ID](../../../iam/operations/users/get.md).
-  1. Assign the role using this command:
+  1. [Get the user ID](../../../organization/operations/users-get.md).
+  1. To assign the role, run the following command:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_name_or_ID> \

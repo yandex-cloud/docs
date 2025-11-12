@@ -1,6 +1,6 @@
-# Getting started with {{ gpt-lite }} and {{ gpt-pro }}
+# Getting started with the {{ model-gallery-name }} models
 
-In this section, you will learn how to use the {{ yagpt-name }} model to generate texts in [synchronous mode](../concepts/generation/index.md#working-mode) without adding any context. For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
+In this section, you will learn how to use the {{ yagpt-name }} neural network to generate texts in [synchronous mode](../concepts/generation/index.md#working-mode). For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
 
 For information about the {{ foundation-models-full-name }} pricing, see [{#T}](../pricing.md).
 
@@ -34,7 +34,7 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
+  1. In the [management console]({{ link-console-main }}), select a folder for which your account has the `ai.playground.user` role or higher.
   1. Click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** on the left-hand panel and select **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}** or find it using the search bar on the dashboard.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/flask.svg) **{{ ui-key.yacloud.yagpt.playground }}**.
 

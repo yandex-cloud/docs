@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы узнаете
 
 # Создать источник данных {{ dspm-name }}
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 [Источник данных](../../concepts/dspm.md#data-source) содержит информацию о [бакетах](../../../storage/concepts/bucket.md) {{ objstorage-full-name }}, в которых будет выполняться сканирование, а также дополнительные настройки.
 
 Прежде чем начать работать с {{ dspm-name }}, [настройте](../../quickstart-overview.md#configure-sd) каталог по умолчанию для хранения данных сервиса {{ sd-name }}.

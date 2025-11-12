@@ -13,7 +13,7 @@ description: Follow this guide to create an instance in {{ foundation-models-nam
   1. In the list of services, select **{{ ui-key.yacloud.dashboard.DashboardPage.AiStudioSection.section_title_1sDGx }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.yagpt.YaGPT.instances-title_j9Cpb }}**.
   1. Click **{{ ui-key.yacloud.yagpt.YaGPT.create-instance_3Ltog }}**.
-  1. Specify the name of the [instance](../../concepts/generation/dedicated-instance.md). Follow these naming requirements:
+  1. Specify the [instance](../../concepts/generation/dedicated-instance.md) name. Follow these naming requirements:
 
       {% include [name-format-3](../../../_includes/name-format-3.md) %}
 

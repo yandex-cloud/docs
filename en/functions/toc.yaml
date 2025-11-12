@@ -1,7 +1,7 @@
 title: '{{ sf-full-name }}'
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     items:
@@ -421,7 +421,7 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Creating a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
-      - name: Writing data from a device into a database
+      - name: Writing data from a device to a database
         href: tutorials/data-recording.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
@@ -441,7 +441,7 @@ items:
         href: tutorials/api-gw-integration.md
       - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -476,7 +476,7 @@ items:
             href: tutorials/vm-scale-scheduled/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-scale-scheduled/terraform.md
-      - name: Status monitoring of geographically distributed devices
+      - name: Monitoring the status of geographically distributed devices
         href: tutorials/datalens.md
       - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md
@@ -518,6 +518,8 @@ items:
         href: tutorials/ci-cd-github-functions.md
       - name: Creating an AI agent with {{ sf-name }}
         href: tutorials/create-ai-agent-function.md
+      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
+        href: tutorials/postbox-webhook.md
   - name: Tools
     href: tools.md
   - name: Pricing policy

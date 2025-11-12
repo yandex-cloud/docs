@@ -48,7 +48,7 @@ To perform an operation under a service account:
         --subject serviceAccount:<service_account_ID>
       ```
 
-  1. [Get](../users/get.md) the user's ID and assign the `iam.serviceAccounts.tokenCreator` role for the `test-sa` service account (in the administrator's profile):
+  1. [Get](../../../organization/operations/users-get.md) the user's ID and assign the `iam.serviceAccounts.tokenCreator` role for the `test-sa` service account (in the administrator's profile):
 
       ```
       yc iam service-account add-access-binding test-sa \

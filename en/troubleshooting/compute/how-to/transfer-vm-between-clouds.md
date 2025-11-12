@@ -15,7 +15,7 @@ You need to transfer a VM instance from one cloud or folder to another cloud or 
    To transfer a VM between clouds, complete the following steps:
 
    1. [Create an image from the disk of the required VM](../../../compute/operations/image-create/create-from-disk.md)
-   2. [Add an IAM user](../../../iam/operations/users/create.md) to the cloud with the image you want to transfer;
+   2. [Add an IAM user](../../../organization/operations/add-account.md) to the cloud with the image you want to transfer;
    3. [Assign the IAM user the minimum required roles](../../../iam/operations/roles/grant.md) of `resource-manager.clouds.member` and `compute.images.user`.
    4. [Set up](../../../cli/quickstart.md) the YC CLI tool for the user in the target cloud.
    5. Get the ID of your image. For this, in the web interface, find the **ID** field in the **Images** tab, or get the ID using the YC CLI `yc compute image list` command.

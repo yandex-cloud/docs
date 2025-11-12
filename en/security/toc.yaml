@@ -229,7 +229,7 @@ items:
               Searching for {{ yandex-cloud }} events in {{ cloud-logging-name
               }}
             href: tutorials/audit-logs/search-cloud-logging.md
-          - name: Alert settings in {{ monitoring-name }}
+          - name: Configuring alerts and dashboards in {{ monitoring-name }}
             href: tutorials/audit-logs/alerts-monitoring.md
           - name: >-
               Configuring responses in {{ cloud-logging-name }} and {{ sf-name
@@ -265,8 +265,8 @@ items:
       - name: Application security
         items:
           - name: >-
-              Installing an NGINX ingress controller with a {{
-              certificate-manager-name }} certificate
+              Installing an NGINX ingress controller with a certificate from {{
+              certificate-manager-name }}
             href: tutorials/app-security/nginx-ingress-certificate-manager.md
           - name: Building a CI/CD pipeline in {{ GL }} with serverless products
             href: tutorials/app-security/ci-cd-serverless.md

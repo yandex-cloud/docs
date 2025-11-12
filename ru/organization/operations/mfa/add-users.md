@@ -27,6 +27,41 @@ description: Следуя данной инструкции, вы сможете
           1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
           1. Подтвердите удаление.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите список пользователей или групп, к которым применяется политика MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement list-audience \
+       --id <идентификатор_политики>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения списка пользователей или групп, к которым применяется политика MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement update-audience --help
+     ```
+
+  1. Чтобы добавить пользователей или группы в политику MFA или удалить их из политики, выполните команду:
+
+     ```bash
+     yc organization-manager mfa-enforcement update-audience \
+       --id <идентификатор_политики> \
+       --audience-delta subject-id=<идентификатор_субъекта>,action=<действие>
+     ```
+
+     Где:
+
+     * `--audience-delta` — параметр для изменения списка пользователей/групп в политике:
+       * `subject-id` — идентификатор пользователя или группы.
+       * `action` — действие: `action-add` — добавить, `action-remove` — удалить.
+
+     Можно указать несколько параметров `--audience-delta` для одновременного изменения нескольких объектов.
+
 {% endlist %}
 
 {% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}

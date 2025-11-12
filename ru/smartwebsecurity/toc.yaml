@@ -127,6 +127,8 @@ items:
         href: tutorials/sws-protection-ongoing-ddos.md
       - name: Централизованная публикация в интернете и защита приложений от DDoS
         href: tutorials/different-folders-services.md
+      - name: Создание распределенной инфраструктуры с защищенным доступом
+        href: tutorials/distributed-secured-infrastructure.md
       - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
           подключения защиты {{ sws-name }}

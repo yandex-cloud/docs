@@ -30,7 +30,7 @@ To create a new MCP server:
 
                 {% include [name-format](../../../_includes/name-format.md) %}
 
-            1. In the **Instructions for agent** field, enter the required text description for the tool. This description must define conditions for the AI agent to use this tool. For example:
+            1. In the **Instructions for agent** field, enter the required text description for the tool. This description must define conditions for the AI agent to use this tool. Here is an example:
 
                 ```text
                 A tool for creating tickets in a corporate task processing system. Use this 
@@ -69,7 +69,7 @@ To create a new MCP server:
 
                 {% include [name-format](../../../_includes/name-format.md) %}
 
-            1. In the **Instructions for agent** field, enter the required text description for the tool. This description must define conditions for the AI agent to use this tool. For example:
+            1. In the **Instructions for agent** field, enter the required text description for the tool. This description must define conditions for the AI agent to use this tool. Here is an example:
 
                 ```text
                 This tool recognizes text in an image transmitted in base64 encoding. In the recognized 
@@ -86,7 +86,7 @@ To create a new MCP server:
 
                 {% include [name-format](../../../_includes/name-format.md) %}
 
-            1. In the **Instructions for agent** field, enter the required text description for the tool. This description must define conditions for the AI agent to use this tool. For example:
+            1. In the **Instructions for agent** field, enter the required text description for the tool. This description must define conditions for the AI agent to use this tool. Here is an example:
 
                 ```text
                 This tool invokes a workflow to automatically summarize long text. Provides 

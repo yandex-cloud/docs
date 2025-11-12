@@ -47,7 +47,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
         Where:
 
-        * `--user-account-id`: [User ID](../../iam/operations/users/get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
+        * `--user-account-id`: [User ID](../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
         * `--role`: [Role](../security/index.md#roles-list) to assign.
 
       * Assigning the role to a service account:
