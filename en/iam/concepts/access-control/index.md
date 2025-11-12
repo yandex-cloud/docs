@@ -53,13 +53,13 @@ Roles are assigned to subjects. There are the following subject types:
 
     Subject ID: `userAccount:<user_ID>`.
 
-    Where `<user_ID>` is the unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../operations/users/get.md) to the user, e.g., `userAccount:ajecpdmpr4pr********`.
+    Where `<user_ID>` is the unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../../organization/operations/users-get.md) to the user, e.g., `userAccount:ajecpdmpr4pr********`.
 
 * `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}:
 
     Subject ID: `serviceAccount:<service_account_ID>`.
 
-    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account. For example, `serviceAccount:ajevnu4u2q3m********`.
+    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account, e.g., `serviceAccount:ajevnu4u2q3m********`.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
@@ -67,7 +67,7 @@ Roles are assigned to subjects. There are the following subject types:
 
     Subject ID: `federatedUser:<user_ID>`.
 
-    Where `<user_ID>` is the unique ID [assigned](../../operations/users/get.md) to the federated user, e.g., `federatedUser:aje7b4u65nb6********`.
+    Where `<user_ID>` is the unique ID [assigned](../../../organization/operations/users-get.md) to the federated user, e.g., `federatedUser:aje7b4u65nb6********`.
 
 * `group`: [{{ org-full-name }}](../../../organization/) user group:
 

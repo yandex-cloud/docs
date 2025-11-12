@@ -54,6 +54,10 @@ description: '{{ objstorage-name }} позволяет хранить объек
 
 ## Изменение класса хранилища для объекта {#changing-storage-class}
 
+
+{% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
+
+
 Для изменения класса хранилища вы можете:
 
 * Заново загрузить объект в {{ objstorage-name }} с необходимым классом хранилища.

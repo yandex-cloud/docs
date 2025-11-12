@@ -25,7 +25,7 @@ The relevant sequence of actions depends on the type of billing account you want
    Once the clouds are moved, you can grant other accounts access to this cloud.
    To do this, follow these steps:
 
-   1. [Add a user to the cloud](../../../iam/operations/users/create.md#passport-user).
+   1. [Add a user to the cloud](../../../organization/operations/add-account.md#passport-user).
    2. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md#access-to-user).
 
    You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).

@@ -77,7 +77,7 @@ items:
             href: operations/tuning/create-embeddings.md
       - name: Developing AI agents
         items:
-          - name: Creating a voice agent
+          - name: Creating a voice agent via {{ realtime-api }}
             href: operations/agents/create-voice-agent.md
           - name: Creating a simple text agent
             href: operations/agents/create-simple-text-agent.md
@@ -108,6 +108,7 @@ items:
           - name: Creating an MCP server from scratch
             href: operations/mcp-servers/create-brand-new.md
   - name: Concepts
+    expanded: true
     items:
       - name: About {{ foundation-models-full-name }}
         href: concepts/index.md
@@ -150,29 +151,27 @@ items:
           - name: Voice agents
             href: concepts/agents/realtime.md
           - name: '{{ assistant-api }}'
-            href: concepts/assistant/index.md
-          - name: Tools
             items:
-              - name: Overview
-                href: concepts/assistant/tools/index.md
-              - name: '{{ retrieval-tool-name }}'
-                href: concepts/assistant/tools/vector-store.md
-              - name: WebSearch
-                href: concepts/assistant/tools/web-search.md
-              - name: Rephrasing queries
-                href: concepts/assistant/rephraser.md
-              - name: MCP TBD
-                hidden: true
+              - name: AI assistants
+                href: concepts/assistant/index.md
+              - name: Source files
+                href: concepts/assistant/files.md
+              - name: '{{ assistant-api }} search indexes'
+                href: concepts/assistant/search-index.md
+              - name: Tools
+                items:
+                  - name: Overview
+                    href: concepts/assistant/tools/index.md
+                  - name: '{{ retrieval-tool-name }}'
+                    href: concepts/assistant/tools/vector-store.md
+                  - name: WebSearch
+                    href: concepts/assistant/tools/web-search.md
+                  - name: Rephrasing queries
+                    href: concepts/assistant/rephraser.md
       - name: AI Search
         items:
-          - name: Source files
-            href: concepts/assistant/files.md
-          - name: '{{ assistant-api }} search indexes'
-            href: concepts/assistant/search-index.md
           - name: '{{ vector-store-name }} search indexes'
             href: concepts/search/vectorstore.md
-          - name: TBD connectors
-            hidden: true
       - name: '{{ mcp-hub-name }}'
         items:
           - name: Overview

@@ -1,7 +1,7 @@
 title: '{{ serverless-containers-full-name }}'
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     items:
@@ -211,6 +211,10 @@ items:
         href: tutorials/movies-database.md
       - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Setting up CI/CD in {{ src-name }} to deploy {{
+          serverless-containers-name }} using GitHub Actions
+        href: tutorials/ci-cd-sourcecraft-github-actions.md
       - name: Starting {{ GLR }} in {{ serverless-containers-name }}
         href: tutorials/serverless-gitlab-runner.md
       - name: >-

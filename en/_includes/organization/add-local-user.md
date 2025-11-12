@@ -52,6 +52,6 @@
      * `--family-name`: User last name. This is an optional parameter.
      * `--email`: User email. This is an optional parameter.
      * `--phone-number`: User phone number. This is an optional parameter.
-     * `--password`: Password. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
+     * `--password`: Password. This is an optional parameter. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
 
 {% endlist %}

@@ -328,6 +328,9 @@ The `Allow` action is set for the basic default rule, while other rules are in t
 
   To connect a virtual host in {{ alb-name }}:
   1. If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+      {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
   1. If the load balancer is managed by you, select the created profile under ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. At the top right, click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. In the window that opens, select the following in the given order:

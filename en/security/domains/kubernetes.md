@@ -89,6 +89,8 @@ Benefits of {{ alb-name }} Ingress controller:
 * Integration with the [{{ certificate-manager-full-name }}](../../certificate-manager/) cloud service.
 * No need to install a controller to the cluster because everything is deployed on the [{{ alb-name }}](../../application-load-balancer/) side.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 #### Restricting access to the metadata of VMs in the node group {#metadata-access-restriction}
 
 For all pods, create a network policy to block network traffic to port 169.254.169.254 or use the default-deny policy from the [example](../../managed-kubernetes/operations/calico#enable-isolation). The policy must block workload node group metadata access because these node groups contain sensitive data, such as the token of the service account assigned to the node.

@@ -1,4 +1,4 @@
-# Installing the NGINX Ingress Controller with a {{ certificate-manager-full-name }} certificate
+# Installing an NGINX ingress controller with a {{ certificate-manager-full-name }} certificate
 
 Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress Controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
@@ -10,16 +10,16 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
-1. Install the `jq` utility:
+1. [Install Helm](https://helm.sh/docs/intro/install/).
+1. Install `jq`:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
 
-1. [Create service accounts](../../iam/operations/sa/create.md):
+1. [Create these service accounts](../../iam/operations/sa/create.md):
    * `eso-service-account` for interaction between the External Secrets Operator and {{ certificate-manager-name }}.
-   * `k8s-sa` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) resources and pull [Docker images](../../container-registry/concepts/docker-image.md). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+   * `k8s-sa` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) resources and pull [Docker images](../../container-registry/concepts/docker-image.md). It needs the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
 1. Create an [authorized key](../../iam/concepts/authorization/access-key.md) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to a file named `authorized-key.json`:
 
    ```bash
@@ -32,7 +32,7 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. In the {{ managed-k8s-name }} cluster settings, specify the `k8s-sa` service account and the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. In the {{ managed-k8s-name }} cluster settings, specify the `k8s-sa` service account and the security groups prepared earlier.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -82,13 +82,13 @@ The infrastructure support cost includes:
 
     Follow [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) to install [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) from {{ marketplace-name }} with the following parameters:
 
-    * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), `external-secrets`.
+    * **Namespace**: Create a [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets`.
     * **Service account key**: Paste the contents of the `authorized-key.json` file created [earlier](#before-you-begin).
 
 
 - Manually {#manual}
 
-    1. Add a Helm repository named `external-secrets`:
+    1. Add the `external-secrets` Helm repository:
 
         ```bash
         helm repo add external-secrets https://charts.external-secrets.io
@@ -121,7 +121,7 @@ The infrastructure support cost includes:
 
 {% endlist %}
 
-## Configure the {{ managed-k8s-name }} cluster {#configure-cluster}
+## Set up a {{ managed-k8s-name }} cluster {#configure-cluster}
 
 1. Create a namespace named `ns` for External Secrets Operator objects:
 
@@ -143,7 +143,7 @@ The infrastructure support cost includes:
      -o json | jq -r '.spec.versions[].name'
    ```
 
-1. Create a `secret-store` containing the `yc-auth` secret and specify a supported `apiVersion`:
+1. Create a `yc-cert-manager` containing the `yc-auth` secret and specify a supported `apiVersion`:
 
 
    ```bash
@@ -151,17 +151,24 @@ The infrastructure support cost includes:
    apiVersion: external-secrets.io/v1beta1
    kind: SecretStore
    metadata:
-     name: secret-store
+     name: yc-cert-manager
    spec:
      provider:
        yandexcertificatemanager:
          auth:
            authorizedKeySecretRef:
              name: yc-auth
-             key: authorized-key'
+             key: authorized-key.json
+             namespace: ns'
    ```
 
 
+
+   {% note tip %}
+
+   In this example, the created secret storage has the `kind: SecretStore` type. It will be available only in the `ns` namespace where it was created. To make the secret storage available in all namespaces, use the `kind: ClusterSecretStore` type.
+
+   {% endnote %}
 
 ## Create an ExternalSecret {#create-externalsecret}
 
@@ -183,7 +190,7 @@ The infrastructure support cost includes:
    spec:
      refreshInterval: 1h
      secretStoreRef:
-       name: secret-store
+       name: yc-cert-manager
        kind: SecretStore
      target:
        name: k8s-secret
@@ -199,6 +206,12 @@ The infrastructure support cost includes:
          key: <certificate_ID>
          property: privateKey'
    ```
+
+   {% note info %}
+
+   If the secret storage you created has the `kind: ClusterSecretStore` type, replace the `spec:secretStoreRef:kind` value in the manifest example with `ClusterSecretStore`.
+
+   {% endnote %}
 
    Where:
    * `k8s-secret`: Name of the secret the External Secret Operator will place the certificate it gets from {{ certificate-manager-name }} into.
@@ -349,7 +362,7 @@ The infrastructure support cost includes:
 
      If you modify the `default-ssl-certificate` parameter, restart the NGINX Ingress Controller.
 
-  To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+  To set up the controller configuration yourself, follow the steps provided in [this Helm guide](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
 
 {% endlist %}
 
@@ -490,8 +503,8 @@ You can specify a sync timeout in the [ExternalSecret](#create-externalsecret) o
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.
 1. [Delete](../../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-name }}.
 1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the certificate.
-1. If static public IP addresses were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If you used static public IP addresses to access your {{ managed-k8s-name }} cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.

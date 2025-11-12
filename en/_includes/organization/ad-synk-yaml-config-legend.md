@@ -1,32 +1,47 @@
 Where:
 
 * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-name }}.
-* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. For example:
+* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. Here is an example:
 
     * `/etc/yc-identityhub-sync-agent/authorized_key.json` (for Linux)
     * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (for Windows)
-* `replication_tokens_path`: Path to the directory storing tokens with info about the current progress of [full synchronization](../../organization/concepts/ad-sync.md#full-sync) processes. The default values are:
+
+    In the `cloud_credentials_file_path` parameter, you can provide only the file name instead of the full path. In this case, the system will save that file in the working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
+* `replication_tokens_path`: Path to the directory storing tokens with info about the current progress of [full synchronization](../../organization/concepts/ad-sync.md#full-sync) processes. This is an optional parameter.
+
+    If this parameter is not set, the system will be saving the tokens in the agent's working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
+* `working_directory`: Path to the directory for other files the agent needs to operate. This is an optional parameter.
+
+    If this parameter is not set, the system will use the directory containing the agent's executable as the working directory. By default, the agent's executable resides in the following directories:
 
     * `/etc/yc-identityhub-sync-agent/` (for Linux)
     * `C:\\ProgramData\\YcIdentityHubSyncAgent\\` (for Windows)
+
+    {% note info %}
+
+    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.level` parameters specify paths other than that specified in `working_directory`, the system use the paths specified in `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.level`.
+
+    {% endnote %}
+
 * `drsr`: [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) protocol settings for {{ microsoft-idp.ad-short }} authentication of a [user](#dc-setup) with permissions to replicate folder data.
 * `ldap`: [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) protocol settings for {{ microsoft-idp.ad-short }} authentication of a [user](#dc-setup) with permissions to replicate folder data.
 * `logger`: Synchronization [logging](#logging) settings:
 
-    * `level`: Logging level. Possible values:
+    * `level`: Logging level. The possible values are:
 
         {% include [ad-synk-log-levels](./ad-synk-log-levels.md) %}
 
-    * `format`: Event info output format. This is an optional parameter. Possible values:
+    * `format`: Event info output format. This is an optional parameter. The possible values are:
 
         * `plain`: Output the info as plain text. This is a default value.
         * `json`: Output the info in [JSON](https://en.wikipedia.org/wiki/JSON) format.
     * `file`: Settings for saving logs to files:
 
-        * `filename`: Path to the file for logging synchronization events. The default values are:
+        * `filename`: Path to the file for logging synchronization events.
 
-            * `/etc/yc-identityhub-sync-agent/identity_hub.log` (for Linux)
-            * `C:\\ProgramData\\YcIdentityHubSyncAgent\\identity_hub.log` (for Windows)
+            In the `filename` parameter, you can provide only the file name instead of the full path. In this case, the system will save that file in the working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
+
+            This is an optional parameter. The default file name is `identity_hub.log`.
         * `maxsize`: Maximum size of a single log file, in MB.
         * `maxbackups`: Maximum number of log files the agent will retain. When this limit is exceeded, the oldest file will be deleted.
 
@@ -41,11 +56,11 @@ Where:
 
         {% endnote %}
 
-    * `allow_to_capture_users`: Enables updating an existing user in the {{ org-name }} user pool if their login matches that of a {{ microsoft-idp.ad-short }} user being synchronized. Possible values:
+    * `allow_to_capture_users`: Enables updating an existing user in the {{ org-name }} user pool if their login matches that of a {{ microsoft-idp.ad-short }} user being synchronized. The possible values are:
 
         * `true`: Synchronization agent will update existing {{ org-name }} users to match their corresponding {{ microsoft-idp.ad-short }} accounts.
         * `false`: Synchronization agent will not update existing {{ org-name }} users. If it detects matching logins in the user pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
-    * `allow_to_capture_groups`: Enables updating an existing {{ org-name }} user group if its name matches that of a {{ microsoft-idp.ad-short }} group being synchronized. Possible values:
+    * `allow_to_capture_groups`: Enables updating an existing {{ org-name }} user group if its name matches that of a {{ microsoft-idp.ad-short }} group being synchronized. The possible values are:
 
         * `true`: Synchronization agent will update existing {{ org-name }} user groups to match their corresponding {{ microsoft-idp.ad-short }} groups.
         * `false`: Synchronization agent will not update existing {{ org-name }} groups. If it detects matching group names in the pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.

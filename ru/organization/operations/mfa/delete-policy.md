@@ -19,6 +19,36 @@ description: Следуя данной инструкции, вы сможете
   1. В списке политик MFA в строке с нужной политикой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите действие.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите список политик MFA с помощью команды:
+
+     ```bash
+     yc organization-manager mfa-enforcement list \
+       --organization-id <идентификатор_организации>
+     ```
+
+     Где `--organization-id` — идентификатор организации.
+
+  1. Посмотрите описание команды CLI для удаления политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement delete --help
+     ```
+
+  1. Чтобы удалить политику MFA, выполните команду:
+
+     ```bash
+     yc organization-manager mfa-enforcement delete \
+       --id <идентификатор_политики>
+     ```
+
+     Где `--id` — идентификатор политики MFA, которую нужно удалить.
+
 {% endlist %}
 
 #### См. также {#see-also}

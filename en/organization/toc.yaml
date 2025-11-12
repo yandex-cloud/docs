@@ -37,11 +37,11 @@ items:
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Getting information about the user
+          - name: Getting user info
             href: operations/users-get.md
           - name: Updating user data
             href: operations/user-pools/edit-user.md
-          - name: Resetting a local user password
+          - name: Updating a local user password
             href: operations/user-pools/reset-user-password.md
           - name: Viewing user groups
             href: operations/get-users-groups.md
@@ -59,6 +59,8 @@ items:
             href: operations/manage-groups.md
           - name: Creating a group
             href: operations/create-group.md
+          - name: Getting group ID
+            href: operations/group-get-id.md
           - name: Adding members
             href: operations/add-member-group.md
           - name: Editing a group
@@ -111,11 +113,11 @@ items:
             href: operations/user-pools/validate-domain.md
           - name: Getting a list of domains
             href: operations/user-pools/list-domain.md
-          - name: Viewing information about a domain
+          - name: Getting domain information
             href: operations/user-pools/get-domain.md
           - name: Deleting a domain
             href: operations/user-pools/delete-domain.md
-      - name: Managing apps
+      - name: Managing apps (SSO)
         items:
           - name: SAML apps
             items:
@@ -131,6 +133,12 @@ items:
                 href: operations/applications/oidc-create.md
               - name: Updating an app
                 href: operations/applications/oidc-update.md
+              - name: Setting up access for app users
+                href: operations/applications/oidc-set-access-bindings.md
+              - name: Getting a list of apps
+                href: operations/applications/oidc-list.md
+              - name: Getting app information
+                href: operations/applications/oidc-get.md
               - name: Deactivating and deleting an app
                 href: operations/applications/oidc-deactivate-remove.md
       - name: Managing MFA
@@ -177,6 +185,8 @@ items:
             href: operations/groups-access-binding.md
           - name: Viewing roles assigned in an organization
             href: operations/org-list-bindings.md
+          - name: Viewing a list of a subject's accesses
+            href: operations/view-subject-access-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
       - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
@@ -220,8 +230,14 @@ items:
                 href: tutorials/single-sign-on/grafana/saml-grafana.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: '{{ mos-name }}'
+            href: tutorials/single-sign-on/saml-opensearch.md
+          - name: '{{ mgl-name }}'
+            href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: tutorials/single-sign-on/saml-yandex-360.md
   - name: Concepts
     items:
       - name: Organization
@@ -236,7 +252,7 @@ items:
         href: concepts/add-federation.md
       - name: Domains
         href: concepts/domains.md
-      - name: Applications
+      - name: Applications (SSO)
         href: concepts/applications.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md

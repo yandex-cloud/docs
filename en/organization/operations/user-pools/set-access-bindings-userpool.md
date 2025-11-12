@@ -32,7 +32,7 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
 
       Where `--organization-id` is the [ID of the organization](../organization-get-id.md) you need the list of user pools for.
 
-   1. Get the [ID of the user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Using the `yc organization-manager idp userpool set-access-bindings` command, assign the following roles:
       
       * To a Yandex account user:

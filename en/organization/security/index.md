@@ -236,7 +236,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `<resource>`: Resource category. For an organization, it is always `organization`.
       * `<resource_name_or_ID>`: Resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
       * `--role`: Role ID, e.g., `organization-manager.admin`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
+      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, this command assigns the administrator role for the organization with the `bpf3crucp1v2********` ID:
 
@@ -470,7 +470,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
 ### Assigning a role to a user group {#access-group-users}
 
-Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/concepts/access-control/index.md#subject), see [{#T}](../../iam/operations/groups/access-binding-object.md).
+Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/concepts/access-control/index.md#subject), see [{#T}](../../organization/operations/access-manage-group.md).
 
 In {{ org-full-name }}, you can assign a group a role for an organization, cloud, folder, another group, or service account.
 

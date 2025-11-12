@@ -32,7 +32,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
   
-  1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. You may want to use the search feature.
+  1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. Use search, if required.
   
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles that you need to assign to the group.
 
@@ -60,14 +60,14 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
       ```bash
       yc organization-manager group set-access-bindings --help
       ```
-
+ 
    1. Get a list of user groups with their IDs:
 
       ```bash
       yc organization-manager group list
       ```
+   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or [user group](group-get-id.md) you are assigning roles to.
 
-   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Using the `yc organization-manager group set-access-bindings` command, assign the following roles:
 
       * To a Yandex account user:
@@ -102,7 +102,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
            --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` parameter for each role, e.g.:
+      Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc organization-manager group set-access-bindings \

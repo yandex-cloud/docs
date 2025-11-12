@@ -144,7 +144,7 @@ items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: security/vipnet-to-yc.md
         hidden: true
-      - name: Alert settings in {{ monitoring-name }}
+      - name: Configuring alerts and dashboards in {{ monitoring-name }}
         href: security/alerts-monitoring.md
       - name: Uploading audit logs to MaxPatrol SIEM
         href: security/maxpatrol.md
@@ -220,6 +220,12 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
+          - name: '{{ mos-name }}'
+            href: security/single-sign-on/saml-opensearch.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -555,7 +561,7 @@ items:
                 href: container-infrastructure/vpa-autoscaling.md
               - name: Updating the Metrics Server parameters
                 href: container-infrastructure/metrics-server.md
-              - name: Deploying and load testing a gRPC service with scaling
+              - name: Deploying and load testing a scalable gRPC service
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Installing NGINX
             items:
@@ -589,7 +595,7 @@ items:
                 href: container-infrastructure/dns-autoscaler.md
               - name: Setting up NodeLocal DNS Cache
                 href: container-infrastructure/node-local-dns.md
-              - name: DNS Challenge for {{ lets-encrypt }} certificates
+              - name: DNS challenge for {{ lets-encrypt }} certificates
                 href: container-infrastructure/dnschallenge.md
           - name: Backups
             items:
@@ -615,7 +621,7 @@ items:
                   Transferring {{ managed-k8s-name }} cluster logs to {{
                   cloud-logging-name }}
                 href: container-infrastructure/k8s-fluent-bit-logging.md
-              - name: Setting up Gateway API
+              - name: Setting up the Gateway API
                 href: container-infrastructure/gateway-api.md
               - name: Setting up an {{ alb-name }} ingress controller
                 href: container-infrastructure/alb-ingress-controller.md
@@ -629,7 +635,7 @@ items:
                 href: container-infrastructure/jaeger-over-ydb.md
               - name: Setting up Kyverno &amp; Kyverno Policies
                 href: container-infrastructure/kyverno.md
-              - name: Using {{ MP }} to transmit metrics
+              - name: Using {{ MP }} to deliver metrics
                 href: container-infrastructure/metrics-provider.md
               - name: Editing website images with Thumbor
                 href: container-infrastructure/thumbor.md
@@ -1461,6 +1467,10 @@ items:
         href: serverless/ci-cd-sourcecraft-functions.md
       - name: Configuring CI/CD between {{ sf-name }} and GitHub
         href: serverless/ci-cd-github-functions.md
+      - name: >-
+          Setting up CI/CD in {{ src-name }} to deploy an application in {{
+          serverless-containers-name }} using GitHub Actions
+        href: serverless/ci-cd-sourcecraft-github-actions.md
       - name: Working with an API gateway via WebSocket
         href: serverless/api-gw-websocket.md
       - name: Building an interactive serverless application using WebSocket
@@ -1547,6 +1557,8 @@ items:
         href: serverless/create-ai-agent-function.md
       - name: Configuring Postfix to send emails via {{ postbox-full-name }}
         href: serverless/postfix-integration.md
+      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
+        href: serverless/postbox-webhook.md
   - name: Machine learning and artificial intelligence
     items:
       - name: All tutorials

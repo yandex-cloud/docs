@@ -31,6 +31,8 @@ items:
           Создание L7-балансировщика с профилем безопасности {{ sws-name }}
           через Ingress-контроллер {{ alb-name }}
         href: security/alb-ingress-with-sws-profile.md
+      - name: Создание распределенной инфраструктуры с защищенным доступом
+        href: security/distributed-secured-infrastructure.md
       - name: Централизованная публикация в интернете и защита приложений от DDoS
         href: security/different-folders-services.md
       - name: Базовая настройка SWS
@@ -773,6 +775,8 @@ items:
             href: web/migrate-to-yc-cdn.md
           - name: Получение статистики посещения сайта с использованием S3 Select
             href: web/user-agent-statistics.md
+          - name: Оформление контента из {{ video-name }} в IFrame
+            href: web/video-iframe.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»

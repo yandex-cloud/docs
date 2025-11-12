@@ -1,4 +1,4 @@
-1. [Add](../iam/operations/users/create.md) the appropriate user, if required.
+1. [Add](../organization/operations/add-account.md) the appropriate user, if required.
 1. In the [management console]({{ link-console-main }}), on the left, [select](../resource-manager/operations/cloud/switch-cloud.md) a cloud.
 1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
 1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.

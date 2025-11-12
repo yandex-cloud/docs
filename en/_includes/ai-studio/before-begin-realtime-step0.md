@@ -1,0 +1,1 @@
+[Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) it the `ai.models.user` [role](../../ai-studio/security/index.md#ai-models-user) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

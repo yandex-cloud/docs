@@ -1,237 +1,342 @@
 ---
-title: Как выполнять текстовый поиск в {{ search-api-full-name }} с помощью API в отложенном режиме
-description: Следуя данной инструкции, вы научитесь использовать интерфейс API сервиса {{ search-api-name }} для отправки поисковых запросов и получения поисковой выдачи в формате XML или HTML в отложенном (асинхронном) режиме.
+title: Как выполнять текстовый поиск в {{ search-api-full-name }} в отложенном режиме
+description: Следуя данной инструкции, вы научитесь использовать сервис {{ search-api-name }} для отправки поисковых запросов и получения поисковой выдачи в формате XML или HTML в отложенном (асинхронном) режиме.
 ---
 
-# Выполнение текстовых поисковых запросов с помощью API в отложенном режиме
+# Выполнение текстовых поисковых запросов в отложенном режиме
 
-[API](../concepts/index.md#api-v2) сервиса {{ search-api-name }} позволяет выполнять текстовый поиск в поисковой базе Яндекса и получать результат поиска в формате [XML](../concepts/response.md) или [HTML](../concepts/html-response.md) в отложенном (асинхронном) режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gRPC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
+Сервис {{ search-api-name }} позволяет выполнять текстовый поиск в поисковой базе Яндекса и получать результат поиска в формате [XML](../concepts/response.md) или [HTML](../concepts/html-response.md) в отложенном (асинхронном) режиме. Выполнять запросы можно с помощью [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md), [REST API](../api-ref/) и [gRPC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [jq](https://stedolan.github.io/jq), а также [gRPCurl](https://github.com/fullstorydev/grpcurl) (если будете использовать [gRPC API](../api-ref/grpc/)).
+### Подготовьте облако к работе {#initial-setup}
 
-## Подготовьте облако к работе {#initial-setup}
-
-{% include [prepare-cloud-v2](../../_includes/search-api/prepare-cloud-v2.md) %}
-
-## Сформируйте поисковый запрос {#form-request}
+Чтобы воспользоваться примерами:
 
 {% list tabs group=instructions %}
 
+- SDK {#sdk}
+
+  1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../security/index.md#search-api-webSearch-user) `search-api.webSearch.user`.
+  1. {% include [sdk-before-begin-step2](../../_includes/search-api/sdk-before-begin-step2.md) %}
+  1. {% include [sdk-before-begin-step3](../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+  1. {% include [sdk-before-begin-step4](../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+  1. {% include [sdk-before-begin-step5](../../_includes/ai-studio/sdk-before-begin-step5.md) %}
+  1. {% include [sdk-before-begin-step6](../../_includes/ai-studio/sdk-before-begin-step6.md) %}
+
 - REST API {#api}
 
-  1. Создайте файл с телом запроса (например, `body.json`):
+  {% include [prepare-cloud-v2](../../_includes/search-api/prepare-cloud-v2.md) %}
 
-      **body.json**
-
-      {% include [http-body-v2](../../_includes/search-api/http-body-v2.md) %}
-
-      {% cut "Описание полей" %}
-
-      {% include [http-v2-body-params](../../_includes/search-api/http-v2-body-params.md) %}
-
-      {% endcut %}
-
-  1. Выполните HTTP-запрос, указав полученный ранее IAM-токен:
-
-      ```bash
-      curl \
-        --request POST \
-        --header "Authorization: Bearer <IAM-токен>" \
-        --data "@body.json" \
-        "https://searchapi.{{ api-host }}/v2/web/searchAsync"
-      ```
-
-      Результат:
-
-      ```text
-      {
-       "done": false,
-       "id": "sppger465oq1********",
-       "description": "WEB search async",
-       "createdAt": "2024-10-02T19:51:02Z",
-       "createdBy": "bfbud0oddqp4********",
-       "modifiedAt": "2024-10-02T19:51:03Z"
-      }
-      ```
+  Чтобы воспользоваться примерами, также установите утилиты [cURL](https://curl.haxx.se) и [jq](https://stedolan.github.io/jq).
 
 - gRPC API {#grpc-api}
 
-  1. Создайте файл с телом запроса (например, `body.json`):
+  {% include [prepare-cloud-v2](../../_includes/search-api/prepare-cloud-v2.md) %}
 
-      **body.json**
-
-      {% include [grpc-body-v2](../../_includes/search-api/grpc-body-v2.md) %}
-
-      {% cut "Описание полей" %}
-
-      {% include [grpc-v2-body-params](../../_includes/search-api/grpc-v2-body-params.md) %}
-
-      {% endcut %}
-
-  1. Выполните gRPC-вызов, указав полученный ранее IAM-токен:
-
-      ```bash
-      grpcurl \
-        -rpc-header "Authorization: Bearer <IAM-токен>" \
-        -d @ < body.json \
-        searchapi.{{ api-host }}:443 yandex.cloud.searchapi.v2.WebSearchAsyncService/Search
-      ```
-
-      Результат:
-
-      ```text
-      {
-        "id": "spp3gp3vhna6********",
-        "description": "WEB search async",
-        "createdAt": "2024-10-02T19:14:41Z",
-        "createdBy": "bfbud0oddqp4********",
-        "modifiedAt": "2024-10-02T19:14:42Z"
-      }
-      ```
+  Чтобы воспользоваться примерами, также установите утилиты [gRPCurl](https://github.com/fullstorydev/grpcurl) и [jq](https://stedolan.github.io/jq).
 
 {% endlist %}
 
-Сохраните идентификатор полученного [объекта Operation](../../api-design-guide/concepts/operation.md) (значение `id`) — он понадобится позднее.
+## Выполните поисковый запрос {#execute-request}
 
-## Убедитесь в успешном выполнении запроса {#verify-operation}
-
-Дождитесь, пока {{ search-api-name }} выполнит запрос и сформирует ответ. На это может потребоваться от пяти минут до нескольких часов.
-
-Чтобы убедиться в успешном выполнении запроса:
+Чтобы выполнить поисковый запрос:
 
 {% list tabs group=instructions %}
 
+- SDK {#sdk}
+
+  1. Создайте файл `web-search-async.py` и добавьте в него следующий код:
+
+      ```python
+      #!/usr/bin/env python3
+
+      from __future__ import annotations
+
+      from typing import Literal, cast
+
+      from yandex_cloud_ml_sdk import YCloudML
+
+      from yandex_cloud_ml_sdk.search_api import (
+          FamilyMode,
+          FixTypoMode,
+          GroupMode,
+          Localization,
+          SearchType,
+          SortMode,
+          SortOrder,
+      )
+
+      import pathlib
+
+      USER_AGENT = "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.112 Mobile Safari/537.36"
+
+
+      def main() -> None:
+
+          sdk = YCloudML(
+              folder_id="<идентификатор_каталога>",
+              auth="<API-ключ>",
+          )
+          sdk.setup_default_logging("error")
+
+          # you could pass any settings when creating the Search object
+          search = sdk.search_api.web(
+              "RU",
+              family_mode=FamilyMode.MODERATE,
+              # By default object configuration property values are set to None,
+              # which corresponds to the "default" value which is
+              # defined at the service's backend.
+              # e.g. docs_in_group=None,
+          )
+
+          # but also you could reconfigure the Search object at any time:
+          search = search.configure(
+              # These are enum-type settings,
+              # they could be passed as strings as shown below.
+              search_type="ru",
+              family_mode="strict",
+              fix_typo_mode="off",
+              group_mode="deep",
+              localization="ru",
+              sort_order="desc",
+              sort_mode="by_time",
+              docs_in_group=None,
+              groups_on_page=6,
+              max_passages=2,
+              region="225",
+              user_agent=USER_AGENT,
+          )
+
+          search_query = input("Enter the search query: ")
+          if not search_query.strip():
+              search_query = "Yandex Cloud"
+
+          format_ = input("Choose format ([xml]/html): ")
+          format_ = format_.strip() or "xml"
+          assert format_.lower() in ("xml", "html")
+          format_ = cast(Literal["html", "xml"], format_)
+
+          for page in range(0, 10):
+              operation = search.run_deferred(search_query, format=format_, page=page)
+              search_result = operation.wait(poll_interval=1)
+              output_filename = (
+                  str(pathlib.Path(__file__).parent)
+                  + "/"
+                  + "page_"
+                  + str(page + 1)
+                  + "."
+                  + format_
+              )
+              file = open(output_filename, "a")
+              file.write(search_result.decode("utf-8"))
+              print(f"Page {page} saved to file {output_filename}")
+              file.close()
+
+
+      if __name__ == "__main__":
+          main()
+      ```
+
+      Где:
+
+      {% include [sdk-code-legend](../../_includes/ai-studio/examples/sdk-code-legend.md) %}
+
+      {% include [the-search-configure-method-params](../../_includes/search-api/the-search-configure-method-params.md) %}
+
+  1. Выполните созданный файл:
+
+      ```bash
+      python3 web-search-async.py
+      ```
+
+      {% include [web-search-sdk-output](../../_includes/search-api/web-search-sdk-output.md) %}
+
 - REST API {#api}
 
-  Выполните HTTP-запрос:
+  1. Сформируйте поисковый запрос:
 
-  ```bash
-  curl \
-    --request GET \
-    --header "Authorization: Bearer <IAM-токен>" \
-    https://operation.{{ api-host }}/operations/<идентификатор_запроса>
-  ```
+      1. Создайте файл с телом запроса (например, `body.json`):
 
-  Где:
+          **body.json**
 
-  * `<IAM-токен>` — полученный ранее IAM-токен.
-  * `<идентификатор_запроса>` — сохраненный на предыдущем шаге идентификатор объекта Operation.
+          {% include [http-body-v2](../../_includes/search-api/http-body-v2.md) %}
 
-  Результат:
+          {% cut "Описание полей" %}
 
-  ```text
-  {
-   "done": true,
-   "response": {
-    "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
-    "rawData": "<тело_XML_ответа_в_кодировке_Base64>"
-   },
-   "id": "spp82pc07ebl********",
-   "description": "WEB search async",
-   "createdAt": "2024-10-03T08:07:07Z",
-   "createdBy": "bfbud0oddqp4********",
-   "modifiedAt": "2024-10-03T08:12:09Z"
-  }
-  ```
+          {% include [http-v2-body-params](../../_includes/search-api/http-v2-body-params.md) %}
 
-- gRPC API {#grpc-api}
+          {% endcut %}
 
-  Выполните gRPC-вызов:
+      1. Выполните HTTP-запрос, указав полученный ранее IAM-токен:
 
-  ```bash
-  grpcurl \
-    -rpc-header "Authorization: Bearer <IAM-токен>" \
-    -d '{"operation_id": "<идентификатор_запроса>"}' \
-    operation.{{ api-host }}:443 yandex.cloud.operation.OperationService/Get
-  ```
+          ```bash
+          curl \
+            --request POST \
+            --header "Authorization: Bearer <IAM-токен>" \
+            --data "@body.json" \
+            "https://searchapi.{{ api-host }}/v2/web/searchAsync"
+          ```
 
-  Где:
+          Результат:
 
-  * `<IAM-токен>` — полученный ранее IAM-токен.
-  * `<идентификатор_запроса>` — сохраненный на предыдущем шаге идентификатор объекта Operation.
+          ```text
+          {
+          "done": false,
+          "id": "sppger465oq1********",
+          "description": "WEB search async",
+          "createdAt": "2024-10-02T19:51:02Z",
+          "createdBy": "bfbud0oddqp4********",
+          "modifiedAt": "2024-10-02T19:51:03Z"
+          }
+          ```
 
-  Результат:
+          {% include [async-api-search-save-id](../../_includes/search-api/async-api-search-save-id.md) %}
 
-  ```text
-  {
-    "id": "spp82pc07ebl********",
-    "description": "WEB search async",
-    "createdAt": "2024-10-03T08:07:07Z",
-    "createdBy": "bfbud0oddqp4********",
-    "modifiedAt": "2024-10-03T08:12:09Z",
-    "done": true,
-    "response": {
-      "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
-      "rawData": "<тело_XML_ответа_в_кодировке_Base64>"
-    }
-  }
-  ```
-
-{% endlist %}
-
-Если поле `done` имеет значение `true`, и в выводе присутствует объект `response`, значит, запрос выполнен, и вы можете переходить к следующему шагу. В противном случае, повторите проверку через некоторое время.
-
-## Получите ответ {#get-response}
-
-После того как сервис {{ search-api-name }} успешно обработал запрос:
-
-1. Получите результат:
-
-    {% list tabs group=instructions %}
-
-    - REST API {#api}
+  1. Дождитесь, пока {{ search-api-name }} выполнит запрос и сформирует ответ. На это может потребоваться от пяти минут до нескольких часов.
+  
+      Чтобы убедиться в успешном выполнении запроса, выполните HTTP-запрос:
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM-токен>" \
-        https://operation.{{ api-host }}/operations/<идентификатор_запроса> \
-        > result.json
+        https://operation.{{ api-host }}/operations/<идентификатор_запроса>
       ```
 
-    - gRPC API {#grpc-api}
+      Где:
+
+      * `<IAM-токен>` — полученный ранее IAM-токен.
+      * `<идентификатор_запроса>` — сохраненный на предыдущем шаге идентификатор объекта Operation.
+
+      Результат:
+
+      ```text
+      {
+      "done": true,
+      "response": {
+        "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
+        "rawData": "<тело_ответа_в_кодировке_Base64>"
+      },
+      "id": "spp82pc07ebl********",
+      "description": "WEB search async",
+      "createdAt": "2024-10-03T08:07:07Z",
+      "createdBy": "bfbud0oddqp4********",
+      "modifiedAt": "2024-10-03T08:12:09Z"
+      }
+      ```
+
+      {% include [async-api-search-check-if-done](../../_includes/search-api/async-api-search-check-if-done.md) %}
+
+  1. После того как сервис {{ search-api-name }} успешно обработал запрос, получите ответ:
+
+      1. Получите результат:
+
+          ```bash
+          curl \
+            --request GET \
+            --header "Authorization: Bearer <IAM-токен>" \
+            https://operation.{{ api-host }}/operations/<идентификатор_запроса> \
+            > result.json
+          ```
+
+          {% include [async-api-search-b64-result-received](../../_includes/search-api/async-api-search-b64-result-received.md) %}
+
+      1. {% include [api-result-base64-decode](../../_includes/search-api/api-result-base64-decode.md) %}
+
+- gRPC API {#grpc-api}
+
+  1. Сформируйте поисковый запрос:
+
+      1. Создайте файл с телом запроса (например, `body.json`):
+
+          **body.json**
+
+          {% include [grpc-body-v2](../../_includes/search-api/grpc-body-v2.md) %}
+
+          {% cut "Описание полей" %}
+
+          {% include [grpc-v2-body-params](../../_includes/search-api/grpc-v2-body-params.md) %}
+
+          {% endcut %}
+
+      1. Выполните gRPC-вызов, указав полученный ранее IAM-токен:
+
+          ```bash
+          grpcurl \
+            -rpc-header "Authorization: Bearer <IAM-токен>" \
+            -d @ < body.json \
+            searchapi.{{ api-host }}:443 yandex.cloud.searchapi.v2.WebSearchAsyncService/Search
+          ```
+
+          Результат:
+
+          ```text
+          {
+            "id": "spp3gp3vhna6********",
+            "description": "WEB search async",
+            "createdAt": "2024-10-02T19:14:41Z",
+            "createdBy": "bfbud0oddqp4********",
+            "modifiedAt": "2024-10-02T19:14:42Z"
+          }
+          ```
+
+          {% include [async-api-search-save-id](../../_includes/search-api/async-api-search-save-id.md) %}
+
+  1. Дождитесь, пока {{ search-api-name }} выполнит запрос и сформирует ответ. На это может потребоваться от пяти минут до нескольких часов.
+
+      Чтобы убедиться в успешном выполнении запроса, выполните gRPC-вызов:
 
       ```bash
       grpcurl \
         -rpc-header "Authorization: Bearer <IAM-токен>" \
         -d '{"operation_id": "<идентификатор_запроса>"}' \
-        operation.{{ api-host }}:443 yandex.cloud.operation.OperationService/Get \
-        > result.json
+        operation.{{ api-host }}:443 yandex.cloud.operation.OperationService/Get
       ```
 
-    {% endlist %}
+      Где:
 
-    В итоге в файл `result.json` будет сохранен результат выполнения поискового запроса, содержащий в поле `response.rawData` [XML](../concepts/response.md) или [HTML](../concepts/html-response.md) ответ в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).
+      * `<IAM-токен>` — полученный ранее IAM-токен.
+      * `<идентификатор_запроса>` — сохраненный на предыдущем шаге идентификатор объекта Operation.
 
-1. В зависимости от запрошенного формата ответа, декодируйте результат из формата `Base64`:
+      Результат:
 
-    {% list tabs group=search_api_request %}
-
-    - XML {#xml}
-
-      ```bash
-      echo "$(< result.json)" | \
-        jq -r .response.rawData | \
-        base64 --decode > result.xml
+      ```text
+      {
+        "id": "spp82pc07ebl********",
+        "description": "WEB search async",
+        "createdAt": "2024-10-03T08:07:07Z",
+        "createdBy": "bfbud0oddqp4********",
+        "modifiedAt": "2024-10-03T08:12:09Z",
+        "done": true,
+        "response": {
+          "@type": "type.googleapis.com/yandex.cloud.searchapi.v2.WebSearchResponse",
+          "rawData": "<тело_ответа_в_кодировке_Base64>"
+        }
+      }
       ```
 
-      В результате в файл `result.xml` будет сохранен XML-ответ по запросу.
+      {% include [async-api-search-check-if-done](../../_includes/search-api/async-api-search-check-if-done.md) %}
 
-    - HTML {#html}
+  1. После того как сервис {{ search-api-name }} успешно обработал запрос, получите ответ:
 
-      ```bash
-      echo "$(< result.json)" | \
-        jq -r .response.rawData | \
-        base64 --decode > result.html
-      ```
+      1. Получите результат:
 
-      В результате в файл `result.html` будет сохранен HTML-ответ по запросу.
+          ```bash
+          grpcurl \
+            -rpc-header "Authorization: Bearer <IAM-токен>" \
+            -d '{"operation_id": "<идентификатор_запроса>"}' \
+            operation.{{ api-host }}:443 yandex.cloud.operation.OperationService/Get \
+            > result.json
+          ```
 
-    {% endlist %}
+          {% include [async-api-search-b64-result-received](../../_includes/search-api/async-api-search-b64-result-received.md) %}
+
+      1. {% include [api-result-base64-decode](../../_includes/search-api/api-result-base64-decode.md) %}
+
+{% endlist %}
 
 #### См. также {#see-also}
 

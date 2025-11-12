@@ -8,7 +8,7 @@ description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an
 In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
-* [Roles required](#choosing-roles) for specific actions.
+* [Roles are required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -127,7 +127,7 @@ Action | Methods | Required roles
 ----- | ----- | -----
 **Viewing data** | |
 [Getting an IAM token](../operations/iam-token/create.md) | `create` | None, authentication only
-[Viewing user data](../operations/users/get.md) | `get`, `getByLogin` | None, authentication only
+[Viewing user data](../../organization/operations/users-get.md) | `get`, `getByLogin` | None, authentication only
 [Viewing service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account
 Viewing information about a folder or cloud | `get`, `list` | `iam.auditor` for the folder or cloud
 Viewing information about any resource | `get`, `list` | `viewer` for the resource
@@ -135,8 +135,8 @@ Viewing information about any resource | `get`, `list` | `viewer` for the resour
 [Creating](../operations/sa/create.md) service accounts in the folder | `create` | `iam.serviceAccounts.admin` for the folder
 [Updating](../operations/sa/update.md) and [deleting](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account
 Creating and deleting keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> for the service account
-**Resource access management** | |
-[Adding a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud
+**Managing resource access** | |
+[Adding a new user to the cloud](../../organization/operations/add-account.md) | `setAccessBindings` | `admin` for the cloud
 [Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` role for the cloud
 [Granting](../operations/roles/grant.md), [revoking](../operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tokenCreator` for the service account

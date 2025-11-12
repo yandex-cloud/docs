@@ -87,7 +87,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
       * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned.
       * `member`: User or group to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
-        * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
+        * `userAccount:<user_ID>`: [User ID](../../../organization/operations/users-get.md).
         * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<federated_account_ID>`: [Federated account ID](../../../organization/operations/users-get.md).
         * `system:group:organization:<organization_ID>:users`: [Organization ID](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
@@ -108,7 +108,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       ```
 
       For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
-  1. In the command line, go to the folder where you created the configuration file.
+  1. In the command line, navigate to the directory where you created the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -127,8 +127,8 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -222,11 +222,11 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
+  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
-  1. Make sure the resource has no roles assigned that you would not want to lose:
+  1. Make sure the resource has no important roles assigned before proceeding:
 
       ```bash
       yc resource-manager cloud list-access-binding my-cloud
@@ -264,7 +264,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       }
       ```
 
-  1. In the command line, go to the folder where you created the configuration file.
+  1. In the command line, navigate to the directory where you created the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -283,8 +283,8 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -328,7 +328,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
+  The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
@@ -409,7 +409,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       }
       ```
 
-  1. In the command line, go to the folder where you created the configuration file.
+  1. In the command line, navigate to the directory where you created the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -428,8 +428,8 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply

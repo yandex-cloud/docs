@@ -4,15 +4,16 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-To grant access to Grafana Cloud to your organization's users:
+For the users of your organization to be able to access Grafana Cloud:
 
 1. [Create a Grafana Cloud account](#grafana-account).
-1. [Set up integration](#setup-integration).
-1. [Make sure your app works correctly](#validate)
+1. [Create an app](#create-app).
+1. [Set up the integration](#setup-integration).
+1. [Make sure the application works correctly](#validate).
 
 ## Create a Grafana Cloud account {#grafana-account}
 
@@ -57,7 +58,7 @@ To configure SAML in Grafana Cloud, you need organization administrator permissi
 
 ## Set up integration {#setup-integration}
 
-To integrate Grafana Cloud with the SAML app you created in {{ org-name }}, complete the setup on the Grafana Cloud side and in {{ org-name }}.
+To integrate Grafana Cloud with the SAML app you created in {{ org-name }}, complete the setup both on the Grafana Cloud side and in {{ org-name }}.
 
 ### Set up the SAML application in Grafana Cloud {#setup-sp}
 
@@ -92,7 +93,7 @@ Configure a link between Grafana Cloud and {{ org-name }}:
     1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy the **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}** field value.
     1. Return to Grafana Cloud and under **Finish configuring Grafana using IdP data**, paste the copied address into the **Metadata URL** field.
 
-#### User attribute mapping {#user-mapping}
+#### Mapping user attributes {#user-mapping}
 
 Set up mapping between user object fields in Grafana Cloud and {{ org-name }}:
 
@@ -110,7 +111,7 @@ Set up mapping between user object fields in Grafana Cloud and {{ org-name }}:
 
     {% endnote %}
 
-    Next, under **Role mapping**, specify the names of the groups whose users will receive the appropriate roles. For example:
+    Next, under **Role mapping**, specify the names of the groups whose users will receive the appropriate roles. Here is an example:
 
     - Under **Viewer**: `grafana-viewer`
     - Under **Editor**: `grafana-editor`
@@ -145,7 +146,7 @@ Set up mapping between user object fields in Grafana Cloud and {{ org-name }}:
 
 {% note warning %}
 
-For integration with Grafana Cloud, users must have the `login` attribute.
+For integration with Grafana Cloud, users need the `login` attribute.
 
 {% endnote %}
 
@@ -166,7 +167,7 @@ If users do not have the `login` attribute, add it:
 
 {% endlist %}
 
-If you have configured role mapping in Grafana Cloud, add the user group attribute. To do this:
+If you have configured role mapping in Grafana Cloud, add the user group attribute. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -182,7 +183,7 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add a user {#add-user}
 
-To permit your organization's users to authenticate in Grafana Cloud with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
+For your organization's users to be able to authenticate in Grafana Cloud with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
 {% note info %}
 
@@ -190,7 +191,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 {% endnote %}
 
-1. If you have configured role mapping in Grafana Cloud, [create](../../../organization/operations/create-group.md) the required [groups](../../../organization/concepts/groups.md):
+1. If you have configured role mapping in Grafana Cloud, [create](../../../organization/operations/create-group.md) the [groups](../../../organization/concepts/groups.md) as needed:
 
     {% list tabs group=instructions %}
 
@@ -228,9 +229,9 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. To do this:
+To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. Proceed as follows:
 
-1. In your browser, navigate to the address of your Grafana Cloud instance (e.g. `https://your-org.grafana.net`).
+1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.
 1. On the Grafana Cloud sign in page, click **Sign in with SAML**.
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.

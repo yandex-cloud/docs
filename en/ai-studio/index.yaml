@@ -34,15 +34,12 @@ description:
     href="https://yandex.com/legal/cloud_sla_yandex_foundation_models/">{{
     ai-studio-full-name }}</a> Service Level.
 links:
+  - title: About {{ ai-studio-name }}
+    description: Read about the basic features
+    href: concepts/
   - title: Getting started with {{ yagpt-name }}
     description: Send your first request to {{ yagpt-name }}
     href: quickstart/yandexgpt
-  - title: Getting started with {{ yandexart-name }}
-    description: Generate your first image with {{ yandexart-name }}
-    href: quickstart/yandexart
-  - title: Concepts
-    description: Read about the basic features
-    href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits

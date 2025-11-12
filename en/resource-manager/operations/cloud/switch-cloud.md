@@ -41,7 +41,7 @@ description: In this tutorial, you will learn how to switch over to another clou
 
       {% note info %}
 
-      If the list contains only one cloud, it means you don't have access to any other clouds. To access the cloud, ask the [owner](../../concepts/resources-hierarchy.md#owner) to [add](../../../iam/operations/users/create.md) you to it.
+      If the list contains only one cloud, it means you don't have access to any other clouds. To access the cloud, ask the [owner](../../concepts/resources-hierarchy.md#owner) to [add](../../../organization/operations/add-account.md) you to it.
 
       {% endnote %}
 

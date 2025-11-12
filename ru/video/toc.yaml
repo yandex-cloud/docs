@@ -93,6 +93,10 @@ items:
             href: operations/playlists/delete.md
       - name: Добавить участника
         href: operations/add-member.md
+  - name: Практические руководства
+    items:
+      - name: Готовые решения по оформлению видео в IFrame
+        href: tutorials/video-iframe.md
   - name: Концепции
     items:
       - name: Обзор
@@ -117,6 +121,8 @@ items:
       - name: Защищенный контент
         hidden: true
         href: troubleshooting-drm.md
+      - name: Политика автозапуска браузеров
+        href: autoplay-policy.md
       - name: SDK
         items:
           - name: Обзор

@@ -14,7 +14,7 @@ Incorrect format. Text string too long
 
 Такую длинную запись можно разбить на две с помощью YC CLI командой: 
 ```
-yc dns zone add-records <...> --record '<имя> ￼ TXT "v=DKIM1; k=rsa; p=..." "..."'
+yc dns zone add-records <...> --record '<имя> TXT "v=DKIM1; k=rsa; p=..." "..."'
 ```
 
 Такая TXT-запись успешно добавится.

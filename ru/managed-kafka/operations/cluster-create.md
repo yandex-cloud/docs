@@ -183,7 +183,7 @@
      Где:
      * `--zookeeper-resource-preset` — [класс хостов](../concepts/instance-types.md) {{ ZK }}.
      * `--zookeeper-disk-size` — размер хранилища.
-     * `--controller-disk-type` — [тип диска](../concepts/storage.md) {{ ZK }}.
+     * `--zookeeper-disk-type` — [тип диска](../concepts/storage.md) {{ ZK }}.
   
   1. {% include notitle [maintenance](../../_includes/mdb/mkf/create-cluster.md#maintenance) %}
 
@@ -1465,12 +1465,11 @@
   
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии 3.5.
+  * С {{ KF }} версии 3.9.
   * В сети `{{ network-name }}`.
   * В подсети с идентификатором `{{ subnet-id }}`.
   * В группе безопасности `{{ security-group }}`.
-  * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
-  * С одним хостом-брокером.
+  * С одним хостом-брокером класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
   * С защитой от непреднамеренного удаления.
@@ -1483,7 +1482,7 @@
   {{ yc-mdb-kf }} cluster create \
      --name mykf \
      --environment production \
-     --version 3.5 \
+     --version 3.9 \
      --network-name {{ network-name }} \
      --subnet-ids {{ subnet-id }} \
      --zone-ids {{ region-id }}-a \
@@ -1497,6 +1496,7 @@
   ```
 
 
+
 - {{ TF }} {#tf}
 
   Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
@@ -1504,15 +1504,10 @@
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * С именем `mykf`.
   * В окружении `PRODUCTION`.
-  * С {{ KF }} версии 3.5.
-  * В новой сети `mynet` с подсетью `mysubnet`.
-
-  
+  * С {{ KF }} версии 3.9.
+  * В новой сети `mynet` и подсети `mysubnet` с диапазоном адресов `10.5.0.0/24`.
   * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру {{ mkf-name }} из интернета по порту `9091`.
-
-
-  * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
-  * С одним хостом-брокером.
+  * С одним хостом-брокером класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
 
   
@@ -1523,7 +1518,6 @@
 
   Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
 
-  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
@@ -1536,7 +1530,7 @@
     config {
       assign_public_ip = true
       brokers_count    = 1
-      version          = "3.5"
+      version          = "3.9"
       kafka {
         resources {
           disk_size          = 10
@@ -1578,3 +1572,473 @@
 
 
 {% endlist %}
+
+### Создание кластера с {{ kraft-short-name }} в комбинированном режиме {#kafka-kraft}
+
+В примере используется [конфигурация](../concepts/kraft.md#cluster-topology) с тремя зонами доступности и одним брокером в каждой зоне.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
+
+  * С именем `kafka-kraft`.
+  * В окружении `production`.
+  * С {{ KF }} версии `3.9`.
+  
+  
+  * В сети с идентификатором `enpc6eqfhmj2********`.
+  * В подсетях с идентификаторами:
+    
+    * `e9bhbia2scnk********`
+    * `e2lfqbm5nt9r********`
+    * `fl8beqmjckv8********`
+  
+
+  * С одним хостом-брокером в каждой зоне доступности:
+
+      
+    * `ru-central1-a`
+    * `ru-central1-b`
+    * `ru-central1-d`
+  
+
+  * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
+  * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
+
+  
+  * С публичным доступом.
+  * В группе безопасности `enp68jq81uun********`.
+
+
+  Выполните следующую команду:
+
+  
+  ```bash
+  yc managed-kafka cluster create \
+    --name kafka-kraft \
+    --environment production \
+    --version 3.9 \
+    --network-id enpc6eqfhmj2******** \
+    --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+    --zone-ids ru-central1-a,ru-central1-b,ru-central1-d \
+    --brokers-count 1 \
+    --resource-preset s2.micro \
+    --disk-size 10 \
+    --disk-type network-hdd \
+    --assign-public-ip \
+    --security-group-ids enp68jq81uun********
+  ```
+
+
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
+
+  * С именем `kafka-kraft`.
+  * В окружении `production`.
+  * С {{ KF }} версии `3.9`.
+  * В новой сети `kafka-net` и подсетях для каждой зоны доступности:
+    
+    * `kafka-subnet-a` с диапазоном адресов `10.1.0.0/24`;
+    * `kafka-subnet-b` с диапазоном адресов `10.2.0.0/24`;
+    * `kafka-subnet-d` с диапазоном адресов `10.3.0.0/24`.
+
+  * С одним хостом-брокером в каждой зоне доступности:
+    
+    * `ru-central1-a`
+    * `ru-central1-b`
+    * `ru-central1-d`
+  
+  * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
+  * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
+  * С публичным доступом.
+  * В группе безопасности `kafka-sg`, разрешающей весь входящий и исходящий трафик.
+
+  Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
+
+  ```hcl
+  resource "yandex_mdb_kafka_cluster" "kafka-kraft" {
+    name                = "kafka-kraft"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.kafka-net.id
+    subnet_ids          = [yandex_vpc_subnet.kafka-subnet-a.id, yandex_vpc_subnet.kafka-subnet-b.id, yandex_vpc_subnet.kafka-subnet-d.id]
+    security_group_ids  = [yandex_vpc_security_group.kafka-sg.id]
+
+    config {
+      version          = "3.9"
+      brokers_count    = 1
+      zones            = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
+      assign_public_ip = true
+      
+      kafka {
+        resources {
+          disk_size          = 10
+          disk_type_id       = "network-hdd"
+          resource_preset_id = "s2.micro"
+        }
+
+        kafka_config {}
+      }
+    }
+  }
+
+  resource "yandex_vpc_network" "kafka-net" {
+    name = "kafka-net"
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-a" {
+    name           = "kafka-subnet-a"
+    zone           = "ru-central1-a"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.1.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-b" {
+    name           = "kafka-subnet-b"
+    zone           = "ru-central1-b"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.2.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-d" {
+    name           = "kafka-subnet-d"
+    zone           = "ru-central1-d"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.3.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "kafka-sg" {
+    name       = "kafka-sg"
+    network_id = yandex_vpc_network.kafka-net.id
+  
+    ingress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+{% endlist %}  
+
+### Создание кластера с {{ kraft-short-name }} на отдельных хостах (многохостовый кластер) {#kafka-kraft-mh}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
+
+  * С именем `kafka-kraft-mh`.
+  * В окружении `production`.
+  * С {{ KF }} версии `3.9`.
+  
+  
+  * В сети с идентификатором `enpc6eqfhmj2********`.
+  * В подсетях с идентификаторами:
+    
+    * `e9bhbia2scnk********`
+    * `e2lfqbm5nt9r********`
+    * `fl8beqmjckv8********`
+  
+
+  * С двумя хостами-брокерами в зоне доступности `ru-central1-a`.
+  * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
+  * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
+  * С [классом хостов](../concepts/instance-types.md) контроллера [{{ kraft-short-name }}](../concepts/kraft.md) `s2.micro`.
+  * С хранилищем контроллера [{{ kraft-short-name }}](../concepts/kraft.md) на сетевых SSD-дисках (`network-ssd`) объемом `10` ГБ.
+
+  
+  * С публичным доступом.
+  * В группе безопасности `enp68jq81uun********`.
+
+
+  Выполните следующую команду:
+
+  
+  ```bash
+  yc managed-kafka cluster create \
+    --name kafka-kraft-mh \
+    --environment production \
+    --version 3.9 \
+    --network-id enpc6eqfhmj2******** \
+    --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+    --zone-ids ru-central1-a \
+    --brokers-count 2 \
+    --resource-preset s2.micro \
+    --disk-size 10 \
+    --disk-type network-hdd \
+    --controller-resource-preset s2.micro \
+    --controller-disk-size 10 \
+    --controller-disk-type network-ssd \
+    --assign-public-ip \
+    --security-group-ids enp68jq81uun********
+  ```
+
+
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
+
+  * С именем `kafka-kraft-mh`.
+  * В окружении `production`.
+  * С {{ KF }} версии `3.9`.
+  * В новой сети `kafka-net` и подсетях для каждой зоны доступности:
+    
+    * `kafka-subnet-a` с диапазоном адресов `10.1.0.0/24`;
+    * `kafka-subnet-b` с диапазоном адресов `10.2.0.0/24`;
+    * `kafka-subnet-d` с диапазоном адресов `10.3.0.0/24`.
+  
+  * С двумя хостами-брокерами в зоне доступности `ru-central1-a`.
+  * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
+  * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
+  * С [классом хостов](../concepts/instance-types.md) контроллера [{{ kraft-short-name }}](../concepts/kraft.md) `s2.micro`.
+  * С хранилищем контроллера [{{ kraft-short-name }}](../concepts/kraft.md) на сетевых SSD-дисках (`network-ssd`) объемом `10` ГБ.
+  * С публичным доступом.
+  * В группе безопасности `kafka-sg`, разрешающей весь входящий и исходящий трафик.
+
+  Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
+
+  ```hcl
+  resource "yandex_mdb_kafka_cluster" "kafka-kraft-mh" {
+    name                = "kafka-kraft-mh"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.kafka-net.id
+    subnet_ids          = [yandex_vpc_subnet.kafka-subnet-a.id,yandex_vpc_subnet.kafka-subnet-b.id,yandex_vpc_subnet.kafka-subnet-d.id]
+    security_group_ids  = [yandex_vpc_security_group.kafka-sg.id]
+
+    config {
+      version          = "3.9"
+      brokers_count    = 2
+      zones            = ["ru-central1-a"]
+      assign_public_ip = true
+      
+      kafka {
+        resources {
+          disk_size          = 10
+          disk_type_id       = "network-hdd"
+          resource_preset_id = "s2.micro"
+        }
+
+        kafka_config {}
+      }
+
+      kraft {
+        resources {
+          resource_preset_id = "s2.micro"
+          disk_type_id       = "network-ssd"
+          disk_size          = 10
+        }
+      }
+    }
+  }
+
+  resource "yandex_vpc_network" "kafka-net" {
+    name = "kafka-net"
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-a" {
+    name           = "kafka-subnet-a"
+    zone           = "ru-central1-a"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.1.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-b" {
+    name           = "kafka-subnet-b"
+    zone           = "ru-central1-b"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.2.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-d" {
+    name           = "kafka-subnet-d"
+    zone           = "ru-central1-d"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.3.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "kafka-sg" {
+    name       = "kafka-sg"
+    network_id = yandex_vpc_network.kafka-net.id
+  
+    ingress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+{% endlist %}
+
+### Создание кластера с {{ ZK }} на отдельных хостах (многохостовый кластер) {#kafka-zk-mh}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
+
+  * С именем `kafka-zk-mh`.
+  * В окружении `production`.
+  * С {{ KF }} версии `3.9`.
+  
+  
+  * В сети с идентификатором `enpc6eqfhmj2********`.
+  * В подсетях с идентификаторами:
+    
+    * `e9bhbia2scnk********`
+    * `e2lfqbm5nt9r********`
+    * `fl8beqmjckv8********`
+  
+
+  * С двумя хостами-брокерами в зоне доступности `ru-central1-a`.
+  * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
+  * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
+  * С [классом хостов](../concepts/instance-types.md) {{ ZK }} `s2.micro`.
+  * С хранилищем [{{ ZK }}](../concepts/index.md#zookeeper) на сетевых SSD-дисках (`network-ssd`) объемом `10` ГБ.
+  
+  
+  * С публичным доступом.
+  * В группе безопасности `enp68jq81uun********`.
+
+
+  Выполните следующую команду:
+
+  
+  ```bash
+  yc managed-kafka cluster create \
+    --name kafka-zk-mh \
+    --environment production \
+    --version 3.9 \
+    --network-id enpc6eqfhmj2******** \
+    --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+    --zone-ids ru-central1-a \
+    --brokers-count 2 \
+    --resource-preset s2.micro \
+    --disk-size 10 \
+    --disk-type network-hdd \
+    --zookeeper-resource-preset s2.micro \
+    --zookeeper-disk-size 10 \
+    --zookeeper-disk-type network-ssd \
+    --assign-public-ip \
+    --security-group-ids enp68jq81uun********
+  ```  
+
+
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
+
+  * С именем `kafka-zk-mh`.
+  * В окружении `production`.
+  * С {{ KF }} версии `3.9`.
+  * В новой сети `kafka-net` и подсетях для каждой зоны доступности:
+    
+    * `kafka-subnet-a` с диапазоном адресов `10.1.0.0/24`;
+    * `kafka-subnet-b` с диапазоном адресов `10.2.0.0/24`;
+    * `kafka-subnet-d` с диапазоном адресов `10.3.0.0/24`.
+  
+  * С двумя хостами-брокерами в зоне доступности `ru-central1-a`.
+  * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
+  * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
+  * С [классом хостов](../concepts/instance-types.md) {{ ZK }} `s2.micro`.
+  * С хранилищем [{{ ZK }}](../concepts/index.md#zookeeper) на сетевых SSD-дисках (`network-ssd`) объемом `10` ГБ.
+  * С публичным доступом.
+  * В группе безопасности `kafka-sg`, разрешающей весь входящий и исходящий трафик.
+
+  Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
+
+  ```hcl
+  resource "yandex_mdb_kafka_cluster" "kafka-zk-mh" {
+    name                = "kafka-zk-mh"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.kafka-net.id
+    subnet_ids          = [yandex_vpc_subnet.kafka-subnet-a.id,yandex_vpc_subnet.kafka-subnet-b.id,yandex_vpc_subnet.kafka-subnet-d.id]
+    security_group_ids  = [yandex_vpc_security_group.kafka-sg.id]
+
+    config {
+      version          = "3.9"
+      brokers_count    = 2
+      zones            = ["ru-central1-a"]
+      assign_public_ip = true
+      
+      kafka {
+        resources {
+          disk_size          = 10
+          disk_type_id       = "network-hdd"
+          resource_preset_id = "s2.micro"
+        }
+
+        kafka_config {}
+      }
+
+      zookeeper {
+        resources {
+          resource_preset_id = "s2.micro"
+          disk_type_id       = "network-ssd"
+          disk_size          = 10
+        }
+      }
+    }
+  }
+
+  resource "yandex_vpc_network" "kafka-net" {
+    name = "kafka-net"
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-a" {
+    name           = "kafka-subnet-a"
+    zone           = "ru-central1-a"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.1.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-b" {
+    name           = "kafka-subnet-b"
+    zone           = "ru-central1-b"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.2.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "kafka-subnet-d" {
+    name           = "kafka-subnet-d"
+    zone           = "ru-central1-d"
+    network_id     = yandex_vpc_network.kafka-net.id
+    v4_cidr_blocks = ["10.3.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "kafka-sg" {
+    name       = "kafka-sg"
+    network_id = yandex_vpc_network.kafka-net.id
+  
+    ingress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      protocol       = "ANY"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+{% endlist %}  

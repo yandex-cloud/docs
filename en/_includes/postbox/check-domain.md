@@ -1,12 +1,14 @@
-To send emails, confirm domain ownership. After creating an address, DKIM signature settings will be generated on its page. Specify them as the values of the resource record you need to add to your domain zone. You can add a record with your registrar or in [{{ dns-full-name }}](../../dns/) if you have delegated your domain.
+To send emails, confirm domain ownership. After creating an address, DKIM signature settings will be generated on its page. Specify them as the values of the resource record you need to add to your domain zone. You can add a record with your registrar or in [{{ dns-full-name }}](../../dns/) if you have delegated your {{ yandex-cloud }} domain.
 
-**Example of creating a resource record in {{ dns-name }}**
+**Example of creating a resource record in {{ dns-full-name }}**
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
+
+        If you do not have a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) yet, [create](../../dns/operations/zone-create-public.md) one:
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select your domain zone.
     1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
@@ -18,7 +20,7 @@ To send emails, confirm domain ownership. After creating an address, DKIM signat
 
         {% endnote %}
 
-    1. In the **{{ ui-key.yacloud.common.type }}** list, select `TXT`.
+    1. In the **{{ ui-key.yacloud.common.type }}** field, select `TXT`.
     1. Copy the contents of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field from the **{{ ui-key.yacloud.postbox.label_signature-verification }}** section and paste it into the **{{ ui-key.yacloud.dns.label_records }}** field. Note that the record value must be enclosed in quotes, for example:
 
         ```text

@@ -610,6 +610,7 @@ default:
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
+  roles-resource-manager-admin: resource-manager.admin
   roles-resource-manager-editor: resource-manager.editor
   roles-search-api-executor: search-api.executor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
@@ -623,6 +624,7 @@ default:
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
+  roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
@@ -7896,7 +7898,9 @@ default:
         button_add-modification: Change header
         button_add-upgrade-type: Add upgrade type
         label_backends: Backends
+        label_listener-type: Listener type
         label_max-timeout: Maximum timeout, sec.
+        label_path: Path
       backup:
         button_attach-instance-submit: Attach
         label_instances: Virtual machines
