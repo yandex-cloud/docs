@@ -81,6 +81,8 @@ items:
             href: operations/agents/create-simple-text-agent.md
           - name: Создать текстового агента с вызовом функции
             href: operations/agents/create-function-text-agent.md
+          - name: Создать текстового агента с поиском по файлам
+            href: operations/agents/create-filesearch-text-agent.md
           - name: Управлять поисковым индексом {{ vector-store-name }}
             href: operations/agents/manage-searchindex.md
           - name: '{{ assistant-api }}'
@@ -154,6 +156,8 @@ items:
             items:
               - name: Поиск в интернете
                 href: concepts/agents/tools/websearch.md
+              - name: Поиск по файлам
+                href: concepts/agents/tools/filesearch.md
           - name: '{{ assistant-api }}'
             items:
               - name: AI-Ассистенты

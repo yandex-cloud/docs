@@ -11,15 +11,11 @@ description: Step-by-step guides on how to manage access permissions to {{ yande
 
 ## Users {#users}
 
-- [{#T}](users/create.md)
-- [{#T}](users/get.md)
-- [{#T}](users/delete.md)
+To learn more about user management, see [this {{ org-full-name }} guide](../../organization/operations/manage-users.md).
 
 ## User groups {#users-groups}
 
-- [{#T}](groups/create.md)
-- [{#T}](groups/access-binding-object.md)
-- [{#T}](groups/access-binding-subject.md)
+To learn more about user group management, see [this {{ org-full-name }} guide](../../organization/operations/manage-groups.md).
 
 ## Service accounts {#sa}
 

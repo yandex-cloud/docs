@@ -4,13 +4,14 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports OpenID Connect (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect)-based SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
-To grant access to Grafana Cloud to your organization's users:
+For the users of your organization to be able to access Grafana Cloud:
 
 1. [Create a Grafana Cloud account](#grafana-account).
+1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
@@ -58,7 +59,7 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
 
 ## Set up the integration {#setup-integration}
 
-To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, complete the setup on the Grafana Cloud side and in {{ org-name }}.
+To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, complete the setup both on the Grafana Cloud side and in {{ org-name }}.
 
 ### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
 
@@ -116,7 +117,7 @@ In the Generic OAuth settings:
 
 ### Add a user {#add-user}
 
-To permit your organization's users to authenticate in Grafana Cloud with {{ org-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
+For your organization's users to be able to authenticate in Grafana Cloud with {{ org-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
 
 {% note info %}
 
@@ -143,7 +144,7 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app.
 
-To do this:
+Proceed as follows:
 
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.

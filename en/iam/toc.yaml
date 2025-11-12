@@ -16,21 +16,9 @@ items:
       - name: Handling secrets that are available in the public domain
         href: operations/compromised-credentials.md
       - name: Users
-        items:
-          - name: Adding a user
-            href: operations/users/create.md
-          - name: Getting user info
-            href: operations/users/get.md
-          - name: Deleting a user
-            href: operations/users/delete.md
+        href: ../organization/operations/manage-users.md
       - name: User groups
-        items:
-          - name: Creating a group
-            href: operations/groups/create.md
-          - name: Setting up group access permissions
-            href: operations/groups/access-binding-object.md
-          - name: Granting group permissions
-            href: operations/groups/access-binding-subject.md
+        href: ../organization/operations/manage-groups.md
       - name: Service accounts
         items:
           - name: Creating a service account

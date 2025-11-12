@@ -324,7 +324,10 @@ For more information about creating and configuring a {{ managed-k8s-name }} clu
 * If there are any clusters with public IP addresses, [delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) them. You cannot delete a public IP address for such clusters. Before deleting the clusters, move their workload to Kubernetes clusters without public IP addresses.
 * If there are any node groups with public IP addresses, [update](../../managed-kubernetes/operations/node-group/node-group-update.md) them so that nodes do not get public IP addresses.
 * If there are any external load balancers for [Service resources](../../managed-kubernetes/nlb-ref/service.md), delete them. 
-* If there are any public IP addresses assigned to [{{ alb-name }} controllers](../../managed-kubernetes/alb-ref/ingress.md), delete them. 
+* If there are any public IP addresses assigned to [{{ alb-name }} ingress controllers](../../managed-kubernetes/alb-ref/ingress.md), delete them.
+
+   {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 * Do not assign user [roles](../../vpc/security/) that enable creating NAT gateways. Roles with permissions to create NAT gateways are `admin`, `editor`, `vpc.gateways.editor`, `vpc.admin`, and `vpc.publicAdmin`.
 * If there are any NAT gateways, [delete](../../vpc/operations/delete-nat-gateway.md) them.
 
@@ -339,7 +342,7 @@ For more information about creating and configuring a {{ managed-k8s-name }} clu
 
    {% note info %}
    
-   If using the console, you will have to check hosts for public access separately in each cluster. We recommend using the CLI if you need to check a large number of clusters.
+   If using the console, you will have to check hosts for public access separately in each cluster. We recommend using CLI for checking a large number of clusters.
    
    {% endnote %}
 
@@ -375,7 +378,7 @@ For more information about creating and configuring a {{ managed-k8s-name }} clu
 {% endlist %}
 
 **Guides and solutions to use**:
-* Do not assign user [roles](../../managed-postgresql/security/) that enable configuring public access for cluster hosts. Roles with permissions to configure public access to hosts are `admin`, `editor`, `vpc.admin`, and `vpc.publicAdmin`.
+* Do not assign user [roles](../../managed-postgresql/security/) that enable configuring public access to cluster hosts. Roles with permissions to configure public access to hosts are `admin`, `editor`, `vpc.admin`, and `vpc.publicAdmin`.
 * If there are cluster hosts with public access enabled, [disable](../../managed-postgresql/operations/hosts.md#update) it.
 
 ### {{ mch-name }} {#managedserviceforclickhouse}
@@ -388,14 +391,14 @@ For more information about creating and configuring a {{ managed-k8s-name }} clu
 
    {% note info %}
 
-   If using the console, you will have to check hosts for public access separately in each cluster. We recommend using the CLI if you need to check a large number of clusters.
+   If using the console, you will have to check hosts for public access separately in each cluster. We recommend using CLI for checking a large number of clusters.
 
    {% endnote %}
 
    1. Open the [management console]({{ link-console-main }}) in your browser.
    1. Go to the appropriate folder.
    1. Go to **{{ ui-key.yacloud.component.navigation-menu.label_managed-clickhouse }}**. Go to the cluster and then go to **{{ ui-key.yacloud.clickhouse.cluster.switch_hosts }}**. 
-   1. Make sure the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column indicates `No` for all cluster hosts. Otherwise, proceed to **Guides and solutions to use**.
+   1. If the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column for all cluster hosts has `No` value, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
 
 - CLI {#cli}
 
@@ -424,7 +427,7 @@ For more information about creating and configuring a {{ managed-k8s-name }} clu
 {% endlist %}
 
 **Guides and solutions to use**:
-* Do not assign user [roles](../../managed-clickhouse/security) that enable configuring public access to cluster hosts. Roles with permissions to configure public access to hosts are `admin`, `editor`, `vpc.admin`, and `vpc.publicAdmin`.
+* Do not assign user [roles](../../managed-clickhouse/security) that enable configuring public access to cluster hosts. `admin`, `editor`, `vpc.admin`, `vpc.publicAdmin`: Roles that allow configuring a public access to a host.
 * If there are cluster hosts with public access enabled, [disable](../../managed-clickhouse/operations/hosts.md#update) it.
 
 ### {{ sf-name }} and {{ serverless-containers-name }} {#cloudfunctionsiserverlesscontainers}

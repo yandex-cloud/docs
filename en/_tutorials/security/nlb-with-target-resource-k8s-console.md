@@ -32,6 +32,8 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 ## Install an {{ alb-name }} ingress controller and create resources in your {{ managed-k8s-name }} cluster {#install-ingress-nginx}
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 {% include [k8s-install-ingress-nginx](../_tutorials_includes/migration-from-nlb-to-alb/k8s-install-ingress-nginx.md) %}
 
 ## Test the L7 load balancer {#test}

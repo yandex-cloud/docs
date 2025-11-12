@@ -49,7 +49,7 @@ The {{ managed-k8s-name }} services used as backends must be of the `NodePort` t
     terraform validate
     ```
 
-    {{ TF }} will display any configuration errors detected in your files.
+    {{ TF }} will show any errors found in your configuration files.
 
 1. Create the required infrastructure:
 
@@ -58,6 +58,8 @@ The {{ managed-k8s-name }} services used as backends must be of the `NodePort` t
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 ## Install an {{ alb-name }} ingress controller and create resources in your {{ managed-k8s-name }} cluster {#install-ingress-nginx}
+
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 {% include [k8s-install-ingress-nginx](../_tutorials_includes/migration-from-nlb-to-alb/k8s-install-ingress-nginx.md) %}
 

@@ -30,8 +30,8 @@ description: Follow this guide to get information about a user pool in {{ org-na
 
   1. Run this command:
 
-      ```bash
-      yc organization-manager idp userpool get <pool_ID>
-      ```
+     ```bash
+     yc organization-manager idp userpool get <pool_ID>
+     ```
 
 {% endlist %}

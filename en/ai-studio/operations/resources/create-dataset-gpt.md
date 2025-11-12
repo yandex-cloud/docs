@@ -54,7 +54,7 @@ Create a tuning dataset:
      task_type='TextToTextGeneration', rows=3, size_bytes=3514, validation_errors=())
      ```
 
-     Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
+     Save the new dataset's ID (the `id` field value): you will need it to fine-tune the model.
 
 - cURL {#curl}
 

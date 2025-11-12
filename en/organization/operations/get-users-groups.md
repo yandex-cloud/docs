@@ -17,4 +17,26 @@ To view which [groups](../../organization/concepts/groups.md) a specific [user](
       Optionally, use the search bar or filter at the top of the page.
   1. Navigate to the **{{ ui-key.yacloud_org.user.title_groups }}** tab.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command to view user's groups:
+
+     ```bash
+     yc organization-manager group list-effective --help
+     ```
+
+  1. [Get the user ID](users-get.md).
+  
+  1. Run this command:
+
+     ```bash
+     yc organization-manager group list-effective --subject_id <user_ID>
+     ```
+
+     Where `--subject_id` is the user ID you got in the previous step.
+
 {% endlist %}

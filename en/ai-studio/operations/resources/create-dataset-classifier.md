@@ -27,7 +27,7 @@ Create a tuning dataset:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. In the **{{ ui-key.yacloud.common.type }}** field, select a classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
+  1. In the **{{ ui-key.yacloud.common.type }}** field, select the classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
   1. Optionally, add or delete dataset [labels](../../../resource-manager/concepts/labels.md). They allow you to group resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
@@ -54,7 +54,7 @@ Create a tuning dataset:
      rows=4, size_bytes=5679, validation_errors=())
      ```
 
-     Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
+     Save the new dataset's ID (the `id` field value): you will need it to fine-tune the model.
 
 - cURL {#curl}
 

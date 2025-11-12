@@ -54,7 +54,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
       yc resource-manager <cloud_or_folder> list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of these commands to assign a role:
 
       * To a Yandex account user or local user:
@@ -170,7 +170,7 @@ To assign a role for an organization:
       yc organization-manager organization list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of these commands to assign a role:
 
       * To a Yandex account user or local user:
@@ -225,7 +225,7 @@ To assign a role for an organization:
 
    To assign a role for an organization:
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
    1. Describe the resource with the role for the organization in the configuration file.
 
       Here is an example of the configuration file structure:
@@ -253,7 +253,7 @@ To assign a role for an organization:
 
       For more information, see the [provider documentation]({{ tf-provider-link }}).
 
-   1. Make sure the settings are correct.
+   1. Validate your configuration.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -321,7 +321,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
       yc <service_name> <resource> list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of these commands to assign a role:
 
       * To a Yandex account user or local user:
@@ -438,7 +438,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
       yc <service_name> <resource> list
       ```
 
-   1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
+   1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../sa/get-id.md), user group, organization, or identity federation to which or the users of which you are assigning a role.
    1. Use one of the commands below to assign roles:
 
       * To a Yandex account user or local user:

@@ -1,18 +1,18 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
   
-  1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
   
-  1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. You may want to use the search feature.
+  1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. Use search, if required.
   
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles to assign to the group.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles that you need to assign to the group.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -37,7 +37,7 @@
           --organization-id <organization_ID>
         ```
 
-    1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
+    1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
     1. Using the `yc organization-manager group add-access-binding` command, assign the following roles:
 
         ```bash

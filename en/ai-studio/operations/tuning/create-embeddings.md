@@ -53,7 +53,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
      * `<API_key>`: Service account [API key](../../../iam/concepts/authorization/api-key.md) you got earlier required for [authentication in the API](../../../ai-studio/api-ref/authentication.md).
 
          {% include [sdk-auth-details-paragraph](../../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
-     * `<dataset_type>`: Type of previously created [dataset](../../concepts/resources/dataset.md#embeddings). The possible values are `pair` and `triplet`.
+     * `<dataset_type>`: Type of previously created [dataset](../../concepts/resources/dataset.md#embeddings). Possible values: `pair` and `triplet`.
      * `<dataset_ID>`: ID of the previously created dataset for fine-tuning.
 
   1. Run the file you created:

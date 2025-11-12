@@ -33,7 +33,7 @@ Create a tuning dataset:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. In the **{{ ui-key.yacloud.common.type }}** field, select a classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
+  1. In the **{{ ui-key.yacloud.common.type }}** field, select the classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
   1. Delete or add dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
@@ -60,7 +60,7 @@ Create a tuning dataset:
      rows=4, size_bytes=5679, validation_errors=())
      ```
 
-     Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
+     Save the new dataset's ID (the `id` field value): you will need it to fine-tune the model.
 
 - cURL {#curl}
 
@@ -155,7 +155,7 @@ Create a tuning dataset:
 
          {% include [sdk-auth-details-paragraph](../../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
      * `<dataset_ID>`: The new dataset's ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values range:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
 
          * `binary`: Binary classification.
          * `multilabel`: Multi-label classification.
@@ -219,7 +219,7 @@ Create a tuning dataset:
      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are fine-tuning the model in.
      * `<dataset_ID>`: Dataset ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values range:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
 
          * `text_classification_multilabel`: Binary classification or multi-label classification.
          * `text_classification_multiclass`: Multi-class classification.
@@ -296,5 +296,5 @@ Once the model is fine-tuned, save its URI in this format: `cls://<base_model_UR
 
 #### See also {#see-also}
 
-* [{#T}](../../tutorials/models-fine-tuning.md).
-* For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).
+* [{#T}](../../tutorials/models-fine-tuning.md)
+* For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning)

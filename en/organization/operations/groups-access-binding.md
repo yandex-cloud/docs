@@ -1,6 +1,6 @@
 # Assigning a role to a user group
 
-Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/operations/groups/access-binding-object.md), see [{#T}](../../iam/concepts/access-control/index.md#subject).
+Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/concepts/access-control/index.md#subject), see [{#T}](../../organization/operations/access-manage-group.md).
 
 In {{ org-full-name }}, you can assign a group a role for an organization, cloud, folder, another group, or service account.
 

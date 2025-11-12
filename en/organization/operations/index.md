@@ -35,6 +35,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 ## Managing user groups {#manage-groups}
 
 * [{#T}](./create-group.md)
+* [{#T}](./group-get-id.md)
 * [{#T}](./add-member-group.md)
 * [{#T}](./edit-group.md)
 * [{#T}](./access-manage-group.md)
@@ -55,10 +56,10 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./user-pools/create-userpool.md)
 * [{#T}](./user-pools/edit-userpool.md)
 * [{#T}](./user-pools/manage-domain.md)
+* [{#T}](./user-pools/set-access-bindings-userpool.md)
 * [{#T}](./user-pools/get-list-userpools.md)
 * [{#T}](./user-pools/get-userpool.md)
 * [{#T}](./user-pools/delete-userpool.md)
-* [{#T}](./user-pools/set-access-bindings-userpool.md)
 * [{#T}](./user-pools/get-list-users.md)
 
 ## Managing domains {#manage-domains}
@@ -79,6 +80,9 @@ description: In this article, you will learn how to work with {{ org-full-name }
 
 * [{#T}](./applications/oidc-create.md)
 * [{#T}](./applications/oidc-update.md)
+* [{#T}](./applications/oidc-set-access-bindings.md)
+* [{#T}](./applications/oidc-list.md)
+* [{#T}](./applications/oidc-get.md)
 * [{#T}](./applications/oidc-deactivate-remove.md)
 
 ## Managing MFA policies {#manage-mfa-policies}
@@ -109,3 +113,4 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./groups-access-binding.md)
 * [{#T}](./org-list-bindings.md)
 * [{#T}](./revoke-role.md)
+* [{#T}](./view-subject-access-bindings.md)

@@ -38,7 +38,7 @@ To view assigned roles:
 
   1. Get your account ID:
       1. [Guide](../sa/get-id.md) for service accounts.
-      1. [Guide](../users/get.md) for users with a Yandex account and federated users.
+      1. [Guide](../../../organization/operations/users-get.md) for users with a Yandex account and federated users.
   1. Get the resource ID or name.
   1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -49,7 +49,7 @@ To view assigned roles:
 
     1. Get your account ID:
         1. [Guide](../sa/get-id.md) for service accounts.
-        1. [Guide](../users/get.md) for users with a Yandex account and federated users.
+        1. [Guide](../../../organization/operations/users-get.md) for users with a Yandex account and federated users.
     1. Get the resource ID or name.
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

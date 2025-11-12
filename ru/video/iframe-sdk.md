@@ -2,7 +2,7 @@
 
 Вы можете разместить [видеоплеер](./concepts/player.md) с контентом из {{ video-name }} на HTML-странице с помощью SDK видеоплеера для IFrame.
 
-Добавьте в код страницы [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames)-контейнер:
+Добавьте в код страницы код вставки [iframe](https://en.wikipedia.org/wiki/HTML_element#Frames), в котором отображается плеер с указанным видео:
 
 ```html
 <iframe
@@ -16,11 +16,13 @@
 
 {% include [video-content-id-desc](../_includes/video/video-content-id-desc.md) %}
 
-Код вставки содержит iframe-контейнер, в котором отображается плеер с указанным видео.
+## Настройка параметров видеоплеера {#parameters}
 
-Вы также можете настроить [размер видео](#size) и [параметры запуска плеера](#parameters).
+Вы можете настроить [размер видео](#size) и [параметры запуска плеера](#parameters).
 
-## Настроить размер видео {#size}
+{% include [parameters-note](../_includes/video/parameters-note.md) %}
+
+### Размер видео {#size}
 
 Чтобы указать размер видео, задайте в теге `iframe` параметры: `height` — высота и `width` — ширина. 
 
@@ -52,7 +54,7 @@
 </div>
 ```
 
-## Настроить параметры запуска плеера {#parameters}
+### Параметры запуска плеера {#parameters}
 
 Вы можете настроить отображение плеера и воспроизведение видео с помощью специальных параметров. 
 
@@ -261,26 +263,6 @@ https://runtime.video.cloud.yandex.net/player/...?param1=value1&...&paramN=value
 ||
 |#
 
-### Пример {#example}
+#### См. также {#see-also}
 
-В примере видео будет запущено автоматически, но без звука:
-
-```html
-<iframe
-    frameborder="0"
-    scrolling="no"
-    allowfullscreen
-    allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true"
-></iframe>
-```
-
-<iframe
-    frameborder="0"
-    width="320"
-    height="180"
-    scrolling="no"
-    allowfullscreen
-    allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true"
-></iframe>
+[{#T}](./tutorials/video-iframe.md)

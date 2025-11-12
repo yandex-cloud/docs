@@ -7,6 +7,7 @@ description: This page features a list of {{ serverless-containers-name }} tutor
 
 * [{#T}](movies-database.md)
 * [{#T}](ci-cd-serverless.md)
+* [{#T}](ci-cd-sourcecraft-github-actions.md)
 * [{#T}](serverless-gitlab-runner.md)
 * [{#T}](pg-connect.md)
 * [{#T}](deploy-app-container.md)
