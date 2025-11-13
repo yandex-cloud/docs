@@ -1,4 +1,4 @@
-# Настройка алертов в {{ monitoring-full-name }}
+# Настройка дашбордов и алертов в {{ monitoring-full-name }}
 
 Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting.md#alert) [{{ monitoring-full-name }}](../../monitoring/).
 

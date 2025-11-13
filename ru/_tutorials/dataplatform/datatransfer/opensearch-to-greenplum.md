@@ -1,6 +1,6 @@
 # Копирование данных из {{ mos-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mos-name }} в кластер-приемник {{ mgp-name }}.
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mos-name }} в кластер-приемник {{ GP }} в сервисе {{ mgp-name }}.
 
 Чтобы перенести данные:
 
@@ -22,7 +22,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * Плата за вычислительные ресурсы и объем хранилища кластера {{ mos-name }} (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
-* Плата за вычислительные ресурсы, объем хранилища и резервных копий кластера {{ mgp-name }} (см. [тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
+* Плата за вычислительные ресурсы, объем хранилища и резервных копий кластера {{ GP }} (см. [тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
 
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
@@ -32,11 +32,11 @@
 - Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
-    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mgp-name }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации. При создании кластера:
+    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации. При создании кластера:
         * Включите публичный доступ для хостов.
         * Включите опцию **Доступ из Data Transfer**.
     1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
-    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) и [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups) разрешают подключение через интернет.
+    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) и [{{ GP }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups) разрешают подключение через интернет.
 
 - {{ TF }} {#tf}
 
@@ -51,9 +51,9 @@
 
         * [сеть](../../../vpc/concepts/network.md#network);
         * [подсеть](../../../vpc/concepts/network.md#subnet);
-        * [группа безопасности](../../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам {{ mos-name }} и {{ mgp-name }};
+        * [группа безопасности](../../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам {{ OS }} и {{ GP }};
         * кластер-источник {{ mos-name }} с пользователем `admin`;
-        * кластер-приемник {{ mgp-name }};
+        * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
         * трансфер.
 
     1. Укажите в файле `opensearch-to-greenplum.tf` значения параметров:
@@ -61,9 +61,9 @@
         * `mos_cluster_name` — имя кластера {{ mos-name }};
         * `mos_version` — версия {{ OS }};
         * `mos_admin_password` — пароль пользователя `admin` в кластере {{ mos-name }};
-        * `mgp_cluster_name` — имя кластера {{ mgp-name }};
-        * `mgp_username` — имя пользователя в кластере {{ mgp-name }};
-        * `mgp_user_password` — пароль пользователя в кластере {{ mgp-name }};
+        * `mgp_cluster_name` — имя кластера {{ GP }};
+        * `mgp_username` — имя пользователя в кластере {{ GP }};
+        * `mgp_user_password` — пароль пользователя в кластере {{ GP }};
         * `transfer_name` — имя трансфера {{ data-transfer-name }};
         * `profile_name` — имя вашего профиля в YC CLI.
 
@@ -150,15 +150,15 @@
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — пароль пользователя `admin`.
 
-1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера {{ mgp-name }} с настройками:
+1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера {{ GP }} с настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — выберите кластер {{ mgp-name }} из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — выберите кластер {{ GP }} из списка.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}** — `postgres`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — введите имя пользователя в кластере {{ mgp-name }}.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}** — введите пароль пользователя в кластере {{ mgp-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — введите имя пользователя в кластере {{ GP }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}** — введите пароль пользователя в кластере {{ GP }}.
 
 1. Создайте трансфер:
 
@@ -198,14 +198,14 @@
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Убедитесь, что в {{ mgp-name }} перенеслись данные из кластера-источника {{ mos-name }}:
 
-   1. [Получите SSL-сертификат](../../../managed-greenplum/operations/connect.md#get-ssl-cert) для подключения к кластеру {{ mgp-name }}.
+   1. [Получите SSL-сертификат](../../../managed-greenplum/operations/connect.md#get-ssl-cert) для подключения к кластеру {{ GP }}.
    1. Установите зависимости:
 
       ```bash
       sudo apt update && sudo apt install --yes postgresql-client
       ```
 
-   1. Подключитесь к базе данных в кластере {{ mgp-name }}.
+   1. Подключитесь к базе данных в кластере {{ GP }}.
    1. Проверьте, что БД содержит таблицу `people` с тестовыми данными:
 
        ```sql
@@ -221,7 +221,7 @@
   - Вручную {#manual}
 
       1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
-      1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
+      1. [Удалите кластер {{ GP }}](../../../managed-greenplum/operations/cluster-delete.md).
       
   - {{ TF }} {#tf}
 

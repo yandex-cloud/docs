@@ -1,5 +1,5 @@
 ---
-subcategory: Managed Service for Hive Metastore
+subcategory: Apache Hive Metastore
 page_title: 'Yandex: yandex_metastore_cluster'
 description: Get information about Hive Metastore cluster.
 sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/metastore_cluster.md

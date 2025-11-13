@@ -4,7 +4,7 @@
 {% include [storage-preview-disclaimer](../../_includes/data-transfer/storage-preview-disclaimer.md) %}
 
 
-Вы можете перенести данные из {{ objstorage-name }} в таблицу {{ mgp-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете перенести данные из {{ objstorage-name }} в таблицу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Создайте базу данных в кластере-приемнике](#prepare-data).
@@ -19,7 +19,7 @@
 В стоимость поддержки описываемого решения входят:
 
 * Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за кластер {{ mgp-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
 * Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
@@ -33,7 +33,7 @@
 
     - Вручную {#manual}
 
-        1. [Создайте кластер-приемник {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+        1. [Создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
@@ -67,7 +67,7 @@
             * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
             * секрет {{ lockbox-name }}, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
             * бакет-источник {{ objstorage-name }};
-            * кластер-приемник {{ mgp-name }};
+            * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
             * трансфер.
 
         1. Укажите в файле `object-storage-to-greenplum.tf` значения переменных:
@@ -120,7 +120,7 @@
 
 ## Создайте базу данных в кластере-приемнике {#prepare-data}
 
-1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ mgp-name }} от имени пользователя `user1`.
+1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `user1`.
 
 1. Создайте базу данных `db1`:
 
@@ -200,7 +200,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `db1` в кластере-приемнике {{ mgp-name }}.
+1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `db1` в кластере-приемнике {{ GP }}.
 
 1. Выполните запрос:
 
@@ -228,7 +228,7 @@
 
 1. Убедитесь, что данные из файла `demo_data2.csv` появились в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `db1` в кластере-приемнике {{ mgp-name }}.
+    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `db1` в кластере-приемнике {{ GP }}.
 
     1. Выполните запрос:
 
@@ -266,7 +266,7 @@
 
     - Вручную {#manual}
 
-        * [Кластер {{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
+        * [Кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
         * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
     - С помощью {{ TF }} {#tf}

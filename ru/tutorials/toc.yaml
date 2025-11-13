@@ -1059,7 +1059,13 @@ items:
       - name: Анализ производительности и оптимизация {{ SD }}
         href: dataplatform/storedoc-profiling.md
       - name: Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name }}
-        href: dataplatform/mysql-data-migration.md
+        items:
+          - name: Обзор
+            href: dataplatform/mysql-data-migration/index.md
+          - name: Перенос данных с использованием сервиса {{ data-transfer-name }}
+            href: dataplatform/mysql-data-migration/data-transfer.md
+          - name: Перенос данных с помощью логического дампа
+            href: dataplatform/mysql-data-migration/logical-dump-migration.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
         href: dataplatform/profiling-mmy.md
       - name: >-

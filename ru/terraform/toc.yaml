@@ -41,24 +41,18 @@ items:
       - name: Ресурсы (англ.)
         expanded: true
         items:
-          - name: ''
+          - name: Apache Hive Metastore
             items:
               - name: Data Sources
                 items:
-                  - name: organizationmanager_idp_user
-                    href: data-sources/organizationmanager_idp_user.md
-                    title: ''
-                  - name: organizationmanager_idp_userpool
-                    href: data-sources/organizationmanager_idp_userpool.md
+                  - name: metastore_cluster
+                    href: data-sources/metastore_cluster.md
                     title: ''
                 title: ''
               - name: Resources
                 items:
-                  - name: organizationmanager_idp_user
-                    href: resources/organizationmanager_idp_user.md
-                    title: ''
-                  - name: organizationmanager_idp_userpool
-                    href: resources/organizationmanager_idp_userpool.md
+                  - name: metastore_cluster
+                    href: resources/metastore_cluster.md
                     title: ''
                 title: ''
             title: ''
@@ -246,6 +240,12 @@ items:
                   - name: organizationmanager_group
                     href: data-sources/organizationmanager_group.md
                     title: ''
+                  - name: organizationmanager_idp_user
+                    href: data-sources/organizationmanager_idp_user.md
+                    title: ''
+                  - name: organizationmanager_idp_userpool
+                    href: data-sources/organizationmanager_idp_userpool.md
+                    title: ''
                   - name: organizationmanager_os_login_settings
                     href: data-sources/organizationmanager_os_login_settings.md
                     title: ''
@@ -276,6 +276,12 @@ items:
                     title: ''
                   - name: organizationmanager_group_membership
                     href: resources/organizationmanager_group_membership.md
+                    title: ''
+                  - name: organizationmanager_idp_user
+                    href: resources/organizationmanager_idp_user.md
+                    title: ''
+                  - name: organizationmanager_idp_userpool
+                    href: resources/organizationmanager_idp_userpool.md
                     title: ''
                   - name: organizationmanager_organization_iam_binding
                     href: resources/organizationmanager_organization_iam_binding.md
@@ -836,21 +842,6 @@ items:
                     title: ''
                   - name: mdb_greenplum_user
                     href: resources/mdb_greenplum_user.md
-                    title: ''
-                title: ''
-            title: ''
-          - name: Managed Service for Hive Metastore
-            items:
-              - name: Data Sources
-                items:
-                  - name: metastore_cluster
-                    href: data-sources/metastore_cluster.md
-                    title: ''
-                title: ''
-              - name: Resources
-                items:
-                  - name: metastore_cluster
-                    href: resources/metastore_cluster.md
                     title: ''
                 title: ''
             title: ''

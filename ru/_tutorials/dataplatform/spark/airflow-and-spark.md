@@ -128,14 +128,15 @@
   1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
      * **Сервисный аккаунт** — `metastore-agent`.
+     * **Версия** — `{{ metastore.integration-version }}`.
      * **Сеть** — `datalake-network`.
      * **Подсеть** — `datalake-network-{{ region-id }}-a`.
      * **Группа безопасности** — `metastore-sg`.
 
      {% note info %}
-   
+
      Дождитесь завершения операции.
-   
+
      {% endnote %}
 
   1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) с параметрами:

@@ -9,8 +9,7 @@ resource_type | Тип ресурса: `cluster`
 resource_id | Идентификатор кластера
 host | FQDN хоста
 node | Тип хоста: `primary`, `secondary`, `unknown`
-shard | Идентификатор шарда
-shard_name | Имя шарда
+shard | Имя шарда
 subcluster_name | Имя субкластера
 dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 
@@ -19,7 +18,7 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 
 Загрузка процессорных ядер.
 
-Общая метка: `systag` — тип ресурса.
+Тип потребления пишется в метку `systag`.
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
@@ -55,6 +54,8 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `load.avg_15min`<br/>`DGAUGE`, % | Средняя нагрузка за 15 минут. | 
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
+| `vd*`<br/>`DGAUGE`, байты | Размер виртуального диска. |
+| `vd**`<br/>`DGAUGE`, байты | Размер раздела на виртуальном диске. |
 
 
 ## Метрики дисковых операций {#managed-mongodb-diskio-metrics}
@@ -91,6 +92,8 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 
 
 ## Метрики RAM {#managed-mongodb-ram-metrics}
+
+Тип потребления пишется в метку `systag`.
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
@@ -142,8 +145,8 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `net.dropout`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при отправке. | 
 | `net.errin`<br/>`DGAUGE`, штуки | Количество ошибок при получении. | 
 | `net.errout`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. | 
-| `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
-| `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
+| `net.packets_recv`<br/>`DGAUGE`, пакеты/с | Интенсивность получения данных по сети. | 
+| `net.packets_sent`<br/>`DGAUGE`, пакеты/с | Интенсивность отправки данных по сети. | 
 | `net.speed`<br/>`DGAUGE`, бит/с | Максимальная скорость передачи данных в сети для данного интерфейса. |
 
 
@@ -153,6 +156,8 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | ----- | ----- |
 | `db_stats_*_dataSize`<br/>`DGAUGE`, байты | Размер несжатых данных в конкретной базе. `admin` — служебная база. | 
 | `db_stats_*_indexSize`<br/>`DGAUGE`, байты | Размер места, занимаемого индексами конкретной базы. `admin` — служебная база. | 
+| `db_stats_admin_dataSize`<br/>`DGAUGE`, байты | Общий объем данных в базе без учета индексов. |
+| `db_stats_admin_indexSize`<br/>`DGAUGE`, байты | Общий объем, занимаемый индексами в базе. |
 | `db_stats_config_dataSize`<br/>`DGAUGE`, байты | Размер несжатых данных конфигурационной базы. |
 | `db_stats_config_indexSize`<br/>`DGAUGE`, байты | Размер места, занимаемого индексами конфигурационной базы. |
 | `db_stats_local_dataSize`<br/>`DGAUGE`, байты | Размер несжатых данных локальной базы. |
@@ -169,17 +174,24 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `available`<br/>`DGAUGE`, штуки | Использование оперативной памяти, тип потребления `available`. |
 | `available_percent`<br/>`DGAUGE`, % | Доля использования оперативной памяти, тип потребления `available`. |
 | `buffered`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `buffered`. |
+| `bytes_recv`<br/>`DGAUGE`, байты | Размер полученных данных. |
+| `bytes_sent`<br/>`DGAUGE`, байты | Размер отправленных данных. |
 | `cached`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `cached`. |
 | `commit_limit`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `commit_limit`. |
 | `committed_as`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `committed_as`. |
 | `count`<br/>`DGAUGE`, объектов | Количество объектов в коллекции. |
 | `dirty`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `dirty`. | 
+| `drop_in`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при получении. | 
+| `drop_out`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при отправке. | 
+| `err_in`<br/>`DGAUGE`, штуки | Количество ошибок при получении. | 
+| `err_out`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. | 
 | `free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `free`. | 
 | `high_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_free`. | 
 | `high_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_total`. | 
 | `hosts.ha`<br/>`DGAUGE`, хосты | Количество хостов в высокодоступном кластере. |
 | `hosts.subcluster.mongocfg.total`<br/>`DGAUGE`, штуки | Количество mongocfg-инстансов в субкластере. |
 | `hosts.subcluster.mongod.total`<br/>`DGAUGE`, штуки | Количество mongod-инстансов в субкластере. |
+| `hosts.subcluster.mongoinfra.total`<br/>`DGAUGE`, штуки | Количество mongoinfra-инстансов в субкластере. |
 | `hosts.subcluster.mongos.total`<br/>`DGAUGE`, штуки | Количество mongos-инстансов в субкластере. |
 | `hosts.total`<br/>`DGAUGE`, хосты | Общее количество хостов, используемых сервисом. |
 | `huge_page_size`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_page_size`. | 
@@ -207,14 +219,15 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `icmp_outerrors`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, которые этот объект не отправил из-за проблем, обнаруженных в ICMP, таких как нехватка буферов. | 
 | `icmp_outmsgs`<br/>`DGAUGE`, штуки | Общее количество ICMP-сообщений, которые пытался отправить этот объект. Включает все сообщения, подсчитанные `icmp_outerrors`. |
 | `icmp_outparmprobs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о проблемах с параметрами ICMP. | 
-| `net.icmp_outratelimitglobal`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, ограниченных глобальными лимитами скорости. |
-| `net.icmp_outratelimithost`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, ограниченных лимитами скорости для конкретного хоста. |
+| `icmp_outratelimitglobal`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, ограниченных глобальными лимитами скорости. |
+| `icmp_outratelimithost`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, ограниченных лимитами скорости для конкретного хоста. |
 | `icmp_outredirects`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с перенаправлениями маршрута.  | 
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений Source Quench по протоколу ICMP. |
 | `icmp_outtimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с превышением времени ICMP превысило количество отправленных сообщений. | 
 | `icmp_outtimestampreps`<br/>`DGAUGE`, штуки | Количество отправленных ответных сообщений с меткой времени ICMP. | 
 | `icmp_outtimestamps`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с меткой времени ICMP.  | 
-| `icmpmsg_outtype3`<br/>`DGAUGE`, штуки | Общее количество отправленных ICMP-сообщений типа 3 (Destination Unreachable).  | 
+| `icmpmsg_intype3`<br/>`DGAUGE`, штуки | Количество полученных ICMP-сообщений типа 3 (Destination Unreachable). |
+| `icmpmsg_outtype3`<br/>`DGAUGE`, штуки | Количество отправленных ICMP-сообщений типа 3 (Destination Unreachable). |
 | `inactive`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `inactive`. | 
 | `inodes_free`<br/>`DGAUGE`, штуки | Свободное количество inodes. | 
 | `inodes_total`<br/>`DGAUGE`, штуки | Доступное количество inodes. | 
@@ -242,6 +255,14 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `ip_reasmoks`<br/>`DGAUGE`, штуки | Количество IP-пакетов, успешно собранных повторно. | 
 | `ip_reasmreqds`<br/>`DGAUGE`, штуки | Количество полученных IP-фрагментов, которые необходимо было повторно собрать в этом объекте. | 
 | `ip_reasmtimeout`<br/>`DGAUGE`, секунды | Максимальное количество секунд, в течение которых удерживаются полученные фрагменты, пока они ожидают повторной сборки в этом объекте. | 
+| `latency_commands`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения команд базы данных. |
+| `latency_commands_count`<br/>`DGAUGE`, штуки | Количество выполненных команд базы данных. |
+| `latency_reads`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения операций чтения. |
+| `latency_reads_count`<br/>`DGAUGE`, штуки | Количество операций чтения. |
+| `latency_transactions`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения транзакций. |
+| `latency_transactions_count`<br/>`DGAUGE`, штуки | Количество выполненных транзакций. |
+| `latency_writes`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения операций записи. |
+| `latency_writes_count`<br/>`DGAUGE`, штуки | Количество операций записи. |
 | `low_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_free`. | 
 | `low_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_total`. | 
 | `mapped`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `mapped`. | 
@@ -259,6 +280,8 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `n_unique_users`<br/>`DGAUGE`, штуки | Количество уникальных пользователей или аккаунтов, взаимодействующих с системой. |
 | `n_users`<br/>`DGAUGE`, штуки | Предельное число пользователей. | 
 | `oom_count`<br/>`DGAUGE`, штуки | Количество случаев нехватки памяти (Out of Memory). |
+| `packets_recv`<br/>`DGAUGE`, пакеты/с | Интенсивность получения данных по сети. | 
+| `packets_sent`<br/>`DGAUGE`, пакеты/с | Интенсивность отправки данных по сети. | 
 | `page_tables`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `page_tables`. | 
 | `read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения с конкретного диска. | 
 | `read_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, прочитанных с диска.
@@ -271,6 +294,7 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
 | `shared`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `shared`. | 
 | `slab`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `slab`. | 
+| `speed`<br/>`DGAUGE`, бит/с | Максимальная скорость передачи данных в сети для данного интерфейса. |
 | `sreclaimable`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sreclaimable`. | 
 | `sunreclaim`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sunreclaim`. | 
 | `swap_cached`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `swap_cached`. | 
@@ -397,6 +421,7 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `server_status_admin_wiredTiger.concurrentTransactions.write.out`<br/>`DGAUGE`, штуки | Количество задействованных тикетов параллельных транзакций записи. | 
 | `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets`<br/>`DGAUGE`, штуки | Количество доступных тикетов параллельных транзакций записи. | 
 | `server_status_admin_wiredTiger.transaction.transaction_begins`<br/>`DGAUGE`, штуки | Количество запущенных транзакций. | 
+| `server_status_admin_wiredTiger.transaction.transaction_begins_rate`<br/>`DGAUGE`, штуки/с | Скорость начала транзакций. |
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_max_time_msecs`<br/>`DGAUGE`, миллисекунды | Максимальное время создания чекпоинта. | 
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_min_time_msecs`<br/>`DGAUGE`, миллисекунды | Минимальное время создания чекпоинта. |  
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, миллисекунды | Время создания последнего чекпоинта (в миллисекундах). | 
@@ -412,6 +437,7 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности хоста на чтение.<br/>Принимает значение `1`, если сервис на хосте доступен на чтение, `0`, если нет. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности хоста на запись.<br/>Принимает значение `1`, если сервис на хосте доступен на запись, `0`, если нет. |
+| `latest_backup_sec`<br/>`DGAUGE`, секунды | Время с момента завершения последней успешной резервной копии. |
 | `oplog-diff`<br/>`DGAUGE`, миллисекунды | Размер журнала операций (в миллисекундах). | 
 | `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |

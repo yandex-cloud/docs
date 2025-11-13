@@ -32,6 +32,26 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: YC CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: get-configuration
+            href: cli-ref/cluster/get-configuration.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -98,5 +118,7 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     href: release-notes.md

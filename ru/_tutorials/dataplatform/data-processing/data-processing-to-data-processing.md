@@ -103,7 +103,7 @@
 
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
-1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) в сети `dataproc-network`.
+1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с версией {{ metastore.integration-version }} в сети `dataproc-network`.
 
 1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 

@@ -59,7 +59,7 @@ FQDN можно использовать для доступа к хосту в 
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/data-migration.md)
+* [{#T}](../tutorials/data-migration/index.md)
 * [{#T}](../tutorials/sqoop.md)
 * [{#T}](../tutorials/sync-mysql.md)
 * [{#T}](../tutorials/bitrix-shop/index.md)

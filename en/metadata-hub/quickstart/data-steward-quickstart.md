@@ -10,10 +10,7 @@ When using {{ data-catalog-full-name }} as a metadata steward, you can collect a
 
 {{ data-catalog-name }} can collect metadata from the following services:
 
-* {{ mch-full-name }}
-* {{ mmy-full-name }}
-* {{ mpg-full-name }}
-* {{ data-transfer-full-name }}
+{% include notitle [sources](../../_includes/metadata-hub/data-catalog-sources.md) %}
 
 To get started:
 

@@ -56,20 +56,6 @@ editable: false
 * Хосты {{ kraft-short-name }} добавляются в кластер, если в кластере используется версия {{ KF }} 3.6 и выше, он содержит больше одного хоста {{ KF }} и в качестве сервиса координации выбран {{ kraft-short-name }} (на отдельных хостах).
 * Хосты {{ kraft-short-name }} не добавляются в кластер, если в кластере используется версия {{ KF }} 3.6 и выше, и в качестве сервиса координации выбран {{ kraft-short-name }} (комбинированный режим). 
 
-
-В зависимости от [типа хоста](./concepts/index.md) стоимость вычисляется по-разному:
-
-* Стандартные хосты
-
-    Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
-
-
-* Выделенные хосты
-
-    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-
-
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост-брокер, {{ ZK }} или {{ kraft-short-name }} не может выполнять свои основные функции, не тарифицируется.
 
 ### Использование дискового пространства {#rules-storage}
@@ -91,8 +77,6 @@ editable: false
 * **Хранилище для хостов-брокеров {{ KF }}**: по 100 ГБ на сетевых HDD-дисках на каждый хост-брокер.
 * **Хосты {{ ZK }}** (создаются автоматически): 3 хоста класса `b3-c1-m4`: Intel Ice Lake, 2 × 50% vCPU, 4 ГБ RAM. 
 * **Хранилище для хостов {{ ZK }}**: по 10 ГБ на сетевых SSD-дисках на каждый хост.
-
-#### Стандартные хосты {#example-standard-hosts}
 
 
 {% list tabs group=pricing %}
@@ -129,15 +113,9 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-От типа хостов также зависит цена на быстрое локальное хранилище.
-
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
-
-#### Стандартные хосты {#prices-kafka-standard}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -180,29 +158,6 @@ editable: false
 
 
 
-
-
-#### Выделенные хосты {#prices-kafka-dedicated}
-
-{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}
-
-{% endlist %}
-
-
-
-
-
 ### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
 
 
@@ -212,8 +167,6 @@ editable: false
 
 {% endnote %}
 
-
-#### Стандартные хосты {#zookeeper-standard}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -235,20 +188,7 @@ editable: false
 
 
 
-
-
-#### Выделенные хосты {#zookeeper-dedicated}
-
-{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
-
-
-
-
 ### Вычислительные ресурсы хостов {{ kraft-name }} {#prices-kraft}
-
-#### Стандартные хосты {#prices-kraft-standard}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -282,29 +222,6 @@ editable: false
   {% include [kzt-hosts-kraft-standard-month](../_pricing/managed-kafka/kzt-hosts-kraft-standard-month.md) %}
 
 {% endlist %}
-
-
-
-
-
-
-#### Выделенные хосты {#prices-kraft-dedicated}
-
-{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-kraft-dedicated.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-kraft-dedicated.md) %}
-
-{% endlist %}
-
 
 
 

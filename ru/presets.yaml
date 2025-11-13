@@ -395,6 +395,8 @@ default:
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
   metastore-name: Apache Hive™ Metastore
+  metastore:
+    integration-version: 3.1
   metrika: Яндекс Метрика
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.ru/

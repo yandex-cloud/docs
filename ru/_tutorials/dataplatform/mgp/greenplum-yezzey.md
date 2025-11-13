@@ -1,7 +1,7 @@
 # Выгрузка данных {{ GP }} в холодное хранилище
 
 
-В кластере {{ mgp-full-name }} можно включить [гибридное хранилище](../../../managed-greenplum/concepts/hybrid-storage.md) для [таблиц типа AO и AOCO](../../../managed-greenplum/concepts/tables.md) (append-optimized storage). Тогда с помощью [расширения {{ YZ }}](../../../managed-greenplum/operations/extensions/yezzey.md) данные этих таблиц можно перенести из хранилища кластера в холодное хранилище.
+В кластере {{ GP }} можно включить [гибридное хранилище](../../../managed-greenplum/concepts/hybrid-storage.md) для [таблиц типа AO и AOCO](../../../managed-greenplum/concepts/tables.md) (append-optimized storage). Тогда с помощью [расширения {{ YZ }}](../../../managed-greenplum/operations/extensions/yezzey.md) данные этих таблиц можно перенести из хранилища кластера в холодное хранилище.
 
 Холодное хранилище удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../../managed-greenplum/pricing/index.md#rules-storage).
 
@@ -27,13 +27,13 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ mgp-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ GP }}](../../../managed-greenplum/pricing/index.md)).
+* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ GP }}](../../../managed-greenplum/pricing/index.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }}. При создании убедитесь, что включена опция **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ GP }}. При создании убедитесь, что включена опция **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
    {% note info %}
 

@@ -1,9 +1,9 @@
 ---
-title: Resource relationships in {{ data-catalog-name }}
-description: '{{ data-catalog-name }} allows you to collect, analyze, and mark up metadata drawn from various sources. You can upload structural metadata, e.g., list of tables in a managed database cluster, their schemas, links between tables. The main entity in {{ data-catalog-name }} is a metadata catalog. A catalog servers both as a storage for metadata and workspace for its markup.'
+title: Metadata catalog
+description: '{{ data-catalog-name }} allows you to collect, analyze, and mark up metadata drawn from various sources. You can upload structural metadata, e.g., list of tables in a managed database cluster, their schemas, and links between tables. The main entity in {{ data-catalog-name }} is a metadata catalog. A catalog servers both as a storage for metadata and workspace for its markup.'
 ---
 
-# Resource relationships in {{ data-catalog-full-name }}
+# Metadata catalog
 
 
 {% note info %}
