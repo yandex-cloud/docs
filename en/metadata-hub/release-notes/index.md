@@ -7,6 +7,22 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### October {#oct25}
+
+#### New features {#new-features-oct25}
+
+* Renamed [{{ connection-manager-name }}](../concepts/connection-manager.md) connections for managed {{ MG }} database clusters to {{ SD }} connections.
+
+
+* In [{{ data-catalog-name }}](../concepts/data-catalog.md), added new data sources: [{{ websql-name }}](../../websql/index.yaml), [{{ SD }}/{{ MG }}](../../storedoc/index.yaml), [{{ OS }}](../../managed-opensearch), and [{{ GP }}](../../managed-greenplum). Also, users can now [run SQL queries](../operations/data-catalog/web-sql-query.md) with {{ websql-name }}.
+
+* {{ data-catalog-name }} now supports metadata profiling.
+
+
+#### Fixed issues {#problems-solved-oct25}
+
+* You can now validate connection names and generate passwords in {{ connection-manager-name }}.
+
 ### September {#sep25}
 
 #### New features {#new-features-sep25}

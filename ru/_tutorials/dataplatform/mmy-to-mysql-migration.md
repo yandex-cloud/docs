@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Миграция данных из стороннего кластера {{ MY }} описана в статье [{#T}](../../managed-mysql/tutorials/data-migration.md).
+Миграция данных из стороннего кластера {{ MY }} описана в статье [{#T}](../../managed-mysql/tutorials/data-migration/index.md).
 
 {% endnote %}
 

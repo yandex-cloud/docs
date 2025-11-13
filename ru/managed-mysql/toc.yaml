@@ -98,7 +98,13 @@ items:
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Миграция базы данных из стороннего кластера {{ MY }}
-        href: tutorials/data-migration.md
+        items:
+          - name: Обзор
+            href: tutorials/data-migration/index.md
+          - name: Перенос данных с использованием сервиса {{ data-transfer-name }}
+            href: tutorials/data-migration/data-transfer.md
+          - name: Перенос данных с помощью логического дампа
+            href: tutorials/data-migration/logical-dump-migration.md
       - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
       - name: >-

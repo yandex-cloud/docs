@@ -7,7 +7,7 @@ description: You can stop and restart a {{ ytsaurus-name }} cluster as needed. W
 
 {% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
 
-You can stop and restart an {{ ytsaurus-name }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+If necessary, you can stop and restart an {{ ytsaurus-name }} cluster. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 
 ## Stopping a cluster {#stop-cluster}
 
@@ -19,6 +19,20 @@ You can stop and restart an {{ ytsaurus-name }} cluster as needed. When stopped,
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Find the cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. In the dialog box that opens, confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To stop a {{ ytsaurus-name }} cluster, run the command:
+
+    ```bash
+    {{ yc-ytsaurus }} cluster stop <cluster_name_or_ID>
+    ```
+
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -36,7 +50,7 @@ You can stop and restart an {{ ytsaurus-name }} cluster as needed. When stopped,
             --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -66,7 +80,7 @@ You can stop and restart an {{ ytsaurus-name }} cluster as needed. When stopped,
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -82,6 +96,20 @@ You can restart clusters with the `Stopped` status.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Find the stopped cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
     1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To start a {{ ytsaurus-name }} cluster, run this command:
+
+    ```bash
+    {{ yc-ytsaurus }} cluster start <cluster_name_or_ID>
+    ```
+
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 

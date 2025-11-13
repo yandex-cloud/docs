@@ -15,23 +15,33 @@ Before connecting:
 
 - Connecting from a user VM {#from-yandex-vm}
 
-  1. Create an access configuration file:
+  1. Get the access configuration file using the following YC CLI command:
 
-      ```bash
-      echo '{
-        auth_class = {
-          module_name = "yc_managed_ytsaurus_auth";
-          class_name = "IamTokenAuth";
-        };
-        proxy = {
-          url = "http://hp.<{{ ytsaurus-name }}_cluster_ID>.ytsaurus.mdb.yandexcloud.net:32100";
-          network_name = "external";
-          http_proxy_role = "default";
-        }
-      }' > ~/.yt/config
-      ```
+     ```bash
+     {{ yc-ytsaurus }} cluster get-configuration <cluster_name_or_ID> --private
+     ```
 
-      You can get the cluster ID from the [folder’s cluster list](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
+     {% cut "Configuration file example" %}
+     
+     ```bash
+     {
+       auth_class = {
+         module_name = "yc_managed_ytsaurus_auth";
+         class_name = "IamTokenAuth";
+       };
+       proxy = {
+         url = "http://hp.<{{ ytsaurus-name }}_cluster_ID>.ytsaurus.mdb.yandexcloud.net:32100";
+         network_name = "external";
+         http_proxy_role = "default";
+       }
+     }
+     ```
+
+     {% endcut %}
+
+     The configuration file will be saved to `~/.yt/config`.
+
+     You can get the cluster ID with the [list of clusters in the folder](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
 
   1. Run a request for the root directory contents list:
 
@@ -41,22 +51,32 @@ Before connecting:
 
 - Connecting from the internet {#from-internet}
 
-  1. Create an access configuration file:
+  1. Get the access configuration file using the following YC CLI command:
 
-      ```bash
-      echo '{
-        auth_class = {
-          module_name = "yc_managed_ytsaurus_auth";
-          class_name = "IamTokenAuth";
-        };
-        proxy = {
-          url = "https://<{{ ytsaurus-name }}_cluster_ID>.proxy.ytsaurus.yandexcloud.net";
-          enable_proxy_discovery = %false;
-        }
-      }' > ~/.yt/config
-      ```
+     ```bash
+     {{ yc-ytsaurus }} cluster get-configuration <cluster_name_or_ID>
+     ```
 
-      You can get the cluster ID from the [folder’s cluster list](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
+     {% cut "Configuration file example" %}
+     
+     ```bash
+     {
+       auth_class = {
+         module_name = "yc_managed_ytsaurus_auth";
+         class_name = "IamTokenAuth";
+       };
+       proxy = {
+         url = "https://<{{ ytsaurus-name }}_cluster_ID>.proxy.ytsaurus.yandexcloud.net";
+         enable_proxy_discovery = %false;
+       }
+     }
+     ```
+     
+     {% endcut %}
+     
+     The configuration file will be saved to `~/.yt/config`.
+
+     You can get the cluster ID with the [list of clusters in the folder](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
 
   1. Run a request for the root directory contents list:
 
@@ -157,7 +177,7 @@ To connect to your cluster:
     go run connect.go -id <{{ ytsaurus-name }}_cluster_ID> -token <user_OAuth_token>
     ```
 
-    You can get the cluster ID from the [folder’s cluster list](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](../../managed-ytsaurus/operations/cluster-list.md#list-clusters).
 
 ### Python {#python}
 

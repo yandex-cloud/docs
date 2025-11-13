@@ -55,7 +55,8 @@ For UI customization:
      {% endlist %}
 
    * **Contrasting color**: Select a color for the text on the button.
-   * **Logo and favicon**: To replace the logo and favicon, [upload](../../storage/quickstart.md#upload-files) an 1:1 ratio SVG file to the {{ objstorage-full-name }} storage. Then copy the link to the file in the storage and paste it into this field. Click **Apply** to the right of the field.
+   * **Logo and favicon**: To replace the logo and favicon, [upload](https://yandex.cloud/en/docs/storage/quickstart#upload-files) a 1:1 aspect ratio SVG file to {{ objstorage-full-name }}. Then copy the link to the file in the storage and paste it into this field. Click **Apply** next to the field.
+   
    * **Rounding**: Sets the rounding of the corners of UI elements.
 
     {% note info %}

@@ -141,6 +141,7 @@
    1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
       * **Сервисный аккаунт** — `metastore-agent`.
+      * **Версия** — `{{ metastore.integration-version }}`.
       * **Сеть** — `data-processing-network`.
       * **Подсеть** — `data-processing-network-{{ region-id }}-a`.
       * **Группа безопасности** — `metastore-sg`.
@@ -175,6 +176,7 @@
    1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
       * **Сервисный аккаунт** — `my-editor`.
+      * **Версия** — `{{ metastore.integration-version }}`.
       * **Сеть** — `data-processing-network`.
       * **Подсеть** — `data-processing-network-{{ region-id }}-a`.
       * **Группа безопасности** — группа по умолчанию в сети `data-processing-network`.

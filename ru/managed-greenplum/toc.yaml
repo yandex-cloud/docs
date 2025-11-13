@@ -619,7 +619,7 @@ items:
         href: qa/backup.md
       - name: Изменение кластера
         href: qa/update.md
-      - name: Кластер и хосты {{ mgp-short-name }}
+      - name: Кластер и хосты {{ GP }}
         href: qa/cluster-hosts.md
       - name: Работа с внешними таблицами
         href: qa/pxf.md

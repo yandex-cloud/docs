@@ -66,19 +66,6 @@
 
 {% include [maintenance-window](../cli/maintenance-window-description.md) %}
 
-## Выделенные хосты {#dedicated-hosts}
-
-Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../../compute/concepts/dedicated-host.md), в параметре `--host-group-ids` укажите идентификаторы этих хостов через запятую:
-
-```bash
-{{ yc-mdb-kf }} cluster create \
-...
---host-group-ids <идентификаторы_групп_выделенных_хостов> \
-...
-```
-
-{% include [Dedicated hosts note](note-dedicated-hosts.md) %}
-
 ## Предупреждение про комбинированный режим и передачу конфигурации хостов {#note-warning-combined-mode}
 
 {% note warning %}

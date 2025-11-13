@@ -66,6 +66,7 @@ resource "yandex_vpc_subnet" "foo" {
 
 ### Optional
 
+- `auth_method` (String) Authentication method for the user. Possible values are `AUTH_METHOD_PASSWORD`, `AUTH_METHOD_IAM`. Default is `AUTH_METHOD_PASSWORD`.
 - `conn_limit` (Number) The maximum number of connections per user. (Default 50).
 - `deletion_protection` (String) The `true` value means that resource is protected from accidental deletion.
 - `generate_password` (Boolean) Generate password using Connection Manager. Allowed values: true or false. It's used only during user creation and is ignored during updating.

@@ -26,7 +26,7 @@ In {{ datalens-short-name }}, you can export data from charts:
 * [Background data export](#background-export) with extended limits of up to 1 GB:
 
   * Available only for paginated [Tables](../../visualization-ref/table-chart.md) created in the [wizard](./dataset-based-charts.md). Exports data from all the table's pages.
-  * It has the following format: `CSV`.
+  * Format: `CSV` file.
   * First, the file is generated in the background, then a download link is created. File preparation takes up to 30 minutes.
   * Available only with the Business [service plan](../../pricing.md#service-plans).
 
@@ -78,11 +78,14 @@ The following limitations apply to the background export:
 * Minimum number of pages to export is two.
 * Maximum number of rows in the table is 1,000,000.
 * [Rows with totals](../../visualization-ref/table-chart.md#add-totals) and [tree hierarchy](../../dataset/data-types.md#how-to-create-tree) are not supported. You can export a tree hierarchy if pagination is disabled.
+
+
 * The following connection types are not supported:
 
   * [{{ datalens-short-name }} Usage Analytics](../../operations/connection/create-usage-tracking.md)
   * [{{ speechsense-name }}](../../operations/connection/create-speechsense.md)
   * [{{ yandex-cloud }} Billing](../../operations/connection/create-cloud-billing.md)
+
 
 * Maximum export file size is 1 GB.
 * File is available for download for 24 hours after the export is complete.
@@ -175,7 +178,7 @@ By default, users can export data from charts. You can disable this option at th
   To disable data export, you need the `{{ permission-write }}` access permissions for the connection.
 
   1. Go to the connection page.
-  1. Under **Advanced connection settings**, enable the **Disable data export** option.
+  1. Under **Advanced connection settings**, activate the **Disable data export** option.
 
      ![image](../../../_assets/datalens/chart/connection-export-disable.png)
 

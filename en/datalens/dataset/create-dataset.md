@@ -145,7 +145,7 @@ You can join data from source tables.
 1. Select the fields to join the tables on. You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
-   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. For example:
+   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
    
      ```sql
      SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
@@ -214,7 +214,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. To do this:
+You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -244,7 +244,7 @@ You can perform the following operations on dataset fields:
 1. Hide fields: You can hide fields you do not need at the moment. Other users will not see these fields in the wizard when creating a chart. To do this, click ![icon](../../_assets/console-icons/eye-slash.svg).
 
    
-   ![screenshot](../../_assets/datalens/dataset/dataset-field-settings.png)
+   ![screenshot](../../_assets/datalens/dataset/dataset-field-settings-internal.png)
 
 
 

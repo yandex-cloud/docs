@@ -88,12 +88,6 @@
     
      1. В качестве сервиса координации выберите **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-zookeeper_pN7ub }}**.
 
-     
-     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер {{ mkf-name }}.
-
-        {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
   1. Если вы указали более одного хоста-брокера, то в блоке **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
   1. При необходимости задайте дополнительные настройки кластера {{ mkf-name }}:
 
@@ -188,10 +182,6 @@
   1. {% include notitle [maintenance](../../_includes/mdb/mkf/create-cluster.md#maintenance) %}
 
   1. {% include notitle [auto-rescale](../../_includes/mdb/mkf/create-cluster.md#auto-rescale) %}
-
-
-  
-  1. {% include notitle [dedicated-hosts](../../_includes/mdb/mkf/create-cluster.md#dedicated-hosts) %}
 
 
 - {{ TF }} {#tf}
@@ -466,12 +456,6 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
             
-            Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -657,12 +641,6 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
             
-            Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `host_group_ids`.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -758,12 +736,6 @@
             * Три зоны доступности — один хост-брокер в каждой зоне доступности.
 
           Задать количество хостов-брокеров вручную нельзя.
-
-     
-     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер {{ mkf-name }}.
-
-        {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
 
   1. Если вы указали более одного хоста-брокера, то в блоке **{{ ui-key.yacloud.kafka.section_kraft-resources }}** укажите характеристики [хостов {{ kraft-short-name }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
   1. При необходимости задайте дополнительные настройки кластера {{ mkf-name }}:
@@ -863,10 +835,6 @@
   1. {% include notitle [maintenance](../../_includes/mdb/mkf/create-cluster.md#maintenance) %}
 
   1. {% include notitle [auto-rescale](../../_includes/mdb/mkf/create-cluster.md#auto-rescale) %}
-
-
-  
-  1. {% include notitle [dedicated-hosts](../../_includes/mdb/mkf/create-cluster.md#dedicated-hosts) %}
 
 
 - {{ TF }} {#tf}
@@ -1155,12 +1123,6 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
             
-            Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -1351,12 +1313,6 @@
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
-
-            
-            Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `host_group_ids`.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
 
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).

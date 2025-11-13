@@ -13,7 +13,7 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ mgp-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
 
 * Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 
@@ -30,7 +30,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-источник {{ mgp-full-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации.
+    1. [Создайте кластер-источник {{ GP }} в сервисе {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации.
 
     1. [Создайте кластер-приемник {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с базой данных `db1`.
 
@@ -61,7 +61,7 @@
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
 
 
-        * кластер-источник {{ mgp-name }};
+        * кластер-источник {{ GP }} в сервисе {{ mgp-name }};
         * кластер-приемник {{ mch-name }};
         * эндпоинт-приемник.
 
@@ -98,7 +98,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
 
     ```sql
     CREATE TABLE x_tab
@@ -134,7 +134,7 @@
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. [Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md), удалите одну строку и измените другую в таблице `x_tab`:
+1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect.md), удалите одну строку и измените другую в таблице `x_tab`:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
@@ -170,7 +170,7 @@
     - Вручную {#manual}
 
         1. [Удалите](../../managed-clickhouse/operations/cluster-delete.md) кластер {{ mch-name }}.
-        1. [Удалите](../../managed-greenplum/operations/cluster-delete.md) кластер {{ mgp-name }}.
+        1. [Удалите](../../managed-greenplum/operations/cluster-delete.md) кластер {{ GP }}.
         1. [Удалите](../../data-transfer/operations/endpoint/index.md#delete) эндпоинт-приемник.
 
     - {{ TF }} {#tf}

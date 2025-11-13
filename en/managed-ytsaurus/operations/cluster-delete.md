@@ -24,6 +24,20 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To delete an {{ ytsaurus-name }} cluster, run this command:
+
+    ```bash
+    {{ yc-ytsaurus }} cluster delete <cluster_name_or_ID>
+    ```
+
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - {{ TF }} {#tf}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
@@ -43,7 +57,7 @@ You can delete an {{ ytsaurus-name }} cluster if you no longer need it.
           --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters/<cluster_ID>'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -7,7 +7,7 @@
 
 Уменьшить размер хранилища кластера невозможно.
 
-Вы можете [создать](../../managed-mysql/operations/cluster-create.md) новый кластер с хранилищем меньшего размера и [перенести](../../managed-mysql/tutorials/data-migration.md) в него данные.
+Вы можете [создать](../../managed-mysql/operations/cluster-create.md) новый кластер с хранилищем меньшего размера и [перенести](../../managed-mysql/tutorials/data-migration/index.md) в него данные.
 
 #### Как увеличить размера диска? {#increase-size}
 

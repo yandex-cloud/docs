@@ -80,7 +80,9 @@ To delete a color palette:
 
 ## Setting the default color pallete {#default-palette}
 
+
 For {{ datalens-name }} instances created before September 16, 2025, the default palette is `Classic 20`. For instances created after September 16, 2025, the default palette is `Default 20`.
+
 
 To set any of the preinstalled or previously added color palletes as default:
 

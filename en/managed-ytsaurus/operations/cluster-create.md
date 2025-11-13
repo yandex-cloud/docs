@@ -56,11 +56,11 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    To create a {{ myt-name }} cluster:
+    To create a {{ ytsaurus-name }} cluster:
 
     1. In the configuration file, describe the resources you are creating:
 
-        * {{ myt-name }} cluster: Cluster description.
+        * {{ ytsaurus-name }} cluster: Cluster description.
 
         * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -199,7 +199,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Create a {{ myt-name }} cluster.
+    1. Create a {{ ytsaurus-name }} cluster.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -563,11 +563,11 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    To create a {{ myt-name }} cluster:
+    To create a {{ ytsaurus-name }} cluster:
 
     1. In the configuration file, describe the resources you are creating:
 
-        * {{ myt-name }} cluster: Cluster description.
+        * {{ ytsaurus-name }} cluster: Cluster description.
 
         * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 

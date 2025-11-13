@@ -66,19 +66,6 @@ Where `type` is the maintenance type:
 
 {% include [maintenance-window](../cli/maintenance-window-description.md) %}
 
-## Dedicated hosts {#dedicated-hosts}
-
-To create a {{ mkf-name }} cluster based on [dedicated host](../../../compute/concepts/dedicated-host.md) groups, specify the IDs of these hosts as a comma-separated list in the `--host-group-ids` parameter:
-
-```bash
-{{ yc-mdb-kf }} cluster create \
-...
---host-group-ids <dedicated_host_group_IDs> \
-...
-```
-
-{% include [Dedicated hosts note](note-dedicated-hosts.md) %}
-
 ## Combined mode and host configuration transfer warning {#note-warning-combined-mode}
 
 {% note warning %}

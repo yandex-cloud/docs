@@ -22,7 +22,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы получить список операций для кластера {{ mgp-name }}, воспользуйтесь командой:
+  Чтобы получить список операций для кластера {{ GP }}, воспользуйтесь командой:
 
   ```bash
   yc managed-greenplum cluster list-operations <имя_или_идентификатор_кластера>

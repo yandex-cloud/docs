@@ -5,7 +5,7 @@ description: 'Follow this guide to manage a transfer: get a list of transfers or
 
 # Managing transfer process
 
-However, you can:
+You have the following options:
 * [Get a list of transfers](#list).
 * [Get detailed information about a transfer](#get).
 * [Create a transfer](#create).
@@ -203,7 +203,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -327,7 +327,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -431,7 +431,7 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 
 {% endnote %}
 
-Learn more in [{#T}](../concepts/transfer-lifecycle.md).
+For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}
