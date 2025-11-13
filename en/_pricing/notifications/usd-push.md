@@ -1,4 +1,4 @@
-Posh notification event processing {{ cns-short-name }} | Price per 1,000 events, without VAT
+Push notification event processing {{ cns-short-name }} | Price per 1,000 events, without VAT
 --- | ---
 Up to 1,000 notifications per month                 | Free of charge
 1,000 to 501,000 notifications per month       | {% calc [currency=USD] 99 / 120 %}

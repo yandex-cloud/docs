@@ -84,6 +84,7 @@ output "permission" {
 
 ### Read-Only
 
+- `auth_method` (String) Authentication method for the user. Possible values are `AUTH_METHOD_PASSWORD`, `AUTH_METHOD_IAM`. Default is `AUTH_METHOD_PASSWORD`.
 - `connection_manager` (Map of String) Connection Manager connection configuration. Filled in by the server automatically.
 - `grants` (List of String) List of the user's grants.
 - `id` (String) The ID of this resource.

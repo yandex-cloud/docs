@@ -1,7 +1,6 @@
 # Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
 
 
-
 К кластеру {{ SPRK }} можно подключить кластер {{ metastore-name }}. В этом случае метаданные, которые появляются в результате выполнения заданий, загружаются в кластер {{ metastore-name }}. Сохраненные метаданные может использовать другой кластер {{ SPRK }}.
 
 Ниже рассматривается пример, в котором с помощью PySpark-задания создаются база данных и таблица в ней, а затем данные из созданной БД загружаются в бакет {{ objstorage-full-name }}. Метаданные о БД сохраняются в кластере {{ metastore-name }}, подключенном к кластеру {{ SPRK }}.
@@ -15,7 +14,6 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки описываемого решения входят:
@@ -24,7 +22,7 @@
 * Плата за сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
 * Плата за вычислительные ресурсы компонентов кластера {{ msp-name }} (см. [тарифы {{ msp-name }}](../../../managed-spark/pricing.md)).
 * Плата за вычислительные ресурсы компонентов кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md)).
-
+
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -79,10 +77,10 @@
     1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `metastore-agent`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
         * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `integration-network`.
         * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `integration-network-{{ region-id }}-a`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `metastore-sg`.
-
 
     1. [Создайте кластер {{ msp-name }}](../../../managed-spark/operations/cluster-create.md) с параметрами:
 

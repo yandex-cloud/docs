@@ -963,7 +963,7 @@ items:
     items:
       - name: Optimization best practices
         href: concepts/optimization_recommendations.md
-      - name: '{{ datalens-name }} errors'
+      - name: Errors {{ datalens-name }}
         href: troubleshooting/errors/all.md
       - name: FAQ
         items:

@@ -131,6 +131,7 @@
         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** у подкластеров {{ dataproc-name }} — `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** у хоста-мастера — включен.
 
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -169,6 +170,7 @@
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
 
 {% endlist %}
 
@@ -249,6 +251,7 @@
 1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-s3-sa`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `dataproc-network`.
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `dataproc-subnet`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
@@ -313,9 +316,11 @@
         1. [Сеть](../../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
+    
     - {{ TF }} {#tf}
 
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
 
     {% endlist %}
 

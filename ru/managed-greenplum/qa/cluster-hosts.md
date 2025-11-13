@@ -1,4 +1,4 @@
-# Кластеры и хосты {{ mgp-short-name }}
+# Кластеры и хосты {{ GP }}
 
 {% include [cluster-hosts-minitoc](../../_qa/managed-greenplum/minitoc/cluster-hosts.md) %}
 

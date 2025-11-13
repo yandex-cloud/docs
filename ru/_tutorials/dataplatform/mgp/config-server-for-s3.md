@@ -14,7 +14,7 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ mgp-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ GP }}](../../../managed-greenplum/pricing/index.md)).
+* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ GP }}](../../../managed-greenplum/pricing/index.md)).
 * Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 * Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)). 
 * Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
@@ -29,14 +29,14 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }} любой подходящей конфигурации.
+    1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ GP }} любой подходящей конфигурации.
 
     
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
     
-    1. [Создайте виртуальную машину с Linux](../../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ mgp-name }}.
+    1. [Создайте виртуальную машину с Linux](../../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ GP }}.
 
 
     1. [Создайте бакет в {{ objstorage-name }}](../../../storage/operations/buckets/create.md) с ограниченным доступом. [Загрузите](../../../storage/operations/objects/upload.md) в него файл `example.csv`, содержащий тестовую таблицу:
@@ -69,13 +69,13 @@
         * сеть;
         * подсеть;
         * сервисный аккаунт со статическим ключом доступа;
-        * кластер {{ mgp-name }};
+        * кластер {{ GP }} в сервисе {{ mgp-name }};
         * бакет, в который будет помещен файл `example.csv`;
         * виртуальная машина с [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 
     1. Укажите в файле `greenplum-s3-vm.tf`:
 
-        * Пароль пользователя `user`, который будет использоваться для доступа к кластеру {{ mgp-name }}.
+        * Пароль пользователя `user`, который будет использоваться для доступа к кластеру {{ GP }}.
         * Идентификатор образа виртуальной машины.
         * Имя пользователя и путь к [SSH-ключу](../../../glossary/ssh-keygen.md) для доступа к виртуальной машине.
         * Идентификатор каталога для сервисного аккаунта, такой же как в настройках провайдера.
@@ -181,7 +181,7 @@
 
 ## Создайте внешнюю таблицу {#create-ext-table}
 
-1. [Подключитесь к кластеру](../../../managed-greenplum/operations/connect.md) {{ mgp-name }}.
+1. [Подключитесь к кластеру](../../../managed-greenplum/operations/connect.md) {{ GP }}.
 1. Выполните запрос на создание внешней таблицы, которая ссылается на таблицу `example.csv` в бакете:
 
     ```sql
@@ -223,7 +223,7 @@
     1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../../vpc/operations/address-delete.md).
     1. [Удалите бакет в {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-    1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
+    1. [Удалите кластер {{ GP }}](../../../managed-greenplum/operations/cluster-delete.md).
     1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
     1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).

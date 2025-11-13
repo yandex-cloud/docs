@@ -6,7 +6,7 @@ description: Различные сценарии использования {{ m
 # Практические руководства {{ mmy-name }}
 
 * [{#T}](profiling-mmy.md)
-* [{#T}](data-migration.md)
+* [{#T}](data-migration/index.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](sqoop.md)
 * [{#T}](mkf-mmy-data-transfer.md)

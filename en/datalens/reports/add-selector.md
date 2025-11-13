@@ -9,11 +9,15 @@ description: Follow this guide to add, set up, or delete selectors in reports.
 
 You can [add](#add-selector), [set up, or delete](#selector-edit) a selector in your report.
 
+
 You can also [add a JS selector](#add-js-selector) to a report.
+
 
 Before adding a selector, make sure you have the `{{ permission-write }}` or `{{ permission-admin }}` access to the report. For more information, see [{#T}](../security/manage-access.md).
 
 To start working with [selectors](../dashboard/selector.md):
+
+
 
 
 1. Open the report with the required selector in one of the following ways:
@@ -31,6 +35,7 @@ To start working with [selectors](../dashboard/selector.md):
      1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
 
    {% endlist %}
+
 
 
 
@@ -142,7 +147,7 @@ To add a [selector](../dashboard/selector.md) to a report:
 
    In [QL charts](../concepts/chart/ql-charts.md), you can control [selector parameters](../operations/chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{ variable }}` format.
 
-1. (Optional) Add another selector to the widget. To do this, on the left side under **Selectors**, click ![image](../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, under **Selectors**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the selector and select:
+1. Optionally, add another selector to the widget. To do this, on the left side under **Selectors**, click ![image](../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, under **Selectors**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
    * **Duplicate**: This will add a new selector with the same parameters to the widget.
    * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button in the **Selectors** section or to a report using the **Insert** button on the bottom panel of the report page.
@@ -153,13 +158,13 @@ To add a [selector](../dashboard/selector.md) to a report:
      
      {% endcut %}
 
-1. (Optional) Click ![image](../../_assets/console-icons/gear.svg) **Advanced settings** and specify widget settings:
+1. Optionally, click ![image](../../_assets/console-icons/gear.svg) **Advanced settings** and specify widget settings:
 
    * **Name**: If you enable this option, the `Selector group` name will be displayed at the top of the widget. In the field on the right, you can enter your own name.
    * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
    * **Dependent selector autoupdate**: Enables dependent selectors to influence one another before you click the **Apply** button. Available for widgets with multiple selectors and the **Apply button** option enabled.
-   * (Optional) For a widget with multiple selectors, customize the selector arrangement. To do this, arrange the selectors as needed by dragging them and adjust the width of each one:
+   * Optionally, for a widget with multiple selectors, customize the selector arrangement. To do this, arrange the selectors as needed by dragging them and adjust the width of each one:
 
       * `Auto`: Automatic selector width.
       * `%`: Selector width as a percentage of the widget's total width.
@@ -181,6 +186,7 @@ You can now control filtering in a report by choosing values in selectors.
 If you add a field selector to a report, filters added at the chart level will no longer apply to the chart in the report.
 
 {% endnote %}
+
 
 ## Adding a JS selector{#add-js-selector}
 
@@ -218,6 +224,7 @@ To add a [JS selector](../charts/editor/widgets/controls.md) to a report:
    ![image](../../_assets/datalens/report/report-js-selector.png)
 
 1. Click **Save**. The widget will appear in the **Selectors** window. The selectors section will automatically scroll to the added widget.
+
 
 ## Setting up and deleting a selector {#selector-edit}
 

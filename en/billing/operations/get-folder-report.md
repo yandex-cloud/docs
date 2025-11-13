@@ -86,7 +86,7 @@ The table contains the following columns:
 * `cloud_name`: Cloud name.
 * `folder_id`: Folder ID.
 * `folder_name`: Name of the folder at the time of exporting the details. This field may be empty if you deleted the folder before exporting the details.
-* `resource_id`: Resource ID, resource name, or subscription ID. The value of this field may be empty if the use of the service refers to the entire folder or it does not contain any resources. The services and `resource_id` column values are mapped as follows:
+* `resource_id`: Resource ID, resource name, or subscription ID. Use only for regular exports. The value of this field may be empty if the use of the service refers to the entire folder or it does not contain any resources. The services and `resource_id` column values are mapped as follows:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
    * {{ objstorage-name }}: Bucket name.
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.

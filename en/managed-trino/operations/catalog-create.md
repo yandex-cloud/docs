@@ -34,7 +34,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command for creating {{ TR }} catalog:
+    1. View the description of the CLI command for creating a {{ TR }} catalog:
 
         ```bash
         {{ yc-mdb-tr }} catalog create --help
@@ -52,13 +52,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         {{ yc-mdb-tr }} catalog create <connector_type> <{{ TR }}_catalog_name>
         ```
 
-        In the command, you also need to provide {{ TR }} catalog settings depending on the connector type. [Learn more about settings for various connector types](#catalog-settings).
+        In the command, you also need to provide the settings for your {{ TR }} catalog depending on the connector type. [Learn more about settings for various connector types](#catalog-settings).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_trino_catalog` resource:
 
@@ -74,7 +74,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         [Learn more about the {{ TR }} catalog settings](#catalog-settings) for various connector types.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -84,7 +84,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -110,13 +110,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Catalog/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Catalog/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -148,9 +148,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Catalog/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Catalog/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -178,7 +178,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
         To find out the connection ID:
         1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * **Database**: DB name in the {{ CH }} cluster.
     * **Client parameters**: {{ CH }} client parameters in `key: value` format.
@@ -189,7 +189,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create clickhouse <{{ TR }}_catalog_name> \
@@ -202,12 +202,12 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
 
       To find out the connection ID:
         1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.   
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.   
 
     * `--connection-manager-database`: DB name in the {{ CH }} cluster.
     * `--connection-manager-connection-properties`: {{ CH }} client parameters in `key=value` format.
@@ -246,7 +246,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
             To find out the connection ID:
             1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ CH }} cluster.
         * `connection_properties`: List of {{ CH }} client settings in `"key" = "value"` format.
@@ -257,7 +257,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -296,7 +296,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
             To find out the connection ID:
             1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ CH }} cluster.
         * `connectionProperties`: List of {{ CH }} client settings in `"key": "value"` format.
@@ -305,11 +305,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -352,7 +352,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
             To find out the connection ID:
             1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ CH }} cluster.
         * `connection_properties`: List of {{ CH }} client settings in `"key": "value"` format.
@@ -361,7 +361,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -378,7 +378,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create clickhouse <{{ TR }}_catalog_name> \
@@ -391,8 +391,8 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
-    * `--on-premise-connection-url`: URL for connection to the {{ CH }} DB, in `jdbc:clickhouse://<host_address>:<port>/<DB_name>` format.
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url`: URL for connecting to the {{ CH }} DB, in the following format: `jdbc:clickhouse://<host_address>:<port>/<DB_name>`.
     * `--on-premise-user-name`: Username for connection to the {{ CH }} DB.
     * `--on-premise-password`: User password for connecting to the {{ CH }} DB.
     * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
@@ -429,7 +429,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -468,11 +468,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -515,7 +515,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -531,7 +531,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create delta-lake <{{ TR }}_catalog_name> \
@@ -580,7 +580,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -616,11 +616,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/delta-lake.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -660,7 +660,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/delta-lake.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -676,7 +676,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create hive <{{ TR }}_catalog_name> \
@@ -725,7 +725,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -761,11 +761,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/hive.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -805,7 +805,152 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/hive.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+### Hudi connector {{ preview-stage }} {#hudi}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+
+- CLI {#cli}
+
+    Command example:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create hudi <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --metastore-hive-uri <URI_for_connection> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <access_key_ID> \
+      --filesystem-external-s3-aws-secret-key <secret_key> \
+      --filesystem-external-s3-aws-endpoint <endpoint> \
+      --filesystem-external-s3-aws-region <region> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
+      ...
+      hudi = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_for_connection>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hive.html).
+
+- REST API {#api}
+
+    Command example:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<{{ TR }}_catalog_name>",
+                    "connector": {
+                      "hudi": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "hive": {
+                            "uri": "<URI_for_connection>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <list_of_additional_settings>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Where:
+
+    {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
+
+    * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Command example:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<cluster_ID>",
+              "catalog": {
+                "name": "<{{ TR }}_catalog_name>",
+                "connector": {
+                  "hudi": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "hive": {
+                        "uri": "<URI_for_connection>"
+                      }
+                    },
+                    "additional_properties": {
+                      <list_of_additional_settings>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Where:
+
+    {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
+
+    * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs }}/connector/hudi.html).
+
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -821,7 +966,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create iceberg <{{ TR }}_catalog_name> \
@@ -870,7 +1015,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -906,11 +1051,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/iceberg.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -950,11 +1095,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/iceberg.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Oracle {{ preview-stage }} connector {#oracle}
+### Oracle connector {{ preview-stage }} {#oracle}
 
 {% list tabs group=instructions %}
 
@@ -968,7 +1113,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create oracle <{{ TR }}_catalog_name> \
@@ -981,7 +1126,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--on-premise-connection-url`: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`. `SID` format, Oracle system ID.
     * `--on-premise-user-name`: Username for connection to the Oracle DB.
     * `--on-premise-password`: User password for connection to the Oracle DB.
@@ -1019,7 +1164,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -1058,11 +1203,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/oracle.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -1105,7 +1250,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/oracle.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1123,14 +1268,14 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
         To find out the connection ID:
         1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * **Database**: DB name in the {{ PG }} cluster.
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create postgresql <{{ TR }}_catalog_name> \
@@ -1143,12 +1288,12 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
 
         To find out the connection ID:
         1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+        1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
     * `--connection-manager-database`: DB name in the {{ PG }} cluster.
     * `--connection-manager-connection-properties`: List of {{ PG }} client settings in `key=value` format.
@@ -1187,7 +1332,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
             To find out the connection ID:
             1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ PG }} cluster.
         * `connection_properties`: List of {{ PG }} client settings in `"key" = "value"` format.
@@ -1198,7 +1343,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -1237,7 +1382,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
             To find out the connection ID:
             1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ PG }} cluster.
         * `connectionProperties`: List of {{ PG }} client settings in `"key": "value"` format.
@@ -1246,11 +1391,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -1293,7 +1438,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
             To find out the connection ID:
             1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+            1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
         * `database`: DB name in the {{ PG }} cluster.
         * `connection_properties`: List of {{ PG }} client settings in `"key": "value"` format.
@@ -1302,7 +1447,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1319,7 +1464,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create postgresql <{{ TR }}_catalog_name> \
@@ -1332,7 +1477,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--on-premise-connection-url`: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
     * `--on-premise-user-name`: Username for connection to the {{ PG }} DB.
     * `--on-premise-password`: User password for connecting to the {{ PG }} DB.
@@ -1370,7 +1515,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -1409,11 +1554,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -1456,11 +1601,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### MS SQL Server {{ preview-stage }} connector {#ms-sql}
+### MS SQL Server connector {{ preview-stage }} {#ms-sql}
 
 {% list tabs group=instructions %}
 
@@ -1474,7 +1619,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create sqlserver <{{ TR }}_catalog_name> \
@@ -1487,7 +1632,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--on-premise-connection-url`: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
     * `--on-premise-user-name`: Username for connecting to the Microsoft SQL Server DB.
     * `--on-premise-password`: User password for connecting to the Microsoft SQL Server DB.
@@ -1525,7 +1670,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -1564,11 +1709,11 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additionalProperties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/sqlserver.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -1611,7 +1756,7 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * `additional_properties`: List of additional settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/sqlserver.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1627,7 +1772,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create tpcds <{{ TR }}_catalog_name> \
@@ -1637,7 +1782,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).  
 
 - {{ TF }} {#tf}
@@ -1659,7 +1804,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -1683,11 +1828,11 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
     Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -1715,7 +1860,7 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
     Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1731,7 +1876,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
 - CLI {#cli}
 
-    Example command:
+    Command example:
 
     ```bash
     {{ yc-mdb-tr }} catalog create tpch <{{ TR }}_catalog_name> \
@@ -1741,7 +1886,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
     Where:
 
-    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters).
     * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).      
 
 - {{ TF }} {#tf}
@@ -1763,7 +1908,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
 - REST API {#api}
 
-    Example command:
+    Command example:
 
     ```bash
     curl \
@@ -1787,11 +1932,11 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
     Where `additionalProperties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
-    Example command:
+    Command example:
 
     ```bash
     grpcurl \
@@ -1819,7 +1964,7 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
     Where `additional_properties` is a list of advanced settings in `"key": "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 

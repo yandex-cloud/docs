@@ -9,4 +9,4 @@
 
 ## См. также {#see-also}
 
-Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/data-migration.md).
+Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/data-migration/index.md).

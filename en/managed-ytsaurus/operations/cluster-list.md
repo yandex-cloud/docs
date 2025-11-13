@@ -18,6 +18,28 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get a list of {{ ytsaurus-name }} clusters in the default folder, run this command:
+
+    ```bash
+    {{ yc-ytsaurus }} cluster list
+    ```
+
+    Result:
+
+    ```bash
+    +----------------------+---------------------+---------------+----------------------+---------------------+---------+
+    |          ID          |        NAME         |    ZONE ID    |      SUBNET ID       |     CREATED AT      | STATUS  |
+    +----------------------+---------------------+---------------+----------------------+---------------------+---------+
+    | cnkvtb40gk87******** | my-ytsaurus-cluster | ru-central1-a | e9bp8qmchqh28******* | 2025-10-06 11:07:44 | RUNNING |
+    +----------------------+---------------------+---------------+----------------------+---------------------+---------+
+    ```
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
@@ -78,6 +100,20 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Click the cluster name.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get information about an {{ ytsaurus-name }} cluster, run the following command:
+
+    ```bash
+    {{ yc-ytsaurus }} cluster get <cluster_name_or_ID>
+    ```
+
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
@@ -123,13 +159,13 @@ You can get detailed information about each {{ ytsaurus-name }} cluster you crea
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.ytsaurus.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.ytsaurus.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
-## Viewing operations with clusters {#list-operations}
+## Viewing cluster operations {#list-operations}
 
-All actions with {{ ytsaurus-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
+All actions with {{ ytsaurus-name }} clusters are logged as a list of operations. Each operation gets a unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -145,16 +181,16 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
     1. Select the cluster you need.
     1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-       You will see a list of operations with the cluster.
+       You will see a list of operations with the this cluster.
 
 
 {% endlist %}
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for a cluster.
-1. Copy the operation ID.
-1. Get operation details:
+1. [Get the cluster operation list](#get-operations).
+1. Copy the ID of the required operation.
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 
@@ -202,7 +238,7 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
                 --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
             ```
 
-        1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
@@ -228,7 +264,7 @@ All actions with {{ ytsaurus-name }} clusters are logged as a list of operations
                 yandex.cloud.operation.OperationService.Get
             ```
 
-        1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     {% endlist %}
 

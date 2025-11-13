@@ -101,9 +101,19 @@ Optional:
 
 - `redirect_https_to_http` (Boolean) Set up a redirect from HTTPS to HTTP. Set up a redirect from HTTPS to HTTP.
 
+- `rewrite_flag` (String) Defines flag for the Rewrite option (default: `BREAK`). Defines flag for the Rewrite option (default: `BREAK`).
+
+`LAST` - Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.
+`BREAK` - Stops processing of the current set of the Rewrite option.
+`REDIRECT` - Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme"
+`PERMANENT` - Returns a permanent redirect with the 301 code.
+- `rewrite_pattern` (String) An option for changing or redirecting query paths. The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. An option for changing or redirecting query paths. The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`.
+
 - `secure_key` (String) Set secure key for url encoding to protect contect and limit access by IP addresses and time limits. Set secure key for url encoding to protect contect and limit access by IP addresses and time limits.
 
 - `slice` (Boolean) Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. The origin must support HTTP Range requests. Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. The origin must support HTTP Range requests.
+
+- `stale` (List of String) List of errors which instruct CDN servers to serve stale content to clients. Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`. List of errors which instruct CDN servers to serve stale content to clients. Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`.
 
 - `static_request_headers` (Map of String) Set up custom headers that CDN servers will send in requests to origins. Set up custom headers that CDN servers will send in requests to origins.
 

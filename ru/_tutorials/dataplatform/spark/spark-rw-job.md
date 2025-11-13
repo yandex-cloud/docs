@@ -93,6 +93,7 @@
 1. [Создайте кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-create.md) с параметрами:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `metastore-agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `integration-network`.
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `integration-network-{{ region-id }}-a`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `metastore-sg`.

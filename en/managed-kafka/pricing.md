@@ -57,20 +57,6 @@ You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-s
 * {{ kraft-short-name }} hosts are added to the cluster if its {{ KF }} version is 3.6 or higher and if it contains more than one {{ KF }} host and uses {{ kraft-short-name }} as the coordination service (on separate hosts).
 * {{ kraft-short-name }} hosts are not added to the cluster if its {{ KF }} version is 3.6 or higher and if it uses {{ kraft-short-name }} as the coordination service (combined mode). 
 
-
-There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
-
-* Standard hosts
-
-    The host operation cost is charged per hour based on what computing resources you allocate for it.
-
-
-* Dedicated hosts
-
-    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-
-
 The minimum billing unit is one minute (for example, 90 seconds of host operation count as two minutes). You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
@@ -92,8 +78,6 @@ Let's calculate the cost of using a cluster with the following properties for 30
 * **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.
 * **{{ ZK }} hosts** (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM. 
 * **Storage for {{ ZK }} hosts**: 10 GB of network SSD storage per host.
-
-#### Standard hosts {#example-standard-hosts}
 
 
 
@@ -120,15 +104,9 @@ CVoS discount is only available for certain types of resources. If the relevant 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Host prices are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-The price of fast local storage also depends on host type.
-
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
-
-#### Standard hosts {#prices-kafka-standard}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -149,19 +127,6 @@ The price of fast local storage also depends on host type.
 {% endlist %}
 
 
-
-
-#### Dedicated hosts {#prices-kafka-dedicated}
-
-{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-
-
-{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}
-
-
-
-
 ### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
 
 
@@ -171,8 +136,6 @@ You cannot order {{ ZK }} host resources via CVoS.
 
 {% endnote %}
 
-
-#### Standard hosts {#zookeeper-standard}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -184,20 +147,7 @@ You cannot order {{ ZK }} host resources via CVoS.
 {% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}
 
 
-
-
-#### Dedicated hosts {#zookeeper-dedicated}
-
-{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-For cost details, contact [technical support]({{ link-console-support }}).
-
-
-
-
 ### Computing resources of {{ kraft-name }} hosts {#prices-kraft}
-
-#### Standard hosts {#prices-kraft-standard}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -217,19 +167,6 @@ For cost details, contact [technical support]({{ link-console-support }}).
   {% include [usd-hosts-kraft-standard-month](../_pricing/managed-kafka/usd-hosts-kraft-standard-month.md) %}
 
 {% endlist %}
-
-
-
-
-#### Dedicated hosts {#prices-kraft-dedicated}
-
-{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-
-
-{% include [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-kraft-dedicated.md) %}
-
-
 
 
 ### {{ kafka-ui }} computing resources {#prices-kafka-ui}

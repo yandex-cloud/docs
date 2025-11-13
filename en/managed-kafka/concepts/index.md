@@ -48,24 +48,4 @@ The [{{ kraft-name }} protocol](kraft.md) (abbreviated {{ kraft-short-name }}) i
 
 {% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
 
-## Hosting cluster hosts {#hosting}
-
-VMs for cluster hosts can be hosted on:
-* {{ yandex-cloud }} *regular hosts*.
-
-  These are physical servers for hosting cluster VMs. They are randomly selected from a pool of available hosts that meet the selected cluster configuration.
-
-
-* {{ yandex-cloud }} *dedicated hosts*.
-
-
-  These are physical servers reserved exclusively for your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
-
-  A cluster with multiple broker hosts needs at least three groups of dedicated hosts to operate. This enables the placement of {{ ZK }} and {{ kraft-short-name }} hosts.
-
-  This placement configuration ensures physical isolation of VMs. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
-
-  For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
-
-
 For more information, see the [{{ KF }}](https://kafka.apache.org/intro) documentation.

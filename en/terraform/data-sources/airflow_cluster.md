@@ -47,7 +47,6 @@ data "yandex_airflow_cluster" "airflow_cluster_by_id" {
 - `deb_packages` (Set of String) System packages that are installed in the cluster.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
-- `health` (String) Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-airflow/api-ref/Cluster/).
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `lockbox_secrets_backend` (Attributes) Configuration of Lockbox Secrets Backend. [See documentation](https://yandex.cloud/docs/managed-airflow/tutorials/lockbox-secrets-in-maf-cluster) for details. (see [below for nested schema](#nestedatt--lockbox_secrets_backend))
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))

@@ -47,3 +47,20 @@ The number of AI queries is limited to 600 queries per user per month. We may co
 1. Disable **Neuroanalyst** (on by default). As soon as you do it, the AI assistants will disappear from the {{ datalens-name }} interface for the instance users.
 
 
+## Setting up a custom prompt {#user-promt}
+
+In {{ datalens-short-name }}, you can set up a custom prompt for AI. To do this, follow these steps:
+
+1. Click ![image](../../_assets/console-icons/gear.svg) **Settings** in the left part of the navigation panel to open the settings.
+1. Go to the **AI settings** tab.
+   
+   {% cut "AI settings" %}
+
+   ![image](../../_assets/datalens/release-notes/ai-setting.png)
+
+   {% endcut %}
+
+1. Click **Edit**.
+1. Enter a prompt in the text field and click **Save**.
+
+With each request to the AI, the custom prompt will be added to the {{ datalens-short-name }} system prompt.

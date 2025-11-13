@@ -5,8 +5,7 @@ description: This page presents error codes and their descriptions.
 
 # All errors
 
-This page presents error codes and their descriptions.
-To view detailed error information, follow the link by clicking the error code:
+This page presents error codes and their descriptions. To view detailed error information, follow the link by clicking the error code:
 
 Error code | Description |
 ----- | ----- |

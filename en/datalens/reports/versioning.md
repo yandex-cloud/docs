@@ -95,7 +95,7 @@ To edit an outdated version, select it from the list of versions. To save your c
 
 ## Limitations {#restrictions}
 
-* You can only get change history for the last three months.
+* Change history is only available for the last three months.
 * The change history only contains a list of report versions and indicates the version type, save date and time, and user who made the change.
 * Report versions do not include changes to access permissions; this operation is performed separately from report edits.
 * Versions do not display a list of changes. You can only view the saved status of the report configuration.

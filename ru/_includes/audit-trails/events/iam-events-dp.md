@@ -2,6 +2,7 @@
 --- | ---
 `CreateIamToken` | Создание IAM-токена
 `RevokeIamToken` | Отзыв IAM-токена
+`credential.ApplicationLoginEvent` | Вход пользователя в приложение
 `credential.CreateRefreshTokenForSubject` | Создание [refresh-токена](../../../iam/concepts/authorization/refresh-token.md) для пользователя
 `credential.RevokeRefreshTokenForSubject` | Отзыв refresh-токена у пользователя
 `mfa.VerifyUserCredential` | Подтверждение учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../../../organization/concepts/mfa.md)

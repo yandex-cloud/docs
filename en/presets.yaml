@@ -928,6 +928,7 @@ default:
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
+  yc-ytsaurus: yc managed-ytsaurus
   ycdr-full-name: Yandex Cloud Detection and Response
   ycdr-name: YCDR
   ydb-full-name: Yandex Managed Service for YDB
