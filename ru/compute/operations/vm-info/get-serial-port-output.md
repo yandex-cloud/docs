@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. Выберите каталог, которому принадлежит виртуальная машина.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на строку с нужной виртуальной машиной.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_service-console }}**.
   1. Чтобы воспользоваться поиском с помощью сочетания клавиш **Ctrl** + **F**, включите переключатель **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** в правом верхнем углу.

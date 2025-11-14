@@ -16,9 +16,9 @@ To set up network connectivity between {{ baremetal-name }} and {{ vpc-name }} s
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud infrastructure](#setup-infrastructure).
-1. [Request a routing instance](#request-routing-instance).
-1. [Create a private connection](#create-private-connection).
-1. [Check network connectivity](#check-connectivity).
+1. [Request a routing instance](#request-ri).
+1. [Create a private connection](#create-prc).
+1. [Test network connectivity](#check-connectivity).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -167,7 +167,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 {% endlist %}
 
 
-## Create a routing instance {#request-routing-instance}
+## Create a routing instance {#request-ri}
 
 To set up network connectivity between {{ baremetal-name }} subnets, {{ vpc-name }} subnets, and/or on-prem subnets, you need to create a `Routing Instance` resource. To create a `Routing Instance`, [contact]({{ link-console-support }}/tickets/create) support.
 
@@ -189,7 +189,7 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
 {% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
 
-## Create a private connection {#create-private-connection}
+## Create a private connection {#create-prc}
 
 Once the routing instance has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/network.md#private-connection-to-vpc) in {{ baremetal-name }}:
 

@@ -79,6 +79,8 @@ items:
             href: operations/applications/keda.md
           - name: Установка Kruise
             href: operations/applications/kruise.md
+          - name: Установка Kubernetes Node Remediation
+            href: operations/applications/kubernetes-node-remediation.md
           - name: Установка Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
           - name: Установка Loki

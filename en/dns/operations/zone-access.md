@@ -29,7 +29,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       yc dns zone list
       ```
 
-  1. Check currently assigned roles for the DNS zone you want to update:
+  1. Check what roles are currently assigned for the DNS zone you want to update:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -37,7 +37,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
   1. To assign the role, run the following command:
 
-      * Assigning the role to a user:
+      * To a user:
 
         ```bash
         yc dns zone add-access-binding <zone_ID> \
@@ -50,7 +50,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
         * `--user-account-id`: [User ID](../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
         * `--role`: [Role](../security/index.md#roles-list) to assign.
 
-      * Assigning the role to a service account:
+      * To a service account:
 
         ```bash
         yc dns zone add-access-binding <zone_ID> \
@@ -93,7 +93,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all required resources. You can check the new resources using this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -119,7 +119,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
   {% note alert %}
 
-  The `set-access-binding` command completely rewrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
@@ -148,7 +148,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
      * `--access-binding`: Access permission settings:
 
        * `role`: [Role](../security/index.md#roles-list).
-       * `subject`: Type and ID of the [entity](../../iam/concepts/access-control/index.md#subject) assigned the role.
+       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
      For example, you can assign the `dns.editor` role to multiple users and a service account:
 

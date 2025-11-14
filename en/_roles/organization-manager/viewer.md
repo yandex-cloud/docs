@@ -35,4 +35,4 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 
 {% endcut %}
 
-This role includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, `organization-manager.userpools.viewer`, and `organization-manager.idpInstances.viewer` permissions.
+This role includes the `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, `organization-manager.userpools.viewer`, and `organization-manager.idpInstances.billingViewer` permissions.

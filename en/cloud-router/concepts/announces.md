@@ -16,13 +16,11 @@ To add a new subnet to an existing RI, use one of the [available methods](../ope
 
 {% note warning %}
 
-When using {{ yandex-cloud }} load balancers:
-* [{{ network-load-balancer-short-name }}](../../network-load-balancer/) (NLB)
-* [{{ alb-name }}](../../application-load-balancer/) (ALB)
-
-Their listener addresses are announced as `/32` IPv4 prefixes.
+If your routing instance is connected to a virtual network that uses a [{{ network-load-balancer-short-name }}](../../network-load-balancer/) and an [{{ alb-name }}](../../application-load-balancer/), their listener addresses are announced as `/32` IPv4 prefixes, regardless of the announced IP prefix ranges for subnets within that network.
 
 This enables you to use load balancers to distribute traffic coming from your infrastructure via {{ interconnect-name }} across cloud resources in different {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
+
+{{ yandex-cloud }} does not allow disabling announcements of these `/32` prefixes. Technically, you can use filtering policies on the customer endpoint to disable these prefixes. Keep in mind that filtering can prevent access to load balancer targets in different availability zones or lead to uneven traffic distribution between them. We do not recommend using this method.
 
 {% endnote %}
 

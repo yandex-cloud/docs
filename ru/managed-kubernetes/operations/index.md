@@ -44,6 +44,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/keda.md)
 * [{#T}](applications/kruise.md)
+* [{#T}](applications/kubernetes-node-remediation.md)
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)

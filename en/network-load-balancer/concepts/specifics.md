@@ -10,6 +10,11 @@ description: 'This tutorial describes some aspects of implementing a network loa
 
 The IP address of the load balancer’s [traffic listener](listener.md) is externally announced as a `/32` prefix from all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). If one of the availability zones goes down, the network equipment redirects incoming traffic to the listener's IP address in the running availability zones.
 
+{% note info %}
+
+When using [{{ interconnect-name }}](../../interconnect/concepts/index.md), the `/32` balancer prefix will always be announced towards the client's site. Even if this prefix is ​​not in the CIDR of the subnets announced from customer VPCs. 
+
+{% endnote %}
 
 ### Use cases {#examples-vip}
 

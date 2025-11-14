@@ -686,13 +686,13 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-userpools-admin](../_roles/organization-manager/userpools/admin.md) %}
 
-#### organization-manager.idpInstances.viewer {#organization-manager-idpInstances-viewer}
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpInstances-billingViewer}
 
-{% include [organization-manager.idpInstances.viewer](../_roles/organization-manager/idpInstances/viewer.md) %}
+{% include [organization-manager.idpInstances.billingViewer](../_roles/organization-manager/idpInstances/billingViewer.md) %}
 
-#### organization-manager.idpInstances.admin {#organization-manager-idpInstances-admin}
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpInstances-billingAdmin}
 
-{% include [organization-manager.idpInstances.admin](../_roles/organization-manager/idpInstances/admin.md) %}
+{% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
 
 Подробнее см. [{#T}](../organization/security/index.md).
 

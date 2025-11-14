@@ -9,7 +9,7 @@ title: Как получить информацию о группе размещ
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [группа размещения](../../concepts/placement-groups.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Выберите нужную группу.
   1. На странице **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** отобразится подробная информация о группе размещения ВМ.

@@ -10,7 +10,7 @@
 
   Чтобы изменить перечень применяемых к виртуальной машине групп безопасности:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. Измените группы безопасности сетевого интерфейса ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**:
      * В правом верхнем углу блока нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
