@@ -10,7 +10,6 @@
 * просматривать информацию о [публичных соединениях](../../interconnect/concepts/pub-con.md);
 * просматривать информацию о [квотах](../../interconnect/concepts/limits.md#interconnect-quotas) сервиса Cloud Interconnect;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
-* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию об операциях с ресурсами сервиса Cloud Interconnect.
+* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% endcut %}

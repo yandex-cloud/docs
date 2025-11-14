@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ CH }} cluster
-description: In this tutorial, you will learn how to create a {{ CH }} cluster with one or more database hosts.
+description: Follow this guide to create a {{ CH }} cluster with one or more database hosts.
 ---
 
 # Creating a {{ CH }} cluster
@@ -53,8 +53,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify the cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (the environment cannot be changed after cluster creation):
-      * `PRODUCTION`: For stable versions of your applications.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first of the two to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
+      * `PRODUCTION`: For stable versions of your apps.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
   
@@ -63,7 +63,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
-      * Select the platform, VM type, and host class that defines the technical specifications of the VM instances that will run the DB hosts. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the specifications of all existing instances also change.
+      * Select the platform, VM type, and host class. The latter determines the technical specifications of the VMs the DB hosts will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the specifications of all existing instances also change.
 
       
       * Select the [disk type](../concepts/storage.md).
@@ -73,7 +73,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of your data and backup disk. For more details on how backups utilize storage space, see [Backups](../concepts/backup.md).
+      * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
       * Optionally, set [automatic storage size increase](../concepts/storage.md#autoscaling) settings for a {{ CH }} subcluster:
 
@@ -122,10 +122,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select this option to generate a password using {{ connection-manager-name }}.
 
-        To view the password after cluster creation, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+        To view the password after cluster creation, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-      * Specify a DB name. The DB name may contain Latin letters, numbers, and underscores. It can be up to 63 characters long. You cannot create a database named `default`.
+      * Specify the DB name. The DB name may contain Latin letters, numbers, and underscores. It can be up to 63 characters long. You cannot create a database named `default`.
 
       * Select the database engine: 
       
@@ -159,6 +159,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
+
+        {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
 
       To add hosts to your cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
@@ -215,7 +217,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         --deletion-protection
       ```
 
-      You need to specify `subnet-id` if the selected availability zone has two or more subnets.
+      You need to specify the `subnet-id` if the selected availability zone has two or more subnets.
 
 
       Where:
@@ -224,7 +226,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * `--host`: Host settings:
         * `type`: Host type: `clickhouse` or `zookeeper`.
         * `zone-id`: Availability zone.
+
+        
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+          {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
 
       
       * `--clickhouse-disk-type`: Disk type.
@@ -241,13 +248,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         
         {% note info %}
 
-        You can also generate a password using {{ connection-manager-name }}. To do this, modify the command, specifying user details as follows:
+        You can also generate a password using {{ connection-manager-name }}. To do this, modify the command, specifying user parameters as follows:
 
         ```bash
           --user name=<username>,generate-password=true
         ```
 
-        To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+        To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
         {% endnote %}
 
@@ -379,7 +386,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
   To create a {{ mch-name }} cluster:
 
-    1. In the command line, navigate to the directory that contains the {{ TF }} configuration files with the infrastructure plan. If there is no such a directory, create one.
+    1. In the command line, navigate to the directory that contains the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
 
     
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -388,7 +395,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a suitable network, you do not need to describe it again.
         * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
-       Below is an example structure of a configuration file describing a single-subnet cloud network:
+       Below is a sample structure of a configuration file describing a single-subnet cloud network:
 
        ```hcl
        resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
@@ -470,7 +477,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        Where:
 
        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+
+       
        * `assign_public_ip`: Public access to the host, `true` or `false`.
+
+          {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
+
        * `lifecycle.ignore_changes`: Eliminates resource conflicts in operations with users and databases created through individual resources.
 
        For a user, specify as follows:
@@ -486,7 +499,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           You can also generate a password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `"password" = "<user_password>"`.
 
-          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. Viewing passwords requires the `lockbox.payloadViewer` role.
+          To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
           {% endnote %}
 
@@ -560,7 +573,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -759,9 +772,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
                 * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
                 * `shardName`: [Shard](../concepts/sharding.md) name. This setting is only relevant for hosts of the `CLICKHOUSE` type.
-                * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
                 
+                * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+                   {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -793,13 +809,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and paste the following code into it:
 
@@ -995,9 +1011,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
                 * `subnet_id`: Subnet [ID](../../vpc/concepts/network.md#subnet).
                 * `shard_name`: [Shard](../concepts/sharding.md) name. This setting is only relevant for hosts of the `CLICKHOUSE` type.
-                * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
                 
+                * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+                   {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
+
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -1083,8 +1102,8 @@ To create a {{ CH }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Create a new directory named `imported-cluster` and move your file there.
-    1. Modify the configuration so it can be used to create a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the configuration you copied so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
@@ -1098,9 +1117,9 @@ To create a {{ CH }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating the provider configuration file manually, you can download it [here](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and edit it to [include your required values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added your authentication credentials to the environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration files:
 
@@ -1108,7 +1127,7 @@ To create a {{ CH }} cluster copy:
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 

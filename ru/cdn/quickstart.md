@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
       
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 1. На вкладке ![image](../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 1. Задайте основные настройки CDN-ресурса:
    * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:

@@ -26,7 +26,7 @@ items:
         href: concepts/sharding.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Storage in {{ SPQR }}
+      - name: '{{ SPQR }} storage'
         href: concepts/storage.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -34,6 +34,8 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: API authentication

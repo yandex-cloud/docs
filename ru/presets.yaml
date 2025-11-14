@@ -471,7 +471,6 @@ default:
   msp-name: Managed Service for Apache Spark™
   mspqr-full-name: Yandex Managed Service for Sharded PostgreSQL
   mspqr-name: Managed Service for Sharded PostgreSQL
-  mspqr-short-name: Managed Service for Sharded PostgreSQL
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino

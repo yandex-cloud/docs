@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать группу источников.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Введите название группы источников.
@@ -82,34 +82,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_cdn_origin_group`.
 
-     Пример структуры конфигурационного файла:
+     {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
 
-     ```hcl
-     resource "yandex_cdn_origin_group" "my_group" {
-       name = "<имя_группы_источников>"
-       use_next = true
-       origin {
-        source = "<IP-адрес_или_доменное_имя_источника_1>"
-       }
-       origin {
-        source = "<IP-адрес_или_доменное_имя_источника_2>"
-       }
-       origin {
-        source = "<IP-адрес_или_доменное_имя_источника_3>"
-        backup = false
-       }
-     }
-     ```
-
-     Где:
-     * `name` — имя группы источников.
-     * `use_next` — указывает, использовать ли следующий [источник](../../concepts/resource.md) из списка.
-     * `origin` — спецификация источника:
-       * `source` — [IP-адрес](../../../vpc/concepts/address.md) или доменное имя источника.
-       * `enabled` — флаг, указывающий, включен ли источник.
-       * `backup` — флаг, указывающий, является ли источник резервным. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
-
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_origin_group).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

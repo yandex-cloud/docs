@@ -54,6 +54,10 @@ The list below shows all roles used for access control in {{ interconnect-name }
 
 {% include [cic.editor](../../_roles/cic/editor.md) %}
 
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../../_roles/cic/admin.md) %}
+
 #### cic.secretViewer {#cic-secretviewer}
 
 {% include [cic.secretViewer](../../_roles/cic/secretViewer.md) %}

@@ -79,7 +79,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -140,7 +140,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more information about creating this file, see [this guide](../cluster-create.md).
+     For information on how to create this file, see [this guide](../cluster-create.md).
 
      For a complete list of configurable {{ mpg-name }} cluster database settings, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
@@ -166,7 +166,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -211,7 +211,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -278,7 +278,7 @@ Loading a shared library will cause {{ PG }} the master host to restart.
 * Operations on graphs</p>
 
 Using this extension requires you to [enable the `age` shared library](#libraries-connection). | - | - | - | - | - | 1.5.0 | 1.5.0 ||
-|| <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Provides functions for validating the logical integrity of a database’s relational schema.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 ||
+|| <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Provides functions for validating the logical integrity of a database’s relational schema.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 ||
 || <p>[autoinc]({{ pg-docs }}/contrib-spi.html#id-1.11.7.47.6)</p><p>Contains the `autoinc()` function, which returns the next value of a sequence stored in an integer-type field. Unlike the built-in sequence types, `autoinc()` does the following:
 * Blocks attempts to insert a query-provided value into the field.
 * Allows the field value to be changed when updating a record.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
@@ -286,9 +286,9 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[btree_gin]({{ pg-docs }}/static/btree-gin.html)</p><p>Contains examples of GIN (Generalized Inverted Index) operator classes used for inverted index searches.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[btree_gist]({{ pg-docs }}/static/btree-gist.html)</p><p>Contains GiST (Generalized Search Tree) operator classes. Unlike a B-tree index, GiST supports the `<>` (<q>not equal to</q>) and `<->` (<q>distance</q>) operators, but does not guarantee result uniqueness.</p> | 1.5 | 1.5 | 1.5 | 1.6 | 1.7 | 1.7 | 1.7 ||
 || <p>[citext]({{ pg-docs }}/static/citext.html)</p><p>Contains the `citext` data type for case-insensitive string operations.</p> | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 ||
-|| <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds a [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} databases, with support for `SELECT FROM` and `INSERT INTO` operations.</p><p>The extension is not supported in {{ PG }} version 16 and above. Use [{{ data-transfer-full-name }}](../../../data-transfer/tutorials/rdbms-to-clickhouse.md) to import data into a {{ CH }} database.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | - | - ||
+|| <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} databases, with support for `SELECT FROM` and `INSERT INTO` operations.</p><p>The extension is not supported in {{ PG }} version 16 and above. Use [{{ data-transfer-full-name }}](../../../data-transfer/tutorials/rdbms-to-clickhouse.md) to import data into a {{ CH }} database.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | - | - ||
 || <p>[cube]({{ pg-docs }}/static/cube.html)</p><p>Contains the `cube` data type for representing multidimensional cubes.</p> | 1.4 | 1.4 | 1.4 | 1.5 | 1.5 | 1.5 | 1.5 ||
-|| <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Enables connections to other {{ PG }} databases from within the current session.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
+|| <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Enables connections to other {{ PG }} databases from within the current session.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an additional dictionary template for full-text search. This template helps to control the size of the unique word list, which improves search performance.</p><p>For full-text search, you can also use [Hunspell dictionaries](hunspell.md) alongside the extension.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
 || <p>[dict_xsyn]({{ pg-docs }}/static/dict-xsyn.html)</p><p>(Extended Synonym Dictionary) contains an example of an add-on dictionary template for full-text search. It allows searching for a word using any of its synonyms.</p><p>For full-text search, you can also use [Hunspell dictionaries](hunspell.md) alongside the extension.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | - ||
 || <p>[earthdistance]({{ pg-docs }}/static/earthdistance.html)</p><p>Provides a module for calculating distances between geographical points. Distance calculation is performed using two methods:
@@ -305,16 +305,16 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[ltree]({{ pg-docs }}/static/ltree.html)</p><p>Contains the `ltree` data type to represent data labels stored in a tree-structured hierarchy.</p> | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 | 1.3 ||
 || <p>[lwaldump](https://github.com/g0djan/lwaldump/tree/REL_13_STABLE)</p><p>Enables you to retrieve the last LSN (log sequence number) written to the replica’s disk.</p> | - | - | - | - | - | - | 1.0 ||
 || <p>[moddatetime]({{ pg-docs }}/static/contrib-spi.html#id-1.11.7.47.8)</p><p>Provides the `moddatetime()` function for tracking the last modification time of a table row.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[oracle_fdw](https://github.com/laurenz/oracle_fdw)</p><p>Adds a [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing Oracle databases.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
+|| <p>[oracle_fdw](https://github.com/laurenz/oracle_fdw)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing Oracle databases.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[orafce](https://github.com/orafce/orafce)</p><p>Provides functions and operators emulating Oracle database functions and packages.</p> | 3.18 | 3.18 | 3.18 | 3.18 | 3.25 | 4.6 | 4.13 ||
-|| <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for shared buffer cache monitoring.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 ||
-|| <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to schedule database jobs and execute SQL queries directly within them.</p><p>Using this extension requires you to [enable the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p><p>Loading this extension will cause all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.5 | 1.6 ||
+|| <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for shared buffer cache monitoring.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 ||
+|| <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to schedule database jobs and execute SQL queries directly within them.</p><p>Requires [enabling the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p><p>Loading this extension will cause all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.5 | 1.6 ||
 || <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Using this extension requires you to [enable the `pg_hint_plan` shared library](#libraries-connection).</p> | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 | 1.5 | 1.6.0 | 1.7.0 ||
 || <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Adds advanced table partitioning options, including time-based and sequence-based partitioning.</p>  | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 | 4.7.0 | 4.7.4 | 5.1.0 ||
 || <p>[pg_prewarm]({{ pg-docs }}/pgprewarm.html)</p><p>Enables loading relation data into the OS cache or the {{ PG }} buffer cache.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[pg_qualstats](https://github.com/powa-team/pg_qualstats)</p><p>Enables collection of predicate statistics from `WHERE` and `JOIN` clauses.</p><p>Using this extension requires you to [enable the `pg_qualstats` shared library](#libraries-connection).</p> | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.4 | 2.1.0 | 2.1.1 ||
-|| <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Provides functions for removing bloat from tables and indexes. Unlike `CLUSTER` and `VACUUM FULL`, these functions do not require exclusive table locks.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.7 | 1.4.8 | 1.4.8 | 1.4.8 ||
-|| <p>[pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)</p><p>Enables collection of read and write operation statistics at the file system level.</p><p>Using this extension requires you to enable the `pg_stat_statements` extension.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 2.1.1 | 2.1.1 | 2.1.3 | 2.2.0 | 2.2.1 | 2.2.1 | 2.3.0 ||
+|| <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Provides functions for removing bloat from tables and indexes. Unlike `CLUSTER` and `VACUUM FULL`, it does not require exclusive locking of tables.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.7 | 1.4.8 | 1.4.8 | 1.4.8 ||
+|| <p>[pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)</p><p>Enables collection of read and write operation statistics at the file system level.</p><p>Using this utility requires you to enable the `pg_stat_statements` extension.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 2.1.1 | 2.1.1 | 2.1.3 | 2.2.0 | 2.2.1 | 2.2.1 | 2.3.0 ||
 || <p>[pg_stat_query_plans](https://github.com/postgredients/pg_stat_query_plans)</p><p>Enables you to track SQL query execution statistics and query plans.</p><p>Using this extension requires you to [enable the `pg_stat_query_plans` shared library](#libraries-connection).</p> | - | - | - | - | - | - | 1.0 ||
 || <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Enables you to track the scheduling and collect execution statistics of all SQL queries running in a cluster.</p><p>To use this extension, you need the [`mdb_monitor`](../../concepts/roles.md#mdb_monitor) role.</p> | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 | 1.10 | 1.11 ||
 || <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.1 | 1.1.1 | 1.1.1 ||
@@ -331,8 +331,8 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[postgis](https://postgis.net/docs/)</p><p>Adds capabilities for storing and processing GIS (Geographic Information System) objects in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)</p><p>Provides functions for geocoding using data in the [TIGER](https://wiki.openstreetmap.org/wiki/TIGER) format.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[postgis_topology](https://postgis.net/docs/Topology.html)</p><p>Contains data types and functions of the `postgis` extension for managing topological objects.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
-|| <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds a [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing external {{ PG }} servers.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.0 | 1.0 | 1.0 | 1.1 | 1.1 | 1.1 | 1.1 ||
-|| <p>[postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/)</p><p>Enables you to mask or substitute data in a {{ PG }} database.</p><p>Using this extension requires you to [enable the `anon` shared library](#libraries-connection).</p><p>For more information, see [Using postgresql_anonymizer](./pg_anon.md).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | - | - | - | - | 1.3.2 | 1.3.2 | 1.3.2 ||
+|| <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing external {{ PG }} servers.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.0 | 1.0 | 1.0 | 1.1 | 1.1 | 1.1 | 1.1 ||
+|| <p>[postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/)</p><p>Enables you to mask or substitute data in a {{ PG }} database.</p><p>Using this extension requires you to [enable the `anon` shared library](#libraries-connection).</p><p>For more information, see [Using postgresql_anonymizer](./pg_anon.md).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | - | - | - | - | 1.3.2 | 1.3.2 | 1.3.2 ||
 || <p>[rum](https://github.com/postgrespro/rum)</p><p>Provides an access method for `RUM` index operations.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Contains the `seg` data type to represent line segments or floating-point intervals.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | 1.4 | 1.4 ||
 || <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Provides functions for calculating array similarity.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
@@ -360,6 +360,6 @@ Command syntax:
 
 Using this utility requires you to enable the `pgstattuple` extension.
 
-To use it, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role or the [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.
+To use it, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

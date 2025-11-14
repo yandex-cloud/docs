@@ -2,7 +2,7 @@
 
 You can upgrade a {{ mmy-name }} cluster to any supported minor or major version.
 
-In single-host clusters, the only master host is brought out of its running state for upgrades. Unlike multi-host clusters, these clusters are not available for reads and writes during an upgrade. After the DBMS resumes operation, it will take time to _warm up_ the buffer pool, which may temporarily affect the request performance: this is especially prominent for large databases with active use of indexes.
+In single-host clusters, only the master host is taken offline for upgrades. Unlike multi-host clusters, these clusters are not available for reads and writes during an upgrade. After the DBMS resumes operation, it will take time to _warm up_ the buffer pool, which may temporarily affect the request performance: this is especially prominent for large databases with active use of indexes.
 
 In multi-host clusters, upgrades follow the procedure below:
 
@@ -18,11 +18,11 @@ In {{ MY }} 8.0, replica switching is more reliable and efficient due to improve
 
 {% endnote %}
 
-To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+For information on minor version upgrades and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 {% note alert %}
 
-* Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
+* After the DBMS upgrade, you cannot revert a cluster to the previous version.
 * Update your cluster during low load periods to reduce risks and the impact on users.
 * The success of {{ MY }} version upgrade depends on many factors, such as:
 
@@ -33,15 +33,15 @@ To learn more about updates within a single version and host maintenance, see [M
    * Correctness of stored procedures and triggers.
    * Current database condition and data quality.
 
-   We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
+   We recommend you first [upgrade a test cluster](#before-update) with the same data and configuration.
 
 {% endnote %}
 
-## Before a version upgrade {#before-update}
+## Pre-upgrade steps {#before-update}
 
 When getting ready for an upgrade, a comprehensive approach to testing and compatibility analysis is of particular importance. Our experience shows that most upgrade issues can be prevented at the preparation stage:
 
-1. See {{ MY }} [changelog](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) for how upgrades may affect your applications.
+1. Look up {{ MY }} [release notes](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html) for info on how upgrades may affect your applications.
 
    {% cut "Examples of changes in {{ MY }} 8.0" %}
 
@@ -78,7 +78,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    {% endcut %}
 
-1. Try a version upgrade on a test cluster.
+1. Try upgrading a test cluster.
    
    1. Deploy a test cluster from a backup of the main cluster using the `PRESTABLE` environment and upgrade it to the required version.
    1. Check the operation of critical queries and stored procedures.
@@ -98,7 +98,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 1. Ensure [high availability](../concepts/high-availability.md) of the cluster:
    
-   1. Make sure the main and test clusters have at least two replica hosts and one master host. [Add hosts](hosts.md#add) as needed.
+   1. Make sure the main and test clusters have at least one master and one replica. [Add hosts](hosts.md#add) as needed.
    1. Optionally, check replication status and latency:
 
      ```sql
@@ -124,7 +124,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select the cluster you need from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
    As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
@@ -145,7 +145,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
       {{ yc-mdb-my }} cluster list
       ```
 
-   1. Get information about the cluster you need and check the {{ MY }} version in the `config.version` parameter:
+   1. Get the target cluster details and check its {{ MY }} version in the `config.version` setting:
 
       ```bash
       {{ yc-mdb-my }} cluster get <cluster_name_or_ID>
@@ -162,9 +162,9 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file that defines your infrastructure.
+   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about creating this file, see [this guide](cluster-create.md).
+      For information on how to create this file, see [this guide](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -184,13 +184,13 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mmy }}).
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -214,13 +214,13 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       Where:
 
-      * `updateMask`: List of parameters to update as a single string, separated by commas.
+      * `updateMask`: Comma-separated list of settings you want to update.
 
-         Only one parameter is provided in this case.
+         Here, we provide only one setting.
 
       * `configSpec.version`: New {{ MY }} version.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -259,15 +259,15 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       Where:
 
-      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-         Only one parameter is provided in this case.
+         Here, we provide only one setting.
 
       * `config_spec.version`: New {{ MY }} version.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -287,7 +287,7 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
       {{ yc-mdb-my }} cluster list
       ```
 
-      Sample result:
+      Result example:
 
       ```text
       +----------------------+------------+---------------------+--------+---------+
@@ -323,7 +323,7 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file that defines your infrastructure.
+   1. Open the current {{ TF }} configuration file describing your infrastructure.
    1. In the `version` field, specify the `8.0` value in the `yandex_mdb_mysql_cluster` resource:
 
       ```hcl

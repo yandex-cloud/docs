@@ -15,7 +15,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. В строке с нужным бакетом в колонке **{{ ui-key.yacloud.storage.buckets.column_count }}** наведите указатель на желтое поле с количеством частично загруженных объектов.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}**.
   1. Отметьте незавершенные загрузки, которые нужно удалить.
