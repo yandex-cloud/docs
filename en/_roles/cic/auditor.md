@@ -11,6 +11,5 @@ The `cic.auditor` role enables viewing info on Cloud Interconnect resources.
 * View info on Cloud Interconnect [quotas](../../interconnect/concepts/limits.md#interconnect-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-* View information on resource operations for Cloud Interconnect.
 
 {% endcut %}

@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы загрузить объект в бакет:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Нажмите на имя необходимого бакета.
 1. Чтобы загрузить объекты в бакет, перетащите файлы на экран с бакетом или нажмите ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и подтвердите загрузку файлов.
 

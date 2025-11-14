@@ -19,8 +19,8 @@ description: При заполнении хранилища более чем н
 
 ## Настроить алерты в {{ monitoring-full-name }} {#set-alert}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Выберите сервисный дашборд **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
@@ -92,7 +92,7 @@ description: При заполнении хранилища более чем н
 
     Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -264,7 +264,7 @@ description: При заполнении хранилища более чем н
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ mpg-name }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
 

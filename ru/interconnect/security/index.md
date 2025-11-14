@@ -54,6 +54,10 @@ description: Управление доступом в сервисе {{ intercon
 
 {% include [cic.editor](../../_roles/cic/editor.md) %}
 
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../../_roles/cic/admin.md) %}
+
 #### cic.secretViewer {#cic-secretviewer}
 
 {% include [cic.secretViewer](../../_roles/cic/secretViewer.md) %}

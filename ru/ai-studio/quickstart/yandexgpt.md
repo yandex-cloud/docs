@@ -1,6 +1,6 @@
 # Как начать работать с моделями {{ model-gallery-name }}
 
-В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/generation/index.md#working-mode). Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
+В этом разделе вы научитесь использовать модели {{ model-gallery-name }} для генерации текста в [синхронном режиме](../concepts/generation/index.md#working-mode). Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
 
 О стоимости использования {{ foundation-models-full-name }} читайте в разделе [{#T}](../pricing.md).
 

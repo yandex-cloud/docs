@@ -22,7 +22,7 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
@@ -99,10 +99,10 @@ Create the required resources:
 
         * `pg_version`: {{ PG }} version. It must be not lower than the Amazon RDS version.
         * `db_name`: Target cluster database name. It must be the same as the source database name.
-        * `username` and `password`: Name and user password of the database owner.
+        * `username` and `password`: Database owner username and password.
         * Names and versions of {{ PG }} extensions used in Amazon RDS. Uncomment and multiply the `extension` section.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -171,9 +171,9 @@ The DB instance must have public access enabled: `Public accessibility = yes`.
 
 ## Configure the target cluster and create a subscription {#mdb-pg-set}
 
-In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a user created together with the cluster) and users with the `mdb_admin` or `mdb_superuser` role for the cluster.
+In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a user created together with the cluster) and users with the `mdb_admin` role for the cluster.
 
-1. Optionally, [assign](../operations/grant.md#grant-role) the `mdb_admin` or `mdb_superuser` role to the {{ mpg-name }} cluster user.
+1. Optionally, [assign](../operations/grant.md#grant-role) the `mdb_admin` role to the {{ mpg-name }} cluster user.
 
 1. Create a subscription with the source cluster connection string:
 

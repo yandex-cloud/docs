@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как изменить гр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Выберите группу, которую хотите отредактировать.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -79,6 +79,26 @@ description: Из статьи вы узнаете, как изменить гр
 
      Подробнее о команде `yc cdn origin-group update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием ресурса `yandex_cdn_origin_group`:
+
+     {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+
+     ```bash
+     yc cdn origin-group get <идентификатор_группы_источников>
+     ```
+
 - API {#api}
 
   Чтобы изменить группу источников, воспользуйтесь методом REST API [update](../../api-ref/OriginGroup/update.md) для ресурса [OriginGroup](../../api-ref/OriginGroup/index.md) или вызовом gRPC API [OriginGroupService/Update](../../api-ref/grpc/OriginGroup/update.md).
@@ -100,7 +120,7 @@ description: Из статьи вы узнаете, как изменить гр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** и нажмите на имя группы, из которой хотите удалить источник.
   1. Выберите нужный источник и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели внизу.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -126,7 +146,7 @@ description: Из статьи вы узнаете, как изменить гр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** и нажмите на имя группы, из которой хотите удалить источники.
   1. Выберите нужные источники и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели внизу.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

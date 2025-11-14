@@ -32,6 +32,10 @@ resource "yandex_airflow_cluster" "<имя_кластера>" {
     count              = <количество_экземпляров>
     resource_preset_id = "<идентификатор_ресурсов>"
   }
+  dag_processor = {
+    count              = <количество_экземпляров>
+    resource_preset_id = "<идентификатор_ресурсов>"
+  }
 
   pip_packages = ["список_pip-пакетов"]
   deb_packages = ["список_deb-пакетов"]

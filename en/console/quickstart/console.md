@@ -9,7 +9,7 @@ To get started with the management console:
 
 1. Create a [Yandex ID]({{ link-yandex }}/support/passport/authorization/registration.html) account.
 
-1. Log in to the [management console]({{ link-console-main }}).
+1. Go to the [management console]({{ link-console-main }}).
 
    When you log in to the management console for the first time, the `cloud-<Yandex_ID>` [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), `default` [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and `default` [network](../../vpc/concepts/network.md#network) are automatically created.
 

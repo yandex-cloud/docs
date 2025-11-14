@@ -1,4 +1,4 @@
-The `cic.editor` role enables managing trunk links and private and public connections, as well as viewing info on Cloud Interconnect quotas, resources, and resource operations.
+The `cic.editor` role enables managing trunk links and private and public connections, as well as viewing info on Cloud Interconnect quotas and resources.
 
 {% cut "Users with this role can:" %}
 
@@ -10,7 +10,6 @@ The `cic.editor` role enables managing trunk links and private and public connec
 * View info on Cloud Interconnect [quotas](../../interconnect/concepts/limits.md#interconnect-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-* View info on resource operations for Cloud Interconnect.
 
 {% endcut %}
 
