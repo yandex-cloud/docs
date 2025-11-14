@@ -33,8 +33,8 @@ links:
   - title: О сервисе {{ ai-studio-name }}
     description: Ознакомьтесь с основными возможностями сервиса
     href: concepts/
-  - title: Начало работы с {{ yagpt-name }}
-    description: Отправьте свой первый запрос в {{ yagpt-name }}
+  - title: Начало работы с {{ model-gallery-name }}
+    description: Используйте модели {{ model-gallery-name }} для генерации текста
     href: quickstart/yandexgpt
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса

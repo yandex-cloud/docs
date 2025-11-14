@@ -11,7 +11,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для API-шлюза. Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится API-шлюз.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Выберите нужный API-шлюз.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_operations }}** для выбранного API-шлюза.

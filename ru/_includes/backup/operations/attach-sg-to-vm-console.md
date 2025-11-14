@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно подключить ВМ к {{ backup-name }}.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и выберите нужную ВМ.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и выберите нужную ВМ.
 1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** добавьте группу безопасности в [сетевой интерфейс](../../../compute/concepts/network.md) ВМ:
 
     * В правом верхнем углу блока нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.

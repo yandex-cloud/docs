@@ -1,4 +1,4 @@
-Роль `cic.editor` позволяет управлять транковыми подключениями, приватными и публичными соединениями, а также просматривать информацию о квотах, ресурсах и операциях с ресурсами сервиса Cloud Interconnect.
+Роль `cic.editor` позволяет управлять транковыми подключениями, приватными и публичными соединениями, а также просматривать информацию о квотах и ресурсах сервиса Cloud Interconnect.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -9,8 +9,7 @@
 * просматривать информацию о [партнерах CIC](../../interconnect/concepts/partners.md);
 * просматривать информацию о [квотах](../../interconnect/concepts/limits.md#interconnect-quotas) сервиса Cloud Interconnect;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
-* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию об операциях с ресурсами сервиса Cloud Interconnect.
+* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% endcut %}
 

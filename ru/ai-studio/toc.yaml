@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
-      - name: Начало работы с {{ yagpt-name }}
+      - name: Начало работы с {{ model-gallery-name }}
         href: quickstart/yandexgpt.md
   - name: Пошаговые инструкции
     items:

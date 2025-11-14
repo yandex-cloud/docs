@@ -5,17 +5,18 @@ resource "yandex_cdn_resource" "my_resource" {
     origin_protocol     = "https"
     origin_group_id     = <идентификатор_группы_источников>
     secondary_hostnames = ["<дополнительное_доменное_имя_1>", "дополнительное_доменное_имя_2"]
+    provider_type       = "<CDN-провайдер>"
     ssl_certificate {
       type = "certificate_manager"
       certificate_manager_id = "<идентификатор_сертификата>"
     }
     options {
       redirect_http_to_https = true
-      secure_key = "<секретный_ключ>"
-      enable_ip_url_signing = true
+      secure_key             = "<секретный_ключ>"
+      enable_ip_url_signing  = true
       ip_address_acl {
         excepted_values = ["<IP-адрес_1>", "<IP-адрес_2>", ..., "<IP-адрес_n>"]
-        policy_type = "<тип_политики>"
+        policy_type     = "<тип_политики>"
       }
     }
 }
@@ -23,13 +24,19 @@ resource "yandex_cdn_resource" "my_resource" {
 
 Где:
 * `cname` — основное доменное имя для раздачи контента. Обязательный параметр.
-* `active` — (опционально) флаг, указывающий на доступ к контенту для конечных пользователей: `true` — контент из CDN доступен клиентам, `false` — доступ к контенту отключен. Значение по умолчанию: `true`.
-* `origin_protocol` — (опционально) протокол для источников. Значение по умолчанию: `http`.
+* `active` — флаг, указывающий на доступ к контенту для конечных пользователей: `true` — контент из CDN доступен клиентам, `false` — доступ к контенту отключен. Значение по умолчанию: `true`. Необязательный параметр.
+* `origin_protocol` — протокол для источников. Значение по умолчанию: `http`. Необязательный параметр.
 * `origin_group_id` — идентификатор [группы источников](../../cdn/concepts/origins.md). Обязательный параметр. Используйте идентификатор из описания группы источников в ресурсе `yandex_cdn_origin_group`.
-* `secondary_hostnames` — (опционально) дополнительные доменные имена.
-* `ssl_certificate` — (опционально) параметры SSL-сертификата:
+* `secondary_hostnames` — дополнительные доменные имена. Необязательный параметр.
+* `provider_type` — [провайдер CDN](../../cdn/concepts/providers.md), должен совпадать с провайдером CDN у группы источников. Необязательный параметр. Возможные значения:
+    * `ourcdn` (значение по умолчанию) — провайдер {{ cdn-full-name }}. 
+    * `gcore` — EdgeCDN-провайдер.
 
-    * `type` — тип сертификата, возможные значения:
+        {% include [provider-binding](provider-binding.md) %}
+
+* `ssl_certificate` — параметры SSL-сертификата. Необязательный параметр. Возможные значения:
+
+    * `type` — тип сертификата:
 
         * `not_used` — без сертификата. Значение по умолчанию.
         * `certificate_manager` — пользовательский сертификат. Укажите идентификатор сертификата в параметре `certificate_manager_id`.
@@ -38,7 +45,7 @@ resource "yandex_cdn_resource" "my_resource" {
 
     * `certificate_manager_id` — идентификатор пользовательского сертификата в {{ certificate-manager-name }}.
 
-* `options` — (опционально) дополнительные параметры CDN-ресурса:
+* `options` — дополнительные параметры CDN-ресурса. Необязательный параметр. Возможные значения:
 
     * `redirect_http_to_https` — параметр для переадресации клиентов с HTTP на HTTPS, возможные значения: `true` или `false`. Доступно при использовании SSL-сертификата.
     * `secure_key` — секретный ключ. Произвольная строка длиной от 6 до 32 символов. Необходим, чтобы ограничить доступ к ресурсу с помощью [защищенных токенов](../../cdn/concepts/secure-tokens.md).

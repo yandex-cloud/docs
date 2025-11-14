@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
 

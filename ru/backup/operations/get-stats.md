@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [политика](../concepts/policy.md) резервного копирования.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Выберите дашборд — **{{ backup-name }}**
   1. В поле **Resource name** выберите виртуальную машину или сервер {{ baremetal-name }}, для которых вы хотите посмотреть статистику.
 

@@ -9,7 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}. 
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 
   В столбце **{{ ui-key.yacloud.compute.instances.column_cloud-backup }}** вы увидите статусы подключения {{ backup-name }} к ВМ.

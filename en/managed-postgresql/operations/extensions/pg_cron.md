@@ -15,7 +15,7 @@ To install `pg_cron` in a {{ PG }} cluster:
 
     {% endnote %}
 
-1. [Add a user](../grant.md#grant-privilege) with the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser) to manage the jobs.
+1. [Add](../grant.md#grant-privilege) the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) to the user who will manage tasks.
 
 In the selected database, the `cron` schema with tables and functions required for the extension to work will appear:
 
