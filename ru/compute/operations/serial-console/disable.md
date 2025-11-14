@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите на имя нужной ВМ.
   1. Нажмите кнопку ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выключите опцию **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

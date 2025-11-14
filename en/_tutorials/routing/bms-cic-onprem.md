@@ -126,6 +126,17 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
 {% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
 
+## Configure the routing instance {#config-ri}
+
+In addition to the list of IP prefixes from the previous step, you should add the following to the routing instance:
+
+1. List of aggregated IP prefixes for private subnets from the Baremetal segment.
+1. List of aggregated IP prefixes for announced subnets from on-premise.
+
+You can associate the list of aggregated IP prefixes with any of the existing availability zones.
+
+For example, for the `192.168.1.0/24` subnet IP prefix, the `192.168.0.0/22` prefix can be the aggregate.
+
 ## Create a private connection {#create-private-connection}
 
 Once the routing instance has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/network.md#private-connection-to-vpc) in {{ baremetal-name }}:

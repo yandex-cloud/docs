@@ -106,9 +106,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
      Where:
 
-     * `name`: DB name. This is a required parameter.
+     * `name`: Database name. This is a required parameter.
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `enable_throttling_rcu_limit`: Introduce a throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
+     * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
      * `storage_size_limit`: Data size limit in bytes. This is an optional parameter. The default value is `50` GB.
      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional parameter. The default value is `0`.
@@ -219,9 +219,9 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
      Where:
 
-     * `name`: DB name. This is a required parameter.
+     * `name`: Database name. This is a required parameter.
      * `deletion_protection`: DB deletion protection, `true` or `false`. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
-     * `enable_throttling_rcu_limit`: Introduce a throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
+     * `enable_throttling_rcu_limit`: Enable throughput limit, `true` or `false`. This is an optional parameter. The default value is `false`.
      * `provisioned_rcu_limit`: Limit on request units consumed per second. This is an optional parameter. The default value is `0`.
      * `storage_size_limit`: Amount of data, GB. This is an optional parameter. The default value is `50`.
      * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is off. This is an optional parameter. The default value is `0`.
@@ -417,7 +417,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
      Where:
 
-     * `name`: DB name.
+     * `name`: Database name.
      * `network_id`: ID of the network the DB is connected to.
      * `subnet_ids`: List of subnet IDs. Separated by commas.
      * `resource_preset_id`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](../concepts/resources.md#resource-presets).

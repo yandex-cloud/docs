@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить vCPU и RAM ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -107,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить количество GPU на ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -196,7 +196,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -287,7 +287,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы включить [программно-ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.

@@ -269,7 +269,7 @@ default:
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
-  kafka-ui-provectus: https://github.com/provectus/kafka-ui-docs
+  kafka-ui-kafbat: https://ui.docs.kafbat.io/
   keycloak: Keycloak
   KF: Apache Kafka®
   kf:
@@ -802,6 +802,8 @@ default:
   SPRK: Apache Spark™
   src-full-name: SourceCraft
   src-name: SourceCraft
+  stackland-full-name: Yandex Cloud Stackland
+  stackland-name: Stackland
   storage-aws-cli-alias: ycs3
   sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
@@ -14610,6 +14612,11 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kruise/chart/kruise
         tag: 1.5.0
+    yc_kubernetes-node-remediation:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/medik8s/kubernetes-node-remediation/chart/kubernetes-node-remediation
+        tag: 1.0.1
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/multi-kyverno

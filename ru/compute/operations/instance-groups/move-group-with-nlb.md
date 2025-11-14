@@ -30,7 +30,7 @@ description: Из статьи вы узнаете, как можно перен
         - Консоль управления {#console}
 
           1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+          1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ network-load-balancer-name }}**.
           1. Нажмите на имя нужного балансировщика.
           1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
           1. Справа сверху нажмите ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_add-listener }}** и [создайте](../../../network-load-balancer/operations/listener-add.md) новый обработчик.

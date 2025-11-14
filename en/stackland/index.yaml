@@ -1,0 +1,29 @@
+title: '{{ stackland-full-name }}'
+description:
+  - >-
+    A ready-made AI infrastructure with {{ yandex-cloud }} PaaS services for you
+    to manage AI workloads and microservice solutions within your corporate
+    perimeter.
+  - >-
+    Stackland is based on Kubernetes®, which allows you to use familiar
+    microservice app management tools and manage {{ yandex-cloud }} PaaS
+    services via the Kubernetes API.
+  - >-
+    {{ stackland-full-name }} integrates an S3 storage, {{ mpg-name }}, {{
+    mch-name }}, {{ mkf-name }}, and vector databases, as well as an
+    out-of-the-box toolkit for apps to leverage GPUs and high-performance
+    networks for distributed inference tasks.
+  - >-
+    The platform will facilitate quick in-house deployment of {{
+    foundation-models-name }} for AI app and agent development, {{
+    speechsense-name }} for speech analytics, and {{ datalens-name }} as the BI
+    system.
+  - >-
+    The service is at the <a
+    href="https://yandex.cloud/en/docs/overview/concepts/launch-stages">Preview</a>
+    stage and provided upon <a
+    href="https://yandex.cloud/en/services/stackland#stackland-form">request</a>.      
+links:
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
