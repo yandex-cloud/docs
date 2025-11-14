@@ -1,6 +1,6 @@
 ---
 title: '{{ ydb-full-name }} use cases'
-description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ ydb-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ ydb-name }} tutorials
@@ -33,3 +33,4 @@ description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)
 * [{#T}](maxpatrol.md)
+* [{#T}](postbox-webhook.md)

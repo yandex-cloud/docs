@@ -35,4 +35,4 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, `organization-manager.userpools.viewer` и `organization-manager.idpInstances.viewer`.
+Включает разрешения, предоставляемые ролями `organization-manager.auditor`, `organization-manager.federations.viewer`, `organization-manager.users.viewer`, `organization-manager.samlApplications.viewer`, `organization-manager.oauthApplications.viewer`, `organization-manager.userpools.viewer` и `organization-manager.idpInstances.billingViewer`.

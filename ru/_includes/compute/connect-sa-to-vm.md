@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите один из существующих сервисных аккаунтов или создайте новый.

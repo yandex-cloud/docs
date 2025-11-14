@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа размещения дисков.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа размещения дисков.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -242,7 +242,7 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа размещения дисков.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service_5w4rd }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.

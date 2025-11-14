@@ -1,20 +1,20 @@
 ---
 title: Access management in {{ network-load-balancer-full-name }}
-description: Access management in {{ network-load-balancer-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ network-load-balancer-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ network-load-balancer-name }}
 
 In this section, you will learn:
-* [What resources support role assignment](#resources).
-* [What roles this service has](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [What roles are required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -22,7 +22,7 @@ In this section, you will learn:
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.svg)
+{% include [network-load-balancer](../../_mermaid/roles/network-load-balancer.md) %}
 
 ### Service roles {#service-roles}
 
@@ -67,7 +67,7 @@ Viewing resource details | `get`, `list`, `listOperations` | `viewer` for the re
 **Managing network load balancers** | |
 [Creating](../operations/load-balancer-create.md) and updating load balancers in a folder | `create` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks hosting the target groups.
 [Deleting load balancers](../operations/load-balancer-delete.md) | `update`, `delete` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
-[Attaching target groups](../operations/target-group-attach.md) | `attachTargetGroup`| `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks hosting the target groups.
+[Attaching target groups](../operations/target-group-attach.md) | `attachTargetGroup`| `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the folder and, if the load balancer is public, networks hosting target groups.
 [Detaching target groups](../operations/target-group-detach.md) | `detachTargetGroup` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer
 [Getting the target group status](../operations/check-resource-health.md) | `getTargetStates` | `load-balancer.viewer` or `viewer` for the load balancer and specified target groups
 [Adding](../operations/listener-add.md) and [removing](../operations/listener-remove.md) listeners | `addListener`, `removeListener` | `load-balancer.privateAdmin` / `load-balancer.admin` or `editor` for the load balancer

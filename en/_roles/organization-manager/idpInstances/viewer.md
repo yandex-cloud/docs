@@ -1,1 +1,0 @@
-The `organization-manager.idpInstances.viewer` role enables viewing the list of users who employ the Identity Hub authentication quota in the current [reporting period](../../../billing/concepts/reporting-period.md), as well as viewing info on a subscription to the paid-for Identity Hub features and stats regarding the use of the quotas within this subscription.

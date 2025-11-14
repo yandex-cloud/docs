@@ -3,7 +3,7 @@
 {{ load-testing-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
 In this section, you will learn:
-* [What resources you can assign a role for](#resources).
+* [Resources you can assign a role for](#resources).
 * [What roles this service has](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
@@ -11,15 +11,15 @@ In this section, you will learn:
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/load-testing/service-roles-hierarchy.svg)
+{% include [load-testing](../../_mermaid/roles/load-testing.md) %}
 
 ### Service roles {#service-roles}
 

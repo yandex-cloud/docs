@@ -1,6 +1,6 @@
 ---
 title: '{{ yds-full-name }} use cases'
-description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ yds-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ yds-name }} tutorials
@@ -28,3 +28,4 @@ description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
 - [{#T}](audit-trails.md)
 - [{#T}](search-events-audit-logs/index.md)
 - [{#T}](debezium.md)
+- [{#T}](postbox-webhook.md)

@@ -1086,7 +1086,7 @@ description: Пошаговые инструкции по работе с {{ con
 
         * `managed_cluster_id` — идентификатор кластера.
 
-          Идентификатор кластера можно получить со списком кластеров [здесь](../../managed-kafka/operations/cluster-list.md#list-clusters) в каталоге.
+          Идентификатор кластера можно [получить со списком кластеров в каталоге](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
         * `auth` — параметры аутентификации. Укажите один из блоков:
 

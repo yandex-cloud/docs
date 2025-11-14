@@ -1,6 +1,31 @@
 # Agent selection
 
-When [creating a test](../operations/create-test-bucket.md#create-test), you can either specify a test agent right away by selecting one from the list or configure selecting the first agent that becomes available. The agent selection function allows you to filter test agents by parameters you set.
+When [creating a test](../operations/create-test-bucket.md#create-test), you can either select a test agent from the list or create a temporary agent. The temporary test agent will be created for this specific test only and deleted after the test is complete. You can also configure selecting the first available agent. The agent selection option allows you to filter test agents by parameters you set.
+
+## Creating a temporary test agent {#temporal}
+
+To create a temporary test agent:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the folder for testing.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+   1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** section, click **{{ ui-key.yacloud.load-testing.label_agent-temporal-selector }}**.
+   1. Under **{{ ui-key.yacloud.load-testing.title_temporal-agent-field }}**:
+      * Select a suitable agent type. For more information, see [Agent performance](../../load-testing/concepts/agent.md#benchmark).
+      * Select a previously created [service account](../../iam/concepts/users/service-accounts.md) or create a new one by clicking **{{ ui-key.yacloud.common.create }}**. The service account must have the following roles:
+         * `loadtesting.generatorClient`: To send test results to {{ load-testing-name }}.
+         * `compute.editor`: To create a VM in the user folder.
+         * `iam.serviceAccounts.user`: To link the service account to the VM.
+         * `vpc.user`: To connect to and use network resources in the user folder.
+         * `vpc.publicAdmin`: To assign a public IP address to the VM.
+      * Select the [subnet](../../vpc/concepts/network.md#subnet) hosting your test target.
+      * Select the [security group](../../vpc/concepts/security-groups.md). Make sure to [configure](../../load-testing/operations/security-groups-agent.md) the security group in advance.
+
+{% endlist %}
 
 ## Specifying a test agent {#select}
 
@@ -58,7 +83,7 @@ To configure selecting the first test agent that becomes available:
    1. If any of the agents is suitable for the test, select **{{ ui-key.yacloud.load-testing.label_agent-by-filter-any-option }}**; otherwise, select **{{ ui-key.yacloud.load-testing.label_agent-by-filter-condition-option }}** and set up the agent filtering conditions:
       * (Optional) In the **{{ ui-key.yacloud.load-testing.filter_label_tags }}** section, click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and specify the labels for agent selection in `key:value` format.
       * (Optional) In the **{{ ui-key.yacloud.load-testing.field_name-filter }}** field, specify a string that must be present in the names of the agents you want to start the test configuration on.
-   1. In the **{{ ui-key.yacloud.load-testing.label_agents-count }}** field, specify how many agents will be used to run the test in synch: This will allow you to increase the load on the test target.
+   1. In the **{{ ui-key.yacloud.load-testing.label_agents-count }}** field, specify how many agents will be used to run the test in sync: This will allow you to increase the load on the test target.
 
 - CLI {#cli}
 
