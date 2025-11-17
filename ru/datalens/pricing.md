@@ -8,6 +8,12 @@ editable: false
 
 
 
+{% note info %}
+
+С 1 декабря в {{ datalens-name }} изменятся правила тарификации. Подробности изменений описаны в [статье](./pricing-changes.md).
+
+{% endnote %}
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
