@@ -221,13 +221,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * {% include [sharding_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/sharding-settings.md) %}
 
-    * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/ui/alt-names.md) %}
-
-    * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
-
-    * {% include [retry-failed-toasts](../../../../_includes/data-transfer/fields/retry-failed-toasts.md) %}
-
-    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+    * {% include [advanced_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/advanced-settings.md) %}
 
 - CLI {#cli}
 
@@ -266,7 +260,7 @@ description: Из статьи вы узнаете, как задать наст
         * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
         Вы можете указать только один из вариантов шардирования: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping` или `sharding.round_robin`. Если вариант шардирования не указан, то все данные переносятся в один шард.
-    
+
     * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
@@ -328,8 +322,6 @@ description: Из статьи вы узнаете, как задать наст
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
-
-{% include [table-names](../../../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
 
 {% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 

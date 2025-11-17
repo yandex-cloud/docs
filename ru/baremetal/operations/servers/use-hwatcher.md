@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 1. Скачайте утилиту:
 
     ```bash
-    wget https://{{ s3-storage-host }}/baremetal/support/hwcheck
+    wget https://{{ s3-storage-host }}/baremetal-support-tools/support/hwcheck
     ```
 1. Добавьте root-пользователю права на выполнение скачанного исполняемого файла:
 

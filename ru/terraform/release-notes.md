@@ -5,6 +5,14 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.171.0 (November 17, 2025)
+##### BUG FIXES:
+* mysql: user permission REFERENCES added
+##### ENHANCEMENTS:
+* connectionmanager: add `storedoc` option
+##### WARNING:
+* kubernetes: deprecate `1.30` version, use `1.31` instead
+
 ## 0.170.0 (November 13, 2025)
 ##### FEATURES:
 * airflow: dag-processor configuring has been added for airflow 3.0+
@@ -38,6 +46,8 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 ##### ENHANCEMENTS:
 * CDN: resource.disable_cache is deprecated. You can safely delete it
 * CDN: cdn_resource.cache_http_headers marked deprecated
+##### :
+* mongodb: fix empty diff when permission block change empty to null
 
 ## 0.168.0 (October 23, 2025)
 ##### FEATURES:
