@@ -5,6 +5,10 @@ sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/updateAccessBindings
 
 # Object Storage API, gRPC: BucketService.UpdateAccessBindings
 
+Updates access bindings for the specified bucket.
+(-- api-linter: yc::1705::http-method-mapping=disabled
+for compatibility with old format --)
+
 ## gRPC request
 
 **rpc UpdateAccessBindings ([access.UpdateAccessBindingsRequest](#yandex.cloud.access.UpdateAccessBindingsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
