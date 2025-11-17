@@ -19,10 +19,10 @@ description: Следуя данной инструкции, вы сможете
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Выберите один из вариантов создания:
-      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (рекомендуется). Преднастроенный профиль содержит:
+      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (рекомендуется).
 
-        * [базовое правило](../concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../concepts/rules.md#rule-action) — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`;
-        * [правило Smart Protection](../concepts/rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
+        {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
+        
       * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
 
   1. Введите имя профиля.

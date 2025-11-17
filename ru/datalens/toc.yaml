@@ -912,6 +912,8 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
+      - name: Изменения в правилах тарификации 1 декабря
+        href: pricing-changes.md
       - name: Тарифные планы
         href: concepts/service-plans-comparison.md
       - name: Настройка тарифного плана

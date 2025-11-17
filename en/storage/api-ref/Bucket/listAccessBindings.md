@@ -45,6 +45,8 @@ sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/listAccessBindings.md
 
 # Object Storage API, REST: Bucket.ListAccessBindings
 
+Lists access bindings for the specified bucket.
+
 ## HTTP request
 
 ```

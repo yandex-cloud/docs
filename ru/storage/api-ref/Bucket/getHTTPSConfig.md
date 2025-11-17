@@ -69,7 +69,7 @@ Name of the bucket. ||
 
 Type of TLS certificate source.
 
-- `SOURCE_TYPE_UNSPECIFIED`
+- `SOURCE_TYPE_UNSPECIFIED`: Source type unspecified.
 - `SOURCE_TYPE_SELF_MANAGED`: Your certificate, uploaded directly.
 - `SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER`: Certificate managed by Certificate Manager. ||
 || issuer | **string**

@@ -106,6 +106,10 @@ sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/updateAccessBindings.md
 
 # Object Storage API, REST: Bucket.UpdateAccessBindings
 
+Updates access bindings for the specified bucket.
+(-- api-linter: yc::1705::http-method-mapping=disabled
+for compatibility with old format --)
+
 ## HTTP request
 
 ```

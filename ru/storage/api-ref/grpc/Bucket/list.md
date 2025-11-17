@@ -183,7 +183,8 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
           "string"
         ]
       },
-      "resource_id": "string"
+      "resource_id": "string",
+      "disabled_accesskey_auth": "bool"
     }
   ]
 }
@@ -229,7 +230,7 @@ For details, see [documentation](/docs/storage/concepts/storage-class). ||
 Bucket versioning status.
 For details, see [documentation](/docs/storage/concepts/versioning).
 
-- `VERSIONING_UNSPECIFIED`
+- `VERSIONING_UNSPECIFIED`: Versioning unspecified.
 - `VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
 Objects that are stored in the bucket have a version ID of `null`.
 
@@ -291,6 +292,9 @@ Bucket allowed private endpoints. ||
 || resource_id | **string**
 
 ID of the Yandex.Cloud entity that owns the bucket. ||
+|| disabled_accesskey_auth | **bool**
+
+An option to disable access key auth for a bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -329,7 +333,7 @@ A grant resource, used to specify the permission granted and the grantee.
 
 Required field. Permission granted by the grant.
 
-- `PERMISSION_UNSPECIFIED`
+- `PERMISSION_UNSPECIFIED`: Permission unspecified.
 - `PERMISSION_FULL_CONTROL`: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
 on the bucket.
 
@@ -356,7 +360,7 @@ Amazon S3-compatible HTTP API. ||
 
 Required field. The grantee type for the grant.
 
-- `GRANT_TYPE_UNSPECIFIED`
+- `GRANT_TYPE_UNSPECIFIED`: Grant type unspecified.
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
 
   For this grantee type, you need to specify the user ID in `Bucket.acl.grants.grantee_id` field. To get user ID, see
@@ -399,7 +403,7 @@ When a client sends a CORS-preflight `options` request with the `Access-Control-
 the list of the allowed methods. If there is a match, all the allowed methods are listed in the
 `Access-Control-Allow-Methods` header of the response.
 
-- `METHOD_UNSPECIFIED`
+- `METHOD_UNSPECIFIED`: Method unspecified.
 - `METHOD_GET`: HTTP `GET` method.
 - `METHOD_HEAD`: HTTP `HEAD` method.
 - `METHOD_POST`: HTTP `POST` method.
@@ -466,7 +470,7 @@ A configuration resource for redirecting all requests sent to the website.
 
 Scheme of the redirect URI.
 
-- `PROTOCOL_UNSPECIFIED`
+- `PROTOCOL_UNSPECIFIED`: Protocol unspecified.
 - `PROTOCOL_HTTP`: `http` scheme.
 - `PROTOCOL_HTTPS`: `https` scheme. ||
 || hostname | **string**
@@ -516,7 +520,7 @@ Default value: `"301"`. ||
 
 Scheme of the redirect URI.
 
-- `PROTOCOL_UNSPECIFIED`
+- `PROTOCOL_UNSPECIFIED`: Protocol unspecified.
 - `PROTOCOL_HTTP`: `http` scheme.
 - `PROTOCOL_HTTPS`: `https` scheme. ||
 || replace_key_prefix_with | **string**
@@ -637,10 +641,18 @@ Value of the bucket tag. ||
 
 #|
 ||Field | Description ||
-|| prefix | **string** ||
-|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| tag[] | **[Tag](#yandex.cloud.storage.v1.Tag)** ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size that the object must be greater. ||
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size that the object must be less than. ||
+|| tag[] | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
 |#
 
 ## Expiration {#yandex.cloud.storage.v1.LifecycleRule.Expiration}
@@ -764,10 +776,14 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 ||Field | Description ||
 || status | enum **ObjectLockStatus**
 
-- `OBJECT_LOCK_STATUS_UNSPECIFIED`
-- `OBJECT_LOCK_STATUS_DISABLED`
-- `OBJECT_LOCK_STATUS_ENABLED` ||
-|| default_retention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)** ||
+Status
+
+- `OBJECT_LOCK_STATUS_UNSPECIFIED`: Object lock status unspecified.
+- `OBJECT_LOCK_STATUS_DISABLED`: Object lock status disabled.
+- `OBJECT_LOCK_STATUS_ENABLED`: Object lock status enabled. ||
+|| default_retention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)**
+
+Default retention ||
 |#
 
 ## DefaultRetention {#yandex.cloud.storage.v1.ObjectLock.DefaultRetention}
@@ -778,9 +794,11 @@ Default lock configuration for added objects
 ||Field | Description ||
 || mode | enum **Mode**
 
-- `MODE_UNSPECIFIED`
-- `MODE_GOVERNANCE`
-- `MODE_COMPLIANCE` ||
+Mode
+
+- `MODE_UNSPECIFIED`: Mode unspecified.
+- `MODE_GOVERNANCE`: Mode governance.
+- `MODE_COMPLIANCE`: Mode compliance. ||
 || days | **int64**
 
 Number of days for locking
@@ -797,15 +815,21 @@ Includes only one of the fields `days`, `years`. ||
 
 #|
 ||Field | Description ||
-|| rules[] | **[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)** ||
+|| rules[] | **[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)**
+
+Rules ||
 |#
 
 ## EncryptionRule {#yandex.cloud.storage.v1.Encryption.EncryptionRule}
 
 #|
 ||Field | Description ||
-|| kms_master_key_id | **string** ||
-|| sse_algorithm | **string** ||
+|| kms_master_key_id | **string**
+
+KMS master key ID ||
+|| sse_algorithm | **string**
+
+SSE algorithm ||
 |#
 
 ## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
