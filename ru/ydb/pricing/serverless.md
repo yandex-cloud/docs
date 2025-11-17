@@ -166,6 +166,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+{% include [prices-nds-note](../../_includes/prices-nds-note.md) %}
+
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.

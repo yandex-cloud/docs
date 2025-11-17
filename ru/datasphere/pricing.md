@@ -69,6 +69,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](../datasphere/concepts/deploy/index.md).

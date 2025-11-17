@@ -9335,6 +9335,7 @@ default:
         field_dhcp-ip-range: IP address range
         field_dhcp-settings: Assigning IP addresses via DHCP
         field_gateway: Default gateway
+        field_gateway_t7LLk: Default gateway
         field_interconnect-direct-id: Enter ID
         field_interconnect-from-folder: Choose from folder
         field_mac-address: MAC address
@@ -9392,6 +9393,7 @@ default:
         title_section-server-private-network: Private network
         title_section-server-product: Image
         title_section-server-public-network: Public network
+        title_section-server-public-network_p7Zhj: Public network
         title_server-access: Access
         title_vrf-interconnect-section: Private connection to cloud networks
       cdn:

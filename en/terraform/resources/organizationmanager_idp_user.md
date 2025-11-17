@@ -9,8 +9,8 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_idp_u
 
 A user in the Identity Provider system.
 
-Users are created within a userpool and can authenticate to access cloud resources.
-Each user has a unique identifier, credentials, and profile information.
+ Users are created within a userpool and can authenticate to access cloud resources.
+ Each user has a unique identifier, credentials, and profile information.
 
 ## Example usage
 
@@ -55,10 +55,8 @@ resource "yandex_organizationmanager_idp_user" "example_user" {
  Part of the user's profile information.
 - `id` (String) ID of the user to return.
 - `is_active` (Boolean) Whether the user is active. Default is true.
-- `password_hash` (Attributes) Password hash. Credentials type. Exactly one of credentials type must be specified. (
-  see [below for nested schema](#nestedatt--password_hash))
-- `password_spec` (Attributes) Password specification. Credentials type. Exactly one of credentials type must be
-  specified. (see [below for nested schema](#nestedatt--password_spec))
+- `password_hash` (Attributes) Password hash. Credentials type. Exactly one of credentials type must be specified. (see [below for nested schema](#nestedatt--password_hash))
+- `password_spec` (Attributes) Password specification. Credentials type. Exactly one of credentials type must be specified. (see [below for nested schema](#nestedatt--password_spec))
 - `phone_number` (String) User's phone number.
 - `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 - `user_id` (String) ID of the user to return.

@@ -217,6 +217,10 @@ _{{ price-per-hour-count-per-second }}_
 
 
 
+
+{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 Цена с (CVoS) доступна только для обычных ВМ.
