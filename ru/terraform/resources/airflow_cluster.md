@@ -81,6 +81,7 @@ resource "yandex_airflow_cluster" "my_airflow_cluster" {
 - `admin_password` (String, Sensitive) Password that is used to log in to Apache Airflow web UI under `admin` user.
 - `airflow_config` (Map of Map of String) Configuration of the Apache Airflow application itself. The value of this attribute is a two-level map. Keys of top-level map are the names of [configuration sections](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#airflow-configuration-options). Keys of inner maps are the names of configuration options within corresponding section.
 - `airflow_version` (String) Apache Airflow version in format `<major>.<minor>`.
+- `dag_processor` (Attributes) Configuration of dag-processor instances. Only for airflow version 3.*. (see [below for nested schema](#nestedatt--dag_processor))
 - `deb_packages` (Set of String) System packages that are installed in the cluster.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
@@ -142,6 +143,15 @@ Required:
 
 - `max_count` (Number) The maximum number of worker instances in the cluster.
 - `min_count` (Number) The minimum number of worker instances in the cluster.
+- `resource_preset_id` (String) The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
+
+
+<a id="nestedatt--dag_processor"></a>
+### Nested Schema for `dag_processor`
+
+Required:
+
+- `count` (Number) The number of dag-processor instances in the cluster.
 - `resource_preset_id` (String) The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
 
 

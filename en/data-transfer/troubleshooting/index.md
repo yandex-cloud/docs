@@ -134,8 +134,6 @@ Error example:
 
 {% include [ssl-is-required](../../_includes/data-transfer/troubles/clickhouse/ssl-is-required.md) %}
 
-{% include [table-names](../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
-
 {% include [date-range](../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
 {% include [pod-restarted](../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}

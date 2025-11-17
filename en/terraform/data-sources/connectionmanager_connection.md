@@ -106,6 +106,8 @@ filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nes
 filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--postgresql))
 - `redis` (Attributes) package: yandex.cloud.connectionmanager.v1
 filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--redis))
+- `storedoc` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--storedoc))
 - `trino` (Attributes) package: yandex.cloud.connectionmanager.v1
 filename: yandex/cloud/connectionmanager/v1/connection.proto (see [below for nested schema](#nestedatt--params--trino))
 - `valkey` (Attributes) package: yandex.cloud.connectionmanager.v1
@@ -1182,6 +1184,142 @@ filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested 
 
 <a id="nestedatt--params--redis--cluster--tls_params--tls"></a>
 ### Nested Schema for `params.redis.cluster.tls_params.tls`
+
+Read-Only:
+
+- `ca_certificate` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/common.proto
+
+
+
+
+
+<a id="nestedatt--params--storedoc"></a>
+### Nested Schema for `params.storedoc`
+
+Read-Only:
+
+- `auth` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--auth))
+- `cluster` (Attributes) When creating/updating Connection, the field "cluster" is mutually
+ exclusive with "managed_cluster_id". (see [below for nested schema](#nestedatt--params--storedoc--cluster))
+- `databases` (List of String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+- `managed_cluster_id` (String) When creating/updating Connection, the field "managed_cluster_id" is mutually
+ exclusive with "cluster".
+
+<a id="nestedatt--params--storedoc--auth"></a>
+### Nested Schema for `params.storedoc.auth`
+
+Read-Only:
+
+- `auth_source` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+- `user_password` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password))
+
+<a id="nestedatt--params--storedoc--auth--user_password"></a>
+### Nested Schema for `params.storedoc.auth.user_password`
+
+Read-Only:
+
+- `password` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password--password))
+- `user` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/common.proto
+
+<a id="nestedatt--params--storedoc--auth--user_password--password"></a>
+### Nested Schema for `params.storedoc.auth.user_password.password`
+
+Read-Only:
+
+- `lockbox_secret_key` (String) Read-only. Do not fill this field in create/update requests.
+- `password_generation_options` (Attributes) When creating/updating Password, the field "password_generation_options"
+ is mutually exclusive with "raw". In order to switch to the
+ "password_generation_options" you have to explicitly clear the "raw"
+ field. (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password--password--password_generation_options))
+- `raw` (String, Sensitive) When creating/updating Password, the field "raw" is mutually exclusive
+ with "password_generation_options". In order to switch to the "raw"
+ password you have to explicitly clear the "password_generation_options"
+ field.
+
+<a id="nestedatt--params--storedoc--auth--user_password--password--password_generation_options"></a>
+### Nested Schema for `params.storedoc.auth.user_password.password.password_generation_options`
+
+Read-Only:
+
+- `cookie` (String) Cookie is an arbitrary non-sensitive string that is saved with the
+ password. When updating PasswordGenerationOptions, if the cookie passed
+ in the update request differs from the cookie in the current
+ PasswordGenerationOptions, the password will be re-generated. If the
+ same cookie is passed, the password will not change.
+- `lockbox_password_generation_options` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--auth--user_password--password--raw--lockbox_password_generation_options))
+
+<a id="nestedatt--params--storedoc--auth--user_password--password--raw--lockbox_password_generation_options"></a>
+### Nested Schema for `params.storedoc.auth.user_password.password.raw.lockbox_password_generation_options`
+
+Read-Only:
+
+- `excluded_punctuation` (String) a string of punctuation characters to exclude from the default
+- `include_digits` (Boolean) whether at least one 0..9 character is included in the password, true by default
+- `include_lowercase` (Boolean) whether at least one a..z character is included in the password, true by default
+- `include_punctuation` (Boolean) whether at least one punctuation character is included in the password, true by default
+ punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+- `include_uppercase` (Boolean) whether at least one A..Z character is included in the password, true by default
+- `included_punctuation` (String) If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
+ a string of specific punctuation characters to use
+- `length` (Number) password length; by default, a reasonable length will be decided
+
+
+
+
+
+
+<a id="nestedatt--params--storedoc--cluster"></a>
+### Nested Schema for `params.storedoc.cluster`
+
+Read-Only:
+
+- `hosts` (Attributes List) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--hosts))
+- `tls_params` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--tls_params))
+
+<a id="nestedatt--params--storedoc--cluster--hosts"></a>
+### Nested Schema for `params.storedoc.cluster.hosts`
+
+Read-Only:
+
+- `health` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+- `host` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+- `port` (Number) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+- `role` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+- `type` (String) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/storedoc.proto
+
+
+<a id="nestedatt--params--storedoc--cluster--tls_params"></a>
+### Nested Schema for `params.storedoc.cluster.tls_params`
+
+Read-Only:
+
+- `disabled` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--tls_params--disabled))
+- `tls` (Attributes) package: yandex.cloud.connectionmanager.v1
+filename: yandex/cloud/connectionmanager/v1/common.proto (see [below for nested schema](#nestedatt--params--storedoc--cluster--tls_params--tls))
+
+<a id="nestedatt--params--storedoc--cluster--tls_params--disabled"></a>
+### Nested Schema for `params.storedoc.cluster.tls_params.disabled`
+
+
+<a id="nestedatt--params--storedoc--cluster--tls_params--tls"></a>
+### Nested Schema for `params.storedoc.cluster.tls_params.tls`
 
 Read-Only:
 

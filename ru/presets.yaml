@@ -9344,6 +9344,7 @@ default:
         field_dhcp-ip-range: Диапазон IP-адресов
         field_dhcp-settings: Назначение IP-адресов по DHCP
         field_gateway: Шлюз по умолчанию
+        field_gateway_t7LLk: Шлюз по умолчанию
         field_interconnect-direct-id: Указать идентификатор
         field_interconnect-from-folder: Выбрать из каталога
         field_mac-address: MAC-адрес
@@ -9401,6 +9402,7 @@ default:
         title_section-server-private-network: Приватная сеть
         title_section-server-product: Образ
         title_section-server-public-network: Публичная сеть
+        title_section-server-public-network_p7Zhj: Публичная сеть
         title_server-access: Доступ
         title_vrf-interconnect-section: Приватное соединение с облачными сетями
       cdn:

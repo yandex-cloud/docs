@@ -44,6 +44,7 @@ data "yandex_airflow_cluster" "airflow_cluster_by_id" {
 - `airflow_version` (String) Apache Airflow version in format `<major>.<minor>`.
 - `code_sync` (Attributes) Parameters of the location and access to the code that will be executed in the cluster. (see [below for nested schema](#nestedatt--code_sync))
 - `created_at` (String) The creation timestamp of the resource.
+- `dag_processor` (Attributes) Configuration of dag-processor instances. (see [below for nested schema](#nestedatt--dag_processor))
 - `deb_packages` (Set of String) System packages that are installed in the cluster.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
@@ -84,6 +85,15 @@ Read-Only:
 
 - `bucket` (String) The name of the Object Storage bucket that stores DAG files used in the cluster.
 
+
+
+<a id="nestedatt--dag_processor"></a>
+### Nested Schema for `dag_processor`
+
+Read-Only:
+
+- `count` (Number) The number of dag-processor instances in the cluster.
+- `resource_preset_id` (String) The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
 
 
 <a id="nestedatt--lockbox_secrets_backend"></a>

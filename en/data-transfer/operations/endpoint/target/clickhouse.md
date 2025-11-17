@@ -329,8 +329,6 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
-
 {% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
 {% include [pod-restarted](../../../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
