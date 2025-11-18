@@ -60,7 +60,7 @@ If not using `{{ captcha-mobile-site }}`, follow these steps:
    }
    ```
 
-1. Once you get the token from the `captchaDidFinish` method, send a POST request to the server to validate `https://smartcaptcha.yandexcloud.net/validate` providing parameters in the `x-www-form-urlencoded` format:
+1. Once you get the token from the `captchaDidFinish` method, send a POST request to the server to validate `https://{{ captcha-domain }}/validate` providing parameters in the `x-www-form-urlencoded` format:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 

@@ -11,6 +11,12 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% note warning %}
+
+В руководстве используется однохостовый кластер {{ CH }}. Если в вашем кластере больше одного хоста {{ CH }}, в SQL-запросах, представленных ниже, используйте [распределенный запрос]({{ ch.docs }}/sql-reference/statements/create/table) с подстановкой имени кластера: `CREATE ... ON CLUSTER '{cluster}'`. Также в запросах, где указан табличный движок `MergeTree`, используйте вместо него `ReplicatedMergeTree`.
+
+{% endnote %}
+
 
 ## Необходимые платные ресурсы {#paid-resources}
 
@@ -148,16 +154,32 @@
 
     В зависимости от количества кластеров {{ mkf-name }}:
 
-    - Если кластер {{ KF }} один, [укажите данные для аутентификации](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
-    - Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka topics**.
+    * Если кластер {{ KF }} один, укажите данные для аутентификации в [настройках {{ CH }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
 
-    Данные для аутентификации:
+        Данные для аутентификации:
 
-    - **Name** — имя топика (для нескольких кластеров {{ KF }}).
-    - **Sasl mechanism** — `SCRAM-SHA-512`.
-    - **Sasl password** — [пароль пользователя для потребителя](#before-you-begin).
-    - **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
-    - **Security protocol** — `SASL_SSL`.
+        * **Sasl mechanism** — `SCRAM-SHA-512`.
+        * **Sasl password** — [пароль пользователя для потребителя](#before-you-begin).
+        * **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
+        * **Security protocol** — `SASL_SSL`.
+
+    * Если кластеров {{ KF }} несколько, создайте нужное количество [именованных коллекций]({{ ch.docs }}/operations/named-collections) с данными для аутентификации каждого топика {{ mkf-name }}:
+
+        1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+
+        1. Выполните следующий запрос нужное количество раз, указав данные для аутентификации каждого топика:
+
+            ```sql
+            CREATE NAMED COLLECTION <имя_коллекции> AS
+                kafka_broker_list = '<FQDN_хоста-брокера>:9091',
+                kafka_topic_list = '<имя_топика>',
+                kafka_group_name = 'sample_group',
+                kafka_format = 'JSONEachRow'
+                kafka_security_protocol = 'SASL_SSL',
+                kafka_sasl_mechanism = 'SCRAM-SHA-512',
+                kafka_sasl_username = '<имя_пользователя_для_потребителя>',
+                kafka_sasl_password = '<пароль_пользователя_для_потребителя>';
+            ```
 
 - {{ TF }} {#tf}
 
@@ -219,25 +241,48 @@
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 1. Выполните запрос:
 
-    ```sql
-    CREATE TABLE IF NOT EXISTS db1.<имя_таблицы_для_топика>
-    (
-        device_id String,
-        datetime DateTime,
-        latitude Float32,
-        longitude Float32,
-        altitude Float32,
-        speed Float32,
-        battery_voltage Nullable(Float32),
-        cabin_temperature Float32,
-        fuel_level Nullable(Float32)
-    ) ENGINE = Kafka()
-    SETTINGS
-        kafka_broker_list = '<FQDN_хоста-брокера>:9091',
-        kafka_topic_list = '<имя_топика>',
-        kafka_group_name = 'sample_group',
-        kafka_format = 'JSONEachRow';
-    ```
+    {% list tabs group=instructions %}
+
+    - Один кластер {{ KF }}
+
+        ```sql
+        CREATE TABLE IF NOT EXISTS db1.<имя_таблицы_для_топика>
+        (
+            device_id String,
+            datetime DateTime,
+            latitude Float32,
+            longitude Float32,
+            altitude Float32,
+            speed Float32,
+            battery_voltage Nullable(Float32),
+            cabin_temperature Float32,
+            fuel_level Nullable(Float32)
+        ) ENGINE = Kafka()
+        SETTINGS
+            kafka_broker_list = '<FQDN_хоста-брокера>:9091',
+            kafka_topic_list = '<имя_топика>',
+            kafka_group_name = 'sample_group',
+            kafka_format = 'JSONEachRow';
+        ```
+
+    - Несколько кластеров {{ KF }}
+
+        ```sql
+        CREATE TABLE IF NOT EXISTS db1.<имя_таблицы_для_топика>
+        (
+            device_id String,
+            datetime DateTime,
+            latitude Float32,
+            longitude Float32,
+            altitude Float32,
+            speed Float32,
+            battery_voltage Nullable(Float32),
+            cabin_temperature Float32,
+            fuel_level Nullable(Float32)
+        ) ENGINE = Kafka(<имя_коллекции_с_данными_аутентификации>);
+        ```
+
+    {% endlist %}
 
 Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#before-you-begin).
 

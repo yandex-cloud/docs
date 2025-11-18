@@ -638,3 +638,185 @@ keywords:
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+## Примеры {#examples}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Создайте кластер {{ maf-name }} с тестовыми характеристиками:
+
+    * Имя — `myaf`.
+    * Версия {{ AF }} — `3.0`.
+    * Пароль администратора — `Password*1`.
+    * Сервисный аккаунт с идентификатором `aje8r2rp7fkl********`.
+    * Подсети с идентификаторами:
+      
+      * `e9bhbia2scnk********`
+      * `e2lfqbm5nt9r********`
+      * `fl8beqmjckv8********`
+
+    * Один веб-сервер для размещения экземпляра {{ AF }} с классом хостов `c1-m2`.
+    * Один планировщик с классом хостов `c1-m2`.
+    * Задачи выполняют воркеры с классом хостов `c1-m2`, количество таких воркеров — от `1` до `4`.
+    * Один DAG-процессор с классом хостов `c1-m2`.
+    * Бакет с произвольным именем для хранения DAG-файлов.
+
+    Выполните следующую команду:
+
+    ```bash
+    {{ yc-mdb-af }} cluster create \
+      --name myaf \
+      --airflow-version 3.0 \
+      --admin-password Password*1 \
+      --service-account-id aje8r2rp7fkl******** \
+      --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+      --security-group-ids enp68jq81uun******** \
+      --webserver count=1,resource-preset-id=c1-m2 \
+      --scheduler count=1,resource-preset-id=c1-m2 \
+      --worker min-count=1,max-count=4,resource-preset-id=c1-m2 \
+      --dag-processor count=1,resource-preset-id=c1-m2 \
+      --dags-bucket <имя_бакета>
+    ```
+
+- {{ TF }} {#tf}
+
+    Создайте кластер {{ maf-name }} с тестовыми характеристиками:
+
+    * Каталог с идентификатором `b1g4unjqq856********`.
+    * Имя — `myaf`.
+    * Версия {{ AF }} — `3.0`.
+    * Пароль администратора — `Password*1`.
+    * Новый сервисный аккаунт `af-sa` со следующими ролями:
+      
+      * `managed-airflow.integrationProvider`
+      * `storage.editor`
+      * `monitoring.editor`
+    
+    * Новая сеть `af-net` с подсетями:
+      
+      * `af-subnet-a` в зоне доступности `ru-central1-a` и с диапазоном адресов `10.1.0.0/24`;
+      * `af-subnet-b` в зоне доступности `ru-central1-b` и с диапазоном адресов `10.2.0.0/24`;
+      * `af-subnet-d` в зоне доступности `ru-central1-d` и с диапазоном адресов `10.3.0.0/24`.
+    
+    * Новая группа безопасности `af-sg`, разрешающая весь входящий и исходящий трафик.
+    
+    * Один веб-сервер для размещения экземпляра {{ AF }} с классом хостов `c1-m2`.
+    * Один планировщик с классом хостов `c1-m2`.
+    * Задачи выполняют воркеры с классом хостов `c1-m2`, количество таких воркеров — от `1` до `4`.
+    * Один DAG-процессор с классом хостов `c1-m2`.
+    * Новый бакет с произвольным именем для хранения DAG-файлов.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    locals {
+      folder_id = "b1g4unjqq856********"
+    }
+    
+    resource "yandex_airflow_cluster" "myaf" {
+      name               = "myaf"
+      airflow_version    = "3.0"
+      admin_password     = "Password*1"
+      service_account_id = yandex_iam_service_account.af-sa.id
+      subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]
+      security_group_ids = [yandex_vpc_security_group.af-sg.id]
+
+      webserver = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      scheduler = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      worker = {
+        min_count          = 1
+        max_count          = 4
+        resource_preset_id = "c1-m2"
+      }
+
+      dag_processor = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      code_sync = {
+        s3 = {
+          bucket = yandex_storage_bucket.af-bucket.bucket
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "af-net" {
+      name = "af-net"
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-a" {
+      name           = "af-subnet-a"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-b" {
+      name           = "af-subnet-b"
+      zone           = "ru-central1-b"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-d" {
+      name           = "af-subnet-d"
+      zone           = "ru-central1-d"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "af-sg" {
+      name       = "af-sg"
+      network_id = yandex_vpc_network.af-net.id
+  
+      ingress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+
+    resource "yandex_iam_service_account" "af-sa" {
+      name = "af-sa"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-af" {
+      folder_id = local.folder_id
+      role      = "managed-airflow.integrationProvider"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-storage" {
+      folder_id = local.folder_id
+      role      = "storage.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-monitoring" {
+      folder_id = local.folder_id
+      role      = "monitoring.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_storage_bucket" "af-bucket" {
+      bucket    = "<имя_бакета>"
+      folder_id = local.folder_id
+    }
+    ```
+
+{% endlist %}

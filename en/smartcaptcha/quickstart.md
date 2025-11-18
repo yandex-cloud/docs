@@ -82,7 +82,7 @@ Add the widget automatically:
 1. Add the JS script to the user page. To do this, place the following code anywhere on the page, e.g., inside the `<head>` tag:
 
     ```html
-    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+    <script src="https://{{ captcha-domain }}/captcha.js" defer></script>
     ```
 
     The `captcha.js` script will automatically find all `div` elements with the `smart-captcha` class and install the widget in them.
@@ -113,7 +113,7 @@ After the check, the user is given a unique token. The token is inserted into th
 </div>
 ```
 
-To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate` specifying the parameters in `x-www-form-urlencoded` format:
+To validate the token, send a POST request to `https://{{ captcha-domain }}/validate` specifying the parameters in `x-www-form-urlencoded` format:
 
 ```
 secret=<server_key>&token=<token>&ip=<user_IP_address>
@@ -147,7 +147,7 @@ Example of the token validation function:
         });
     
         const options = {
-            hostname: 'smartcaptcha.yandexcloud.net',
+            hostname: '{{ captcha-domain }}',
             port: 443,
             path: '/validate',
             method: 'POST',
@@ -208,7 +208,7 @@ Example of the token validation function:
     define('SMARTCAPTCHA_SERVER_KEY', '<server_key>');
 
     function check_captcha($token) {
-        $ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+        $ch = curl_init("https://{{ captcha-domain }}/validate");
         $args = [
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
@@ -252,7 +252,7 @@ Example of the token validation function:
 
     def check_captcha(token):
         resp = requests.post(
-           "https://smartcaptcha.yandexcloud.net/validate",
+           "https://{{ captcha-domain }}/validate",
            data={
               "secret": SMARTCAPTCHA_SERVER_KEY,
               "token": token,

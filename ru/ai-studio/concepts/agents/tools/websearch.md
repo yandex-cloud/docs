@@ -14,14 +14,13 @@
         input="Сделай краткий обзор последних новостей об LLM в 2025 году — только факты, без домыслов.",
         tools=[
             {
-                "web_search": {
-                    "filters": {
-                        "allowed_domains": [
-                            "habr.ru"
-                        ]
-                    },
+                "type": "web_search",
+                "filters": {
+                    "allowed_domains": [
+                        "habr.ru"
+                    ],
                     "user_location": {
-                        "region": "213", # Москва
+                        "region": "213",
                     }
                 }
             }

@@ -18,7 +18,7 @@ links:
     href: tutorials/
   - title: '{{ yandex-cloud }} provider'
     description: Reference of resources and {{ yandex-cloud }} data sources
-    href: tf-ref/yandex-cloud/overview.md
+    href: tf-ref/yandex-cloud/overview
 meta:
   title: '{{ TF }} in Yandex Cloud'
   description: >-

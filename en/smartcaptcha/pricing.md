@@ -26,7 +26,7 @@ To calculate the cost of using {{ captcha-name }}, use [our calculator](https://
 
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
-You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answer) made at `https://smartcaptcha.yandexcloud.net/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. Correct requests satisfy the following conditions:
+You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answer) made at `https://{{ captcha-domain }}/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. Correct requests satisfy the following conditions:
 
 * {{ captcha-name }} has identified the request as one sent by a human, not a bot.
 * Correct `secret` and `token` values were provided.
