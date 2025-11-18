@@ -12,7 +12,7 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
     ```
@@ -116,7 +116,7 @@ You can hide the shield by using the `hideShield` parameter of the `render` [met
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
 

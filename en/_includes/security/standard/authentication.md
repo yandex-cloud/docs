@@ -1897,11 +1897,11 @@ For example, to tag resources which handle personal data under Federal Law No. F
 * {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md)
 * Managed DB clusters
 
-{% list tabs group=instructions %}
-
 | Requirement ID | Severity |
 | --- | --- |
 | IAM24 | Informational |
+
+{% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 

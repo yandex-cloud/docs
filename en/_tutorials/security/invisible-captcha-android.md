@@ -84,7 +84,7 @@ To embed [invisible {{ captcha-name }}](../../smartcaptcha/concepts/invisible-ca
 ## Retrieve the CAPTCHA test results {#get-result}
 
 1. Save the CAPTCHA verification passed token. It will be returned in the `onGetToken(token: String)` method after the service processes an attempt.
-1. To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`, providing the following parameters in `x-www-form-urlencoded` format:
+1. To validate the token, send a POST request to `https://{{ captcha-domain }}/validate`, providing the following parameters in `x-www-form-urlencoded` format:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 
@@ -97,7 +97,7 @@ To embed [invisible {{ captcha-name }}](../../smartcaptcha/concepts/invisible-ca
    >Request example:
    >
    >```text
-   >https://smartcaptcha.yandexcloud.net/validate?secret=<server_key>&ip=<user_IP_address>&token=<token>
+   >https://{{ captcha-domain }}/validate?secret=<server_key>&ip=<user_IP_address>&token=<token>
    >```
 
 1. Get a [server response](../../smartcaptcha/concepts/validation.md). It contains a JSON object with the `status` and `message` fields.

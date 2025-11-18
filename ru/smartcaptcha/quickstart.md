@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 1. Подключите JS-скрипт к странице пользователя. Для этого разместите в любом месте страницы (например, внутри тега `<head>`) код:
 
     ```html
-    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+    <script src="https://{{ captcha-domain }}/captcha.js" defer></script>
     ```
 
     Скрипт `captcha.js` автоматически найдет все `div` с классом `smart-captcha` и установит в них виджет.
@@ -113,7 +113,7 @@ description: Следуя данной инструкции, вы сможете
 </div>
 ```
 
-Для проверки токена нужно отправить POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`, передав параметры в формате `x-www-form-urlencoded`:
+Для проверки токена нужно отправить POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
 ```
 secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
@@ -147,7 +147,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
         });
     
         const options = {
-            hostname: 'smartcaptcha.yandexcloud.net',
+            hostname: '{{ captcha-domain }}',
             port: 443,
             path: '/validate',
             method: 'POST',
@@ -208,7 +208,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
     define('SMARTCAPTCHA_SERVER_KEY', '<ключ_сервера>');
 
     function check_captcha($token) {
-        $ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+        $ch = curl_init("https://{{ captcha-domain }}/validate");
         $args = [
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
@@ -252,7 +252,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
     def check_captcha(token):
         resp = requests.post(
-           "https://smartcaptcha.yandexcloud.net/validate",
+           "https://{{ captcha-domain }}/validate",
            data={
               "secret": SMARTCAPTCHA_SERVER_KEY,
               "token": token,

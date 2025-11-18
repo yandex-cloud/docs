@@ -1898,11 +1898,11 @@ yc compute instance update <ID_виртуальной_машины> \
 * [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }};
 * кластеров управляемых баз данных.
 
-{% list tabs group=instructions %}
-
 | ID требования | Критичность |
 | --- | --- |
 | IAM24 | Информационная |
+
+{% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
 

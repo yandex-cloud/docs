@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
     ```html
     <script
-        src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+        src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
         defer
     ></script>
     ```
@@ -69,7 +69,7 @@ function handleScriptLoadingError() {
 }
 
 const scriptElement = document.createElement('script');
-scriptElement.src = 'https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction';
+scriptElement.src = 'https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction';
 scriptElement.onerror = handleScriptLoadingError;
 document.body.appendChild(scriptElement);
 ```

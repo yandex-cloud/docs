@@ -14,7 +14,7 @@
 * `<div id="captcha-container" class="smart-captcha" ...>` — элемент `div` с виджетом.
 * `value` — значение токена.
 
-Чтобы узнать результат проверки, отправьте POST-запрос на адрес `https://smartcaptcha.yandexcloud.net/validate`, передав параметры в формате `x-www-form-urlencoded`:
+Чтобы узнать результат проверки, отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
 ```
 secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
@@ -78,7 +78,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 ## Ошибки в запросе {#errors}
 
-Если запрос к `https://smartcaptcha.yandexcloud.net/validate` оформлен некорректно, сервис вернет ошибку. Например:
+Если запрос к `https://{{ captcha-domain }}/validate` оформлен некорректно, сервис вернет ошибку. Например:
 
 1. Запрос без ключа сервера:
 
