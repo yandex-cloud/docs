@@ -110,7 +110,7 @@ To do this, you need to host an HTML page with CAPTCHA code on your server and t
     </script>
 
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onSmartCaptchaReady"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onSmartCaptchaReady"
       defer
     ></script>
   </head>

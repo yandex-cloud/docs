@@ -87,8 +87,9 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
+  captcha-domain: smartcaptcha.cloud.yandex.ru
   captcha-full-name: Yandex SmartCaptcha
-  captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
+  captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
@@ -12090,6 +12091,7 @@ default:
         jobs:
           create_action: Создать задание
           popup-action_label_cancel-msg: Отменить задание
+        label_connect-url: URL подключения
         label_history-server: History Server
         label_metastore: Metastore-сервер
         section_driver: Конфигурация драйвера

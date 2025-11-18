@@ -17,7 +17,7 @@ Depending on the connection method, different widget parameter transmission meth
 In the automatic method, a JS script that loads the widget on the user page is added to the page by a link:
 
 ```html
-<script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+<script src="https://{{ captcha-domain }}/captcha.js" defer></script>
 ```
 
 After uploading, the JS script searches for all containers suitable for loading a widget into them, and draws widgets in them.
@@ -60,7 +60,7 @@ Where:
         console.log(callback);
       }
     </script>
-    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" async defer></script>
+    <script src="https://{{ captcha-domain }}/captcha.js" async defer></script>
   </head>
 
   <body>
@@ -91,7 +91,7 @@ Where:
 In the advanced method, a JS script that loads the widget on the user page is added to the page by a link:
 
 ```html
-<script src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"></script>
+<script src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"></script>
 ```
 
 In the `onload` parameter, a function is provided that contains parameters for rendering the widget. In this example, this is the `onloadFunction` function.
@@ -250,7 +250,7 @@ Usage example:
 <div id="container"></div>
 
 <script
-  src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+  src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
   async
   defer
 ></script>
@@ -282,7 +282,7 @@ Usage example:
 </form>
 
 <script
-  src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=smartCaptchaInit"
+  src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=smartCaptchaInit"
   defer
 ></script>
 
