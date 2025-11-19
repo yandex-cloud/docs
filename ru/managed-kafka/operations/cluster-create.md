@@ -722,7 +722,7 @@
 
         При выборе количества хостов учтите следующие особенности:
         * Если в качестве сервиса координации выбран [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology) — задать количество хостов-брокеров вручную нельзя.
-        * Если в качестве сервиса координации выбран [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) — количество брокеров задается вручную. При создании кластера с несколькими хостами в него будут добавлены три выделенных хоста {{ kraft-short-name }}.
+        * Если в качестве сервиса координации выбран [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-split-mode_sbrDd }}](../concepts/kraft.md#cluster-topology) — количество брокеров задается вручную. При создании кластера с несколькими хостами в него будут добавлены три отдельных хоста {{ kraft-short-name }}.
         * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
         * Для высокой доступности кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/ha-cluster.md).
       
