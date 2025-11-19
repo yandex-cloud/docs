@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Yandex Cloud Skill - Pre-commit Hook
+# Fast checks before commit (max 10 seconds)
+
+set -euo pipefail
+
+# Allow skip
+[[ "${SKIP_HOOKS:-0}" == "1" ]] && exit 0
+
+# Timeout budget
+TIMEOUT=10
+
+# Run checks with timeout
+timeout ${TIMEOUT}s bash -c '
+  # Check required tools
+  for tool in jq git bash; do
+    command -v "$tool" >/dev/null 2>&1 || {
+      echo "ERROR: Required tool not found: $tool"
+      exit 1
+    }
+  done
+
+  # Check skill.yaml syntax if changed
+  if git diff --cached --name-only | grep -q "skill.yaml"; then
+    if command -v yq >/dev/null 2>&1; then
+      yq eval ".id" .claude/skills/yandex-cloud/skill.yaml >/dev/null || {
+        echo "ERROR: Invalid skill.yaml syntax"
+        exit 1
+      }
+    fi
+  fi
+
+  # Check bash scripts syntax if changed
+  for script in $(git diff --cached --name-only | grep -E "\.sh$"); do
+    if [[ -f "$script" ]]; then
+      bash -n "$script" || {
+        echo "ERROR: Syntax error in $script"
+        exit 1
+      }
+    fi
+  done
+
+  exit 0
+' || {
+  echo "[pre-commit] Fast checks failed (timeout: ${TIMEOUT}s)"
+  echo "To skip: SKIP_HOOKS=1 git commit ..."
+  exit 1
+}
+
+exit 0

@@ -1,0 +1,191 @@
+id: "yandex-cloud"
+name: "Yandex Cloud Expert"
+archetype: "infra"
+version: "2.0.0"
+owner: "DevOps Team"
+description: >
+  Comprehensive Yandex Cloud skill with context awareness, event bus integration,
+  micro-agents for parallel tasks, and auto-updating documentation.
+
+  Covers: Compute, Kubernetes, Databases, Storage, Networking, Security, AI/ML,
+  Monitoring, Terraform, CLI automation, troubleshooting, cost optimization.
+
+entrypoint: "./.claude/skills/yandex-cloud/scripts/skill-run.sh"
+
+capabilities:
+  - analyze      # Analyze infrastructure and configurations
+  - build        # Build and package resources
+  - test         # Test configurations and deployments
+  - deploy       # Deploy to cloud
+  - monitor      # Setup monitoring and logging
+  - troubleshoot # Diagnose and fix issues
+  - optimize     # Cost and performance optimization
+  - document     # Generate and update documentation
+
+interfaces:
+  inputs:
+    - type: "file"
+      pattern: "ru/**/*.md"
+      description: "Yandex Cloud documentation"
+    - type: "file"
+      pattern: "**/{terraform,*.tf,*.tfvars}"
+      description: "Terraform configurations"
+    - type: "file"
+      pattern: "**/{docker-compose,Dockerfile}*"
+      description: "Docker configurations"
+    - type: "file"
+      pattern: "**/{k8s,kubernetes,*.yaml,*.yml}"
+      description: "Kubernetes manifests"
+    - type: "event"
+      topic: "yc.request.*"
+      description: "Yandex Cloud operation requests"
+
+  outputs:
+    - type: "event"
+      topic: "yc.results"
+      description: "Operation results"
+    - type: "event"
+      topic: "yc.metrics"
+      description: "Performance metrics"
+    - type: "file"
+      pattern: ".claude/context/**"
+      description: "Updated context and documentation"
+
+dependencies:
+  tools:
+    required:
+      - "jq"
+      - "git"
+      - "bash"
+    recommended:
+      - "yq"
+      - "yc"         # Yandex Cloud CLI
+      - "terraform"
+      - "kubectl"
+      - "docker"
+      - "curl"
+      - "sqlite3"
+
+bus:
+  config: "./.claude/skills/yandex-cloud/templates/bus.config.yaml"
+  topics:
+    requests: "yc.request"
+    results: "yc.results"
+    metrics: "yc.metrics"
+    docs: "yc.docs.updated"
+    errors: "yc.errors"
+
+  kv_namespaces:
+    - "yc.project"      # Project metadata
+    - "yc.services"     # Service configurations
+    - "yc.infrastructure" # Infrastructure state
+    - "yc.credentials"  # Credentials (encrypted)
+
+agents:
+  enabled: true
+  max_parallel: 4
+  types:
+    - name: "docs-indexer"
+      script: "./agents/agent.docs-indexer.sh"
+      description: "Indexes and updates Yandex Cloud documentation"
+
+    - name: "resource-analyzer"
+      script: "./agents/agent.resource-analyzer.sh"
+      description: "Analyzes cloud resources and generates reports"
+
+    - name: "cost-optimizer"
+      script: "./agents/agent.cost-optimizer.sh"
+      description: "Finds cost optimization opportunities"
+
+    - name: "security-auditor"
+      script: "./agents/agent.security-auditor.sh"
+      description: "Audits security configurations"
+
+docs:
+  official:
+    - name: "Yandex Cloud Documentation"
+      url: "https://yandex.cloud/docs"
+      last_checked: "2025-11-19"
+
+    - name: "Yandex Cloud CLI"
+      url: "https://yandex.cloud/docs/cli/"
+      last_checked: "2025-11-19"
+
+    - name: "Terraform Yandex Provider"
+      url: "https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs"
+      last_checked: "2025-11-19"
+
+    - name: "Yandex Kubernetes Engine"
+      url: "https://yandex.cloud/docs/managed-kubernetes/"
+      last_checked: "2025-11-19"
+
+  local:
+    base_path: "ru/"
+    index: ".claude/context/docs/INDEX.md"
+
+  autoupdate: true
+  update_hook: "./hooks/post-skill-run.d/10-docs-update.sh"
+
+performance:
+  hooks:
+    pre_commit_max_sec: 10
+    pre_push_max_sec: 60
+    post_skill_run_max_sec: 30
+
+  timeouts:
+    analyze: 120
+    build: 300
+    deploy: 600
+    test: 180
+
+  caching:
+    enabled: true
+    ttl_seconds: 3600
+
+security:
+  secrets_from_env: true
+  env_prefix: "YC_"
+  lockbox_integration: true
+  audit_commands: true
+  no_secrets_in_logs: true
+
+  allowed_commands:
+    - "yc"
+    - "terraform"
+    - "kubectl"
+    - "docker"
+    - "git"
+
+  forbidden_patterns:
+    - "rm -rf /"
+    - ":(){ :|:& };:"
+    - "curl | bash"
+
+monitoring:
+  metrics:
+    - "execution_time"
+    - "success_rate"
+    - "error_count"
+    - "resources_created"
+    - "docs_updates"
+
+  alerts:
+    - condition: "error_count > 5"
+      action: "publish_event"
+      topic: "yc.alerts.high_errors"
+
+metadata:
+  tags:
+    - "cloud"
+    - "yandex-cloud"
+    - "infrastructure"
+    - "devops"
+    - "automation"
+
+  repo_archetype: "cloud-documentation"
+  primary_language: "ru"
+  code_language: "en"
+
+  created: "2025-11-19"
+  updated: "2025-11-19"
+  status: "active"
