@@ -6,8 +6,11 @@ description: В этой инструкции вы научитесь созда
 # Как начать работать с {{ mrd-name }}
 
 Чтобы начать работу с сервисом:
+
+
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к кластеру](#connect).
+
 
 
 ## Перед началом работы {#before-you-begin}
@@ -75,6 +78,7 @@ description: В этой инструкции вы научитесь созда
 
 Подробнее о создании кластера см. в разделе [{#T}](./operations/cluster-create.md).
 
+
 ## Подключитесь к кластеру {#connect}
 
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) по SSH к [созданной ранее виртуальной машине](#before-you-begin).
@@ -120,6 +124,7 @@ description: В этой инструкции вы научитесь созда
     {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
 1. После успешного подключения отправьте команду `PING`. {{ VLK }} должен вернуть ответ `PONG`.
+
 
 ## Что дальше {#whats-next}
 

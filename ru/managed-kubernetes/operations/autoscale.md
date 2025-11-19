@@ -216,7 +216,7 @@ kubectl get pods --all-namespaces | grep -i Terminated \
              serviceAccountName: terminated-pod-cleaner
              containers:
              - name: terminated-pod-cleaner
-               image: bitnami/kubectl
+               image: bitnamilegacy/kubectl
                imagePullPolicy: IfNotPresent
                command: ["/bin/sh", "-c"]
                args: ["kubectl get pods --all-namespaces | grep -i Terminated | awk '{print $1, $2}' | xargs --no-run-if-empty -n2 kubectl delete pod -n"]

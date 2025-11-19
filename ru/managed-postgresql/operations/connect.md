@@ -224,7 +224,6 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 
 {% endnote %}
 
-
 ## Подключение из графических IDE {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}

@@ -218,7 +218,7 @@
             - (( SUM = $CRIT_VULN + $HIGH_VULN )) && (( RES = (SUM >= 1) )) && echo $RES && echo "image has $CRIT_VULN critical vulns and $HIGH_VULN high vulns" && exit 1 || echo "image has no high or crit vulns" exit 0
 
         deploy:
-          image: bitnami/kubectl:latest
+          image: bitnamilegacy/kubectl:latest
           stage: deploy
           script:
             - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>

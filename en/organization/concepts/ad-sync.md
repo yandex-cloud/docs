@@ -1,10 +1,11 @@
 ---
 title: Syncing users and groups with {{ microsoft-idp.ad-short }}
 description: The {{ ad-sync-agent }} enables you to configure {{ org-full-name }} user and group synchronization with {{ microsoft-idp.ad-full }}.
-noIndex: true
 ---
 
 # Syncing users and groups with {{ microsoft-idp.ad-full }}
+
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) for user management and you want your users to be able to access {{ yandex-cloud }}, you do not need to create {{ yandex-cloud }} accounts for your users manually. Instead, you can [sync](../operations/sync-ad.md) the users and groups created in your {{ microsoft-idp.ad-short }} folder with {{ org-full-name }}.
 
