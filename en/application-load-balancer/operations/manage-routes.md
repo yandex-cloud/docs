@@ -11,7 +11,7 @@ description: Follow this guide to create, update, and delete routes in an HTTP r
 
 To create a route in a [virtual host](../concepts/http-router.md#virtual-host) of an HTTP router:
 
-{% include [console-update-http-route-naming-step](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
+{% include [route-create-complete-section](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
 
 ## Updating a route {#update-route}
 
@@ -128,14 +128,14 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
         * `--virtual-host-name`: Name of the virtual host the route is in.
-        * `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which to route the requests. For example: `--match-http-method GET,POST,OPTIONS`.
+        * `--match-http-method`: List of HTTP [methods](https://en.wikipedia.org/wiki/HTTP#Request_methods) for which requests need to be routed, e.g., `--match-http-method GET,POST,OPTIONS`.
 
             To clear the list of HTTP methods set for the route, provide the `--clear-method-match` parameter in the command.
         * Path-based routing condition parameters:
 
             * `--exact-path-match`: Route requests with the same path as the specified one. For example, to route all requests, specify the `/` path.
-            * `--prefix-path-match`: Route requests whose path starts with the specified prefix. For example: `myapp/`.
-            * `--regex-path-match`: Route requests whose path matches the specified [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). For example: `[a-z]{10}[0-9]{3}\/`.
+            * `--prefix-path-match`: Route requests whose path starts with the specified prefix, e.g., `/myapp/`.
+            * `--regex-path-match`: Route requests whose path matches the specified [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), e.g., `\/[a-z]{10}[0-9]{3}\/`.
 
             {% note info %}
 
@@ -283,11 +283,11 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 
             Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
         * `--virtual-host-name`: Name of the virtual host the route is in.
-        * FQMN-based routing condition parameters:
+        * Parameters of routing conditions based on FQMN:
 
             * `--exact-fqmn-match`: Route requests with the same FQMN as the specified one.
             * `--prefix-fqmn-match`: Route requests whose FQMN starts with the specified prefix. For example, you can specify the first word of the service name: `/helloworld`.
-            * `--regex-fqmn-match`: Route requests whose FQMN matches the specified [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). For example: `\/[a-z]{10}[0-9]{3}`.
+            * `--regex-fqmn-match`: Route requests whose FQMN matches the specified [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), e.g., `\/[a-z]{10}[0-9]{3}`.
 
             {% include [fqmn-slash-warning](../../_includes/application-load-balancer/instruction-steps/fqmn-slash-warning.md) %}
 
@@ -399,13 +399,15 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} will create all the required resources. You can check the new resources, their updates, and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc alb virtual-host get <virtual_host_name> \
         --http-router-name <HTTP_router_name>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 
@@ -418,6 +420,162 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 To reorder routes in a [virtual host](../concepts/http-router.md#virtual-host) of an HTTP router:
 
 {% include [reorder-routes-complete-section](../../_includes/application-load-balancer/instruction-steps/reorder-routes-complete-section.md) %}
+
+## Modifying HTTP request parameters {#modify-http-parameters}
+
+[Virtual host](../concepts/http-router.md#virtual-host) routes in {{ alb-full-name }} [HTTP routers](../concepts/http-router.md) allow you to modify HTTP request parameters as needed by replacing the request parts matching [RE2](https://github.com/google/re2/wiki/Syntax) [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) with other values.
+
+For example, such modifications may be of use for API versioning, microservice routing, backward compatibility, URL normalization, as well as [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) and [canary releases](../../api-gateway/concepts/extensions/canary.md).
+
+To modify HTTP request parameters, you can use [{{ yandex-cloud }} CLI](../../cli/index.yaml), [{{ TF }}]({{ tf-provider-link }}), or [API](../api-ref/authentication.md).
+
+### Example of modifying HTTP request parameters {#modification-example}
+
+As an example, consider a scenario that may arise from implementing a new API version in the service. Let's assume that initially, the only API version offered by the service was available at `/api/users`. After introducing the new API version (`v2`), the new interface should be available at `/api/v2/users`, and the old one, at `/api/v1/users`.
+
+Requests targeting the new API go straight to `/api/v2/users`, and it is enough to configure a standard routing rule to send them to the `api-v2-backend` group with the new API.
+
+Requests to the old API continue to arrive at `/api/users`. In which case, you can replace this address in the requests with `/api/v1/users` by modifying the HTTP request parameters in route settings.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  To modify the HTTP request parameters in a virtual host route, specify the required replacement settings in the `--path-regex-rewrite` parameter when [creating](#create-route) or [updating](#update-route) an HTTP route. The following example shows how to configure request modification when creating a route:
+
+  ```bash
+  yc alb virtual-host append-http-route <route_name> \
+  --virtual-host-name <virtual_host_name> \
+  --http-router-name <HTTP_router_name> \
+  --backend-group-name api-v1-backend \
+  --prefix-path-match '/api/users/' \
+  --path-regex-rewrite 'regex=^/api/users/(.*),substitute=/api/v1/users/\\1'
+  ```
+   
+  Where:
+
+  * `--backend-group-name`: Name of the backend group serving the old API.
+  * `--prefix-path-match`: Filter specifying the path prefix to select requests for the route you are creating.
+  * `--path-regex-rewrite`: Specifies how to replace parts of the HTTP request path:
+
+      {% include [path-regex-rewrite-legend](../../_includes/application-load-balancer/instruction-steps/path-regex-rewrite-legend.md) %}
+
+      {% note info %}
+
+      The `--path-regex-rewrite`, and `--path-prefix-rewrite` parameters are mutually exclusive: you can use only one of them.
+
+      {% endnote %}
+  
+  Result:
+
+  ```text
+  name: my-virtual-host
+  routes:
+    - name: my-http-route
+      http:
+        match:
+          path:
+            prefix_match: /api/users/
+        route:
+          backend_group_id: ds7m9iupbcaq********
+          regex_rewrite:
+            regex: ^/api/users/(.*)
+            substitute: /api/v1/users/\\1
+  ```
+
+  For more details about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+
+- {{ TF }} {#tf}
+
+  1. To modify the HTTP request parameters, in the {{ TF }} configuration file, provide `regex_rewrite` in the HTTP route resource settings nested within a [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource:
+
+      ```hcl
+      ...
+      route {
+        name                      = "<route_name>"
+        disable_security_profile  = true|false
+
+        http_route {
+          http_match {
+            http_method = ["<HTTP_method_1>","<HTTP_method_2>",...,"<HTTP_method_n>"]
+            path {
+              prefix = "/api/users/"
+              # or exact = "<request_path>"
+              # or regex = "<regular_expression>"
+            }
+          }
+
+          http_route_action {
+            backend_group_id  = "ds7m9iupbcaq********"
+            host_rewrite      = "<Host_header_value>"
+            timeout           = "<connection_timeout>s"
+            idle_timeout      = "<idle_timeout>s"
+            regex_rewrite {
+              regex      = "^/api/users/(.*)"
+              substitute = "/api/v1/users/\\1"
+            }
+            rate_limit {
+              all_requests {
+                per_second = <requests_per_second>
+                # or per_minute = <requests_per_minute>
+              }
+              requests_per_ip {
+                per_second = <requests_per_second>
+                # or per_minute = <requests_per_minute>
+              }
+            }
+          }
+        }
+      }
+      ...
+      ```
+
+      Where:
+
+      * `route`: Virtual host route description:
+
+          * `http_route`: Route description for HTTP traffic:
+
+              * `path`: Parameter for filtering the incoming request path:
+
+                  * `prefix`: Filter specifying the path prefix to match requests for the route you are creating.
+          * `http_route_action`: Action to apply to HTTP traffic.
+
+              * `backend_group_id`: ID of the backend group serving the old API.
+              * `regex_rewrite`: Specifies how to replace parts of the HTTP request path:
+
+                  {% include [path-regex-rewrite-legend](../../_includes/application-load-balancer/instruction-steps/path-regex-rewrite-legend.md) %}
+
+              {% note info %}
+
+              The `regex_rewrite`, and `prefix_rewrite` parameters are mutually exclusive: you can use only one of them.
+
+              {% endnote %}
+
+          Learn more about the properties of {{ TF }} resources in the relevant provider guide: [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+
+  1. Create or update the resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      
+      {{ TF }} will create all the required resources. You can check the new resources, their updates, and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+      ```bash
+      yc alb virtual-host get <virtual_host_name> \
+        --http-router-name <HTTP_router_name>
+      ```
+
+- API {#api}
+
+  To modify the HTTP request parameters in a virtual host route, specify the required replacement settings in the `regexRewrite` (for REST API) or `regex_rewrite` (for gRPC API) fields when [creating](#create-route) or [updating](#update-route) the HTTP route.
+
+  {% note info %}
+
+  The `regexRewrite` and `prefixRewrite` parameters are mutually exclusive, so you can specify only one of them.
+
+  {% endnote %}
+
+{% endlist %}
 
 ## Deleting a route {#delete-route}
 
@@ -613,13 +771,15 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
   1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
       {{ TF }} will create all the required resources. You can check the new resources, their deletion status, and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```bash
       yc alb virtual-host get <virtual_host_name> \
         --http-router-name <HTTP_router_name>
       ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

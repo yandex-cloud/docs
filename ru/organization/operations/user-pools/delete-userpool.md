@@ -35,4 +35,8 @@ description: Следуя данной инструкции, вы сможете
      yc organization-manager idp userpool delete <идентификатор_пула>
      ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Userpool.Delete](../../idp/api-ref/Userpool/delete.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Delete](../../idp/api-ref/grpc/Userpool/delete.md).
+
 {% endlist %}

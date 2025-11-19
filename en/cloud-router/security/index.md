@@ -48,9 +48,17 @@ The list below shows {{ interconnect-name }} roles.
 
 {% include [cloud-router.viewer](../../_roles/cloud-router/viewer.md) %}
 
+#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
+
+{% include [cloud-router.prefixEditor](../../_roles/cloud-router/prefixEditor.md) %}
+
 #### cloud-router.editor {#cloudrouter-editor}
 
 {% include [cloud-router.editor](../../_roles/cloud-router/editor.md) %}
+
+#### cloud-router.admin {#cloudrouter-admin}
+
+{% include [cloud-router.admin](../../_roles/cloud-router/admin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

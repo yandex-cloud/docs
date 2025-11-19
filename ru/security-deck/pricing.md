@@ -39,6 +39,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
+
 ### {{ atr-name }} {#atr-pricing}
 
 

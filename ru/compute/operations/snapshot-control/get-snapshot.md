@@ -9,7 +9,7 @@ title: Как получить информацию о снимке диска �
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [снимок диска](../../concepts/snapshot.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Выберите нужный снимок диска.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о снимке диска.

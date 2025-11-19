@@ -11,6 +11,8 @@ items:
         href: operations/install-cli.md
       - name: CLI update
         href: operations/update-cli.md
+      - name: Uninstalling the CLI
+        href: operations/remove-cli.md
       - name: Authentication
         items:
           - name: Authenticating as a user

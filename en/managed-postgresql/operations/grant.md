@@ -27,12 +27,10 @@ To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles ass
 
 With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. You can assign users only the following special roles:
 
-* `mdb_superuser`
 * `mdb_admin`
 * `mdb_monitor`
 * `mdb_replication`
-
-Users with the `mdb_superuser` [role](../concepts/roles.md#mdb-superuser) have the highest privileges for working with clusters. For more information, see [Assigning roles](../concepts/roles.md).
+* `mdb_superuser`
 
 {% note info %}
 
@@ -74,7 +72,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
   
     1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create this file, see [this guide](cluster-create.md).
 
         For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
@@ -90,17 +88,17 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -152,7 +150,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -205,7 +203,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -257,7 +255,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
     1. Open the {{ TF }} configuration file with the infrastructure plan.
   
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create this file, see [this guide](cluster-create.md).
 
     1. Add the `postgresql` provider and enable it to access the database you need as its owner:
 
@@ -312,7 +310,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -340,7 +338,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

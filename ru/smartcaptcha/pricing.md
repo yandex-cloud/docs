@@ -25,7 +25,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
 
-Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://smartcaptcha.yandexcloud.net/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:
+Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://{{ captcha-domain }}/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:
 
 * Сервис {{ captcha-name }} определил запрос как исходящий от человека, а не от робота;
 * Переданы корректные значения `secret` и `token`;
@@ -50,6 +50,8 @@ editable: false
 1. Злоумышленник прошел капчу и, получив `token`, отправил его 10 раз спустя 10 минут. API вернет статус `failed` на все запросы. Ни один из них не тарифицируется.
 
 ## Цены для региона Россия {#prices}
+
+{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 

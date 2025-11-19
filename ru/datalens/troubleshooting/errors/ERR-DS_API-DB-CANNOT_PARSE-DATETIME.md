@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.DB.CANNOT_PARSE.DATETIME
-description: На странице приведено описание ошибки ERR.DS_API.DB.CANNOT_PARSE.DATETIME.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CANNOT_PARSE.DATETIME
+description: На странице приведено описание ошибки {{ datalens-full-name }} Cannot parse datetime.
 ---
 
-# Cannot parse datetime
+# [{{ datalens-full-name }}] Cannot parse datetime
 
 `ERR.DS_API.DB.CANNOT_PARSE.DATETIME`
 

@@ -60,7 +60,7 @@
    }
    ```
 
-1. После получения токена из метода `captchaDidFinish` отправьте POST-запрос на сервер для проверки `https://smartcaptcha.yandexcloud.net/validate`, передав параметры в формате `x-www-form-urlencoded`:
+1. После получения токена из метода `captchaDidFinish` отправьте POST-запрос на сервер для проверки `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 

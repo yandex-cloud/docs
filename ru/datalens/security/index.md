@@ -1,9 +1,9 @@
 ---
 title: Управление доступом к {{ datalens-full-name }}
-description: Из статьи вы узнаете, как регулируется доступ к сервису {{ datalens-short-name }}.
+description: Из статьи вы узнаете, как регулируется доступ к сервису {{ datalens-full-name }}.
 ---
 
-# Управление доступом к {{ datalens-short-name }}
+# Управление доступом к {{ datalens-full-name }}
 
 
 

@@ -28,6 +28,61 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [mfa-create-policy-step6](../../../_includes/organization/mfa-create-policy-step6.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите список политик MFA с помощью команды:
+
+     ```bash
+     yc organization-manager mfa-enforcement list \
+       --organization-id <идентификатор_организации>
+     ```
+
+     Где `--organization-id` — идентификатор организации.
+
+  1. Посмотрите описание нужной политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement get \
+       --id <идентификатор_политики>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement update --help
+     ```
+
+  1. Чтобы изменить политику MFA, выполните команду:
+
+     ```bash
+     yc organization-manager mfa-enforcement update \
+       --id <идентификатор_политики> \
+       --acr-id <тип_фактора_аутентификации> \
+       --ttl <время_жизни> \
+       --status <статус_политики> \
+       --apply-at <время_применения_изменений> \
+       --enroll-window <период_регистрации> \
+       --new-name <новое_имя> \
+       --description <новое_описание> \
+       --organization-id <идентификатор_организации>
+     ```
+
+     Где:
+
+     * `--id` — идентификатор политики MFA.
+     * `--acr-id` — тип [фактора](../../concepts/mfa.md#mfa-factors) аутентификации.
+     * `--ttl` — срок действия учетных данных в днях.
+     * `--status` — статус политики: `status-active` — активна, `status-inactive` — неактивна.
+     * `--apply-at` — время, по истечении которого политика станет активна.
+     * `--enroll-window` — период в днях после регистрации, в течение которого пользователь должен добавить второй фактор аутентификации.
+     * `--new-name` — новое имя политики.
+     * `--description` — новое описание.
+     * `--organization-id` — идентификатор организации.
+
 {% endlist %}
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}

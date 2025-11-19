@@ -8,7 +8,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы подключиться к серийной консоли и запустить командную оболочку:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит виртуальная машина.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
 1. Выберите нужную виртуальную машину.
 1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instance.switch_console }}** выберите `COM2` и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**. В командной строке отобразится приглашение ввода команд:

@@ -1,5 +1,7 @@
 With [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), you can protect apps in a {{ managed-k8s-full-name }} cluster against DDoS attacks and bots. To do this, publish your apps through an ingress resource associated with a {{ sws-name }} [profile](../../smartwebsecurity/concepts/profiles.md) that uses an {{ alb-name }} ingress controller.
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 Based on the ingress resource, an L7 load balancer will be deployed with a security profile associated with the load balancer’s virtual hosts. {{ sws-name }} will be protecting the application backends specified in the ingress resource: all HTTP requests to the backends [will be processed](../../smartwebsecurity/concepts/rules.md#rule-action) according to the security profile rules.
 
 To create an L7 load balancer with an associated security profile using ingress:
@@ -16,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 * Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
@@ -100,7 +102,7 @@ The support cost includes:
             * [Folder ID](../../resource-manager/operations/folder/get-id.md).
             * {{ k8s }} version for the {{ k8s }} cluster and node groups.
             * {{ k8s }} cluster CIDR; CIDR of the services.
-            * Name of the {{ managed-k8s-name }} cluster’s service account.
+            * Name of the {{ managed-k8s-name }} cluster service account.
             * {{ alb-name }} service account name.
             * {{ sws-name }} profile name.
             * IP address to allow traffic from.

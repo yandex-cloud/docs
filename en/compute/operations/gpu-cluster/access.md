@@ -60,7 +60,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
        Where:
 
-       * `--user-account-id`: [User ID](../../../iam/operations/users/get.md). To assign a role to all authenticated users, use the `--all-authenticated-users` flag.
+       * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
        * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
      * To a service account:
@@ -171,7 +171,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--access-binding`: Parameters for setting access permissions:
 
        * `role`: [Role](../../security/index.md#roles-list) to assign.
-       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
      For example, this command will assign roles to multiple users and a single service account:
 

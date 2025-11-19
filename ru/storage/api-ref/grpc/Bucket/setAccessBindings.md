@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/setAccessBindings.md
 
 # Object Storage API, gRPC: BucketService.SetAccessBindings
 
+Sets access bindings for the specified bucket.
+
 ## gRPC request
 
 **rpc SetAccessBindings ([access.SetAccessBindingsRequest](#yandex.cloud.access.SetAccessBindingsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

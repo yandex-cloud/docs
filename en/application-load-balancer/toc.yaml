@@ -55,6 +55,8 @@ items:
             href: operations/application-load-balancer-get.md
           - name: Viewing L7 load balancer statistics
             href: operations/application-load-balancer-get-stats.md
+          - name: Setting up alerts
+            href: operations/application-load-balancer-manage-alerts.md
           - name: Viewing L7 load balancer logs
             href: operations/application-load-balancer-get-logs.md
           - name: Setting up L7 load balancer logging
@@ -163,7 +165,7 @@ items:
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Setting up the Gateway API in {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
-      - name: Configuring an L7 {{ alb-name }} via an ingress controller
+      - name: Configuring an L7 {{ alb-name }} using an ingress controller
         href: tutorials/alb-ingress-controller.md
       - name: Configuring L7 {{ alb-name }} logging via an ingress controller
         href: tutorials/alb-ingress-controller-log-options.md
@@ -176,8 +178,8 @@ items:
           - name: '{{ TF }}'
             href: tutorials/application-load-balancer-website/terraform.md
       - name: >-
-          Performing health checks on {{ managed-k8s-name }} cluster
-          applications via an L7 {{ alb-name }}
+          Health checking applications in a {{ managed-k8s-name }} cluster via
+          an L7 {{ alb-name }}
         href: tutorials/custom-health-checks.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
@@ -217,6 +219,10 @@ items:
         href: concepts/backend-group.md
       - name: Target groups
         href: concepts/target-group.md
+      - name: Monitoring and logging
+        href: concepts/monitoring.md
+      - name: Monitoring charts
+        href: concepts/function-monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Tips for configuring health checks

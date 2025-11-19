@@ -87,8 +87,9 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
+  captcha-domain: smartcaptcha.cloud.yandex.ru
   captcha-full-name: Yandex SmartCaptcha
-  captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
+  captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
@@ -270,7 +271,7 @@ default:
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
-  kafka-ui-provectus: https://github.com/provectus/kafka-ui-docs
+  kafka-ui-kafbat: https://ui.docs.kafbat.io/
   keycloak: Keycloak
   KF: Apache Kafka®
   kf:
@@ -395,6 +396,8 @@ default:
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
   metastore-name: Apache Hive™ Metastore
+  metastore:
+    integration-version: 3.1
   metrika: Яндекс Метрика
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.ru/
@@ -469,7 +472,6 @@ default:
   msp-name: Managed Service for Apache Spark™
   mspqr-full-name: Yandex Managed Service for Sharded PostgreSQL
   mspqr-name: Managed Service for Sharded PostgreSQL
-  mspqr-short-name: Managed Service for Sharded PostgreSQL
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -612,6 +614,7 @@ default:
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
+  roles-resource-manager-admin: resource-manager.admin
   roles-resource-manager-editor: resource-manager.editor
   roles-search-api-executor: search-api.executor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
@@ -625,6 +628,7 @@ default:
   roles-translate-user: ai.translate.user
   roles-viewer: viewer
   roles-vision-user: ai.vision.user
+  roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
@@ -1967,10 +1971,6 @@ default:
           cpu:
             c100|month|string: "5\_932,80\_₸"
             c100|string: "8,24\_₸"
-            c20|month|string: "1\_705,68\_₸"
-            c20|string: "2,3690\_₸"
-            c5|month|string: "148,32\_₸"
-            c5|string: "0,2060\_₸"
             c50|month|string: "2\_781,00\_₸"
             c50|string: "3,8625\_₸"
           ram|month|string: "3\_337,20\_₸"
@@ -1979,10 +1979,6 @@ default:
           cpu:
             c100|month|string: "6\_220,80\_₸"
             c100|string: "8,64\_₸"
-            c20|month|string: "1\_788,48\_₸"
-            c20|string: "2,4840\_₸"
-            c5|month|string: "155,52\_₸"
-            c5|string: "0,2160\_₸"
             c50|month|string: "2\_916,00\_₸"
             c50|string: "4,05\_₸"
           ram|month|string: "3\_499,20\_₸"
@@ -4231,10 +4227,6 @@ default:
           cpu:
             c100|month|string: "1\_186,56\_₽"
             c100|string: "1,6480\_₽"
-            c20|month|string: "341,1360\_₽"
-            c20|string: "0,4738\_₽"
-            c5|month|string: "29,6640\_₽"
-            c5|string: "0,0412\_₽"
             c50|month|string: "556,20\_₽"
             c50|string: "0,7725\_₽"
           ram|month|string: "667,44\_₽"
@@ -4243,10 +4235,6 @@ default:
           cpu:
             c100|month|string: "1\_244,16\_₽"
             c100|string: "1,7280\_₽"
-            c20|month|string: "357,6960\_₽"
-            c20|string: "0,4968\_₽"
-            c5|month|string: "31,1040\_₽"
-            c5|string: "0,0432\_₽"
             c50|month|string: "583,20\_₽"
             c50|string: "0,81\_₽"
           ram|month|string: "699,84\_₽"
@@ -6478,10 +6466,6 @@ default:
           cpu:
             c100|month|string: "9,887996\_$"
             c100|string: "0,013733\_$"
-            c20|month|string: "2,842799\_$"
-            c20|string: "0,003948\_$"
-            c5|month|string: "0,247200\_$"
-            c5|string: "0,000343\_$"
             c50|month|string: "4,634998\_$"
             c50|string: "0,006437\_$"
           ram|month|string: "5,561998\_$"
@@ -6490,10 +6474,6 @@ default:
           cpu:
             c100|month|string: "10,367996\_$"
             c100|string: "0,014400\_$"
-            c20|month|string: "2,980799\_$"
-            c20|string: "0,004140\_$"
-            c5|month|string: "0,259200\_$"
-            c5|string: "0,000360\_$"
             c50|month|string: "4,859998\_$"
             c50|string: "0,006750\_$"
           ram|month|string: "5,831998\_$"
@@ -7926,7 +7906,9 @@ default:
         button_add-modification: Изменить заголовок
         button_add-upgrade-type: Добавить тип модификации
         label_backends: Бэкенды
+        label_listener-type: Тип обработчика
         label_max-timeout: Максимальный таймаут, с
+        label_path: Путь
       backup:
         button_attach-instance-submit: Привязать
         label_instances: Виртуальные машины
@@ -9288,7 +9270,6 @@ default:
           value_overwrite-older: Перезаписать только существующие файлы
         label_backups: Резервные копии
         label_baremetal-instances: Серверы BareMetal
-        label_create: Подключён
         label_instances: Виртуальные машины
         label_navigate-to-journal-action: Открыть журнал резервирования
         label_policies: Политики копирования
@@ -9364,6 +9345,7 @@ default:
         field_dhcp-ip-range: Диапазон IP-адресов
         field_dhcp-settings: Назначение IP-адресов по DHCP
         field_gateway: Шлюз по умолчанию
+        field_gateway_t7LLk: Шлюз по умолчанию
         field_interconnect-direct-id: Указать идентификатор
         field_interconnect-from-folder: Выбрать из каталога
         field_mac-address: MAC-адрес
@@ -9421,6 +9403,7 @@ default:
         title_section-server-private-network: Приватная сеть
         title_section-server-product: Образ
         title_section-server-public-network: Публичная сеть
+        title_section-server-public-network_p7Zhj: Публичная сеть
         title_server-access: Доступ
         title_vrf-interconnect-section: Приватное соединение с облачными сетями
       cdn:
@@ -9578,11 +9561,6 @@ default:
         cluster:
           databases:
             popup-add_button_add: Создать
-          explore:
-            button_execute: Выполнить
-            button_submit-creds: Подключиться
-            label_password: Пароль
-            label_username: Имя пользователя БД
           format-schemas:
             button-action_add-format-schema: Создать схему
             dialog:
@@ -9600,7 +9578,6 @@ default:
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_dictionaries: Словари
-          switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_format-schemas: Схемы формата данных
           switch_hosts: Хосты
@@ -9723,7 +9700,9 @@ default:
         label_author: Автор
         label_auto: Автоматически
         label_filters: Фильтры
+        label_grpc: GRPC
         label_http: HTTP
+        label_http2: HTTP/2
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
@@ -9800,11 +9779,9 @@ default:
             field_subnetwork: Подсеть
             section_additional: Дополнительно
             switch_auto: Автоматически
-            switch_dynamic: Динамический
             switch_list: Список
             switch_manual: Вручную
             switch_none: Без адреса
-            switch_static: Статический
           one-to-one-nat-form:
             button_submit: Добавить
             field_advanced: Дополнительно
@@ -9825,7 +9802,6 @@ default:
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU
             label_tab-standard: Standard
-            option_resources-custom-config: Своя конфигурация
         condition-column:
           condition_and: и
           condition_full-trafic: Весь трафик
@@ -9863,7 +9839,9 @@ default:
         image-field:
           button_custom-image: Укажите ссылку
         internal-v4-address-field:
+          button_internal-address-reserve: Зарезервировать
           field_internal-ipv4-address: Внутренний IPv4 адрес
+          label_internal-address-title: IP-адрес
         ip-address-form:
           label_button-save: Сохранить
           label_field-search-type: Тип поиска
@@ -9971,7 +9949,10 @@ default:
           edit:
             label_title: Изменение группы виртуальных машин
           overview:
+            label_authority: Хост
+            label_host: Хост
             label_instance-address: Публичный IP-адрес
+            label_service-name: Имя сервиса
             section_instances-state: Состояния виртуальных машин
           switch_instances: Виртуальные машины
         groups:
@@ -10133,7 +10114,6 @@ default:
             field_coi-tty: Выделить TTY для Docker-контейнера
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
-            field_instance-name: Имя ВМ
             field_key: SSH-ключ
             field_security-groups: Группы безопасности
             field_service-account: Сервисный аккаунт
@@ -10145,22 +10125,17 @@ default:
             image_value_marketplace: Marketplace
             label_add-network-interface: Добавить сетевой интерфейс
             label_title: Создание виртуальной машины
-            option_create-form-extended-title: Расширенная настройка
-            option_create-form-simple-title: Простая настройка
             placeholder_search_marketplace-product: Поиск продукта
             section_access: Доступ
             section_additional: Дополнительно
             section_backup: Cloud Backup
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
-            section_disks: Диски
             section_image: Образ загрузочного диска
             section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение
             section_platform: Вычислительные ресурсы
-            section_predefined: Предустановленные параметры
-            section_simple-image: Операционные системы и продукты
             section_storages: Диски и файловые хранилища
             unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
@@ -11079,6 +11054,7 @@ default:
             label_add-listener: Добавить обработчик
             label_add-target-group: Добавить целевую группу
             label_address-type: Публичный адрес
+            label_advanced: Дополнительно
             label_edit-health-check: Настроить
             label_internal: Внутренний
             label_target-group-id: Целевая группа
@@ -11370,7 +11346,6 @@ default:
           switch_jobs: Задания
           switch_monitoring: Мониторинг
           switch_network: Сеть
-          switch_overview: Обзор
           switch_subclusters: Подкластеры
           switch_users: Пользователи
           title_migration-alert-action: Мигрировать данные
@@ -11424,7 +11399,6 @@ default:
           additional-field-datatransfer: Доступ из Data Transfer
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
-          additional-field-websql: Доступ из консоли управления
           additional-field-websql-service: Доступ из WebSQL
           additional-field-yandex-query_ru: Доступ из Yandex Query
           backup-retain-period: Срок хранения автоматических резервных копий, дней
@@ -11500,8 +11474,6 @@ default:
           network_field_subnetwork: Подсеть
           network_field_zone: Зона доступности
           new_section_resource: Ресурсы
-          resource_presets_field_gen_v2: Intel Cascade Lake
-          resource_presets_field_gen_v3: Intel Ice Lake
           resource_presets_field-generation: Платформа
           resource_presets_field-type: Тип
           section_additional: Дополнительные настройки
@@ -11644,7 +11616,6 @@ default:
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_diagnostics: Диагностика производительности
-          switch_explore: SQL
           switch_explore-websql: WebSQL
           switch_hosts: Хосты
           switch_logs: Логи
@@ -12120,6 +12091,7 @@ default:
         jobs:
           create_action: Создать задание
           popup-action_label_cancel-msg: Отменить задание
+        label_connect-url: URL подключения
         label_history-server: History Server
         label_metastore: Metastore-сервер
         section_driver: Конфигурация драйвера
@@ -12375,6 +12347,7 @@ default:
           popup-create_button_create: Зарезервировать
           popup-create_field_advanced: Дополнительно
           popup-create_field_deletion-protection: Защита от удаления
+          popup-create_field_internal-v4-address: Внутрений IPv4 адрес
           popup-create_field_zone: Зона доступности
         button_move-vpc-object: Переместить
         gateways:
@@ -12498,7 +12471,6 @@ default:
             stt:
               title: Распознавание речи
         train-modal: Дообучить модель
-        use-assistant: Использовать ассистента
         use-context: Использовать контекст
         YaGPT:
           create-instance_3Ltog: Развернуть инстанс
@@ -14588,7 +14560,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.3
+        tag: v1.20.4
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -14636,7 +14608,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.3
+        tag: v1.0.4
     yc_ingress-nginx:
       helmChart:
         name: >-
@@ -14648,12 +14620,18 @@ default:
         tag: 1.21.2-1
     yc_keda:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/keda/keda-external-scaler-yc
-        tag: 1.1.1
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc
+        tag: 1.1.3
     yc_kruise:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kruise/chart/kruise
         tag: 1.5.0
+    yc_kubernetes-node-remediation:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/medik8s/kubernetes-node-remediation/chart/kubernetes-node-remediation
+        tag: 1.0.1
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/multi-kyverno

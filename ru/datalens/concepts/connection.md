@@ -1,4 +1,9 @@
-# Подключение к источнику данных
+---
+title: Подключение в {{ datalens-full-name }}
+description: Подключение в {{ datalens-full-name }} содержит информацию о параметрах доступа к источнику данных.
+---
+
+# Подключение к источнику данных в {{ datalens-full-name }}
 
 _Подключение_ содержит информацию о параметрах доступа к источнику данных. Например, IP-адрес хоста БД, порт.
 
@@ -34,7 +39,7 @@ _Подключение_ содержит информацию о парамет
    * [{{ billing-name }}](../operations/connection/create-cloud-billing.md)
    * [Yandex Monitoring](../operations/connection/create-monitoring.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
-   * [Подключение API Connector](../operations/connection/create-api-connector.md)
+  * [Подключение API Connector](../operations/connection/create-api-connector.md)
    * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
 

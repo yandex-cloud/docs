@@ -181,7 +181,7 @@ Set **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
 #### 1.4 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
 
-You can conveniently control access to resources via [user groups](../../../iam/operations/groups/create.md). Make sure to control access to a group as a resource. Users with access permissions for a group can manage other users' membership in that group. Users get these permissions in the following cases:
+You can conveniently control access to resources via [user groups](../../../organization/operations/create-group.md). Make sure to control access to a group as a resource. Users with access permissions for a group can manage other users' membership in that group. Users get these permissions in the following cases:
 
 * User has the `organization-manager.groups.memberAdmin` role for the organization.
 * User has the `organization-manager.groups.memberAdmin` role for a specific group as a resource.
@@ -1897,11 +1897,11 @@ For example, to tag resources which handle personal data under Federal Law No. F
 * {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md)
 * Managed DB clusters
 
-{% list tabs group=instructions %}
-
 | Requirement ID | Severity |
 | --- | --- |
 | IAM24 | Informational |
+
+{% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 

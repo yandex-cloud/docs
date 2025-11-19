@@ -44,10 +44,10 @@ data "yandex_airflow_cluster" "airflow_cluster_by_id" {
 - `airflow_version` (String) Apache Airflow version in format `<major>.<minor>`.
 - `code_sync` (Attributes) Parameters of the location and access to the code that will be executed in the cluster. (see [below for nested schema](#nestedatt--code_sync))
 - `created_at` (String) The creation timestamp of the resource.
+- `dag_processor` (Attributes) Configuration of dag-processor instances. (see [below for nested schema](#nestedatt--dag_processor))
 - `deb_packages` (Set of String) System packages that are installed in the cluster.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
-- `health` (String) Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-airflow/api-ref/Cluster/).
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `lockbox_secrets_backend` (Attributes) Configuration of Lockbox Secrets Backend. [See documentation](https://yandex.cloud/docs/managed-airflow/tutorials/lockbox-secrets-in-maf-cluster) for details. (see [below for nested schema](#nestedatt--lockbox_secrets_backend))
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))
@@ -85,6 +85,15 @@ Read-Only:
 
 - `bucket` (String) The name of the Object Storage bucket that stores DAG files used in the cluster.
 
+
+
+<a id="nestedatt--dag_processor"></a>
+### Nested Schema for `dag_processor`
+
+Read-Only:
+
+- `count` (Number) The number of dag-processor instances in the cluster.
+- `resource_preset_id` (String) The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
 
 
 <a id="nestedatt--lockbox_secrets_backend"></a>

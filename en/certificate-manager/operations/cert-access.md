@@ -3,7 +3,7 @@ title: How to configure access permissions for a {{ certificate-manager-full-nam
 description: Follow this guide to configure access permissions for a certificate.
 ---
 
-# Configuring access to a certificate
+# Configuring access permissions for a certificate
 
 To grant a user, group, or [service account](../../iam/concepts/users/service-accounts.md) access to a [certificate](../concepts/index.md#types), assign a [role](../../iam/concepts/access-control/roles.md) for it.
 
@@ -40,13 +40,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       +----------------------+--------+-------------+---------------------+----------+---------+
       ```
 
-  1. View a list of roles already assigned for the resource in question:
+  1. Check what roles are currently assigned for the DNS zone you want to update:
 
       ```bash
       yc certificate-manager certificate list-access-bindings <certificate_ID>
       ```
 
-  1. Assign the role using this command:
+  1. To assign the role, run the following command:
 
       * To a user:
 
@@ -58,7 +58,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
           Where:
 
-          * `--user-account-id`: [User ID](../../iam/operations/users/get.md).
+          * `--user-account-id`: [User ID](../../organization/operations/users-get.md).
           * `--role`: [Role](../security/index.md#roles-list) to assign.
 
       * To a service account:
@@ -120,9 +120,9 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       * `--access-binding`: Role to assign:
 
           * `role`: ID of the role to assign.
-          * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
+          * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-      For example, this command will assign roles to multiple users and a single service account:
+      For example, the following command will assign roles to multiple users and a single service account:
 
       ```bash
       yc certificate-manager certificate set-access-bindings my-certificate \
@@ -170,7 +170,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
       Where:
 
-      * `--role`: ID of the role to revoke.
+      * `--role`: ID of the role you want to revoke.
       * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
       For example, to revoke the `{{ roles-viewer }}` role from a user with the `ajel6l0jcb9s********` ID:

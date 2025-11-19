@@ -9,7 +9,7 @@ To get started with the management console:
 
 1. Create a [Yandex ID]({{ link-yandex }}/support/passport/authorization/registration.html) account.
 
-1. Log in to the [management console]({{ link-console-main }}).
+1. Go to the [management console]({{ link-console-main }}).
 
    When you log in to the management console for the first time, the `cloud-<Yandex_ID>` [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), `default` [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and `default` [network](../../vpc/concepts/network.md#network) are automatically created.
 
@@ -25,4 +25,4 @@ To get started with the management console:
 
 1. If you need to set up Single Sign-On (SSO) for corporate accounts, add a federation to [{{ org-full-name }}](../../organization/concepts/add-federation.md).
 
-1. [Add](../../iam/operations/users/create.md) users to your [organization](../../overview/roles-and-resources.md) and [grant](../../iam/operations/roles/grant.md) them access to {{ yandex-cloud }} resources.
+1. [Add](../../organization/operations/add-account.md) users to your [organization](../../overview/roles-and-resources.md) and [grant](../../iam/operations/roles/grant.md) them access to {{ yandex-cloud }} resources.

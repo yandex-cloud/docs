@@ -12,7 +12,7 @@
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
     ```
@@ -116,7 +116,7 @@ window.smartCaptcha.render('captcha-container', {
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
 

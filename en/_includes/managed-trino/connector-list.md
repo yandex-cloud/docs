@@ -1,6 +1,7 @@
 * ClickHouse
 * Delta Lake
 * Hive
+* Hudi {{ preview-stage }}
 * Iceberg
 * Oracle {{ preview-stage }}
 * PostgreSQL

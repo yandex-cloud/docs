@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED
-description: На странице приведено описание ошибки ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Subquery source is disallowed in the connection settings.
 ---
 
-# Subquery source is disallowed in the connection settings
+# [{{ datalens-full-name }}] Subquery source is disallowed in the connection settings
 
 `ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED`
 

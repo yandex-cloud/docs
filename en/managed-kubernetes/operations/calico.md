@@ -7,7 +7,7 @@ description: Follow this guide to set up the Calico network policy controller.
 
 [Calico](https://www.projectcalico.org/) is an open-source plugin for {{ k8s }} that can be used to manage {{ k8s }} network policies. Calico extends the standard features of {{ k8s }} [network policies](../concepts/network-policy.md), which enables you to:
 * Apply policies to any object: [pod](../concepts/index.md#pod), container, [virtual machine](../../compute/concepts/vm.md), or interface.
-* Specify a particular action in the policy rules: prohibit, allow, or log.
+* Specify a particular action in the policy rules: deny, allow, or log.
 * Specify as a target or a source: port, port range, protocols, HTTP and ICMP attributes, [IP address](../../vpc/concepts/address.md) or [subnet](../../vpc/concepts/network.md#subnet), and other objects.
 * Regulate traffic using DNAT settings and traffic forwarding policies.
 
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) in any suitable configuration. When creating it, specify the network, subnet, and security groups prepared earlier. Also, enable the Calico network policy controller in the cluster:
+     1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](node-group/node-group-create.md) with any suitable configuration. When creating it, specify the network, subnet, and security groups you prepared earlier. Also, enable the Calico network policy controller in the cluster:
         * In the management console, by selecting **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
         * Using the CLI, by setting the `--enable-network-policy` flag.
         * Using the [create](../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource.
@@ -43,11 +43,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. The file describes:
+     1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. This file describes:
         * [Network](../../vpc/operations/network-create.md).
         * Subnet.
         * {{ managed-k8s-name }} cluster.
-        * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
+        * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -57,19 +57,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
         * {{ managed-k8s-name }} cluster CIDR.
         * Name of the {{ managed-k8s-name }} cluster service account.
-     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+        {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
 
    {% endlist %}
 
@@ -79,7 +81,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create an nginx service {#create-pod}
 
-1. Create a pod with the nginx web server in the `policy-test` [namespace](../concepts/index.md#namespace). Use the {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) API object:
+1. Create a pod with the nginx web server in the `policy-test` [namespace](../concepts/index.md#namespace). Use the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) {{ k8s }} API object:
 
    ```bash
    kubectl create deployment --namespace=policy-test nginx --image=nginx
@@ -103,13 +105,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
    service/nginx exposed
    ```
 
-1. Make sure the nginx web server is available. Create a pod named `access`:
+1. Make sure the nginx web server is available by creating a pod named `access`:
 
    ```bash
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
    ```
 
-   A shell session opens on the `access` pod:
+   A shell session will open on the `access` pod:
 
    ```text
    If you don't see a command prompt, try pressing enter.
@@ -149,7 +151,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Isolate pods using network policies {#enable-isolation}
 
-Isolate the `policy-test` namespace. As a result, the Calico network policy controller prevents connections to pods in this namespace:
+Isolate the `policy-test` namespace. As a result, the Calico network policy controller will prevent connections to pods in this namespace:
 
 ```yaml
 kubectl create -f - <<EOF
@@ -170,7 +172,7 @@ Network policies are created:
 networkpolicy.networking.k8s.io/deny created
 ```
 
-### Test whether isolation works {#test-isolation}
+### Check whether isolation works {#test-isolation}
 
 1. Network policies isolated the nginx web server. To check this, create a pod named `access`:
 
@@ -178,7 +180,7 @@ networkpolicy.networking.k8s.io/deny created
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
    ```
 
-   A shell session opens on the `access` pod:
+   A shell session will open on the `access` pod:
 
    ```text
    If you don't see a command prompt, try pressing enter.
@@ -213,8 +215,8 @@ networkpolicy.networking.k8s.io/deny created
 
 ## Create network policies enabling service access {#create-policy}
 
-Allow access to the nginx web server using network policies. Only the `access` pod will be allowed to connect by the network policies.
-1. Create `access-nginx` network policies:
+Allow access to the nginx web server using network policies. These will only allow the `access` pod connections.
+1. Create the `access-nginx` network policies:
 
    ```yaml
    kubectl create -f - <<EOF
@@ -261,7 +263,7 @@ Allow access to the nginx web server using network policies. Only the `access` p
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
    ```
 
-   A shell session opens on the `access` pod:
+   A shell session will open on the `access` pod:
 
    ```text
    If you don't see a command prompt, try pressing enter.
@@ -297,16 +299,16 @@ Allow access to the nginx web server using network policies. Only the `access` p
    pod "access" deleted
    ```
 
-### Check the network isolation functionality for other pods {#check-isolation}
+### Check the network isolation for other pods {#check-isolation}
 
-The created `access-nginx` network policies allow connections for pods with the `run: access` {{ k8s }} label.
-1. Create a pod with no `run: access` label:
+The `access-nginx` network policies you created allow connections for pods with the `run: access` {{ k8s }} label.
+1. Create a pod without the `run: access` label:
 
    ```bash
    kubectl run --namespace=policy-test cant-access --rm -ti --image busybox /bin/sh
    ```
 
-   A shell session opens on the `cant-access` pod:
+   A shell session will open on the `cant-access` pod:
 
    ```text
    If you don't see a command prompt, try pressing enter.
@@ -345,7 +347,7 @@ The created `access-nginx` network policies allow connections for pods with the 
    kubectl delete ns policy-test
    ```
 
-   The result will be as follows:
+   Result:
 
    ```text
    namespace "policy-test" deleted
@@ -360,7 +362,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
   1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. If you reserved a public static IP address for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+  1. [Delete](../../vpc/operations/address-delete.md) the public static IP address for your {{ managed-k8s-name }} cluster if you reserved one.
 
 - {{ TF }} {#tf}
 

@@ -61,6 +61,8 @@ To create a security profile:
 
 If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
 
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -83,18 +85,18 @@ If the load balancer is managed by an {{ alb-name }} [ingress controller](../../
 
 If you have an existing security profile, check and adjust its parameters:
 
-1. **{{ ui-key.yacloud.smart-web-security.form.label_smartcaptcha }}**: `{{ ui-key.yacloud.smart-web-security.label_default-smartcaptcha-name }}`
+1. **{{ ui-key.yacloud.smart-web-security.form.label_smartcaptcha }}**: `{{ ui-key.yacloud.smart-web-security.label_default-smartcaptcha-name }}`.
 
 1. Make sure there is a rule named `sp-rule-1` with the following parameters:
-   * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` for website protection with suspicious requests redirected to {{ captcha-name }} or `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}` to block suspicious requests.
-   * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`
-   * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: `999900`
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: `999900`.
 
 1. Make sure there is a basic rule with the following parameters:
-   * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`
-   * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`
-   * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: `1000000`
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: `1000000`.
    
 ## Test the security profile {#check-the-result}
 
@@ -106,8 +108,8 @@ To test your security profile, use information from monitoring charts and logs.
 
 - Management console {#console}
 
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
      * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
@@ -124,9 +126,9 @@ For detailed description of charts, see [{#T}](../../smartwebsecurity/operations
 - Management console {#console}
 
   1. Make sure you have configured [logging](../../smartwebsecurity/operations/configure-logging.md) for the L7 load balancer.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer with an associated security profile.
-  1. Navigate to **{{ ui-key.yacloud.common.logs }}**.
+  1. Select **{{ ui-key.yacloud.common.logs }}**.
   1. Select the number of messages per page and the period, e.g., `1 hour`.
   1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
 
@@ -156,7 +158,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
 - Management console {#console}
 
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `anti-ddos-arl`.
@@ -181,7 +183,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
 - Management console {#console}
 
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
    1. Select the `anti-ddos` security profile.
    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.

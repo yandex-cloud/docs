@@ -35,7 +35,7 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
 
   You can get the ID in the following ways:
   * In the [IAM]({{ link-console-access-management }}) section of the management console.
-  * Using the [CLI or {{ iam-short-name }} API](../../../iam/operations/users/get.md).
+  * Using the [CLI or {{ iam-short-name }} API](../../../organization/operations/users-get.md).
 * [Service account](../../../iam/concepts/users/service-accounts)
 
   To get the ID, in the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** from the list of services. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.

@@ -47,7 +47,7 @@ items:
             href: tutorials/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
-      - name: Alert settings in {{ monitoring-name }}
+      - name: Configuring dashboards and alerts in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md

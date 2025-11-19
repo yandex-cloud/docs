@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать группу виртуальных машин.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:

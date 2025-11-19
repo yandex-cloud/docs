@@ -2,21 +2,7 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to connect a VM.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the VM name.
-  1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, add a security group to the VM [network interface](../../../compute/concepts/network.md):
-
-     * In the top-right corner of the section, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
-     * In the window that opens, add the previously created security group in the **{{ ui-key.yacloud.compute.instance.edit-network-interface.field_security-groups-ids }}** field.
-     * Click **{{ ui-key.yacloud.common.save }}**.
-
-  1. If the VM does not have a [public IP address](../../../vpc/concepts/address.md#public-addresses), then under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**. In the window that opens:
-
-      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
-      * Optionally, if you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, enable **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}**. For more information, see [{#T}](../../../vpc/ddos-protection/index.md).
-      * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, choose the IP address you want to assign to your VM. The IP address and the VM must be in the same availability zone.
-      * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+  {% include [attach-sg-to-vm-console](./attach-sg-to-vm-console.md) %}
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -140,7 +126,7 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the resources’ update in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
 
   For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
 

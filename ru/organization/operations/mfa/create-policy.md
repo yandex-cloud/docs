@@ -30,6 +30,53 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [mfa-create-policy-step6](../../../_includes/organization/mfa-create-policy-step6.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud_org.form.mfa-enforcement.create.action.create }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement create --help
+     ```
+
+  1. Создайте политику MFA, выполнив команду:
+
+      ```bash
+      yc organization-manager mfa-enforcement create \
+        --organization-id <идентификатор_организации> \
+        --acr-id <тип_фактора_аутентификации> \
+        --ttl <время_жизни> \
+        --status <статус_политики> \
+        --apply-at <время_активации> \
+        --enroll-window <срок_создания> \
+        --name <имя_политики> \
+        --description <описание_политики>
+      ```
+
+     Где:
+
+     * `--name` — имя политики. Требования к формату имени:
+
+        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--organization-id` — идентификатор организации.
+     * `--acr-id` — тип [фактора](../../concepts/mfa.md#mfa-factors) аутентификации.
+     * `--ttl` — срок действия учетных данных в днях.
+     * `--status` — статус политики: `status-active` — активна, `status-inactive` — неактивна.
+     * `--apply-at` — время, по истечении которого политика станет активна. Необязательный параметр.
+     * `--enroll-window` — период в днях после регистрации, в течение которого пользователь должен добавить второй фактор аутентификации.
+     * `--description` — описание политики. Необязательный параметр.
+
+  1. (Опционально) Чтобы активировать неактивную политику MFA, выполните команду:
+
+      ```bash
+      yc organization-manager mfa-enforcement activate \
+        --id <идентификатор_политики>
+      ```
+
 {% endlist %}
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}

@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный адрес.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ vpc-name }}**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного адреса и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. В открывшемся окне нажмите **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.

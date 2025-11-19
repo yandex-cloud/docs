@@ -89,7 +89,7 @@ description: На странице представлен список прак�
 
 ## {{ MY }} {#mysql}
 
-* [{#T}](mysql-data-migration.md)
+* [{#T}](mysql-data-migration/index.md)
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)

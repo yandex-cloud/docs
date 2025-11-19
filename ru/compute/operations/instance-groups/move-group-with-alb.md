@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как можно перен
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ alb-name }}**.
       1. В строке с нужным балансировщиком нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
       1. В открывшемся окне в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите прием трафика в той зоне доступности, в которую хотите перенести группу ВМ.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

@@ -14,7 +14,7 @@ Where:
 * `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with a widget.
 * `value`: Token value.
 
-To find out the result of the validation, send a POST request to `https://smartcaptcha.yandexcloud.net/validate` providing parameters in `x-www-form-urlencoded` format:
+To find out the result of the validation, send a POST request to `https://{{ captcha-domain }}/validate` providing parameters in `x-www-form-urlencoded` format:
 
 ```
 secret=<server_key>&token=<token>&ip=<user_IP_address>
@@ -78,7 +78,7 @@ In its response, the service will return a JSON object containing the `status` a
 
 ## Request errors {#errors}
 
-If your request to `https://smartcaptcha.yandexcloud.net/validate` is incorrect, the service will return an error. Here is an example:
+If your request to `https://{{ captcha-domain }}/validate` is incorrect, the service will return an error. Here is an example:
 
 1. Request missing the server key:
 

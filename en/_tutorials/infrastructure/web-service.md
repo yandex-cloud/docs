@@ -82,7 +82,7 @@ Create a VM you to test whether your web service is accessible from the internet
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-    1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
+    1. Select **Advanced setup**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -236,7 +236,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-    1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
+    1. Select **Advanced setup**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select [Drupal 10](/marketplace/products/yc/drupal-8).
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -275,7 +275,7 @@ To provide secure access to your resources, create an IPSec instance.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-    1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
+    1. Select **Advanced setup**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:

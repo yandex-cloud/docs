@@ -17,6 +17,8 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+{% include [prices-nds-note](../_includes/prices-nds-note.md) %}
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 ### {{ model-gallery-name }} {#rules-generating}
@@ -194,7 +196,7 @@ _{{ price-per-hour-count-per-second }}_
 
 {% cut "Расчет стоимости векторизации текста" %}
 
-> Стоимость векторизации текста в 2000 составит:
+> Стоимость векторизации текста в 2000 токенов составит:
 
 
 {% list tabs group=pricing %}

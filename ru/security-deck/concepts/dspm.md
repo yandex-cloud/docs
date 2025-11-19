@@ -5,8 +5,6 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 # Модуль контроля данных ({{ dspm-name }})
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 [Модуль контроля данных]({{ link-sd-main }}dspm/) или {{ dspm-name }} (Data Security Posture Management) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../../storage/concepts/bucket.md) {{ objstorage-full-name }}, с тем чтобы своевременно принимать необходимые меры для ее защиты от несанкционированного доступа или утечки (настраивать [политики доступа](../../storage/concepts/policy.md), обезличивать данные и т.п.)
 
 ## Сканирование на наличие чувствительной информации {#scanning}

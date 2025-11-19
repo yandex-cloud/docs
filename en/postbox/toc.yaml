@@ -55,6 +55,8 @@ items:
           Creating a {{ postbox-full-name }} address and verifying domain
           ownership with {{ TF }}
         href: tutorials/domain-identity-creating.md
+      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
+        href: tutorials/postbox-webhook.md
       - name: Sending emails using the AWS SDK
         items:
           - name: .NET Core

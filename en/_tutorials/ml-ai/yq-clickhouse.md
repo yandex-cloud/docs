@@ -131,7 +131,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       * Select the `yq-sa` service account.
-      * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** options.
+      * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console** options.
 
   1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
@@ -146,7 +146,7 @@ In this step, you will create a test table with numbers from 0 to 100.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the `clickhouse` cluster page and navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
+  1. In the [management console]({{ link-console-main }}), open the `clickhouse` cluster page and navigate to the **SQL** tab.
   1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
   1. In the input window on the right, paste an SQL query:
 
@@ -161,7 +161,7 @@ In this step, you will create a test table with numbers from 0 to 100.
      FROM numbers(100)
      ```
 
-  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Click **Execute**.
 
 {% endlist %}
 

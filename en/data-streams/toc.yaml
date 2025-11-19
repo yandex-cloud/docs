@@ -65,7 +65,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Data ingestion into storage systems
+      - name: Ingesting data into storage systems
         href: tutorials/data-ingestion.md
       - name: Smart log processing
         href: tutorials/log-ingestion.md
@@ -88,8 +88,8 @@ items:
       - name: Data delivery from an {{ yds-name }} queue to {{ ydb-name }}
         href: tutorials/yds-to-ydb.md
       - name: >-
-          Data delivery to {{ mkf-full-name }} using {{ data-transfer-full-name
-          }}
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
         href: tutorials/yds-to-kafka.md
       - name: >-
           Change data capture (CDC) from {{ ydb-short-name }} and delivery to {{
@@ -131,6 +131,8 @@ items:
         href: tutorials/maxpatrol.md
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
         href: tutorials/search-events-query.md
+      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
+        href: tutorials/postbox-webhook.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

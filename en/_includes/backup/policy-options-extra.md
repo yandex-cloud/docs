@@ -36,8 +36,8 @@
 
 * Optionally, under **{{ ui-key.yacloud.backup.policy-overview.field_files-filters }}**, you can use filters to exclude specific files and folders from your backups or do the opposite and back up only specific file system items:
 
-    * **{{ ui-key.yacloud.backup.policy-overview.field_exclusion-masks }}**
-    * **{{ ui-key.yacloud.backup.policy-overview.field_inclusion-masks }}**
+    * **{{ ui-key.yacloud.backup.policy-overview.field_exclusion-masks }}**.
+    * **{{ ui-key.yacloud.backup.policy-overview.field_inclusion-masks }}**.
 
     Exclusion filters take precedence over inclusion filters.
 

@@ -308,6 +308,12 @@ Service name: `yq`.
 
 {% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
 
+## {{ myt-full-name }} {#ytsaurus}
+
+Service name: `ytsaurus`.
+
+{% include [ytsaurus-events](../../_includes/audit-trails/events/ytsaurus-events.md) %}
+
 ## {{ resmgr-full-name }} {#resmgr}
 
 Service name: `resourcemanager`.

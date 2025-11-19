@@ -243,7 +243,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       * Select the `yq-sa` service account.
-      * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** options.
+      * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console** options.
 
   1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
@@ -258,7 +258,7 @@ The {{ mch-name }} table will contain the item names.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the `clickhouse` cluster page and navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore }}** tab.
+  1. In the [management console]({{ link-console-main }}), open the `clickhouse` cluster page and navigate to the **SQL** tab.
   1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
   1. In the input window on the right, run the following SQL queries one by one:
 
@@ -274,7 +274,7 @@ The {{ mch-name }} table will contain the item names.
      INSERT INTO items(id, description) VALUES(2, 'TV')
      ```
 
-  1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Click **Execute**.
 
 {% endlist %}
 
@@ -325,7 +325,7 @@ Any running {{ mpg-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
      * Specify **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, e.g., `db1`.
      * Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console**.
   1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -339,7 +339,7 @@ The {{ mpg-name }} table will contain the names of the customers.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the `postgresql` cluster page and navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
+  1. In the [management console]({{ link-console-main }}), open the `postgresql` cluster page and navigate to the **SQL** tab.
   1. Enter **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** you specified when creating the cluster.
   1. In the input window on the right, run the following SQL queries one by one:
 

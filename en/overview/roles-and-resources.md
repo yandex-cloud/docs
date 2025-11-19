@@ -24,6 +24,8 @@ You can invite other members with Yandex accounts to your organization to grant 
 
 For bulk access management, users can be combined into [groups](../organization/operations/manage-groups.md).
 
+To learn more about user and user group management, see [this {{ org-full-name }} guide](../organization/operations/index.md#manage-users).
+
 ## Access management {#access}
 
 {{ yandex-cloud }} resource access permissions are managed using [roles](../iam/concepts/access-control/roles.md). To enable an account (_subject_) to perform actions on a resource (_object_), assign appropriate roles for the resource either to the account or the group to which it belongs. Basically, each role is a list of permitted object operations. Permissions to access {{ yandex-cloud }} resources are managed by [{{ iam-full-name }}](../iam/concepts/index.md).

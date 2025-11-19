@@ -5,7 +5,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
 1. Enter a name and description for the {{ managed-k8s-name }} node group.
-1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for the {{ managed-k8s-name }} nodes.
+1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** field, select `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
 1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, add the [node cloud labels](../../managed-kubernetes/concepts/index.md#node-labels).
 
@@ -46,6 +46,9 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. (Optional) Under **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}**, specify if the {{ managed-k8s-name }} node group should have no pre-installed NVIDIA® drivers and CUDA® libraries for [GPU acceleration](../../compute/concepts/gpus.md).
 1. (Optional) Under **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}**, enter a name for the {{ managed-k8s-name }} node [placement group](../../compute/concepts/placement-groups.md). This setting cannot be changed after the {{ managed-k8s-name }} node group is created.
+
+    {% include [placement-groups](placement-groups.md) %}
+
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Specify the {{ managed-k8s-name }} node **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}**:
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: [Standard network drive](../../compute/concepts/disk.md#disks-types); HDD network block storage.
@@ -58,7 +61,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
+   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
    * Select [security groups](../../vpc/concepts/security-groups.md).
@@ -81,7 +84,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
     * To connect to nodes using SSH keys, specify the required details:
 
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
 
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
 

@@ -84,7 +84,7 @@ The cost of the infrastructure deployment includes:
  
    1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**
+        * **Access from the management console**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.

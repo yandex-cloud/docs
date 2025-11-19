@@ -1,6 +1,6 @@
 # Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ mgp-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Создайте базу данных в кластере-приемнике](#prepare-data).
@@ -13,7 +13,7 @@
 ## Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
-* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Кластер {{ GP }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
@@ -36,7 +36,7 @@
 
         Подробнее об административных привилегиях см. в [описании настроек](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
-    1. В той же зоне доступности [создайте кластер-приемник {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+    1. В той же зоне доступности [создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mgp_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
@@ -61,7 +61,7 @@
         * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
         * кластер-источник {{ mmy-name }};
-        * кластер-приемник {{ mgp-name }};
+        * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
         * эндпоинт для источника;
         * трансфер.
 
@@ -111,7 +111,7 @@
 
 ## Создайте базу данных в кластере-приемнике {#prepare-data}
 
-1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ mgp-name }} от имени пользователя `mgp_user`.
+1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `mgp_user`.
 
 1. Создайте базу данных `mgp_db`:
 
@@ -176,7 +176,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ mgp-name }}.
+1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ GP }}.
 
 1. Выполните запрос:
 
@@ -197,7 +197,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ mgp-name }}.
+    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ GP }}.
     1. Выполните запрос:
 
         ```sql
@@ -221,7 +221,7 @@
     * [Трансфер](../../data-transfer/operations/transfer.md#delete).
     * [Эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
     * [Кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-    * [Кластер {{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
+    * [Кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
 
 - С помощью {{ TF }} {#tf}
 

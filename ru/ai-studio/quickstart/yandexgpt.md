@@ -1,6 +1,6 @@
 # Как начать работать с моделями {{ model-gallery-name }}
 
-В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/generation/index.md#working-mode). Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
+В этом разделе вы научитесь использовать модели {{ model-gallery-name }} для генерации текста в [синхронном режиме](../concepts/generation/index.md#working-mode). Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api).
 
 О стоимости использования {{ foundation-models-full-name }} читайте в разделе [{#T}](../pricing.md).
 
@@ -55,7 +55,7 @@
      * **{{ ui-key.yacloud.yagpt.label_temperature-text }}** — укажите значение от `0` до `1`, которое определяет вариативность ответа модели. Чем выше значение, тем более непредсказуемым будет результат выполнения запроса.
      * **{{ ui-key.yacloud.yagpt.instruction }}** — опишите требуемую задачу, стиль письма, лимиты и другие предписания для модели. Рекомендации для повышения качества генераций собраны в разделе [{#T}](../gpt-prompting-guide/about.md).
      * **{{ ui-key.yacloud.yagpt.use-context }}** — измените тип генерации.
-     * **{{ ui-key.yacloud.yagpt.use-assistant }}** — если опция включена, {{ ai-playground }} будет работать на основе [{{ assistant-api }}](../concepts/assistant/index.md).
+     * **Использовать ассистента** — если опция включена, {{ ai-playground }} будет работать на основе [{{ assistant-api }}](../concepts/assistant/index.md).
 
   1. Нажмите ![image](../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.yagpt.train-modal }}**, если нужно [научить модель](../concepts/tuning/index.md) следовать сложному формату ответов.
   1. В блоке **{{ ui-key.yacloud.yagpt.model-using }}** нажмите ![image](../../_assets/console-icons/code.svg) **Посмотреть код**, чтобы получить код запроса к модели через ML SDK для Python или [cURL](https://curl.haxx.se).

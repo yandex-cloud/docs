@@ -3,6 +3,8 @@
 
   Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
+  {% include [metastore version](metastore-version-catalog-create.md) %}
+
 * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/index.md).
 * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
 * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.

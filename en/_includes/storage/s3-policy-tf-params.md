@@ -8,7 +8,7 @@ Policy settings:
 * `Version`: Version of the bucket policy description. This is a required parameter. The only supported value is `2012-10-17`.
 * `Statement`: Bucket policy rules:
   * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-  * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or [user group](../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
+  * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or [user group](../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
 
     You can get the IDs in the following ways:
 

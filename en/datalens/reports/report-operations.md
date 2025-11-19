@@ -75,7 +75,7 @@ To add report info:
 
 1. In the top-right corner, click **Save**.
 
-Now all users will see the ![image](../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the report. Clicking it will open the **Report info** window with the information.
+Now all users will see the ![image](../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the report. Clicking it will open the **Report info** window with the info.
 
 {% cut "Viewing report info" %}
 
@@ -108,6 +108,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
    - Image {#image}
 
+          
      * Add a link to an [image](../dashboard/markdown.md#image) from a [{{ objstorage-full-name }}](../../storage/quickstart.md) storage.
 
        {% note warning %}
@@ -117,6 +118,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
        {% include [datalens-cors-settings-note](../../_includes/datalens/datalens-cors-settings-note.md) %}
 
        {% endnote %}
+
 
      * Optionally, specify an alternative text to display if the image fails to load.
      * Optionally, disable maintaining the aspect ratio when resizing the widget. This option is enabled by default.
@@ -138,9 +140,11 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
        {% note warning %}
 
+              
        If inserting an image from a {{ objstorage-full-name }} storage into your widget, configure the [CORS](../../storage/operations/buckets/cors.md) settings for the bucket containing the image:
 
        {% include [datalens-cors-settings-note](../../_includes/datalens/datalens-cors-settings-note.md) %}
+
 
        {% endnote %}
 

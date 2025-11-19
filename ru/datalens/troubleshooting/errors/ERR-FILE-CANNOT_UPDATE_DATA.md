@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.FILE.CANNOT_UPDATE_DATA
-description: На странице приведено описание ошибки ERR.FILE.CANNOT_UPDATE_DATA.
+title: Ошибка {{ datalens-full-name }} ERR.FILE.CANNOT_UPDATE_DATA
+description: На странице приведено описание ошибки {{ datalens-full-name }} Невозможно обновить данные.
 ---
 
-# Невозможно обновить данные
+# [{{ datalens-full-name }}] Невозможно обновить данные
 
 `ERR.FILE.CANNOT_UPDATE_DATA`
 

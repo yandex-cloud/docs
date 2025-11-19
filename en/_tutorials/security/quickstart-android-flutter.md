@@ -77,7 +77,7 @@ This guide assumes that you are using your PC to complete it.
 
        # response validation
        response = requests.post(
-           "https://smartcaptcha.yandexcloud.net/validate",
+           "https://{{ captcha-domain }}/validate",
            data={
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
@@ -195,7 +195,7 @@ This guide assumes that you are using your PC to complete it.
        </script>
 
        <script
-         src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onSmartCaptchaReady"
+         src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onSmartCaptchaReady"
          defer
        ></script>
      </head>

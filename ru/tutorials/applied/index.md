@@ -22,6 +22,7 @@ description: На странице представлен список прак�
 * [{#T}](../web/gatsby-static-website.md)
 * [{#T}](../web/migrate-to-yc-cdn.md)
 * [{#T}](../web/user-agent-statistics.md)
+* [{#T}](../web/video-iframe.md)
 
 ## 1С {#1c}
 

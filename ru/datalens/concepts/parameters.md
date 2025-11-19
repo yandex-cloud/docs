@@ -1,3 +1,8 @@
+---
+title: Параметры в {{ datalens-full-name }}
+description: Параметр в {{ datalens-full-name }} — это переменная, которая может заменять константные значения в вычисляемых полях.
+---
+
 # Параметры в {{ datalens-full-name }}
 
 Параметр — это переменная, которая может заменять константные значения в вычисляемых полях. Параметры можно создавать [на уровне датасета](../dataset/create-dataset.md#add-parameters) и [на уровне чарта](../operations/chart/add-parameter-chart.md).

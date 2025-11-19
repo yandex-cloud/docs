@@ -22,7 +22,7 @@ To delete an HTTP router:
   1. Select your router and click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
 
-     To delete multiple routers at once, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+     To do this with multiple HTTP routers, select the routers to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -105,7 +105,7 @@ To delete an HTTP router:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If your configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash
@@ -119,6 +119,8 @@ To delete an HTTP router:
      ```bash
      yc alb http-router list
      ```
+
+  {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

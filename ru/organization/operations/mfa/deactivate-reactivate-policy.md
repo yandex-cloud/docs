@@ -21,6 +21,27 @@ description: Следуя данной инструкции, вы сможете
   1. В списке политик MFA в строке с нужной политикой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrows-rotate-right](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud_org.organization.security-settings.mfa-overview-action-activate }}**.
   1. В открывшемся окне подтвердите действие.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для активации политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement activate --help
+     ```
+
+  1. Чтобы активировать политику MFA, выполните команду:
+
+     ```bash
+     yc organization-manager mfa-enforcement activate \
+       --id <идентификатор_политики>
+     ```
+
+     Где `--id` — идентификатор политики MFA, которую нужно активировать.
+
 {% endlist %}
 
 В результате политика MFA будет активирована и перейдет в статус `Active`, а к учетным записям пользователей, добавленных в целевые группы политики, начнут применяться требования этой политики по использованию дополнительного фактора аутентификации.
@@ -38,6 +59,23 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}**.
   1. В списке политик MFA в строке с нужной политикой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pause](../../../_assets/console-icons/pause.svg) **{{ ui-key.yacloud_org.organization.security-settings.mfa-overview-action-suspend }}**.
   1. В открывшемся окне подтвердите действие.
+
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для деактивации политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement deactivate --help
+     ```
+
+  1. Чтобы деактивировать политику MFA, выполните команду:
+
+     ```bash
+     yc organization-manager mfa-enforcement deactivate \
+       --id <идентификатор_политики>
+     ```
+
+     Где `--id` — идентификатор политики MFA, которую нужно деактивировать.
 
 {% endlist %}
 

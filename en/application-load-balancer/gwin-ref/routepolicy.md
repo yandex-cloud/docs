@@ -31,6 +31,8 @@ RoutePolicy is a Gwin custom resource for configuring route-level policies in Ya
   * [SessionAffinityHeader](#sessionaffinityheader)
   * [ALBRoute](#albroute)
   * [RouteALBHTTP](#routealbhttp)
+  * [HostRewrite](#hostrewrite)
+  * [RegexMatchAndSubstitute](#regexmatchandsubstitute)
   * [VirtualHost](#virtualhost)
   * [RateLimit](#ratelimit)
   * [RateLimitLimit](#ratelimitlimit)
@@ -142,9 +144,26 @@ spec:
       timeout: "60s"  # overall connection timeout
       idleTimeout: "300s"  # idle connection timeout
       
+      # Rate limiting for routes
+      rateLimit:
+        allRequests:
+          perSecond: 100  # route-level rate limit for all requests
+          perMinute: 6000  # route-level rate limit for all requests
+        requestsPerIP:
+          perSecond: 10  # route-level rate limit per IP
+          perMinute: 600  # route-level rate limit per IP
+      
+      # Host rewriting
+      hostRewrite:
+        auto: true  # automatically rewrite host to backend target
+        replace: "backend.example.com"  # static host replacement
+      
       # HTTP specific settings
       http:
         upgradeTypes: ["websocket"]  # supported upgrade protocols
+        regexRewrite:
+          regex: "^/service/([^/]+)(/.*)$"  # regex pattern for path rewriting
+          substitute: "\\2/instance/\\1"  # substitution with capture groups
       
       # Security
       securityProfileID: "security-profile-1"  # WAF profile for routes
@@ -277,6 +296,8 @@ Route rule configuration that combines backend group and route settings.
 | sessionAffinity | **[SessionAffinity](#sessionaffinity)** <br> Session affinity configuration for the backend group. |
 | timeout | **string** <br> Overall timeout for HTTP connection between load balancer and backend. Default: `60s`. <br> Example: `60s` |
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
+| rateLimit | **[RateLimit](#ratelimit)** <br> Rate limit configuration applied for route. |
+| hostRewrite | **[HostRewrite](#hostrewrite)** <br> Host header rewriting configuration. |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
 | securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
@@ -490,6 +511,7 @@ HTTP-specific route configuration.
 | Field | Description |
 |-------|-------------|
 | upgradeTypes | **[]string** <br> Supported values for HTTP `Upgrade` header. <br> Example: `["websocket"]` |
+| regexRewrite | **[RegexMatchAndSubstitute](#regexmatchandsubstitute)** <br> Path rewriting using regular expressions. |
 
 ### VirtualHost
 
@@ -524,6 +546,28 @@ Rate limit configuration with time-based limits.
 |-------|-------------|
 | perMinute | **int** <br> Limit value specified with per minute time unit. <br> Example: `6000` |
 | perSecond | **int** <br> Limit value specified with per second time unit. <br> Example: `100` |
+
+### HostRewrite
+
+Host header rewriting configuration for HTTP/1.1 Host headers and HTTP/2 :authority pseudo-headers.
+
+*Appears in:* [RouteRule](#routerule)
+
+| Field | Description |
+|-------|-------------|
+| auto | **bool** <br> Automatically replaces the host with that of the target backend. <br> Example: `true` |
+| replace | **string** <br> Static host replacement value. <br> Example: `backend.example.com` |
+
+### RegexMatchAndSubstitute
+
+Regular expression-based path rewriting configuration for HTTP routes.
+
+*Appears in:* [RouteALBHTTP](#routealbhttp)
+
+| Field | Description |
+|-------|-------------|
+| regex | **string** <br> Regular expression pattern to match portions of the path for rewriting. <br> Example: `^/service/([^/]+)(/.*)$` |
+| substitute | **string** <br> Substitution string for path rewriting with capture group support. Pattern `^/service/([^/]+)(/.*)$` with substitution `\\2/instance/\\1` transforms `/service/foo/v1/api` to `/v1/api/instance/foo`. <br> Example: `\\2/instance/\\1` |
 
 ## RoutePolicyStatus
 

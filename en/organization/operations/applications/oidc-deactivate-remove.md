@@ -22,6 +22,41 @@ If you need to temporarily disable authentication in an external app using the [
   1. Next to the OIDC application you want to deactivate, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pause](../../../_assets/console-icons/pause.svg) **{{ ui-key.yacloud_org.action.applications.components.action_deactivate }}**.
   1. In the window that opens, confirm the operation.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for deactivating an OIDC app:
+
+     ```bash
+     yc organization-manager idp application oauth application suspend --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc organization-manager idp application oauth application suspend <app_ID>
+     ```
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: test-oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+     status: SUSPENDED
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T11:28:09.167252Z"     
+     ```
+
 {% endlist %}
 
 This will deactivate the OIDC application and switch its status to `Suspended`, and the users will no longer be able to use it for authentication in the relevant external app.
@@ -39,6 +74,41 @@ If you need to restore the ability of your organization’s users to authenticat
   1. Next to the OIDC application you want to activate, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![arrows-rotate-right](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud_org.action.applications.components.action_activate }}**.
   1. In the window that opens, confirm the operation.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for activating an OIDC app:
+
+     ```bash
+     yc organization-manager idp application oauth application reactivate --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc organization-manager idp application oauth application reactivate <app_ID>
+     ```
+
+     Result:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: test-oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T11:28:09.167252Z"     
+     ```
+
 {% endlist %}
 
 This will activate the OIDC application, switch its status to `Active`, and enable the users added to the application to use it for authentication in the external app again.
@@ -55,6 +125,24 @@ To delete an OIDC application:
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. Next to the OIDC application you want to delete, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the operation.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for deleting an OIDC app:
+
+     ```bash
+     yc organization-manager idp application oauth application delete --help
+     ```
+
+  1. Run this command:
+
+     ```bash
+     yc organization-manager idp application oauth application delete <app_ID>
+     ```
 
 {% endlist %}
 

@@ -69,7 +69,7 @@ Where:
 
 Some limitations apply when working with {{ PG }} clusters.
 
-Limitations:
+The following restrictions apply:
 1. {% include [!](_includes/supported_requests.md) %}
 1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
 Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (`Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
@@ -91,6 +91,7 @@ Supported data types for filter pushdown:
 |`Int64`|
 |`Float`|
 |`Double`|
+|`Decimal`|
 
 ## Supported data types {#supported_types}
 
@@ -123,3 +124,4 @@ The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other d
 | `character varying` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `text` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `json` | `Optional<Json>` | |
+| `numeric(p,s)` | `Optional<Decimal(p,s)>` | `p` (precision) is the total character count in the number; `s` (scale) is the decimal character count. `numeric` types without any specific parameters (so called _unconstrained_ types) are transformed into `Optional<Decimal(35, 0)>`. `numeric` types with `p > 35` or `s < 0` are not supported. |

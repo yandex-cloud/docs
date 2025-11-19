@@ -28,6 +28,8 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       * In the **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-access }}** field, specify whether to add this header to responses.
       * When adding a header, select the values of the `Origin` header that allow access to the content. To grant access only to specific origins, select `{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-settings-http-origin-for-source-domains }}`, specify the origin domain names and click **{{ ui-key.yacloud.cdn.button_add-domain }}**.
 
+          {% include [edge-cors-note](../../../_includes/cdn/edge-cors-note.md) %}
+
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -96,6 +98,8 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       ```
       The `*` and `"$http_origin"` values allow access to content with any `Origin` header value. To allow access only to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
 
+      {% include [edge-cors-note](../../../_includes/cdn/edge-cors-note.md) %}
+
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
@@ -141,6 +145,9 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional parameter. The default value is `true`.
       * `origin_protocol`: Protocol for origins. This is an optional parameter. The default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
+
+          {% include [edge-cors-note](../../../_includes/cdn/edge-cors-note.md) %}
+
       * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `cors`: Value the CDN will send in the `Access-Control-Allow-Origin` header in response to a [CORS request](../../concepts/cors.md).
@@ -166,7 +173,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```

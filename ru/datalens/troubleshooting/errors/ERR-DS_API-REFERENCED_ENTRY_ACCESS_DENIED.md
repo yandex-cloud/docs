@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED
-description: На странице приведено описание ошибки ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED
+description: 'На странице приведено описание ошибки {{ datalens-full-name }} Referenced connection <идентификатор_подключения> cannot be loaded: access denied.'
 ---
 
-# Referenced connection <идентификатор_подключения> cannot be loaded: access denied
+# [{{ datalens-full-name }}] Referenced connection <идентификатор_подключения> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`
 

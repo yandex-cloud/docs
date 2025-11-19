@@ -54,8 +54,12 @@ description: Следуя данной инструкции, вы сможете
          - openid
      status: SUSPENDED
      created_at: "2025-10-21T10:51:28.790866Z"
-     updated_at: "2025-10-21T11:28:09.167252Z"     
+     updated_at: "2025-10-21T11:28:09.167252Z"
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Suspend](../../idp/application/oauth/api-ref/Application/suspend.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Suspend](../../idp/application/oauth/api-ref/grpc/Application/suspend.md).
 
 {% endlist %}
 
@@ -106,8 +110,12 @@ description: Следуя данной инструкции, вы сможете
          - openid
      status: ACTIVE
      created_at: "2025-10-21T10:51:28.790866Z"
-     updated_at: "2025-10-21T11:28:09.167252Z"     
+     updated_at: "2025-10-21T11:28:09.167252Z"
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Reactivate](../../idp/application/oauth/api-ref/Application/reactivate.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Reactivate](../../idp/application/oauth/api-ref/grpc/Application/reactivate.md).
 
 {% endlist %}
 
@@ -143,6 +151,10 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc organization-manager idp application oauth application delete <идентификатор_приложения>
      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Application.Delete](../../idp/application/oauth/api-ref/Application/delete.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Delete](../../idp/application/oauth/api-ref/grpc/Application/delete.md).
 
 {% endlist %}
 

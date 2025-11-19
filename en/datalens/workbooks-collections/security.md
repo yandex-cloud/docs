@@ -6,7 +6,7 @@ description: You can grant users or user groups permissions to each workbook and
 # Setting up access in {{ datalens-short-name }} workbooks and collections
 
 
-You can assign access permissions to users and [user groups](../../iam/operations/groups/create.md) for each workbook and collection. [Access permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:
+You can assign access permissions to users and [user groups](../../organization/operations/create-group.md) for each workbook and collection. [Access permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:
 
 * Workbook permissions apply to all objects within the workbook.
 * Collection permissions apply to all collections and their workbooks, as well as objects within workbooks.

@@ -25,10 +25,10 @@ description: Follow this guide to create a metadata source in {{ data-catalog-fu
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Enter a unique name for the source. Once you create the source, you cannot rename it.
     1. Optionally, describe the source.
-    1. Select the backend type to provide metadata from. Once the source is created, you cannot change the database type.
-
-       Available backends: {{ PG }}, {{ MY }}, {{ MG }}, {{ CH }}, {{ OS }}, {{ GP }}, and {{ data-transfer-name }}.
+    1. Select the backend type to provide metadata from. Once the source is created, you cannot change the database type. Available backends:
        
+       {% include notitle [sources](../../../_includes/metadata-hub/data-catalog-sources.md) %}
+
     1. Specify the source parameters for the selected database type:
 
         {% include [source-parameters](../../../_includes/metadata-hub/data-catalog-source-parameters.md) %}

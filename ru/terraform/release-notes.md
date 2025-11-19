@@ -5,6 +5,36 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 
 
 
+## 0.171.0 (November 17, 2025)
+##### BUG FIXES:
+* mysql: user permission REFERENCES added
+##### ENHANCEMENTS:
+* connectionmanager: add `storedoc` option
+##### WARNING:
+* kubernetes: deprecate `1.30` version, use `1.31` instead
+
+## 0.170.0 (November 13, 2025)
+##### FEATURES:
+* airflow: dag-processor configuring has been added for airflow 3.0+
+* CDN: cdn_resource "stale" option
+* CDN: cdn_resource "rewrite" option
+* Postgres: added auth_method for user
+* Greenplum: added pool_idle_in_transaction_timeout setting
+##### BUG FIXES:
+* trino: remove excessive and broken validation for logging config
+* airflow: remove excessive and broken validation for logging config
+* spark: remove excessive and broken validation for logging config
+* metastore: remove excessive and broken validation for logging config
+* trino: change schema type for catalogs and access control models to types.Object without changing the scheme of resources
+* airflow: remove the health field from resource scheme
+* CDN: fix behaviour for cdn_resource attributes (cname, ignore_cookie, slice, static_headers, cors, browser_cache_settings)
+* metastore: fix service name in documentation
+* trino: skip validation for unknown fields in trino_access_control resource
+* kafka: fix cluster recreation during ZooKeeper to KRaft migration - cluster now updates in-place and change default Kafka version in tests from 3.5 to 3.6 and fix HA test configuration for Kafka 3.6 KRaft-combine mode - use 3 zones instead of 2
+##### ENHANCEMENTS:
+* airflow: health has been removed from provider
+* trino: extend acceptance tests for catalog
+
 ## 0.169.0 (October 30, 2025)
 ##### FEATURES:
 * OrganizationManager: new user and userpool datasources and resources

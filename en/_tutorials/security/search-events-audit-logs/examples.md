@@ -51,6 +51,10 @@ This section contains the most common queries for searching events in audit logs
     * [Updating roles for secrets](#update-secret-access-bindings)
     * [Reading a secret](#read-secret)
 
+**Searching for errors**
+
+[Searching for `permission denied` errors](#permission-denied)
+
 ## Infrastructure and network {#infrastructure-and-network}
 
 ### {{ compute-full-name }} {#compute}
@@ -59,9 +63,9 @@ This section contains the most common queries for searching events in audit logs
 
 {% list tabs group=at_logs_tools %}
 
-- {{ yq-full-name }}
+- {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -78,7 +82,7 @@ This section contains the most common queries for searching events in audit logs
 
     You can get the ID with the list of VMs in the folder.
 
-- {{ cloud-logging-full-name }}
+- {{ cloud-logging-full-name }} {#cloud-logging}
 
     Use a filter:
 
@@ -103,7 +107,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -128,7 +132,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -157,7 +161,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -188,7 +192,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -213,7 +217,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -238,7 +242,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -269,7 +273,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -283,10 +287,15 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ cloud-logging-full-name }} {#cloud-logging}
 
-    Use a filter:
+    Searching by ID:
 
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<folder_name>"
+    ```json
+    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<folder_ID>"
+    ```
+    
+    Searching by name:
+    ```json
+    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<folder_name>"
     ```
 
     You can get the folder name with the list of folders in the cloud.
@@ -350,7 +359,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -375,7 +384,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -404,7 +413,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -431,7 +440,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -460,7 +469,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -483,13 +492,13 @@ This section contains the most common queries for searching events in audit logs
 
 {% endlist %}
 
-#### Creating a cluster without etcd encryption {#create-k8s-without-etcd-encryption}
+#### Creating a cluster without `etcd` encryption {#create-k8s-without-etcd-encryption}
 
 {% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -516,7 +525,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -543,7 +552,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -572,7 +581,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -603,7 +612,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -628,13 +637,13 @@ This section contains the most common queries for searching events in audit logs
 
 ### {{ objstorage-full-name }} {#object-storage}
 
-#### Updating a bucket policy {#update-bucket-policy}
+#### Updating a bucket access policy {#update-bucket-policy}
 
 {% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -659,7 +668,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -692,7 +701,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -727,7 +736,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -760,7 +769,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from
@@ -793,7 +802,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -822,7 +831,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from
@@ -849,7 +858,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -874,7 +883,7 @@ This section contains the most common queries for searching events in audit logs
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this query:
+    Run this request:
 
     ```sql
     select * from 
@@ -889,6 +898,32 @@ This section contains the most common queries for searching events in audit logs
 
     ```sql
     json_payload.event_type="yandex.cloud.audit.lockbox.GetPayload"
+    ```
+
+{% endlist %}
+
+## Searching for errors {#errors}
+
+### Searching for `permission denied` errors {#permission-denied}
+
+Searching for `permission denied` errors:
+
+{% list tabs group=tools %}
+
+- {{ yq-full-name }} {#yandex-query}
+
+    ```sql
+    select * from 
+      bindings.`binding`
+    where
+      JSON_VALUE(data,"$.event_status") = 'ERROR' and
+      JSON_VALUE(data,"$.error.code") = 7
+    ```
+
+- {{ cloud-logging-full-name }} {#cloud-logging}
+
+    ```sql
+    json_payload.event_status = ERROR and json_payload.error.code = 7
     ```
 
 {% endlist %}

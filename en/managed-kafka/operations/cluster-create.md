@@ -88,12 +88,6 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
     
      1. Select **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-zookeeper_pN7ub }}** as the coordination service.
 
-     
-     1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }}cluster.
-
-        {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
   1. If you specify several broker hosts, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
   1. Specify additional {{ mkf-name }} cluster settings, if required:
 
@@ -186,10 +180,6 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
   1. {% include notitle [maintenance](../../_includes/mdb/mkf/create-cluster.md#maintenance) %}
 
   1. {% include notitle [auto-rescale](../../_includes/mdb/mkf/create-cluster.md#auto-rescale) %}
-
-
-  
-  1. {% include notitle [dedicated-hosts](../../_includes/mdb/mkf/create-cluster.md#dedicated-hosts) %}
 
 
 - {{ TF }} {#tf}
@@ -452,12 +442,6 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
             
-            To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -636,12 +620,6 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
             
-            To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `host_group_ids` parameter.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -737,12 +715,6 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
             * Three availability zones: One broker host in each availability zone.
 
           You cannot set the number of broker hosts manually.
-
-     
-     1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster.
-
-        {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
 
   1. If you specify several broker hosts, under **{{ ui-key.yacloud.kafka.section_kraft-resources }}**, specify the characteristics of the [{{ kraft-short-name }}](../concepts/index.md) hosts to place in each of the selected availability zones.
   1. Specify additional {{ mkf-name }} cluster settings, if required:
@@ -840,10 +812,6 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
   1. {% include notitle [maintenance](../../_includes/mdb/mkf/create-cluster.md#maintenance) %}
 
   1. {% include notitle [auto-rescale](../../_includes/mdb/mkf/create-cluster.md#auto-rescale) %}
-
-
-  
-  1. {% include notitle [dedicated-hosts](../../_includes/mdb/mkf/create-cluster.md#dedicated-hosts) %}
 
 
 - {{ TF }} {#tf}
@@ -1120,12 +1088,6 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
             
-            To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -1310,12 +1272,6 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
             * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
-
-            
-            To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `host_group_ids` parameter.
-
-            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
 
             
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).

@@ -142,8 +142,14 @@ items:
             href: tutorials/metastore-import.md
           - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
             href: tutorials/spark-simple-rw-job.md
-          - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+          - name: Интеграция {{ msp-full-name }} и {{ metastore-name }}
             href: tutorials/metastore-and-spark.md
+          - name: Автоматизация работы с помощью {{ maf-full-name }}
+            href: tutorials/airflow-automation.md
+          - name: >-
+              Совместная работа с таблицами с использованием {{ metastore-name
+              }}
+            href: tutorials/data-processing-to-data-processing.md
       - name: Концепции
         items:
           - name: Кластеры {{ metastore-name }}
@@ -182,6 +188,8 @@ items:
                 href: cli-ref/cluster/stop.md
               - name: update
                 href: cli-ref/cluster/update.md
+      - name: Справочник {{ TF }}
+        href: metastore-tf-ref.md
       - name: Справочник API
         items:
           - name: Аутентификация в API

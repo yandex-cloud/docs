@@ -7,43 +7,50 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Для создания внутреннего сетевого балансировщика необходима роль `load-balancer.privateAdmin`.
+Чтобы создать [внутренний сетевой балансировщик](../concepts/nlb-types.md), необходима [роль](../security/index.md#load-balancer-private-admin) `load-balancer.privateAdmin`.
 
 {% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
 
 {% endnote %}
 
-{% note info %}
-
-Обработчику внутреннего сетевого балансировщика назначается случайный IP-адрес из диапазона адресов выбранной [подсети](../../vpc/concepts/network.md#subnet).
-
-{% endnote %}
+Чтобы создать внутренний сетевой балансировщик:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы создать [внутренний сетевой балансировщик](../concepts/nlb-types.md):
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно создать балансировщик.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-  1. Задайте имя балансировщика. Требования к имени:
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя балансировщика. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Выберите тип балансировщика — `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`. 
+  1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}** выберите `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`. 
+  1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** включите защиту балансировщика от удаления.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** добавьте [обработчик](../concepts/listener.md):
       1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
       1. В открывшемся окне задайте параметры обработчика:
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**, в которой балансировщик будет перенаправлять трафик.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}` или `{{ ui-key.yacloud.common.label_udp }}`.
+          * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения обработчику IP-адреса, на котором балансировщик будет принимать трафик:
 
-            {% note info %}
+              * `{{ ui-key.yacloud.common.label_auto }}` — чтобы обработчику был автоматически назначен свободный IP-адрес из диапазона выбранной подсети.
+              * `{{ ui-key.yacloud.common.label_list }}` — чтобы вручную зарезервировать в выбранной подсети нужный IP-адрес для обработчика.
+              
+                  В появившемся поле **{{ ui-key.yacloud.component.internal-v4-address-field.label_internal-address-title }}** выберите зарезервированный ранее IP-адрес или нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать новый. В открывшемся окне задайте параметры резервируемого IP-адреса:
 
-            По умолчанию обработчик работает по протоколу TCP. Чтобы использовать протокол UDP, [запросите в технической поддержке]({{ link-console-support }}) эту возможность.
+                  * **{{ ui-key.yacloud.common.name }}**.
+                  * **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** — укажите свободный IP-адрес в диапазоне подсети, выбранной для обработчика.
+                  * (Опционально) В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите защиту резервируемого IP-адреса от удаления.
+                  * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}** выберите `{{ ui-key.yacloud.common.label_tcp }}` или `{{ ui-key.yacloud.common.label_udp }}`.
 
-            {% endnote %}
+              {% note info %}
+
+              По умолчанию обработчик работает по протоколу TCP. Чтобы использовать протокол UDP, [запросите в технической поддержке]({{ link-console-support }}) эту возможность.
+
+              {% endnote %}
 
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**, на котором обработчик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**, куда балансировщик будет направлять трафик. Возможные значения: от `1` до `32767`.
@@ -57,8 +64,14 @@ description: Следуя данной инструкции, вы сможете
           * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. (Опционально) Под блоком **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне задайте параметры [проверки состояния ресурсов](../concepts/health-check.md):
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`. Для проверки по протоколу HTTP в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите адрес URL, по которому будут выполняться проверки.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** для проверок. Возможные значения: от `1` до `32767`.
+          * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите один из вариантов:
+          
+              * `{{ ui-key.yacloud.common.label_http }}`. Дополнительно в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите путь, по которому будут выполняться проверки.
+              * `{{ ui-key.yacloud.common.label_tcp }}`.
+              * `{{ ui-key.yacloud.common.label_http2 }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_host }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите адрес хоста и путь, по которому будут выполняться проверки.
+              * `{{ ui-key.yacloud.common.label_https }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_host }}** и **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите адрес хоста и путь, по которому будут выполняться проверки.
+              * `{{ ui-key.yacloud.common.label_grpc }}`. Дополнительно в полях **{{ ui-key.yacloud.compute.group.overview.label_service-name }}** и **{{ ui-key.yacloud.compute.group.overview.label_authority }}** укажите данные вашего gRPC-сервиса.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — номер порта для проверок. Возможные значения: от `1` до `32767`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}** — время ожидания ответа в секундах.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** — интервал выполнения проверок состояния в секундах.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** — количество успешных проверок, после которого виртуальная машина будет считаться готовой к приему трафика.
@@ -86,20 +99,21 @@ description: Следуя данной инструкции, вы сможете
      yc load-balancer network-load-balancer create <имя_балансировщика> \
         --type=internal \
         --listener name=<имя_обработчика>,`
-                  `port=<порт>,`
-                  `target-port=<целевой_порт>,`
-                  `protocol=<протокол>,`
-                  `internal-subnet-id=<идентификатор_подсети>,`
-                  `internal-ip-version=<версия_IP-адреса> \
+                   `port=<порт>,`
+                   `target-port=<целевой_порт>,`
+                   `protocol=<протокол>,`
+                   `internal-subnet-id=<идентификатор_подсети>,`
+                   `internal-ip-version=<версия_IP-адреса>,`
+                   `internal-address=<IP-адрес_обработчика> \
         --target-group target-group-id=<идентификатор_целевой_группы>,`
-                      `healthcheck-name=<имя_проверки_состояния>,`
-                      `healthcheck-interval=<интервал_между_проверками>s,`
-                      `healthcheck-timeout=<таймаут_проверки_состояния>s,`
-                      `healthcheck-unhealthythreshold=<количество_проваленных_проверок_для_статуса_Unhealthy>,`
-                      `healthcheck-healthythreshold=<количество_успешных_проверок_для_статуса_Healthy>,`
-                      `healthcheck-tcp-port=<TCP-порт>,`
-                      `healthcheck-http-port=<HTTP-порт>,`
-                      `healthcheck-http-path=<адрес_URL>
+                       `healthcheck-name=<имя_проверки_состояния>,`
+                       `healthcheck-interval=<интервал_между_проверками>s,`
+                       `healthcheck-timeout=<таймаут_проверки_состояния>s,`
+                       `healthcheck-unhealthythreshold=<количество_проваленных_проверок_для_статуса_Unhealthy>,`
+                       `healthcheck-healthythreshold=<количество_успешных_проверок_для_статуса_Healthy>,`
+                       `healthcheck-tcp-port=<TCP-порт>,`
+                       `healthcheck-http-port=<HTTP-порт>,`
+                       `healthcheck-http-path=<адрес_URL>
      ```
 
      Где:
@@ -112,8 +126,13 @@ description: Следуя данной инструкции, вы сможете
          * `protocol` — протокол, по которому будет работать обработчик: `tcp` или `udp`.
          * `internal-subnet-id` — идентификатор подсети.
          * `internal-ip-version` — версия внутреннего IP-адреса: `ipv4` или `ipv6`.
+         * `internal-address` — IP-адрес обработчика, не занятый другими ресурсами и относящийся к диапазону подсети, которая указана в свойстве `internal-subnet-id`.
+
+             Если свойство `internal-address` не задано, обработчику внутреннего сетевого балансировщика назначается случайный IP-адрес из диапазона адресов выбранной [подсети](../../vpc/concepts/network.md#subnet).
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
+
+     Подробнее о команде `yc load-balancer network-load-balancer create` читайте в [справочнике {{ yandex-cloud }} CLI](../../cli/cli-ref/load-balancer/cli-ref/network-load-balancer/create.md).
 
 - {{ TF }} {#tf}
 
@@ -136,9 +155,11 @@ description: Следуя данной инструкции, вы сможете
          name = "<имя_обработчика>"
          port = <номер_порта>
          internal_address_spec {
-           subnet_id = "<идентификатор_подсети>"
+           subnet_id  = "<идентификатор_подсети>"
            ip_version = "<версия_IP-адреса>"
+           address    = "<IP-адрес_обработчика>"
          }
+       }
        attached_target_group {
          target_group_id = "<идентификатор_целевой_группы>"
          healthcheck {
@@ -160,9 +181,12 @@ description: Следуя данной инструкции, вы сможете
      * `listener` — параметры обработчика:
        * `name` — имя обработчика.
        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
-       * `internal_address_spec` — спецификация обработчика для внешнего балансировщика:
+       * `internal_address_spec` — спецификация обработчика для внутреннего балансировщика:
          * `subnet_id` — идентификатор подсети.
          * `ip_version` — описание внешнего IP-адреса. Укажите версию IP-адреса: `ipv4` или `ipv6`. По умолчанию `ipv4`.
+         * `address` — IP-адрес обработчика, не занятый другими ресурсами и относящийся к диапазону подсети, которая указана в поле `subnet_id`.
+
+             Если значение поля `address` не задано, обработчику внутреннего сетевого балансировщика назначается случайный IP-адрес из диапазона адресов выбранной [подсети](../../vpc/concepts/network.md#subnet).
      * `attached_target_group` — описание параметров целевой группы для сетевого балансировщика:
         * `target_group_id` — идентификатор целевой группы.
 
@@ -170,7 +194,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `healthcheck` — описание параметров проверки состояния. Укажите имя, порт из диапазона от `1` до `32767` и путь, по которому будут выполняться проверки.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resources/lb_network_load_balancer).
 
   1. Создайте сетевой балансировщик:
 
@@ -248,6 +272,7 @@ description: Следуя данной инструкции, вы сможете
     * Протокол `TCP`.
     * Идентификатор подсети `b0cp4drld130********`.
     * Версия IP-адреса `ipv4`.
+    * IP-адрес обработчика `192.168.1.25`.
 * Идентификатор целевой группы `enpu2l7q9kth********`.
 * Параметры проверки состояния целевой группы:
     * Имя `http`.
@@ -268,19 +293,20 @@ description: Следуя данной инструкции, вы сможете
   yc load-balancer network-load-balancer create internal-lb-test-2 \
      --type=internal \
      --listener name=test-listener,`
-               `port=80,`
-               `target-port=81,`
-               `protocol=tcp,`
-               `internal-subnet-id=b0cp4drld130********,`
-               `internal-ip-version=ipv4 \
+                `port=80,`
+                `target-port=81,`
+                `protocol=tcp,`
+                `internal-subnet-id=b0cp4drld130********,`
+                `internal-ip-version=ipv4,`
+                `internal-address=192.168.1.25 \
      --target-group target-group-id=enpu2l7q9kth********,`
-                   `healthcheck-name=http,`
-                   `healthcheck-interval=2s,`
-                   `healthcheck-timeout=1s,`
-                   `healthcheck-unhealthythreshold=2,`
-                   `healthcheck-healthythreshold=2,`
-                   `healthcheck-http-port=80,`
-                   `healthcheck-http-path=/
+                    `healthcheck-name=http,`
+                    `healthcheck-interval=2s,`
+                    `healthcheck-timeout=1s,`
+                    `healthcheck-unhealthythreshold=2,`
+                    `healthcheck-healthythreshold=2,`
+                    `healthcheck-http-port=80,`
+                    `healthcheck-http-path=/
   ```
 
 - {{ TF }} {#tf}
@@ -300,6 +326,7 @@ description: Следуя данной инструкции, вы сможете
          internal_address_spec {
            subnet_id  = "b0cp4drld130********"
            ip_version = "ipv4"
+           address    = "192.168.1.25"
          }
        }
        attached_target_group {
@@ -346,7 +373,8 @@ description: Следуя данной инструкции, вы сможете
         "targetPort": "81",
         "internalAddressSpec": {
           "subnetId": "b0cp4drld130********",
-          "ipVersion": "IPV4"
+          "ipVersion": "IPV4",
+          "address": "192.168.1.25"
         }
       }
     ],

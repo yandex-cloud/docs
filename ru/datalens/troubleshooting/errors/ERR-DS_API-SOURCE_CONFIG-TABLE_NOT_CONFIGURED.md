@@ -1,9 +1,9 @@
 ---
-title: Ошибка ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED
-description: На странице приведено описание ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED.
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Нарушена конфигурация таблицы.
 ---
 
-# Нарушена конфигурация таблицы
+# [{{ datalens-full-name }}] Нарушена конфигурация таблицы
 
 `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`
 

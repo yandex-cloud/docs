@@ -1,9 +1,9 @@
 ---
 title: Как удалить алиас в {{ datalens-full-name }}
-description: Следуя данной инструкции, вы сможете удалить алиас в {{ datalens-name }}.
+description: Следуя данной инструкции, вы сможете удалить алиас в {{ datalens-full-name }}.
 ---
 
-# Удаление алиаса
+# Удаление алиаса в {{ datalens-full-name }}
 
 Чтобы удалить [алиас](../../dashboard/link.md#alias):
 

@@ -8,11 +8,18 @@ service | Service ID: `managed-mongodb`
 resource_type | Resource type: `cluster`
 resource_id | Cluster ID
 host | Host FQDN
-node | Host type: `primary` or `secondary`
+node | Host type: `primary`, `secondary`, or `unknown`
 shard | Shard ID
+shard_name | Shard name
+subcluster_name | Subcluster name
+dc | [Availability zone](../../../overview/concepts/geo-scope.md)
+
 
 ## CPU metrics {#managed-mongodb-cpu-metrics}
+
 CPU core workload.
+
+Common label: `systag`, resource type.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -29,12 +36,14 @@ CPU core workload.
 | `cpu.steal`<br/>`DGAUGE`, % | CPU core usage, `steal` usage type | 
 | `cpu.system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type | 
 | `cpu.user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
-| `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 15 seconds (%). It ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). | 
-| `cpu_utilization_by_db_15_limit`<br/>`DGAUGE`, % | Maximum VM processor core (vCPU) utilization by a database over 15 seconds (%) | 
-| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 60 seconds (%) | 
-| `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Maximum VM processor core (vCPU) utilization by a database over 60 seconds (%) |
+| `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Average processor core (vCPU) utilization by database in 15 seconds elapsed time (%). It ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). | 
+| `cpu_utilization_by_db_15_limit`<br/>`DGAUGE`, % | Limit processor core (vCPU) utilization by database in 15 seconds elapsed time (%) | 
+| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Average processor core (vCPU) utilization by database in 60 seconds elapsed time (%) | 
+| `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Limit processor core (vCPU) utilization by database in 60 seconds elapsed time (%) |
+
 
 ## Disk metrics {#managed-mongodb-disk-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space | 
@@ -47,22 +56,42 @@ CPU core workload.
 | `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over five minutes |
 
+
 ## Disk operation metrics {#managed-mongodb-diskio-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
+| `io.avg.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations currently in progress |
+| `io.avg.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed |
+| `io.avg.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
+| `io.avg.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
+| `io.avg.read_time`<br/>`DGAUGE`, milliseconds | Total time spent reading from disk |
+| `io.avg.weighted_io_time`<br/>`DGAUGE`, milliseconds | Total (weighted) time spent on I/O operations |
+| `io.avg.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `io.avg.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
+| `io.avg.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
+| `io.avg.write_time`<br/>`DGAUGE`, milliseconds | Total time spent writing to disk |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
-| `io.disk*.merged_reads`<br/>`DGAUGE`, count | Number of merged read operations for a given disk | 
-| `io.disk*.merged_writes`<br/>`DGAUGE`, count | Number of merged writes for a given disk | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
+| `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
 | `io.disk*.read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk |
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a given disk; disabled for network drives. | 
 | `io.disk*.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time for a given disk | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
+| `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk I/O quota usage |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk I/O quota usage (burst) |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk per second |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk per second |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk per second |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk per second |
+
 
 ## RAM metrics {#managed-mongodb-ram-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Active resident memory (frequently accessed and released when absolutely necessary) | 
@@ -74,12 +103,14 @@ CPU core workload.
 | `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type | 
 | `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
 | `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory allocation |
 | `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
 | `mem.huge_page_size_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
 | `mem.huge_pages_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type | 
 | `mem.huge_pages_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type | 
 | `mem.inactive_bytes`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
+| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit | 
 | `mem.low_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
 | `mem.low_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
 | `mem.mapped_bytes`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
@@ -100,24 +131,28 @@ CPU core workload.
 | `mem.write_back_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type | 
 | `mem.write_back_tmp_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 
+
 ## Network metrics {#managed-mongodb-net-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Network data receive rate | 
 | `net.bytes_sent`<br/>`DGAUGE`, bytes per second | Network data transmit rate | 
-| `net.drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
-| `net.drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
-| `net.err_in`<br/>`DGAUGE`, count | Receive error count | 
-| `net.err_out`<br/>`DGAUGE`, count | Transmit error count | 
+| `net.dropin`<br/>`DGAUGE`, count | Dropped receive packets | 
+| `net.dropout`<br/>`DGAUGE`, count | Dropped transmit packets | 
+| `net.errin`<br/>`DGAUGE`, count | Receive error count | 
+| `net.errout`<br/>`DGAUGE`, count | Transmit error count | 
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
+| `net.speed`<br/>`DGAUGE`, bits per second | Maximum network data transfer rate for this interface |
+
 
 ## `dbStats` metrics {#managed-mongodb-dbstats-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `db_stats_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in the database | 
-| `db_stats_indexSize`<br/>`DGAUGE`, bytes | Space used by DB indexes | 
+| `db_stats_*_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a given database. `admin`: Service database. | 
+| `db_stats_*_indexSize`<br/>`DGAUGE`, bytes | Space used by indexes from a given database. `admin`: Service database. | 
 | `db_stats_config_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a configuration DB |
 | `db_stats_config_indexSize`<br/>`DGAUGE`, bytes | Space used by configuration DB indexes |
 | `db_stats_local_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data in a local DB |
@@ -125,29 +160,32 @@ CPU core workload.
 | `db_stats_mdb_internal_dataSize`<br/>`DGAUGE`, bytes | Size of uncompressed data of in an internal DB |
 | `db_stats_mdb_internal_indexSize`<br/>`DGAUGE`, bytes | Space used by internal DB indexes |
 
+
 ## Service metrics {#managed-mongodb-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `active`<br/>`DGAUGE`, count | Active resident memory (frequently accessed and released when absolutely necessary) |
 | `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
 | `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
-| `bytes_recv`<br/>`DGAUGE`, bytes | Size of data received |
-| `bytes_sent`<br/>`DGAUGE`, bytes | Size of data sent |
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
 | `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
+| `count`<br/>`DGAUGE`, objects | Number of objects per collection |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
-| `drop_in`<br/>`DGAUGE`, count | Dropped receive packets | 
-| `drop_out`<br/>`DGAUGE`, count | Dropped transmit packets | 
-| `err_in`<br/>`DGAUGE`, count | Receive error count | 
-| `err_out`<br/>`DGAUGE`, count | Transmit error count | 
 | `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type | 
 | `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
 | `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
+| `hosts.ha`<br/>`DGAUGE`, hosts | Number of hosts per high-availability cluster |
+| `hosts.subcluster.mongocfg.total`<br/>`DGAUGE`, count | Number of _mongocfg_ instances per subcluster |
+| `hosts.subcluster.mongod.total`<br/>`DGAUGE`, count | Number of _mongod_ instances per subcluster |
+| `hosts.subcluster.mongos.total`<br/>`DGAUGE`, count | Number of _mongos_ instances per subcluster |
+| `hosts.total`<br/>`DGAUGE`, hosts | Total hosts used by the service |
 | `huge_page_size`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
 | `huge_pages_free`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type | 
 | `huge_pages_total`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type | 
+| `icmp_inaddrmaskreps`<br/>`DGAUGE`, count | Number of ICMP address mask reply messages received from the polled node  | 
 | `icmp_inaddrmasks`<br/>`DGAUGE`, count | Number of ICMP address mask request messages received | 
 | `icmp_incsumerrors`<br/>`DGAUGE`, count | Total IP packets with checksum errors | 
 | `icmp_indestunreachs`<br/>`DGAUGE`, count | Number of ICMP destination unreachable messages received | 
@@ -169,15 +207,19 @@ CPU core workload.
 | `icmp_outerrors`<br/>`DGAUGE`, count | Number of ICMP messages not sent due to ICMP errors, such as buffer shortages | 
 | `icmp_outmsgs`<br/>`DGAUGE`, count | Total ICMP messages the object in question attempted to send. This includes all messages counted by `icmp_outerrors`. |
 | `icmp_outparmprobs`<br/>`DGAUGE`, count | Number of ICMP parameter problem messages sent | 
+| `net.icmp_outratelimitglobal`<br/>`DGAUGE`, count | Number of ICMP messages throttled by global rate limits |
+| `net.icmp_outratelimithost`<br/>`DGAUGE`, count | Number of ICMP messages throttled by host-specific rate limits |
 | `icmp_outredirects`<br/>`DGAUGE`, count | Number of ICMP redirect messages sent  | 
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, count | Number of ICMP source quench messages sent |
 | `icmp_outtimeexcds`<br/>`DGAUGE`, count | Number of ICMP time exceeded messages sent | 
 | `icmp_outtimestampreps`<br/>`DGAUGE`, count | Number of ICMP timestamp reply messages sent | 
 | `icmp_outtimestamps`<br/>`DGAUGE`, count | Number of ICMP timestamp (request) messages sent  | 
+| `icmpmsg_outtype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages sent  | 
 | `inactive`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
+| `inodes_used_percent`<br/>`DGAUGE`, % | Percentage of used inodes |
 | `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
@@ -195,6 +237,7 @@ CPU core workload.
 | `ip_outdiscards`<br/>`DGAUGE`, count | Number of outgoing IP packets encountering no issues preventing their transmission to the destination but still dropped, e.g., due to lack of buffer space. Note that the counter would include packets counted in `ip_forwdatagrams` if they met this (discretionary) drop criterion. | 
 | `ip_outnoroutes`<br/>`DGAUGE`, count | Number of IP packets dropped because no route to their destination was found. This metric tracks all packets counted in `ip_forwdatagrams` that meet this no-route criterion. This includes any packets a host cannot redirect because all its default gateways are down. | 
 | `ip_outrequests`<br/>`DGAUGE`, count | Total IP packets provided by local IP user-level protocols (including ICMP) to IP in requests for transmission. This metric does not include the packets counted in `ip_forwdatagrams`. | 
+| `ip_outtransmits`<br/>`DGAUGE`, count | Number of successfully sent IP packets |
 | `ip_reasmfails`<br/>`DGAUGE`, count | Number of failures detected by the IP reassembly algorithm due to reasons, such as timeouts, errors, etc. This is not necessarily a count of dropped IP fragments, since certain algorithms, like the one in RFC 815, may lose count of fragments while reassembling them as they are received. | 
 | `ip_reasmoks`<br/>`DGAUGE`, count | Number of IP packets successfully reassembled | 
 | `ip_reasmreqds`<br/>`DGAUGE`, count | Number of received IP fragments requiring reassembly in the object in question | 
@@ -203,18 +246,28 @@ CPU core workload.
 | `low_total`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
 | `mapped`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
 | `memory_utilization_by_db_percent`<br/>`DGAUGE`, % | Memory utilization by a database | 
-| `memory_utilization_by_db_percent_limit`<br/>`DGAUGE`, % | Limit on memory utilization by a database | 
 | `memory_utilization_by_db_rss`<br/>`DGAUGE`, bytes | Total memory used by database processes | 
-| `merged_reads`<br/>`DGAUGE`, count | Number of merged disk reads | 
-| `merged_writes`<br/>`DGAUGE`, count | Number of merged disk writes | 
-| `mongod-is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
+| `memory_utilization_memory_limit`<br/>`DGAUGE`, % | RAM (utilization) limit per database | 
+| `mongocfg-is_alive`<br/>DGAUGE | Health indicator for configuration server host.<br/>`1` if the server is operational, `0` if not. |
+| `mongod-is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the DB host is operational, `0` if not. | 
+| `mongos_active_migrations_count`<br/>`DGAUGE`, operations | Current number of active chunk migration operations via _mongos_ |
+| `mongos_in_balancer_round`<br/>`DGAUGE` | Indicates whether _mongos_ is involved in current balancing round.<br/>`1` if it is, `0` if not. |
+| `mongos_migrations_failed`<br/>`DGAUGE`, operations | Total number of unsuccessful (terminated with an error) chunk migrations through _mongos_ during the interval |
+| `mongos_migrations_successful`<br/>`DGAUGE`, operations | Total number of successful chunk migrations through _mongos_ during the interval |
+| `mongos-is_alive`<br/>`DGAUGE` | _mongos_ health indicator.<br/>`1` if _mongos_ is operational, `0` if not. |
 | `n_cpus`<br/>`DGAUGE`, count | Maximum number of cores in use | 
+| `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users | 
-| `packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
-| `packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
+| `oom_count`<br/>`DGAUGE`, count | Number of out-of-memory events |
 | `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
+| `read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk
 | `read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
+| `read_latency`<br/>`DGAUGE`, milliseconds | Average time per disk read operation.<br/>`bin` label: Histogram buckets. |
+| `read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
+| `read_ops`<br/>`DGAUGE`, operations per second | Number of disk read operations per second |
+| `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk read operations per second |
+| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Average read delay due to disk throughput limit.<br/>`bin` label: Histogram buckets. |
 | `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
 | `shared`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type | 
 | `slab`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type | 
@@ -243,6 +296,7 @@ CPU core workload.
 | `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. | 
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  | 
 | `udp_inerrors`<br/>`DGAUGE`, count | Number of bad UDP packets received, excluding those with checksum errors  | 
+| `udp_memerrors`<br/>`DGAUGE`, errors | Number of UDP out-of-memory errors |
 | `udp_noports`<br/>`DGAUGE`, count | Total UDP packets received with no application on the destination port  | 
 | `udp_outdatagrams`<br/>`DGAUGE`, count | Total UDP packets sent from the object in question | 
 | `udp_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP receive buffer errors  | 
@@ -251,6 +305,7 @@ CPU core workload.
 | `udplite_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP-Lite packet contains an invalid kernel code checksum.  | 
 | `udplite_indatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets received  | 
 | `udplite_inerrors`<br/>`DGAUGE`, count | Total UDP-Lite packet receive errors  | 
+| `udplite_memerrors`<br/>`DGAUGE`, errors | Number of UDP-Lite out-of-memory errors |
 | `udplite_noports`<br/>`DGAUGE`, count | Total UDP-Lite packets received without a listener on the destination port. Irregularities in this counter may occur when reinitializing the management system and at other times, as indicated by the `udplite_statsdiscontinuitytime` value. | 
 | `udplite_outdatagrams`<br/>`DGAUGE`, count | Total UDP-Lite packets sent  | 
 | `udplite_rcvbuferrors`<br/>`DGAUGE`, count | Number of UDP-Lite receive buffer errors  | 
@@ -268,7 +323,6 @@ CPU core workload.
 | `usage_user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type | 
 | `used`<br/>`DGAUGE`, bytes | RAM usage, `used` usage type | 
 | `used_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `used` usage type | 
-| `utilization`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database | 
 | `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type | 
 | `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type | 
 | `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type | 
@@ -276,10 +330,18 @@ CPU core workload.
 | `write_back`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type | 
 | `write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 | `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
+| `write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk | 
 | `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
+| `write_latency`<br/>`HIST_RATE`, milliseconds | Distribution histogram for disk write request latency.<br/>`bin` label: Histogram buckets. | 
+| `write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk | 
+| `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations | 
+| `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations | 
+| `write_throttler_delay`<br/>`HIST_RATE`, milliseconds | Histogram of write latency due to exceeded disk quota.<br/>`bin` label: Histogram buckets. | 
 | `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
 
+
 #### `serverStatus` metrics {#managed-mongodb-serverstatus-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, count | Message assert trigger increment, per second | 
@@ -302,7 +364,7 @@ CPU core workload.
 | `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, count | Increment of write conflicts, per second | 
 | `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, count | Increment of scanned index keys, per second | 
 | `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, count | Increment of scanned documents, per second | 
-| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, count | Increment of documents deleted using the TTL index, per second |
+| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, count | Increment of documents deleted using the TTL index, per second. |
 | `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, count | Increment of background documents deleted from collections using the TTL index, per second | 
 | `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, microseconds | Rate of DB command execution latency change, per second | 
 | `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, count | Increment of DB collection operations, per second | 
@@ -340,12 +402,16 @@ CPU core workload.
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, milliseconds | Most recent checkpoint creation time | 
 | `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, count | Committed transaction increment, per second | 
 | `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, count | Rolled back transaction increment, per second | 
+| `top_readLock_time_rate`<br/>`DGAUGE`, milliseconds/s | Total read lock retention time per second.<br/>`ns` label: Namespace. |
+| `top_writeLock_time_rate`<br/>`DGAUGE`, milliseconds/s | Total write lock retention time per second.<br/>`ns` label: Namespace. |
+
 
 ## Other metrics {#managed-mongodb-other-metrics}
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if the service on the host is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if the service on the host is available for writes, `0` if not. |
 | `oplog-diff`<br/>`DGAUGE`, milliseconds | Operation log size | 
 | `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum size of the operation log | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, seconds | Replication lag |

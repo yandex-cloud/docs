@@ -5,15 +5,15 @@ description: In this tutorial, you will learn how to get a log group ID of an L7
 
 # Getting a log group ID of an L7 load balancer
 
-To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) receiving [logs](../concepts/application-load-balancer.md#logging) from the L7 load balancer:
+To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/concepts/log-group.md) receiving [logs](../concepts/monitoring.md#logging) from the L7 load balancer:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
+  1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Click the load balancer name you need.
+  1. Click your load balancer's name.
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, click the log group name in the **{{ ui-key.yacloud.alb.label_log-group }}** field.
 
 - CLI {#cli}
@@ -22,7 +22,7 @@ To get the ID of the {{ cloud-logging-full-name }} [log group](../../logging/con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for getting information about an L7 load balancer:
+  1. See the description of the CLI command to get information about an L7 load balancer:
 
       ```bash
       yc alb load-balancer get --help
