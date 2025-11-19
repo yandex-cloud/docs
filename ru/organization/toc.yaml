@@ -191,7 +191,6 @@ items:
             href: operations/revoke-role.md
       - name: Синхронизировать пользователей и группы с {{ microsoft-idp.ad-short }}
         href: operations/sync-ad.md
-        hidden: true
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -270,7 +269,6 @@ items:
         href: concepts/controlled-org.md
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
-        hidden: true
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Диагностика ошибок

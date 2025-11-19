@@ -1,10 +1,11 @@
 ---
 title: Синхронизация пользователей и групп с {{ microsoft-idp.ad-short }}
 description: Агент {{ ad-sync-agent }} позволяет настраивать синхронизацию пользователей и групп в {{ org-full-name }} с {{ microsoft-idp.ad-full }}.
-noIndex: true
 ---
 
 # Синхронизация пользователей и групп с {{ microsoft-idp.ad-full }}
+
+{% include [note-preview](../../_includes/note-preview.md) %}
 
 Если для управления пользователями ваша компания использует [{{ microsoft-idp.ad-full }}](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к {{ yandex-cloud }}, вам не нужно вручную создавать в {{ yandex-cloud }} учетные записи для ваших пользователей. Вместо этого вы можете [синхронизировать](../operations/sync-ad.md) с {{ org-full-name }} пользователей и группы, созданные в вашем каталоге {{ microsoft-idp.ad-short }}.
 

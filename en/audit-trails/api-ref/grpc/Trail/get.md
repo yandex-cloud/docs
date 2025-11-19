@@ -54,7 +54,8 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/grpc/Trail/list#List)
     },
     "data_stream": {
       "database_id": "string",
-      "stream_name": "string"
+      "stream_name": "string",
+      "codec": "Codec"
     },
     "eventrouter": {
       "eventrouter_connector_id": "string"
@@ -280,6 +281,14 @@ ID of the database hosting the destination YDS ||
 || stream_name | **string**
 
 Name of the destination YDS ||
+|| codec | enum **Codec**
+
+Codec for compressing events
+
+- `CODEC_UNSPECIFIED`
+- `RAW`
+- `GZIP`
+- `ZSTD` ||
 |#
 
 ## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}

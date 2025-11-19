@@ -218,7 +218,7 @@
                 --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:
-            image: bitnami/kubectl:latest
+            image: bitnamilegacy/kubectl:latest
             stage: deploy
             script:
               - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>
@@ -264,7 +264,7 @@
 
           deploy:
             image:
-              name: bitnami/kubectl:latest
+              name: bitnamilegacy/kubectl:latest
               entrypoint: [""]
             stage: deploy
             script:

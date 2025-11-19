@@ -122,7 +122,8 @@ format is "&lt;field&gt; desc\|acs" ||
         },
         "dataStream": {
           "databaseId": "string",
-          "streamName": "string"
+          "streamName": "string",
+          "codec": "string"
         },
         "eventrouter": {
           "eventrouterConnectorId": "string"
@@ -381,6 +382,14 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|| codec | **enum** (Codec)
+
+Codec for compressing events
+
+- `CODEC_UNSPECIFIED`
+- `RAW`
+- `GZIP`
+- `ZSTD` ||
 |#
 
 ## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
