@@ -146,6 +146,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ KF }}](../target/kafka.md);
 * [{{ DS }}](../target/data-streams.md);
 * [{{ ytsaurus-name }}](../source/yt.md);
+* [{{ PG }}](../target/postgresql.md);
 * [{{ ydb-full-name }}](../target/yandex-database.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

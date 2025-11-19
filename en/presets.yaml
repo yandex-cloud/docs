@@ -9406,8 +9406,11 @@ default:
         button_resource-content-purge-cache: Purge cache
         button_resource-create: Create resource
         button_resource-deactivate-raw-logs: Deactivate
+        button_resource-locations-empty-action: Add rule
         button_wizard-create: Create and continue
+        column_location-rule-pattern: Regular expression
         column_name: Name
+        colunm_location-weight: Rule weight
         field_access: End-user access to content
         field_address-acl: IP-based access
         field_address-acl_excepted-values: List of IP addresses
@@ -9435,6 +9438,7 @@ default:
         label_headers: Header
         label_host-header: Host header
         label_ip-address: IP address
+        label_locations: Location rules
         label_metrics-requests: Requests
         label_metrics-send-bytes: Sent
         label_metrics-shield-bytes: Loaded by Origin shielding
@@ -9475,6 +9479,7 @@ default:
         label_responses-hit: Responses hit
         label_responses-miss: Response miss
         label_responses2xx: Responses with 2xx codes
+        label_rule-condition-section: Condition
         label_section-additional: Additional settings
         label_section-content: Content
         label_section-domain: Domain names for content distribution

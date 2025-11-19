@@ -9415,8 +9415,11 @@ default:
         button_resource-content-purge-cache: Очистить кеш
         button_resource-create: Создать ресурс
         button_resource-deactivate-raw-logs: Выключить
+        button_resource-locations-empty-action: Добавить правило
         button_wizard-create: Создать и продолжить
+        column_location-rule-pattern: Регулярное выражение
         column_name: Название
+        colunm_location-weight: Вес правила
         field_access: Доступ конечных пользователей к контенту
         field_address-acl: Доступ по IP-адресам
         field_address-acl_excepted-values: Список IP-адресов
@@ -9444,6 +9447,7 @@ default:
         label_headers: Заголовок
         label_host-header: Заголовок Host
         label_ip-address: IP-адрес
+        label_locations: Локационные правила
         label_metrics-requests: Запросы от клиентов
         label_metrics-send-bytes: Отправлено клиентам
         label_metrics-shield-bytes: Загружено экранирующим сервером
@@ -9484,6 +9488,7 @@ default:
         label_responses-hit: Ответы из кеша
         label_responses-miss: Ответы с запросами к источникам
         label_responses2xx: Ответы с кодами 2xx
+        label_rule-condition-section: Условие применения
         label_section-additional: Дополнительно
         label_section-content: Контент
         label_section-domain: Доменные имена для раздачи контента

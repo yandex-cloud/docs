@@ -12,19 +12,12 @@ Individuals, companies, and individual entrepreneurs can view their expense hist
 - Businesses and individual entrepreneurs {#businesses}
     
     {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
-
-    ## Limitations {#restrictions}
-
-    The following restrictions apply when downloading reporting documents:
-    * Maximum period for ordering documents is 15 months from the current date.
-    * For each document, you can request the originals no more than three times.
-    * This feature is not available for billing accounts with activated electronic document management (EDM).
-    * If your request includes documents with different EDM statuses, {{ billing-name }} will process only those documents for which EDM is disabled.
-    * This feature is not available for [subaccounts](../../partner/terms.md#sub-account).
     
     ## Companies and individual entrepreneurs of Russia {#legal-entities-russia}
 
     Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md), as well as request [reconciliation reports](../concepts/act.md#reconciliation-report).
+
+    Downloading reporting documents is not available for [subaccounts](../../partner/terms.md#sub-account).
 
     ### Downloading closing documents {#download-closing-docs}
 

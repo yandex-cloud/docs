@@ -6,8 +6,11 @@ description: Следуя данной инструкции, вы сможете
 # Как начать работать с {{ mmg-name }}
 
 Чтобы начать работу с сервисом:
-1. [Создайте кластер](#cluster-create).
-1. [Подключитесь к БД](#connect).
+
+
+* [Создайте кластер](#cluster-create).
+* [Подключитесь к БД](#connect).
+
 
 
 ## Перед началом работы {#before-you-begin}
@@ -43,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
    wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
-
+   
 
 ## Создайте кластер {#cluster-create}
 
@@ -53,11 +56,10 @@ description: Следуя данной инструкции, вы сможете
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mmg-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
+
 ## Подключитесь к БД {#connect}
 
-
 1. Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
-
 
 1. Получите SSL-сертификат:
 
