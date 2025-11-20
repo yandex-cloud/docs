@@ -14,7 +14,7 @@ description: В статье описаны поля для интеграцио
 `modelUrl` | `string` | Да | Нет | Нет | Идентификатор вызываемой модели.
 `generate` | [FoundationModelsGenerate](#FoundationModelsGenerate) | Нет | Нет | Нет | Конфигурация действия `generate` — генерации текста.
 `classify` | [FoundationModelsClassify](#FoundationModelsClassify) | Нет | Нет | Нет | Конфигурация действия `classify` — дообученной классификации.
-`fewShotClassify` | [FoundationModelsFewShotClassify](#FoundationModelsFewShotClassify) | Нет | Нет | Нет | Конфигурация действия `fewShotClassify` — классификации по промту.
+`fewShotClassify` | [FoundationModelsFewShotClassify](#FoundationModelsFewShotClassify) | Нет | Нет | Нет | Конфигурация действия `fewShotClassify` — классификации по промпту.
 
 ## Объект FoundationModelsGenerate {#FoundationModelsGenerate}
 

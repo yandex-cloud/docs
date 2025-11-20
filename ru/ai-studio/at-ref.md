@@ -1,16 +1,22 @@
 ---
-title: Справочник аудитных логов {{ foundation-models-full-name }} в {{ at-full-name }}
-description: На этой странице приведен справочник событий сервиса {{ foundation-models-name }}, отслеживаемых в {{ at-name }}.
+title: Справочник аудитных логов {{ ai-studio-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий сервиса {{ ai-studio-full-name }}, отслеживаемых в {{ at-name }}.
 ---
 
 # Справочник аудитных логов {{ at-full-name }}
 
-В {{ at-name }} поддерживается отслеживание событий уровня сервисов (Data Plane) для {{ foundation-models-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format-data-plane.md).
+В {{ at-name }} для {{ ai-studio-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.ai.foundationmodel.<имя_события>
+{{ at-event-prefix }}.audit.ai.<имя_события>
 ```
 
-{% include [foundation-models-dp](../_includes/audit-trails/events/foundation-models-dp.md) %}
+## Справочник событий уровня конфигурации {#control-plane-events}
+
+{% include [compute-events](../_includes/audit-trails/events/ai-studio-events.md) %}
+
+## Справочник событий уровня сервисов {#data-plane-events}
+
+{% include [ai-studio-events-dp](../_includes/audit-trails/events/ai-studio-events-dp.md) %}

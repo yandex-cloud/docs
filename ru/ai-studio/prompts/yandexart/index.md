@@ -1,4 +1,4 @@
-# Библиотека промтов {{ yandexart-name }}
+# Библиотека промптов {{ yandexart-name }}
 
 {% include [yandexart-prompts-tips](../../../_includes/ai-studio/yandexart/yandexart-prompts-tips.md) %}
 

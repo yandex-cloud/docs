@@ -14,7 +14,7 @@
      * Your billing account has a [partner](../../partner/terms.md#referral-partner) status or you are a [partner's customer](../../partner/terms.md#sub-account).
      * [Payment settlements for the provided services are still pending](../../billing/concepts/act.md).
 
-   If you cannot fix the issue preventing the deletion of your account yourself, [contact]({{ link-console-support }}/tickets/create) our technical support.
+   If you cannot fix the issue preventing the deletion of your account yourself, [contact]({{ link-console-support }}/tickets/create) our technical support. Please note that only a user can delete resources.
 
 1. As soon as all the conditions are met, you billing account becomes inactive and can no longer be used to work with {{ yandex-cloud }} resources. To delete your inactive account, write us at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 

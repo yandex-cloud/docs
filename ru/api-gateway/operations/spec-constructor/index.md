@@ -20,3 +20,4 @@ description: Из статьи вы узнаете, как работать с �
 * [{{ ml-platform-name }}](datasphere.md)
 * [{{ foundation-models-full-name }}](yagpt.md)
 * [{{ sw-full-name }}](workflows.md)
+* [Swagger UI](swagger.md)

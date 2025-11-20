@@ -13,13 +13,20 @@ Soft and hard copies of a document are identical. To prepare your financial repo
   * [Download documents in {{ billing-name }}](../operations/download-reporting-docs.md). 
 
   If you have used your personal account funds during the reporting period, a [report](../concepts/act.md) and a [tax invoice](../concepts/invoice.md) will be delivered to you as follows:
-  1. Copies of the documents will be delivered to the email address specified in the payer's card in [Yandex Balance](https://balance.yandex.ru) within seven (7) business days after the end of the [reporting period](../concepts/reporting-period.md).
-  1. By Russian Post to the postal address that you specified at the account registration.
+  1. Copies of the documents will emailed to the address specified in the [Yandex Balance](https://balance.yandex.ru) payer's card within seven (7) business days after the end of the [reporting period](../concepts/reporting-period.md).
+  1. The original hard copy will be mailed via Russian Post to the address you supplied when creating your account.
   1. If you are connected to EDM (SBIS/Kontur), the following documents will be sent to you within seven (7) business days after the end of the reporting period: a unilateral report in PDF (non-formalized electronic document, NED) and XML (formalized electronic document, FED) formats and a tax invoice in UTD (universal transfer document) format with the SChF function (FED). In this case, the documents will not be sent to you by email or in original copies.
   1. If you use the bank transfer payment method, you can [download a payment invoice](../operations/pay-the-bill.md) in {{ billing-name }}. It is also sent to your [contact email address]({{ link-console-main }}/settings). If you pay for resources with a credit or debit card, you will receive a payment receipt to your [contact email address]({{ link-console-main }}/settings).
   
-  **Reconciliation reports**
-  To generate a reconciliation report, submit [a request](../operations/download-reporting-docs) in {{ billing-name }}. After your request is processed, the document will become available for download.
+  ## Reconciliation reports {#act}
+
+  To generate a reconciliation report, submit [a request](../operations/download-reporting-docs.md) in {{ billing-name }}. After your request is processed, the document will become available for download.
+
+  ## Advance invoice {#prepaid-invoice}
+
+  {% include [invoice](../../_includes/billing/invoice.md) %}
+
+  ## Downloading document copies or requesting originals {#download-docs}
 
   You can download copies of your documents or request the original documents and the reconciliation report in your [Yandex Balance](https://balance.yandex.ru) account.
 
@@ -32,6 +39,10 @@ Soft and hard copies of a document are identical. To prepare your financial repo
   1. The original hard copy will be mailed via Russian Post to the address you supplied when creating your account.
   1. If you use the bank transfer payment method, you can [download a payment invoice](../operations/pay-the-bill.md) in {{ billing-name }}. It is also sent to your [contact email address]({{ link-console-main }}/settings). If you pay for resources with a credit or debit card, you will receive a payment receipt to your [contact email address]({{ link-console-main }}/settings).
 
+  ## Advance invoice {#prepaid-invoice}
+
+  {% include [invoice](../../_includes/billing/invoice.md) %}
+
 
 - Residents of Kazakhstan {#kazakhstan}
 
@@ -40,15 +51,17 @@ Soft and hard copies of a document are identical. To prepare your financial repo
   1. Electronic invoices (e-invoices) are transmitted to the Information System for Collection and Processing of E-invoices within 15 calendar days of the turnover date.
   1. On the first working day of each month, we [invoice](../concepts/bill.md) the customer via the [contact email address]({{ link-console-main }}/settings). The invoice includes total arrears.
 
-  **Reconciliation reports**
-  To generate a reconciliation report, submit [a request](../operations/download-reporting-docs) in {{ billing-name }}. After your request is processed, the document will become available for download.
+  ## Reconciliation reports {#act}
+
+  To generate a reconciliation report, submit [a request](../operations/download-reporting-docs.md) in {{ billing-name }}. After your request is processed, the document will become available for download.
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
   1. If your account is in arrears, {{ yandex-cloud }} sends _payment details_ stating total arrears and service usage details for the reporting period to your [contact email address]({{ link-console-main }}/settings) on the first working day of each month.
   1. Within seven (7) business days after the end of the reporting period, {{ yandex-cloud }} sends an invoice for the amount of monthly consumption to the email address specified in [Yandex Balance](https://balance.yandex.ru).
 
-  **Reconciliation reports**
+  ## Reconciliation reports {#act}
+
   Reconciliation reports are generated upon [request to support]({{ link-console-support }}).
 
 {% endlist %}

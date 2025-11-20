@@ -73,4 +73,4 @@
 
 * [Узнайте подробнее о сервисе](../concepts/index.md)
 * [Прочитайте про способы аутентификации в API](../api-ref/authentication.md)
-* [Посмотрите библиотеку промтов](../prompts/yandexgpt/index.md)
+* [Посмотрите библиотеку промптов](../prompts/yandexgpt/index.md)

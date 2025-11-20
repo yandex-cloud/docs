@@ -76,7 +76,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -96,6 +96,86 @@ You can create connections of the following types:
         You can get the cluster ID with the [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.
       
       * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-postgresql/security/index.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mpg-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          postgresql = {
+            managed_cluster_id = "<cluster_ID>"
+            
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.postgresql`: Parameters for connecting to the {{ mpg-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-postgresql/security/index.md).
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -151,7 +231,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -171,6 +251,86 @@ You can create connections of the following types:
         You can get the cluster ID with the [list of clusters](../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
       
       * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-clickhouse/security.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mch-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          clickhouse = {
+            managed_cluster_id = "<cluster_ID>"
+            
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.clickhouse`: Parameters for connecting to the {{ mch-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-clickhouse/security.md).
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -226,7 +386,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -246,6 +406,86 @@ You can create connections of the following types:
         You can get the cluster ID with the [list of clusters](../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
       
       * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-mysql/security/index.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mmy-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          mysql = {
+            managed_cluster_id = "<cluster_ID>"
+            
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.mysql`: Parameters for connecting to the {{ mmy-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-mysql/security/index.md).
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -299,7 +539,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -319,6 +559,86 @@ You can create connections of the following types:
         You can get the cluster ID with the [list of clusters](../../managed-redis/operations/cluster-list.md#list-clusters) in the folder.
       
       * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-redis/security/index.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mrd-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          valkey = {
+            managed_cluster_id = "<cluster_ID>"
+            
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.valkey`: Parameters for connecting to the {{ mrd-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../managed-redis/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-redis/security/index.md).
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -392,6 +712,77 @@ You can create connections of the following types:
 
         You can get the cluster ID with the [list of clusters](../../managed-opensearch/operations/cluster-list.md#list-clusters) in the folder.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mos-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          opensearch = {
+            managed_cluster_id = "<cluster_ID>"
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.opensearch`: Parameters for connecting to the {{ mos-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../managed-opensearch/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
 - API {#api}
 
   To create a connection to a {{ mos-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
@@ -446,7 +837,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -466,6 +857,86 @@ You can create connections of the following types:
         You can get the cluster ID with the [list of clusters](../../storedoc/operations/cluster-list.md#list-clusters) in the folder.
       
       * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../storedoc/security/index.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mmg-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          mongodb = {
+            managed_cluster_id = "<cluster_ID>"
+            
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.mongodb`: Parameters for connecting to the {{ mmg-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../storedoc/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../storedoc/security/index.md).
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -505,6 +976,149 @@ You can create connections of the following types:
 
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To create a connection to a {{ mkf-name }} cluster, do the following:
+
+  1. See the description of the CLI command for creating a connection:
+
+      ```bash
+      yc metadata-hub connection-manager connection create kafka --help
+      ```
+
+  1. Create your connection by running this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection create kafka \
+        --name <connection_name> \
+        --description "<connection_description>" \
+        --supported-mechanisms <list_of_authentication_mechanisms> \
+        --labels <label_list> \
+        --user <username> \
+        --password <password> \
+        --managed-cluster-id <cluster_ID>
+      ```
+
+      Where:
+
+      * `--name`: Connection name.
+
+      * `--description`: Connection description.
+
+      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are:
+        
+        * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+        * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+        * `SCRAM_SHA512`: Authentication with SHA-512 hashing.
+
+
+      * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
+
+      * `--user`: Username to connect to the cluster.
+
+      * `--password`: Password.
+      
+      * `--managed-cluster-id`: Cluster ID.
+
+        You can get the cluster ID with the [list of clusters](../../managed-kafka/operations/cluster-list.md#list-clusters) in the folder.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mkf-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          kafka = {
+            managed_cluster_id = "<cluster_ID>"
+
+            auth = {
+              sasl = {
+                user     = "<username>"
+                password = { 
+                  raw = "<password>"
+                }
+                supported_mechanisms = [
+                  <list_of_authentication_mechanisms>
+                ]
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.kafka`: Parameters for connecting to the {{ mkf-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the list of clusters in the folder.
+
+        * `auth`: Authentication parameters. Select one of the sections:
+
+          * `sasl`: SASL authentication parameters.
+            
+            * `user`: Username to connect to the cluster.
+            * `password.raw`: Password.
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+              
+              * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+              * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+              * `SCRAM_SHA512`: Authentication with SHA-512 hashing.
+
+          
+          * `disabled`: Disables authentication.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
+- API {#api}
+
+  To create a connection to a {{ mkf-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
+
+  For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) reference.
+
+{% endlist %}
 
 {% endlist %}
 
@@ -555,7 +1169,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -572,9 +1186,89 @@ You can create connections of the following types:
       
       * `--managed-cluster-id`: Cluster ID.
 
-        You can get the cluster ID with the [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.
+        You can get the cluster ID with the [list of clusters](../../managed-greenplum/operations/cluster-list.md#list-clusters) in the folder.
       
       * `--databases`: Comma-separated list of databases. Make sure the user has the [required access permissions](../../managed-greenplum/security/index.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a {{ mgp-name }} cluster, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          greenplum = {
+            managed_cluster_id = "<cluster_ID>"
+            
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.greenplum`: Parameters for connecting to the {{ mgp-name }} cluster:
+
+        * `managed_cluster_id`: Cluster ID.
+
+          You can get the cluster ID with the [list of clusters](../../managed-greenplum/operations/cluster-list.md#list-clusters) in the folder.
+
+        * `databases`: List of databases. Make sure the user has the [required access permissions](../../managed-greenplum/security/index.md).
+
+        * `auth.user_password.user`: Username to connect to the cluster.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -640,13 +1334,118 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
-        --ca-ce../connection-manager/api-ref/rtificate <path_to_certificate>
+        --databases <database_list> \
+        --ca-certificate <path_to_certificate>
       ```
 
       Where:
 
       {% include [connection-create-onpremise-cli](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ PG }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          postgresql = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.postgresql`: Parameters for connecting to the custom {{ PG }} installation.
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -709,7 +1508,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -721,7 +1520,7 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username to connect to the cluster.
+      * `--user`: User name for connection to the database.
       
       * `--password`: Password.
       
@@ -734,6 +1533,117 @@ You can create connections of the following types:
       * `--ca-certificate`: Path to your TLS CA certificate file.
         
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ CH }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          clickhouse = {
+            cluster = {
+              hosts = [
+                {
+                  host       = "<host_1>"
+                  http_port  = <http_port_1>
+                  shard_name = "<shard_1_name>"
+                  tcp_port   = <tcp_port_2>
+                },
+                {
+                  host       = "<host_2>"
+                  http_port  = <http_port_2>
+                  shard_name = "<shard_2_name>"
+                  tcp_port   = <tcp_port_2>
+                },
+                ...
+                {
+                  host       = "<host_N>"
+                  http_port  = <http_port_N>
+                  shard_name = "<shard_N_name>"
+                  tcp_port   = <tcp_port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.clickhouse`: Parameters for connecting to the custom {{ CH }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host`, `http_port`, `shard_name`, and `tcp_port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -797,13 +1707,118 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
       Where:
 
       {% include [connection-create-onpremise-cli](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ MY }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          mysql = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.mysql`: Parameters for connecting to the custom {{ MY }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -860,7 +1875,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -872,7 +1887,7 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username to connect to the cluster.
+      * `--user`: User name for connection to the database.
       
       * `--password`: Password.
       
@@ -885,6 +1900,114 @@ You can create connections of the following types:
       * `--ca-certificate`: Path to your TLS CA certificate file.
       
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ RD }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          redis = {
+            cluster = {
+              hosts = [
+                {
+                  host       = "<host_1>"
+                  port       = <port_1>
+                  shard_name = "<shard_1_name>"
+                },
+                {
+                  host       = "<host_2>"
+                  port       = <port_2>
+                  shard_name = "<shard_2_name>"
+                },
+                ...
+                {
+                  host       = "<host_N>"
+                  port       = <port_N>
+                  shard_name = "<shard_N_name>"
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.redis`: Parameters for connecting to the custom {{ RD }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host`, `port`, and `shard_name`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -944,13 +2067,118 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
       Where:
 
       {% include [connection-create-onpremise-cli](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ VLK }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          valkey = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.valkey`: Parameters for connecting to the custom {{ VLK }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1019,7 +2247,7 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username to connect to the cluster.
+      * `--user`: User name for connection to the database.
       
       * `--password`: Password.
       
@@ -1028,6 +2256,91 @@ You can create connections of the following types:
       * `--ca-certificate`: Path to your TLS CA certificate file.
       
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ TR }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          trino = {
+            cluster = {
+              coordinator = {
+                  host = "<host>"
+                  port = <port>
+              }
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.trino`: Parameters for connecting to the custom {{ TR }} installation:
+        
+        * `cluster.coordinator`: Coordinator parameters, `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1098,7 +2411,7 @@ You can create connections of the following types:
       
       * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
       
-      * `--user`: Username to connect to the cluster.
+      * `--user`: User name for connection to the database.
       
       * `--password`: Password.
       
@@ -1107,6 +2420,102 @@ You can create connections of the following types:
       * `--ca-certificate`: Path to your TLS CA certificate file.
       
         TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ OS }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          opensearch = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.opensearch`: Parameters for connecting to the custom {{ OS }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1166,13 +2575,118 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
       Where:
 
       {% include [connection-create-onpremise-cli](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ MG }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          mongodb = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.mongodb`: Parameters for connecting to the custom {{ MG }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 
@@ -1219,6 +2733,175 @@ You can create connections of the following types:
 
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To create a connection to a custom {{ KF }} installation, do the following:
+
+  1. See the description of the CLI command for creating a connection:
+
+      ```bash
+      yc metadata-hub connection-manager connection create kafka --help
+      ```
+
+  1. Create your connection by running this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection create kafka \
+        --name <connection_name> \
+        --description "<connection_description>" \
+        --supported-mechanisms <list_of_authentication_mechanisms> \
+        --labels <label_list> \
+        --user <username> \
+        --password <password> \
+        --hosts <list_of_hosts> \
+        --ca-certificate <path_to_certificate>
+      ```
+
+      Where:
+
+      * `--name`: Connection name.
+
+      * `--description`: Connection description.
+
+      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are:
+        
+        * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+        * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+        * `SCRAM_SHA512`: Authentication with SHA-512 hashing.
+
+
+      * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
+
+      * `--user`: Username to connect to the cluster.
+
+      * `--password`: Password.
+      
+      * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
+      
+      * `--ca-certificate`: Path to your TLS CA certificate file.
+        
+        TLS is enabled by default; to disable it, use the `--tls-disabled` flag.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ KF }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating:
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          kafka = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            auth = {
+              sasl = {
+                user     = "<username>"
+                password = { 
+                  raw = "<password>"
+                }
+                supported_mechanisms = [
+                  <list_of_authentication_mechanisms>
+                ]
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.kafka`: Parameters for connecting to the custom {{ KF }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `auth`: Authentication parameters. Select one of the sections:
+
+          * `sasl`: SASL authentication parameters.
+            
+            * `user`: Username to connect to the cluster.
+            * `password.raw`: Password.
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+              
+              * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+              * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+              * `SCRAM_SHA512`: Authentication with SHA-512 hashing.
+
+          
+          * `disabled`: Disables authentication.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+
+- API {#api}
+
+  To create a connection to a {{ KF }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) reference.
 
 {% endlist %}
 
@@ -1277,13 +2960,118 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
       Where:
 
       {% include [connection-create-onpremise-cli](../../_includes/metadata-hub/connection-create-onpremise-cli.md) %}
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a connection to a custom {{ GP }} installation, do the following:
+
+  1. In the configuration file, describe the resource you are creating.
+  
+      Here is an example of the configuration file structure:
+  
+      ```hcl
+      resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+        name        = "<connection_name>"
+        description = "<connection_description>"
+        
+        labels = {
+          "<key_1>" = "<value_1>"
+          "<key_2>" = "<value_2>"
+          ...
+          "<key_N>" = "<value_N>"
+        }
+        
+        params = {
+          greenplum = {
+            cluster = {
+              hosts = [
+                {
+                  host = "<host_1>"
+                  port = <port_1>
+                },
+                {
+                  host = "<host_2>"
+                  port = <port_2>
+                },
+                ...
+                {
+                  host = "<host_N>"
+                  port = <port_N>
+                }
+              ]
+              
+              tls_params = {
+                tls {
+                  ca_certificate = "<path_to_certificate>"
+                }
+              }
+            }
+
+            databases = [
+              "<database_1>",
+              "<database_2>",
+              ...
+              "<database_N>"
+            ]
+
+            auth = {
+              user_password = {
+                user     = "<username>"
+                password = {
+                  raw = "<password>"
+                }
+              }
+            }
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `name`: Connection name.
+
+      * `description`: Connection description.
+
+      * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      * `params.greenplum`: Parameters for connecting to the custom {{ GP }} installation:
+        
+        * `cluster.hosts`: Host list. For each host, specify `host` and `port`.
+
+        * `cluster.tls_params`: TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+        * `databases`: List of databases. Make sure the user has the required access permissions.
+
+        * `auth.user_password.user`: User name for connection to the database.
+
+        * `auth.user_password.password.raw`: Password.
+
+  1. Make sure the settings are correct.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Confirm updating the resources.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
 
 - API {#api}
 

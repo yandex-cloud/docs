@@ -12,7 +12,7 @@ By default, notifications about upcoming maintenance and notifications from serv
 
 {% note info %}
 
-You can add users with a [Yandex account](../../iam/concepts/users/accounts.md#passport) as well as [federated users](../../iam/concepts/users/accounts.md#saml-federation). Federated users should specify their email address in their account settings.
+You can add [Yandex account](../../iam/concepts/users/accounts.md#passport) users, [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) users. Federated and local users must specify their email address in their account profile.
 
 {% endnote %}
 

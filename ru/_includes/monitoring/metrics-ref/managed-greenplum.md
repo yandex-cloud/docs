@@ -405,6 +405,29 @@ fqdn | FQDN хоста
 | `gp_expand.tables_left`<br/>`DGAUGE`, штуки           | Количество таблиц, которое осталось перераспределить. |
 | `gp_expand.tables_total`<br/>`DGAUGE`, штуки          | Общее количество таблиц, которое нужно перераспределить. |
 
+## Метрики bloat {#managed-greenplum-bloat-metrics}
+
+Эти метрики показывают состояние системного каталога и таблицы `pg_attribute`, включая количество актуальных (`live_tuples`) и устаревших (`dead_tuples`) строк, размер системного каталога и таблицы `pg_attribute`, а также время последнего vacuum.
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `catalog_dead_tuples_segment`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в каталоге по всем сегментам. |
+| `catalog_live_tuples_segment`<br/>`DGAUGE`, штуки | Количество `live_tuple` в каталоге по всем сегментам. |
+| `catalog_size_segment`<br/>`DGAUGE`, байты | Размер каталога по всем сегментам. |
+| `catalog_vacuum_age_segment`<br/>`DGAUGE`, секунды | Максимальное время с последнего vacuum среди всех таблиц каталога на сегментах. |
+| `catalog_dead_tuples_master`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в каталоге на мастере. |
+| `catalog_live_tuples_master`<br/>`DGAUGE`, штуки | Количество `live_tuple` в каталоге на мастере. |
+| `catalog_size_master`<br/>`DGAUGE`, байты | Размер каталога на мастере, включая все сегменты. |
+| `catalog_vacuum_age_master`<br/>`DGAUGE`, секунды | Максимальное время с последнего vacuum среди всех таблиц каталога на мастере. |
+| `pg_attribute_dead_tuples_segment`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в таблице `pg_attribute` по всем сегментам. |
+| `pg_attribute_live_tuples_segment`<br/>`DGAUGE`, штуки | Количество `live_tuple` в таблице `pg_attribute` по всем сегментам. |
+| `pg_attribute_size_segment`<br/>`DGAUGE`, байты | Размер таблицы `pg_attribute` по всем сегментам. |
+| `pg_attribute_vacuum_age_segment`<br/>`DGAUGE`, секунды | Время с последнего vacuum таблицы `pg_attribute` среди всех сегментов. |
+| `pg_attribute_dead_tuples_master`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в таблице `pg_attribute` на мастере. |
+| `pg_attribute_live_tuples_master`<br/>`DGAUGE`, штуки | Количество `live_tuple` в таблице `pg_attribute` на мастере. |
+| `pg_attribute_size_master`<br/>`DGAUGE`, байты | Размер таблицы `pg_attribute` на мастере, включая все сегменты. |
+| `pg_attribute_vacuum_age_master`<br/>`DGAUGE`, секунды | Время с последнего vacuum таблицы `pg_attribute` на мастере. |
+
 ## Метрики PXF {#managed-greenplum-pxf-metrics}
 
 PXF помечает все метрики, которые он возвращает, меткой `application` со значением `pxf-service`.

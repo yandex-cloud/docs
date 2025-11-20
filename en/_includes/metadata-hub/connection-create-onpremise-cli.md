@@ -4,9 +4,9 @@
 
 * `--labels`: Comma-separated list of labels in `"<key>":"<value>"` format.
 
-* `--user`: Username to connect to the cluster.
+* `--user`: User name for connection to the database.
 
-* `--password`: User password.
+* `--password`: Password.
       
 * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       

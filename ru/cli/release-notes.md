@@ -7,6 +7,42 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.176.0 (20.11.25) {#version0.176.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ sw-name }}
+
+Добавлены команды для управления правами доступа:
+* `serverless workflow list-access-bindings`;
+* `serverless workflow set-access-bindings`;
+* `serverless workflow add-access-binding`;
+* `serverless workflow remove-access-binding`;
+* `serverless workflow allow-unauthenticated-execution`;
+* `serverless workflow deny-unauthenticated-execution`.
+
+##### {{ mmy-name }}
+
+Добавлена команда `yc managed-mysql connect`.
+
+##### {{ ai-studio-name }}
+
+Добавлены команды для {{ mcp-hub-name }}:
+* `serverless mcp-gateway get`;
+* `serverless mcp-gateway list`;
+* `serverless mcp-gateway create`;
+* `serverless mcp-gateway update`;
+* `serverless mcp-gateway delete`;
+* `serverless mcp-gateway list-operations`;
+* `serverless mcp-gateway list-access-bindings`;
+* `serverless mcp-gateway set-access-bindings`;
+* `serverless mcp-gateway add-access-binding`;
+* `serverless mcp-gateway remove-access-binding`;
+* `serverless mcp-gateway allow-unauthenticated-invoke`;
+* `serverless mcp-gateway deny-unauthenticated-invoke`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.175.0 (10.11.25) {#version0.175.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -18,8 +54,6 @@ description: На странице представлены релизы CLI, а
 * `organization-manager idp application saml application create`;
 * `organization-manager idp application saml application update`.
 
-## Предыдущие релизы {#previous-release}
-
 ### Версия 0.174.0 (06.11.25) {#version0.174.0}
 
 #### Изменения в CLI {#cli}
@@ -30,7 +64,7 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ alb-name }}
 
-Добавлена поддержка поля `path` для ALB session affinity по сookieЖ
+Добавлена поддержка поля `path` для ALB session affinity по сookie:
   * `yc application-load-balancer backend-group update`;
   * `yc application-load-balancer backend-group create`.
 

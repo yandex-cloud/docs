@@ -15,7 +15,7 @@ items:
                 href: operations/data/upload-audio-console.md
               - name: Загрузка аудиоданных через gRPC API
                 href: operations/data/upload-data.md
-              - name: Загрузка аудиоданных с разбиением через gRPC API
+              - name: Загрузка длинных аудиозаписей с разбиением через gRPC API
                 href: operations/data/upload-data-split.md
               - name: Загрузка переписки из чата
                 href: operations/data/upload-chat-text.md

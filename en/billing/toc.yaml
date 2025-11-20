@@ -34,7 +34,7 @@ items:
             href: operations/activate-commercial.md
       - name: Managing payment methods
         items:
-          - name: Link another bank card
+          - name: Deleting a card or linking a different one
             href: operations/pin-card.md
           - name: Changing the payment method
             href: operations/change-payment-method.md

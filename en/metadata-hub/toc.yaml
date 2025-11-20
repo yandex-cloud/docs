@@ -34,6 +34,8 @@ items:
         href: security/connection-manager-roles.md
       - name: CLI reference
         href: ../cli/cli-ref/metadata-hub/cli-ref/connection-manager/index.md
+      - name: '{{ TF }} reference'
+        href: connman-tf-ref.md
       - name: API reference
         items:
           - name: API authentication

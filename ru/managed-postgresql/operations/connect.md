@@ -224,6 +224,7 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 
 {% endnote %}
 
+
 ## Подключение из графических IDE {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
@@ -279,9 +280,12 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 {% endlist %}
 
 
+
+
 ## Подключение из {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../_includes/mdb/mpg/websql.md) %}
+
 
 
 
@@ -311,6 +315,7 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 1. Нажмите кнопку **Save**, чтобы сохранить настройки подключения к серверу.
 
 Кластер появится в списке серверов в навигационном меню.
+
 
 ## Подключение из {{ google-looker }} {#connection-google-looker}
 

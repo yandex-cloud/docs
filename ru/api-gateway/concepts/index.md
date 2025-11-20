@@ -20,6 +20,7 @@ API-шлюз задается декларативно при помощи сп�
 * [Интеграция с {{ yds-name }}](../concepts/extensions/datastreams.md)
 * [Интеграция с {{ message-queue-short-name }}](../concepts/extensions/ymq.md)
 * [Интеграция с {{ ydb-short-name }}](../concepts/extensions/ydb.md)
+* [Интеграция с Swagger UI](./extensions/swagger.md)
 * [{#T}](../concepts/extensions/greedy-parameters.md)
 * [Обобщенный HTTP-метод](../concepts/extensions/any-method.md)
 * [Авторизация с помощью функции {{ sf-name }}](../concepts/extensions/function-authorizer.md)

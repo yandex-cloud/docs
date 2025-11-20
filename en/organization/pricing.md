@@ -5,6 +5,12 @@ description: This article covers the {{ org-name }} pricing policy.
 
 # {{ org-name }} pricing policy
 
+{% note info %}
+
+The prices will apply starting December 1, 2025.
+
+{% endnote %}
+
 The fee for using {{ org-full-name }} is included in the service price. Only connecting to third-party applications is additionally charged.
 
 
