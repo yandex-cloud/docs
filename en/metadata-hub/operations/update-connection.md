@@ -36,7 +36,7 @@ To change connection settings:
           yc metadata-hub connection-manager connection update <database_type> --help
           ```
 
-          Supported database types: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `opensearch`, `valkey`, and `greenplum`.
+          The supported database types are `postgresql`, `mysql`, `clickhouse`, `mongodb`, `opensearch`, `valkey`, `greenplum`, and `kafka`.
 
       1. Update your connection by running this command:
       
@@ -60,11 +60,11 @@ To change connection settings:
 
           You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 
-      1. You can update the list of databases for all connections except {{ mos-name }} connections by running this command:
+      1. You can update the list of databases for all connections, except {{ mos-name }} and {{ mkf-name }} connections, by running this command:
 
           ```bash
           yc metadata-hub connection-manager connection update <database_type> <connection_ID> \
-            --databases <DB_list>
+            --databases <database_list>
           ```
 
           Where `--databases` is a comma-separated list of databases.
@@ -79,7 +79,7 @@ To change connection settings:
           yc metadata-hub connection-manager connection update <database_type> --help
           ```
 
-          Supported database types: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `redis`, `opensearch`, `trino`, `valkey`, and `greenplum`.
+          The supported database types are `postgresql`, `mysql`, `clickhouse`, `mongodb`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, and `kafka`.
 
       1. Update your connection by running this command:
       
@@ -109,7 +109,7 @@ To change connection settings:
 
       1. You can also update the following:
 
-          * List of hosts for all connections except {{ TR }} connections by running this command:
+          * List of hosts for all connections, except {{ TR }} connections, by running this command:
 
             ```bash
             yc metadata-hub connection-manager connection update <database_type> <connection_ID> \
@@ -133,17 +133,361 @@ To change connection settings:
 
             Where `--coordinator` stands for coordinator parameters in `<host>:<port>` format.
 
-          * List of databases for all connections except {{ TR }} and {{ OS }} connections by running this command:
+          * List of databases for all connections, except {{ TR }}, {{ OS }}, and {{ KF }} connections, by running this command:
 
             ```bash
             yc metadata-hub connection-manager connection update <database_type> <connection_ID> \
-              --databases <DB_list>
+              --databases <database_list>
             ```
 
             Where `--databases` is a comma-separated list of databases.
           
             Make sure the user has the required access permissions.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  {% note alert %}
+
+  Do not change the connection name using {{ TF }}. This will delete the existing connection and create a new one.
+
+  {% endnote %}
+
+  You can update settings of a connection to a cluster with a managed database or to a custom database installation.
+
+  1. To update settings of a connection to a cluster with a managed database:
+
+     1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      1. To update the description and labels for a connection, update the values of the relevant fields in the resource description:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            description = "<connection_description>"
+        
+            labels = {
+              "<key_1>" = "<value_1>"
+              "<key_2>" = "<value_2>"
+              ...
+              "<key_N>" = "<value_N>"
+            }
+            ...
+          }
+          ```
+
+          Where:
+
+          * `description`: Connection description.
+
+          * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      1. To update the cluster ID, update the `managed_cluster_id` field value under `params.<database_type>`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                managed_cluster_id = "<cluster_ID>"
+                ...
+              }
+            }
+          }
+          ```
+
+      1. To update the list of databases for all connections, except {{ mos-name }} and {{ mkf-name }} connections, update the `databases` field value under `params.<database_type>`:
+     
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                ...
+                databases = [
+                  "<database_1>",
+                  "<database_2>",
+                  ...
+                  "<database_N>"
+                ]
+                ...
+              }
+            }
+          }
+          ```
+
+          Where `databases` is the list of databases. Make sure the user has the required access permissions.
+
+      1. To update authentication parameters for all connections, except {{ mkf-name }} connections, update the values in the `user` and `password.raw` fields under `params.<database_type>.auth.user_password`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                ...
+                auth = {
+                  user_password = {
+                    user     = "<username>"
+                    password = {
+                      raw = "<password>"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ```
+      
+      1. To update authentication parameters for {{ mkf-name }} connections, update the values of the fields under `params.kafka.auth.sasl`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              kafka = {
+                ...
+                auth = {
+                  sasl = {
+                    user     = "<username>"
+                    password = { 
+                      raw = "<password>"
+                    }
+                    supported_mechanisms = [
+                      <list_of_authentication_mechanisms>
+                    ]
+                  }
+                }
+              }
+            }
+          }
+          ```
+
+          Where `params.kafka.auth` stands for authentication parameters. Select one of the sections:
+
+          * `sasl`: SASL authentication parameters.
+            
+            * `user`: Username to connect to the cluster.
+            * `password.raw`: Password.
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+              
+              * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+              * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+              * `SCRAM_SHA512`: Authentication with SHA-512 hashing.
+
+          
+          * `disabled`: Disables authentication.
+  
+      1. Make sure the settings are correct.
+  
+          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+      1. Confirm updating the resources.
+  
+          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  1. To update settings of a connection to a custom database installation:
+
+      1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      1. To update the description and labels for a connection, update the values of the relevant fields in the resource description:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            description = "<connection_description>"
+        
+            labels = {
+              "<key_1>" = "<value_1>"
+              "<key_2>" = "<value_2>"
+              ...
+              "<key_N>" = "<value_N>"
+            }
+            ...
+          }
+          ```
+
+          Where:
+
+          * `description`: Connection description.
+
+          * `--labels`: Labels in `"<key>" = "<value>"` format.
+
+      1. To update the list of hosts for all connections, except {{ TR }} connections, update the `hosts` field value under `params.<database_type>.cluster`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                cluster = {
+                  hosts = [
+                    {
+                      <host_1_parameters>
+                    },
+                    {
+                      <host_2_parameters>
+                    },
+                    ...
+                    {
+                      <host_N_parameters>
+                    }
+                  ]
+                  ...
+                }
+                ...
+              }
+            }
+          }
+          ```
+
+          {% note warning %}
+
+          Host parameters depend on the database type. For more information, see this [{{ TF }} provider guide](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+
+          {% endnote %}
+
+      1. To update coordinator parameters for {{ TR }} connections, update the values of the `host` and `port` fields under `params.trino.cluster.coordinator`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                cluster = {
+                  coordinator = {
+                    host = "<host>"
+                    port = <port>
+                  }
+                  ...
+                }
+                ...
+              }
+            }
+          }
+          ```
+
+      1. To update TLS parameters, update the values of the fields under `params.<database_type>.cluster.tls_params`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                cluster = {
+                  ...
+                  tls_params = {
+                    tls {
+                      ca_certificate = "<path_to_certificate>"
+                    }
+                  }
+                }
+                ...
+              }
+            }
+          }
+          ```
+
+          Where `params.<database_type>.cluster.tls_params` represents TLS parameters. Select one of the sections:
+        
+          * `tls.ca_certificate`: Path to your TLS CA certificate file.
+          * `disabled`: Disables TLS. TLS is enabled by default.
+
+      1. To update the list of databases for all connections, except {{ TR }}, {{ OS }}, and {{ KF }} connections, update the `databases` field value under `params.<database_type>`:
+     
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                ...
+                databases = [
+                  "<database_1>",
+                  "<database_2>",
+                  ...
+                  "<database_N>"
+                ]
+                ...
+              }
+            }
+          }
+          ```
+
+          Where `databases` is the list of databases. Make sure the user has the required access permissions.
+  
+      1. To update authentication parameters for all connections, except {{ KF }} connections, update the values in the `user` and `password.raw` fields under `params.<database_type>.auth.user_password`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              <database_type> = {
+                ...
+                auth = {
+                  user_password = {
+                    user     = "<username>"
+                    password = {
+                      raw = "<password>"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ```
+      
+      1. To update authentication parameters for {{ KF }} connections, update the values of the fields under `params.kafka.auth.sasl`:
+
+          ```hcl
+          resource "yandex_connectionmanager_connection" "<local_connection_name>" {
+            ...
+            params = {
+              kafka = {
+                ...
+                auth = {
+                  sasl = {
+                    user     = "<username>"
+                    password = { 
+                      raw = "<password>"
+                    }
+                    supported_mechanisms = [
+                      <list_of_authentication_mechanisms>
+                    ]
+                  }
+                }
+              }
+            }
+          }
+          ```
+
+          Where `params.kafka.auth` stands for authentication parameters. Select one of the sections:
+
+          * `sasl`: SASL authentication parameters.
+            
+            * `user`: Username to connect to the cluster.
+            * `password.raw`: Password.
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+              
+              * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+              * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+              * `SCRAM_SHA512`: Authentication with SHA-512 hashing.
+
+          
+          * `disabled`: Disables authentication.
+
+      1. Make sure the settings are correct.
+  
+          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+      1. Confirm updating the resources.
+  
+          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+      
 - API {#api}
 
   Use the [Connection.Update](../connection-manager/api-ref/Connection/update.md) REST API method or the [ConnectionService.Update](../connection-manager/api-ref/grpc/Connection/update.md) gRPC API call and provide the connection ID in the request.

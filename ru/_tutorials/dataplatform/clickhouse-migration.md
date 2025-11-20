@@ -92,6 +92,11 @@
     Сохраните идентификатор ключа и сам ключ: они понадобятся в следующих шагах.
 
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+
+
+1. Если в бакете включено [шифрование](../../storage/concepts/encryption.md), [назначьте](../../kms/operations/key-access.md#add-access-binding) сервисному аккаунту роль [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) на ключ шифрования, привязанный к бакету.
+
+
 1. Подключитесь к кластеру, из которого вы хотите перенести данные.
 1. Выполните команду для сохранения резервной копии таблицы в бакет {{ objstorage-name }}:
 

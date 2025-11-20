@@ -83,7 +83,7 @@
 
       {% note info %}
       
-      Эндпоинт `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` работает только с дообученными классификаторами. Для [классификаторов по промту](readymade.md) используйте `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
+      Эндпоинт `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` работает только с дообученными классификаторами. Для [классификаторов по промпту](readymade.md) используйте `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
       
       {% endnote %}      
   

@@ -1,6 +1,6 @@
-# Использовать классификаторы по промту на базе {{ yagpt-name }}
+# Использовать классификаторы по промпту на базе {{ yagpt-name }}
 
-Сервис {{ foundation-models-full-name }} предоставляет [классификаторы по промту](../../concepts/classifier/index.md) на базе {{ yagpt-name }} двух видов: [Zero-shot](../../concepts/classifier/index.md#zero-shot) и [Few-shot](../../concepts/classifier/index.md#few-shot). Чтобы направить запрос к классификатору по промту, используйте метод [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API или [{{ ml-sdk-full-name }}](../../sdk/index.md).
+Сервис {{ foundation-models-full-name }} предоставляет [классификаторы по промпту](../../concepts/classifier/index.md) на базе {{ yagpt-name }} двух видов: [Zero-shot](../../concepts/classifier/index.md#zero-shot) и [Few-shot](../../concepts/classifier/index.md#few-shot). Чтобы направить запрос к классификатору по промпту, используйте метод [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API или [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Перед началом работы {#before-begin}
 
@@ -146,7 +146,7 @@
 
       {% note info %}
 
-      Эндпоинт `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` работает только с классификаторами по промту. Для [дообученных классификаторов](additionally-trained.md) используйте `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
+      Эндпоинт `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` работает только с классификаторами по промпту. Для [дообученных классификаторов](additionally-trained.md) используйте `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.
       
       {% endnote %}
 

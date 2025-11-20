@@ -45,7 +45,7 @@ x-yc-apigateway:
 
 Параметр | Тип | Описание 
 ----|----|----
-`type` | `string` | Тип расширения. Доступные значения: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams`, `serverless_containers`, `cloud_ymq` и `cloud_ydb` .
+`type` | `string` | Тип расширения. Доступные значения: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams`, `serverless_containers`, `cloud_ymq`, `cloud_ydb` и `swagger`.
 
 ### Спецификация расширения {#intg-spec}
 
@@ -67,6 +67,7 @@ x-yc-apigateway:
 * [serverless_containers](containers.md) — перенаправляет запрос в указанный контейнер.
 * [cloud_ymq](ymq.md) — обращается к {{ message-queue-full-name }} для выполнения операции с указанной очередью.
 * [cloud_ydb](ydb.md) — обращается к {{ ydb-full-name }} для выполнения операции с указанной [документной таблицей](../../../ydb/concepts/dynamodb-tables.md).
+* [swagger](swagger.md) — позволяет получать интерактивную документацию, а также тестировать и отлаживать API в интерфейсе Swagger UI.
 
 Все типы поддерживают подстановку параметров — замену всех ключей на соответствующее значение. Ключ должен быть определен как параметр соответствующей операции (допускаются все типы параметров, определенные в [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) — `path`, `query`, `header`, `cookie`).
 Подстановка параметров производится только в некоторых значениях, в зависимости от типа расширения.

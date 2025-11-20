@@ -1,4 +1,4 @@
-# Link another bank card to your billing account
+# Deleting a card or linking a different one to a billing account
 
 The owner of a billing account of the **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_individual }}** or **{{ ui-key.yacloud_billing.billing.account.create-new.account-type_label_company }}** type may link different bank cards to it.
 A billing account may have only one bank card linked at the same time; however, you can change your card in the billing account settings. 
@@ -8,7 +8,7 @@ Funds for the consumed resources will only be debited from the bank card specifi
 
 {% note info %}
 
-If the selected bank card expires, it will no longer be linked to your billing account. If you have already received a new bank card, add it or select one of the previously added bank cards. You can't change the details of a previously added bank card.
+If the selected bank card expires, it will no longer be linked to your billing account. If you have already received a new bank card, add it or select one of the previously added bank cards. You cannot change the details of a previously added bank card.
 
 {% endnote %}
 
@@ -33,4 +33,7 @@ To set a different bank card:
 ## Deleting a bank card {#remove-card}
 
 You can unlink a bank card only from an [inactive billing account](delete-account.md). 
+
 To delete a bank card from your account profile, please contact [support]({{ link-console-support }}).
+
+When a billing account is deleted, the bank card gets unlinked.

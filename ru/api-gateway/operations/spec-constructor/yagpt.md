@@ -24,10 +24,10 @@ description: Следуя данной инструкции, вы сможете
         * Для модели `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_yagpt_label }}` — идентификатор каталога, который будет указан в URI модели генерации текста.
         * Для модели `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_datasphere_label }}` — идентификатор модели, дообученной в [{{ ml-platform-full-name }}](../../../datasphere/index.yaml).
 
-    1. В блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** выберите источник промта и укажите:
+    1. В блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** выберите источник промпта и укажите:
 
-        * Для источника `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_query_option }}` — имя query-параметра, в котором будет передаваться промт для запроса к API генерации текста.
-        * Для источника `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_body_option }}` — имя поля тела запроса, в котором будет передаваться промт для запроса к API генерации текста.
+        * Для источника `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_query_option }}` — имя query-параметра, в котором будет передаваться промпт для запроса к API генерации текста.
+        * Для источника `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_body_option }}` — имя поля тела запроса, в котором будет передаваться промпт для запроса к API генерации текста.
     1. В блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_title }}** выберите сценарий использования модели и задайте параметры, соответствующие выбранному сценарию:
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
@@ -54,9 +54,9 @@ description: Следуя данной инструкции, вы сможете
 ## Требования к структуре входящего запроса {#requirements}
 
 Чтобы API-шлюз корректно обрабатывал входящие запросы, для них должно быть задано значение заголовка `Content-Type: application/json`. Кроме этого:
-* Если в качестве способа передачи промта выбрана опция `Query-параметр`, запрос должен содержать заданный в блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** query-параметр и его значение.
+* Если в качестве способа передачи промпта выбрана опция `Query-параметр`, запрос должен содержать заданный в блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** query-параметр и его значение.
 
-    Пример пути для вызова API-шлюза: `<путь_к_интеграции>?<заданный_query-параметр>=<содержимое_промта>`.
-* Если в качестве способа передачи промта выбрана опция `Тело запроса`, тело запроса должно содержать поле, заданное в блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}**, и его значение.
+    Пример пути для вызова API-шлюза: `<путь_к_интеграции>?<заданный_query-параметр>=<содержимое_промпта>`.
+* Если в качестве способа передачи промпта выбрана опция `Тело запроса`, тело запроса должно содержать поле, заданное в блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}**, и его значение.
             
-    Пример тела запроса: `{"<имя_поля_тела_запроса_>": "<содержимое_промта>"}`.
+    Пример тела запроса: `{"<имя_поля_тела_запроса_>": "<содержимое_промпта>"}`.

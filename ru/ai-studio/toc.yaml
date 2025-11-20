@@ -17,7 +17,7 @@ items:
         items:
           - name: Оценить запрос в токенах
             href: operations/generation/evaluate-request.md
-          - name: Отправить запрос в промт-режиме
+          - name: Отправить запрос в промпт-режиме
             href: operations/generation/create-prompt.md
           - name: Отправить серию запросов в режиме чата
             href: operations/generation/create-chat.md
@@ -49,7 +49,7 @@ items:
             href: operations/resources/delete-instance.md
       - name: Классификация
         items:
-          - name: Использовать классификаторы по промту
+          - name: Использовать классификаторы по промпту
             href: operations/classifier/readymade.md
           - name: Использовать дообученные классификаторы
             href: operations/classifier/additionally-trained.md
@@ -985,25 +985,25 @@ items:
           ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
           Actions
         href: tutorials/ai-powered-github-pr-review.md
-  - name: Промтинг
+  - name: Промптинг
     items:
-      - name: Как создавать промты
+      - name: Как создавать промпты
         items:
           - name: Обзор
             href: gpt-prompting-guide/about.md
           - name: Рекомендации по использованию {{ yagpt-name }}
             href: gpt-prompting-guide/popular-problems-solving.md
-          - name: Введение в инжиниринг промтов
+          - name: Введение в инжиниринг промптов
             items:
               - name: Параметры LLM
                 href: gpt-prompting-guide/introduction/llm-settings.md
-              - name: Основы промтинга
+              - name: Основы промптинга
                 href: gpt-prompting-guide/introduction/basics.md
-              - name: Из чего состоит промт
+              - name: Из чего состоит промпт
                 href: gpt-prompting-guide/introduction/elements.md
-              - name: Общие советы для создания промтов
+              - name: Общие советы для создания промптов
                 href: gpt-prompting-guide/introduction/general-tips.md
-              - name: Примеры промтов
+              - name: Примеры промптов
                 href: gpt-prompting-guide/introduction/examples.md
           - name: Техники
             items:
@@ -1017,9 +1017,9 @@ items:
                 href: gpt-prompting-guide/techniques/CoT.md
               - name: Self-consistency
                 href: gpt-prompting-guide/techniques/self-consistency.md
-      - name: Библиотека промтов {{ yagpt-name }}
+      - name: Библиотека промптов {{ yagpt-name }}
         items:
-          - name: Все промты
+          - name: Все промпты
             href: prompts/yandexgpt/index.md
           - name: Контент
             items:
@@ -1065,9 +1065,9 @@ items:
                 href: prompts/yandexgpt/general-functions-summarization.md
               - name: Создание таблицы
                 href: prompts/yandexgpt/general-functions-create-table.md
-      - name: Библиотека промтов {{ yandexart-name }}
+      - name: Библиотека промптов {{ yandexart-name }}
         items:
-          - name: Все промты
+          - name: Все промпты
             href: prompts/yandexart/index.md
           - name: Маркетинг
             items:

@@ -58,7 +58,7 @@ description: Видеозаписи конференций и вебинаров
 
 * ОТП Банк ускорил анализ обращений клиентов в 30 раз с помощью нейросетей {{ yandex-cloud }}. [Статья](https://yandex.cloud/ru/blog/otp-yandexgpt).
 
-* Как писать промты для нейросетей: инструкция, примеры и советы. [Статья](https://yandex.cloud/ru/blog/gpt-prompting-guide).
+* Как писать промпты для нейросетей: инструкция, примеры и советы. [Статья](https://yandex.cloud/ru/blog/gpt-prompting-guide).
 
 
 * Нейросети Яндекса помогли врачам ускорить разработку новых методов лечения. [Статья](https://yandex.cloud/ru/blog/local-ethics-committee).
@@ -81,7 +81,7 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2024 год {#2024-articles}
 
-* Как составлять промты для нейросети: пример сервиса для создания сертификатов «Золотого Яблока». [Статья](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
+* Как составлять промпты для нейросети: пример сервиса для создания сертификатов «Золотого Яблока». [Статья](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
 
 * Как с помощью {{ yagpt-name }} автоматически отвечать на 60% вопросов и отзывов: опыт Ralf Ringer. [Статья](https://vc.ru/services/1659960-kak-s-pomoshyu-yandexgpt-avtomaticheski-otvechat-na-60-voprosov-i-otzyvov-opyt-ralf-ringer).
 

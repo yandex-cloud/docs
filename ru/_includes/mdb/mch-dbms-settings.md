@@ -220,6 +220,12 @@
 
     Изменение настроек приводит к перезапуску серверов {{ CH }} на хостах кластера.
 
+    {% note tip %}
+
+    Если вы хотите задать настройки аутентификации на уровне [топика](../../managed-kafka/concepts/topics.md), укажите их при [создании таблицы на движке Kafka]({{ ch.docs }}/engines/table-engines/integrations/kafka#creating-a-table) или переиспользуйте их с помощью [именованных коллекций]({{ ch.docs }}/operations/named-collections#named-collections-for-accessing-kafka).
+
+    {% endnote %}
+
 * **Keep alive timeout**{#setting-keep-alive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Время (в секундах) от поступления последнего запроса к {{ CH }} до разрыва соединения. Если за это время поступает новый запрос, соединение не разрывается.

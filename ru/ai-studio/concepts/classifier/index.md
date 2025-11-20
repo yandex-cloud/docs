@@ -1,6 +1,6 @@
 # Классификаторы на базе {{ yagpt-name }}
 
-{{ foundation-models-full-name }} позволяет классифицировать передаваемые в промтах текстовые запросы. Классификация в [моделях](./models.md) на базе {{ yagpt-name }} реализована в [{{ foundation-models-name }} Text Classification API](../../text-classification/api-ref/index.md).
+{{ foundation-models-full-name }} позволяет классифицировать передаваемые в промптах текстовые запросы. Классификация в [моделях](./models.md) на базе {{ yagpt-name }} реализована в [{{ foundation-models-name }} Text Classification API](../../text-classification/api-ref/index.md).
 
 В {{ foundation-models-name }} доступна классификация трех типов:
 * _Бинарная_ классификация относит запрос к одному из двух возможных классов. Например, [спам](https://ru.wikipedia.org/wiki/Спам) или не спам.
@@ -10,14 +10,14 @@
 Модели классификации доступны только в [синхронном режиме](../generation/index.md#working-mode).
 
 Сервис {{ foundation-models-name }} предоставляет классификаторы двух видов: 
-* [по промту](#readymade) на базе {{ gpt-lite }} и {{ gpt-pro }} — доступны бинарная и многоклассовая классификации;
+* [по промпту](#readymade) на базе {{ gpt-lite }} и {{ gpt-pro }} — доступны бинарная и многоклассовая классификации;
 * [дообучаемые](#trainable) классификаторы на базе {{ gpt-lite }} — доступны все поддерживаемые виды классификации.
 
 Чтобы использовать модели классификаторов {{ foundation-models-full-name }}, необходима [роль](../../security/index.md#languageModels-user) `ai.languageModels.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-## Классификаторы по промту {#readymade}
+## Классификаторы по промпту {#readymade}
 
-Классификаторы по промту {{ foundation-models-name }} позволяют выполнять бинарную и многоклассовую классификацию, не требуют дообучения модели и управляются промтом. Метод [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API позволяет [использовать](../../operations/classifier/readymade.md) два классификатора по промту: _Zero-shot_ и _Few-shot_. В метод `fewShotClassify` можно передать от двух до двадцати классов.
+Классификаторы по промпту {{ foundation-models-name }} позволяют выполнять бинарную и многоклассовую классификацию, не требуют дообучения модели и управляются промптом. Метод [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API позволяет [использовать](../../operations/classifier/readymade.md) два классификатора по промпту: _Zero-shot_ и _Few-shot_. В метод `fewShotClassify` можно передать от двух до двадцати классов.
 
 {% note tip %}
 

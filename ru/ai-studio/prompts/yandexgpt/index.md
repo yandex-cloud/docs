@@ -1,9 +1,9 @@
 ---
-title: Библиотека промтов {{ gpt-lite }} и {{ gpt-pro }}
-description: В этом разделе собраны промты для {{ gpt-lite }} и {{ gpt-pro }}.
+title: Библиотека промптов {{ gpt-lite }} и {{ gpt-pro }}
+description: В этом разделе собраны промпты для {{ gpt-lite }} и {{ gpt-pro }}.
 ---
 
-# Библиотека промтов {{ gpt-lite }} и {{ gpt-pro }}
+# Библиотека промптов {{ gpt-lite }} и {{ gpt-pro }}
 
 ## Контент {#content}
 

@@ -38,6 +38,26 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
       You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To delete a connection created with {{ TF }}:
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Delete the connection description.
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+
 - API {#api}
   
   To delete a {{ connection-manager-name }} connection, use the [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) REST API method or the [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) gRPC API call and provide the connection ID in the request.
