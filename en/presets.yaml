@@ -13380,9 +13380,6 @@ default:
                         title: Table
                       table_namespace:
                         title: Schema
-                    IncrementSettings:
-                      parallel_settings:
-                        title: Parallel replication settings
                     ParallelSnapshotSettings:
                       threads_count:
                         title: Number of threads
@@ -13416,9 +13413,6 @@ default:
                         title: Snapshot and replication
                       snapshot:
                         title: Snapshot
-                    TransferTypeIncrement:
-                      increment_settings:
-                        title: Replication settings
                     TransferTypeRegularSnapshot:
                       snapshot_settings:
                         title: Snapshot settings

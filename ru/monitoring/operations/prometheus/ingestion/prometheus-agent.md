@@ -191,9 +191,9 @@ routes:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится виртуальная машина.
-  1. В списке сервисов выберите **{{ monitoring-short-name }}**.
+  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ monitoring-short-name }}**.
   1. Перейдите в раздел **{{ prometheus-name }}**.
-  1. Выберите ворксейс, в который записываются метрики виртуальной машины.
+  1. Выберите воркспейс, в который записываются метрики виртуальной машины.
   1. Откройте вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.explore }}** и введите **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** для просмотра:
      
      * Системных метрик Linux — `{job="linux_metrics", instance="<имя_ВМ>", __name__="<имя_метрики>"}`.

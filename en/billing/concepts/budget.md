@@ -1,6 +1,6 @@
 # Budget
 
-A _budget_ is a way to control resource spending in {{ yandex-cloud }}.
+A [_budget_](../operations/budgets.md#create-budget) is a way to control how much you spend on resources in {{ yandex-cloud }}.
 
 You use a budget to configure who will get notifications and for which threshold. You can set multiple thresholds and define different notification recipients for each one. 
 
@@ -33,6 +33,7 @@ The _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_ bu
 
 ## Use cases {#examples}
 
+* [{#T}](../operations/budgets.md#create-budget)
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)
 

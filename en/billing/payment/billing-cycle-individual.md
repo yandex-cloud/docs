@@ -30,8 +30,8 @@ The diagram below presents the payment cycle for bank cards held by individuals 
 1. You've used the [billing threshold](../concepts/billing-threshold.md) and there are outstanding charges. Go to step 8.
 1. Your personal account balance is checked throughout the reporting period.
 
-   8.1. If the billing threshold has not been reached and the reporting period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
-   <br/>8.2. Once the reporting period is over, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and initiates a payment from the linked bank card. Go to step 9.
+   1. If the billing threshold has not been reached and the reporting period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
+   1. Once the reporting period is over, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and initiates a payment from the linked bank card. Go to step 9.
 
    {% include [pay-by-card-note](../_includes/pay-by-card-note.md) %}
 
@@ -48,8 +48,8 @@ The diagram below presents the payment cycle for bank cards held by individuals 
    During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. Go to step 11.
 1. Payment of the entire outstanding amount is checked throughout the 60-day suspension period:
 
-    11.1. If you pay off the amount due during this time, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
-    <br/>11.2. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data in the [billing account](../concepts/billing-account.md) may be permanently deleted.
+   1. If you pay off the amount due during this time, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
+   1. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data in the [billing account](../concepts/billing-account.md) may be permanently deleted.
 
    {% include [blocked-note](../_includes/blocked-note.md) %}
 

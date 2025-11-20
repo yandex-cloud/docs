@@ -67,8 +67,12 @@ description: Следуя данной инструкции, вы сможете
       {% note info %}
 
       При необходимости отзовите доступ у одного или нескольких пользователей, нажав кнопку **{{ ui-key.yacloud.component.acl-dialog.button_remove-new }}** в нужной строке.
-   
+
       {% endnote %}
+
+  
+  1. Если в бакете включено [шифрование](../../storage/concepts/encryption.md), [назначьте](../../kms/operations/key-access.md#add-access-binding) сервисному аккаунту роль [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) на ключ шифрования, привязанный к бакету.
+
 
 {% endlist %}
 

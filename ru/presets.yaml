@@ -13393,9 +13393,6 @@ default:
                         title: Таблица
                       table_namespace:
                         title: Схема
-                    IncrementSettings:
-                      parallel_settings:
-                        title: Настройки параллельной репликации
                     ParallelSnapshotSettings:
                       threads_count:
                         title: Количество потоков
@@ -13429,9 +13426,6 @@ default:
                         title: Копирование и репликация
                       snapshot:
                         title: Копирование
-                    TransferTypeIncrement:
-                      increment_settings:
-                        title: Настройки репликации
                     TransferTypeRegularSnapshot:
                       snapshot_settings:
                         title: Настройки копирования

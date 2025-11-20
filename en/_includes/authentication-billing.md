@@ -5,6 +5,7 @@ To perform operations via the API, you need to get an [IAM token](../iam/concept
 
 * [Guide](../iam/operations/iam-token/create.md) for a Yandex account.
 * [Guide](../iam/operations/iam-token/create-for-federation.md) for a federated account.
+* [Guide](../iam/operations/iam-token/create-for-local.md) for a local account.
 
 {% include [iam-token-usage](iam-token-usage.md) %}
 

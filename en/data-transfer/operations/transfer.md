@@ -40,9 +40,11 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
   {{ yc-dt }} transfer list
   ```
 
+
 - API {#api}
 
   Use the [list](../api-ref/Transfer/list.md) API method.
+
 
 {% endlist %}
 
@@ -70,11 +72,13 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
     You can get the transfer ID with the [list of transfers in the folder](#list).
 
+
 - API {#api}
 
     Use the [get](../api-ref/Transfer/get.md) API method and provide the transfer ID value in the `transferId` request parameter.
 
     To find out the transfer ID, [get a list of transfers in the folder](#list).
+
 
 {% endlist %}
 
@@ -91,20 +95,23 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
   1. Select the target endpoint or [create](./endpoint/index.md#create) a new one. Make sure the [subnet](../concepts/network.md) specified for the target endpoint belongs to the same availability zone as the subnet for the source endpoint.
   1. Specify the transfer parameters:
      * **{{ ui-key.yacloud.common.name }}**.
-     * **{{ ui-key.yacloud.common.description }}** (optional setting).
+     * **{{ ui-key.yacloud.common.description }}**. This is an optional setting.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
        * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source.
          * {% include [field periodic snapshot](../../_includes/data-transfer/fields/periodic-snapshot.md) %}
              * {% include [field incremental tables](../../_includes/data-transfer/fields/incremental-tables.md) %}
              * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
          * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data).
-             * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
          * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date.
              * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
      
-     * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources per VM in the **Runtime environment** settings section. Select one of the three suggested configurations:
+     * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources per VM in the **Runtime environment** settings section.
+     
+         For the {{ dt-type-copy-repl }} transfer type, runtime computing resources are selected separately for copying and for replication:
+         
+         The following computing resource configurations are available:
 
          {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
 
@@ -121,7 +128,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
          * {{ MY }}: `<database_name>.<table_path>`
          * {{ PG }}: `<schema_name>.<table_path>`
          * {{ ydb-short-name }}: table path
-         * Oracle: `<schema_name>.<table_path>`.
+         * Oracle: `<schema_name>.<table_path>`
 
          If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
@@ -193,13 +200,110 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
        }
        ```
 
-       The available transfer types include:
+       Where:
+       
+       * `type`: Transfer type. The possible values are:
+         
+         * `SNAPSHOT_ONLY`: Copying.
+         * `INCREMENT_ONLY`: Replication.
+         * `SNAPSHOT_AND_INCREMENT`: Copying and replication.
 
-       * `SNAPSHOT_ONLY`: _{{ dt-type-copy }}_
-       * `INCREMENT_ONLY`: _{{ dt-type-repl }}_
-       * `SNAPSHOT_AND_INCREMENT`: _{{ dt-type-copy-repl }}_
+         The `INCREMENT_ONLY` and `SNAPSHOT_AND_INCREMENT` transfers will activate and run automatically upon creation.
+       
+       * To activate a `SNAPSHOT_ONLY` transfer once it is created:
 
-    1. Validate your configuration.
+         1. {% include [cli-install](../../_includes/cli-install.md) %}
+
+             {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+       
+         1. Add the `provisioner "local-exec"` section with the following transfer activation command to the configuration file:
+
+             ```hcl
+             provisioner "local-exec" {
+               command = "yc --profile <profile> datatransfer transfer activate ${yandex_datatransfer_transfer.<transfer_{{ TF }}_resource_name>.id}"
+             }
+             ```
+         
+             In this case, copying will only take place once at the time of transfer creation.
+
+       * To specify runtime environment settings for a `SNAPSHOT_ONLY` transfer, add the `runtime` section to the resource description:
+
+         ```hcl
+         resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
+           ...
+           runtime {
+             yc_runtime {
+               job_count = <number_of_workers>
+               upload_shard_params {
+                 job_count     = <number_of_workers>
+                 process_count = <number_of_streams>
+               }
+             }
+           }
+           ...
+         }
+         ```
+
+         Where:
+
+         * `job_count`: Number of workers running in parallel.
+         * `upload_shard_params`: Parallel copying settings.
+           
+           * `job_count`: Number of workers.
+           * `process_count`: Number of threads within each worker.
+
+       * To specify runtime environment settings for an `INCREMENT_ONLY` transfer, add the `replication_runtime` section to the resource description:
+
+         ```hcl
+         resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
+           ...
+           replication_runtime {
+             yc_runtime {
+               job_count = <number_of_workers>
+               upload_shard_params {
+                 job_count     = <number_of_workers>
+                 process_count = <number_of_streams>
+               }
+             }
+           }
+           ...
+         }
+         ```
+
+       * To specify runtime environment settings for a `SNAPSHOT_AND_INCREMENT` transfer, add the `runtime` and `replication_runtime` sections to the resource description:
+         
+         ```hcl
+         resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
+           ...
+           runtime {
+             yc_runtime {
+               job_count = <number_of_workers>
+               upload_shard_params {
+                 job_count     = <number_of_workers>
+                 process_count = <number_of_streams>
+               }
+             }
+           }
+
+           replication_runtime {
+             yc_runtime {
+               job_count = <number_of_workers>
+               upload_shard_params {
+                 job_count     = <number_of_workers>
+                 process_count = <number_of_streams>
+               }
+             }
+           }
+           ...
+         }
+         ```
+
+         Where:
+
+         * `runtime`: Runtime environment settings for a copyng transfer.
+         * `replication_runtime`: Runtime environment settings for a replication transfer.
+
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -209,26 +313,53 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
     For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-transfer }}).
 
-    When created, `INCREMENT_ONLY` and `SNAPSHOT_AND_INCREMENT` transfers are activated and run automatically.
-    If you want to activate a `SNAPSHOT_ONLY` transfer once it is created, add the `provisioner "local-exec"` section with the following transfer activation command to the configuration file:
 
-    ```hcl
-       provisioner "local-exec" {
-          command = "yc --profile <profile> datatransfer transfer activate ${yandex_datatransfer_transfer.<transfer_Terraform_resource_name>.id
-       }
-    ```
+- REST API {#api}
 
-    In this case, copying will only take place once at the time of transfer creation.
-
-- API {#api}
-
-    Use the [create](../api-ref/Transfer/create.md) API method and provide the following in the request:
+    Use the [Transfer.Create](../api-ref/Transfer/create.md) REST API method and provide the following in the request:
 
     * ID of the folder where the transfer should be placed, in the `folderId` parameter.
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `sourceId` parameter.
     * Target endpoint ID in the `targetId` parameter.
-    * Transfer type in the `type` parameter.
+    * Transfer type in the `type` parameter. The possible values are:
+      
+      * `SNAPSHOT_ONLY`: Copying.
+      * `INCREMENT_ONLY`: Replication.
+      * `SNAPSHOT_AND_INCREMENT`: Copying and replication.
+
+    * Runtime environment settings:
+    
+      * For the `SNAPSHOT_ONLY` transfer type, in the `runtime` object.
+      * For the `INCREMENT_ONLY` transfer type, in the `replicationRuntime` object.
+      * For the `SNAPSHOT_AND_INCREMENT` transfer type:
+      
+        * In the `runtime` object for copying.
+        * In the `replicationRuntime` object for replication.
+
+- gRPC API {#grpc-api}
+
+    Use the [TransferService.Create](../api-ref/grpc/Transfer/create.md) gRPC API method and provide the following in the request:
+
+    * ID of the folder where the transfer should be placed, in the `folder_id` parameter.
+    * Transfer name in the `name` parameter.
+    * Source endpoint ID in the `source_id` parameter.
+    * Target endpoint ID in the `target_id` parameter.
+    * Transfer type in the `type` parameter. The possible values are:
+      
+      * `SNAPSHOT_ONLY`: Copying.
+      * `INCREMENT_ONLY`: Replication.
+      * `SNAPSHOT_AND_INCREMENT`: Copying and replication.
+    
+    * Runtime environment settings:
+    
+      * For the `SNAPSHOT_ONLY` transfer type, in the `runtime` object.
+      * For the `INCREMENT_ONLY` transfer type, in the `replication_runtime` object.
+      * For the `SNAPSHOT_AND_INCREMENT` transfer type:
+      
+        * In the `runtime` object for copying.
+        * In the `replication_runtime` object for replication.
+
 
 {% endlist %}
 
@@ -252,17 +383,17 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
             * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
-        * For the {{ dt-type-repl }} transfer type:
-
-            * {% include [field parallel repl](../../_includes/data-transfer/fields/parallel-repl.md) %}
-
         * For the {{ dt-type-copy-repl }} transfer type: {#update-copy-repl}
 
             * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
         
-        * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can edit the amount of computing resources per VM in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.runtime.title }}** settings section. Select one of the three suggested configurations:
+        * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can edit the amount of computing resources per VM in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.runtime.title }}** settings section.
+        
+            For the {{ dt-type-copy-repl }} transfer type, runtime computing resources are selected separately for copying and for replication:
+        
+            The following computing resource configurations are available:
 
             {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
 
@@ -281,7 +412,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
             * {{ MY }}: `<database_name>.<table_path>`
             * {{ PG }}: `<schema_name>.<table_path>`
             * {{ ydb-short-name }}: table path
-            * Oracle: `<schema_name>.<table_path>`.
+            * Oracle: `<schema_name>.<table_path>`
 
             If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will end with an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately; an inactive one will terminate as soon as activated.
 
@@ -323,7 +454,21 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
       For information on creating a transfer like this, please review [Create transfer](#create).
 
   1. Edit the values in the `name` and the `description` fields (transfer name and description).
-  1. Validate your configuration.
+  1. Update the runtime environment settings:
+      
+      * For the `SNAPSHOT_ONLY` transfer type, in the `runtime` section.
+      * For the `INCREMENT_ONLY` transfer type, in the `replication_runtime` section.
+        
+        If you have already specified the runtime environment settings under `runtime`, there is no need to add the `replication_runtime` section.
+
+      * For the `SNAPSHOT_AND_INCREMENT` transfer type:
+        
+        * In the `runtime` section for copying.
+        * In the `replication_runtime` section for replication.
+
+        If only the `runtime` section is provided, the runtime environment settings for copying and replication will be identical.
+
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -333,16 +478,65 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
   For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-transfer }}).
 
-- API {#api}
 
-    Use the [update](../api-ref/Transfer/update.md) API method, providing the following in your request:
+- REST API {#api}
+
+    Use the [Transfer.Update](../api-ref/Transfer/update.md) REST API method and provide the following in the request:
 
     * Transfer ID in the `transferId` parameter. To find out the ID, [get a list of transfers in the folder](#list).
     * Transfer name in the `name` parameter.
     * Transfer description in the `description` parameter.
+    * Runtime environment settings:
+
+      * For the `SNAPSHOT_ONLY` transfer type, in the `runtime` object.
+      * For the `INCREMENT_ONLY` transfer type, in the `replicationRuntime` object.
+
+        If you have already specified the runtime environment settings in the `runtime` object, there is no need to provide `replicationRuntime`.
+
+      * For the `SNAPSHOT_AND_INCREMENT` transfer type:
+      
+        * In the `runtime` object for copying.
+        * In the `replicationRuntime` object for replication.
+
+        If only the `runtime` section is provided, the runtime environment settings for copying and replication will be identical.
+
     * List of transfer configuration fields to update in the `updateMask` parameter.
 
-    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+      {% note warning %}
+
+      When you update a transfer, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+
+      {% endnote %}
+
+- gRPC API {#grpc-api}
+    
+    Use the [TransferService.Update](../api-ref/grpc/Transfer/update.md) gRPC API method and provide the following in the request:
+
+    * Transfer ID in the `transfer_id` parameter. To find out the ID, [get a list of transfers in the folder](#list).
+    * Transfer name in the `name` parameter.
+    * Transfer description in the `description` parameter.
+    * Runtime environment settings:
+
+      * For the `SNAPSHOT_ONLY` transfer type, in the `runtime` object.
+      * For the `INCREMENT_ONLY` transfer type, in the `replication_runtime` object.
+
+        If you have already specified the runtime environment settings in the `runtime` object, there is no need to provide `replication_runtime`.
+
+      * For the `SNAPSHOT_AND_INCREMENT` transfer type:
+      
+        * In the `runtime` object for copying.
+        * In the `replication_runtime` object for replication.
+
+        If only the `runtime` section is provided, the runtime environment settings for copying and replication will be identical.
+
+    * List of transfer configuration fields to update in the `update_mask` parameter.
+
+      {% note warning %}
+
+      When you update a transfer, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+
+      {% endnote %}
+
 
 {% endlist %}
 
@@ -372,16 +566,17 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
     You can get the transfer ID with the [list of transfers in the folder](#list).
 
+
 - API {#api}
 
     Use the [activate](../api-ref/Transfer/activate.md) API method and provide the transfer ID in the `transferId` request parameter.
 
     To find out the transfer ID, [get a list of transfers in the folder](#list).
 
+
 {% endlist %}
 
 {% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}
-
 
 ## Deactivating a transfer {#deactivate}
 
@@ -417,11 +612,13 @@ During transfer deactivation:
 
     You can get the transfer ID with the [list of transfers in the folder](#list).
 
+
 - API {#api}
 
     Use the [deactivate](../api-ref/Transfer/deactivate.md) API method and provide the transfer ID in the `transferId` request parameter.
 
     To find out the transfer ID, [get a list of transfers in the folder](#list).
+
 
 {% endlist %}
 
@@ -431,7 +628,7 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 
 {% endnote %}
 
-For more information, see [{#T}](../concepts/transfer-lifecycle.md).
+Learn more in [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}
@@ -467,11 +664,13 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
     {% include [terraform-delete](../../_includes/data-transfer/terraform-delete-transfer.md) %}
 
+
 - API {#api}
 
     Use the [delete](../api-ref/Transfer/delete.md) API method and provide the transfer ID in the `transferId` request parameter.
 
     To find out the transfer ID, [get a list of transfers in the folder](#list).
+
 
 {% endlist %}
 
