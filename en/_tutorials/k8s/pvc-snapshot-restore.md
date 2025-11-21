@@ -1,11 +1,11 @@
 # Working with snapshots
 
 
-{{ managed-k8s-name }} supports snapshots, which are a point-in-time copy of a [PersistentVolume](../../managed-kubernetes/concepts/volume.md#provisioning-volumes). For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+{{ managed-k8s-name }} supports snapshots, which are point-in-time [PersistentVolume](../../managed-kubernetes/concepts/volume.md#provisioning-volumes) copies. For more information about snapshots, see [this Kubernetes article](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
-To create a snapshot and then restore it:
+To create a snapshot and then use it for restoring:
 
-1. [Prepare a test environment](#create-pvc-pod).
+1. [Set up a test environment](#create-pvc-pod).
 1. [Create a snapshot](#create-snapshot).
 1. [Restore objects from the snapshot](#restore-from-snapshot).
 
@@ -14,10 +14,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -33,7 +33,7 @@ The support cost includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
+     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
 
    - {{ TF }} {#tf}
 
@@ -58,7 +58,7 @@ The support cost includes:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -69,9 +69,9 @@ The support cost includes:
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Prepare a test environment {#create-pvc-pod}
+## Set up a test environment {#create-pvc-pod}
 
-To test snapshots, a [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume) and a [pod](../../managed-kubernetes/concepts/index.md#pod) to simulate the workload will be created.
+To test snapshots, you will create a [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume) and a [pod](../../managed-kubernetes/concepts/index.md#pod) to simulate the workload.
 1. Create the `01-pvc.yaml` file with the `PersistentVolumeClaim` manifest:
 
    ```yaml
@@ -95,7 +95,7 @@ To test snapshots, a [PersistentVolumeClaim](../../managed-kubernetes/concepts/v
    kubectl apply -f 01-pvc.yaml
    ```
 
-1. Make sure the `PersistentVolumeClaim` has been created and its status is `Pending`:
+1. Make sure the `PersistentVolumeClaim` was created and is `Pending`:
 
    ```bash
    kubectl get pvc pvc-dynamic
@@ -133,13 +133,13 @@ To test snapshots, a [PersistentVolumeClaim](../../managed-kubernetes/concepts/v
    kubectl apply -f 02-pod.yaml
    ```
 
-1. Make sure the pod has entered the `Running` state:
+1. Make sure the pod status changed to `Running`:
 
    ```bash
    kubectl get pod pod-source
    ```
 
-1. Make sure the date and time are written to `/data/out.txt`. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+1. Check that `/data/out.txt` shows lines with date and time: For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
 
    ```bash
    kubectl exec pod-source -- tail /data/out.txt
@@ -175,13 +175,13 @@ To test snapshots, a [PersistentVolumeClaim](../../managed-kubernetes/concepts/v
    kubectl apply -f 03-snapshot.yaml
    ```
 
-1. Check that the snapshot has been created:
+1. Make sure the snapshot was created:
 
    ```bash
    kubectl get volumesnapshots.snapshot.storage.k8s.io
    ```
 
-1. Make sure the [VolumeSnapshotContent](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#introduction) has been created:
+1. Make sure the [VolumeSnapshotContent](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#introduction) was created:
 
    ```bash
    kubectl get volumesnapshotcontents.snapshot.storage.k8s.io
@@ -189,11 +189,11 @@ To test snapshots, a [PersistentVolumeClaim](../../managed-kubernetes/concepts/v
 
 ## Restore objects from the snapshot {#restore-from-snapshot}
 
-When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support), the following items are created in the cluster:
+When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support), the cluster will create:
 * `PersistentVolumeClaim` object named `pvc-restore`.
 * Pod named `pod-restore` with entries in `/data/out.txt`.
 
-To restore the snapshot:
+To restore from the snapshot:
 1. Create the `04-restore-snapshot.yaml` file with the new `PersistentVolumeClaim` manifest:
 
    ```yaml
@@ -217,23 +217,23 @@ To restore the snapshot:
 
    {% note tip %}
 
-   You can resize the new `PersistentVolumeClaim`. To do this, specify its new size in the `spec.resources.requests.storage` setting value.
+   You can resize the `PersistentVolumeClaim` being created. To do this, specify its new size in the `spec.resources.requests.storage` setting.
 
    {% endnote %}
 
-1. Create a new `PersistentVolumeClaim`:
+1. Create the new `PersistentVolumeClaim`:
 
    ```bash
    kubectl apply -f 04-restore-snapshot.yaml
    ```
 
-1. Make sure the `PersistentVolumeClaim` has been created and its status is `Pending`:
+1. Make sure the `PersistentVolumeClaim` was created and is `Pending`:
 
    ```bash
    kubectl get pvc pvc-restore
    ```
 
-1. Create the `05-pod-restore.yaml` file with a manifest for the new pod, i.e., `pod-restore`:
+1. Create the `05-pod-restore.yaml` file with the new `pod-restore` pod manifest:
 
    ```yaml
    ---
@@ -264,19 +264,19 @@ To restore the snapshot:
    kubectl apply -f 05-pod-restore.yaml
    ```
 
-1. Make sure the pod has entered the `Running` state:
+1. Make sure the pod status changed to `Running`:
 
    ```bash
    kubectl get pod pod-restore
    ```
 
-1. Make sure the new `PersistentVolumeClaim` has entered the `Bound` state:
+1. Make sure the new `PersistentVolumeClaim` status changed to `Bound`:
 
    ```bash
    kubectl get pvc pvc-restore
    ```
 
-1. Make sure the `/data/out.txt` file on the new pod contains records that the `pod-source` pod container [added to the file](#create-pvc-pod) before creating the snapshot:
+1. Make sure `/data/out.txt` on the new pod contains all entries [added](#create-pvc-pod) by `pod-source` container before creating the snapshot:
 
    ```bash
    kubectl exec pod-restore -- tail /data/out.txt
@@ -308,5 +308,5 @@ Delete the resources you no longer need to avoid paying for them:
 
    {% endlist %}
 
-1. [Delete](../../vpc/operations/address-delete.md) the cluster's public static IP address if you had reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the cluster public static IP address if you reserved one.
 1. [Delete the disk snapshot](../../compute/operations/snapshot-control/delete.md).

@@ -9,7 +9,7 @@ description: Эта инструкция поможет начать работ�
 
 {% note info %}
 
-Создать запрос в центре поддержки может только [пользователь](../overview/roles-and-resources.md#users) {{ yandex-cloud }}. Подробнее см. [{#T}](./overview.md).
+Создать запрос в центре поддержки может [пользователь](../overview/roles-and-resources.md#users) {{ yandex-cloud }} с любой ролью, входящий в [организацию](../organization/concepts/organization.md), в рамках которой оказывается поддержка. Чтобы получить приглашение, попросите [владельца](../organization/security/index.md#organization-manager-organizations-owner) или [администратора](../organization/security/index.md#organization-manager-admin) этой организации [добавить](../organization/operations/add-account.md) вас. Подробнее см. [{#T}](./overview.md).
 
 {% endnote %}
 

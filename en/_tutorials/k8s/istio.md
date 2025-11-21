@@ -1,9 +1,9 @@
 # Using Istio
 
 
-[Istio](https://istio.io/latest/about/service-mesh/) implements a _service mesh_, a low-latency infrastructure layer used to process a massive volume of network communications between services in a {{ managed-k8s-name }} cluster.
+[Istio](https://istio.io/latest/about/service-mesh/) implements a _service mesh_, a low-latency infrastructure layer that manages large-scale network communications between services in a {{ managed-k8s-name }} cluster.
 
-To view Istio usage options:
+To explore Istio use cases:
 
 1. [Install Istio](#istio-install).
 1. [Install a test application](#test-application).
@@ -20,10 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -36,11 +36,11 @@ The support cost includes:
     - Manually {#manual}
 
         1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-        1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+        1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ k8s }} cluster and node group will reside.
         1. [Create service accounts](../../iam/operations/sa/create.md):
 
-            * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ k8s }} cluster is created. This service account will be used to create the resources required for the {{ k8s }} cluster.
-            * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../container-registry/concepts/registry.md) from the [registry](../../container-registry/concepts/docker-image.md) on behalf of this account.
+            * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ k8s }} cluster. This service account will be used to create resources for your {{ k8s }} cluster.
+            * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). The nodes will use this account to pull the required [Docker images](../../container-registry/concepts/docker-image.md) from the [registry](../../container-registry/concepts/registry.md).
 
             {% note tip %}
 
@@ -52,7 +52,7 @@ The support cost includes:
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-        1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with at least 6 GB of RAM and the security groups created earlier.
+        1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with at least 6 GB of RAM and the security groups you created earlier.
 
     - {{ TF }} {#tf}
 
@@ -66,26 +66,26 @@ The support cost includes:
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
             * {{ k8s }} cluster.
-            * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group to operate.
+            * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and node group.
             * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
                 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-        1. Specify the following in the `k8s-cluster.tf` file:
+        1. Specify the following in `k8s-cluster.tf`:
 
             * [Folder ID](../../resource-manager/operations/folder/get-id.md).
             * {{ k8s }} version for the {{ k8s }} cluster and node groups.
-            * At least 6 GB of RAM for your node group. The value must be a multiple of the number of vCPUs.
+            * RAM for your node group, which must be at least 6 GB and a multiple of the vCPU count.
             * {{ k8s }} cluster CIDR.
             * Name of the {{ managed-k8s-name }} cluster service account.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -99,12 +99,12 @@ The support cost includes:
 
 ## Install Istio {#istio-install}
 
-1. [Install](../../managed-kubernetes/operations/applications/istio.md#marketplace-install) [Istio](/marketplace/products/yc/istio) from the {{ marketplace-full-name }} application catalog. When installing the application:
+1. [Install](../../managed-kubernetes/operations/applications/istio.md#marketplace-install) [Istio](/marketplace/products/yc/istio) from {{ marketplace-full-name }}. When installing the app:
 
     1. Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace) called `istio-system`.
-    1. Install Istio add-ons: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, Jaeger.
+    1. Install Istio add-ons: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, and Jaeger.
 
-1. Make sure all the [pods](../../managed-kubernetes/concepts/index.md#pod) of Istio and its add-ons have changed their status to `Running`:
+1. Make sure all [pods](../../managed-kubernetes/concepts/index.md#pod) of Istio and its add-ons switched to `Running`:
 
     ```bash
     kubectl get pods -n istio-system
@@ -174,7 +174,7 @@ The support cost includes:
     todoapp-v2-7dd69b445f-gr4vn         2/2     Running   0          60s
     ```
 
-    Make sure all the pods have changed their status to `Running` and `READY=2/2`.
+    Make sure all pods switched to `Running` and `READY=2/2`.
 
 1. Check the status of services:
 
@@ -191,7 +191,7 @@ The support cost includes:
     todoapp-redis   ClusterIP   10.96.174.100   <none>        6379/TCP   80s
     ```
 
-1. Make sure that the web app is up and running:
+1. Make sure the web app is up and running:
 
     ```bash
     kubectl exec "$(kubectl get pod -l app=recommender -n todoapp -o jsonpath='{.items[0].metadata.name}')" -n todoapp \
@@ -217,24 +217,24 @@ The support cost includes:
     virtualservice.networking.istio.io/todoapp-vs created
     ```
 
-1. Get the Ingress gateway IP to access the app:
+1. Get the ingress gateway IP address to access the app:
 
     ```bash
     kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
 
-1. To run the web app, paste the obtained IP into the browser address bar.
+1. To run the web app, paste the obtained IP address into the address bar of your browser.
 
     {% include [check-sg-if-url-unavailable-lvl3](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-    Each time the page is refreshed, its content will be updated. Depending on the version of the pod processing your request, you will see:
+    Each time the page is refreshed, its content will be updated. Depending on the version of the pod serving your request, you will see:
 
-    * Pod version `v1`: To-do list section.
-    * Pod version `v2`: To-do list section and recommendations section.
+    * Pod `v1`: To-do list panel.
+    * Pod `v2`: To-do list and recommendations panels.
 
 ## View a service network diagram on the Kiali dashboard {#visualization-service-network}
 
-1. Make sure `kiali` is installed and available in the {{ managed-k8s-name }} cluster:
+1. Make sure `kiali` is installed and available in your {{ managed-k8s-name }} cluster:
 
     ```bash
     kubectl get service kiali -n istio-system
@@ -247,31 +247,31 @@ The support cost includes:
     kiali   ClusterIP   10.96.207.108   <none>        20001/TCP,9090/TCP   15d
     ```
 
-1. Configure `kiali` port forwarding to the local computer:
+1. Set up `kiali` port forwarding to your local computer:
 
     ```bash
     kubectl port-forward service/kiali 8080:20001 -n istio-system
     ```
 
-1. To open the Kiali dashboard, paste `http://localhost:8080` into the browser address bar.
+1. To open the Kiali dashboard, paste `http://localhost:8080` into the address bar of your browser.
 
-    The Kiali dashboard provides various information, such as the service network diagram, Istio configuration, service configuration and status, as well as pod metrics, traces, and logs.
+    The Kiali dashboard visualizes various information, including the service mesh diagram, Istio configuration, service configurations and statuses, as well as metrics, traces, and pod logs.
 
-1. To generate traffic to your [test app](#test-application), play around with it. For example, add a to-do list.
+1. To generate traffic, use your [test app](#test-application). For example, add a to-do list.
 
-1. Open the Kiali dashboard, go to **Graph**, and select the **todoapp** namespace. You will see a diagram with the test app components running in the Istio service network.
+1. Open the Kiali dashboard, go to **Graph**, and select the **todoapp** namespace. On the diagram, you will see the test application components running within the Istio service mesh.
 
     {% note tip %}
 
-    Use the Kiali dashboard to track changes in the next steps of this tutorial. For example, you can see how the display of services or traffic distribution changes.
+    Use the Kiali dashboard to monitor changes in the next steps of this tutorial. For example, you can see how the display of services or traffic distribution changes.
 
     {% endnote %}
 
-## Route service requests {#request-routing}
+## Route requests {#request-routing}
 
-`todoapp` pods are deployed in versions `v1` and `v2` in parallel. When you refresh the [test app](#test-application) page, the recommendations panel is sometimes not displayed, as only the `todoapp` `v2` pods make requests to the service and show the results.
+`todoapp` service pods run concurrently in the `v1` and `v2` versions. When you refresh the [test app](#test-application) page, the recommendations panel is sometimes not displayed, as only the `todoapp` `v2` pods send requests to the recommendations service and show the results.
 
-Use routing to route users to a specific service version:
+Use routing to direct users to a specific service version:
 
 1. Route all requests to `v1`:
 
@@ -286,7 +286,7 @@ Use routing to route users to a specific service version:
     virtualservice.networking.istio.io/todoapp-vs configured
     ```
 
-1. Refresh the test app page several times. Now all requests are handled by the `v1` pods. The page only shows the to-do list.
+1. Refresh the test app page several times. Now, the `v1` pods process all requests. The page only shows the to-do list panel.
 
 1. Route all requests to `v2`:
 
@@ -301,9 +301,9 @@ Use routing to route users to a specific service version:
     virtualservice.networking.istio.io/todoapp-vs configured
     ```
 
-1. Refresh the test app page several times. Now all requests are handled by the `v2` pods. The page shows the to-do list and recommendations sections.
+1. Refresh the test app page several times. Now, the `v2` pods process all requests. The page shows the to-do list and recommendations panels.
 
-To cancel routing, run the command below:
+To cancel routing, run this command:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/yandex-cloud-examples/yc-mk8s-todo-app/main/kube/todoapp-gateway.yaml -n todoapp
@@ -319,9 +319,9 @@ virtualservice.networking.istio.io/todoapp-vs configured
 ## Simulate a service failure {#injection-failures}
 
 With Istio, you can test your app's reliability by simulating service failures.
-When accessing `recommender`, there is a 3-second timeout. If the service does not respond within this time, the recommendations section is not displayed.
+When accessing `recommender`, there is a 3-second timeout. If the service does not respond within this time, the recommendations panel is not shown.
 
-You can simulate a failure by specifying a timeout longer than 3 seconds in the `VirtualService` resource configuration. For example, this code block implements a 50-percent probability of a 5-second delay:
+You can simulate a failure by specifying a timeout longer than 3 seconds in the `VirtualService` resource configuration. For example, this code section implements a 50-percent probability of a 5-second delay:
 
 ```yaml
 fault:
@@ -346,7 +346,7 @@ To simulate a failure of your [test app](#test-application):
     virtualservice.networking.istio.io/recommender-vs created
     ```
 
-1. Refresh the test app page several times. When there is a response delay, the recommendations section is not displayed, although the request is handled by the `v2` pod. The app handles a failure of `recommender` correctly.
+1. Refresh the test app page several times. When a response delay occurs, the recommendations panel does not show up, even though the `v2` pod is handling the request. The app correctly handles a `recommender` failure.
 
 To roll back the `VirtualService` configuration, run this command:
 
@@ -363,7 +363,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
 
 ## Redistribute traffic {#traffic-redistribution}
 
-When upgrading the microservice version, you can redistribute traffic between its versions without affecting the number of application pods. You can manage traffic routes using the `weight` parameter of the `VirtualService` resource.
+When upgrading the microservice version, you can redistribute traffic between its versions without affecting the number of application pods. You can manage traffic routes using the `weight` parameter for the `VirtualService` resource.
 
 To redistribute traffic in your [test app](#test-application):
 
@@ -380,7 +380,7 @@ To redistribute traffic in your [test app](#test-application):
     virtualservice.networking.istio.io/todoapp-vs configured
     ```
 
-1. Refresh the test app page several times. The app is handled by the `v1` and `v2` pod versions in roughly equal proportions.
+1. Refresh the test app page several times. The app is handled by the `v1` and `v2` pods in roughly equal proportions.
 
 1. Increase the weight for `v2` to 100%:
 
@@ -397,15 +397,15 @@ To redistribute traffic in your [test app](#test-application):
 
 1. Refresh the test app page several times. The app is only handled by the `v2` pods.
 
-## Set authentication mode using mutual TLS {#mutual-tls}
+## Set up mutual TLS authentication {#mutual-tls}
 
-By default, applications running an Istio sidecar proxy exchange traffic with mutual TLS encryption.
+By default, applications with Istio sidecars communicate securely using mutual TLS.
 
-You can configure a strict authentication policy by prohibiting unencrypted traffic from applications that use no Istio sidecar proxy.
+You can configure a strict authentication policy, disallowing unencrypted traffic from applications without Istio sidecars.
 
-To test how your [test app](#test-application) runs in different modes:
+To test your [test app](#test-application) in different modes:
 
-1. Create an authentication policy:
+1. Set up an authentication policy:
 
     ```bash
     kubectl apply -f https://raw.githubusercontent.com/yandex-cloud-examples/yc-mk8s-todo-app/main/kube/peerauthentication.yaml -n todoapp
@@ -479,7 +479,7 @@ To test how your [test app](#test-application) runs in different modes:
 
 ## View Istio metrics on the {{ prometheus-name }} dashboard {#viewing-metrics-prometheus}
 
-1. Make sure `prometheus` is installed and available in the {{ managed-k8s-name }} cluster:
+1. Make sure `prometheus` is installed and available in your {{ managed-k8s-name }} cluster:
 
     ```bash
     kubectl get service prometheus -n istio-system
@@ -492,7 +492,7 @@ To test how your [test app](#test-application) runs in different modes:
     prometheus   ClusterIP   10.96.147.249   <none>        9090/TCP   15d
     ```
 
-1. Configure `prometheus` port forwarding to the local computer:
+1. Set up `prometheus` port forwarding to your local computer:
 
     ```bash
     kubectl port-forward service/prometheus 9090:9090 -n istio-system
@@ -506,11 +506,11 @@ To test how your [test app](#test-application) runs in different modes:
     istio_requests_total{destination_service="recommender.todoapp.svc.cluster.local"}
     ```
 
-1. Go to the **Graph** tab. It shows Istio metrics.
+1. Go to the **Graph** tab showing Istio metrics.
 
 ## View Istio metrics on the {{ grafana-name }} dashboard {#viewing-metrics-grafana}
 
-1. Make sure `grafana` is installed and available in the {{ managed-k8s-name }} cluster:
+1. Make sure `grafana` is installed and available in your {{ managed-k8s-name }} cluster:
 
     ```bash
     kubectl get service grafana -n istio-system
@@ -523,7 +523,7 @@ To test how your [test app](#test-application) runs in different modes:
     grafana   ClusterIP   10.96.205.86   <none>        3000/TCP   15d
     ```
 
-1. Configure `grafana` port forwarding to the local computer:
+1. Set up `grafana` port forwarding to your local computer:
 
     ```bash
     kubectl port-forward service/grafana 3000:3000 -n istio-system
@@ -531,7 +531,7 @@ To test how your [test app](#test-application) runs in different modes:
 
 1. To open the {{ grafana-name }} dashboard, paste `http://localhost:3000` into the address bar of your browser.
 
-1. In the list of dashboards, find and open the **Istio Mesh Dashboard**. It shows the metrics of requests to your test app's services.
+1. In the list of dashboards, find and open the **Istio Mesh Dashboard**. It shows request metrics for your test app's services.
 
 ## Delete the resources you created {#clear-out}
 
@@ -543,7 +543,7 @@ Delete the resources you no longer need to avoid paying for them:
 
     1. [Delete the {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
     1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-    1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+    1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 

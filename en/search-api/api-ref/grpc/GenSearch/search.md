@@ -223,7 +223,8 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
   "is_bullet_answer": "bool",
   "hints": [
     "string"
-  ]
+  ],
+  "problematic_answer": "bool"
 }
 ```
 
@@ -250,6 +251,9 @@ A bullet answer in case the model cannot give a proper response and returns a se
 || hints[] | **string**
 
 Search hints ||
+|| problematic_answer | **bool**
+
+The answer may contain inappropriate content ||
 |#
 
 ## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage2}

@@ -1,10 +1,10 @@
-By default, [pods](../../managed-kubernetes/concepts/index.md#pod) send requests to the `kube-dns` [service](../../managed-kubernetes/concepts/service.md). In `/etc/resolv.conf`, the `nameserver` field is set to `ClusterIp` of the `kube-dns` service. To establish a connection with `ClusterIP`, use [iptables](https://en.wikipedia.org/wiki/Iptables) or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
+By default, [pods](../../managed-kubernetes/concepts/index.md#pod) send requests to the `kube-dns` [service](../../managed-kubernetes/concepts/service.md). In `/etc/resolv.conf`, the `nameserver` field is set to `ClusterIp` of the `kube-dns` service. To establish a connection to `ClusterIP`, use [iptables](https://en.wikipedia.org/wiki/Iptables) or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
-When NodeLocal DNS Cache is enabled, a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) is deployed in a {{ managed-k8s-name }} cluster. The caching agent (`node-local-dns` pod) runs on each {{ managed-k8s-name }} node. User pods now send requests to the agent running on their {{ managed-k8s-name }} nodes.
+Enabling NodeLocal DNS Cache in a {{ managed-k8s-name }} cluster deploys a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). The caching agent (`node-local-dns` pod) runs on each {{ managed-k8s-name }} node. User pods now send requests to the agent running on their {{ managed-k8s-name }} nodes.
 
 If the request is in the agent's cache, the agent returns a direct response. Otherwise, the system creates a TCP connection to `kube-dns` `ClusterIP`. By default, the caching agent makes cache-miss requests to `kube-dns` for the `cluster.local` [DNS zone](../../dns/concepts/dns-zone.md) of the {{ managed-k8s-name }} cluster.
 
-This helps avoid the DNAT rules, [connection tracking](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation), and restrictions on the [number of connections](../../vpc/concepts/limits.md#vpc-limits). For more information about NodeLocal DNS Cache, see the [documentation](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md).
+This helps avoid the DNAT rules, [connection tracking](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation), and restrictions on the [number of connections](../../vpc/concepts/limits.md#vpc-limits). For more information about NodeLocal DNS Cache, see [this article](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md).
 
 To set up DNS request caching:
 
@@ -19,16 +19,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for the public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
 
-### Create an infrastructure {#create-infrastructure}
+### Create your infrastructure {#create-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -41,7 +41,7 @@ The support cost includes:
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with public internet access and the security groups you prepared earlier.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with public internet access and preconfigured security groups.
 
 - {{ TF }} {#tf}
 
@@ -54,7 +54,7 @@ The support cost includes:
      * [Network](../../vpc/concepts/network.md#network).
      * [Subnet](../../vpc/concepts/network.md#subnet).
      * {{ managed-k8s-name }} cluster.
-     * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -62,7 +62,7 @@ The support cost includes:
   1. Specify the following in the configuration file:
 
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-     * [{{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) versions for the cluster and {{ managed-k8s-name }} node groups.
+     * [{{ k8s }} versions](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the {{ managed-k8s-name }} cluster service account.
 
@@ -72,7 +72,7 @@ The support cost includes:
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
 
   1. Create the required infrastructure:
 
@@ -100,7 +100,7 @@ The support cost includes:
 
 - Manually {#manual}
 
-  1. Retrieve the `kube-dns` service [IP address](../../vpc/concepts/address.md):
+  1. Get the `kube-dns` service [IP address](../../vpc/concepts/address.md):
 
       ```bash
       kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -337,7 +337,7 @@ The support cost includes:
       service/node-local-dns created
       ```
 
-  1. Make sure that DaemonSet is successfully deployed and running:
+  1. Make sure the DaemonSet is successfully deployed and running:
 
       ```bash
       kubectl get ds -l k8s-app=node-local-dns -n kube-system
@@ -391,7 +391,7 @@ It may take several minutes to update the configuration.
 
 ## Run DNS requests {#dns-queries}
 
-To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), use a pod with the DNS diagnostic utilities.
+To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), use the pod with the DNS diagnostic tools.
 
 1. Run the pod:
 
@@ -405,7 +405,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
     pod/dnsutils created
     ```
 
-1. Make sure the pod has entered the `Running` state:
+1. Make sure the pod status changed to `Running`:
 
     ```bash
     kubectl get pods dnsutils
@@ -418,7 +418,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
     dnsutils  1/1    Running  0         26m
     ```
 
-1. Connect to a pod:
+1. Connect to the pod:
 
     ```bash
     kubectl exec -i -t dnsutils -- sh
@@ -466,7 +466,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
 
 - All pods
 
-  1. Create a pod for network traffic setup:
+  1. Create a pod for network traffic configuration:
 
       ```bash
       kubectl apply -f - <<EOF
@@ -543,7 +543,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
       kubectl delete pod dnschange
       ```
 
-  1. To make sure all pods start running through NodeLocal DNS, restart them, e.g., using the command below:
+  1. To make all pods use NodeLocal DNS, restart them, e.g., using this command:
 
       ```bash
       kubectl get deployments --all-namespaces | \
@@ -591,7 +591,7 @@ Run this command:
 kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 ```
 
-To stop displaying a log, press **Ctrl** + **C**.
+To stop displaying logs, press **Ctrl** + **C**.
 
 Result:
 
@@ -604,7 +604,7 @@ Result:
 
 ## Stop the DaemonSet {#stop-daemonset}
 
-To disable DaemonSet in NodeLocal DNS Cache, run:
+To disable NodeLocal DNS Cache, i.e., stop the DaemonSet, run this command:
 
 ```bash
 kubectl delete -f node-local-dns.yaml
@@ -638,4 +638,4 @@ Delete the resources you no longer need to avoid paying for them:
 
     {% endlist %}
 
-1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If you used static [public IP addresses](../../vpc/concepts/address.md#public-addresses) to access your {{ managed-k8s-name }} cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.

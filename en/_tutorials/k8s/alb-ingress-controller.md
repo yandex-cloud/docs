@@ -62,7 +62,7 @@ The support cost for this solution includes:
 The [Ingress resource](../../application-load-balancer/k8s-ref/ingress.md) defines:
 
 * L7 load balancer parameters set using annotations.
-* Rules for incoming traffic distribution between [{{ k8s }} services.](../../application-load-balancer/k8s-ref/service-for-ingress.md)
+* Rules for incoming traffic distribution between [{{ k8s }} services](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
     Services acting as {{ alb-name }} backends may be specified in the Ingress resource either directly or as part of [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) or [GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) backend groups.
 
@@ -424,7 +424,7 @@ Create test applications and Ingress resource:
        ingress.alb.yc.io/modify-header-response-remove: <name_of_header_to_remove>=true
        ```
 
-     * `ingress.alb.yc.io/modify-header-request-append`: Adds a string to the request header value. The header and string should be specified in the following format:
+     * `ingress.alb.yc.io/modify-header-request-append`: Adds a string to the request header value. To specify the header and string, use this format:
 
        ```yaml
        ingress.alb.yc.io/modify-header-request-append: <name_of_header_to_edit>=<string>
@@ -509,7 +509,7 @@ Create test applications and Ingress resource:
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-     alb-demo-tls  <none>  <domain_name>  <IP_address>  80,443  15h
+     alb-demo-tls  <none>  <domain_name>  <IP_address>  80, 443  15h
      ```
 
 - Ingress resource for a backend group
@@ -647,7 +647,7 @@ Create test applications and Ingress resource:
 
      Learn more in [{#T}](../../application-load-balancer/concepts/backend-group.md).
 
-  1. In the same directory, create a file named `ingress-http.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }} L7 load balancer:
+  1. In the same directory, create a file named `ingress-http.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }}:
 
      ```yaml
      apiVersion: networking.k8s.io/v1
@@ -763,7 +763,7 @@ Create test applications and Ingress resource:
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-     alb-demo-tls  <none>  <domain_name>  <IP_address>  80,443  15h
+     alb-demo-tls  <none>  <domain_name>  <IP_address>  80, 443  15h
      ```
 
 {% endlist %}
@@ -810,7 +810,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
-1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
+1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your {{ alb-name }}. If you are using ExternalDNS with the {{ dns-full-name }} plugin, this record will be created automatically.
 1. Test the load balancer:
 
    {% list tabs %}

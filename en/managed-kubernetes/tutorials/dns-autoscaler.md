@@ -1,6 +1,6 @@
 ---
-title: How to perform DNS autoscaling based on cluster size
-description: Follow this guide to perform DNS autoscaling based on cluster size.
+title: How to perform DNS autoscaling based on the cluster size
+description: Follow this tutorial to perform DNS autoscaling based on the cluster size.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/dns-autoscaler'
 ---
 

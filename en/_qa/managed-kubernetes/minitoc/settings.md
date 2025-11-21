@@ -2,9 +2,9 @@
 
 * [Can I configure a backup for a {{ k8s }} cluster?](#cluster-backups)
 
-* [Will the resources be idle while {{ k8s }} is going through a version upgrade?](#downtime-update)
+* [Will my resources be unavailable while {{ k8s }} is going through a version upgrade?](#downtime-update)
 
-* [Can I upgrade a {{ managed-k8s-name }} cluster in one step?](#upgrade-in-one-step)
+* [Can I upgrade my {{ managed-k8s-name }} cluster in one step?](#upgrade-in-one-step)
 
 * [Is the Container Network Interface plugin upgraded together with the {{ managed-k8s-name }} cluster?](#upgrade-cni)
 
@@ -12,4 +12,4 @@
 
 * [Can you install Web UI Dashboard, Rook, and other tools?](#install-tools)
 
-* [What should I do if volumes refuse to connect after I upgrade {{ k8s }}?](#pvc)
+* [What should I do if volumes fail to attach after a {{ k8s }} upgrade?](#pvc)

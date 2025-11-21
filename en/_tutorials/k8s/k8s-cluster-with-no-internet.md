@@ -3,14 +3,14 @@
 
 You can create and configure a {{ managed-k8s-name }} cluster with no internet connectivity. For this, you will need the following configuration:
 
-* {{ managed-k8s-name }} cluster and node group without a public address. You can only connect to such a cluster using a {{ yandex-cloud }} virtual machine.
+* {{ managed-k8s-name }} cluster and node group have no public address. You can only connect to such a cluster with a {{ yandex-cloud }} virtual machine.
 * The cluster and node group are hosted by subnets with no internet access.
-* Service accounts have no roles to use resources with internet access, e.g., [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml).
+* Service accounts have no permissions to use resources with internet access, such as [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml).
 * Cluster security groups restrict incoming and outgoing traffic.
 
 To create a {{ managed-k8s-name }} cluster with no internet access:
 
-1. [Prepare the infrastructure for {{ managed-k8s-name }}](#infra).
+1. [Set up the infrastructure for {{ managed-k8s-name }}](#infra).
 1. [Set up a virtual machine](#vm).
 1. [Check cluster availability](#check).
 1. Optionally, [set up a connection to NTP servers](#ntp).
@@ -21,15 +21,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes and VMs: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes and VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address for a VM, which is used to connect to the cluster (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee: the number of active key versions (having `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ kms-name }} fee for the number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
-## Prepare the infrastructure for {{ managed-k8s-name }} {#infra}
+## Set up the infrastructure for {{ managed-k8s-name }} {#infra}
 
 {% list tabs group=instructions %}
 
@@ -37,8 +37,8 @@ The support cost includes:
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * `resource-sa` with the `{{ roles.k8s.clusters.agent }}`, `{{ roles-logging-writer }}`, and `kms.keys.encrypterDecrypter` [roles](../../iam/concepts/access-control/roles.md) for the folder where the {{ k8s }} cluster is created. This account will be used to create the resources required for the {{ k8s }} cluster.
-      * `node-sa` with the `{{ roles-cr-puller }}` role. Nodes will pull the required Docker images from the registry on behalf of this account.
+      * `resource-sa` with the `{{ roles.k8s.clusters.agent }}`, `{{ roles-logging-writer }}`, and `kms.keys.encrypterDecrypter` [roles](../../iam/concepts/access-control/roles.md) for the folder where you want to create a {{ k8s }} cluster. This account will be used to create the resources for the {{ k8s }} cluster.
+      * `node-sa` with the `{{ roles-cr-puller }}` role. The nodes will use this account to pull the required Docker images from the registry.
 
       {% note tip %}
 
@@ -46,19 +46,19 @@ The support cost includes:
 
       {% endnote %}
 
-   1. [Create a {{ kms-full-name }} symmetric encryption key](../../kms/operations/key.md#create) with the following parameters:
+   1. [Create a {{ kms-full-name }} symmetric encryption key](../../kms/operations/key.md#create) with the following settings:
 
       * **{{ ui-key.yacloud.common.name }}**: `my-kms-key`.
       * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
       * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}**: 365 days.
 
-   1. Create the `my-net` [network](../../vpc/operations/network-create.md).
+   1. [Create a network](../../vpc/operations/network-create.md) named `my-net`.
    1. [Create a subnet](../../vpc/operations/subnet-create.md) named `my-subnet` with the `internal.` domain name.
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with the following parameters:
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with the following settings:
 
       * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `resource-sa`.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `node-sa`.
@@ -74,11 +74,11 @@ The support cost includes:
       * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-events }}**: Enabled.
       * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-kube-apiserver }}**: Enabled.
 
-   1. In the {{ managed-k8s-name }} cluster, [create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following parameters:
+   1. In the {{ managed-k8s-name }} cluster, [create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following settings:
 
-      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: No address
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic, connection to the services from the internet, and connection to nodes over SSH.
-      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: Subnet named `my-subnet`.
+      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: No address.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the previously created security groups containing the rules for service traffic, internet access to services, and SSH access to nodes.
+      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}**: `my-subnet`.
 
 - {{ TF }} {#tf}
 
@@ -86,7 +86,7 @@ The support cost includes:
    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-   1. Download the [k8s-cluster-with-no-internet.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-without-internet/blob/main/k8s-cluster-with-no-internet.tf) configuration file to the same working directory. This file will be used to create the following resources:
+   1. Download the [k8s-cluster-with-no-internet.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-without-internet/blob/main/k8s-cluster-with-no-internet.tf) configuration file to the same working directory. You need this file to create the following resources:
 
       * Network.
       * Route table.
@@ -100,7 +100,7 @@ The support cost includes:
       * [Service accounts](../../iam/concepts/users/service-accounts.md) for {{ k8s }} resources and nodes.
       * {{ kms-full-name }} [symmetric encryption key](../../kms/concepts/key.md).
 
-      The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the library pages.
+      The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the relevant library pages.
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -120,7 +120,7 @@ The support cost includes:
 
 ## Set up a virtual machine {#vm}
 
-As the {{ managed-k8s-name }} cluster has no internet access, you can only connect to it from a VM that is in the same network as the cluster. Therefore, to check the cluster availability, set up the infrastructure:
+As the {{ managed-k8s-name }} cluster has no internet access, you can only connect to it from a VM in the same network. Therefore, to check cluster availability, set up the infrastructure:
 
 1. Create the required resources:
 
@@ -128,7 +128,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
    - Manually {#manual}
 
-      1. Create a service account named `vm-sa` with the `{{ roles.k8s.cluster-api.cluster-admin }}` and `{{ roles.k8s.admin }}` roles. This account will be used to connect to the {{ managed-k8s-name }} cluster.
+      1. Create a service account named `vm-sa` with the `{{ roles.k8s.cluster-api.cluster-admin }}` and `{{ roles.k8s.admin }}` roles. You will use it to connect to the {{ managed-k8s-name }} cluster.
       1. Create a security group named `vm-security-group` and specify a rule for incoming traffic in it:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
@@ -136,10 +136,10 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-      1. [Create a Linux VM](../../compute/operations/vm-create/create-linux-vm.md) with the following parameters:
+      1. [Create a Linux VM](../../compute/operations/vm-create/create-linux-vm.md) with the following settings:
 
          * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-subnet`.
-         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or you can [reserve a static public IP address](../../vpc/operations/get-static-ip.md) and assign it to the new VM.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, or you can [reserve a static public IP address](../../vpc/operations/get-static-ip.md) and assign it to the new VM.
          * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `vm-security-group`.
          * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `vm-sa`.
 
@@ -149,17 +149,17 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
          This file describes:
 
-         * Service account for VM.
-         * Security group for VM.
+         * Service account for the VM.
+         * Security group for the VM.
          * VM.
 
       1. Specify the following in `virtual-machine-for-k8s.tf`:
 
          * Folder ID.
-         * ID of the network created together with the {{ managed-k8s-name }} cluster.
-         * ID of the subnet created together with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
-         * Username to be used for connection to the VM over SSH.
-         * Absolute path to the public part of the SSH key for connection to the VM.
+         * ID of the network created along with the {{ managed-k8s-name }} cluster.
+         * ID of the subnet created along with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
+         * Username to use for connecting to the VM over SSH.
+         * Absolute path to the public part of the SSH key for connecting to the VM.
 
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -180,7 +180,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH:
 
    ```bash
-   ssh <user_name>@<VM_public_IP_address>
+   ssh <username>@<VM_public_IP_address>
    ```
 
    Where `<username>` is the VM account username.
@@ -216,11 +216,11 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
 
    - Manually {#manual}
 
-     [Update `my-subnet`](../../vpc/operations/subnet-update.md) by adding the NTP server’s IP address.
+     [Update `my-subnet`](../../vpc/operations/subnet-update.md) by adding the NTP server IP address.
 
    - {{ TF }} {#tf}
 
-     1. In the {{ TF }} configuration file, update `my-subnet` description. Add the `dhcp_options` section (if there is none) with the `ntp_servers` parameter and specify the IP address of your NTP server:
+     1. In the {{ TF }} configuration file, change `my-subnet` description. Add the `dhcp_options` section (if missing) with the `ntp_servers` parameter specifying the IP address of your NTP server:
 
         ```hcl
         ...
@@ -238,7 +238,7 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
         ...
         ```
 
-        For more information about `yandex_vpc_subnet` properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
+        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Apply the changes:
 
@@ -254,9 +254,9 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
 
 1. Allow the cluster and VM to connect to the NTP server.
    
-   [Create](../../vpc/operations/security-group-add-rule.md) rules in the [security group of the cluster and node groups](../../managed-kubernetes/operations/connect/security-groups#rules-internal-cluster) and `vm-security-group`:
+   [Create](../../vpc/operations/security-group-add-rule.md) rules in the [security group of the cluster and node groups](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster) and `vm-security-group`:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`. If using any port other than port `123` on the NTP server, specify it.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`. If your NTP server uses a port other than `123`, specify that port.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `<NTP_server_IP_address>/32`.
@@ -264,26 +264,26 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
 1. Update the network settings in the cluster node group and on the VM using one of the following methods:
 
    * Connect to each node in the group and to the VM [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
-   * Reboot the group nodes and VM at a time convenient for you.
+   * Reboot the group nodes and VM at any convenient time.
 
    {% note warning %}
 
-   Updating network parameters may cause the services within the cluster to become unavailable for a few minutes.
+   Updating network settings may cause the services within the cluster to become unavailable for a few minutes.
 
    {% endnote %}
 
 ## Optionally, connect a private Docker image registry {#cert}
 
-You can connect a [private Docker image registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) to your {{ managed-k8s-name }} cluster. To get authenticated in the registry and connect to it over HTTPS, the cluster will need certificates issued by the CA (Certificate Authority). Use the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) controller to add and later automatically update the certificates on cluster nodes. It runs the following process in pods:
+You can connect a [private Docker image registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) to your {{ managed-k8s-name }} cluster. To get authenticated in the registry and connect to it over HTTPS, the cluster will need trusted CA certificates. Use a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) controller to add and later automatically update the certificates on cluster nodes. The controller runs the following process in pods:
 
-1. A Bash script constantly checks cluster nodes for required certificates.
-1. If not, the certificates are copied from the {{ k8s }} [secret](https://kubernetes.io/docs/concepts/configuration/secret/) and updated.
-1. The _containerd_ runtime environment is restarted.
+1. A Bash script runs on the cluster nodes to continuously check for the required certificates.
+1. If any certificates are missing, they are copied from the {{ k8s }} [secret](https://kubernetes.io/docs/concepts/configuration/secret/) and updated.
+1. `containerd` is restarted.
 
 To configure certificate updates using DaemonSet, do the following on your VM:
 
 1. Place the `.crt` certificate files.
-1. Create a file named `certificate-updater-namespace.yaml` with the namespace configuration. This namespace will be used for DaemonSet operation and isolation:
+1. Create a file named `certificate-updater-namespace.yaml` with the namespace configuration. This namespace will be used to run and isolate the DaemonSet.
 
    ```yaml
    apiVersion: v1
@@ -294,7 +294,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
        name: certificate-updater
    ```
 
-1. Create a `certificate-updater-daemonset.yaml` file with the DaemonSet configuration:
+1. Create a file named `certificate-updater-daemonset.yaml` with the DaemonSet configuration:
 
    {% cut "File contents" %}
 
@@ -413,7 +413,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
    kubectl apply -f certificate-updater-namespace.yaml
    ```
 
-1. Create a secret with the contents of the certificates issued by the CA:
+1. Create a secret with the contents of the CA certificates:
 
    ```bash
    kubectl create secret generic crt \
@@ -435,7 +435,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
    kubectl apply -f certificate-updater-daemonset.yaml
    ```
 
-Now you can monitor the state of the DaemonSet controller. As soon as the certificates are updated, the cluster will restart the _containerd_ runtime environment processes.
+Now you can monitor the state of the DaemonSet controller. As soon as the certificates are updated, the `containerd` processes will be restarted.
 
 ## Delete the resources you created {#clear-out}
 
@@ -447,14 +447,14 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    Delete:
 
-   1. [Service accounts](../../iam/operations/sa/delete.md).
-   1. {{ kms-name }} [encryption key](../../kms/operations/key.md#delete).
-   1. [Security groups](../../vpc/operations/security-group-delete.md).
-   1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md).
-   1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md).
-   1. [Subnet](../../vpc/operations/subnet-delete.md).
-   1. [Network](../../vpc/operations/network-delete.md).
+   1. [Service accounts](../../iam/operations/sa/delete.md)
+   1. {{ kms-name }} [encryption key](../../kms/operations/key.md#delete)
+   1. [Security groups](../../vpc/operations/security-group-delete.md)
+   1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
+   1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
+   1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md)
+   1. [Subnet](../../vpc/operations/subnet-delete.md)
+   1. [Network](../../vpc/operations/network-delete.md)
 
 - {{ TF }} {#tf}
 

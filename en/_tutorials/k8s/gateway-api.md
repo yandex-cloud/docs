@@ -1,27 +1,27 @@
-# Setting up Gateway API in {{ managed-k8s-full-name }}
+# Setting up the Gateway API in {{ managed-k8s-full-name }}
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-In this tutorial, you will learn how to set up access to the applications deployed in two test environments, `dev` and `prod`, using [{{ alb-full-name }}](../../application-load-balancer/) via Gateway API. For this you will need to create a [public domain zone](../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../dns).
+In this tutorial, you will learn how to set up access to the applications deployed in two test environments, `dev` and `prod`, using [{{ alb-full-name }}](../../application-load-balancer/) via the Gateway API. For this, you will need to create a [public domain zone](../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../dns).
 
-To integrate Gateway API and {{ alb-name }}:
+To integrate the Gateway API and {{ alb-name }}:
 1. [Create {{ managed-k8s-name }} resources](#k8s-create).
-1. [Install Gateway API and set up the domain zones](#install-gateway-api).
+1. [Install the Gateway API and set up domain zones](#install-gateway-api).
 1. [Prepare test applications](#prepare-apps).
 1. [Create test applications](#install-apps).
-1. [Test Gateway API](#check-apps).
+1. [Test the Gateway API](#check-apps).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -42,13 +42,13 @@ The support cost includes:
    - Manually {#manual}
 
      1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-     1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+     1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ k8s }} cluster and node group will reside.
 
      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating, specify the preconfigured security groups.
+     1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
 
    - {{ TF }} {#tf}
 
@@ -61,7 +61,7 @@ The support cost includes:
         * Network.
         * Subnet.
         * {{ k8s }} cluster.
-        * Service account required for the {{ k8s }} cluster and node group to operate.
+        * Service account for the {{ k8s }} cluster and node group.
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -70,7 +70,7 @@ The support cost includes:
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -87,8 +87,8 @@ The support cost includes:
 
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) required for Gateway API.
-1. [Assign the following roles to it](../../iam/operations/sa/assign-role-for-sa.md):
+1. [Create a service account](../../iam/operations/sa/create.md) for the Gateway API.
+1. [Assign it the following roles](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in the [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) [target groups](../../application-load-balancer/concepts/target-group.md).
@@ -101,9 +101,9 @@ The support cost includes:
      --output sa-key.json
    ```
 
-## Install Gateway API and set up the domain zones {#install-gateway-api}
+## Install the Gateway API and set up domain zones {#install-gateway-api}
 
-1. Install the [Gateway API application](/marketplace/products/yc/gateway-api) [according to the instructions](../../managed-kubernetes/operations/applications/gateway-api.md). During the installation, use the service account key [issued previously](#k8s-create).
+1. Install the [Gateway API](/marketplace/products/yc/gateway-api) by following [this guide](../../managed-kubernetes/operations/applications/gateway-api.md). During the installation, use the service account key you [created earlier](#k8s-create).
 1. Reserve [public IP addresses](../../vpc/concepts/address.md#public-addresses) for the `prod` and `dev` test environments:
 
    ```bash
@@ -121,7 +121,7 @@ The support cost includes:
 
    Where `<availability_zone>` is the [availability zone](../../overview/concepts/geo-scope.md) hosting your {{ k8s }} cluster.
 
-   Save the public IP addresses: you will need them to continue the setup.
+   Save the public IP addresses, as you will need them in the next configuration steps.
 1. Add [resource records](../../dns/concepts/resource-record.md) for your public DNS zone:
 
    ```bash
@@ -193,9 +193,9 @@ The support cost includes:
 
 ## Prepare test applications {#prepare-apps}
 
-To test Gateway API, we will create two applications, `tutum/hello-world` and `nginxdemos/hello`. For each application, you will need to configure and run three YAML files:
-* `dev-gw.yaml` and `prod-gw.yaml` with Gateway settings. In these manifest files, specify:
-  * [Security groups](../../managed-kubernetes/operations/connect/security-groups.md) in which your {{ k8s }} cluster is deployed in the `metadata.annotations.gateway.alb.yc.io/security-groups` parameter.
+To test the Gateway API, we will build two applications, `tutum/hello-world` and `nginxdemos/hello`. For each application, you will need to configure and run three YAML files:
+* `dev-gw.yaml` and `prod-gw.yaml` with Gateway settings. In these manifests, specify:
+  * [Security groups](../../managed-kubernetes/operations/connect/security-groups.md) associated with your {{ k8s }} cluster in the `metadata.annotations.gateway.alb.yc.io/security-groups` parameter.
   * Domain zone with the `*.dev` and `*.prod` prefixes in the `hostname` parameters.
   * IP addresses for the `dev` and `prod` environments in the `spec.addresses.value` parameter.
 * `dev-route.yaml` and `prod-route.yaml` to configure routing for the applications. In these manifests, you need to specify the domain zone with the `app.dev` and `app.prod` prefixes in the `spec.hostnames` parameter.
@@ -204,9 +204,9 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
   * [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) for the application
   * [Service](../../managed-kubernetes/concepts/index.md#service)
 
-### Configure the application for the dev environment {#configure-dev}
+### Configure the app for the dev environment {#configure-dev}
 
-1. Create a manifest named `dev-gw.yaml`:
+1. Create `dev-gw.yaml`:
 
    {% cut "dev-gw.yaml" %}
 
@@ -261,7 +261,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-1. Create a file named `dev-route.yaml`:
+1. Create `dev-route.yaml`:
 
    {% cut "dev-route.yaml" %}
 
@@ -289,7 +289,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-1. Create a manifest named `dev-app.yaml`:
+1. Create `dev-app.yaml`:
 
    {% cut "dev-app.yaml" %}
 
@@ -340,9 +340,9 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-### Configure the application for the prod environment {#configure-prod}
+### Configure the app for the prod environment {#configure-prod}
 
-1. Create a manifest named `prod-gw.yaml`:
+1. Create `prod-gw.yaml`:
 
    {% cut "prod-gw.yaml" %}
 
@@ -397,7 +397,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-1. Create a manifest named `prod-route.yaml`:
+1. Create `prod-route.yaml`:
 
    {% cut "prod-route.yaml" %}
 
@@ -425,7 +425,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-1. Create a manifest named `prod-app.yaml`:
+1. Create `prod-app.yaml`:
 
    {% cut "prod-app.yaml" %}
 
@@ -489,14 +489,14 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
    kubectl apply -f dev-route.yaml
    ```
 
-1. Make sure the app [pods](../../managed-kubernetes/concepts/index.md#pod) switched the state to `Running`:
+1. Make sure the app [pods](../../managed-kubernetes/concepts/index.md#pod) switched to `Running`:
 
    ```bash
    kubectl get pods --namespace dev-app && \
    kubectl get pods --namespace prod-app
    ```
 
-1. Make sure that a load balancer has been created for Gateway API:
+1. Make sure a load balancer has been created for the Gateway API:
 
    ```bash
    yc application-load-balancer load-balancer list
@@ -508,9 +508,9 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endnote %}
 
-## Test Gateway API {#check-apps}
+## Test the Gateway API {#check-apps}
 
-To test Gateway API, open these links in your browser:
+To test the Gateway API, open these links in your browser:
 * `app.prod.<domain_zone>`.
 * `app.dev.<domain_zone>`.
 
@@ -518,7 +518,7 @@ To test Gateway API, open these links in your browser:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

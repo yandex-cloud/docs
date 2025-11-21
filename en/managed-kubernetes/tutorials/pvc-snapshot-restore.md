@@ -1,6 +1,6 @@
 ---
 title: Working with snapshots
-description: Follow this guide to learn how to work with snapshots.
+description: Follow this tutorial to learn how to work with snapshots.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/pvc-snapshot-restore'
 ---
 

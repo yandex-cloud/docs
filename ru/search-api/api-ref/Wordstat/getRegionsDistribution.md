@@ -45,6 +45,11 @@ apiPlayground:
               - DEVICE_DESKTOP
               - DEVICE_PHONE
               - DEVICE_TABLET
+        folderId:
+          description: |-
+            **string**
+            ID of the folder.
+          type: string
       required:
         - phrase
       additionalProperties: false
@@ -54,6 +59,7 @@ sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getRegionsDistribution.md
 
 # Web Search API, REST: Wordstat.GetRegionsDistribution
 
+Not implemented.
 The method returns the distribution of the number of queries containing the given keyword globally by region for the last 30 days.
 
 ## HTTP request
@@ -70,7 +76,8 @@ POST https://searchapi.{{ api-host }}/v2/wordstat/regions
   "region": "string",
   "devices": [
     "string"
-  ]
+  ],
+  "folderId": "string"
 }
 ```
 
@@ -96,6 +103,9 @@ A list of device types a query was made from.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
+|| folderId | **string**
+
+ID of the folder. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.GetRegionsDistributionResponse}

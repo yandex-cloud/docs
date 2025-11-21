@@ -5,7 +5,7 @@ To launch an app:
 1. [Set up {{ k8s }} resources](#create-k8s-res).
 1. [Connect to the {{ managed-k8s-name }} cluster](#cluster-connect).
 1. [Set up {{ container-registry-name }} resources](#create-cr-res).
-1. [Install {{ alb-name }}](#setup-alb).
+1. [Set up an {{ alb-name }}](#setup-alb).
 1. [Create a load balancer](#create-ingress).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -13,13 +13,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for {{ container-registry-name }}: using the storage and outgoing traffic (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* {{ container-registry-name }} fee for using the storage and outgoing traffic (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for a public IP address for an L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -29,7 +29,7 @@ The support cost includes:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Install the `jq` [JSON stream processor](https://stedolan.github.io/jq/).
+1. Install [jq](https://stedolan.github.io/jq/):
 
    ```bash
    sudo apt update && sudo apt install jq
@@ -78,10 +78,10 @@ The support cost includes:
 
 ## Create service accounts {#create-sa}
 
-For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
-* Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-* Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/registry.md) [registry](../../container-registry/concepts/docker-image.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
-* For the {{ alb-name }} Ingress controller to run, you need service accounts with the following roles:
+For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md), you need the following [service accounts](../../iam/concepts/users/service-accounts.md):
+* Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create the resources for the {{ managed-k8s-name }} cluster.
+* Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). The [nodes](../../managed-kubernetes/concepts/index.md#node-group) will use this service account to pull the required Docker images from the registry.
+* For the {{ alb-name }} ingress controller, you need service accounts with the following roles:
   * [alb.editor](../../application-load-balancer/security/index.md#alb-editor): To create the required resources.
   * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-name }}](../../certificate-manager/).
@@ -89,8 +89,8 @@ For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-
 
 ### Service account for resources {#res-sa}
 
-To create a service account which will create the resources for the {{ managed-k8s-name }} cluster:
-1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
+To create a service account that will be used to create the resources for the{{ managed-k8s-name }} cluster:
+1. Save the folder ID from your {{ yandex-cloud }} CLI profile configuration to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -126,7 +126,7 @@ To create a service account which will create the resources for the {{ managed-k
 
    {% endlist %}
 
-1. Write the service account ID to the variable:
+1. Save the service account ID to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -144,7 +144,7 @@ To create a service account which will create the resources for the {{ managed-k
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-editor }}](../../iam/roles-reference.md#editor) role for the folder:
+1. Assign the [{{ roles-editor }}](../../iam/roles-reference.md#editor) role for the folder to the service account:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -155,8 +155,8 @@ To create a service account which will create the resources for the {{ managed-k
 
 ### Service account for nodes {#node-sa}
 
-To create a service account that lets nodes download the necessary Docker images from the registry:
-1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
+To create a service account the nodes will use to pull the required Docker images from the registry:
+1. Save the folder ID from your {{ yandex-cloud }} CLI profile configuration to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -192,7 +192,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Write the service account ID to the variable:
+1. Save the service account ID to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -210,7 +210,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Assign the service account the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder:
+1. Assign the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder to the service account:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -219,9 +219,9 @@ To create a service account that lets nodes download the necessary Docker images
      --subject serviceAccount:$NODE_SA_ID
    ```
 
-### Service account required for the {{ alb-name }} Ingress controller {#ic-sa}
+### Service account for the {{ alb-name }} ingress controller {#ic-sa}
 
-1. Write the folder ID from your {{ yandex-cloud }} CLI profile configuration to the variable:
+1. Save the folder ID from your {{ yandex-cloud }} CLI profile configuration to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -257,7 +257,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Write the service account ID to the variable:
+1. Save the service account ID to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -275,7 +275,7 @@ To create a service account that lets nodes download the necessary Docker images
 
    {% endlist %}
 
-1. Assign the service account the following roles for the folder:
+1. Assign the following roles for the folder to the service account:
    * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
    * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
@@ -325,20 +325,20 @@ Create a container registry:
 yc container registry create --name yc-auto-cr
 ```
 
-### Configure Docker credential helper {#config-ch}
+### Configure a Docker credential helper {#config-ch}
 
-To facilitate authentication in {{ container-registry-name }}, configure a [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper). It enables you to use private {{ yandex-cloud }} registries without running the `docker login` command.
+To simplify authentication in {{ container-registry-name }}, configure a [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper). It enables you to use private {{ yandex-cloud }} registries without running the `docker login` command.
 
-To configure a credential helper, run the following command:
+To configure a credential helper, run this command:
 
 ```bash
 yc container registry configure-docker
 ```
 
-### Prepare a Docker image {#docker-image}
+### Set up a Docker image {#docker-image}
 
 Build a Docker image and push it to the registry.
-1. Create a Dockerfile named `hello.dockerfile` and add the following lines to it:
+1. Create a Dockerfile named `hello.dockerfile` and paste the following lines into it:
 
    ```docker
    FROM nginx
@@ -346,7 +346,7 @@ Build a Docker image and push it to the registry.
    ```
 
 1. Build the Docker image.
-   1. Get the ID of the [previously created](#registry-create) registry and write it to the variable:
+   1. Get the ID of the [previously created](#registry-create) registry and save it to a variable:
 
       {% list tabs group=programming_language %}
 
@@ -376,7 +376,7 @@ Build a Docker image and push it to the registry.
       docker push {{ registry }}/$REGISTRY_ID/nginx:hello
       ```
 
-1. Make sure the Docker image was pushed to the registry:
+1. Make sure the image is now in the registry:
 
    ```bash
    yc container image list
@@ -394,14 +394,14 @@ Build a Docker image and push it to the registry.
 
 ### Run the test app {#test-app}
 
-Create a [pod](../../managed-kubernetes/concepts/index.md#pod) with the app from the Docker image and make sure that no additional authentication in {{ container-registry-name }} was required to push the Docker image.
+Create a [pod](../../managed-kubernetes/concepts/index.md#pod) with the app from the Docker image and make sure no additional authentication in {{ container-registry-name }} was required to push the Docker image.
 1. Run the pod with the app from the Docker image:
 
    ```bash
    kubectl run --attach hello-nginx --image {{ registry }}/$REGISTRY_ID/nginx:hello
    ```
 
-1. Make sure the pod has entered the `Running` state and learn its full name.
+1. Make sure the pod status changed to `Running` state and get the full pod name.
 
    ```bash
    kubectl get pods
@@ -414,7 +414,7 @@ Create a [pod](../../managed-kubernetes/concepts/index.md#pod) with the app from
    hello-nginx-5847fb96**-*****  1/1    Running  0         1h
    ```
 
-1. Check the logs of the container running on this pod:
+1. Check the logs of the container running on that pod:
 
    ```bash
    kubectl logs hello-nginx-5847fb96**-*****
@@ -426,16 +426,16 @@ Create a [pod](../../managed-kubernetes/concepts/index.md#pod) with the app from
    Hi, I'm inside
    ```
 
-   The pod pushed the Docker image with no additional authentication on the {{ container-registry-name }} side.
+   The pod pulled the Docker image with no additional authentication required on the {{ container-registry-name }} side.
 
-## Install {{ alb-name }} {#setup-alb}
+## Set up an {{ alb-name }} {#setup-alb}
 
-To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [follow this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
+To set up an [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), follow [this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 
 ## Create a load balancer {#create-ingress}
 
 1. Create a load balancer for [{{ k8s }} services](../../managed-kubernetes/concepts/index.md#service).
-   1. Create the `ingress.yaml` file with the Ingress controller manifest:
+   1. Create the `ingress.yaml` file with the ingress controller manifest:
 
       ```yaml
       ---
@@ -482,19 +482,19 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
       ```
 
       Where:
-      * `ingress.alb.yc.io/subnets`: Specify one or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} will work with.
-      * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the node group subnet or its security group.
-      * `ingress.alb.yc.io/external-ipv4-address`: To get a new IP address or provide public access to {{ alb-name }} from the internet, specify the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set the value to `auto`.
+      * `ingress.alb.yc.io/subnets`: Specify one or more [subnets](../../vpc/concepts/network.md#subnet) for the {{ alb-name }}.
+      * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port 10501 in the node group subnet or to its security group.
+      * `ingress.alb.yc.io/external-ipv4-address`: To get a new IP address and enable public access to an {{ alb-name }} from the internet, specify the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set the value to `auto`.
 
-        With `auto` setting, deleting the Ingress controller will also remove its associated IP address from the cloud. To avoid this, use a reserved IP address.
-      * `ingress.alb.yc.io/group-name`: Specify the group name. It groups {{ k8s }} Ingress resources served by a separate {{ alb-name }} instance.
+        If you set `auto`, deleting the ingress controller will also remove its associated IP address from the cloud. To avoid this, use a reserved IP address.
+      * `ingress.alb.yc.io/group-name`: Specify the group name. The group combines {{ k8s }} Ingress resources served by a single {{ alb-name }} instance.
    1. Create a load balancer:
 
       ```bash
       kubectl apply -f ingress.yaml
       ```
 
-   1. Wait until the load balancer is created and gets a public IP address. This may take several minutes:
+   1. Wait until the load balancer is created and assigned a public IP address. This may take several minutes:
 
       ```bash
       kubectl get ingress alb-demo-tls
@@ -504,17 +504,17 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
       ```bash
       NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-      alb-demo-tls  <none>  <domain_name>  <IP_address>  80,443  15h
+      alb-demo-tls  <none>  <domain_name>  <IP_address>  80, 443  15h
       ```
 
-      Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.
-1. Follow the `https://<domain_name>` link and make sure that your application is successfully published.
+      The system will automatically deploy an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) based on the load balancer configuration.
+1. Follow the `https://<domain_name>` link to make sure your application is successfully published.
 
     {% include [check-sg-if-url-unavailable-lvl3](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 
@@ -523,26 +523,26 @@ Some resources incur charges. To avoid paying for them, delete the resources you
    ```
 
 1. Delete the service accounts.
-   * Delete the service account created for resources:
+   * Delete the service account for resources:
 
      ```bash
      yc iam service-account delete --id $RES_SA_ID
      ```
 
-   * Delete the service account created for nodes:
+   * Delete the service account for nodes:
 
      ```bash
      yc iam service-account delete --id $NODE_SA_ID
      ```
 
-   * Delete the service account created for the load balancer:
+   * Delete the service account for the load balancer:
 
      ```bash
      yc iam service-account delete --id $IC_SA_ID
      ```
 
-1. Delete resources {{ container-registry-name }}.
-   1. Find out the ID of the Docker image pushed to the registry:
+1. Delete the {{ container-registry-name }} resources.
+   1. Get the ID of the Docker image pushed to the registry:
 
       {% list tabs group=programming_language %}
 
