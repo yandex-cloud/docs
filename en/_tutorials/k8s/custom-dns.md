@@ -1,10 +1,10 @@
-# Integrating with a corporate DNS zone
+# Integration with a corporate DNS zone
 
 
-To integrate a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) with a private corporate [zone](../../dns/concepts/dns-zone.md) DNS:
+To integrate a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) with a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
 
 1. [Configure the DNS server](#setup-dns).
-1. [Specify a corporate DNS zone](#setup-zone).
+1. [Specify the corporate DNS zone](#setup-zone).
 1. [Create a dns-utils pod](#create-pod).
 1. [Check DNS integration](#verify-dns).
 
@@ -13,10 +13,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for each VM (cluster nodes, DNS server, VM for the {{ managed-k8s-name }} cluster management without public access): using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for each VM ({{ managed-k8s-name }} cluster nodes, DNS server, management VMs without public access) that covers the use of computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for VM public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
@@ -44,7 +44,7 @@ The support cost includes:
      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. This file describes:
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file for the {{ managed-k8s-name }} cluster to the same working directory. This file describes:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * {{ managed-k8s-name }} cluster.
@@ -61,7 +61,7 @@ The support cost includes:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -76,11 +76,11 @@ The support cost includes:
 
 ## Configure the DNS server {#setup-dns}
 
-When configuring, it is crucial to ensure IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers themselves can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). In the example below, a DNS server with the `10.129.0.3` address and `ns.example.com` name serves the `example.com` zone.
+It is crucial to ensure IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can either reside in [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml). This example shows the `ns.example.com` DNS server at `10.129.0.3` serving the `example.com` zone.
 
-## Specify a corporate DNS zone {#setup-zone}
+## Specify the corporate DNS zone {#setup-zone}
 
-1. Prepare the `custom-zone.yaml` file with the following content:
+1. Create the `custom-zone.yaml` file with the following content:
 
    ```yaml
    kind: ConfigMap
@@ -112,9 +112,9 @@ When configuring, it is crucial to ensure IP connectivity between the {{ managed
    configmap/coredns-user replaced
    ```
 
-## Create a dns-utils pod {#create-pod}
+## Create a dns-util pod {#create-pod}
 
-1. Create a [pod](../../managed-kubernetes/concepts/index.md#pod).
+1. Create a [pod](../../managed-kubernetes/concepts/index.md#pod):
 
    ```bash
    kubectl run jessie-dnsutils \
@@ -129,7 +129,7 @@ When configuring, it is crucial to ensure IP connectivity between the {{ managed
    pod/jessie-dnsutils created
    ```
 
-1. View details of the pod you created:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod jessie-dnsutils
@@ -145,7 +145,7 @@ When configuring, it is crucial to ensure IP connectivity between the {{ managed
 
 ## Check DNS integration {#verify-dns}
 
-Run the `nslookup` command in the active container:
+Run the `nslookup` command in the running container:
 
 ```bash
 kubectl exec jessie-dnsutils -- nslookup ns.example.com
@@ -162,13 +162,13 @@ Address:  10.129.0.3
 
 {% note info %}
 
-If the corporate DNS zone is unavailable, [make sure](../../managed-kubernetes/operations/connect/security-groups.md) the security groups for the {{ managed-k8s-name }} cluster and its node groups have correct configurations. If a rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
+If the corporate DNS zone is unavailable, [make sure](../../managed-kubernetes/operations/connect/security-groups.md) the security groups for the {{ managed-k8s-name }} cluster and its node groups are configured correctly. If a rule is missing, [add it](../../vpc/operations/security-group-add-rule.md). The rules must allow access to resources from the cluster.
 
 {% endnote %}
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. Delete the {{ managed-k8s-name }} cluster:
 
    {% list tabs group=instructions %}

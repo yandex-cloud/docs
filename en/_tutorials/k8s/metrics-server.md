@@ -1,20 +1,20 @@
 # Updating the Metrics Server parameters
 
-[Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster service, which is installed by default. It collects metrics from each {{ managed-k8s-name }} cluster [node](../../managed-kubernetes/concepts/index.md#node-group) using `kubelet` and provides them through the [Metrics API](https://github.com/kubernetes/metrics). [Horizontal Pod Autoscaler and Vertical Pod Autoscaler](../../managed-kubernetes/concepts/autoscale.md) run based on data from these metrics. You can get the metric data using the `kubectl top node` or `kubectl top pod` commands. For more information, see the [Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
+[Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) service installed by default. It collects metrics from each {{ managed-k8s-name }} cluster [node](../../managed-kubernetes/concepts/index.md#node-group) using `kubelet` and sends them through the [Metrics API](https://github.com/kubernetes/metrics). [Horizontal Pod Autoscaler and Vertical Pod Autoscaler](../../managed-kubernetes/concepts/autoscale.md) run based on data from these metrics. You can get the metric data using the `kubectl top node` or `kubectl top pod` commands. For more information about Metrics Server, see [this guide](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
 
-A Metrics Server [pod](../../managed-kubernetes/concepts/index.md#pod) has two containers: `metrics-server` and `metrics-server-nanny`, the latter acting as an [addon-resizer](https://github.com/kubernetes/autoscaler/tree/master/addon-resizer#addon-resizer) for `metrics-server`. The `metrics-server-nanny` container is responsible for the automatic allocation of resources to the `metrics-server` container depending on the number of {{ managed-k8s-name }} cluster nodes.
+A Metrics Server [pod](../../managed-kubernetes/concepts/index.md#pod) has two containers: `metrics-server` and `metrics-server-nanny`, the latter acting as [addon-resizer](https://github.com/kubernetes/autoscaler/tree/master/addon-resizer#addon-resizer) for `metrics-server`. The `metrics-server-nanny` container handles automatic allocation of resources to the `metrics-server` container based on the number of {{ managed-k8s-name }} cluster nodes.
 
-In some cases, the `metrics-server-nanny` component may run incorrectly. For instance, if many pods are created while there are few nodes in the {{ managed-k8s-name }} cluster. If so, the Metrics Server pod will exceed its limits, which may degrade the server performance.
+In some cases, `metrics-server-nanny` may run incorrectly. For example, if a {{ managed-k8s-name }} cluster with few nodes runs a large number of pods. In this case, the Metrics Server pod will exceed its limits, which may degrade Metrics Server performance.
 
-To avoid this, change the parameters of the Metrics Server manually:
+To avoid this, update the Metrics Server parameters manually:
 
-1. [View the amount of resources allocated to the Metrics Server pod](#get-resources).
+1. [View the resources allocated to the Metrics Server pod](#get-resources).
 1. [Update the Metrics Server parameters](#update-parameters).
 1. [Check the result](#check-result).
 
 To restore the default values of the Metrics Server parameters, [reset them](#reset).
 
-## View the amount of resources allocated to the Metrics Server pod {#get-resources}
+## View the resources allocated to the Metrics Server pod {#get-resources}
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -30,7 +30,7 @@ To restore the default values of the Metrics Server parameters, [reset them](#re
       jq '.spec.containers[] | select(.name == "metrics-server") | .resources'
     ```
 
-    The resources are calculated using the following formula:
+    The resources are calculated using the following formulas:
 
     ```text
     cpu = baseCPU + cpuPerNode * nodesCount
@@ -39,11 +39,11 @@ To restore the default values of the Metrics Server parameters, [reset them](#re
 
     Where:
 
-    * `baseCPU`: Basic [number of CPUs](../../compute/concepts/vm-platforms.md).
+    * `baseCPU`: Base [CPU count](../../compute/concepts/vm-platforms.md).
     * `cpuPerNode`: Number of CPUs per node.
     * `nodesCount`: Number of {{ managed-k8s-name }} nodes.
-    * `baseMemory`: Basic amount of RAM.
-    * `memoryPerNode`: Amount of RAM per node.
+    * `baseMemory`: Base RAM size.
+    * `memoryPerNode`: RAM per node.
 
 ## Update the Metrics Server parameters {#update-parameters}
 
@@ -63,14 +63,14 @@ To restore the default values of the Metrics Server parameters, [reset them](#re
       NannyConfiguration: |-
         apiVersion: nannyconfig/v1alpha1
         kind: NannyConfiguration
-        baseCPU: <basic_number_of_CPUs>m
+        baseCPU: <base_CPU_count>m
         cpuPerNode: <number_of_CPUs_per_node>m
-        baseMemory: <basic_amount_of_RAM>Mi
-        memoryPerNode: <amount_of_RAM_per_node>Mi
+        baseMemory: <base_RAM_size>Mi
+        memoryPerNode: <RAM_per_node>Mi
     ...
     ```
 
-    {% cut "Sample configuration file" %}
+    {% cut "Configuration file example" %}
 
     ```yaml
     apiVersion: v1
@@ -95,7 +95,7 @@ To restore the default values of the Metrics Server parameters, [reset them](#re
 
     {% endcut %}
 
-1. Restart the Metrics Server. To do this, delete it and wait until the {{ k8s }} controller creates it again:
+1. Restart Metrics Server. To do this, delete it and wait until the {{ k8s }} controller recreates it:
 
     ```bash
     kubectl delete deployment metrics-server \
@@ -104,7 +104,7 @@ To restore the default values of the Metrics Server parameters, [reset them](#re
 
 ## Check the result {#check-result}
 
-[View](#get-resources) the amount of resources allocated to the Metrics Server pod once again and make sure it has been updated for the new pod.
+[View](#get-resources) the resources allocated for the Metrics Server pod again and make sure the new pod's allocation is different.
 
 ## Reset the Metrics Server parameters {#reset}
 
@@ -117,4 +117,4 @@ kubectl delete deployment metrics-server \
   --namespace=kube-system
 ```
 
-As a result, a new pod of the Metrics Server is created automatically.
+This will automatically create a new Metrics Server pod.

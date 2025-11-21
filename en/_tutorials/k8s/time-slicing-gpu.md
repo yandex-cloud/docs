@@ -1,22 +1,22 @@
-# Setting up Time-Slicing GPUs
+# Setting up time-slicing GPUs
 
 
-The [Time-Slicing GPUs plugin in {{ k8s }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) is used to alternate workloads that run on a single [GPU](../../compute/concepts/gpus.md) with oversubscription.
+[Time-slicing GPUs in {{ k8s }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) enables workloads scheduled on a single oversubscribed [GPU](../../compute/concepts/gpus.md) to interleave with one another.
 
-To install the Time-Slicing GPUs plugin in {{ managed-k8s-name }}:
+To set up time-slicing GPUs in {{ managed-k8s-name }}:
 
-1. [Configure Time-Slicing GPUs](#configure-time-slicing).
-1. [Test Time-Slicing GPUs](#check-time-slicing).
+1. [Configure time-slicing GPUs](#configure-time-slicing).
+1. [Test time-slicing GPUs](#check-time-slicing).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -30,16 +30,16 @@ The support cost includes:
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating them, specify the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating, specify the preconfigured security groups.
 
-1. [Create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4) and the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4) and preconfigured security groups.
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Configure Time-Slicing GPUs {#configure-time-slicing}
+## Configure time-slicing GPUs {#configure-time-slicing}
 
 1. Create a time-slicing configuration:
-   1. Prepare the `time-slicing-config.yaml` file with the following content:
+   1. Create the `time-slicing-config.yaml` file with the following content:
 
       ```yaml
       ---
@@ -84,7 +84,7 @@ The support cost includes:
       configmap/time-slicing-config created
       ```
 
-1. Install the [GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html):
+1. Install [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html):
 
    ```bash
    helm repo add nvidia https://helm.ngc.nvidia.com/nvidia && \
@@ -96,7 +96,7 @@ The support cost includes:
      gpu-operator nvidia/gpu-operator
    ```
 
-1. Apply the time-slicing configuration to the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or [node group](../../managed-kubernetes/concepts/index.md#node-group):
+1. Apply the time-slicing configuration to your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or [node group](../../managed-kubernetes/concepts/index.md#node-group):
 
    {% list tabs %}
 
@@ -109,21 +109,21 @@ The support cost includes:
        --patch='{"spec": {"devicePlugin": {"config": {"name": "time-slicing-config", "default": "tesla-t4"}}}}'
      ```
 
-   - Node group {{ managed-k8s-name }}
+   - {{ managed-k8s-name }} node group
 
      ```bash
      yc managed-kubernetes node-group add-labels <node_group_ID_or_name> \
        --labels nvidia.com/device-plugin.config=tesla-t4
      ```
 
-     You can get the ID and name of the {{ managed-k8s-name }} node group with a [list of node groups in your cluster](../../managed-kubernetes/operations/node-group/node-group-list.md#list).
+     You can get the {{ managed-k8s-name }} node group ID and name with the [list of node groups in the folder](../../managed-kubernetes/operations/node-group/node-group-list.md#list).
 
    {% endlist %}
 
-## Test Time-Slicing GPUs {#check-time-slicing}
+## Test time-slicing GPUs {#check-time-slicing}
 
 1. Create a test app:
-   1. Save the following app creation specification to a YAML file named `nvidia-plugin-test.yml`.
+   1. Save the following app specification to a YAML file named `nvidia-plugin-test.yml`.
 
       [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is the {{ k8s }} API object that manages the replicated application.
 
@@ -180,7 +180,7 @@ The support cost includes:
    kubectl get pods | grep nvidia-plugin-test
    ```
 
-1. Run the `nvidia-smi` command in the active `nvidia-container-toolkit` {{ managed-k8s-name }} pod:
+1. Run the `nvidia-smi` command in the running `nvidia-container-toolkit` {{ managed-k8s-name }} pod:
 
    ```bash
    kubectl exec <nvidia-container-toolkit_pod_name> \
@@ -221,4 +221,4 @@ The support cost includes:
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you had created any [service accounts](../../iam/concepts/users/service-accounts.md), [delete them](../../iam/operations/sa/delete.md).
+1. If you created any [service accounts](../../iam/concepts/users/service-accounts.md), [delete them](../../iam/operations/sa/delete.md).

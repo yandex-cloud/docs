@@ -5,6 +5,7 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getTop.md
 
 # Web Search API, gRPC: WordstatService.GetTop
 
+Not implemented.
 The method returns the last 30 days data about popular queries containing the specified keyword and queries that are similar to the specified one.
 
 ## gRPC request
@@ -22,7 +23,8 @@ The method returns the last 30 days data about popular queries containing the sp
   ],
   "devices": [
     "Device"
-  ]
+  ],
+  "folder_id": "string"
 }
 ```
 
@@ -46,6 +48,9 @@ A list of device types a query was made from.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
+|| folder_id | **string**
+
+ID of the folder. ||
 |#
 
 ## GetTopResponse {#yandex.cloud.searchapi.v2.GetTopResponse}

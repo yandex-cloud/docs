@@ -1,6 +1,6 @@
 ---
 title: Integration with Crossplane
-description: Follow this guide to configure integration with Crossplane.
+description: Follow this tutorial to configure integration with Crossplane.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/crossplane'
 ---
 

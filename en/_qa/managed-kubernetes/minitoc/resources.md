@@ -2,4 +2,4 @@
 
 * [Can I change resources for each node in a {{ k8s }} cluster?](#change-resources)
 
-* [Who monitors the scaling of a {{ k8s }} cluster?](#scaling)
+* [Who handles {{ k8s }} cluster scaling?](#scaling)

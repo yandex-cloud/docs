@@ -44,6 +44,11 @@ apiPlayground:
               - DEVICE_DESKTOP
               - DEVICE_PHONE
               - DEVICE_TABLET
+        folderId:
+          description: |-
+            **string**
+            ID of the folder.
+          type: string
       required:
         - phrase
       additionalProperties: false
@@ -53,6 +58,7 @@ sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getTop.md
 
 # Web Search API, REST: Wordstat.GetTop
 
+Not implemented.
 The method returns the last 30 days data about popular queries containing the specified keyword and queries that are similar to the specified one.
 
 ## HTTP request
@@ -72,7 +78,8 @@ POST https://searchapi.{{ api-host }}/v2/wordstat/topRequests
   ],
   "devices": [
     "string"
-  ]
+  ],
+  "folderId": "string"
 }
 ```
 
@@ -96,6 +103,9 @@ A list of device types a query was made from.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
+|| folderId | **string**
+
+ID of the folder. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.GetTopResponse}

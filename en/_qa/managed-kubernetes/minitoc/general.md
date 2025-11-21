@@ -2,7 +2,7 @@
 
 * [Which {{ k8s }} CLI (kubectl) version do I need to install for comprehensive cluster management?](#kubectl-version)
 
-* [Can {{ yandex-cloud }} restore the health of a cluster if I configure it incorrectly?](#tech-support-cases)
+* [Can {{ yandex-cloud }} restore the health of my cluster if I configure it incorrectly?](#tech-support-cases)
 
 * [Who will be monitoring the cluster health?](#health-check)
 

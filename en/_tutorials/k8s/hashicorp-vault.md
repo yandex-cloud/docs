@@ -1,33 +1,33 @@
 # Using HashiCorp Vault to store secrets
 
 
-[HashiCorp Vault](https://www.vaultproject.io/) is an open-source tool for securely storing and accessing secrets (e.g., passwords, certificates, and tokens).
+[HashiCorp Vault](https://www.vaultproject.io/) is an open-source tool for securely storing and accessing different kinds of secrets, such as passwords, certificates, and tokens.
 
-Configure storage of secrets and access to them inside a {{ managed-k8s-full-name }} cluster using a {{ marketplace-full-name }} product called [HashiCorp Vault with {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) support.
+Configure secret storage and access within your {{ managed-k8s-full-name }} cluster using [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) from {{ marketplace-full-name }}.
 
-This guide describes a use case of mounting a secret from HashiCorp Vault using a [Container Storage Interface](https://kubernetes.io/docs/concepts/storage/volumes/#csi) (CSI) volume.
+This tutorial shows how to mount a secret from HashiCorp Vault using a [Container Storage Interface](https://kubernetes.io/docs/concepts/storage/volumes/#csi) (CSI) volume.
 
-To enable access to a secret in a {{ managed-k8s-name }} cluster using HashiCorp Vault:
+To set up access to a secret in a {{ managed-k8s-name }} cluster using HashiCorp Vault:
 1. [Get your cloud ready](#before-you-begin).
 1. [Install HashiCorp Vault](#install-vault).
 1. [Log in to HashiCorp Vault](#login-vault).
 1. [Create a secret](#create-secret).
 1. [Configure the {{ k8s }} authentication method](#kubernetes-authentication).
-1. [Install the SCI driver for the secret storage](#install-sci).
+1. [Install the SCI driver for the secret vault](#install-sci).
 1. [Create a SecretProviderClass resource](#create-resource).
-1. [Create a pod with a mounted secret](#create-pod).
+1. [Create a pod with the secret mounted](#create-pod).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ kms-name }} fee for the number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Get your cloud ready {#before-you-begin}
@@ -39,11 +39,11 @@ The support cost includes:
     * Manually {#manual}
 
         1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-        1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
-        1. [Create service accounts](../../iam/operations/sa/create.md):
+        1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ k8s }} cluster and node group will reside.
+        1. [Create these service accounts](../../iam/operations/sa/create.md):
 
-            * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ k8s }} cluster is created. This service account will be used to create the resources required for the {{ k8s }} cluster.
-            * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). Nodes will pull the required [Docker images](../../container-registry/concepts/registry.md) from the [registry](../../container-registry/concepts/docker-image.md) on behalf of this account.
+            * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ k8s }} cluster. This service account will be used to create resources for your {{ k8s }} cluster.
+            * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). The nodes will use this account to pull the required [Docker images](../../container-registry/concepts/docker-image.md) from the [registry](../../container-registry/concepts/registry.md).
 
             {% note tip %}
 
@@ -55,7 +55,7 @@ The support cost includes:
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-        1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
+        1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
 
     * Using {{ TF }} {#tf}
 
@@ -69,25 +69,25 @@ The support cost includes:
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
             * {{ k8s }} cluster.
-            * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group to operate.
+            * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and node group.
             * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
                 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-        1. Specify the following in the `k8s-cluster.tf` file:
+        1. Specify the following in `k8s-cluster.tf`:
 
             * [Folder ID](../../resource-manager/operations/folder/get-id.md).
             * {{ k8s }} version for the {{ k8s }} cluster and node groups.
             * {{ k8s }} cluster CIDR.
             * Name of the {{ managed-k8s-name }} cluster service account.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -101,7 +101,7 @@ The support cost includes:
 
 ## Install HashiCorp Vault {#install-vault}
 
-Install HashiCorp Vault using Helm and initialize the storage [according to instructions](../../managed-kubernetes/operations/applications/hashicorp-vault.md). In the installation command, specify the `hcv` namespace and add the extra parameters to activate the [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi) mechanism:
+Install HashiCorp Vault using Helm and initialize the vault by following [this guide](../../managed-kubernetes/operations/applications/hashicorp-vault.md). In the installation command, specify the `hcv` namespace and add extra parameters to set up the [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi):
 
 ```bash
 --namespace hcv \
@@ -111,7 +111,7 @@ Install HashiCorp Vault using Helm and initialize the storage [according to inst
 
 ## Log in to HashiCorp Vault {#login-vault}
 
-1. Run a HashiCorp Vault interactive shell session for the `hashicorp-vault-0` pod:
+1. Start an interactive HashiCorp Vault shell session for the `hashicorp-vault-0` pod:
 
     ```bash
     kubectl exec -it hashicorp-vault-0 \
@@ -119,31 +119,31 @@ Install HashiCorp Vault using Helm and initialize the storage [according to inst
        -- /bin/sh
     ```
 
-1. [Unseal](https://www.vaultproject.io/docs/concepts/seal#why) the storage:
+1. [Unseal](https://www.vaultproject.io/docs/concepts/seal#why) the vault:
 
     ```bash
     vault operator unseal
     ```
 
-    Enter one of the recovery keys (`Recovery Key`) you got during [storage initialization](../../managed-kubernetes/operations/applications/hashicorp-vault.md#vault-init).
+    Enter one of the recovery keys you got during [vault initialization](../../managed-kubernetes/operations/applications/hashicorp-vault.md#vault-init).
 
-1. Log in to HashiCorp Vault using the root token:
+1. Log in to HashiCorp Vault with the root token:
 
     ```bash
     vault login
     ```
 
-    Enter the root token (`Initial Root Token`) you got during storage initialization.
+    Enter the root token (`Initial Root Token`) you got during vault initialization.
 
 ## Create a secret {#create-secret}
 
-1. Enable the `kv` secret mechanism at the `secret` path:
+1. Enable the `kv` secrets engine at the `secret` path:
 
     ```bash
     vault secrets enable -path=secret kv
     ```
 
-1. Create a secret at `secret/db-pass`. Specify a password as a secret:
+1. Create a secret at `secret/db-pass` with the password:
 
     ```bash
     vault kv put secret/db-pass password="12345678"
@@ -166,7 +166,7 @@ Install HashiCorp Vault using Helm and initialize the storage [according to inst
 
 ## Configure the {{ k8s }} authentication method {#kubernetes-authentication}
 
-This method will allow you to log in using a {{ k8s }} service account token.
+This method allows authentication with a {{ k8s }} service account token.
 
 1. Enable the {{ k8s }} authentication method:
 
@@ -174,7 +174,7 @@ This method will allow you to log in using a {{ k8s }} service account token.
     vault auth enable kubernetes
     ```
 
-1. Configure authentication with {{ k8s }} API address:
+1. Configure authentication using the {{ k8s }} API address:
 
     ```bash
     vault write auth/kubernetes/config \
@@ -183,7 +183,7 @@ This method will allow you to log in using a {{ k8s }} service account token.
 
     The `KUBERNETES_PORT_443_TCP_ADDR` environment variable refers to the internal network address of the {{ k8s }} node.
 
-1. Create a policy named `internal-app` that will allow the {{ k8s }} service account to read the secret created earlier:
+1. Create a policy named `internal-app` that will allow the {{ k8s }} service account to read the secret you created:
 
     ```bash
     vault policy write internal-app - <<EOF
@@ -193,7 +193,7 @@ This method will allow you to log in using a {{ k8s }} service account token.
     EOF
     ```
 
-1. Create the `database` role that will link the `internal-app` policy to the {{ k8s }} `webapp-sa` service account (you will create it later):
+1. Create the `database` role that will associate the `internal-app` policy with the {{ k8s }} `webapp-sa` service account (you will create it later):
 
     ```bash
     vault write auth/kubernetes/role/database \
@@ -203,7 +203,7 @@ This method will allow you to log in using a {{ k8s }} service account token.
        ttl=20m
     ```
 
-    Tokens returned after authentication will be valid for 20 minutes.
+    Tokens returned upon authentication are valid for 20 minutes.
 
 1. Exit HashiCorp Vault:
 
@@ -211,9 +211,9 @@ This method will allow you to log in using a {{ k8s }} service account token.
     exit
     ```
 
-## Install the SCI driver for the secret storage {#install-sci}
+## Install the SCI driver for the secret vault {#install-sci}
 
-1. Add a Helm repository named `secrets-store-csi-driver`:
+1. Add the `secrets-store-csi-driver` Helm repository:
 
     ```bash
     helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
@@ -242,7 +242,7 @@ This method will allow you to log in using a {{ k8s }} service account token.
 
 ## Create a SecretProviderClass resource {#create-resource}
 
-1. Create a file named `spc-vault-database.yaml` with settings that are provided to the CSI provider:
+1. Create a file named `spc-vault-database.yaml` with settings for the CSI provider:
 
     {% cut "spc-vault-database.yaml" %}
 
@@ -264,13 +264,13 @@ This method will allow you to log in using a {{ k8s }} service account token.
 
     {% endcut %}
 
-1. Create a resource named `SecretProviderClass`:
+1. Create the `SecretProviderClass` resource:
 
     ```bash
     kubectl apply -f spc-vault-database.yaml -n hcv
     ```
 
-## Create a pod with a mounted secret {#create-pod}
+## Create a pod with the secret mounted {#create-pod}
 
 1. Create a service account named `webapp-sa` for the {{ k8s }} cluster:
 
@@ -327,7 +327,7 @@ This method will allow you to log in using a {{ k8s }} service account token.
     webapp   1/1     Running   0          5m25s
     ```
 
-1. Display the secret password recorded to the file system at `/mnt/secrets-store/db-password`:
+1. Display the secret password stored at `/mnt/secrets-store/db-password` in the file system:
 
     ```bash
     kubectl exec webapp -n hcv -- cat /mnt/secrets-store/db-password

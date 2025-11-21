@@ -1,9 +1,9 @@
-# Installing an NGINX Ingress controller with a {{ lets-encrypt }} certificate manager
+# Installing an NGINX ingress controller with a {{ lets-encrypt }} certificate manager
 
-To use [{{ k8s }}](https://kubernetes.io) to create an [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/) and protect it with a certificate, follow these steps:
+To to create an [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/) using [{{ k8s }}](https://kubernetes.io) and secure it with a certificate, follow these steps:
 
-1. [Install the NGINX Ingress controller](#install-controller).
-1. [Configure a DNS record for the Ingress controller](#connecting-certs-manager).
+1. [Install the NGINX ingress controller](#install-controller).
+1. [Set up a DNS record for the ingress controller](#connecting-certs-manager).
 1. [Install the certificate manager](#install-certs-manager).
 1. [Create a ClusterIssuer](#create-issuer).
 1. [Create objects to test cert-manager](#install-objects).
@@ -14,10 +14,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for an NLB (see [{{ network-load-balancer-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for public IP addresses, if assigned to cluster nodes, and a public IP address for an NLB (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
@@ -25,13 +25,13 @@ The support cost includes:
 
 ## Getting started {#before-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You need the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+1. [Create a service account](../../iam/operations/sa/create.md) with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). It needs the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [configure-cert-manager](../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account and the security groups created earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. In the cluster settings, specify the service account and the security groups created earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
@@ -40,7 +40,7 @@ The support cost includes:
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
 
-## Install the NGINX Ingress Controller {#install-controller}
+## Install the NGINX ingress controller {#install-controller}
 
 {% list tabs group=instructions %}
 
@@ -52,8 +52,8 @@ The support cost includes:
 
 - Manually {#manual}
 
-  1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
-  1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the NGINX Ingress controller, run this command:
+  1. [Install Helm](https://helm.sh/docs/intro/install).
+  1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the NGINX ingress controller, run this command:
 
      ```bash
      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
@@ -61,18 +61,18 @@ The support cost includes:
      helm install ingress-nginx ingress-nginx/ingress-nginx
      ```
 
-  The created controller will be installed behind [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
+  The created controller will be installed behind the [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
 
-  To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+  To set up the controller configuration yourself, follow the steps provided in [this Helm guide](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
 
 {% endlist %}
 
-For configure specific port forwarding during NGINX Ingress Controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
+To forward specific ports when installing the NGINX ingress controller, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
-## Configure a DNS record for the ingress controller {#connecting-certs-manager}
+## Set up a DNS record for the ingress controller {#connecting-certs-manager}
 
-If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns), you do not need to configure a DNS record: it is created automatically. Otherwise:
-1. Find out the [IP address](../../vpc/concepts/address.md) of the Ingress controller (the value in the `EXTERNAL-IP` column):
+If you are using [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns), you do not need to set up a DNS record since it is created automatically. Otherwise:
+1. Get the [IP address](../../vpc/concepts/address.md) of the ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
    kubectl get svc
@@ -87,22 +87,22 @@ If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/pro
    ...
    ```
 
-1. Add an [A record](../../dns/concepts/resource-record.md#a) pointing to the ingress controller's public IP to your DNS provider or to your own DNS server:
+1. Add an [A record](../../dns/concepts/resource-record.md#a) pointing to the ingress controller public IP address to your DNS provider or to your own DNS server:
 
    ```text
-   <your_domain> IN A <Ingress_controller_IP_address>
+   <your_domain> IN A <ingress_controller_IP_address>
    ```
 
 ## Install the certificate manager {#install-certs-manager}
 
 
 You can install the certificate manager in one of the following ways:
-* Using [{{ marketplace-full-name }}](../../marketplace/): To install cert-manager [integrated with {{ dns-name }}](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+* Using [{{ marketplace-full-name }}](../../marketplace/): To install `cert-manager` [integrated with {{ dns-name }}](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
-  This will create in the cluster a `ClusterIssuer` object configured to pass the [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) using {{ dns-name }}.
+  This will create a `ClusterIssuer` object in the cluster, configured to pass the [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge) using {{ dns-name }}.
 
-  If required, you can manually create and configure other objects: `Issuer` or `ClusterIssuer`. For more information about these objects, see the [cert-manager documentation](https://cert-manager.io/docs/configuration/).
-* Manually: To install cert-manager with no additional integrations.
+  You can manually create and configure other objects, such as `Issuer` or `ClusterIssuer`, if required. For more information about these objects, see [this cert-manager article](https://cert-manager.io/docs/configuration/).
+* Manually: To install `cert-manager` with no additional integrations.
 
   You will need to create and configure any `Issuer` and `ClusterIssuer` objects manually.
 
@@ -112,18 +112,18 @@ You can install the certificate manager in one of the following ways:
 
 - {{ marketplace-full-name }} {#marketplace}
 
-  Install the cert-manager app with the {{ dns-name }} ACME webhook plugin [by following this guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+  Install `cert-manager` with the {{ dns-name }} ACME webhook plugin by following [this guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
 
 - Manually {#manual}
 
-  1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of cert-manager. For example, run the following command for version 1.12.1:
+  1. Install the [latest version](https://github.com/cert-manager/cert-manager/releases) of `cert-manager`. For example, run the following command for version 1.12.1:
 
      ```bash
      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
      ```
 
-  1. Make sure the `cert-manager` [namespace](../../managed-kubernetes/concepts/index.md#namespace) has three [pods](../../managed-kubernetes/concepts/index.md#pod), all of them being `1/1` ready and with the `Running` status:
+  1. Make sure the `cert-manager` [namespace](../../managed-kubernetes/concepts/index.md#namespace) has three [pods](../../managed-kubernetes/concepts/index.md#pod), all of them being `1/1` ready and `Running`:
 
      ```bash
      kubectl get pods -n cert-manager --watch
@@ -144,9 +144,9 @@ You can install the certificate manager in one of the following ways:
 
 Create a [ClusterIssuer](https://cert-manager.io/docs/configuration/) object you can use to issue {{ lets-encrypt }} certificates.
 
-Certificates will be issued after you pass the [HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) using the Ingress controller you [installed earlier](#install-controller).
+Certificates will be issued after you pass the [HTTP-01 challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge) using the ingress controller you [installed earlier](#install-controller).
 
-Create an object with the required parameters:
+Create an object with the required settings:
 
 1. Create the `http01-clusterissuer.yaml` file with the object manifest:
 
@@ -167,7 +167,7 @@ Create an object with the required parameters:
               class: nginx
     ```
 
-1. Create an object in the {{ managed-k8s-name }} cluster:
+1. Create the object in the {{ managed-k8s-name }} cluster:
 
     ```bash
     kubectl apply -f http01-clusterissuer.yaml
@@ -190,10 +190,10 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
      ingressClassName: nginx
      tls:
        - hosts:
-         - <your_domain_URL_address>
+         - <your_domain_URL>
          secretName: domain-name-secret
      rules:
-       - host: <your_domain_URL_address>
+       - host: <your_domain_URL>
          http:
            paths:
            - path: /
@@ -239,7 +239,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
            - containerPort: 80
    ```
 
-1. Create objects in a {{ managed-k8s-name }} cluster:
+1. Create the objects in the {{ managed-k8s-name }} cluster:
 
    ```bash
    kubectl apply -f app.yaml
@@ -247,7 +247,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
 ## Test TLS {#test-controller}
 
-1. Make sure the [domain rights verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
+1. Make sure the [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
 
    ```bash
    kubectl describe certificate domain-name-secret
@@ -257,7 +257,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
    {% note info %}
 
-   The verification of domain rights for a {{ lets-encrypt }} certificate may take several hours.
+   Domain ownership verification for a {{ lets-encrypt }} certificate may take several hours.
 
    {% endnote %}
 
@@ -299,6 +299,6 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the public domain zone](../../dns/operations/zone-delete.md).

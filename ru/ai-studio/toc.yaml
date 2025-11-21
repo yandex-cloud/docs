@@ -1,114 +1,8 @@
 title: '{{ foundation-models-full-name }}'
 href: index.yaml
 items:
-  - name: Начало работы
-    items:
-      - name: Начало работы с {{ model-gallery-name }}
-        href: quickstart/yandexgpt.md
-  - name: Пошаговые инструкции
-    items:
-      - name: Все инструкции
-        href: operations/index.md
-      - name: Отключить логирование запросов
-        href: operations/disable-logging.md
-      - name: Получить API-ключ
-        href: operations/get-api-key.md
-      - name: Генерация текста
-        items:
-          - name: Оценить запрос в токенах
-            href: operations/generation/evaluate-request.md
-          - name: Отправить запрос в промпт-режиме
-            href: operations/generation/create-prompt.md
-          - name: Отправить серию запросов в режиме чата
-            href: operations/generation/create-chat.md
-          - name: Отправить асинхронный запрос
-            href: operations/generation/async-request.md
-          - name: Вызвать функцию из модели
-            href: operations/generation/function-call.md
-      - name: Генерация изображений
-        href: operations/generation/yandexart-request.md
-      - name: Пакетная обработка данных
-        href: operations/batch/create.md
-      - name: Работа с выделенными инстансами
-        items:
-          - name: Создать инстанс
-            href: operations/resources/create-instance.md
-          - name: Получить информацию об инстансе
-            href: operations/resources/get-instance.md
-          - name: Изменить инстанс
-            href: operations/resources/edit-instance.md
-          - name: Клонировать инстанс
-            href: operations/resources/clone-instance.md
-          - name: Остановить и запустить инстанс
-            href: operations/resources/start-stop-instance.md
-          - name: Управлять метками инстанса
-            href: operations/resources/labels-instance.md
-          - name: Отправить запрос к инстансу
-            href: operations/resources/request-instance.md
-          - name: Удалить инстанс
-            href: operations/resources/delete-instance.md
-      - name: Классификация
-        items:
-          - name: Использовать классификаторы по промпту
-            href: operations/classifier/readymade.md
-          - name: Использовать дообученные классификаторы
-            href: operations/classifier/additionally-trained.md
-      - name: Эмбеддинги
-        items:
-          - name: Использовать эмбеддинги в поиске по базе знаний
-            href: operations/embeddings/search.md
-      - name: Работа с датасетами
-        items:
-          - name: Создать датасет
-            href: operations/resources/create-dataset.md
-          - name: Создать датасет для дообучения генерации текста
-            href: operations/resources/create-dataset-gpt.md
-          - name: Создать датасет для дообучения классификации текста
-            href: operations/resources/create-dataset-classifier.md
-      - name: Дообучение моделей
-        items:
-          - name: Дообучить модель генерации текста
-            href: operations/tuning/create.md
-          - name: Дообучить модель классификации текста
-            href: operations/tuning/tune-classifiers.md
-          - name: Дообучить модель эмбеддингов
-            href: operations/tuning/create-embeddings.md
-      - name: Разработка AI-агентов
-        items:
-          - name: Создать голосового агента с помощью {{ realtime-api }}
-            href: operations/agents/create-voice-agent.md
-          - name: Создать простого текстового агента
-            href: operations/agents/create-simple-text-agent.md
-          - name: Создать текстового агента с вызовом функции
-            href: operations/agents/create-function-text-agent.md
-          - name: Создать текстового агента с поиском по файлам
-            href: operations/agents/create-filesearch-text-agent.md
-          - name: Управлять поисковым индексом {{ vector-store-name }}
-            href: operations/agents/manage-searchindex.md
-          - name: '{{ assistant-api }}'
-            items:
-              - name: Создать простого ассистента
-                href: operations/assistant/create.md
-              - name: Создать ассистента с инструментом {{ retrieval-tool-name }}
-                href: operations/assistant/create-with-searchindex.md
-              - name: >-
-                  Создать ассистента для поиска с указанием метаданных файлов и
-                  индексов
-                href: operations/assistant/create-with-labels.md
-              - name: Создать ассистента с инструментом WebSearch
-                href: operations/assistant/create-with-websearch.md
-              - name: Получить промежуточные результаты генерации ответа
-                href: operations/assistant/request-chunked-response.md
-              - name: Перефразировать запросы с помощью модели
-                href: operations/assistant/rephraser.md
-      - name: '{{ mcp-hub-name }}'
-        items:
-          - name: Подключить внешний MCP-сервер
-            href: operations/mcp-servers/connect-external.md
-          - name: Создать MCP-сервер из шаблона
-            href: operations/mcp-servers/create-from-template.md
-          - name: Создать MCP-сервер с нуля
-            href: operations/mcp-servers/create-brand-new.md
+  - name: Начало работы с {{ model-gallery-name }}
+    href: quickstart/yandexgpt.md
   - name: Концепции
     expanded: true
     items:
@@ -192,6 +86,118 @@ items:
         href: concepts/limits.md
       - name: Термины и определения
         href: concepts/glossary.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Отключить логирование запросов
+        href: operations/disable-logging.md
+      - name: Получить API-ключ
+        href: operations/get-api-key.md
+      - name: '{{ model-gallery-name }}'
+        items:
+          - name: Генерация текста
+            items:
+              - name: Оценить запрос в токенах
+                href: operations/generation/evaluate-request.md
+              - name: Отправить запрос в промт-режиме
+                href: operations/generation/create-prompt.md
+              - name: Отправить серию запросов в режиме чата
+                href: operations/generation/create-chat.md
+              - name: Отправить асинхронный запрос
+                href: operations/generation/async-request.md
+              - name: Вызвать функцию из модели
+                href: operations/generation/function-call.md
+          - name: Генерация изображений
+            href: operations/generation/yandexart-request.md
+          - name: Пакетная обработка данных
+            href: operations/batch/create.md
+          - name: Работа с выделенными инстансами
+            items:
+              - name: Создать инстанс
+                href: operations/resources/create-instance.md
+              - name: Получить информацию об инстансе
+                href: operations/resources/get-instance.md
+              - name: Изменить инстанс
+                href: operations/resources/edit-instance.md
+              - name: Клонировать инстанс
+                href: operations/resources/clone-instance.md
+              - name: Остановить и запустить инстанс
+                href: operations/resources/start-stop-instance.md
+              - name: Управлять метками инстанса
+                href: operations/resources/labels-instance.md
+              - name: Отправить запрос к инстансу
+                href: operations/resources/request-instance.md
+              - name: Удалить инстанс
+                href: operations/resources/delete-instance.md
+          - name: Классификация
+            items:
+              - name: Использовать классификаторы по промту
+                href: operations/classifier/readymade.md
+              - name: Использовать дообученные классификаторы
+                href: operations/classifier/additionally-trained.md
+          - name: Эмбеддинги
+            items:
+              - name: Использовать эмбеддинги в поиске по базе знаний
+                href: operations/embeddings/search.md
+          - name: Работа с датасетами
+            items:
+              - name: Создать датасет
+                href: operations/resources/create-dataset.md
+              - name: Создать датасет для дообучения генерации текста
+                href: operations/resources/create-dataset-gpt.md
+              - name: Создать датасет для дообучения классификации текста
+                href: operations/resources/create-dataset-classifier.md
+          - name: Дообучение моделей
+            items:
+              - name: Дообучить модель генерации текста
+                href: operations/tuning/create.md
+              - name: Дообучить модель классификации текста
+                href: operations/tuning/tune-classifiers.md
+              - name: Дообучить модель эмбеддингов
+                href: operations/tuning/create-embeddings.md
+      - name: '{{ agents-atelier-name }}'
+        items:
+          - name: Разработка AI-агентов
+            items:
+              - name: Создать голосового агента с помощью {{ realtime-api }}
+                href: operations/agents/create-voice-agent.md
+              - name: Создать простого текстового агента
+                href: operations/agents/create-simple-text-agent.md
+              - name: Создать текстового агента с вызовом функции
+                href: operations/agents/create-function-text-agent.md
+              - name: Создать текстового агента с поиском по файлам
+                href: operations/agents/create-filesearch-text-agent.md
+              - name: Управлять поисковым индексом {{ vector-store-name }}
+                href: operations/agents/manage-searchindex.md
+              - name: '{{ assistant-api }}'
+                items:
+                  - name: Создать простого ассистента
+                    href: operations/assistant/create.md
+                  - name: >-
+                      Создать ассистента с инструментом {{ retrieval-tool-name
+                      }}
+                    href: operations/assistant/create-with-searchindex.md
+                  - name: >-
+                      Создать ассистента для поиска с указанием метаданных
+                      файлов и индексов
+                    href: operations/assistant/create-with-labels.md
+                  - name: Создать ассистента с инструментом WebSearch
+                    href: operations/assistant/create-with-websearch.md
+                  - name: Получить промежуточные результаты генерации ответа
+                    href: operations/assistant/request-chunked-response.md
+                  - name: Перефразировать запросы с помощью модели
+                    href: operations/assistant/rephraser.md
+      - name: '{{ mcp-hub-name }}'
+        items:
+          - name: Подключить внешний MCP-сервер
+            href: operations/mcp-servers/connect-external.md
+          - name: Создать MCP-сервер из шаблона
+            href: operations/mcp-servers/create-from-template.md
+          - name: Создать MCP-сервер с нуля
+            href: operations/mcp-servers/create-brand-new.md
+  - name: Переход с {{ assistant-api }} на {{ responses-api }}
+    href: concepts/agents/assistant-responses-migration.md
   - name: Совместимость с {{ openai }}
     href: concepts/openai-compatibility.md
   - name: '{{ ml-sdk-full-name }}'

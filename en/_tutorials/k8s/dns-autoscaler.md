@@ -1,7 +1,7 @@
-# DNS autoscaling based on cluster size
+# DNS autoscaling based on the cluster size
 
 
-{{ managed-k8s-name }} supports DNS autoscaling. The [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) hosts the `kube-dns-autoscaler` app which adjusts the number of CoreDNS replicas depending on:
+{{ managed-k8s-name }} supports DNS autoscaling. `kube-dns-autoscaler` running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) adjusts the number of CoreDNS replicas based on:
 * Number of {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group).
 * [Number of vCPUs](../../compute/concepts/performance-levels.md) in the {{ managed-k8s-name }} cluster.
 
@@ -19,11 +19,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for each VM (cluster nodes, VM for cluster management without public access): using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for the public IP address for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for each VM (cluster nodes and management VMs without public access) which covers the use of computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -49,7 +49,7 @@ The support cost includes:
      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. This file describes:
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file for the {{ managed-k8s-name }} cluster to the same working directory. This file describes:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * {{ managed-k8s-name }} cluster.
@@ -66,7 +66,7 @@ The support cost includes:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -81,9 +81,9 @@ The support cost includes:
 
 ## Configure kube-dns-autoscaler {#configure-autoscaler}
 
-### Make sure that the app is up and running {#verify-app}
+### Make sure the app is up and running {#verify-app}
 
-Check [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in the `kube-system` [namespace](../../managed-kubernetes/concepts/index.md#namespace):
+Check for [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in the `kube-system` [namespace](../../managed-kubernetes/concepts/index.md#namespace):
 
 ```bash
 kubectl get deployment --namespace=kube-system
@@ -99,15 +99,15 @@ kube-dns-autoscaler  1/1    1           1          52m
 
 ### Define the scaling parameters {#parameters}
 
-The `kube-dns-autoscaler` [pod](../../managed-kubernetes/concepts/index.md#pod) regularly polls the {{ k8s }} server for the number of {{ managed-k8s-name }} cluster nodes and cores. Based on this data, the number of CoreDNS replicas is calculated.
+The `kube-dns-autoscaler` [pod](../../managed-kubernetes/concepts/index.md#pod) regularly polls the {{ k8s }} server for the number of {{ managed-k8s-name }} cluster nodes and cores. Based on this data, it calculates the number of CoreDNS replicas.
 
-Two types of calculation are possible:
-* Linear mode.
-* Ladder mode (a step function).
+There are two calculation modes:
+* Linear
+* Ladder (step function)
 
-For more information about calculating, see the [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas) documentation.
+For more information about calculating, see [this cluster-proportional-autoscaler page on GitHub](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
-In this example, we consider the `linear` mode in which the calculation follows this formula:
+This example uses the `linear` mode which calculates the number of replicas by the following formula:
 
 ```text
 replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )
@@ -130,13 +130,13 @@ replicas = min(replicas, max)
 replicas = max(replicas, min)
 ```
 
-For more information about calculating, see the [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas) documentation.
+For more information about calculating, see [this cluster-proportional-autoscaler page on GitHub](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
-### Changing the configuration {#edit-config}
+### Change the configuration {#edit-config}
 
 1. Check the current settings.
 
-   In this example, we are creating a {{ managed-k8s-name }} node group named `node-group-1` with the following parameters:
+   In this example, we have a {{ managed-k8s-name }} node group named `node-group-1` with the following settings:
    * Number of {{ managed-k8s-name }} nodes: `3`
    * Number of vCPUs: `12`
 
@@ -151,7 +151,7 @@ For more information about calculating, see the [cluster-proportional-autoscaler
 
    As `preventSinglePointFailure` is set to `true`, the number of CoreDNS replicas will be two.
 
-   To get the `coredns` pod data, run this command:
+   To get the `coredns` pod details, run this command:
 
    ```bash
    kubectl get pods -n kube-system
@@ -166,7 +166,7 @@ For more information about calculating, see the [cluster-proportional-autoscaler
    coredns-7c********-n7qsv  1/1    Running  0         134m
    ```
 
-1. Set new parameters.
+1. Set new parameter values.
 
    Change the configuration as follows:
    * `coresPerReplica`: `4`
@@ -183,25 +183,25 @@ For more information about calculating, see the [cluster-proportional-autoscaler
    kubectl edit configmap kube-dns-autoscaler --namespace=kube-system
    ```
 
-   This will open a text editor with a `kube-dns-autoscaler` configuration. Change the line with the following parameters:
+   This will open the `kube-dns-autoscaler` configuration in a text editor. Edit the parameter line as follows:
 
    ```text
    linear: '{"coresPerReplica":4,"nodesPerReplica":2,"preventSinglePointFailure":true}'
    ```
 
-   Save your changes. to see the operation output:
+   Save your changes. You will see the result of the operation on the screen:
 
    ```text
    configmap/kube-dns-autoscaler edited
    ```
 
-   `kube-dns-autoscaler` will upload this configuration and scale the DNS service based on the new parameters.
+   `kube-dns-autoscaler` will load this configuration and scale the DNS service based on the new parameters.
 
 ## Test scaling {#test-autoscaler}
 
 ### Resize the {{ managed-k8s-name }} cluster {#resize-cluster}
 
-Create a second {{ managed-k8s-name }} node group using this command:
+Create another {{ managed-k8s-name }} node group using this command:
 
 ```bash
 yc managed-kubernetes node-group create \
@@ -221,7 +221,7 @@ done (2m43s)
 ...
 ```
 
-Now the {{ managed-k8s-name }} cluster has 5 nodes with 20 vCPUs. Calculate the number of replicas:
+Now the {{ managed-k8s-name }} cluster has five nodes with 20 vCPUs. Calculate the number of replicas:
 
 ```text
 replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
@@ -247,11 +247,11 @@ coredns-7c********-r2lss  1/1    Running  0         49m
 coredns-7c********-s5jgz  1/1    Running  0         57m
 ```
 
-### Set up the reducing of the number of {{ managed-k8s-name }} nodes {#reduce-nodes}
+### Set up {{ managed-k8s-name }} node downscaling {#reduce-nodes}
 
-By default, {{ k8s-ca }} does not reduce the number of nodes in a {{ managed-k8s-name }} node group with autoscaling if these nodes contain pods from the `kube-system` namespace managed by the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) app replication controllers, e.g., CoreDNS pods. In this case, the number of {{ managed-k8s-name }} nodes per group cannot be less than the number of CoreDNS pods.
+By default, {{ k8s-ca }} does not scale down nodes in autoscaling {{ managed-k8s-name }} node group if these nodes runs pods from the `kube-system` namespace managed by the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) controllers, e.g., CoreDNS pods. In this case, the number of {{ managed-k8s-name }} nodes per group cannot fall below the number of CoreDNS pods.
 
-To allow the number of {{ managed-k8s-name }} nodes to decrease, configure the [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) object for them, which enables you to stop two CoreDNS pods at a time:
+To enable {{ managed-k8s-name }} node downscaling, configure a [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) that allows stopping up to two CoreDNS pods at the same time:
 
 ```bash
 kubectl create poddisruptionbudget <pdb_name> \
@@ -276,7 +276,7 @@ spec:
 
 ## Disable scaling {#disable-autoscaler}
 
-Reset to zero the number of replicas in the `kube-dns-autoscaler` application's [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+Set the number of replicas in the `kube-dns-autoscaler` [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) to zero:
 
 ```bash
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system

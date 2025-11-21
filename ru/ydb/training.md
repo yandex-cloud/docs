@@ -9,6 +9,8 @@ description: В этом разделе собраны обучающие кур
 
 Подробнее узнать об использовании сервиса {{ ydb-full-name }} можно в следующих курсах:
 
-{% include [training-ycloud](../_includes/training/training-csi.md) %}
+* {% include [training-ycloud](../_includes/training/training-csi.md) %}
+
+{% include [training-ydb](../_includes/training/training-ydb.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}

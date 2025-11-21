@@ -36,13 +36,13 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 For how to install an NGINX ingress controller with the help of {{ marketplace-full-name }}, see [this guide](../operations/applications/ingress-nginx.md).
 
 
-## {{ container-registry-full-name }} usage {#container-registry}
+## Using {{ container-registry-full-name }} {#container-registry}
 
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
 * [{#T}](image-storage.md)
 
-## {{ mkf-name }} usage {#kafka}
+## Using {{ mkf-name }} {#kafka}
 
 [{#T}](deploy-kafka-ui.md)
 

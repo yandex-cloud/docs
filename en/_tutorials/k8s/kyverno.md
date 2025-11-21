@@ -1,10 +1,10 @@
 # Setting up Kyverno & Kyverno Policies
 
-The [Kyverno](https://kyverno.io) application and its [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) extension are used for managing {{ k8s }} security policies. They appear in Kyverno as {{ k8s }} resources.
+[Kyverno](https://kyverno.io) and its extension, [kyverno-policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies), help manage {{ k8s }} security policies which appear in Kyverno as {{ k8s }} resources.
 
 To integrate [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) into {{ managed-k8s-name }}:
 
-1. [Install the Kyverno & Kyverno Policies application](#install-kyverno).
+1. [Install Kyverno & Kyverno Policies](#install-kyverno).
 1. [Check how the policy works for the baseline profile](#check-baseline).
 1. [Create and test your own Kyverno policy](#create-check-policies).
 
@@ -13,10 +13,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -29,12 +29,12 @@ The support cost includes:
    - Manually {#manual}
 
      1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-     1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+     1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ k8s }} cluster and node group will reside.
      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     1. [Create a {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) cluster and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
+     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
 
    - {{ TF }} {#tf}
 
@@ -47,14 +47,14 @@ The support cost includes:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * {{ managed-k8s-name }} cluster.
-        * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
+        * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and node group.
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
      1. Specify the following in the configuration file:
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-        * [{{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) version for the {{ managed-k8s-name }} cluster and node groups.
+        * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
         * Service account name. It must be unique within the folder.
      1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -63,7 +63,7 @@ The support cost includes:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -74,9 +74,9 @@ The support cost includes:
 
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Install the Kyverno & Kyverno Policies application {#install-kyverno}
+## Install Kyverno & Kyverno Policies {#install-kyverno}
 
-Follow this [guide](/marketplace/products/yc/kyverno) to install [Kyverno & Kyverno Policies](../../managed-kubernetes/operations/applications/kyverno.md) with the following settings:
+Follow [this guide](/marketplace/products/yc/kyverno) to install [Kyverno & Kyverno Policies](../../managed-kubernetes/operations/applications/kyverno.md) with the following settings:
 
 * **Pod Security Standard profile**: `baseline`.
 * **Validation failure action**: `enforce`.
@@ -85,7 +85,7 @@ The `baseline` [Pod Security Standard profile](https://kubernetes.io/docs/concep
 
 ## Check how the policy works for the baseline profile {#check-baseline}
 
-* Create a pod named `nginx` with standard parameters:
+* Create the `nginx` pod with standard settings:
 
   ```bash
   kubectl run nginx --image nginx
@@ -97,9 +97,9 @@ The `baseline` [Pod Security Standard profile](https://kubernetes.io/docs/concep
   pod/nginx created
   ```
 
-  Such a pod will satisfy the policy requirements for the `baseline` profile.
+  Such a pod satisfies the policy requirements for the `baseline` profile.
 
-* Create a pod named `nginx` in privileged mode:
+* Create the `nginx` pod in privileged mode:
 
   ```bash
   kubectl run nginx --image nginx --privileged=true
@@ -122,14 +122,14 @@ The `baseline` [Pod Security Standard profile](https://kubernetes.io/docs/concep
 
 {% note info %}
 
-Although the policies are designed for pods, Kyverno applies them to any resources able to create pods.
+Even though the policies target pods, Kyverno applies them to all resources that can create pods.
 
 {% endnote %}
 
 ## Create and test your own Kyverno policy {#create-check-policies}
 
-1. Create a policy that will require all [pods](../../managed-kubernetes/concepts/index.md#pod) to have the `app.kubernetes.io/name` [label](../../resource-manager/concepts/labels.md):
-   1. Save the `ClusterPolicy` creation specification to a YAML file named `policy.yaml`:
+1. Create a policy that requires all [pods](../../managed-kubernetes/concepts/index.md#pod) to have the `app.kubernetes.io/name` [label](../../resource-manager/concepts/labels.md):
+   1. Save the `ClusterPolicy` specification to a YAML file named `policy.yaml`:
 
       ```yaml
       apiVersion: kyverno.io/v1
@@ -171,7 +171,7 @@ Although the policies are designed for pods, Kyverno applies them to any resourc
 
 ## Test Kyverno & Kyverno Policies {#check-apps}
 
-* Create a pod named `nginx` with no `app.kubernetes.io/name` {{ k8s }} label:
+* Create the `nginx` pod with no `app.kubernetes.io/name` {{ k8s }} label:
 
   ```bash
   kubectl run nginx --image nginx
@@ -187,7 +187,7 @@ Although the policies are designed for pods, Kyverno applies them to any resourc
       Rule check-for-labels failed at path /metadata/labels/app.kubernetes.io/name/'
   ```
 
-* Create a pod named `nginx` with the `app.kubernetes.io/name` label:
+* Create the `nginx` pod with the `app.kubernetes.io/name` label:
 
   ```bash
   kubectl run nginx --image nginx --labels app.kubernetes.io/name=nginx
@@ -201,7 +201,7 @@ Although the policies are designed for pods, Kyverno applies them to any resourc
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

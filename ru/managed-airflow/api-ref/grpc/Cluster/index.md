@@ -19,4 +19,7 @@ A set of methods for managing Apache Airflow Cluster resources.
 || [Start](start.md) | Starts the specified Apache Airflow cluster. ||
 || [Stop](stop.md) | Stops the specified Apache Airflow cluster. ||
 || [ListOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified Apache Airflow cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified Apache Airflow cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Apache Airflow cluster. ||
 |#

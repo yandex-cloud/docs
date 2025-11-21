@@ -1,6 +1,6 @@
 ---
-title: How to add a DNS Challenge when issuing {{ lets-encrypt }} certificates
-description: Follow this guide to add a DNS Challenge when issuing {{ lets-encrypt }} certificates.
+title: How to add a DNS challenge when issuing {{ lets-encrypt }} certificates
+description: Follow this tutorial to add a DNS challenge when issuing {{ lets-encrypt }} certificates.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/dnschallenge'
 ---
 

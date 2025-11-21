@@ -5,6 +5,7 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getRegionsDistri
 
 # Web Search API, gRPC: WordstatService.GetRegionsDistribution
 
+Not implemented.
 The method returns the distribution of the number of queries containing the given keyword globally by region for the last 30 days.
 
 ## gRPC request
@@ -19,7 +20,8 @@ The method returns the distribution of the number of queries containing the give
   "region": "Region",
   "devices": [
     "Device"
-  ]
+  ],
+  "folder_id": "string"
 }
 ```
 
@@ -45,6 +47,9 @@ A list of device types a query was made from.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
+|| folder_id | **string**
+
+ID of the folder. ||
 |#
 
 ## GetRegionsDistributionResponse {#yandex.cloud.searchapi.v2.GetRegionsDistributionResponse}
