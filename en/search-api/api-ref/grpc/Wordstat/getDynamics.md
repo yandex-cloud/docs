@@ -5,6 +5,7 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getDynamics.md
 
 # Web Search API, gRPC: WordstatService.GetDynamics
 
+Not implemented.
 The method returns the frequency of queries over time for a given keyword.
 
 ## gRPC request
@@ -24,7 +25,8 @@ The method returns the frequency of queries over time for a given keyword.
   ],
   "devices": [
     "Device"
-  ]
+  ],
+  "folder_id": "string"
 }
 ```
 
@@ -59,6 +61,9 @@ A list of device types a query was made from.
 - `DEVICE_DESKTOP`: Desktop computers.
 - `DEVICE_PHONE`: Phones.
 - `DEVICE_TABLET`: Tablets. ||
+|| folder_id | **string**
+
+ID of the folder. ||
 |#
 
 ## GetDynamicsResponse {#yandex.cloud.searchapi.v2.GetDynamicsResponse}

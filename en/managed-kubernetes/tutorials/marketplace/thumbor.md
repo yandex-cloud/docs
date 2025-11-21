@@ -1,6 +1,6 @@
 ---
 title: Editing website images using Thumbor
-description: In this guide, you will learn how to edit website images with Thumbor.
+description: In this tutorial, you will learn how to edit website images with Thumbor.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/metrics-provider'
 ---
 

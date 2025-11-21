@@ -1,26 +1,26 @@
 * [Error creating a cluster in a different folder's cloud network](#neighbour-catalog-permission-denied)
 
-* [A namespace has been deleted but its status is still _Terminating_ and its deletion cannot be completed](#namespace-terminating)
+* [Namespace fails to delete and remains _Terminating_](#namespace-terminating)
 
-* [I am using {{ network-load-balancer-full-name }} together with an ingress controller. Why are some of my cluster's nodes UNHEALTHY?](#nlb-ingress)
+* [I am using {{ network-load-balancer-full-name }} together with an ingress controller. Why are some of my cluster's nodes _UNHEALTHY_?](#nlb-ingress)
 
-* [Why does the newly created PersistentVolumeClaim remain in _Pending_ status?](#pvc-pending)
+* [Why does the newly created PersistentVolumeClaim remain _Pending_?](#pvc-pending)
 
-* [Why does my {{ managed-k8s-name }} cluster fail to run after I change its node configuration?](#not-starting)
+* [Why does my {{ managed-k8s-name }} cluster fail to start after I update its node configuration?](#not-starting)
 
-* [Error renewing ingress controller certificate](#ingress-certificate)
+* [Error updating ingress controller certificate](#ingress-certificate)
 
-* [Why is DNS name resolution not working in my cluster?](#not-resolve-dns)
+* [Why is DNS resolution not working in my cluster?](#not-resolve-dns)
 
-* [There is a parameter conflict when creating a node group via the CLI. How do I fix it?](#conflicting-flags)
+* [Creating a node group with the CLI results in a parameter conflict. How do I fix it?](#conflicting-flags)
 
-* [Error connecting to a cluster using `kubectl`](#connect-to-cluster)
+* [Error connecting to a cluster using kubectl](#connect-to-cluster)
 
 * [Errors connecting to a node over SSH](#node-connect)
 
-* [How do I grant internet access to {{ managed-k8s-name }} cluster nodes?](#internet)
+* [How do I provide internet access to my {{ managed-k8s-name }} cluster nodes?](#internet)
 
-* [Why cannot I choose Docker as the container runtime environment?](#docker-runtime)
+* [Why cannot I choose Docker as the container runtime?](#docker-runtime)
 
 * [Error connecting a {{ GL }} repository to Argo CD](#argo-cd)
 
@@ -28,4 +28,4 @@
 
 * [System time displayed incorrectly in the Linux console, as well as in container and {{ managed-k8s-name }} cluster pod logs](#time)
 
-* [What should I do if I have deleted my {{ network-load-balancer-full-name }} or target groups that were automatically created for a LoadBalancer service?](#deleted-loadbalancer-service)
+* [What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service?](#deleted-loadbalancer-service)

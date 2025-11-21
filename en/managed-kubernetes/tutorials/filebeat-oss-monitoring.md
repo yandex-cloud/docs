@@ -1,6 +1,6 @@
 ---
 title: Cluster monitoring with Filebeat OSS
-description: Follow this guide to set up cluster monitoring with Filebeat OSS.
+description: Follow this tutorial to set up cluster monitoring with Filebeat OSS.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/filebeat-oss-monitoring'
 ---
 

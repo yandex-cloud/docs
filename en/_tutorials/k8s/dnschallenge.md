@@ -1,7 +1,7 @@
-# DNS Challenge for {{ lets-encrypt }} certificates
+# DNS challenge for {{ lets-encrypt }} certificates
 
 
-To add a DNS Challenge when issuing [{{ lets-encrypt }} certificates](../../certificate-manager/concepts/managed-certificate.md):
+To add a DNS challenge when issuing [{{ lets-encrypt }} certificates](../../certificate-manager/concepts/managed-certificate.md):
 
 1. [Create a certificate](#create-cert).
 1. [Check the result](#check-result).
@@ -11,7 +11,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
@@ -21,9 +21,9 @@ The support cost includes:
 
 ## Getting started {#before-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `dns.editor` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the [domain zone](../../dns/concepts/dns-zone.md) will be in.
+1. [Create a service account](../../iam/operations/sa/create.md) with the `dns.editor` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) that will contain the [domain zone](../../dns/concepts/dns-zone.md).
 
-1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to JSON file:
+1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to a JSON file:
 
    ```bash
    yc iam key create \
@@ -32,22 +32,22 @@ The support cost includes:
      --output key.json
    ```
 
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A {{ lets-encrypt }} certificate will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
+1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md). A {{ lets-encrypt }} certificate will be issued for the domain in this zone after you pass the [DNS-01 challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge).
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [configure-cert-manager](../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
-1. [Create a {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) cluster and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating, specify the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a certificate {#create-cert}
 
-1. Install the cert-manager app with the {{ dns-full-name }} ACME webhook plugin [by following this guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+1. Install `cert-manager` with the {{ dns-full-name }} ACME webhook plugin by following [this guide](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
-    During the installation, specify the service account and the authorized key created at the [Getting started](#before-begin) step.
+    During the installation, specify the service account and the authorized key you created when [getting started](#before-begin).
 
 1. Create a file named `certificate.yaml`:
 
@@ -67,7 +67,7 @@ The support cost includes:
        - <domain_name>
    ```
 
-1. Provide the certificate to the {{ managed-k8s-name }} cluster:
+1. Apply the certificate to your {{ managed-k8s-name }} cluster:
 
    ```bash
    kubectl apply -f certificate.yaml
@@ -75,7 +75,7 @@ The support cost includes:
 
 ## Check the result {#check-result}
 
-1. Check if the certificate is available:
+1. Check the certificate status:
 
     ```bash
     kubectl get certificate example-com
@@ -90,7 +90,7 @@ The support cost includes:
 
     The `True` status in the `READY` column means that the certificate was issued successfully.
 
-1. (Optional) Get detailed information about the certificate:
+1. Optionally, get detailed information about the certificate:
 
     ```bash
     kubectl -n default describe certificate example-com
@@ -100,7 +100,7 @@ The support cost includes:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the public domain zone](../../dns/operations/zone-delete.md).

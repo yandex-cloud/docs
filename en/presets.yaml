@@ -12473,6 +12473,7 @@ default:
             foundation-models_playground_text-generation_title_xpmcC: Text generation
             foundation-models_playground_text-generation-with-context_title_uYBhM: Context-based text generation
           instances-title_j9Cpb: Instances
+          navigation-group_agents_eDBFf: Agent Atelier
       ydb:
         browse:
           button_create: Create

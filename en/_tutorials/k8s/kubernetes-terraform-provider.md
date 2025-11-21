@@ -1,17 +1,17 @@
 # Managing {{ k8s }} resources in a {{ managed-k8s-full-name }} cluster via the {{ TF }} provider
 
-You can create {{ k8s }} resources using {{ TF }} manifests. To do this, activate the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.
+You can use {{ TF }} manifests to create {{ k8s }} resources. To do this, set up the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.
 
-It is convenient to create {{ k8s }} resources with {{ TF }} if you are already using {{ TF }} to support the infrastructure for a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). This way, you will be able to describe all resources in the same markup language.
+Using {{ TF }} to create {{ k8s }} resources is convenient if you are already managing your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) infrastructure through {{ TF }}. This allows you to describe all resources using the same markup language.
 
-In addition, {{ TF }} tracks dependencies between resources and prevents creation, changes, or deletion of a resource if its dependencies are not ready. Let’s assume you are creating a resource named `PersistentVolumeClaim`. It needs space in the `PersistentVolume` resource storage, but there is not enough free space there. {{ TF }} will detect the lack of free space and prevent creation of the `PersistentVolumeClaim` resource.
+In addition, {{ TF }} tracks dependencies between resources and prevents a resource from being created, modified, or deleted until its dependencies are in place. Let’s assume you are creating a `PersistentVolumeClaim` resource. It requires a certain amount of storage for a `PersistentVolume`, yet the required free space is lacking. {{ TF }} will detect the lack and prevent creation of the `PersistentVolumeClaim` resource.
 
 The example below illustrates how to create standard {{ k8s }} resources using {{ TF }}.
 
 To create {{ k8s }} resources with {{ TF }}:
 
 1. [Set up your infrastructure](#prepare-kubernetes-infrastructure).
-1. [Activate the `kubernetes` provider](#apply-kubernetes-provider).
+1. [Set up the `kubernetes` provider](#apply-kubernetes-provider).
 1. [Create {{ k8s }} resources](#create-standard-resources).
 1. [Make sure the cluster application is available from the internet](#verify-setup).
 
@@ -20,21 +20,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for an NLB (see [{{ network-load-balancer-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for using public IP addresses for the VM and NLB (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for public IP addresses for the VM and NLB (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
-## Prepare the infrastructure for {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}
+## Set up the infrastructure for {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}
 
 1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
 1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
 1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
 
-   At this step, the file should not contain `kubernetes` provider settings. You will add them at the [next steps](#apply-kubernetes-provider).
+   At this step, the file should not contain `kubernetes` provider settings. You will add them [later](#apply-kubernetes-provider).
 
 1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file to the same working directory.
@@ -45,17 +45,17 @@ The support cost includes:
    * Subnet.
    * Two security groups: one for the cluster and one for the node group.
    * Cloud service account with the `k8s.clusters.agent`, `k8s.tunnelClusters.agent`, `vpc.publicAdmin`, `load-balancer.admin`, and `container-registry.images.puller` roles.
-   * {{ managed-k8s-name }} cluster
+   * {{ managed-k8s-name }} cluster.
    * {{ k8s }} node group.
 
-1. Specify the values of variables in the `k8s-cluster.tf` file.
+1. Specify the variable values in the `k8s-cluster.tf` file.
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
    terraform validate
    ```
 
-   If there are any errors in the configuration files, {{ TF }} will point them out.
+   {{ TF }} will show any errors found in your configuration files.
 
 1. Create an infrastructure:
 
@@ -65,7 +65,7 @@ The support cost includes:
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Activate the Kubernetes provider {#apply-kubernetes-provider}
+## Set up the kubernetes provider {#apply-kubernetes-provider}
 
 1. In the working directory, open the file with `yandex` provider settings. It must have the following structure:
 
@@ -87,7 +87,7 @@ The support cost includes:
     }
     ```
 
-1. In the file, specify the parameters required for the `kubernetes` provider to operate:
+1. In the file, specify the parameters required for the `kubernetes` provider:
 
     1. Under `required_providers`, add:
 
@@ -111,7 +111,7 @@ The support cost includes:
         }
         ```
 
-1. Make sure the resulting file looks like this:
+1. Make sure the file looks like this after completing the above steps:
 
     ```hcl
     terraform {
@@ -150,7 +150,7 @@ The support cost includes:
 
 ## Create {{ k8s }} resources {#create-standard-resources}
 
-Create a test application and service of the `LoadBalancer` type:
+Create a test application and a `LoadBalancer` service:
 
 1. In the working directory, create a file named `deployment.tf` describing the `Deployment` resource:
 
@@ -212,7 +212,7 @@ Create a test application and service of the `LoadBalancer` type:
 
    {% include [terraform-apply-short](../../_includes/mdb/terraform/apply-short.md) %}
 
-   After you run the `terraform apply` command, you may get this error:
+   After you run `terraform apply`, you may get this error:
 
    ```text
    Error: Waiting for rollout to finish: 2 replicas wanted; 0 replicas Ready
@@ -230,11 +230,11 @@ Create a test application and service of the `LoadBalancer` type:
    hello        0/2     2            0           12m
    ```
 
-   When the `READY` column indicates `2/2`, run the `terraform apply` command again.
+   When the `READY` column shows `2/2`, run the `terraform apply` command again.
 
-You can also create other standard {{ k8s }} resources using {{ TF }} manifests. Use the YAML configuration of the resource you need as the basis ([here is an example for a pod](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Take the structure and parameters from the configuration and apply the {{ TF }} markup. For example, replace the `containerPort` parameter from the YAML file with the `container_port` parameter in {{ TF }}. For a full list of {{ TF }} resources for {{ k8s }}, see the [relevant provider documentation](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
+You can also create other standard {{ k8s }} resources using {{ TF }} manifests. Use the YAML configuration of the resource you need as a base (see [this example for a pod](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Take the structure and parameters from the configuration and apply the {{ TF }} markup. For example, replace the `containerPort` parameter from the YAML file with the `container_port` parameter in {{ TF }}. For a full list of {{ TF }} resources for {{ k8s }}, see [this Kubernetes provider article](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
 
-For information about creating [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) using {{ TF }}, see [{{ TF }} tutorials](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
+For information about creating [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) using {{ TF }}, see this [{{ TF }} tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
 
 ## Make sure the cluster application is available from the internet {#verify-setup}
 
@@ -274,7 +274,7 @@ For information about creating [custom resources](https://kubernetes.io/docs/con
 
 1. Copy the IP address from the `LoadBalancer Ingress` field.  
 
-1. Open the application's URL in your browser:
+1. Open the app URL in your browser:
 
     ```http
     http://<copied_IP_address>
@@ -291,7 +291,7 @@ For information about creating [custom resources](https://kubernetes.io/docs/con
 
 ## Delete the resources you created {#clear-out}
 
-1. In the terminal window, navigate to the directory containing the infrastructure plan.
+1. In the terminal, navigate to the directory containing the infrastructure plan.
 
 1. Run this command:
 
@@ -301,9 +301,9 @@ For information about creating [custom resources](https://kubernetes.io/docs/con
 
    {{ TF }} will delete all resources you created in the current configuration.
 
-## Example of preparing a persistent volume using {{ TF }} {#example}
+## Example of setting up a persistent volume with {{ TF }} {#example}
 
-Prepare a [persistent volume](../../managed-kubernetes/concepts/volume.md#persistent-volume) for the {{ managed-k8s-name }} cluster. To do this, use a configuration file:
+Provide a [persistent volume](../../managed-kubernetes/concepts/volume.md#persistent-volume) for the {{ managed-k8s-name }} cluster. To do this, use a configuration file:
 
 {% cut "pv-pvc.tf" %}
 
@@ -384,7 +384,7 @@ The `pv-pvc.tf` file describes:
     * Reuse policy: `Retain`. The `PersistentVolume` object will not be deleted after the deletion of its associated `PersistentVolumeClaim` object.
     * Volume binding mode: `WaitForFirstConsumer`. `PersistentVolume` and `PersistentVolumeClaim` will only be bound when the pod requests the volume.
 
-    [Learn more about storage class parameters](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+    Learn more about storage class parameters [here](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
 * `PersistentVolume` object:
 
@@ -394,19 +394,19 @@ The `pv-pvc.tf` file describes:
     * Storage class: `pv-sc`. If not specified, the default storage class will be used.
     * Data source: `pv-disk`.
 
-    [Learn more about PersistentVolume parameters](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+    Learn more about `PersistentVolume` parameters [here](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
 
 * `PersistentVolumeClaim` object:
 
     * Name: `my-pvc`.
     * Access mode: `ReadWriteOnce`. Only pods located on the same node can read and write data to this `PersistentVolume` object. Pods on other nodes will not be able to access this object.
-    * Requested storage size is 5GB.
+    * Requested storage size: 5GB.
     * Storage class: `pv-sc`. If not specified, the default storage class will be used.
     * Volume name: `PersistentVolume` object to bind with `PersistentVolumeClaim`.
 
-  [Learn more about PersistentVolumeClaim parameters](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
+  Learn more about `PersistentVolumeClaim` parameters [here](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
 
 #### See also {#see-also}
 
-* [{{ TF }} tutorials for creating {{ k8s }} resources](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
+* [{{ TF }} tutorial for creating {{ k8s }} resources](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
 * [Provider documentation](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)

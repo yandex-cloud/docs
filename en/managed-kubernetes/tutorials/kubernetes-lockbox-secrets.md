@@ -4,4 +4,4 @@ canonical: '{{ link-docs }}/tutorials/container-infrastructure/kubernetes-lockbo
 
 # Syncing with {{ lockbox-name }} secrets
 
-{% include [k8s and {{ lockbox-full-name }} syncing scenario](../../_tutorials/containers/kubernetes-lockbox-secrets.md) %}
+{% include [{{ k8s }} and {{ lockbox-full-name }} synchronization scenario](../../_tutorials/containers/kubernetes-lockbox-secrets.md) %}

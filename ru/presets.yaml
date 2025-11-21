@@ -12484,6 +12484,7 @@ default:
             foundation-models_playground_text-generation_title_xpmcC: Генерация текста
             foundation-models_playground_text-generation-with-context_title_uYBhM: Генерация текста с учетом контекста
           instances-title_j9Cpb: Инстансы
+          navigation-group_agents_eDBFf: Agent Atelier
       ydb:
         browse:
           button_create: Создать

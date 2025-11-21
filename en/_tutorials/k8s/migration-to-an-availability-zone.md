@@ -1,7 +1,7 @@
 # Migrating {{ k8s }} resources to a different availability zone
 
 
-In a {{ managed-k8s-name }} cluster, you can [migrate a node group and workload in pods](#transfer-a-node-group) from one availability zone to another.
+In a {{ managed-k8s-name }} cluster, you can [migrate a node group and pod workload](#transfer-a-node-group) from one availability zone to another.
 
 ## Getting started {#before-you-begin}
 
@@ -9,41 +9,41 @@ In a {{ managed-k8s-name }} cluster, you can [migrate a node group and workload 
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-If you have already installed the CLI, update to its latest version.
+If you have already installed the CLI, update to its latest version:
 
 ```bash
 yc components update
 ```
 
 
-## Migrate the node group and the pod workloads to a different availability zone {#transfer-a-node-group}
+## Migrate the node group and pod workload to a different availability zone {#transfer-a-node-group}
 
-[Prepare a node group](#prepare) and proceed to migration using one of the following methods:
+[Set up the node group](#prepare) and proceed with migration using one of the following methods:
 
 * Migrating a node group directly to the new availability zone. It depends on the type of workload in the pods:
 
-   * [Stateless workload](#stateless): The functioning of applications in the pods during migration depends on how the workload is distributed among the cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains the same, the applications will continue to run. If the pods only reside in the group you are migrating, both the pods and the applications in them will have to be stopped for a short while.
+   * [Stateless workload](#stateless): Application functioning in pods during migration depends on how workload is distributed between cluster nodes. If the pods reside both in the node group you are migrating and the groups for which the availability zone remains unchanged, the applications keep running. If the pods only reside in the group you are migrating, both the pods and the applications in them must be briefly stopped.
 
-      Examples of stateless workloads include the web server, {{ alb-full-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API applications.
+      Stateless workload examples include the web server, {{ alb-full-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), and REST API apps.
 
-   * [Stateful workloads](#stateful): The pods and applications will have to be stopped for a short while, regardless of how the workload is distributed among the cluster nodes.
+   * [Stateful workloads](#stateful): Pods and applications must be briefly stopped, regardless of how workload is distributed between cluster nodes.
 
-      Examples of stateful workloads include databases and storages.
+      Stateful workload examples include databases and storages.
 
-* [Gradually migrating a stateless and stateful workload](#gradual-migration) to the new node group. It involves creating a new node group in the new availability zone and gradually discontinuing the old nodes. This way, you can monitor the workload transfer.
+* [Gradually migrating stateless and stateful workloads](#gradual-migration) to a new node group: It involves creating a new node group in the new availability zone and gradually discontinuing the old nodes. This enables you to manage workload transfer.
 
 ### Getting started {#prepare}
 
-1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are used to assign the pods to the group's nodes. For more information on strategies, see [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) and the [{#T}](../../managed-kubernetes/concepts/usage-recommendations.md#high-availability). To check how a pod is assigned to its associated node and unlink them:
+1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are used to assign the pods to the group's nodes. For more information on strategies, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) and [{#T}](../../managed-kubernetes/concepts/usage-recommendations.md#high-availability). To check a pod's assignment to nodes and remove it:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Go to the cluster page and find the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** section.
-      1. On the **{{ ui-key.yacloud.k8s.workloads.label_pods }}** tab, open the pod's page.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. Open the cluster page and navigate to **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+      1. On the **{{ ui-key.yacloud.k8s.workloads.label_pods }}** tab, open the pod page.
       1. Navigate to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
       1. Check if the pod manifest contains the following parameters and {{ k8s }} labels in them:
 
@@ -58,22 +58,22 @@ yc components update
             * `failure-domain.beta.kubernetes.io/zone`: `<availability_zone>`
             * `topology.kubernetes.io/zone`: `<availability_zone>`
 
-         If a configuration has at least one of these parameters and that parameter contains at least one of the listed {{ k8s }} labels, that configuration prevents node group and workload migration.
+         When the configuration includes at least one of these parameters containing at least one of the listed {{ k8s }} labels, node group and workload migration will not proceed.
 
-      1. Check if the pod manifest has any dependencies from:
+      1. Check the pod manifest for dependencies on the following entities:
 
-         * Availability zone you are migrating resources from.
+         * Availability zone you are migrating your resources from.
          * Specific nodes within the group.
 
-      1. If you find any of these settings, assignments, or dependencies, remove them from the pod configuration:
+      1. If you find any of the parameters, assignments, or dependencies listed above, remove them from the pod configuration:
 
          1. Copy the YAML configuration from the management console.
-         1. Create a local YAML file and paste the configuration into it.
+         1. Create a local YAML file and paste the copied configuration into it.
          1. Remove any availability zone assignments from the configuration. For example, if the `spec.affinity` parameter includes the `failure-domain.beta.kubernetes.io/zone` {{ k8s }} label, remove it.
          1. Apply the new configuration:
 
             ```bash
-            kubectl apply -f <yaml_file_path>
+            kubectl apply -f <YAML_file_path>
             ```
 
          1. Make sure the pod status changed to `Running`:
@@ -82,13 +82,13 @@ yc components update
             kubectl get pods
             ```
 
-      1. Check and update the configuration of each pod by repeating these steps.
+      1. Repeat these steps for each pod to check and update its configuration.
 
    {% endlist %}
 
-1. Transfer persistent data, such as databases, message queues, monitoring and log servers, to the new availability zone.
+1. Transfer persistent data, such as databases, message queues, monitoring servers, and log servers, to the new availability zone.
 
-### Migrating a stateless workload {#stateless}
+### Migrating stateless workloads {#stateless}
 
 1. Create a subnet in the new availability zone and migrate the node group:
 
@@ -100,11 +100,11 @@ yc components update
    kubectl get po --output wide
    ```
 
-   The output of this command displays the nodes on which your pods are currently running.
+   The output of this command shows the nodes on which your pods are currently running.
 
-### Migrating a stateful workload {#stateful}
+### Migrating stateful workloads {#stateful}
 
-The migration is based on scaling the `StatefulSet` controller. To migrate a stateful workload:
+The migration is based on scaling the `StatefulSet` controller. To migrate stateful workloads:
 
 1. Get a list of `StatefulSet` controllers to find the name of the one you need:
 
@@ -119,7 +119,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       -n default -o=jsonpath='{.status.replicas}'
    ```
 
-   Save the obtained value. You will need it to scale the StatefulSet controller once the migration of your stateful workload is complete.
+   Save this value. You will need it to scale the `StatefulSet` controller once the migration of your stateful workloads is complete.
 
 1. Reduce the number of pods to zero:
 
@@ -127,9 +127,9 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
    kubectl scale statefulset <controller_name> --replicas=0
    ```
 
-   This way, you will disable the pods that use disks. In addition, running this command saves a [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume) (PVC) {{ k8s }} API object.
+   This will stop the pods that are using disks, while retaining the [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume) {{ k8s }} API object (PVC).
 
-1. For the [PersistentVolume](../../managed-kubernetes/concepts/volume.md#persistent-volume) object (PV) associated with `PersistentVolumeClaim`, change the value of the `persistentVolumeReclaimPolicy` parameter from `Delete` to `Retain` to prevent accidental data loss.
+1. For the [PersistentVolume](../../managed-kubernetes/concepts/volume.md#persistent-volume) object (PV) associated with `PersistentVolumeClaim`, change the `persistentVolumeReclaimPolicy` value from `Delete` to `Retain` to prevent accidental data loss.
 
    1. Get the name of the `PersistentVolume` object:
 
@@ -151,7 +151,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
 
     If the manifest contains the `spec.nodeAffinity` parameter with an availability zone specified in it, save this parameter. You will need to specify it in a new `PersistentVolume` object.
 
-1. Create a snapshot representing a point-in-time copy of the `PersistentVolume` disk. For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Create a `PersistentVolume` snapshot. For more information about snapshots, see [this Kubernetes article](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Get the name of the `PersistentVolumeClaim` object:
 
@@ -159,7 +159,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       kubectl get pvc
       ```
 
-   1. Create a `snapshot.yaml` file with the snapshot manifest and specify the `PersistentVolumeClaim` name in it:
+   1. Create the `snapshot.yaml` with the snapshot manifest and specify the `PersistentVolumeClaim` name in it:
 
       ```yaml
       apiVersion: snapshot.storage.k8s.io/v1
@@ -172,7 +172,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
             persistentVolumeClaimName: <PVC_name>
       ```
 
-      If you are creating several snapshots for different `PersistentVolumeClaim` objects, specify the `<number>` (consecutive number) to make sure each snapshot gets a unique `metadata.name` value.
+      If you are creating several snapshots for different `PersistentVolumeClaim` objects, specify the `<number>` (consecutive) to make sure each snapshot gets a unique `metadata.name` value.
 
    1. Create a snapshot:
 
@@ -180,13 +180,13 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       kubectl apply -f snapshot.yaml
       ```
 
-   1. Check that the snapshot has been created:
+   1. Make sure the snapshot was created:
 
       ```bash
       kubectl get volumesnapshots.snapshot.storage.k8s.io
       ```
 
-   1. Make sure the [VolumeSnapshotContent](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#introduction) {{ k8s }} API object has been created:
+   1. Make sure the [VolumeSnapshotContent](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#introduction) {{ k8s }} API object was created:
 
       ```bash
       kubectl get volumesnapshotcontents.snapshot.storage.k8s.io
@@ -206,9 +206,9 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       --zone <availability_zone>
    ```
 
-   In the command, specify the availability zone to which the {{ managed-k8s-name }} node group is being migrated.
+   In the command, specify the availability zone to which you are migrating your {{ managed-k8s-name }} node group.
 
-   Save the following parameters from the command's output:
+   Save the following parameters from the command output:
    * Disk ID from the `id` field.
    * Disk type from the `type_id` field.
    * Disk size from the `size` field.
@@ -238,20 +238,20 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
 
       * `spec.capacity.storage`: Disk size.
       * `spec.csi.volumeHandle`: Disk ID.
-      * `spec.storageClassName`: Disk type. Specify the type in accordance with the following table:
+      * `spec.storageClassName`: Disk type. Specify it in accordance with the following table:
 
-         | Type of the disk created from the snapshot | Disk type for the YAML file |
+         | Snapshot-based disk type | Disk type for the YAML file |
          | ----------- | ----------- |
          | `network-ssd` | `yc-network-ssd` |
          | `network-ssd-nonreplicated` | `yc-network-ssd-nonreplicated` |
          | `network-nvme` | `yc-network-nvme` |
          | `network-hdd` | `yc-network-hdd` |
 
-      If you are creating several `PersistentVolume` objects, specify the `<number>` (consecutive number) to make sure each snapshot gets a unique `metadata.name` value.
+      If you are creating several `PersistentVolume` objects, specify the `<number>` (consecutive) to make sure each gets a unique `metadata.name` value.
 
-      If you saved the `spec.nodeAffinity` parameter earlier, add it to the manifest and specify the availability zone to which the {{ managed-k8s-name }} node group is being migrated. If you omit this parameter, the workload may run in a different availability zone where `PersistentVolume` is not available. This will result in a run error.
+      Add the previously saved `spec.nodeAffinity` parameter to the manifest and specify the availability zone to which you are migrating your {{ managed-k8s-name }} node group. If you skip it, the workload may run in a different availability zone where `PersistentVolume` is not available, causing an error.
 
-      Example of the `spec.nodeAffinity` parameter:
+      Here is an example of the `spec.nodeAffinity` parameter:
 
       ```yaml
       spec:
@@ -266,7 +266,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
                        - ru-central1-d
       ```
 
-   1. Create the `PersistentVolume` object:
+   1. Create a `PersistentVolume` object:
 
       ```bash
       kubectl apply -f persistent-volume.yaml
@@ -287,13 +287,13 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
        - Management console {#console}
 
           1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
-          1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-          1. Go to the cluster page and find the **{{ ui-key.yacloud.k8s.cluster.switch_storage }}** section.
-          1. On the **{{ ui-key.yacloud.k8s.storage.label_pv }}** tab, find the `new-pv-test-<number>` object and check the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value. It must specify an availability zone. A dash means there is no assignment to an availability zone.
+          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+          1. Open the cluster page and navigate to **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
+          1. On the **{{ ui-key.yacloud.k8s.storage.label_pv }}** tab, find the `new-pv-test-<number>` object and check the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value. It should specify an availability zone. A dash means there is no assignment to an availability zone.
 
        {% endlist %}
 
-   1. If you omitted the `spec.nodeAffinity` parameter in the manifest, you can add it by editing the `PersistentVolume` object:
+   1. If you skipped the `spec.nodeAffinity` parameter in the manifest, you can add it by editing the `PersistentVolume` object:
 
       ```bash
       kubectl edit pv new-pv-test-<number>
@@ -323,7 +323,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       * `metadata.name`: Name of the `PersistentVolumeClaim` object you used to create the snapshot. You can get this name by running the `kubectl get pvc` command.
       * `spec.resources.requests.storage`: `PersistentVolume` size, which matches the size of the created disk.
       * `spec.storageClassName`: `PersistentVolume` disk type, which matches the disk type of the new `PersistentVolume`.
-      * `spec.volumeName`: Name of the `PersistentVolume` object used to create `PersistentVolumeClaim` from. You can get this name by running the `kubectl get pv` command.
+      * `spec.volumeName`: Name of the `PersistentVolume` object to base `PersistentVolumeClaim` on. You can get this name by running the `kubectl get pv` command.
 
    1. Delete the original `PersistentVolumeClaim` so you can replace it:
 
@@ -331,7 +331,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       kubectl delete pvc <PVC_name>
       ```
 
-   1. Create the `PersistentVolumeClaim` object:
+   1. Create a `PersistentVolumeClaim` object:
 
       ```bash
       kubectl apply -f persistent-volume-claim.yaml
@@ -355,7 +355,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
    kubectl scale statefulset <controller_name> --replicas=<number_of_pods>
    ```
 
-   The pods will be launched in the migrated node group.
+   This will start the pods in the migrated node group.
 
    In the command, specify the following parameters:
 
@@ -368,7 +368,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
    kubectl get po --output wide
    ```
 
-   The output of this command displays the nodes on which your pods are currently running.
+   The output of this command shows the nodes on which your pods are currently running.
 
 1. Delete the unused `PersistentVolume` object, i.e., the one with the `Released` status.
 
@@ -378,15 +378,15 @@ The migration is based on scaling the `StatefulSet` controller. To migrate a sta
       kubectl get pv
       ```
 
-   1. Delete the `PersistentVolume` object.
+   1. Delete the `PersistentVolume` object:
 
       ```bash
       kubectl delete pv <PV_name>
       ```
 
-### Gradually migrating a stateless and stateful workload {#gradual-migration}
+### Gradually migrating stateless and stateful workloads {#gradual-migration}
 
-See below how to gradually migrate a workload from the old node group to the new one. For instructions on migrating the `PersistentVolume` and `PersistentVolumeClaim` objects, see [Migrating a stateful workload](#stateful).
+See below how to gradually migrate workloads from the old node group to the new one. For `PersistentVolume` and `PersistentVolumeClaim` migration steps, see [Migrating stateful workloads](#stateful).
 
 1. [Create a new {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in the new availability zone.
 

@@ -1,6 +1,6 @@
 ---
-title: Horizontal application scaling in a cluster
-description: Follow this guide to configure app scaling in a cluster.
+title: Horizontal scaling of an application in a cluster
+description: Follow this tutorial to configure application scaling in a cluster.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/autoscaling'
 ---
 

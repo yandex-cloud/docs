@@ -1,6 +1,6 @@
 ---
 title: Running workloads with GPUs
-description: Follow this guide to run workloads with GPUs.
+description: Follow this tutorial to run workloads with GPUs.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/running-pod-gpu'
 ---
 

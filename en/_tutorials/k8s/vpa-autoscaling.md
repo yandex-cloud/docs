@@ -1,6 +1,6 @@
-# Vertical application scaling in a cluster
+# Vertical scaling of an application in a cluster
 
-{{ managed-k8s-name }} supports several types of autoscaling. In this article you will learn how to configure the automatic management of [pod](../../managed-kubernetes/concepts/index.md#pod) resources with [{{ k8s-vpa }}](../../managed-kubernetes/concepts/autoscale.md#vpa):
+{{ managed-k8s-name }} supports several types of autoscaling. In this tutorial, you will learn how to set up automatic [pod](../../managed-kubernetes/concepts/index.md#pod) resource management with [{{ k8s-vpa }}](../../managed-kubernetes/concepts/autoscale.md#vpa):
 
 * [Create {{ k8s-vpa }} and a test application](#create-vpa-workload).
 * [Test {{ k8s-vpa }}](#test-vpa).
@@ -10,11 +10,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for the public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -29,19 +29,19 @@ The support cost includes:
 
 1. [Create](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) a {{ managed-k8s-name }} cluster. Use these settings:
 
-   * Use the previously created security groups.
-   * If you intend to use your cluster within the {{ yandex-cloud }} network, there is no need to allocate a public IP address to it. To allow connections from outside the network, assign a public IP address to the cluster.
+   * Use the security groups you created earlier.
+   * For {{ yandex-cloud }} internal network usage, your cluster does not need a public IP address. To enable internet access to your cluster, assign it a public IP address.
 
 1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
-   * Use the previously created security groups.
-   * Allocate it a public IP address to grant internet access to the node group and allow pulling Docker images and components.
+   * Use the security groups you created earlier.
+   * To enable internet access for your node group (e.g., for Docker image pulls), assign it a public IP address.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
    {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
-1. Install {{ k8s-vpa }} from the following [repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler):
+1. Install {{ k8s-vpa }} from [this repository](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) as follows:
 
      ```bash
      cd /tmp && \
@@ -126,14 +126,14 @@ The support cost includes:
 
    {% endcut %}
 
-1. Create objects:
+1. Create the objects:
 
    ```bash
    kubectl apply -f app.yaml && \
    kubectl apply -f vpa.yaml
    ```
 
-1. Make sure the {{ k8s-vpa }} and `nginx` pods have entered the `Running` state:
+1. Make sure the {{ k8s-vpa }} and `nginx` pods switched to `Running`:
 
    ```bash
    kubectl get pods -n kube-system | grep vpa && \
@@ -151,8 +151,8 @@ The support cost includes:
 
 ## Test {{ k8s-vpa }} {#test-vpa}
 
-To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
-1. Review the recommendations provided by {{ k8s-vpa }} prior to creating the workload:
+To test {{ k8s-vpa }}, you will simulate `nginx` workload.
+1. Review the recommendations provided by {{ k8s-vpa }} prior to simulating the workload:
 
    ```bash
    kubectl describe vpa nginx
@@ -190,7 +190,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
            Memory:  262144k
    ```
 
-1. Make sure {{ k8s-vpa }} is managing the `nginx` application pod resources:
+1. Make sure {{ k8s-vpa }} is managing the `nginx` pod resources:
 
    ```bash
    kubectl get pod <nginx_pod_name> --output yaml
@@ -220,7 +220,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
            memory: 262144k
    ```
 
-1. Run the workload simulation process in a separate window:
+1. In a separate terminal window, run the following command to simulate a workload:
 
    ```bash
    URL=$(kubectl get service nginx -o json \
@@ -230,13 +230,13 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
 
    {% note tip %}
 
-   To increase load and accelerate the execution of the scenario, run several processes in separate windows.
+   To increase the load and speed up the scenario, run multiple simulations in separate windows.
 
    {% endnote %}
 
     {% include [check-sg-if-url-unavailable-lvl3](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-1. After several minutes, review the recommendation provided by {{ k8s-vpa }} after the workload is created:
+1. Wait a few minutes and review the recommendation provided by {{ k8s-vpa }} after simulating the workload:
 
    ```bash
    kubectl describe vpa nginx
@@ -274,11 +274,11 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
            Memory:  1431232100
    ```
 
-1. Stop simulating the workload. Within a few minutes, the `Status.Recommendation.Container Recommendations` metrics will return to their original values.
+1. Stop simulating the workload. Within a few minutes, the `Status.Recommendation.Container Recommendations` metrics will regain their initial values.
 
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If you used static public IP addresses to access your cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.

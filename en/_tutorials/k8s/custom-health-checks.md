@@ -35,14 +35,14 @@ The support cost for this solution includes:
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
 
 
 ## Get your cloud ready {#before-begin}
 
-### Set up the infrastructure {#infra}
+### Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -101,7 +101,7 @@ The support cost for this solution includes:
 
 ### Install the {{ alb-name }} ingress controller {#install-alb-ingress-controller}
 
-Use [this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md) to install the [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) application in a separate `yc-alb` namespace. Later on, all the required {{ k8s }} resources will be created in this namespace.
+Use [this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md) to install the [ALB ingress controller](/marketplace/products/yc/alb-ingress-controller) in a separate `yc-alb` namespace. Later on, all the required {{ k8s }} resources will be created in this namespace.
 
 ### Install additional dependencies {#prepare}
 
@@ -399,7 +399,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. {{ alb-name }} [target group](../../application-load-balancer/operations/target-group-delete.md)
 1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
 1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
-1. [{{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
+1. [{{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md)
 1. {{ dns-name }} [public domain zone](../../dns/operations/zone-delete.md)
 1. {{ vpc-name }} [security groups](../../vpc/operations/security-group-delete.md)
 1. {{ vpc-name }} [static public IP address](../../vpc/operations/address-delete.md)

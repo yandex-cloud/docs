@@ -1,6 +1,6 @@
 ---
-title: Using {{ MP }} to stream metrics
-description: In this tutorial, you will learn how to use {{ MP }} to stream metrics.
+title: Using {{ MP }} to deliver metrics
+description: In this tutorial, you will learn how to use {{ MP }} to deliver metrics.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/metrics-provider'
 ---
 

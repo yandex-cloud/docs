@@ -2,17 +2,17 @@
 
 [Cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) is a provider for deploying a self-managed {{ k8s }} cluster in {{ yandex-cloud }} infrastructure using the [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
 
-The cluster is deployed on [virtual machines](../../compute/concepts/vm.md) {{ compute-full-name }} and an [L7](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}.
+The cluster is deployed based on {{ compute-full-name }} [virtual machines](../../compute/concepts/vm.md) and a [{{ alb-full-name }}](../../application-load-balancer/concepts/application-load-balancer.md).
 
-**Advantages of using {{ yandex-cloud }} provider for creating clusters:** {#advantages}
+**Advantages of using the {{ yandex-cloud }} provider for creating clusters:** {#advantages}
 
 * Integration with the [{{ yandex-cloud }} API](../../api-design-guide/concepts/general.md).
 * Declarative approach to cluster creation and management.
-* Ability to describe the cluster as a custom resource [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
-* Wide range of parameters for configuring cluster compute resources.
-* [Custom OS images](#prepare-os-image) for master and nodes.
-* Custom Control Plane.
-* Alternative to [{{ TF }}](https://www.terraform.io/) in CI processes.
+* Describing a cluster as a custom resource, i.e., [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+* Numerous parameters for configuring cluster compute resources.
+* [Custom OS images](#prepare-os-image) for the master and worker nodes.
+* Custom control plane.
+* Alternative to [{{ TF }}](https://www.terraform.io/) for CI pipelines.
 
 **Provider compatibility with the {{ k8s }} Cluster API** {#compatibility}
 
@@ -30,9 +30,9 @@ To deploy a {{ k8s }} cluster in {{ yandex-cloud }} using the Cluster API:
 1. [Generate cluster manifests](#prepare-manifests).
 1. [Deploy a cluster](#create-cluster).
 1. [Connect to the cluster](#connect-to-cluster).
-1. [Install the CCM](#install-ccm).
-1. [Install the CNI](#install-cni).
-1. [Check the connection between the managing cluster and the new cluster](#check-connection).
+1. [Install a CCM](#install-ccm).
+1. [Install a CNI](#install-cni).
+1. [Check the connection between the management cluster and the new cluster](#check-connection).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -43,27 +43,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
-* Fee for computing resources and disks of VMs used for {{ k8s }} cluster deployment, auxiliary VM, and {{ managed-k8s-name }} managing cluster nodes (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using an L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for using {{ managed-k8s-name }} managing cluster master and outbound traffic (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for [public IP addresses](../../vpc/concepts/address.md#public-addresses) for auxiliary VMs and {{ managed-k8s-name }} managing cluster (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for using the [NAT gateway](../../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* Fee for computing resources and disks of VMs used for {{ k8s }} cluster deployment, auxiliary VM, and {{ managed-k8s-name }} management cluster nodes (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using {{ managed-k8s-name }} management cluster master and outgoing traffic (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for [public IP addresses](../../vpc/concepts/address.md#public-addresses) for auxiliary VMs and {{ managed-k8s-name }} management cluster (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a [NAT gateway](../../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 
 #### Optional costs {#optional-expenses}
 
 * If intending to use a custom image for the new {{ k8s }} cluster nodes:
   * Fee for storing the image in the bucket and data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
   * Fee for storing the image in {{ compute-name }} (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* If intending to use a custom Docker image to deploy the {{ yandex-cloud }} provider in the managing cluster, fee for storing a Docker image in the registry and outgoing traffic (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
+* If intending to use a custom Docker image to deploy the {{ yandex-cloud }} provider in the management cluster, fee for storing the Docker image in the registry and outgoing traffic (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
 
 ### Set up your infrastructure {#infra}
 
-1. Prepare a {{ yandex-cloud }} [service account](../../iam/concepts/users/service-accounts.md):
+1. Set up a {{ yandex-cloud }} [service account](../../iam/concepts/users/service-accounts.md):
     1. [Create](../../iam/operations/sa/create.md) a service account you will use to create resources for the cluster.
     1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../compute/security/index.md#compute-editor) and [alb.editor](../../application-load-balancer/security/index.md#alb-editor) roles for the folder to the service account.
-    1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for a service account in JSON format.
-1. If your folder does not have a {{ vpc-name }} [network](../../vpc/concepts/network.md#network) yet, [create](../../vpc/operations/network-create.md) it. Also [create](../../vpc/operations/subnet-create.md) a subnet.
-1. The new cluster infrastructure will automatically be assigned the default [security group](../../vpc/concepts/security-groups.md) which is created together with the network. [Add](../../vpc/operations/security-group-add-rule.md) the following rules for _incoming_ traffic to this group:
+    1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the service account in JSON format.
+1. If your folder does not have a {{ vpc-name }} [network](../../vpc/concepts/network.md#network) yet, [create](../../vpc/operations/network-create.md) one. [Create](../../vpc/operations/subnet-create.md) a subnet as well.
+1. The new cluster infrastructure will automatically be assigned the default [security group](../../vpc/concepts/security-groups.md) which is created along with the network. [Add](../../vpc/operations/security-group-add-rule.md) the following rules for _incoming_ traffic to this group:
 
     {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-type }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-target }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
     --- | --- | --- | --- | ---
@@ -73,19 +73,19 @@ The infrastructure support costs include:
 1. The created cluster will be accessible within the cloud network via an [internal IP address](../../vpc/concepts/address.md#internal-addresses). To enable remote access to the cluster:
     1. [Create](../../compute/operations/vm-create/create-linux-vm.md) an auxiliary VM with a public IP address and the default security group in the same network where your cluster will be deployed.
     1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) on the auxiliary VM.
-1. Create a {{ managed-k8s-name }} _managing_ [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with a public IP address and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). You will need this cluster to deploy the new cluster using the Cluster API and to manage the cluster infrastructure.
+1. Create a {{ managed-k8s-name }} _management_ [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with a public IP address and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). You will need this cluster to deploy the new cluster using the Cluster API and to manage the cluster infrastructure.
 
     {% note tip %}
 
-    You can also deploy the managing cluster locally, for example, using the [`kind` utility](https://kind.sigs.k8s.io/).
+    You can also deploy the management cluster locally, e.g., using [`kind`](https://kind.sigs.k8s.io/).
 
     {% endnote %}
 
-1. For the new cluster to have internet access and be able to push Docker images, [configure](../../vpc/operations/create-nat-gateway.md) a NAT gateway for the subnet the new cluster will be located in.
+1. To enable the new cluster to access the internet and pull Docker images, [configure](../../vpc/operations/create-nat-gateway.md) a NAT gateway for the subnet that will host the new cluster.
 
 ## Set up your environment {#prepare-environment}
 
-The environment is configured on the local computer.
+Set up the environment locally.
 
 1. Install the following tools:
     * [Go](https://go.dev/doc/install) 1.22.0 or higher.
@@ -93,9 +93,9 @@ The environment is configured on the local computer.
     * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) 1.11.3 or higher.
     * [clusterctl](https://cluster-api.sigs.k8s.io/user/quick-start#install-clusterctl) 1.5.0 or higher.
 
-1. [Configure](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) `kubectl` access to the {{ managed-k8s-name }} managing cluster.
+1. [Configure](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) `kubectl` access to the {{ managed-k8s-name }} management cluster.
 
-    If the managing cluster is deployed locally with the help of `kind`, configure access to it as per [this guide](https://kind.sigs.k8s.io/docs/user/quick-start/#interacting-with-your-cluster).
+    If you deployed the management cluster locally with `kind`, follow [this guide](https://kind.sigs.k8s.io/docs/user/quick-start/#interacting-with-your-cluster) to configure cluster access.
 
 1. Clone the [cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) repository and navigate to the project directory.
 
@@ -104,9 +104,9 @@ The environment is configured on the local computer.
     cd cluster-api-provider-yandex
     ```
     
-## Prepare an OS image for cluster nodes {#prepare-os-image}
+## Set up an OS image for cluster nodes {#prepare-os-image}
 
-The OS [image](../../compute/concepts/image.md) deployed on the nodes of the new cluster must be ready to work with the {{ k8s }} Cluster API and compatible with {{ compute-name }}.
+The OS [image](../../compute/concepts/image.md) to deploy on the nodes of the new cluster must be configured to support the {{ k8s }} Cluster API and compatible with {{ compute-name }}.
 
 You can use a ready-made test image or build a custom one:
 
@@ -114,19 +114,19 @@ You can use a ready-made test image or build a custom one:
 
 - Ready-made image
 
-  To use a Ubuntu 24.04 test OS image ready for {{ k8s }} 1.31.4, specify the image ID `fd8a3kknu25826s8hbq3` in the `YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID` variable when [generating the cluster manifest](#prepare-manifests).
+  To use a test Ubuntu 24.04 image configured for {{ k8s }} 1.31.4, specify the `fd8a3kknu25826s8hbq3` image ID in the `YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID` variable when [generating the cluster manifest](#prepare-manifests).
 
   {% note warning %}
 
-  This image is created for informational purposes only, do not use it in production.
+  This image is for demonstration purposes only, do not use it in production.
 
   {% endnote %}
 
 - Custom image
 
-  1. [Build](https://image-builder.sigs.k8s.io/capi/capi) your OS image using the [Image Builder](https://github.com/kubernetes-sigs/image-builder) utility.
+  1. [Build](https://image-builder.sigs.k8s.io/capi/capi) a custom OS image using [Image Builder](https://github.com/kubernetes-sigs/image-builder).
 
-      See also: [Prepare a disk image for {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
+      See also: [Setting up a disk image for {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
   1. [Upload](../../compute/operations/image-create/upload.md) the image to {{ compute-name }} and save its ID.
 
 {% endlist %}
@@ -140,7 +140,7 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
 - Ready-made image
 
   1. [Authenticate](../../container-registry/operations/authentication.md#cred-helper) in your {{ container-registry-name }} using the [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
-  1. Add to the `IMG` environment variable the path to the Docker image with the {{ yandex-cloud }} provider in the public registry:
+  1. Add the path to the Docker image with the {{ yandex-cloud }} provider in the public registry to the `IMG` environment variable:
 
       ```bash
       export IMG={{ registry }}/crpsjg1coh47p81vh2lc/capy/cluster-api-provider-yandex:latest
@@ -150,7 +150,7 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
 
   1. [Create](../../container-registry/operations/registry/registry-create.md) a {{ container-registry-name }} and save its ID.
   1. [Authenticate](../../container-registry/operations/authentication.md#cred-helper) in your {{ container-registry-name }} using the [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
-  1. Add to the `IMG` environment variable the path the new Docker image will be stored at in the registry:
+  1. Add the path for storing the new Docker image in the registry to the `IMG` environment variable:
 
       ```bash
       export IMG={{ registry }}/<registry_ID>/cluster-api-provider-yandex:<tag>
@@ -173,27 +173,27 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
 
 ## Install the {{ yandex-cloud }} provider and the {{ k8s }} Cluster API provider {#install-providers}
 
-1. Initialize the managing cluster:
+1. Initialize the management cluster:
 
     ```bash
     clusterctl init
     ```
 
-    The managing cluster will have the core components of the {{ k8s }} Cluster API and [cert-manager](https://cert-manager.io/).
+    The management cluster will include the core components of the {{ k8s }} Cluster API and [cert-manager](https://cert-manager.io/).
 
-1. Create a custom resource definition ([CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/), CRD) for the new cluster:
+1. Create a [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) resource (CRD) for the new cluster:
 
     ```bash
     make install
     ```
 
-1. Retrieve a list of installed CRDs:
+1. Get the list of installed CRDs:
 
     ```bash
     kubectl get crd | grep cluster.x-k8s.io
     ```
 
-    To get a manifest for a specific CRD, run the following command:
+    To get the manifest of a specific CRD, run the following command:
 
     ```bash
     kubectl get crd <CRD_name> \
@@ -206,7 +206,7 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
     kubectl create namespace capy-system
     ```
 
-1. Create a secret with the {{ yandex-cloud }} service account's authorized key:
+1. Create a secret with the authorized key for the {{ yandex-cloud }} service account:
 
     ```bash
     kubectl create secret generic yc-sa-key \
@@ -222,14 +222,14 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
 
 ## Generate cluster manifests {#prepare-manifests}
 
-1. Get the IDs of {{ yandex-cloud }} resources to deploy a cluster:
+1. Get the IDs of the {{ yandex-cloud }} resources required to deploy the cluster:
     * [OS image](../../compute/operations/image-control/image-control-get-info.md)
     * [Folder](../../resource-manager/operations/folder/get-id.md)
     * [Availability zone](../../overview/concepts/geo-scope.md)
     * [Network](../../vpc/operations/network-get-info.md)
-    * [Subnet](../../vpc/operations/subnet-get-info.md) in the selected availability zone.
+    * [Subnet](../../vpc/operations/subnet-get-info.md) in the selected availability zone
 
-1. Provide the IDs to these environment variables:
+1. Add the IDs to these environment variables:
 
     ```bash
     export YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID=<image_ID>
@@ -249,37 +249,37 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
     ```
 
     The `capy-cluster.yaml` manifest will describe the following:
-    * L7 {{ alb-name }} with a dynamic internal IP address. You can [give it a fixed IP address](#configure-endpoint).
+    * {{ alb-name }} with a dynamic internal IP address. You [assign it a static IP address](#configure-endpoint), if required.
 
         {% note warning %}
 
-        Once the cluster is created, you will not be able to assign a fixed IP address to the L7 load balancer.
+        Once the cluster is created, you will not be able to assign a static IP address to the L7 load balancer.
 
         {% endnote %}
 
-    * Three Control Plane nodes for the cluster.
+    * Three control plane nodes for the cluster.
 
-1. Optionally, to deploy workload cluster nodes right away, add their description to the manifest.
+1. Optionally, to deploy worker nodes right away, add their description to the manifest.
 
     ```bash
     clusterctl generate cluster <name_of_new_cluster> \
-        --worker-machine-count <number_of_workload_nodes> \
+        --worker-machine-count <number_of_worker_nodes> \
         --from templates/cluster-template.yaml > /tmp/capy-cluster.yaml
     ```
 
 ### Optionally, configure the API server endpoint {#configure-endpoint}
 
-Specify the parameters for the L7 load balancer in the `capy-cluster.yaml` manifest:
+Configure the L7 load balancer in the `capy-cluster.yaml` manifest:
 
 ```yaml
   loadBalancer:
     listener:
-      address: <fixed_IP_address_from_subnet_range>
+      address: <static_IP_address_from_subnet_range>
       subnet:
         id: <subnet_ID>
 ```
 
-## Deploy a cluster {#create-cluster}
+## Deploy the cluster {#create-cluster}
 
 Run this command:
 
@@ -287,7 +287,7 @@ Run this command:
 kubectl apply -f /tmp/capy-cluster.yaml
 ```
 
-You can monitor cluster creation progress from the {{ yandex-cloud }} [management console]({{ link-console-main }}) and the `capy-controller-manager` pod logs:
+You can monitor the cluster creation progress in the {{ yandex-cloud }} [management console]({{ link-console-main }}) and the `capy-controller-manager` pod logs:
 
 ```bash
 kubectl logs <capy-controller-manager_pod_name> \
@@ -297,7 +297,7 @@ kubectl logs <capy-controller-manager_pod_name> \
 
 ## Connect to the cluster {#connect-to-cluster}
 
-The details for connection to the new cluster will be stored in the `<name_of_new_cluster>-kubeconfig` secret in the managing cluster.
+The credentials for accessing the new cluster will be stored in the `<name_of_new_cluster>-kubeconfig` secret in the management cluster.
 
 1. Get the data from the secret:
 
@@ -307,7 +307,7 @@ The details for connection to the new cluster will be stored in the `<name_of_ne
       --decode > capy-cluster-config
     ```
 
-1. [Provide](../../compute/operations/vm-connect/scp-sftp.md) the `kubectl` configuration file to the auxiliary VM:
+1. [Send](../../compute/operations/vm-connect/scp-sftp.md) the `kubectl` configuration file to the auxiliary VM:
 
     ```bash
     scp <path_to_capy-cluster-config_file_on_local_computer> \
@@ -321,9 +321,9 @@ The details for connection to the new cluster will be stored in the `<name_of_ne
     kubectl cluster-info
     ```
 
-## Install a CCM to the new cluster {#install-ccm}
+## Install a CCM in the new cluster {#install-ccm}
 
-For connection between the cluster resources and {{ yandex-cloud }} resources, install a [cloud controller manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/) to the new cluster, e.g., the [Kubernetes Cloud Controller Manager for {{ yandex-cloud }}](https://github.com/deckhouse/yandex-cloud-controller-manager/tree/master).
+For connection between the cluster resources and {{ yandex-cloud }} resources, install a [cloud controller manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/) in the new cluster, e.g., the [Kubernetes Cloud Controller Manager for {{ yandex-cloud }}](https://github.com/deckhouse/yandex-cloud-controller-manager/tree/master).
 
 {% note info %}
 
@@ -331,23 +331,23 @@ If you want to use the Kubernetes Cloud Controller Manager for {{ yandex-cloud }
 
 {% endnote %}
 
-## Install a CNI to the new cluster {#install-cni}
+## Install a CNI in the new cluster {#install-cni}
 
-To provide network functionality for pods in the new cluster, install to it a [container network interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), e.g., [Cilium](https://github.com/cilium/cilium) or [Calico](https://github.com/projectcalico/calico).
+To provide networking for pods in the new cluster, install a [container network interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), such as [Cilium](https://github.com/cilium/cilium) or [Calico](https://github.com/projectcalico/calico).
 
-For more information, see this documentation:
+For more information, see these docs:
 * [Cilium Quick Installation](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/).
 * [Quickstart for Calico on Kubernetes](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart).
 
-## Check the connection between the managing cluster and the new cluster {#check-connection}
+## Check the connection between the management cluster and the new cluster {#check-connection}
 
-1. Connect to the auxiliary VM and make sure that all the pods with the necessary system components have been deployed in the cluster:
+1. Connect to the auxiliary VM and make sure all pods with the required system components have been deployed in the cluster:
 
     ```bash
     kubectl get pods --all-namespaces
     ```
 
-    Output example:
+    Here is an example of the command output:
 
     ```bash
     NAMESPACE     NAME                                                       READY   STATUS    RESTARTS   AGE
@@ -363,7 +363,7 @@ For more information, see this documentation:
     kube-system   yandex-cloud-controller-manager-nwhwv                      1/1     Running   0          26s
     ```
 
-1. Use your local computer to check the connection between the managing cluster and the new cluster:
+1. Use your local computer to check the connection between the management cluster and the new cluster:
 
     ```bash
     clusterctl describe cluster <name_of_new_cluster>
@@ -381,7 +381,7 @@ For more information, see this documentation:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the {{ k8s }} cluster created using the Cluster API:
 
@@ -389,21 +389,21 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
     kubectl delete -f /tmp/capy-cluster.yaml
     ```
 
-1. Delete CRD from the {{ managed-k8s-name }} managing cluster:
+1. Delete the CRD from the {{ managed-k8s-name }} management cluster:
 
     ```bash
     make uninstall
     ```
 
-1. Delete the {{ yandex-cloud }} provider controller from the managing cluster:
+1. Delete the {{ yandex-cloud }} provider controller from the management cluster:
 
     ```bash
     make undeploy
     ```
 
-1. Delete the auxiliary {{ yandex-cloud }} resources if you had created them:
-    * [Node group](../../managed-kubernetes/operations/node-group/node-group-delete.md) of the {{ managed-k8s-name }} managing cluster
-    * {{ managed-k8s-name }} [managing cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
+1. Delete the auxiliary {{ yandex-cloud }} resources if you created them:
+    * [Node group](../../managed-kubernetes/operations/node-group/node-group-delete.md) of the {{ managed-k8s-name }} management cluster
+    * {{ managed-k8s-name }} [management cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
     * [Auxiliary VM](../../compute/operations/vm-control/vm-delete.md)
     * [NAT gateway](../../vpc/operations/delete-nat-gateway.md)
     * [OS image](../../compute/operations/image-control/delete.md) in {{ compute-name }}

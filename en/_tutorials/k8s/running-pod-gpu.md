@@ -1,7 +1,7 @@
 # Running workloads with GPUs
 
 
-A [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) allows running workloads on [GPUs](../../compute/concepts/gpus.md) (GPUs), which may be of use in tasks with special computing requirements.
+A [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) allows running workloads on [graphics processing units](../../compute/concepts/gpus.md) (GPUs), which may be of use in tasks with special computing requirements.
 
 To run workloads using GPUs on {{ managed-k8s-name }} cluster [pods](../../managed-kubernetes/concepts/index.md#pod):
 
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
@@ -30,17 +30,17 @@ The support cost includes:
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating a cluster, specify the preconfigured security groups.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
 1. [Create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following settings:
    * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}**: Select `{{ ui-key.yacloud.compute.components.PlatformField.value_platform-tab-gpu_hGyQ8 }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
    * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: Specify the required number of GPUs.
-   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups created earlier.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups you created earlier.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a pod with a GPU {#create-pod-gpu}
 
-1. Save the GPU pod creation specification to a YAML file named `cuda-vector-add.yaml`:
+1. Save the GPU pod specification to a YAML file named `cuda-vector-add.yaml`:
 
    ```yaml
    apiVersion: v1
@@ -58,8 +58,8 @@ The support cost includes:
              nvidia.com/gpu: 1 # Request for 1 GPU.
    ```
 
-   To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
-1. Create a pod with a GPU:
+   Learn more about the pod specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
+1. Create the pod with a GPU:
 
    ```bash
    kubectl create -f cuda-vector-add.yaml
@@ -67,7 +67,7 @@ The support cost includes:
 
 ## Test the pod {#check-pod}
 
-1. View the information about the new pod:
+1. View information about the new pod:
 
    ```bash
    kubectl describe pod cuda-vector-add
@@ -106,4 +106,4 @@ The support cost includes:
 
 Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a public static [IP address](../../vpc/concepts/address.md) for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete](../../vpc/operations/address-delete.md) the public static [IP address](../../vpc/concepts/address.md) for your {{ managed-k8s-name }} cluster if you reserved one.
