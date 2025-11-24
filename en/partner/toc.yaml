@@ -28,9 +28,11 @@ items:
     href: portal.md
   - name: Step-by-step guides
     items:
+      - name: Creating a customer account
+        href: operations/create-account.md
       - name: Granting access to a partner account
         href: operations/access/partners-account.md
-      - name: Viewing details of service consumption by customers
+      - name: Viewing usage details for subaccounts
         href: operations/get-client-stat.md
       - name: Suspending services to customers
         href: operations/stop-client-services.md
@@ -38,6 +40,8 @@ items:
         href: operations/pin-cloud.md
       - name: Adding a user to a subaccount
         href: operations/add-user-sub-account.md
+      - name: Setting up customer quotas
+        href: operations/manage-quotas.md
   - name: Access management
     href: security/index.md
   - name: Terms and definitions

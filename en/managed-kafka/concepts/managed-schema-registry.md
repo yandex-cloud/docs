@@ -16,9 +16,9 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 
 1. A producer transmits data format schemas to the registry. The following data schema formats are supported:
 
-    * [Avro](https://avro.apache.org/).
-    * [JSON Schema](https://json-schema.org/).
-    * [Protobuf](https://protobuf.dev/).
+    * [Avro](https://avro.apache.org/)
+    * [JSON Schema](https://json-schema.org/)
+    * [Protobuf](https://protobuf.dev/)
 
     When a schema is placed in the registry:
 

@@ -1,4 +1,7 @@
-В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
+(Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку дисков:
 
-1. В поле **{{ ui-key.yacloud.baremetal.field_server-count }}** укажите количество серверов, которое хотите арендовать.
-1. {% include [server-lease-step6-substep](./server-lease-step6-substep.md) %}
+1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
+1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
+
+    Чтобы самостоятельно собрать RAID-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

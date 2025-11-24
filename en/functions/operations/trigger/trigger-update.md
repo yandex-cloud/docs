@@ -17,7 +17,7 @@ Your changes will apply within five minutes.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger whose parameters you want to update.
@@ -101,7 +101,7 @@ Your changes will apply within five minutes.
 
       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

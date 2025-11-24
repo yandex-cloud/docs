@@ -5,7 +5,12 @@ description: В подключения {{ speechsense-name }} можно заг�
 
 # Создать подключение
 
-В подключение {{ speechsense-name }} можно загружать [двухканальное аудио](#create-audio-connection), [одноканальное аудио](#create-one-channel-audio-connection) или [чат](#create-chat-connection) с текстовыми сообщениями. Для создания подключения нужна роль `{{ roles-speechsense-admin }}` или `{{ roles-speechsense-editor }}` в пространстве.
+В подключение {{ speechsense-name }} можно загружать:
+* [двухканальное аудио](#create-audio-connection);
+* [одноканальное аудио](#create-one-channel-audio-connection);
+* [чат](#create-chat-connection) с текстовыми сообщениями. 
+
+Для создания подключения нужна роль `{{ roles-speechsense-admin }}` или `{{ roles-speechsense-editor }}` в пространстве.
 
 {% note info %}
 
@@ -17,7 +22,10 @@ description: В подключения {{ speechsense-name }} можно заг�
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство.
-1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %} 
+
 1. Укажите название и при необходимости добавьте описание подключения.
 1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
 1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
@@ -37,7 +45,10 @@ description: В подключения {{ speechsense-name }} можно заг�
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство.
-1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
+
 1. Укажите название и при необходимости добавьте описание подключения.
 1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}**.
 1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
@@ -50,27 +61,17 @@ description: В подключения {{ speechsense-name }} можно заг�
 
    {% include [shared-metadata](../../../_includes/speechsense/data/shared-metadata.md) %}
 
-1. (Опционально) В блоке **{{ ui-key.yc-ui-talkanalytics.connections.additional.title }}** включите опции:
+1. (Опционально) В блоке **{{ ui-key.yc-ui-talkanalytics.connections.additional.title }}** включите опцию **{{ ui-key.yc-ui-talkanalytics.connections.additional.split.title }}** и выберите вариант разбивки диалога:
 
-   * **Разделять текст диалогов по спикерам** — текст диалога разделяется по спикерам.
-   
-      {% note info %}
-      
-      Если отключить опцию, текст диалога будет отображаться только от имени оператора. Все теги и параметры отчета будут применяться исключительно к каналу оператора.
-      
-      {% endnote %}
-      
-   * **{{ ui-key.yc-ui-talkanalytics.connections.additional.split.title }}** и выберите вариант разбивки диалога:
+   * **По длительности** — диалог разбивается на отрезки указанной длительности.
 
-      * **По длительности** — диалог разбивается на отрезки указанной длительности.
+      * **{{ ui-key.yc-ui-talkanalytics.connections.additional.slice-length }}** — укажите длину отрезка в минутах и секундах.
 
-         * **{{ ui-key.yc-ui-talkanalytics.connections.additional.slice-length }}** — укажите длину отрезка в минутах и секундах.
+   * **По фразам** — диалог разбивается на отрезки по ключевым фразам.
 
-      * **По фразам** — диалог разбивается на отрезки по ключевым фразам.
-
-         * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}** — перечислите ключевые фразы, по которым будут определяться начало и конец диалога.
+      * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}** — перечислите ключевые фразы, по которым будут определяться начало и конец диалога.
            
-            {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+         {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
 
 1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
@@ -78,7 +79,10 @@ description: В подключения {{ speechsense-name }} можно заг�
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство.
-1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
+
 1. Укажите название и при необходимости добавьте описание подключения.
 1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
 1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.

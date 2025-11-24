@@ -36,10 +36,10 @@ links:
     description: Learn more about the service's concepts and resources
     href: concepts/
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex Cloud Registry

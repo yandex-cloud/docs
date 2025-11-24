@@ -5,9 +5,9 @@ description: Access management in {{ cloud-registry-full-name }}, a secure stora
 
 # Access management in {{ cloud-registry-full-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. As long as a user has no roles assigned, all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. As long as a user has no roles assigned, all operations are forbidden.
 
-To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ cloud-registry-name }} resources, assign them the roles from the list below.
+To allow access to {{ cloud-registry-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
 
 ## Resources you can assign a role for {#resources}
 

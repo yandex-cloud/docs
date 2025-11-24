@@ -22,6 +22,8 @@ Using the {{ yandex-cloud }} console or the CLI, you can assign a role for a [cl
 
 ## What roles exist in this service {#roles-list}
 
+{% include [roles-backup](../../_mermaid/roles/backup.md) %}
+
 ### Service roles {#service-roles}
 
 #### backup.viewer {#backup-viewer}

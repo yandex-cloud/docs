@@ -26,7 +26,7 @@ A partner bonus is a discount on {{ yandex-cloud }} services applied to the paym
 
 {% note info %}
   
-For the effective conditions, see our [offer]((https://yandex.ru/legal/cloud_grant/?lang=ru)).
+For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_grant/?lang=ru).
   
 {% endnote %}
 
@@ -60,10 +60,10 @@ You can withdraw your commissions credited as rebates through the partner portal
 1. In the left-hand panel, select ![icon](../../_assets/console-icons/sack.svg) **Rebate accrual balance**.
 1. Click **Withdraw**.
 1. Specify the amount to withdraw.
-1. Select the destination for the withdrawal:
+1. Select the withdrawal destination:
 
-   * **Bonus**: These funds will reduce the amount payable for the consumption of your customer subaccounts in the current month.
-   * **Bank account**: The funds will be transferred to the bank account specified in the partner agreement.
+   * **Invoice deduction**: The amount will reduce the sum due for the consumption of your customer subaccounts in the current month.
+   * **To bank account**: The amount will be transferred to the bank account specified in the partner agreement.
 
 1. Click **Withdraw**.
 

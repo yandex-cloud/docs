@@ -22,6 +22,8 @@ description: Управление доступом в сервисе, предо
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [roles-backup](../../_mermaid/roles/backup.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### backup.viewer {#backup-viewer}

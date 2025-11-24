@@ -7,30 +7,26 @@ description: Follow this guide to add a customer.
 
 To add a new customer:
 
-1. [Create a customer record on the partner portal](#client-entry).
+1. [Create a customer subaccount on the partner portal](#client-entry).
 1. [Wait until the customer confirms partnership](#confirm-partnership).
 1. [Create a new cloud for your customer](#create-cloud).
 
-## Creating a customer record {#client-entry}
+## Creating a customer subaccount {#client-entry}
 
 {% list tabs group=instructions %}
 
 - Partner portal {#partner}
 
   1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}. If you have no access, it means the account you are using to log in has no partner status assigned.
-  1. In the top-right corner, click **Add customer**.
-  1. Complete the **New customers** form with your customer's information.
-  1. Click **Add**. A new customer record with the `Verification required` status will appear on the partner portal.
-
-     {% note info %}
-
-     You can edit all subaccount fields except the **Name** field: only the contact person specified in the account fields can edit it. Updates do not affect the roles assigned for the subaccount and organization.
-
-     {% endnote %}
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/credit-card.svg) **Subaccounts**.
+  1. In the top-right corner, click ![image](../../_assets/console-icons/plus.svg) **Create subaccount**.
+  1. In the subaccount creation form, select an existing account in the search bar or click ![image](../../_assets/console-icons/plus.svg) to [create](../operations/create-account.md) a new one.
+  1. Fill out the remaining fields with your customer information.
+  1. Click **Create**. A new customer record with the `Acceptance required` status will appear on the **Subaccounts** page.
 
 {% endlist %}
 
-When creating a customer record on the partner portal, a [subaccount](../terms.md#sub-account), and then, after confirming the partnership, a new [organization](../../organization/) named `For 'Customer_name' subaccount` are created. You can delete the subaccount if the customer has not [confirmed](#confirm-partnership) it on time.
+Once you confirm the partnership, a new [organization](../../organization/) named `For 'Customer_name' subaccount` will be created.
 
 In this case, users are assigned different roles for accessing the created subaccount and organization by default.
 
@@ -40,11 +36,11 @@ In this case, users are assigned different roles for accessing the created subac
 
 * Users and service accounts that created a subaccount for a customer:
    * The `billing.accounts.admin` [role](../security/index.md#billing-accounts-admin) for the subaccount.
-   * The `admin` [role](../../iam/roles-reference.md#admin) for the organization:
+   * The `admin` [role](../../iam/roles-reference.md#admin) for the organization.
 
 * Users whose email addresses were specified when creating a subaccount:
    * The `billing.accounts.admin` [role](../security/index.md#billing-accounts-admin) for the subaccount.
-   * The `admin` [role](../../iam/roles-reference.md#admin) for the organization:
+   * The `admin` [role](../../iam/roles-reference.md#admin) for the organization.
 
 {% note info %}
 

@@ -25,7 +25,9 @@
 
    {% include [manage-ba-note](../_includes/speechsense/manage-ba-note.md) %}
 
-1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и создайте [подключение](concepts/resources-hierarchy.md#connection) на основе метаинформации ваших аудиозаписей или переписок из чатов:
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания [подключения](concepts/resources-hierarchy.md#connection) на основе метаинформации ваших аудиозаписей или переписок из чатов:
+
+   {% include [metadata](../_includes/speechsense/data/templates-connection.md) %}
 
    1. Введите **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
    1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.

@@ -50,10 +50,7 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
                       --agent cloud-registry:data-plane \
                       --cloud-id <cloud_ID>
                     ```
-                * Select the authentication method in `Docker Hub`:
-
-                    * To authenticate with an [access token](https://docs.docker.com/security/for-developers/access-tokens/), select the `Bearer` authentication option and, in the **Secret ID in Lockbox** field, select the {{ lockbox-full-name }} secret with this token in its `value` key.
-                    * For authentication with a username and password, select the `Basic` authentication option and, in the **Secret ID in Lockbox** field, select the {{ lockbox-full-name }} secret with this password in its `value` key.
+                * Get authenticated in `Docker Hub` using an [access token](https://docs.docker.com/security/for-developers/access-tokens/). For do this, select the `Basic` authentication option, specify the username, and, in the **Secret ID in Lockbox** field, select the {{ lockbox-full-name }} secret whose `value` key stores the token.
         1. If you selected the `Virtual` registry type, use the ![plus](../../../_assets/console-icons/plus.svg) **Add registry** button in the **Registries** field to add local and/or remote registries to the virtual registry by specifying their IDs.
 
             You can look up the registry ID in the management console on the registry info page.
@@ -69,7 +66,8 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
       --name <registry_name> \
       --description <registry_description> \
       --registry-kind <registry_format> \
-      --registry-type <registry_type>
+      --registry-type <registry_type> \
+      --properties <registry_properties>
     ```
 
     Where:
@@ -77,6 +75,18 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
     * `--description`: Registry description.
     * `--registry-kind`: Registry format. The available values are `maven`, `npm`, and `docker`.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types). The available values are `local`, `remote`, and `virtual`.
+    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. Available properties:
+        * For `local` registries:
+            * `versionPolicy`: Version policy for a registry in `maven` format. Possible values: `mixed`, `release`, and `snapshot`. The default value is `mixed`.
+        * For `remote` registries:
+            * `source`: Source registry. The possible values depend on the registry format, e.g., `@maven-central` for `maven` or `@npmjs` for `npm`.
+            * `authorizationType`: Authorization type. Possible values: `none` and `basic`. The default value is `none`. Available only for a registry in `docker` format.
+            * `authorizationSecretId`: ID of the user secret that stores the token or password. It is required if the `authorizationType` is `basic`. Available only for a registry in `docker` format.
+            * `authorizationUsername`: Username. It is required if the `authorizationType` is `basic`. Available only for a registry in `docker` format.
+        * For `virtual` registries:
+            * `registryIds`: List of local and remote registry IDs in the order of their traversal. Provide in `registryIds=registry1;registry2` format.
+            * `readOnly`: Permission to push artifacts to the registry. Possible values: `true` to deny or `false` to allow pushing.
+            * `deploymentRegistryId`: ID of the registry to push artifacts to. It is required if `readOnly` is `false`.
 
     Result:
 

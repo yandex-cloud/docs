@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Как начать работать с {{ baremetal-full-name }}
 
-Арендуйте свой первый физический сервер и подключитесь к нему. Все ресурсы арендованного сервера выделяются только вам и могут обеспечить лучшую производительность, чем аналогичная [виртуальная машина](../glossary/vm.md).
+Арендуйте свой первый [физический сервер](./concepts/servers.md) и подключитесь к нему. Все ресурсы арендованного сервера выделяются только вам и могут обеспечить лучшую производительность, чем аналогичная [виртуальная машина](../glossary/vm.md).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -17,35 +17,35 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите арендовать сервер.
-  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ baremetal-name }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-  1. Выберите [зону доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-m`.
-  1. Выберите пул `{{ region-id }}-m3`.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
+  1. {% include [server-lease-step1](../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
+  1. {% include [server-lease-step2](../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud.baremetal.servers.ServerConfigPage.ready-configs_ibA3Y }}` и подходящую [конфигурацию](./concepts/server-configurations.md) сервера {{ baremetal-name }}. Например: `BA-i103-S-10G`.
 
-     1. Выберите конфигурацию сервера `BA-i103-S-10G`.
-     1. (Опционально) Настройте разметку диска:
+      {% include [server-lease-selecting-the-right-config](../_includes/baremetal/instruction-steps/server-lease-selecting-the-right-config.md) %}
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-        1. Укажите параметры разметки и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. В открывшемся окне с настройками конфигурации сервера:
 
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 22.04 LTS`.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** укажите:
+      1. {% include [server-lease-step4](../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
+      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](./concepts/servers.md#server-lease), на который вы будете арендовать сервер.
 
-     1. **{{ ui-key.yacloud.baremetal.field_server-count }}** — `1`.
-     1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** — `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
+          {% note tip %}
 
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В открывшемся окне в блоке **{{ ui-key.yacloud.baremetal.title_common-info }}** в поле **{{ ui-key.yacloud.baremetal.field_subnetwork-name }}** введите имя подсети `bm-subnetwork` и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+          Для первоначального тестирования достаточно арендовать сервер сроком на 1 день или 1 месяц. Если этого времени окажется недостаточно, аренда сервера будет автоматически продлена на следующий период той же продолжительности.
 
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+          {% endnote %}
+      1. В поле **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** оставьте `1`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` и образ с операционной системой `Ubuntu 24.04 LTS`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-disk_9Txqx }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**, чтобы задать конфигурацию разделов дисковых устройств, имеющихся на сервере.
 
-      {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+          В открывшемся окне оставьте параметры разметки дисков по умолчанию или измените их, затем нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+          {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
 

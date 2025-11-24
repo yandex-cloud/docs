@@ -1,7 +1,7 @@
 ---
 noIndex: true
 title: Monitoring message loss in an {{ KF }} topic
-description: In this tutorial, you will simulate a message loss in a topic on a {{ mkf-name }} test cluster and then observe the patterns occurring during a message loss with the help of {{ monitoring-full-name }}.
+description: In this tutorial, you will simulate a message loss in a topic on a {{ mkf-name }} test cluster and then observe the patterns resulting from it with the help of {{ monitoring-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/kafka-retention-policy'
 ---
 

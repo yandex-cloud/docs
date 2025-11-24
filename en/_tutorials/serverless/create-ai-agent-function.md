@@ -18,7 +18,7 @@ On the diagram:
 1. The {{ foundation-models-name }} model sends the generated response to the AI agent.
 1. The AI agent returns the response to the user.
 
-The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create the resources you need to access a model in {{ foundation-models-name }}: a [service account](../../iam/concepts/users/service-accounts.md), the service account's [API key](../../iam/concepts/authorization/api-key.md), a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
+The AI agent you create in this tutorial will be deployed in {{ yandex-cloud }} using {{ sf-full-name }}. You will also create resources to arrange access to the {{ foundation-models-name }} model: a [service account](../../iam/concepts/users/service-accounts.md), the service account [API key](../../iam/concepts/authorization/api-key.md), the {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), and a [function](../../functions/concepts/function.md) in {{ sf-name }}.
 
 You can create these resources [automatically](#automatic-setup) or [manually](#manual-setup).
 
@@ -53,6 +53,49 @@ The infrastructure support cost for this tutorial includes:
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
+## Automated AI agent deployment using {{ src-name }} CI/CD {#automatic-sourcecraft-setup}
+
+Run a CI/CD workflow in [{{ src-name }}]({{ link-src-docs }}/) to automatically create all the required resources in your selected folder and deploy a ready-to-use AI agent for you to experiment with.
+
+### Why {{ src-name }} CI/CD is the fastest and most secure way to deploy an AI agent {#why-sourcecraft}
+
+{{ src-name }} provides multiple benefits when deploying AI agents:
+
+* You do not need to set up a local development environment. All the required settings are configured remotely when running CI/CD workflows in {{ src-name }}.
+* Deployment is secure as you do not need to store service account secrets locally. In {{ src-name }}, you can use a [service connection]({{ link-src-docs }}/sourcecraft/concepts/service-connections) to request short-living IAM tokens for access to {{ yandex-cloud }} services.
+
+To create an AI agent automatically using {{ src-name }} CI/CD:
+
+1. [Fork]({{ link-src-docs }}/sourcecraft/operations/fork-work#create-fork) the [repository](https://sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent) with scripts for AI agent creation.
+
+    The repository contains scripts for creating the following AI agent types:
+
+    {% list tabs group=difficulty %}
+
+    - Simple AI agent {#simple}
+
+      The `create-simple-ai-agent-workflow` will create a simple AI agent which, when launched, returns information about the weather in Tokyo in haiku form.
+
+    - Advanced AI agent {#advanced}
+
+      The `create-advanced-ai-agent-workflow` will create an advanced AI agent which responds to user requests in haiku form. When there is no user request, the agent returns a response to the default request.
+
+    - Translator agent {#complex}
+
+      The `create-complex-ai-agent-workflow` will create a translator agent which can handle user requests for text translation to the specified language while maintaining the style and tone.
+
+    {% endlist %}
+
+1. [Configure a service connection]({{ link-src-docs }}/sourcecraft/operations/service-connections) in {{ src-name }} for access to your {{ yandex-cloud }}.
+
+1. [Run a workflow]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually), e.g., `create-simple-ai-agent-workflow`.
+
+1. Test the AI agent.
+
+   You can view the function result in the [logs]({{ link-src-docs }}/sourcecraft/operations/ci-cd#check-ci-cd) of the {{ src-name }} CI/CD cube, e.g., for `create-simple-ai-agent-workflow` this cube is named `deploy-simple-ai-agent`. In addition, you can [test the function](#test-function) in the {{ yandex-cloud }} management console.
+
+1. If you no longer need the resources you created, [delete them](#clear-out).
+
 ## Creating an AI agent automatically {#automatic-setup}
 
 Run a script to automatically create all the required resources in your selected folder and deploy a ready-to-use AI agent for you to experiment with.
@@ -61,10 +104,10 @@ To create an AI agent automatically:
 
 1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} CLI and [get authenticated](../../cli/operations/index.md#auth).
 1. [Download and install Python](https://www.python.org/downloads/).
-1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-ai-agent) with scripts for creating the AI agent:
+1. Clone the [repository](https://sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent) with scripts for creating the AI agent:
 
     ```bash
-    git clone https://github.com/yandex-cloud-examples/yc-serverless-ai-agent
+    git clone https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent.git
     ```
 
     The repository contains scripts for creating three types of AI agents:
@@ -154,7 +197,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `function-sa`.
+  1. Enter the service account name: `function-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.languageModels.user` [role](../../ai-studio/security/index.md#languageModels-user).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -329,7 +372,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** and then select the secret named `api-key-secret` you created earlier.
-  1. On the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens:
+  1. On the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens, do the following:
 
       1. In the search bar, enter the name of the `function-sa` service account you created and select it.
       1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer).
@@ -430,7 +473,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
              * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../ai-studio/concepts/generation/models.md#generation).
 
-                 For example: `gpt://<folder_ID>/yandexgpt/latest`.
+                 Example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
              * `BASE_URL`: {{ foundation-models-full-name }} URL, `https://{{ api-host-llm }}/v1`.

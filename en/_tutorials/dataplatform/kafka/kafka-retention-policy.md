@@ -1,16 +1,16 @@
 # Monitoring message loss in an {{ KF }} topic
 
-A consumer group may lose messages in an {{ KF }} topic due to a combination of these two factors:
+A [consumer group](../../../managed-kafka/concepts/producers-consumers.md#consumer-groups) may lose messages in an {{ KF }} topic when both of the following apply:
 1. The topic or entire cluster uses the `Delete` log cleanup policy with a short `Log retention` period.
 1. One or more consumer groups are too slow to read messages from the topic resulting in deletion of unread messages. 
 
-You can monitor message loss using {{ mkf-name }} [metrics](../../../managed-kafka/metrics.md) delivered to [{{ monitoring-name }}](../../../monitoring/concepts/index.md). `kafka_group_topic_partition_offset` falling below `kafka_log_Log_LogStartOffset` signals that a consumer group has lost messages.
+You can monitor message loss using {{ mkf-name }} [metrics](../../../managed-kafka/metrics.md) delivered to [{{ monitoring-name }}](../../../monitoring/concepts/index.md). If the `kafka_group_topic_partition_offset` value falls below `kafka_log_Log_LogStartOffset`, a consumer group has lost messages.
 
 In this tutorial, you will:
-* Simulate a message loss in a {{ mkf-name }} test cluster topic using [topic connection tools](https://kafka.apache.org/downloads).
-* Plot a graph of the `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset`, and `kafka_log_Log_LogEndOffset` metrics with the help of {{ monitoring-full-name }} and observe the patterns occurring during a message loss.
+* Simulate message loss in a {{ mkf-name }} test cluster topic using [topic connection tools](https://kafka.apache.org/downloads).
+* Create a chart for the `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset`, and `kafka_log_Log_LogEndOffset` metrics in {{ monitoring-full-name }} and observe the patterns during the message loss.
 
-To simulate and monitor a message loss in an {{ KF }} topic:
+To simulate and monitor message loss in an {{ KF }} topic:
 
 1. [Set up topic connection tools](#test-cluster-prepare).
 1. [Prepare message send and receive commands](#prepare-commands).
@@ -27,12 +27,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ KF }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ KF }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) in any suitable configuration. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating your cluster.
+1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) with any suitable configuration. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating your cluster.
 1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) for message exchange between producer and consumer with the following settings:
     * **{{ ui-key.yacloud.common.name }}**: `messages`
     * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
@@ -44,7 +44,7 @@ The support cost for this solution includes:
    
    {% note info %}
 
-   You can only connect to public hosts using an SSL certificate.
+   You can connect to public hosts only if using an SSL certificate.
 
    {% endnote %}
 
@@ -257,7 +257,7 @@ In our example, the `messages` test topic includes only one partition, so you do
 
 {% note info %}
 
-To monitor message loss, you only need the `kafka_group_topic_partition_offset` and `kafka_log_Log_LogStartOffset` metrics; however, the additional `kafka_log_Log_LogEndOffset` metric will make the chart more instructive.
+To monitor message loss, you only need the `kafka_group_topic_partition_offset` and `kafka_log_Log_LogStartOffset` metrics; however, the additional `kafka_log_Log_LogEndOffset` metric will make the chart more informative.
 
 {% endnote %}
 

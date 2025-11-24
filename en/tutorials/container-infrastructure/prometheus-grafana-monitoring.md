@@ -1,8 +1,8 @@
 ---
-title: Monitoring a {{ managed-k8s-full-name }} cluster with {{ prometheus-name }} and {{ grafana-name }}
-description: Follow this guide to set up {{ managed-k8s-name }} cluster monitoring with {{ prometheus-name }} and {{ grafana-name }}.
+title: '{{ managed-k8s-full-name }} cluster monitoring with the help of {{ prometheus-name }} Operator with {{ monitoring-full-name }} support'
+description: Follow this tutorial to set up {{ managed-k8s-name }} cluster monitoring with the help of {{ prometheus-name }} Operator with {{ monitoring-full-name }} support.
 ---
 
-# Monitoring a {{ managed-k8s-full-name }} cluster with {{ prometheus-name }} and {{ grafana-name }}
+# {{ managed-k8s-full-name }} cluster monitoring with the help of {{ prometheus-name }} Operator with {{ monitoring-full-name }} support
 
 {% include notitle [prometheus-grafana-monitoring](../../_tutorials/k8s/prometheus-grafana-monitoring.md) %}

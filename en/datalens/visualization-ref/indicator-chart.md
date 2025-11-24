@@ -57,7 +57,7 @@ To create an indicator:
 
 To change indicator size and color:
 
-1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg).
+1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg). This setting is not available for a field of the `Markup` type. In this case, use [markup functions](../function-ref/markup-functions.md) for formatting as when [creating a complex indicator](#markup-indicator).
 1. In the **Indicator settings** window, select the size, color palette, color and click **Apply**.
 
 ### Customizing header display {#indicator-title}

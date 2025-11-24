@@ -1,26 +1,28 @@
 ---
 title: Access management in {{ iot-full-name }}
-description: Access management in the {{ iot-full-name }} cloud-based MQTT server This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Managing access to a {{ iot-full-name }} cloud MQTT server. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
-
+    
 # Access management in {{ iot-name }}
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These roles also apply to nested resources.
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
-The list below shows all roles considered when verifying access permissions in {{ iot-short-name }}.
+The list below shows all roles used for access control in {{ iot-short-name }}.
+
+{% include [iot-core](../../_mermaid/roles/iot-core.md) %}
 
 ### Service roles {#service-roles}
 
@@ -44,7 +46,7 @@ The list below shows all roles considered when verifying access permissions in {
 
 {% include [iot-editor](../../_roles/iot/editor.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
 ### Primitive roles {#primitive-roles}
 

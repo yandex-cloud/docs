@@ -7,9 +7,9 @@ description: Follow this guide to add a user to {{ datalens-full-name }}.
 
 There are several ways to add a user to {{ datalens-short-name }}:
 
-1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planing to access other {{ yandex-cloud }} services. This method allows you to add users with a Yandex account. If the user later requires other {{ yandex-cloud }} services, you can [assign them an additional role](../../organization/security/index.md#add-role) in the organization with the current {{ datalens-short-name }} instance.
+1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planning to use other {{ yandex-cloud }} services. This method allows you to add users with a Yandex account. If the user later requires other {{ yandex-cloud }} services, you can [assign them an additional role](../../organization/security/index.md#add-role) in the organization with the current {{ datalens-short-name }} instance.
 
-1. [Via {{ org-full-name }}](#org-user): If the user is planing to use other {{ yandex-cloud }} services. This method allows you to invite [users with a Yandex account](#passport-user) to the organization or add [federated users](#federated-user) if you have an identity federation configured.
+1. [Via {{ org-full-name }}](#org-user): If the user is planning to use other {{ yandex-cloud }} services. In which case you can invite to the organization [Yandex account users](#passport-user) or add [federated](#federated-user) and [local](../../organization/operations/add-account.md#local) users.
 
 {% note info %}
 

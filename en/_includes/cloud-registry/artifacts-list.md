@@ -5,3 +5,4 @@ The service supports:
 * [Node.js artifacts](../../cloud-registry/concepts/art-nodejs.md)
 * [NuGet artifacts](../../cloud-registry/concepts/art-nuget.md)
 * [Python artifacts](../../cloud-registry/concepts/art-python.md)
+* [Binary artifacts](../../cloud-registry/concepts/art-binary.md)

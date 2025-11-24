@@ -22,7 +22,7 @@ In this section, you will learn:
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/application-load-balancer/security/service-roles-hierarchy.svg)
+{% include [roles-alb](../../_mermaid/roles/application-load-balancer.md) %}
 
 ### Service roles {#service-roles}
 

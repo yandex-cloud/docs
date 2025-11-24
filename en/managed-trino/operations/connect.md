@@ -9,6 +9,12 @@ keywords:
 
 This section presents settings for connection to the {{ mtr-name }} cluster using [command line tools](#cli-tools), from [graphical IDEs](#connection-ide) and [WebSQL](#websql). To learn how to connect from your application code, see [Connection string examples](#connection-strings).
 
+{% note info %}
+
+If the connection requires a port, use port `{{ port-https }}`.
+
+{% endnote %}
+
 ## Command line tools {#cli-tools}
 
 ### {{ TR }} CLI {#trino-cli}
@@ -36,25 +42,25 @@ Before connecting:
      1. Enter a name for the data source.
      1. Specify the connection settings on the **General** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
-        * **Port**: `443`.
+        * **Port**: `{{ port-https }}`.
         * **User**: `iam`.
         * **Password**: Previously created IAM token.
-  1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
 
-  1. Create a new DB connection:
+  1. Create a new database connection:
      1. In the **Database** menu, select **New connection**.
      1. Select **{{ TR }}** from the list.
      1. Click **Next**.
      1. Specify the connection settings on the **Main** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
-        * **Port**: `443`.
+        * **Port**: `{{ port-https }}`.
         * Under **Authentication**, specify:
             * Username: `iam`.
             * Password: Previously created IAM token.
-  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
@@ -106,22 +112,22 @@ Before connecting:
       from trino.auth import BasicAuthentication
 
       TIMEOUT = 10
-      COORDINATOR_URL = '<coordinator_URL>'
+      COORDINATOR_URL = 'c-<cluster_ID>.trino.yandexcloud.net'
       IAM_TOKEN = os.environ['TOKEN']
 
       def get_version():
           auth = BasicAuthentication(username='iam', password=IAM_TOKEN)
-          with closing(connect(host=COORDINATOR_URL, port=443, auth=auth, request_timeout=TIMEOUT)) as conn:
+          with closing(connect(host=COORDINATOR_URL, port={{ port-https }}, auth=auth, request_timeout=TIMEOUT)) as conn:
               with closing(conn.cursor()) as cur:
                   cur.execute('SELECT version() as version')
                   rows = cur.fetchall()
-                  print(rows[0][0])
+                  print(rows[0])
 
       if __name__ == "__main__":
           get_version()
       ```
 
-      You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Connecting:
 
@@ -266,7 +272,7 @@ Before connecting:
 
       ```
 
-      You can get the {{ mtr-name }} cluster ID in the [management console]({{ link-console-main }}) with the list of {{ mtr-name }} clusters in the folder.
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Building and connecting:
 
@@ -303,7 +309,7 @@ Before connecting:
     "use strict";
     import {BasicAuth, Trino} from 'trino-client';
 
-    const COORDINATOR_URL = '<coordinator_URL>'
+    const COORDINATOR_URL = 'c-<cluster_ID>.trino.yandexcloud.net'
     let TOKEN = process.env.TOKEN
 
     async function get_version() {
@@ -316,7 +322,7 @@ Before connecting:
     get_version();
     ```
 
-    You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 

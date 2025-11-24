@@ -12,13 +12,13 @@ description: Follow this guide to create a device.
    1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the required registry from the list.
-   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
    1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Device **{{ ui-key.yacloud.common.name }}**, e.g., `my-device`.
       * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the device.
-      * (Optional) **{{ ui-key.yacloud.common.password }}** that you will use to access the device. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
+      * (Optional) **{{ ui-key.yacloud.common.password }}** that you will use to access the device. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
 
          {% note info %}
 
@@ -29,7 +29,7 @@ description: Follow this guide to create a device.
    1. (Optional) Add [aliases](../../concepts/topic/usage.md#aliases):
 
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
-      1. Fill in the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`. You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
+      1. Fill out the fields: enter an alias, e.g., `events`, and the topic type after `$devices/<device_ID>`, e.g., `events`. You will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
 
    1. (Optional) Add a [certificate](../../operations/certificates/create-certificates.md):
 
@@ -128,7 +128,7 @@ description: Follow this guide to create a device.
          --topic-aliases <alias>='<topic>'
       ```
 
-      Example:
+      Here is an example:
 
       ```bash
       yc iot device add-topic-aliases \
@@ -204,26 +204,26 @@ description: Follow this guide to create a device.
       }
       ```
       
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
       
    1. Make sure the configuration files are correct.
       
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
          
-   1. Deploy cloud resources.
+   1. Deploy the cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
          ```
          terraform apply
          ```
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
       
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

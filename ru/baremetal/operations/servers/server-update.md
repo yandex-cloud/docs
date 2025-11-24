@@ -11,14 +11,36 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. При необходимости измените имя, описание, метки, продолжительность периода аренды и сетевые настройки сервера.
+  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Внесите изменения в конфигурацию сервера:
 
-      {% note info %}
+      * (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_name_dFuVW }}** измените имя сервера. Требования к имени:
 
-      Изменения в настройке продолжительности периода аренды вступят в силу только по истечении текущего периода, на который был арендован сервер.
+          {% include [name-format](../../../_includes/name-format.md) %}
 
-      {% endnote %}
+      * (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description_f2tds }}** добавьте или измените описание сервера.
+      * (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте или измените [метки](../../../resource-manager/concepts/labels.md) сервера.
+      * (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions_sQGNJ }}** измените продолжительность периода аренды сервера.
+
+          {% note info %}
+
+          Изменения в настройке продолжительности периода аренды вступят в силу только по истечении текущего периода, на который был арендован сервер.
+
+          {% endnote %}
+      
+      * (Опционально) В полях **{{ ui-key.yacloud.baremetal.field_subnet-id }}** и **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** измените [сетевые настройки](../../concepts/network.md) сервера.
+      * (Опционально) В поле **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** измените пакет [потребления трафика сервера](../../concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
+
+          * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`;
+          * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan100Tb_4AB2b }}`.
+
+          {% note info %}
+
+          Возможность выбора пакетов трафика доступна только для конфигураций с публичным IP-адресом и сетевыми картами со скоростью соединения 10 Гбит/с и выше.
+
+          После увеличения емкости подключения уменьшить ее можно будет не раньше, чем через 24 часа.
+
+          {% endnote %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 

@@ -7,6 +7,8 @@ description: This page enlists service roles required to control access to {{ er
 
 With [{{ er-name }}](../concepts/index.md#eventrouter) service roles, you can manage user access to {{ er-name }} resources: [buses](../concepts/eventrouter/bus.md), [connectors](../concepts/eventrouter/connector.md), and [rules](../concepts/eventrouter/rule.md).
 
+{% include [serverless-integrations-eventrouter](../../_mermaid/roles/serverless-integrations-eventrouter.md) %}
+
 #### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
 
 {% include [serverless.eventrouter.auditor](../../_roles/serverless/eventrouter/auditor.md) %}

@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
   1. В открывшемся окне:
 
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите один из доступных образов ОС.
-      1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+      1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
 
           Если не вносить изменений в разметку дисков, на сервере сохранятся заданные ранее настройки RAID-массивов и распределения дискового пространства.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
