@@ -8,7 +8,6 @@ description: Из статьи вы узнаете, как работать с {
 ## Серверы {#servers}
 
 * [{#T}](./servers/server-lease.md)
-* [{#T}](./servers/custom-server-lease.md)
 * [{#T}](./servers/get-info.md)
 * [{#T}](./servers/server-update.md)
 * [{#T}](./servers/server-kvm.md)

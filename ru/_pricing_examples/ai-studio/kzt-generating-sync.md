@@ -1,0 +1,9 @@
+#|
+|| | **Alice AI LLM** | **{{ gpt-pro }} 5.1** | **Qwen3 235B** ||
+|| Токенов в запросе | 82 | 82 | 116 ||
+|| Результат работы | Нейросети оптимизируют бизнес‑процессы: разгружают техподдержку, ускоряют проверку документов, анализ и обработку данных, генерируют отчёты за минуты и прогнозируют спрос. | Нейросети оптимизируют бизнес-процессы: разгружают техподдержку, ускоряют проверку документов, анализ и обработку данных, генерируют отчёты за минуты и прогнозируют спрос. | Нейросети оптимизируют бизнес-процессы, разгружают техподдержку, ускоряют проверку документов, анализ и обработку данных, генерируют отчёты за минуты и прогнозируют спрос. ||
+|| Токенов в ответе | 37 | 37 | 60 ||
+|| Стоимость запроса | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 80 %} | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 81 %} | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 97 %} ||
+|| Стоимость ответа | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 37 %} | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 37 %} | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 59 %} ||
+|| Итого | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 119 %} | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 119 %} | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 176 %} ||
+|#
