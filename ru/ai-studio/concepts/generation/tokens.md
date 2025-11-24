@@ -2,27 +2,37 @@
 
 Нейросети работают с текстами, представляя слова и предложения в виде _токенов_ — смысловых отрывков или часто встречающихся последовательностей символов, характерных для естественного языка. Токены позволяют нейросетям находить закономерности и обрабатывать естественный язык.
 
-{{ foundation-models-full-name }} использует свой токенизатор для обработки текстов. Вы можете [оценить](../../operations/generation/evaluate-request.md) размер текстового поля в токенах с помощью специальных методов [Tokenizer](../../text-generation/api-ref/Tokenizer/index.md) или [{{ ml-sdk-full-name }}](../../sdk/index.md). Число токенов в одном и том же тексте может различаться для каждой [модели](./models.md).
+Каждая модель использует свой токенизатор для обработки текстов, поэтому количество токенов в одном и том же тексте будет отличаться. При работе с моделями через {{ openai }}-совместимые API количество использованных токенов возвращается в каждом ответе модели в поле `usage`. Если же вы хотите предварительно оценить, сколько токенов содержится в тексте, воспользуйтесь токенизатором выбранной модели.
 
-Чтобы использовать токенизатор {{ foundation-models-full-name }}, необходима [роль](../../security/index.md#languageModels-user) `ai.languageModels.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+Модели Яндекса используют токензитор, специально оптимизированный для работы с текстами на русском языке. Это позволяет увеличить среднее количество символов в токене и уменьшить стоимость обработки текста. Вы можете бесплатно [оценить](../../operations/generation/evaluate-request.md) размер любого текста в токенах в представлении моделей Яндекса с помощью специальных методов [Tokenizer](../../text-generation/api-ref/Tokenizer/index.md) или [{{ ml-sdk-full-name }}](../../sdk/index.md). 
+
+Чтобы использовать токенизатор в {{ ai-studio-name }}, необходима [роль](../../security/index.md#languageModels-user) `ai.languageModels.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 ## Пример {#example}
 
-### Параметры запроса на русском языке {#params-ru}
+{% note info %}
 
-* **Текст промпта**: Управление генеративными моделями осуществляется с помощью промптов. Эффективный промпт должен содержать контекст запроса (инструкцию) для модели и непосредственно задание, которое модель должна выполнить, учитывая переданный контекст. Чем конкретнее составлен промпт, тем более точными будут результаты работы модели.\n Кроме промпта на результаты генерации моделей будут влиять и другие параметры запроса. Используйте AI Playground, доступный в консоли управления, чтобы протестировать ваши запросы.
-* **Количество символов в промпте**: 497.
-* **Количество токенов в промпте**: 86.
-* **Модель**: {{ gpt-pro }}.
+Все примеры приведены для иллюстрации и не отражают итоговое количество токенов, которое будет израсходовано в реальных задачах. Коэффициенты получены с помощью расчетов, для оценки количества токенов в тексте использованы токенайзеры, доступные в интернете.
 
-### Параметры запроса на английском языке {#params-en}
+{% endnote %}
 
-* **Текст промпта**: Generative models are managed using prompts. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt, the more accurate will be the results returned by the model.\n Apart from the prompt, other request parameters will impact the model's output too. Use Foundation Models Playground available from the management console to test your requests.
-* **Количество символов в промпте**: 477.
-* **Количество токенов в промпте**: 89.
-* **Модель**: {{ gpt-pro }}.
+* **Текст на русском**: Управление генеративными моделями осуществляется с помощью промптов. Эффективный промпт должен содержать контекст запроса (инструкцию) для модели и непосредственно задание, которое модель должна выполнить, учитывая переданный контекст. Чем конкретнее составлен промпт, тем более точными будут результаты работы модели.\n Кроме промпта на результаты генерации моделей будут влиять и другие параметры запроса. Используйте AI Playground, доступный в консоли управления, чтобы протестировать ваши запросы.
+   **Количество символов в тексте**: 501.
 
-### Структура запроса {#structure}
+   | | {{ gpt-pro }} | Qwen3 235B | gpt-oss-120b |
+   |---|---|---|---|
+   | Количество токенов в тексте | 96 | 139 | 109 |
+   | Среднее количество символов в токене | 5,2 | 3,6 | 4,6 |
+
+* **Текст на английском языке**: Generative models are managed using prompts. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt, the more accurate will be the results returned by the model.\n Apart from the prompt, other request parameters will impact the model's output too. Use Foundation Models Playground available from the management console to test your requests.
+   **Количество символов в промпте**: 477.
+
+   | | {{ alice-ai }} | Qwen3 235B | gpt-oss-120b |
+   |---|---|---|---|
+   | Количество токенов в тексте | 89 | 87 | 87 |
+   | Среднее количество символов в токене | 5,36 | 5,48 | 5,48 |
+
+### Токенизировать текст для {{ gpt-pro }} {#structure}
 
 1. Создайте файл `tbody.json`, содержащий параметры запроса:
 

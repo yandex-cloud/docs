@@ -458,7 +458,7 @@ items:
                   - name: TokenizeCompletion
                     href: >-
                       text-generation/api-ref/grpc/Tokenizer/tokenizeCompletion.md
-      - name: '{{ yandexart-name }} (англ.)'
+      - name: Image Generation API (англ.)
         items:
           - name: REST
             items:

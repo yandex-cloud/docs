@@ -10,10 +10,8 @@ items:
         href: operations/index.md
       - name: Серверы
         items:
-          - name: Арендовать сервер в стандартной конфигурации
+          - name: Арендовать сервер
             href: operations/servers/server-lease.md
-          - name: Арендовать сервер в пользовательской конфигурации
-            href: operations/servers/custom-server-lease.md
           - name: Получить информацию о сервере
             href: operations/servers/get-info.md
           - name: Изменить сервер
