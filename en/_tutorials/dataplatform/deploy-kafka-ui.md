@@ -1,11 +1,13 @@
 # Unassisted deployment of the {{ KF }} web interface
 
 
+
 {% note info %}
 
 {{ mkf-name }} has [native support for {{ kafka-ui }}](../../managed-kafka/concepts/kafka-ui.md). If this option does not suit you, proceed with this tutorial.
 
 {% endnote %}
+
 
 You can install the [UI for {{ KF }}]({{ kafka-ui-kafbat }}) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
 
@@ -74,13 +76,13 @@ Set up the infrastructure:
       * {{ KF }} user.
 
    1. In the `kafka-ui-via-docker.tf` file, specify the values of variables.
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will display any configuration errors detected in your files.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -108,7 +110,7 @@ Set up the infrastructure:
 
    You can view the FQDN in the management console:
 
-      1. Navigate to the cluster page.
+      1. Open to the cluster page.
       1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
@@ -236,13 +238,13 @@ Set up the infrastructure:
       * {{ managed-k8s-name }} node group.
 
    1. Specify the values of variables in the `kafka-ui-via-kubernetes.tf` file.
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will display any configuration errors detected in your files.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -265,7 +267,7 @@ On a local machine:
 
    You can view the FQDN in the management console:
 
-      1. Navigate to the cluster page.
+      1. Open to the cluster page.
       1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 

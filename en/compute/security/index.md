@@ -59,7 +59,7 @@ You can also assign roles for individual resources of the service:
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/compute/security/service-roles-hierarchy.svg)
+{% include [roles-compute](../../_mermaid/roles/compute.md) %}
 
 ### Service roles {#service-roles}
 

@@ -9326,6 +9326,7 @@ default:
         value_bms-recourses: Серверы BareMetal
         value_vm-recourses: Виртуальные машины
       baremetal:
+        action_add-to-raid: Добавить в RAID
         action_add-vrf-interconnect: Настроить соединение
         action_create-public-subnet-from-server: Заказать
         action_dedicate-ephemeral-subnet: Сделать выделенной
@@ -9338,10 +9339,25 @@ default:
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
         actions_add-partition: Добавить раздел
+        customConfig:
+          CustomConfigForm:
+            cpu_s3pPr: Процессор
+            disks_sZbyA: Диски
+            network_b7gsC: Сеть
+            pool_75ogL: Пул
+            powerReserve_8Ljpr: Резерв питания
+            ram_1vn53: Оперативная память
+          DiskField:
+            amount_kBdTj: Количество
+            size_59KKi: Размер
+            type_g1iH9: Тип
+          DisksField:
+            addDiskButton_77P9P: Добавить
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: Без операционной системы
         field_CIDR: CIDR
         field_description: Описание
+        field_description_f2tds: Описание
         field_dhcp-ip-range: Диапазон IP-адресов
         field_dhcp-settings: Назначение IP-адресов по DHCP
         field_gateway: Шлюз по умолчанию
@@ -9350,10 +9366,12 @@ default:
         field_interconnect-from-folder: Выбрать из каталога
         field_mac-address: MAC-адрес
         field_name: Имя
+        field_name_dFuVW: Имя
         field_needed-public-ip: Публичный адрес
         field_network-id: Виртуальный сетевой сегмент (VRF)
         field_password: Пароль
         field_server-count: Количество серверов
+        field_server-count_jPgTg: Количество серверов
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
         field_server-private-ip: Приватный IP-адрес
@@ -9387,14 +9405,24 @@ default:
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки
         servers:
+          BandwidthRow:
+            bandwidthTitle_wvZra: Объём данных
+            plan100Tb_4AB2b: 100 ТБ в сутки, ёмкость подключения — 10 Гбит/с
+            plan10Tb_2BFQU: 10 ТБ в сутки, ёмкость подключения — 1 Гбит/с
           Filters:
             poolFilter_tVgg5: Пул
+          ServerConfigPage:
+            custom-configs_b5Ab9: Своя конфигурация
+            ready-configs_ibA3Y: Готовые конфигурации
         title_common-info: Общая информация
         title_routing-settings: IP-адресация и маршрутизация
         title_section-accesses: Доступы
         title_section-backup: Резервное копирование
         title_section-disk: Диск
+        title_section-disk_9Txqx: Диск
         title_section-lease-conditions: Условия аренды
+        title_section-lease-conditions_sQGNJ: Условия аренды
+        title_section-location: Расположение
         title_section-resources: Ресурсы
         title_section-server-backups: Резервное копирование
         title_section-server-config: Конфигурация
@@ -12297,8 +12325,6 @@ default:
           create_action: Создать каталог
           field_catalog-name: Имя каталога
           field_catalog-type: Тип коннектора
-        overview:
-          coordinator-url-list: Веб-интерфейс Trino
         title_catalogs: Каталоги
       tuning:
         addition-params: Дополнительные параметры
@@ -14208,6 +14234,13 @@ default:
           client: Клиент
           metadata: Общие метаданные
           operator: Оператор
+        template:
+          amo-crm:
+            name: AmoCRM
+          bitrix24:
+            name: Bitrix24
+          default:
+            name: Пустая форма
         type:
           chat-key-value: Чат
           one-channel-key-value: Одноканальное аудио

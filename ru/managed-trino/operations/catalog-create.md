@@ -166,7 +166,7 @@ description: Следуя этой инструкции, вы создадите
 
 ### Коннектор {{ CH }} {#ch}
 
-Задайте настройки для нужного типа подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
+{% include [connection-type](../../_includes/managed-trino/connection-type.md) %}
 
 #### Подключение {{ connection-manager-name }} {#ch-connection-manager}
 
@@ -1256,7 +1256,7 @@ description: Следуя этой инструкции, вы создадите
 
 ### Коннектор {{ PG }} {#pg}
 
-Задайте настройки для нужного типа подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
+{% include [connection-type](../../_includes/managed-trino/connection-type.md) %}
 
 #### Подключение {{ connection-manager-name }} {#pg-connection-manager}
 

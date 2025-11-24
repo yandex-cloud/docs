@@ -78,7 +78,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       monitoring_config: {}
       ```
 
-  You can [update](#update-db-serverles) any parameter later by running the `update` {{ yandex-cloud }} CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
+  You can [update](#update-db-serverles) any parameter later by running the `update` {{ yandex-cloud }} CLI command or using the management console. Learn more in [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
   Every serverless database is created with geographic redundancy in three [availability zones](../../overview/concepts/geo-scope.md).
 
@@ -721,7 +721,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
   1. Use one of the commands below to assign roles:
 
-     * To a Yandex account user:
+     * To a Yandex account user or local user:
 
         ```bash
         yc ydb database set-access-bindings \

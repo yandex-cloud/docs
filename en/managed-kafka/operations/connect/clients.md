@@ -7,14 +7,16 @@ description: Follow this guide to connect to {{ KF }} cluster hosts using comman
 
 This section provides settings for connection to {{ mkf-name }} cluster hosts using [command line tools](#command-line-tools) and from a [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-You can connect to public {{ KF }} cluster hosts only if you use an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
+You can connect to public {{ KF }} cluster hosts only if using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
 
 * `{{ crt-local-dir }}` for Ubuntu.
 * `$HOME\.kafka\` for Windows.
 
-Connecting without an SSL certificate is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
+
+Connections without an SSL certificate are only supported for hosts that are not publicly accessible. If this is the case, internal virtual network traffic will not be encrypted for database connections.
 
 Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
+
 
 The examples for Linux were tested in the following environment:
 
@@ -36,7 +38,7 @@ The examples for Windows were tested in the following environment:
 
 The [kafkacat](https://github.com/edenhill/kcat), or `kcat`, utility is an open source app that can function as a universal data producer or consumer without installing Java Runtime Environment.
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y kafkacat
@@ -79,7 +81,7 @@ On Ubuntu 24.04 and higher, use `kcat`.
              -X sasl.password="<producer_password>" -Z
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Run this command for receiving messages from a topic:
 
@@ -143,7 +145,7 @@ Before connecting:
           --property key.separator=":"
         ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     1. Go to the folder where the Java certificate store will be located:
 
@@ -252,9 +254,9 @@ Before connecting:
           --property key.separator=":"
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `--storepass` parameter for additional storage protection:
+  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `--storepass` parameter for additional storage protection:
 
      ```powershell
      keytool.exe -importcert -alias {{ crt-alias }} `
@@ -341,7 +343,7 @@ To connect to a {{ mkf-name }} cluster from a Docker container, add the followin
   ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   ```bash
   RUN apt-get update && \

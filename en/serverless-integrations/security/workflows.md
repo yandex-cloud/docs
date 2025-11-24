@@ -7,6 +7,8 @@ description: This page enlists service roles required to control access to {{ sw
 
 With [{{ sw-name }}](../concepts/index.md#workflows) service roles, you can manage user access to {{ sw-name }} [workflows](../concepts/workflows/workflow.md).
 
+{% include [serverless-integrations-workflows](../../_mermaid/roles/serverless-integrations-workflows.md) %}
+
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
 {% include [serverless.workflows.auditor](../../_roles/serverless/workflows/auditor.md) %}

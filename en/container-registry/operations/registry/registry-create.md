@@ -1,6 +1,6 @@
 # Creating a registry
 
-Any users and [service accounts](../../../iam/concepts/users/service-accounts.md) with [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) access rights can use the created [registry](../../concepts/registry.md). 
+The new [registry](../../../resource-manager/concepts/resources-hierarchy.md#folder) can be used by all users and [service accounts](../../concepts/registry.md) with access permissions for the [folder](../../../iam/concepts/users/service-accounts.md). 
 
 You can create a secure registry with autoscanning using a [vulnerability scanner](../../concepts/vulnerability-scanner.md).
 
@@ -41,7 +41,7 @@ Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner
      * `labels`: [Labels](../../../resource-manager/concepts/labels.md) used.
 
      For more information about resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}).
-  1. Check that the configuration file is correct.
+  1. Make sure the configuration file is correct.
      1. Use the command line to go to the directory where you saved the configuration file:
 
         ```bash

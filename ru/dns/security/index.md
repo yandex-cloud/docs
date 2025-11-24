@@ -26,7 +26,7 @@ description: Управление доступом в сервисе для уп
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/dns/security/service-roles-hierarchy.svg)
+{% include [roles-dns](../../_mermaid/roles/dns.md) %}
 
 ### Сервисные роли {#service-roles}
 

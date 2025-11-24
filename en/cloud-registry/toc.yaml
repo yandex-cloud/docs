@@ -49,6 +49,12 @@ items:
             items:
               - name: Setting up PyPI
                 href: operations/pypi/installation.md
+          - name: Binary artifact
+            items:
+              - name: Pushing a binary artifact to a registry
+                href: operations/binary/push.md
+              - name: Pulling a binary artifact from a registry
+                href: operations/binary/pull.md
   - name: Concepts
     items:
       - name: Overview
@@ -69,6 +75,8 @@ items:
             href: concepts/art-nuget.md
           - name: Python artifact
             href: concepts/art-python.md
+          - name: Binary artifact
+            href: concepts/art-binary.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

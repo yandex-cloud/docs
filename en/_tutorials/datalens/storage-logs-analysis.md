@@ -82,7 +82,7 @@ The cost includes:
      }
      ```
 
-     For more information about the `yandex_storage_bucket` resource, see this [{{ TF }} overview article]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_bucket).
      
   1. Make sure the settings are correct.
 
@@ -369,7 +369,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         request_path String,        -- Full request path.
         request_time Int64,         -- Request processing time in milliseconds.
         scheme String,              -- Data transfer protocol type.
-                                    -- The possible values are as follows:
+                                    -- The possible values are:
                                     -- * http: Application layer protocol.
                                     -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
@@ -379,7 +379,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         user_agent String,          -- Client app (user agent) that run the request.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the request.
-                                    -- The possible values are as follows:
+                                    -- The possible values are:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.

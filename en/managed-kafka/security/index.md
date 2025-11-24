@@ -70,7 +70,6 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
-
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

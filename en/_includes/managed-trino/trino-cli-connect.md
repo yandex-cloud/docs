@@ -13,7 +13,7 @@ To connect to an {{ mtr-name }} cluster:
 1. Connect to the {{ mtr-name }} cluster:
 
    ```bash
-   ./trino <coordinator_URL> --user iam --password
+   ./trino c-<cluster_ID>.trino.yandexcloud.net --user iam --password
    ```
 
-   You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+   You can get the cluster ID with the [list of clusters in the folder](../../managed-trino/operations/cluster-list.md#list-clusters).

@@ -9,33 +9,40 @@ The [partner portal]({{ link-cloud-partners }}) is the main partner tool used to
 
 The partner portal offers the following sections:
 
-* [Dashboard](#dash)
-* [Commissions](#bonuses)
-* [Rebate accrual balance](#balance)
-* [Partner bonus](#premium)
+* [Accounts](#accounts)
+* [Subaccounts](#subaccounts)
 * [Partner tools](#tools)
-* [Specializations](#specs)
-* [Profile](#profile)
-* [Referral program](#ref)
+* [Finance](#finances)
+* [Partner profile](#profile)
+* [Access management](#access)
 
-## Dashboard {#dash}
+## Accounts {#accounts}
 
-In this section, you can find information on your customers and users with access to the partner portal.
+This section contains information about accounts. Accounts are businesses that are your potential or current customers. In this section, you can [create](operations/create-account.md) customer accounts as well as view and manage the existing ones.
 
-* **Portal dashboard** tab: This is a list of all your customers with their current statuses. Here, you can track information on current customers and [add new ones](./program/var-pin-client.md).
+## Subaccounts {#subaccounts}
 
-  The customers may have the following statuses:
+This section lists all your customers with their current subaccount statuses. To see detailed information on a customer, click the relevant subaccount row.
 
-  * `Active`: Subaccount is verified and ready to use. You will receive invoices for the paid resources consumed by the customer.
-  * `Verification required`: Subaccount has been created and is awaiting customer's verification by email.
-  * `Suspended`: Partner has suspended services and working with the customer.
-  * `Inactive`: Subaccount is deleted. To delete a billing account, contact [support]({{ link-console-support }}).
+Subaccount statuses:
 
-  To see detailed information on a customer, click the relevant subaccount row.
+* `Active`: Subaccount is verified and ready to use. You will receive invoices for the paid resources consumed by the customer.
+* `Acceptance required`: Subaccount is created and pending customer verification by email.
+* `Suspended`: Partner suspended services and customer collaboration.
+* `Inactive`: Subaccount is deleted. To delete a billing account, contact [support]({{ link-console-support }}).
 
-* **Permissions** tab: This one has a list of all your employees with access to the partner portal. Here, you can assign roles to existing users or add new ones.
+## Partner tools {#tools}
 
-## Commissions {#bonuses}
+This section contains links to application forms and other useful links for partners:
+
+* Presale request form.
+* Application form for registering a partner deal or project.
+* Application form for registering a partner deal on Yandex Tracker.
+* Partner Kit.
+* Telegram channel for partners.
+* Links to legal documents.
+
+## Finance {#finances}
 
 This section shows the information on the partner bonus amount:
 
@@ -44,8 +51,12 @@ This section shows the information on the partner bonus amount:
 
 You can view the commission statistics and download a detailed report in `.csv` format.
 
+### Subaccount details {#client-stat}
 
-## Rebate accrual balance {#balance}
+This section provides detailed information about how customers are using the services. For more information, see [{#T}](operations/get-client-stat.md).
+
+
+### Rebate accrual balance {#balance}
 
 This section contains information on accrual and withdrawal of all current rebates. Here, you can also [withdraw](./program/var.md#bonus) accrued funds.
 
@@ -56,42 +67,14 @@ This section only shows rebates for registered projects and specializations. To 
 {% endnote %}
 
 
-## Partner bonus {#premium}
+### Partner bonus {#premium}
 
 In this section, you can view the partner bonus amount applied to your subaccounts. To view detailed information about a bonus, click the relevant row.
 
-## Partner tools {#tools}
-
-This section contains links to application forms and other useful links for partners:
-
-* Presale request form
-* Application form for registering a partner deal or project
-* Application form for registering a partner deal on Yandex Tracker
-* Partner Kit
-* Telegram channel for partners
-* Links to legal documents
-
-
-## Specializations {#specs}
-
-This section gives information on the [tech specializations](./specializations/index.md) you obtained.
-
-
-## Profile {#profile}
+## Partner profile {#profile}
 
 In this section, you can view information on your partner account.
 
+## Access management {#access}
 
-## Referral program {#ref}
-
-This section is used to manage referral links and withdraw commissions for [referrals](./terms.md#referral-client). To navigate to this section, switch to the referral program at the top of the screen.
-
-In this section, you will find the following information:
-
-* Referral bonus amount available for withdrawal.
-* Statistics for the entire period of your participation in the referral program, such as the number of registrations and created billing accounts or the total bonus amount.
-* Referrer company data.
-* **Referral links** tab: List of referral links with current statuses and relevant statistics. Here, you can create new links and edit existing ones.
-* **Referrals** tab: List of your referrals who have used the referral link, registered in {{ yandex-cloud }}, and created a billing account.
-* **Bonus** tab: Commission accrual history.
-* **Payments** tab: Commission withdrawal history.
+In this section, you can manage user access to the partner portal by assigning them appropriate roles.

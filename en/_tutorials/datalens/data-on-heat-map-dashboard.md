@@ -72,7 +72,7 @@ To connect to the **Heat Maps** dashboard:
 
    * ![image](../../_assets/console-icons/layout-cells-large.svg) **Supply and demand** dashboard: Main page with a set of all widgets (charts, tables, and filters) where you can view the statistics. To quickly access the dashboard, save the page link to a convenient location.
    * ![image](../../_assets/console-icons/circles-intersection.svg) **smb_geo_heat_maps_dataset** dataset: Dataset with dimensions and measures used to create charts.
-   * ![image](../../_assets/console-icons/chart-column.svg) Charts: Set of individual visualizations as diagrams and tables used on the dashboard.
+   * ![image](../../_assets/console-icons/chart-column.svg) Charts: Set of individual visualizations (diagrams and tables) used on the dashboard.
 
 1. Open the **Supply and demand** dashboard.
 
@@ -124,7 +124,7 @@ Pay attention to the supply and demand scale in the top-right corner. The greene
 
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or [add a federated user](../../organization/operations/add-account.md#add-user-sso).
+1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or add a [federated](../../organization/operations/add-account.md#add-user-sso) or [local](../../organization/operations/add-account.md#local) user.
 1. Make sure the user has access permissions to the dashboard:
 
    1. Open the dashboard.

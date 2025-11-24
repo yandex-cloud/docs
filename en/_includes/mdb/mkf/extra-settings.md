@@ -21,5 +21,6 @@
 
     {% endnote %}
 
+
 * To use the [{{ KF }} web interface](../../../managed-kafka/concepts/kafka-ui.md), enable the **{{ ui-key.yacloud.kafka.field_kafka-ui }}** setting.
 

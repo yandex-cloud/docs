@@ -22,4 +22,6 @@
 
 * [Is Karapace's endpoint constant or does it vary depending on the broker?](#karapace-endpoint)
 
-* [What is {{ mkf-short-name }}'s share of database management and maintenance work?](#services)
+* [What parts of database management and maintenance does {{ mkf-short-name }} handle?](#services)
+
+* [How do I track message loss in an {{ KF }} topic?](#lost-messages)

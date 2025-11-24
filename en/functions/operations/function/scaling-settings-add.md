@@ -127,7 +127,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     To add scaling settings:
 
-    1. In the configuration file, describe the parameters of resources you want to create:
+    1. In the configuration file, describe the properties of resources you want to create:
 
        * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.

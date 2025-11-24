@@ -68,12 +68,12 @@ The cost of the infrastructure deployment includes:
 1. In the [management console]({{ link-console-main }}), select a folder to create a {{ CH }} cluster in.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
-1. Specify the settings for a {{ CH }} cluster:
+1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.
    1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select `Intel Cascade Lake` for platform, `burstable` for type, and `b2.medium` for host class.
    
       {% note warning %}
-
+   
       We do not recommend using `burstable` VM configurations in production environments. This tutorial uses them as an example. For production solutions, use `standard` or `memory-optimized` configurations.
 
       {% endnote %}
@@ -82,7 +82,7 @@ The cost of the infrastructure deployment includes:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../../_assets/console-icons/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, disable user management via SQL, enter username, password, and database name, e.g., `metrica_data`.
  
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable these options:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
         * **Access from the management console**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
@@ -93,9 +93,9 @@ The cost of the infrastructure deployment includes:
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
-1. Select the community to create a project in.
+1. Select the community where you want to create a project.
 1. On the community page, click ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
-1. In the window that opens, enter a name for the project. You can also add a description as needed. The name should match the following format:
+1. In the window that opens, enter a name for the project. You can also add a description as needed. Follow these naming requirements:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -119,7 +119,7 @@ If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-met
 ### 2.1. Yandex Metrica. Create an app and get an access token {#create-metrica-app-token}
 
 1. To work with the API, get your [OAuth token](https://tech.yandex.com/oauth/doc/dg/tasks/get-oauth-token-docpage/).
-1. Create an app:
+1. Create an application:
      1. Go to [https://oauth.yandex.ru/client/new](https://oauth.yandex.com/client/new).
      1. Enter a name for the service.
      1. Go to **Platforms** → **Web services**. In the **Redirect URI** field, paste `https://oauth.yandex.com/verification_code`.
@@ -135,7 +135,7 @@ If you have a Yandex Metrica tag and can access it, go to step [2.1](#create-met
 
 1. In the {{ ml-platform-short-name }} project, in the root of the working directory, create a text file. To do this, click **Text File** in the workspace.
 1. Name the file `.yatoken.txt` and paste the received access token to the file. Save the changes and close the file.
-1. Open the folder **yandex_metrika_cloud_case** → notebook **1a. get_data_via_logs_api.ipynb**.
+1. Open the **yandex_metrika_cloud_case** folder → **1a. get_data_via_logs_api.ipynb** notebook.
 1. Specify your Yandex Metrica tag ID as the `COUNTER_ID` variable value. You can find your Yandex Metrica tag ID on the [My tags](https://metrika.yandex.ru/list?) page.
 1. Specify the start date of the analyzed period as the `START_DATE` variable value.
 1. Specify the end date of the analyzed period as the `END_DATE` variable value.
@@ -169,7 +169,7 @@ Skip this section if you are using your own tag data.
 
 ### 2.5. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
 
-1. Open the **yandex_metrika_cloud_case** folder → notebook **2. upload_data_to_{{ CH }}.ipynb**:
+1. Open the **yandex_metrika_cloud_case** → notebook **2. upload_data_to_{{ CH }}.ipynb** folder:
     1. Paste the copied host name into the `CH_HOST_NAME` variable.
     1. In the `CH_USER` variable, insert the username you specified when [creating your {{ CH }} cluster](#ch-connection).
     1. In the `CH_DB_NAME` variable, insert the database name you specified when [creating your {{ CH }} cluster](#ch-connection).
@@ -334,7 +334,7 @@ Configure relationships so that the selector affects the new chart from another 
 1. Open the **4. cohorts.ipynb** notebook. Specify the host, the user, and the DB name.
 1. Run the cells and evaluate the analysis results. 
  
-In {{ CH }}, the `metrica_data.retention_users` table will be created with all the data you need to render visualization in {{ datalens-short-name }}. 
+In {{ CH }}, the `metrica_data.retention_users` table will be created with all the data needed to render visualization in {{ datalens-short-name }}. 
 
 ### 6.2. {{ datalens-short-name }}. Create a dataset and a chart with cohort visualization {#creating-dataset-chart-with-cohort}
 

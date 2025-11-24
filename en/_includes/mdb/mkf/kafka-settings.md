@@ -1,4 +1,4 @@
-* **Auto create topics enable** {{ tag-all }}{#settings-auto-create-topics}
+* **Auto create topics enable** {{ tag-all }} {#settings-auto-create-topics}
 
     Manages automatic topic creation.
 
@@ -67,9 +67,9 @@
 
 * **Log preallocate** {{ tag-all }} {#settings-log-preallocate}
 
-    This setting determines whether to pre-allocate space for log file segments.
+    This setting determines whether to pre-allocate space for log segment files.
 
-    By default, the space for the log file segments is allocated as logs become full (`false`).
+    By default, the space for log segment files is allocated as the segments get full (`false`).
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-preallocate).
 
@@ -133,7 +133,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-segment-bytes).
 
-    For more information, see section [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and the [{{ KF }} documentation](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size).
+    For more information, see section [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
 
 * **Message max bytes** {{ tag-all }} {#settings-message-max-bytes}
 
@@ -160,9 +160,9 @@
 
 * **Offsets retention minutes** {{ tag-all }} {#settings-offsets-retention-minutes}
 
-    Offsets retention period in minutes after a consumer group loses all its consumers.
+    Offset retention period for inactive [consumer groups](../../../managed-kafka/concepts/producers-consumers.md#consumer-groups) (in minutes).
 
-    The minimum value is `1`; the default one is `10080`.
+    The minimum value is `1`; default: `10080`.
 
     This is a global cluster-level setting.
 
@@ -177,7 +177,7 @@
 
     This is a global cluster-level setting.
 
-   For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_replica.fetch.max.bytes).
+    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_replica.fetch.max.bytes).
 
 * **Sasl enabled mechanisms** {{ tag-all }} {#settings-sasl-enabled-mechanisms}
 
@@ -192,23 +192,23 @@
 
     If the setting is not defined by the user, the only tool used is `SCRAM-SHA-512`.
 
-   For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_sasl.enabled.mechanisms).
+    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_sasl.enabled.mechanisms).
 
-* **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-receive-buffer-bytes}
+* **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }} {#settings-socket-receive-buffer-bytes}
 
     Socket receive buffer size (in bytes).
 
     The minimum value is `-1` (default; the OS settings are used); the maximum one is `2147483647`.
 
-   For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_socket.receive.buffer.bytes).
+    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_socket.receive.buffer.bytes).
 
-* **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-send-buffer-bytes}
+* **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }} {#settings-socket-send-buffer-bytes}
 
     Socket send buffer size (in bytes).
 
     The minimum value is `-1` (default; the OS settings are used); the maximum one is `2147483647`.
 
-   For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_socket.send.buffer.bytes).
+    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_socket.send.buffer.bytes).
 
 * **Ssl cipher suites** {{ tag-all }} {#settings-ssl-cipher-suites}
 
@@ -218,4 +218,4 @@
 
     This is a global cluster-level setting.
 
-   For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_ssl.cipher.suites).
+    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_ssl.cipher.suites).

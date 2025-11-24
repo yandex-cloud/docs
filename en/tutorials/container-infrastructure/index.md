@@ -41,7 +41,7 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
 
-### {{ container-registry-full-name }} usage {#container-registry}
+### Using {{ container-registry-full-name }} {#container-registry}
 
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
@@ -61,6 +61,7 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 ## Backups {#backup}
 
 * [{#T}](pvc-snapshot-restore.md)
+
 
 ### Monitoring {#monitoring}
 

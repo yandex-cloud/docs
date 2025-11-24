@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mkf-full-name }}
-description: This page presents a list of step-by-step guides for {{ mkf-name }}.
+description: This page provides a list of step-by-step guides for {{ mkf-name }}.
 ---
 
 # Step-by-step guides for {{ mkf-name }}
@@ -36,9 +36,11 @@ description: This page presents a list of step-by-step guides for {{ mkf-name }}
 
 * [Managing connectors](cluster-connector.md)
 
+
 ## Interfaces
 
 * [{{ kafka-ui }} web interface](kafka-ui-enable.md)
+
 
 ## Logs and monitoring {#monitoring-and-logs}
 

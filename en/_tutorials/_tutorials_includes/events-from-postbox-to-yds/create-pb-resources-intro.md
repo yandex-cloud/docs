@@ -1,0 +1,1 @@
+In {{ postbox-name }}, [configure](../../../postbox/concepts/glossary.md#subscription) event logging to {{ yds-name }}, create a sender [address](../../../postbox/concepts/glossary.md#adress), and [verify](../../../postbox/operations/check-domain.md) your domain ownership.

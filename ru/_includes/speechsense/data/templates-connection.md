@@ -1,0 +1,3 @@
+* **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}** — подключение с возможностью добавить ваши собственные ключи для метаданных.
+* **{{ ui-key.yc-ui-talkanalytics.connections.template.bitrix24.name }}** — подключение с предустановленным набором ключей для {{ bitrix24-name }}. Дополнительно можно добавить собственные ключи.
+* **{{ ui-key.yc-ui-talkanalytics.connections.template.amo-crm.name }}** — подключение с предустановленным набором ключей для {{ amocrm-name }}. Дополнительно можно добавить собственные ключи. 
