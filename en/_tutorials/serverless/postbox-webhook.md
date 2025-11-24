@@ -41,45 +41,12 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 * `yds-functions` to call [{{ sf-name }}](../../functions/concepts/function.md) and write events to [{{ yds-short-name }}](../../data-streams/concepts/glossary.md#stream-concepts).
 * `postbox-user` to send emails via {{ postbox-name }}.
 
-1. Create a `yds-functions` service account:
-
-    {% list tabs group=instructions %}
-
-    - Management console {#console}
-
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** and click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, enter `yds-functions` for name.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `yds.editor` and `{{ roles-functions-invoker }}` [roles](../../iam/concepts/access-control/roles.md).
-      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-
-    {% endlist %}
-
-1. Similarly, create a service account named `postbox-user` and assign the `postbox.sender` [role](../../postbox/security/index.md#postbox-sender) to it.
+{% include [create-service-accounts](../_tutorials_includes/events-from-postbox-to-yds/create-service-accounts.md) %}
 
 
 ## Create a static access key {#static-key}
 
-Create a [static access key](../../iam/concepts/authorization/access-key.md) to use for sending emails:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** and then select `postbox-user` from the list of service acounts. In the window that opens, do the following:
-
-      1. In the top panel, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-      1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-      1. Save the ID and secret key.
-
-          {% note alert %}
-
-          After you close this dialog, the key value will no longer be available.
-
-          {% endnote %}
-
-{% endlist %}
+{% include [create-static-key](../_tutorials_includes/events-from-postbox-to-yds/create-static-key.md) %}
 
 
 ## Create a database in {{ ydb-name }} {#ydb}
@@ -103,85 +70,25 @@ To create a data stream for {{ postbox-name }} events, you need a {{ ydb-name }}
 
 ## Create a data stream in {{ yds-name }} {#stream}
 
-Create a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to log {{ postbox-name }} events:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** and click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
-  1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select the `postbox-events-ydb` database you created earlier.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter the stream name: `postbox-events-stream`.
-  1. In the **{{ ui-key.yacloud.data-streams.label_meter-mode }}** field, select `{{ ui-key.yacloud.data-streams.label_request-units }}`.
-  1. Do not edit the other data stream settings. Click **{{ ui-key.yacloud.common.create }}**.
-
-{% endlist %}
-
-Wait for the stream to start. Once the stream is ready for use, its status will change from `Creating` to `Active`.
+{% include [create-yds-stream](../_tutorials_includes/events-from-postbox-to-yds/create-yds-stream.md) %}
 
 
 ## Create {{ postbox-name }} resources {#postbox}
 
-In {{ postbox-name }}, [configure](../../postbox/concepts/glossary.md#subscription) event logging to {{ yds-name }}, create a sender [address](../../postbox/concepts/glossary.md#adress), and [verify](../../postbox/operations/check-domain.md) your domain ownership.
+{% include [create-pb-resources-intro](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-intro.md) %}
 
 
 ### Create a {{ postbox-name }} configuration {#config}
 
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}** and click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, specify the configuration name: `postbox-events-config`.
-  1. Under **{{ ui-key.yacloud.postbox.label_event-destinations }}**, click **{{ ui-key.yacloud.common.add }}** and fill out the form that opens:
-
-      1. In the **{{ ui-key.yacloud.postbox.label_name }}** field, specify the [subscription](../../postbox/concepts/glossary.md#subscription) name: `postbox-events-subscribe`.
-      1. In the **{{ ui-key.yacloud.postbox.label_data-stream }}** field, select the [data stream](../../data-streams/concepts/glossary.md#stream-concepts) named `postbox-events-stream`.
-      1. Toggle the **{{ ui-key.yacloud.common.enabled }}** option on to activate the subscription.
-
-  1. Do not edit the other configuration settings. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
-
-{% endlist %}
+{% include [create-pb-resources-config](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-config.md) %}
 
 
 ### Create a {{ postbox-name }} address {#address}
 
-1. Generate the `privatekey.pem` key to create a DKIM signature by running this command in the terminal:
-
-    ```bash
-    openssl genrsa -out privatekey.pem 2048
-    ```
-
-    {% note info %}
-
-    `openssl` comes preinstalled in Linux and macOS. If using Windows, you need to install it manually. For more information, visit the [project's website](https://openssl-library.org/).
-
-    {% endnote %}
-
-1. Create a {{ postbox-name }} address:
-
-    {% list tabs group=instructions %}
-
-    - Management console {#console}
-
-      1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-      1. In the left-hand panel, select ![at](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** and click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-      1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails. You can use a domain of any level, as long as you own it.
-      1. In the **{{ ui-key.yacloud.postbox.label_selector }}** field, specify a selector, e.g., `postbox`. Make sure to only use this selector in the resource record you create when [verifying domain ownership](#domain).
-      1. In the **{{ ui-key.yacloud.postbox.label_configuration-set }}** field, select `postbox-events-config` you previously created.
-      1. In the **{{ ui-key.yacloud.postbox.label_private-key }}** field, paste the contents of the `privatekey.pem` file from the previous step.
-      1. Do not change the other address settings. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-      1. Click the newly created address in the list that opens.
-      1. Under **{{ ui-key.yacloud.postbox.label_signature-verification }}** on the address info page, copy and save the [TXT record](../../dns/concepts/resource-record.md#txt) from the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field.
-
-    {% endlist %}
+{% include [create-pb-resources-address](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-address.md) %}
 
 
-### Verify your domain ownership {#domain}
+### Pass a domain ownership check {#domain}
 
 {% include [check-domain](../../_includes/postbox/check-domain.md) %}
 
@@ -212,12 +119,12 @@ Create a [function](../../functions/concepts/function.md) to send a webhook and 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Create the following two files:
       
-          * `requirements.txt` with the list of required dependencies:
+          * `requirements.txt` containing a list of required dependencies:
 
               ```text
               requests
               ```
-          * `assistant-analyst.py` with the following function code:
+          * `index.py` containing the following function code:
   
               ```python
               import requests
@@ -322,12 +229,7 @@ Create a [function](../../functions/concepts/function.md) to send a webhook and 
 
         - Management console {#console}
 
-          1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-          1. Select the data stream named `postbox-events-stream`.
-          1. Navigate to the ![text-align-justify](../../_assets/console-icons/text-align-justify.svg) **{{ ui-key.yacloud.data-streams.label_data-introspection }}** tab.
-
-              The charts should show email sending events.
+            {% include [test-function-machinery-check-yds](../_tutorials_includes/events-from-postbox-to-yds/test-function-machinery-check-yds.md) %}
 
         {% endlist %}
 

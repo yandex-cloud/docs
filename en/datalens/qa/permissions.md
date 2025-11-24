@@ -21,7 +21,7 @@ To avoid authentication issues, Community users that use SSO have until January 
 
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or [add a federated user](../../organization/operations/add-account.md#add-user-sso).
+1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or add a [federated](../../organization/operations/add-account.md#add-user-sso) or [local](../../organization/operations/add-account.md#local) user.
 1. Make sure the user has access permissions to the dashboard:
 
    1. Open the dashboard.

@@ -44,7 +44,7 @@ You can customize the loading speed of widgets on the dashboard. To do this, [co
 ## Display modes {#display-modes}
 
 
-By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. Learn more in [{#T}](../operations/dashboard/display-modes.md).
 
 
 ## Pinning widgets {#widget-fixation}
@@ -53,8 +53,8 @@ You can pin (i.e., lock the position of) a widget in dedicated lock areas at the
 
 There are two lock areas available, one below the other. Their purposes are different:
 
-* Widgets pinned to the top area are always visible. This area has a fixed height. We recommend using it for your selectors.
-* The bottom area, with widgets pinned on it, can be collapsed and expanded as needed. If it contains widgets, you will see the ![image](../../_assets/console-icons/chevrons-up.svg) (hide) or ![image](../../_assets/console-icons/chevrons-down.svg) (show) icon to the right of this area. This area changes its height depending on the height of the widgets pinned on it.
+* Widgets pinned to the top area are always visible. We recommend using it for your selectors.
+* The bottom area, with widgets pinned on it, can be collapsed and expanded as needed. If it contains widgets, you will see the ![image](../../_assets/console-icons/chevrons-up.svg) (hide) or ![image](../../_assets/console-icons/chevrons-down.svg) (show) icon to the right of this area.
 
 You can manage pinned widgets in dashboard edit mode as follows:
 
@@ -62,6 +62,12 @@ You can manage pinned widgets in dashboard edit mode as follows:
 * To unpin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin** or drag it out of the lock area.
 * To unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
 * To customize the bottom lock area behavior as you open the dashboard, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/square.svg) **Hide by default** or ![image](../../_assets/console-icons/square-check.svg) **Hide by default** to the right of the lock area.
+
+When pinning widgets, consider the following:
+
+* The height of the pinned area is determined by the height of widgets you pin in it. If their height exceeds the fixed value, the area will have a scrollbar. Avoid making this area too high.
+* You can put widgets in the pinned area one under another, in which case its height will be the combined height of the widgets.
+* Widget height can be edited unless **Auto height** is enabled in the settings.
 
 
 ## Undoing and redoing changes to dashboards {#undo-redo}

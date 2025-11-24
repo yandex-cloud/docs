@@ -24,14 +24,23 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 * [Pulling a Helm chart from a registry](helm/pull.md)
 * [Deleting a Helm chart from a registry](helm/delete.md)
 
-### Maven {#maven}
+### Java {#java}
 
 * [Setting up Maven](maven/installation.md)
 
-### npm {#npm}
+### Node.js {#nodejs}
 
 * [Setting up npm](npm/installation.md)
 
 ### NuGet {#nuget}
 
 * [Setting up NuGet](nuget/installation.md)
+
+### Python {#python}
+
+* [Setting up PyPI](pypi/installation.md)
+
+### Binary {#binary}
+
+* [Pushing a binary artifact](binary/push.md)
+* [Pulling a binary artifact](binary/pull.md)

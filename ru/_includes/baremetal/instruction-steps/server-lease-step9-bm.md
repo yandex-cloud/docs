@@ -1,1 +1,3 @@
-В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите существующую [приватную подсеть](../../../baremetal/concepts/network.md#private-subnet) или нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новую.
+В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** выберите [приватную подсеть](../../../baremetal/concepts/network.md#private-subnet) в той [зоне доступности](../../../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
+
+Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **{{ ui-key.yacloud.common.create }}** и в открывшемся окне задайте параметры подсети по инструкции [{#T}](../../../baremetal/operations/subnet-create.md).

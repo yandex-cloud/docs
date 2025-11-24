@@ -59,7 +59,7 @@ description: Управление доступом в сервисе предо�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/compute/security/service-roles-hierarchy.svg)
+{% include [roles-compute](../../_mermaid/roles/compute.md) %}
 
 ### Сервисные роли {#service-roles}
 

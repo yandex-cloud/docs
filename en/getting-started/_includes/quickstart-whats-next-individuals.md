@@ -90,7 +90,7 @@ Get started with {{ yandex-cloud }}:
 
     Leverage {{ yagpt-name }} to generate text synchronously without additional context.
 
-  * [{{ yandexart-name }}](../../ai-studio/quickstart/yandexart.md).
+  * [{{ yandexart-name }}](../../ai-studio/operations/generation/yandexart-request.md).
 
     Leverage {{ yandexart-name }} to generate images.
 

@@ -29,6 +29,7 @@ You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stabl
 
    * [Yandex account](../../iam/operations/iam-token/create.md)
    * [Service account](../../iam/operations/iam-token/create-for-sa.md)
+   * [Local account](../../iam/operations/iam-token/create-for-local.md)
    * [Federated account](../../iam/operations/iam-token/create-for-federation.md)
 
 1. Make an API request, e.g., using cURL. In the authorization parameters, enter your username and password.

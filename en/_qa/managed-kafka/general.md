@@ -35,7 +35,7 @@ Thresholds are set in bytes only. For example, the recommended values for a 100�
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%)
 
-#### Why is my cluster slow even though there are still some computing resources to spare? {#throttling}
+#### Why is my cluster slow even though the computational resources are not being fully utilized? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
@@ -57,7 +57,7 @@ This means, when connecting to the website, the service was unable to check whet
 
 To fix this error:
 
-* Make sure the corporate network settings do not block the check.
+* Make sure your corporate network policies are not blocking the verification.
 * Run the following command with the `--ssl-no-revoke` parameter:
 
    ```powershell
@@ -84,6 +84,33 @@ On Ubuntu 24.04 and higher, use `kcat` instead of `kafkacat` (this command will 
 
 {% include [karapace](../../_includes/mdb/mkf/karapace.md) %}
 
-#### What is {{ mkf-short-name }}'s share of database management and maintenance work? {#services}
+#### What parts of database management and maintenance does {{ mkf-short-name }} handle? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### How do I track message loss in an {{ KF }} topic? {#lost-messages}
+
+If a topic uses the `Delete` log cleanup policy with a short segment lifetime, messages may be deleted before the [consumer group](../../managed-kafka/concepts/producers-consumers.md#consumer-groups) reads them. You can monitor message loss using {{ mkf-name }} [metrics](../../managed-kafka/metrics.md) delivered to [{{ monitoring-name }}](../../monitoring/concepts/index.md).
+
+To monitor message loss:
+
+1. Use [{{ monitoring-full-name }}]({{ link-monitoring }}) to [plot](../../monitoring/operations/metric/metric-explorer.md#add-graph) the `kafka_group_topic_partition_offset` and `kafka_log_Log_LogStartOffset` metrics on the same chart:
+   * For `kafka_group_topic_partition_offset`, specify these labels:
+       * `service = managed-kafka`
+       * `name = kafka_group_topic_partition_offset`
+       * `host = <host_FQDN>`
+       * `topic = <topic_name>`
+       * `partition = <partition_number>`
+       * `group = <consumer_group_name>`
+   * For `kafka_log_Log_LogStartOffset`, specify these labels: 
+       * `service = managed-kafka`
+       * `name = kafka_log_Log_LogStartOffset`
+       * `host = <host_FQDN>`
+       * `topic = <topic_name>`
+       * `partition = <partition_number>`
+1. Wait until the number of messages written to the topic is enough for analysis.
+1. Navigate to [{{ monitoring-full-name }}]({{ link-monitoring }}) and review the behavior of the previously created metrics:
+   * If the `kafka_log_Log_LogStartOffset` value is higher than `kafka_group_topic_partition_offset` within the entire monitoring period, the selected consumer group will have enough time to read all new messages from the specified topic segment.
+   * `kafka_group_topic_partition_offset` falling below `kafka_log_Log_LogStartOffset` signals a message loss.
+
+For more information, see [{#T}](../../managed-kafka/tutorials/retention-policy.md).

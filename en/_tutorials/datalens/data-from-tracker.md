@@ -71,7 +71,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create an OAuth token for {{ tracker-short-name }} access {#oauth-token}
 
 1. Go to the [Create an app](https://oauth.yandex.ru/client/new) page.
-1. Fill in the fields as follows:
+1. Fill out the fields as follows:
     * **Service name**
     * **Platforms**: `Web services`
     * **Redirect URI**: Click **Enter URL for debugging** or type `https://oauth.yandex.ru/verification_code`.
@@ -194,7 +194,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. At the top of the [dashboard](#dashboard-create) page, click **Add**→ **Chart**.
 1. Fill in the widget parameters. Pay close attention to the following fields:
     * **Name**: Sets the name of the widget. It is displayed at the top of the widget.
-    * **Chart**: Sets the widget to add.
+    * **Chart**: Sets the widget you are adding.
     * **Description**: Sets the description of the widget. It is displayed at the bottom of the widget.
     * **Auto height**: Sets the automatic height for **Table** and **Markdown** widgets. If this parameter is disabled, you can set the height of the widget on the page using the mouse.
 1. Click **Add**. The widget will be displayed on the dashboard.
@@ -221,5 +221,5 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To stop paying for the resources you created:
 * [Delete the {{ CH }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-* [Delete the {{ sf-name }} function](../../functions/operations/function/function-delete.md).
+* [Delete the function in {{ sf-name }}](../../functions/operations/function/function-delete.md).
 

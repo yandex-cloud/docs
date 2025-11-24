@@ -7,9 +7,10 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 
 ## Clusters {#clusters}
 
-* [Getting information on existing clusters](cluster-list.md)
+* [Getting information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
+* [{{ TR }} version upgrade](cluster-version-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Connecting to a cluster](connect.md)
 * [Maintenance](cluster-maintenance.md)

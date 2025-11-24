@@ -5,18 +5,20 @@ description: Use these examples to connect to a database in an {{ KF }} cluster 
 
 # Code examples for connecting to an {{ KF }} cluster
 
-You can connect to public {{ KF }} cluster hosts only if you use an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
+You can connect to public {{ KF }} cluster hosts only if using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
 
 * `{{ crt-local-dir }}` for Ubuntu.
 * `$HOME\.kafka\` for Windows.
 
-Connecting without an SSL certificate is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
+
+Connections without an SSL certificate are only supported for hosts that are not publicly accessible. If this is the case, internal virtual network traffic will not be encrypted for database connections.
 
 Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
+
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
-Examples were tested in the following environment:
+The examples were tested in the following environment:
 
 * {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
@@ -191,7 +193,7 @@ Before connecting:
         dotnet run bin/Debug/netcoreapp5.0/App.dll
         ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     1. Code example for delivering messages to a topic:
 
@@ -548,7 +550,7 @@ Before connecting:
         ~/go-project/producer/producer
         ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     1. Code example for delivering a message to a topic:
 
@@ -753,7 +755,7 @@ Before connecting:
    sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
    ```bash
    cd ~/ && \
@@ -977,7 +979,7 @@ Before connecting:
       java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Go to the folder where the Java certificate store will be located:
 
@@ -1123,7 +1125,7 @@ Before connecting:
 
 ## Node.js {#nodejs}
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y nodejs npm && \
@@ -1227,7 +1229,7 @@ npm install node-rdkafka
       node producer.js
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example for delivering messages to a topic:
 
@@ -1334,7 +1336,7 @@ npm install node-rdkafka
 
 ## Python (kafka-python) {#kafka-python}
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
@@ -1395,7 +1397,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
       python3 consumer.py
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example for delivering a message to a topic:
 
@@ -1457,7 +1459,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 ## Python (confluent-kafka) {#confluent-kafka-python}
 
-Before connecting, install the following dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 pip install confluent_kafka
@@ -1532,7 +1534,7 @@ pip install confluent_kafka
       python3 consumer.py
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example for delivering a message to a topic:
 

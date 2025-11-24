@@ -52,7 +52,10 @@ To get started:
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`.
            * **Connection type**: `On-premise`.
-           * **URL**: `jdbc:postgresql://<host_address>:<port>/<database_name>`.
+           * **URL**: `jdbc:postgresql://<host_FQDN>:{{ port-mpg }}/<DB_name>`.
+
+             {% include [host address](../_includes/mdb/mpg/fqdn-host.md) %}
+
            * **Username**: Username in the {{ mpg-name }} cluster.
            * **Password**: User password.
 

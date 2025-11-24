@@ -26,7 +26,7 @@ To assign a role for a [DNS zone](../concepts/dns-zone.md), use the {{ yandex-cl
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/dns/security/service-roles-hierarchy.svg)
+{% include [roles-dns](../../_mermaid/roles/dns.md) %}
 
 ### Service roles {#service-roles}
 

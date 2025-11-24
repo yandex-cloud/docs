@@ -1,9 +1,15 @@
 ---
-title: Как арендовать сервер в {{ baremetal-full-name }}
-description: Следуя данной инструкции, вы сможете арендовать сервер в {{ baremetal-full-name }}.
+title: Как арендовать сервер в {{ baremetal-full-name }} в стандартной конфигурации
+description: Следуя данной инструкции, вы сможете арендовать сервер в {{ baremetal-full-name }} в одной из стандартных конфигураций.
 ---
 
-# Арендовать сервер
+# Арендовать сервер в стандартной конфигурации
+
+Вы можете арендовать [сервер {{ baremetal-name }}](../../concepts/servers.md) в одной из [стандартных конфигураций](../../concepts/server-configurations.md#standard). В их число входит большой перечень сборок с самыми разными аппаратными характеристиками, которые оптимально подойдут почти для любой вашей задачи.
+
+Если же ваша задача требует от сервера каких-то нетиповых аппаратных характеристик, вы можете сами [сконфигурировать](./custom-server-lease.md) ваш сервер.
+
+Чтобы арендовать сервер в стандартной конфигурации:
 
 {% list tabs group=instructions %}
 
@@ -12,25 +18,26 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [server-lease-step1](../../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. {% include [server-lease-step3](../../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
-  1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
-  1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
-  1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
-  1. {% include [server-lease-step7-bm](../../../_includes/baremetal/instruction-steps/server-lease-step7-bm.md) %}
-  1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
-  1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
-  1. {% include [server-lease-step10-bm](../../../_includes/baremetal/instruction-steps/server-lease-step10-bm.md) %}
-  1. Если вы устанавливаете на сервер операционную систему из публичного образа в {{ marketplace-short-name }}, в блоке **{{ ui-key.yacloud.baremetal.title_server-access }}** задайте параметры доступа к серверу:
+  1. В открывшемся окне с настройками конфигурации сервера:
 
-      {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+      1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
+      1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
+      1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
+      1. {% include [server-lease-step7-bm](../../../_includes/baremetal/instruction-steps/server-lease-step7-bm.md) %}
+      1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
+      1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
+      1. {% include [server-lease-step10-bm](../../../_includes/baremetal/instruction-steps/server-lease-step10-bm.md) %}
+      1. Если вы устанавливаете на сервер операционную систему из публичного образа в {{ marketplace-short-name }}, в блоке **{{ ui-key.yacloud.baremetal.title_server-access }}** задайте параметры доступа к серверу:
 
-  1. (Опционально) Включите резервное копирование сервера в [{{ backup-full-name }}](../../../backup/index.yaml):
+          {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
 
-      {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
+      1. (Опционально) Включите резервное копирование сервера в [{{ backup-full-name }}](../../../backup/index.yaml):
 
-      Подробнее см. в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+          {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
 
-  1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
-  1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
+          Подробнее см. в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+      1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+      1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
 - CLI {#cli}
 
@@ -96,3 +103,7 @@ description: Следуя данной инструкции, вы сможете
    {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](./custom-server-lease.md)

@@ -2,7 +2,7 @@
 
 [Connectors](../concepts/connectors.md) manage the transfer of {{ KF }} topics to other clusters or data storage systems.
 
-You can:
+You have the following options:
 
 * [Get a list of connectors](#list).
 * [Get detailed information about a connector](#get).
@@ -21,8 +21,8 @@ You can:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
 
 - CLI {#cli}
@@ -48,15 +48,15 @@ You can:
     +--------------+-----------+
     ```
 
-    You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Connector.list](../api-ref/Connector/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Connector.list](../api-ref/Connector/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -65,13 +65,13 @@ You can:
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -92,9 +92,9 @@ You can:
        yandex.cloud.mdb.kafka.v1.ConnectorService.List
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -104,8 +104,8 @@ You can:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click the name of the connector you need.
 
@@ -131,15 +131,15 @@ You can:
     ...
     ```
 
-    You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the connector name with the [list of cluster connectors](#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Connector.get](../api-ref/Connector/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Connector.get](../api-ref/Connector/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -148,13 +148,13 @@ You can:
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/<connector_name>'
      ```
 
-     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-  1. View the [server response](../api-ref/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -175,9 +175,9 @@ You can:
        yandex.cloud.mdb.kafka.v1.ConnectorService.Get
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector) to make sure your request was successful.
 
 {% endlist %}
 
@@ -187,8 +187,8 @@ You can:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click **{{ ui-key.yacloud.kafka.button_create-connector }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
@@ -250,7 +250,7 @@ You can:
 
       {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       `--direction` takes these values:
 
@@ -282,15 +282,15 @@ You can:
          --region=<S3_compatible_storage_region>
       ```
 
-     You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     1. Check the list of [MirrorMaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. To create a MirrorMaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` settings section:
 
@@ -360,15 +360,15 @@ You can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector) provider documentation.
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. To create a [MirrorMaker](#settings-mm2) connector, use the [Connector.create](../api-ref/Connector/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. To create a [MirrorMaker](#settings-mm2) connector, call the [Connector.create](../api-ref/Connector/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        ```bash
        curl \
@@ -387,9 +387,9 @@ You can:
                  }'
        ```
 
-       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. To create an [S3 Sink](#settings-s3) connector, use the [Connector.create](../api-ref/Connector/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. To create an [S3 Sink](#settings-s3) connector, call the [Connector.create](../api-ref/Connector/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        ```bash
        curl \
@@ -408,13 +408,13 @@ You can:
                  }'
        ```
 
-       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Connector/list.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Connector/list.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -446,7 +446,7 @@ You can:
           yandex.cloud.mdb.kafka.v1.ConnectorService.Create
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. To create an [S3 Sink](#settings-s3) connector, use the [ConnectorService/Create](../api-ref/grpc/Connector/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -474,9 +474,9 @@ You can:
           yandex.cloud.mdb.kafka.v1.ConnectorService.Create
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Connector/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Connector/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -500,7 +500,7 @@ Specify the MirrorMaker connector parameters:
       {% endnote %}
 
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a source.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Сomma-separated list of the FQDNs of the source cluster broker hosts with the port numbers for connection, e.g., `broker1.example.com:9091,broker2.example.com`.
+    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the source cluster broker hosts with the port numbers for connection. For example: `broker1.example.com:9091,broker2.example.com`.
 
        {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -515,7 +515,7 @@ Specify the MirrorMaker connector parameters:
   * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}**, specify the parameters for connecting to the target cluster:
     * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Target cluster prefix in the connector settings.
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a target.
-    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Сomma-separated list of the FQDNs of the target cluster broker hosts with the port numbers for connection.
+    * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the target cluster broker hosts with the port numbers for connection.
 
        {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -723,7 +723,7 @@ Specify the S3 Sink connector parameters:
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }}](https://kafka.apache.org/documentation/#connectconfigs) documentation.
 
     * `--topics`: Template for selecting topics to replicate. Topic names in the list are separated by a comma or `|`. You may use the `.*` expression, e.g., `analysis.*`. To migrate all topics, put `.*`.
-    * `--file-compression-type`: Message compression codec. You cannot change this parameter after creating the cluster. Acceptable values:
+    * `--file-compression-type`: Message compression codec. You cannot change this parameter after creating the cluster. Values for this setting can range:
 
         * `none` (default): No compression
         * `gzip`: [gzip](https://www.gzip.org/) codec
@@ -751,7 +751,7 @@ Specify the S3 Sink connector parameters:
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }}](https://kafka.apache.org/documentation/#connectconfigs) documentation.
 
     * **topics**: Template for selecting topics to replicate. Topic names in the list are separated by a comma or `|`. You may use the `.*` expression, e.g., `analysis.*`. To migrate all topics, put `.*`.
-    * **file_compression_type**: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values:
+    * **file_compression_type**: Codec for message compression. You cannot change this parameter after creating the cluster. Values for this setting can range:
 
         * `none` (default): No compression
         * `gzip`: [gzip](https://www.gzip.org/) codec
@@ -776,7 +776,7 @@ Specify the S3 Sink connector parameters:
     The S3 Sink connector settings are specified in the `connectorSpec.connectorConfigS3Sink` parameter:
 
     * `topics`: Template for selecting topics to replicate. Topic names in the list are separated by a comma or `|`. You may use the `.*` expression, e.g., `analysis.*`. To migrate all topics, put `.*`.
-    * `fileCompressionType`: Message compression codec. You cannot change this parameter after creating the cluster. Acceptable values:
+    * `fileCompressionType`: Message compression codec. You cannot change this parameter after creating the cluster. Values for this setting can range:
 
         * `none` (default): No compression
         * `gzip`: [gzip](https://www.gzip.org/) codec
@@ -799,14 +799,14 @@ Specify the S3 Sink connector parameters:
     The S3 Sink connector settings are specified in the `connector_spec.connector_config_s3_sink` parameter:
 
     * `topics`: Template for selecting topics to replicate. Topic names in the list are separated by a comma or `|`. You may use the `.*` expression, e.g., `analysis.*`. To migrate all topics, put `.*`.
-    * `file_compression_type`: Message compression codec. You cannot change this parameter after creating the cluster. Acceptable values:
+    * `file_compression_type`: Message compression codec. You cannot change this parameter after creating the cluster. Values for this setting can range:
 
         * `none` (default): No compression
         * `gzip`: [gzip](https://www.gzip.org/) codec
         * `snappy`: [snappy](https://github.com/google/snappy) codec
         * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
-    * `file_max_records`: Maximum number of records that can be written to a single file in an S3-compatible storage. Provided as an object with the `value` field:
+    * `file_max_records`: Maximum number of records that can be written to a single file in an S3-compatible storage. provided as an object with a field named `value`.
     * `s3_connection`: S3-compatible storage connection parameters:
         * `bucket_name`: Name of the bucket to write data to.
         * `external_s3`: External storage parameters:
@@ -825,8 +825,8 @@ Specify the S3 Sink connector parameters:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. In the line with the required connector, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
     1. Edit the connector properties as needed.
@@ -857,7 +857,7 @@ Specify the S3 Sink connector parameters:
 
         Where `--direction` is the connector direction: `ingress` or `egres`.
 
-        You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the connector name with the [list of cluster connectors](#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     To update the [S3 Sink](#settings-s3) connector:
 
@@ -875,15 +875,15 @@ Specify the S3 Sink connector parameters:
            --tasks-max=<new_task_limit>
         ```
 
-        You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the connector name with the [list of cluster connectors](#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     1. Check the list of [MirrorMaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
 
@@ -952,15 +952,15 @@ Specify the S3 Sink connector parameters:
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector) provider documentation.
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Connector.update](../api-ref/Connector/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Connector.update](../api-ref/Connector/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -996,13 +996,13 @@ Specify the S3 Sink connector parameters:
 
        * `connectorSpec`: Specify MirrorMaker or S3 Sink connector settings.
 
-       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/Connector/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Connector/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1062,9 +1062,9 @@ Specify the S3 Sink connector parameters:
             * `connector_spec.connector_config_s3_sink.<configuring_S3_Sink_connector>`: To update [S3 Sink](#settings-s3) connector settings.
         * `connector_spec`: Specify MirrorMaker or S3 Sink connector settings.
 
-        You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/grpc/Connector/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Connector/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1081,8 +1081,8 @@ To pause a connector:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
@@ -1101,11 +1101,11 @@ To pause a connector:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Connector.pause](../api-ref/Connector/pause.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Connector.pause](../api-ref/Connector/pause.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        ```bash
        curl \
@@ -1114,13 +1114,13 @@ To pause a connector:
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/pause/<connector_name>'
        ```
 
-       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/Connector/pause.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Connector/pause.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1143,9 +1143,9 @@ To pause a connector:
           yandex.cloud.mdb.kafka.v1.ConnectorService.Pause
         ```
 
-        You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/grpc/Connector/pause.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Connector/pause.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1155,8 +1155,8 @@ To pause a connector:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
@@ -1175,11 +1175,11 @@ To pause a connector:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Connector.pause](../api-ref/Connector/resume.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Connector.pause](../api-ref/Connector/resume.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        ```bash
        curl \
@@ -1188,13 +1188,13 @@ To pause a connector:
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/resume/<connector_name>'
        ```
 
-       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/Connector/resume.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Connector/resume.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1217,9 +1217,9 @@ To pause a connector:
           yandex.cloud.mdb.kafka.v1.ConnectorService.Resume
         ```
 
-        You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/grpc/Connector/resume.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Connector/resume.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1243,7 +1243,7 @@ Using import, you can bring the existing connectors under {{ TF }} management.
         terraform import yandex_mdb_kafka_connector.<connector_name> <cluster_ID>:<connector_name>
         ```
 
-        To learn more about importing connectors, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector#import) provider documentation.
+        To learn more about importing connectors, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
 
 {% endlist %}
 
@@ -1253,8 +1253,8 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select a cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.common.delete }}**.
     1. Click **{{ ui-key.yacloud.common.delete }}**.
@@ -1274,9 +1274,9 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_kafka_connector` resource with the connector description.
     1. Make sure the settings are correct.
@@ -1287,15 +1287,15 @@ Using import, you can bring the existing connectors under {{ TF }} management.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector) provider documentation.
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Connector.pause](../api-ref/Connector/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Connector.pause](../api-ref/Connector/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        ```bash
        curl \
@@ -1304,13 +1304,13 @@ Using import, you can bring the existing connectors under {{ TF }} management.
          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/<connector_name>'
        ```
 
-       You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/Connector/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Connector/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1333,8 +1333,8 @@ Using import, you can bring the existing connectors under {{ TF }} management.
           yandex.cloud.mdb.kafka.v1.ConnectorService.Delete
         ```
 
-        You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with a [list of connectors in the cluster](#list).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters) and the connector name with the [list of connectors in the cluster](#list).
 
-    1. View the [server response](../api-ref/grpc/Connector/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/Connector/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

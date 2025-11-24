@@ -22,7 +22,7 @@ description: Управление доступом в сервисе для ра
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/application-load-balancer/security/service-roles-hierarchy.svg)
+{% include [roles-abl](../../_mermaid/roles/application-load-balancer.md) %}
 
 ### Сервисные роли {#service-roles}
 
