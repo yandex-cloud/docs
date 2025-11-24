@@ -15,6 +15,7 @@ default:
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
   alerts-name: Alerts
+  alice-ai: Alice AI LLM
   all-mdb:
     max-databases: 1000
   amocrm-name: amoCRM
@@ -9317,7 +9318,6 @@ default:
         value_bms-recourses: BareMetal servers
         value_vm-recourses: Virtual machines
       baremetal:
-        action_add-to-raid: Add to RAID
         action_add-vrf-interconnect: Configure connection
         action_create-public-subnet-from-server: Order
         action_dedicate-ephemeral-subnet: Make dedicated
@@ -9330,20 +9330,6 @@ default:
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
-        customConfig:
-          CustomConfigForm:
-            cpu_s3pPr: CPU
-            disks_sZbyA: Disks
-            network_b7gsC: Network
-            pool_75ogL: Pool
-            powerReserve_8Ljpr: Power reserve
-            ram_1vn53: RAM
-          DiskField:
-            amount_kBdTj: Number
-            size_59KKi: Size
-            type_g1iH9: Type
-          DisksField:
-            addDiskButton_77P9P: Add
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: No OS
         field_CIDR: CIDR
@@ -9403,7 +9389,6 @@ default:
           Filters:
             poolFilter_tVgg5: Pool
           ServerConfigPage:
-            custom-configs_b5Ab9: Custom configuration
             ready-configs_ibA3Y: Preset configurations
         title_common-info: General information
         title_routing-settings: IP addressing and routing

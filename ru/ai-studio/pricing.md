@@ -25,7 +25,7 @@ editable: false
 
 Стоимость работы с моделями {{ model-gallery-name }} зависит от:
 * [режима работы модели](concepts/generation/index.md#working-mode);
-* количества входящих и исходящих [токенов](concepts/generation/tokens.md). Число [токенов](concepts/generation/tokens.md) в одном и том же тексте для разных моделей может отличаться.
+* количества входящих и исходящих [токенов](concepts/generation/tokens.md). Число [токенов](concepts/generation/tokens.md) в одном и том же тексте для разных моделей может отличаться. [Пример расчета](#example-generating) стоимости обработки одного и того же текста в синхронном режиме с помощью разных моделей.
 
 Использование моделей {{ model-gallery-name }} [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в единицах тарификации — _юнитах_. Итоговое количество потребленных юнитов округляется до целого значения в большую сторону.
 
@@ -63,24 +63,22 @@ editable: false
 
 {#example-generating}
 
-{% cut "Расчет стоимости работы модели в синхронном режиме" %}
+{% cut "Пример расчета стоимости работы модели в синхронном режиме" %}
 
 > Параметры запроса:
-> * Количество токенов в промпте — 225.
-> * Количество токенов в ответе — 525.
-> * Модель — {{ gpt-lite }}.
-> * Синхронный режим работы модели.
+> * Инструкция: «Исправь грамматические, орфографические и пунктуационные ошибки в тексте. Сохраняй исходный порядок слов.»
+> * Текст запроса: «Нейрасети оптемезируют бизнес-працесы розгружают техпадержку ускаряют праверку документов аналис и абработку данных генирируют отчёты за минуты и прогназируют спрос.»
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-generating-lite](../_pricing_examples/ai-studio/rub-generating-lite.md) %}
+  {% include [rub-generating-sync](../_pricing_examples/ai-studio/rub-generating-sync.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-generating-lite](../_pricing_examples/ai-studio/kzt-generating-lite.md) %}
+  {% include [kzt-generating-sync](../_pricing_examples/ai-studio/kzt-generating-sync.md) %}
 
 {% endlist %}
 
@@ -88,7 +86,7 @@ editable: false
 
 {% endcut %}
 
-{% cut "Расчет стоимости работы модели в асинхронном режиме" %}
+{% cut "Пример расчета стоимости работы модели в асинхронном режиме" %}
 
 > Параметры запроса:
 > * Количество токенов в промпте — 115.

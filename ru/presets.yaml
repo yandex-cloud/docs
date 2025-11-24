@@ -15,6 +15,7 @@ default:
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
   alerts-name: Алерты
+  alice-ai: Alice AI LLM
   all-mdb:
     max-databases: 1000
   amocrm-name: amoCRM
@@ -9326,7 +9327,6 @@ default:
         value_bms-recourses: Серверы BareMetal
         value_vm-recourses: Виртуальные машины
       baremetal:
-        action_add-to-raid: Добавить в RAID
         action_add-vrf-interconnect: Настроить соединение
         action_create-public-subnet-from-server: Заказать
         action_dedicate-ephemeral-subnet: Сделать выделенной
@@ -9339,20 +9339,6 @@ default:
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
         actions_add-partition: Добавить раздел
-        customConfig:
-          CustomConfigForm:
-            cpu_s3pPr: Процессор
-            disks_sZbyA: Диски
-            network_b7gsC: Сеть
-            pool_75ogL: Пул
-            powerReserve_8Ljpr: Резерв питания
-            ram_1vn53: Оперативная память
-          DiskField:
-            amount_kBdTj: Количество
-            size_59KKi: Размер
-            type_g1iH9: Тип
-          DisksField:
-            addDiskButton_77P9P: Добавить
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: Без операционной системы
         field_CIDR: CIDR
@@ -9412,7 +9398,6 @@ default:
           Filters:
             poolFilter_tVgg5: Пул
           ServerConfigPage:
-            custom-configs_b5Ab9: Своя конфигурация
             ready-configs_ibA3Y: Готовые конфигурации
         title_common-info: Общая информация
         title_routing-settings: IP-адресация и маршрутизация
