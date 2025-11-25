@@ -24,7 +24,9 @@ Returns all playlist metadata, items, and related information.
 ||Field | Description ||
 || playlist_id | **string**
 
-Required field. ID of the playlist to retrieve. ||
+Required field. ID of the playlist to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Playlist {#yandex.cloud.video.v1.Playlist}
@@ -92,6 +94,8 @@ Each item references either a video or an episode and specifies its position in 
 
 Identifier of a video included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `video_id`, `episode_id`.
 
 Specifies the content identifier type for this playlist item. ||
@@ -99,11 +103,15 @@ Specifies the content identifier type for this playlist item. ||
 
 Identifier of an episode included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `video_id`, `episode_id`.
 
 Specifies the content identifier type for this playlist item. ||
 || position | **int64**
 
 Position of this item in the playlist sequence (zero-indexed).
-Determines the playback order of content in the playlist. ||
+Determines the playback order of content in the playlist.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

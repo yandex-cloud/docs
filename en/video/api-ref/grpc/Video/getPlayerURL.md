@@ -31,7 +31,9 @@ For videos with signed URL access, an expiration duration can be specified.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video for which to generate a player URL. ||
+Required field. ID of the video for which to generate a player URL.
+
+The maximum string length in characters is 50. ||
 || params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)**
 
 Optional player parameters to customize the playback experience.

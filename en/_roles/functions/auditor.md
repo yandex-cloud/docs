@@ -1,4 +1,4 @@
-The `functions.auditor` role enables viewing info on the functions, triggers, and connections to managed databases.
+The `functions.auditor` role enables viewing info on functions, triggers, and connections to managed databases.
 
 Users with this role can:
 * View the list of [functions](../../functions/concepts/function.md) and info on them.

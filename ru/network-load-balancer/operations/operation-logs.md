@@ -13,7 +13,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для сетевого балансировщика. Для целевой группы последовательность действий такая же.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится сетевой балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
   1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 

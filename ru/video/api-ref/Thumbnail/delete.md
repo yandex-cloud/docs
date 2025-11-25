@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the thumbnail to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - thumbnailId
@@ -37,7 +38,9 @@ DELETE https://video.{{ api-host }}/video/v1/thumbnails/{thumbnailId}
 ||Field | Description ||
 || thumbnailId | **string**
 
-Required field. ID of the thumbnail to delete. ||
+Required field. ID of the thumbnail to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

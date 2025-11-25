@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the video to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - videoId
@@ -34,16 +35,19 @@ apiPlayground:
           description: |-
             **string**
             New title for the video.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             New description for the video.
+            The maximum string length in characters is 4000.
           type: string
         thumbnailId:
           description: |-
             **string**
             New thumbnail ID for the video.
+            The maximum string length in characters is 50.
           type: string
         autoTranscode:
           description: |-
@@ -62,6 +66,7 @@ apiPlayground:
           description: |-
             **string**
             New style preset ID for the video.
+            The maximum string length in characters is 50.
           type: string
         enableAd:
           description: |-
@@ -75,6 +80,7 @@ apiPlayground:
             New custom labels for the video as `key:value` pairs.
             Maximum 64 labels per video.
             If provided, replaces all existing labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -133,7 +139,9 @@ PATCH https://video.{{ api-host }}/video/v1/videos/{videoId}
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video to update. ||
+Required field. ID of the video to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateVideoRequest}
@@ -169,13 +177,19 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-New title for the video. ||
+New title for the video.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-New description for the video. ||
+New description for the video.
+
+The maximum string length in characters is 4000. ||
 || thumbnailId | **string**
 
-New thumbnail ID for the video. ||
+New thumbnail ID for the video.
+
+The maximum string length in characters is 50. ||
 || autoTranscode | **enum** (AutoTranscode)
 
 New auto-transcoding setting for the video.
@@ -186,7 +200,9 @@ Controls whether transcoding starts automatically after upload.
 - `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
 || stylePresetId | **string**
 
-New style preset ID for the video. ||
+New style preset ID for the video.
+
+The maximum string length in characters is 50. ||
 || enableAd | **boolean**
 
 New advertisement setting for the video.
@@ -195,7 +211,9 @@ Set to false to disable advertisements for this specific video. ||
 
 New custom labels for the video as `key:value` pairs.
 Maximum 64 labels per video.
-If provided, replaces all existing labels. ||
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || publicAccess | **object**
 
 Makes the video publicly accessible to anyone with the direct link.

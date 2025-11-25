@@ -14178,6 +14178,10 @@ default:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
+      assistants:
+        applying: Использование
+        assistants: Ассистенты
+        prompt: Инструкция
       common:
         add: Добавить
         add-filter: Добавить фильтр

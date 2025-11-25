@@ -30,24 +30,34 @@ with pagination support.
 ||Field | Description ||
 || channel_id | **string**
 
-[Deprecated] ID of the channel. ||
+[Deprecated] ID of the channel.
+
+The maximum string length in characters is 50. ||
 || episode_id | **string**
 
 ID of the episode containing the thumbnails to list.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `episode_id`, `video_id`. ||
 || video_id | **string**
 
 ID of the video containing the thumbnails to list.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `episode_id`, `video_id`. ||
 || page_size | **int64**
 
-The maximum number of thumbnails to return per page. ||
+The maximum number of thumbnails to return per page.
+
+The maximum value is 100. ||
 || page_token | **string**
 
 Page token for retrieving the next page of results.
-This token is obtained from the next_page_token field in the previous ListThumbnailResponse. ||
+This token is obtained from the next_page_token field in the previous ListThumbnailResponse.
+
+The maximum string length in characters is 15000. ||
 |#
 
 ## ListThumbnailResponse {#yandex.cloud.video.v1.ListThumbnailResponse}

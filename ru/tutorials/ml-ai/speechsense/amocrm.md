@@ -5,4 +5,4 @@ description: Вы научитесь интегрировать {{ speechsense-n
 
 # Интеграция {{ speechsense-name }} с {{ amocrm-name }}
 
-{% include [speechsense-amocrm](../../_tutorials/speechsense/amocrm.md) %}
+{% include [speechsense-amocrm](../../../_tutorials/ml-ai/speechsense/amocrm.md) %}

@@ -27,11 +27,15 @@ This is more efficient than making multiple Delete requests when removing severa
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel containing the stream lines to delete. ||
+Required field. ID of the channel containing the stream lines to delete.
+
+The maximum string length in characters is 50. ||
 || stream_line_ids[] | **string**
 
 List of stream line IDs to delete.
-All stream lines must exist in the specified channel. ||
+All stream lines must exist in the specified channel.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

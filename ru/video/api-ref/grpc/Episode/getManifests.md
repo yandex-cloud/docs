@@ -25,7 +25,9 @@ for streaming the content with different quality levels and formats.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode for which to retrieve manifest URLs. ||
+Required field. ID of the episode for which to retrieve manifest URLs.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetEpisodeManifestsResponse {#yandex.cloud.video.v1.GetEpisodeManifestsResponse}

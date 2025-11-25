@@ -24,7 +24,9 @@ Returns all subtitle metadata and related information.
 ||Field | Description ||
 || subtitle_id | **string**
 
-Required field. ID of the subtitle to retrieve. ||
+Required field. ID of the subtitle to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Subtitle {#yandex.cloud.video.v1.Subtitle}

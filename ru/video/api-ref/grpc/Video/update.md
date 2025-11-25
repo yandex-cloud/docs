@@ -36,7 +36,9 @@ Only fields specified in the field_mask will be updated.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video to update. ||
+Required field. ID of the video to update.
+
+The maximum string length in characters is 50. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask specifying which fields of the video should be updated.
@@ -45,13 +47,19 @@ all other fields will retain their current values.
 This allows for partial updates. ||
 || title | **string**
 
-New title for the video. ||
+New title for the video.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-New description for the video. ||
+New description for the video.
+
+The maximum string length in characters is 4000. ||
 || thumbnail_id | **string**
 
-New thumbnail ID for the video. ||
+New thumbnail ID for the video.
+
+The maximum string length in characters is 50. ||
 || auto_transcode | enum **AutoTranscode**
 
 New auto-transcoding setting for the video.
@@ -62,7 +70,9 @@ Controls whether transcoding starts automatically after upload.
 - `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
 || style_preset_id | **string**
 
-New style preset ID for the video. ||
+New style preset ID for the video.
+
+The maximum string length in characters is 50. ||
 || enable_ad | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 New advertisement setting for the video.
@@ -71,7 +81,9 @@ Set to false to disable advertisements for this specific video. ||
 
 New custom labels for the video as `key:value` pairs.
 Maximum 64 labels per video.
-If provided, replaces all existing labels. ||
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || public_access | **[VideoPublicAccessParams](#yandex.cloud.video.v1.VideoPublicAccessParams)**
 
 Makes the video publicly accessible to anyone with the direct link.

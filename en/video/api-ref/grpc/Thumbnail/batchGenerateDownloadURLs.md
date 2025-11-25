@@ -28,10 +28,14 @@ This is useful for efficiently retrieving multiple thumbnails at once.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel containing the thumbnails. ||
+Required field. ID of the channel containing the thumbnails.
+
+The maximum string length in characters is 50. ||
 || thumbnail_ids[] | **string**
 
-List of thumbnail IDs for which to generate download URLs. ||
+List of thumbnail IDs for which to generate download URLs.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## BatchGenerateDownloadURLsResponse {#yandex.cloud.video.v1.BatchGenerateDownloadURLsResponse}

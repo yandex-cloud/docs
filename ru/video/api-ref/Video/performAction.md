@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the video on which to perform the action.
+            The maximum string length in characters is 50.
           type: string
       required:
         - videoId
@@ -66,7 +67,9 @@ POST https://video.{{ api-host }}/video/v1/videos/{videoId}:performAction
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video on which to perform the action. ||
+Required field. ID of the video on which to perform the action.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.PerformVideoActionRequest}

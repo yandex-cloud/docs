@@ -1,8 +1,7 @@
-The `functions.viewer` role enables viewing info on functions, including the function version code and environment variables, as well as on triggers and connections to managed databases.
+The `functions.viewer` role enables viewing info on functions, triggers, and connections to managed databases, as well as on Cloud Functions quotas.
 
 Users with this role can:
 * View the list of [functions](../../functions/concepts/function.md) and info on them.
-* View the function [version](../../functions/concepts/function.md#version) [environment variables](../../functions/concepts/runtime/environment-variables.md) and code.
 * View the list of [triggers](../../functions/concepts/trigger/index.md) and info on them.
 * View the list of database connections and info on them.
 * View info on granted [access permissions](../../iam/concepts/access-control/index.md) for Cloud Functions resources.

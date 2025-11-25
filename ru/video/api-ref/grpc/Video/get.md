@@ -24,7 +24,9 @@ Returns all video metadata, status, and related information.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video to retrieve. ||
+Required field. ID of the video to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Video {#yandex.cloud.video.v1.Video}

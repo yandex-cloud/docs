@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the style preset.
+            The maximum string length in characters is 50.
           type: string
       required:
         - stylePresetId
@@ -34,72 +35,83 @@ apiPlayground:
           description: |-
             **string**
             Style preset title.
-          pattern: '[a-zA-Z0-9-_ ]*'
+            The maximum string length in characters is 50.
           type: string
         backgroundColor:
           description: |-
             **string**
             Background color.
+            Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9-]*'
           type: string
         widgetTextColorPrimary:
           description: |-
             **string**
             Widget primary text color.
+            Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9-]*'
           type: string
         widgetTextColorSecondary:
           description: |-
             **string**
             Widget secondary text color.
+            Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9-]*'
           type: string
         widgetAccentColor:
           description: |-
             **string**
             Widget accent color.
+            Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9-]*'
           type: string
         widgetBlockGap:
           description: |-
             **string** (int64)
             Gap between widget blocks.
+            Acceptable values are 0 to 50, inclusive.
           type: string
           format: int64
         widgetBlockSeparatorColor:
           description: |-
             **string**
             Line color between widget blocks.
+            Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9-]*'
           type: string
         playerBorderRadius:
           description: |-
             **string** (int64)
             Player border radius.
+            The minimum value is 0.
           type: string
           format: int64
         playerColor:
           description: |-
             **string**
             Player color.
+            Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]*'
           type: string
         playlistSelectedItemBackgroundColor:
           description: |-
             **string**
             Background color of selected video in playlist.
+            Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]*'
           type: string
         playlistItemBorderRadius:
           description: |-
             **string** (int64)
             Playlist item border radius.
+            The minimum value is 0.
           type: string
           format: int64
         playlistItemGap:
           description: |-
             **string** (int64)
             Gap between videos in playlist.
+            Acceptable values are 0 to 50, inclusive.
           type: string
           format: int64
         playlistLocation:
@@ -180,7 +192,9 @@ PATCH https://video.{{ api-host }}/video/v1/stylePresets/{stylePresetId}
 ||Field | Description ||
 || stylePresetId | **string**
 
-Required field. ID of the style preset. ||
+Required field. ID of the style preset.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateStylePresetRequest}
@@ -234,40 +248,64 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-Style preset title. ||
+Style preset title.
+
+The maximum string length in characters is 50. ||
 || backgroundColor | **string**
 
-Background color. ||
+Background color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widgetTextColorPrimary | **string**
 
-Widget primary text color. ||
+Widget primary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widgetTextColorSecondary | **string**
 
-Widget secondary text color. ||
+Widget secondary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widgetAccentColor | **string**
 
-Widget accent color. ||
+Widget accent color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widgetBlockGap | **string** (int64)
 
-Gap between widget blocks. ||
+Gap between widget blocks.
+
+Acceptable values are 0 to 50, inclusive. ||
 || widgetBlockSeparatorColor | **string**
 
-Line color between widget blocks. ||
+Line color between widget blocks.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || playerBorderRadius | **string** (int64)
 
-Player border radius. ||
+Player border radius.
+
+The minimum value is 0. ||
 || playerColor | **string**
 
-Player color. ||
+Player color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50. ||
 || playlistSelectedItemBackgroundColor | **string**
 
-Background color of selected video in playlist. ||
+Background color of selected video in playlist.
+
+Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50. ||
 || playlistItemBorderRadius | **string** (int64)
 
-Playlist item border radius. ||
+Playlist item border radius.
+
+The minimum value is 0. ||
 || playlistItemGap | **string** (int64)
 
-Gap between videos in playlist. ||
+Gap between videos in playlist.
+
+Acceptable values are 0 to 50, inclusive. ||
 || playlistLocation | **enum** (WidgetLocation)
 
 Playlist widget location.

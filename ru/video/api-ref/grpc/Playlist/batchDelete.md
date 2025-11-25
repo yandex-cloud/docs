@@ -27,11 +27,15 @@ This is more efficient than making multiple Delete requests when removing severa
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel containing the playlists to delete. ||
+Required field. ID of the channel containing the playlists to delete.
+
+The maximum string length in characters is 50. ||
 || playlist_ids[] | **string**
 
 List of playlist IDs to delete.
-All playlists must exist in the specified channel. ||
+All playlists must exist in the specified channel.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

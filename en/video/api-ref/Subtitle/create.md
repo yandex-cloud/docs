@@ -12,6 +12,7 @@ apiPlayground:
           description: |-
             **string**
             Subtitle language represented as a three-letter code according to ISO 639-2/T.
+            Value must match the regular expression ` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho `.
           pattern: ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho
           type: string
         label:
@@ -20,11 +21,13 @@ apiPlayground:
             Contains the subtitle label (or title) that will be displayed on screen during video playback.
             Should provide a concise and accurate representation of the spoken content.
             If not provided, it will be auto-generated based on the specified language.
+            The maximum string length in characters is 50.
           type: string
         videoId:
           description: |-
             **string**
             ID of the video.
+            The maximum string length in characters is 50.
             Includes only one of the fields `videoId`.
           type: string
         upload:
@@ -82,15 +85,21 @@ POST https://video.{{ api-host }}/video/v1/subtitles
 ||Field | Description ||
 || language | **string**
 
-Subtitle language represented as a three-letter code according to ISO 639-2/T. ||
+Subtitle language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ` ara\|deu\|eng\|fra\|ita\|jpn\|kaz\|kor\|rus\|spa\|tur\|ukr\|zho `. ||
 || label | **string**
 
 Contains the subtitle label (or title) that will be displayed on screen during video playback.
 Should provide a concise and accurate representation of the spoken content.
-If not provided, it will be auto-generated based on the specified language. ||
+If not provided, it will be auto-generated based on the specified language.
+
+The maximum string length in characters is 50. ||
 || videoId | **string**
 
 ID of the video.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `videoId`. ||
 || upload | **[SubtitleUploadParams](#yandex.cloud.video.v1.SubtitleUploadParams)**

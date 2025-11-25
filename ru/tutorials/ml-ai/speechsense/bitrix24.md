@@ -5,4 +5,4 @@ description: Вы научитесь интегрировать {{ speechsense-n
 
 # Интеграция {{ speechsense-name }} с {{ bitrix24-name }}
 
-{% include [speechsense-bitrix24](../../_tutorials/speechsense/bitrix24.md) %}
+{% include [speechsense-bitrix24](../../../_tutorials/ml-ai/speechsense/bitrix24.md) %}

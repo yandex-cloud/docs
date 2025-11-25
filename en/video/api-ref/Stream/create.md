@@ -12,28 +12,33 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel where the stream will be created.
+            The maximum string length in characters is 50.
           type: string
         lineId:
           description: |-
             **string**
             Required field. ID of the stream line to which this stream will be linked.
             Stream lines define the technical configuration for streaming.
+            The maximum string length in characters is 50.
           type: string
         title:
           description: |-
             **string**
             Required field. Title of the stream to be displayed in interfaces and players.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             Detailed description of the stream content and context.
             Optional field that can provide additional information about the stream.
+            The maximum string length in characters is 4000.
           type: string
         thumbnailId:
           description: |-
             **string**
             ID of the thumbnail image to be used for the stream.
+            The maximum string length in characters is 50.
           type: string
         autoPublish:
           description: |-
@@ -50,6 +55,7 @@ apiPlayground:
             Maximum 64 labels per stream.
             Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
             Values can contain alphanumeric characters and various symbols.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -161,21 +167,31 @@ POST https://video.{{ api-host }}/video/v1/streams
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel where the stream will be created. ||
+Required field. ID of the channel where the stream will be created.
+
+The maximum string length in characters is 50. ||
 || lineId | **string**
 
 Required field. ID of the stream line to which this stream will be linked.
-Stream lines define the technical configuration for streaming. ||
+Stream lines define the technical configuration for streaming.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Required field. Title of the stream to be displayed in interfaces and players. ||
+Required field. Title of the stream to be displayed in interfaces and players.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
 Detailed description of the stream content and context.
-Optional field that can provide additional information about the stream. ||
+Optional field that can provide additional information about the stream.
+
+The maximum string length in characters is 4000. ||
 || thumbnailId | **string**
 
-ID of the thumbnail image to be used for the stream. ||
+ID of the thumbnail image to be used for the stream.
+
+The maximum string length in characters is 50. ||
 || autoPublish | **boolean**
 
 Controls whether the stream is automatically published when ready.
@@ -187,7 +203,9 @@ making it available for viewing without manual intervention. ||
 Custom user-defined labels as `key:value` pairs.
 Maximum 64 labels per stream.
 Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
-Values can contain alphanumeric characters and various symbols. ||
+Values can contain alphanumeric characters and various symbols.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || onDemand | **object**
 
 On-demand stream that starts immediately when a video signal appears.

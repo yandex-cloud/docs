@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel to retrieve.
+            The maximum string length in characters is 50.
           type: string
       required:
         - channelId
@@ -37,7 +38,9 @@ GET https://video.{{ api-host }}/video/v1/channels/{channelId}
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel to retrieve. ||
+Required field. ID of the channel to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.Channel}
@@ -217,5 +220,7 @@ When set to false, content can be embedded on any domain. ||
 
 List of domains allowed to embed content from this channel.
 Only relevant when enable is set to true.
-Supports wildcard notation (e.g., "*.example.com") to allow all subdomains. ||
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$\|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#

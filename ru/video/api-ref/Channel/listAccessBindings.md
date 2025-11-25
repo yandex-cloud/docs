@@ -12,6 +12,7 @@ apiPlayground:
             Required field. ID of the resource to list access bindings for.
             To get the resource ID, use a corresponding List request.
             For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID.
+            The maximum string length in characters is 50.
           type: string
       required:
         - resourceId
@@ -27,6 +28,7 @@ apiPlayground:
             the service returns a [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -36,6 +38,7 @@ apiPlayground:
             Page token. Set `pageToken`
             to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
             returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -64,7 +67,9 @@ GET https://video.{{ api-host }}/video/v1/channels/{resourceId}:listAccessBindin
 Required field. ID of the resource to list access bindings for.
 
 To get the resource ID, use a corresponding List request.
-For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID. ||
+For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.access.ListAccessBindingsRequest}
@@ -77,12 +82,16 @@ The maximum number of results per page that should be returned. If the number of
 results is larger than `pageSize`,
 the service returns a [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.access.ListAccessBindingsResponse}
@@ -125,7 +134,9 @@ in the next list request. Each subsequent list request will have its own
 ||Field | Description ||
 || roleId | **string**
 
-Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
+Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+
+The maximum string length in characters is 50. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -151,7 +162,9 @@ with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -162,5 +175,7 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#

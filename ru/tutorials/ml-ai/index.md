@@ -41,6 +41,13 @@ description: Различные сценарии использования ма
 * [{#T}](batch-recognition-stt.md)
 * [{#T}](vision-ocrrecognizer-storage.md)
 
+## Речевая аналитика {#speech-analytics}
+
+* [{#T}](speechsense/auto-upload.md)
+* [{#T}](speechsense/bitrix24.md)
+* [{#T}](speechsense/amocrm.md)
+* [{#T}](speechsense/ai-assistant.md)
+
 ## Использование генеративных нейросетей {{ foundation-models-full-name }} {#generative-neuronets}
 
 * [{#T}](pdf-searchindex-ai-assistant.md)

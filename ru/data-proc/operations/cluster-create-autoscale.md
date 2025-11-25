@@ -71,7 +71,8 @@ description: Следуя данной инструкции, вы сможете
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
-         * `84.201.181.26/32` — получение статуса кластера {{ dataproc-name }}, запуск заданий, UI Proxy.
+         * `84.201.181.26/32` — получение статуса кластера {{ dataproc-name }}, запуск заданий.
+         * `158.160.167.170/32` — UI Proxy.
          * `158.160.59.216/32` — мониторинг состояния кластера {{ dataproc-name }}, автомасштабирование.
          * `213.180.193.243/32` — доступ к {{ objstorage-name }}.
          * `84.201.181.184/32` — адрес {{ cloud-logging-name }}.

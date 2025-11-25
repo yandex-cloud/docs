@@ -24,7 +24,9 @@ This removes both the metadata record and the associated image file.
 ||Field | Description ||
 || thumbnail_id | **string**
 
-Required field. ID of the thumbnail to delete. ||
+Required field. ID of the thumbnail to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
