@@ -94,6 +94,11 @@ Optional:
 - `zookeeper` (Block List, Max: 1) Configuration of the ZooKeeper subcluster. (see [below for nested schema](#nestedblock--config--zookeeper))
 
 
+Read-Only:
+
+- `patch_version` (String) Patch version of the Kafka server software.
+
+
 <a id="nestedblock--config--kafka"></a>
 ### Nested Schema for `config.kafka`
 
@@ -362,4 +367,3 @@ Read-Only:
 - `hour` (Number) Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
 
 - `type` (String) Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
-

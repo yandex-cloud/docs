@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the episode to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - episodeId
@@ -36,7 +37,9 @@ DELETE https://video.{{ api-host }}/video/v1/episodes/{episodeId}
 ||Field | Description ||
 || episodeId | **string**
 
-Required field. ID of the episode to delete. ||
+Required field. ID of the episode to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the video to retrieve.
+            The maximum string length in characters is 50.
           type: string
       required:
         - videoId
@@ -37,7 +38,9 @@ GET https://video.{{ api-host }}/video/v1/videos/{videoId}
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video to retrieve. ||
+Required field. ID of the video to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.Video}

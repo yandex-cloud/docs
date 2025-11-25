@@ -24,6 +24,11 @@ description: Управление доступом в сервисе по соз
 
 {% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
+## Какие роли действуют в сервисе {#roles-list}
+
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+
+{% include [roles-managed-spqr](../_mermaid/roles/managed-spqr.md) %}
 
 ### Сервисные роли {#service-roles}
 

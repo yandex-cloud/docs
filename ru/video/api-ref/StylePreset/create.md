@@ -12,77 +12,89 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel.
+            The maximum string length in characters is 50.
           type: string
         title:
           description: |-
             **string**
             Required field. Style preset title.
-          pattern: '[a-zA-Z0-9-_ ]+'
+            The maximum string length in characters is 50.
           type: string
         backgroundColor:
           description: |-
             **string**
             Required field. Background color.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         widgetTextColorPrimary:
           description: |-
             **string**
             Required field. Widget primary text color.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         widgetTextColorSecondary:
           description: |-
             **string**
             Required field. Widget secondary text color.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         widgetAccentColor:
           description: |-
             **string**
             Required field. Widget accent color.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         widgetBlockGap:
           description: |-
             **string** (int64)
             Gap between widget blocks.
+            Acceptable values are 0 to 50, inclusive.
           type: string
           format: int64
         widgetBlockSeparatorColor:
           description: |-
             **string**
             Required field. Line color between widget blocks.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         playerBorderRadius:
           description: |-
             **string** (int64)
             Player border radius.
+            The minimum value is 0.
           type: string
           format: int64
         playerColor:
           description: |-
             **string**
             Required field. Player color.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         playlistSelectedItemBackgroundColor:
           description: |-
             **string**
             Required field. Background color of selected video in playlist.
+            Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50.
           pattern: '[#a-zA-Z0-9]+'
           type: string
         playlistItemBorderRadius:
           description: |-
             **string** (int64)
             Playlist item border radius.
+            The minimum value is 0.
           type: string
           format: int64
         playlistItemGap:
           description: |-
             **string** (int64)
             Gap between videos in playlist.
+            Acceptable values are 0 to 50, inclusive.
           type: string
           format: int64
         playlistLocation:
@@ -207,43 +219,69 @@ POST https://video.{{ api-host }}/video/v1/stylePresets
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Required field. Style preset title. ||
+Required field. Style preset title.
+
+The maximum string length in characters is 50. ||
 || backgroundColor | **string**
 
-Required field. Background color. ||
+Required field. Background color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widgetTextColorPrimary | **string**
 
-Required field. Widget primary text color. ||
+Required field. Widget primary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widgetTextColorSecondary | **string**
 
-Required field. Widget secondary text color. ||
+Required field. Widget secondary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widgetAccentColor | **string**
 
-Required field. Widget accent color. ||
+Required field. Widget accent color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widgetBlockGap | **string** (int64)
 
-Gap between widget blocks. ||
+Gap between widget blocks.
+
+Acceptable values are 0 to 50, inclusive. ||
 || widgetBlockSeparatorColor | **string**
 
-Required field. Line color between widget blocks. ||
+Required field. Line color between widget blocks.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || playerBorderRadius | **string** (int64)
 
-Player border radius. ||
+Player border radius.
+
+The minimum value is 0. ||
 || playerColor | **string**
 
-Required field. Player color. ||
+Required field. Player color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || playlistSelectedItemBackgroundColor | **string**
 
-Required field. Background color of selected video in playlist. ||
+Required field. Background color of selected video in playlist.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || playlistItemBorderRadius | **string** (int64)
 
-Playlist item border radius. ||
+Playlist item border radius.
+
+The minimum value is 0. ||
 || playlistItemGap | **string** (int64)
 
-Gap between videos in playlist. ||
+Gap between videos in playlist.
+
+Acceptable values are 0 to 50, inclusive. ||
 || playlistLocation | **enum** (WidgetLocation)
 
 Required field. Playlist widget location.

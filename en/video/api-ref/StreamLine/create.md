@@ -12,11 +12,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel.
+            The maximum string length in characters is 50.
           type: string
         title:
           description: |-
             **string**
             Required field. Line title.
+            The maximum string length in characters is 300.
           type: string
         rtmpPush:
           description: |-
@@ -53,6 +55,7 @@ apiPlayground:
             Maximum 64 labels per stream line.
             Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
             Values can contain alphanumeric characters and various symbols.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -89,6 +92,7 @@ apiPlayground:
               **string**
               Required field. The RTMP URL from which to pull the video stream.
               Must be a valid RTMP URL starting with "rtmp://".
+              Value must match the regular expression ` rtmp://.* `.
             pattern: rtmp://.*
             type: string
         required:
@@ -137,10 +141,14 @@ POST https://video.{{ api-host }}/video/v1/streamLines
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Required field. Line title. ||
+Required field. Line title.
+
+The maximum string length in characters is 300. ||
 || rtmpPush | **object**
 
 RTMP push input type.
@@ -174,7 +182,9 @@ Line type. ||
 Custom user-defined labels as key:value pairs.
 Maximum 64 labels per stream line.
 Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
-Values can contain alphanumeric characters and various symbols. ||
+Values can contain alphanumeric characters and various symbols.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## RTMPPullParams {#yandex.cloud.video.v1.RTMPPullParams}
@@ -186,7 +196,9 @@ Parameters for creating an RTMP pull input type stream line.
 || url | **string**
 
 Required field. The RTMP URL from which to pull the video stream.
-Must be a valid RTMP URL starting with "rtmp://". ||
+Must be a valid RTMP URL starting with "rtmp://".
+
+Value must match the regular expression ` rtmp://.* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

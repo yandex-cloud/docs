@@ -33,10 +33,14 @@ This is more efficient than making multiple GetPlayerURL requests when retrievin
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel containing the videos for which to generate player URLs. ||
+Required field. ID of the channel containing the videos for which to generate player URLs.
+
+The maximum string length in characters is 50. ||
 || video_ids[] | **string**
 
-List of video IDs for which to generate player URLs. ||
+List of video IDs for which to generate player URLs.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 || params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)**
 
 Optional player parameters to customize the playback experience.

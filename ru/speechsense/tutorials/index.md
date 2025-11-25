@@ -8,3 +8,4 @@ description: Различные сценарии использования {{ s
 * [Автоматическая загрузка данных с помощью {{ sw-full-name }}](auto-upload.md)
 * [Интеграция с {{ amocrm-name }}](amocrm.md)
 * [Интеграция с {{ bitrix24-name }}](bitrix24.md)
+* [{#T}](ai-assistant.md)

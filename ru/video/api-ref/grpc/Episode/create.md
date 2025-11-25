@@ -41,6 +41,8 @@ time boundaries, and access rights.
 
 ID of the stream.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `stream_id`, `line_id`.
 
 Parent resource ID to link the episode to (exactly one must be chosen). ||
@@ -48,18 +50,26 @@ Parent resource ID to link the episode to (exactly one must be chosen). ||
 
 ID of the line.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `stream_id`, `line_id`.
 
 Parent resource ID to link the episode to (exactly one must be chosen). ||
 || title | **string**
 
-Required field. Episode title. ||
+Required field. Episode title.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Episode description. ||
+Episode description.
+
+The maximum string length in characters is 4000. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail.
+
+The maximum string length in characters is 50. ||
 || start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Episode start time. ||
@@ -76,7 +86,9 @@ Possible values:
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
 || style_preset_id | **string**
 
-ID of the style preset. ||
+ID of the style preset.
+
+The maximum string length in characters is 50. ||
 || public_access | **[EpisodePublicAccessParams](#yandex.cloud.video.v1.EpisodePublicAccessParams)**
 
 Episode is publicly available.

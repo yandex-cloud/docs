@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the stream.
+            The maximum string length in characters is 50.
           type: string
       required:
         - streamId
@@ -34,21 +35,25 @@ apiPlayground:
           description: |-
             **string**
             DEPRECATED.
+            The maximum string length in characters is 50.
           type: string
         title:
           description: |-
             **string**
             Stream title.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             Stream description.
+            The maximum string length in characters is 4000.
           type: string
         thumbnailId:
           description: |-
             **string**
             ID of the thumbnail.
+            The maximum string length in characters is 50.
           type: string
         autoPublish:
           description: |-
@@ -62,6 +67,7 @@ apiPlayground:
             New custom labels for the stream as `key:value` pairs.
             Maximum 64 labels per stream.
             If provided, replaces all existing labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -151,7 +157,9 @@ PATCH https://video.{{ api-host }}/video/v1/streams/{streamId}
 ||Field | Description ||
 || streamId | **string**
 
-Required field. ID of the stream. ||
+Required field. ID of the stream.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateStreamRequest}
@@ -189,16 +197,24 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || lineId | **string**
 
-DEPRECATED. ||
+DEPRECATED.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Stream title. ||
+Stream title.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Stream description. ||
+Stream description.
+
+The maximum string length in characters is 4000. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail.
+
+The maximum string length in characters is 50. ||
 || autoPublish | **boolean**
 
 Automatically publish stream when ready.
@@ -207,7 +223,9 @@ Switches status from READY to ONAIR. ||
 
 New custom labels for the stream as `key:value` pairs.
 Maximum 64 labels per stream.
-If provided, replaces all existing labels. ||
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || onDemand | **object**
 
 On demand stream.

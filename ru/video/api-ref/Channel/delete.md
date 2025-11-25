@@ -12,6 +12,7 @@ apiPlayground:
             Required field. ID of the channel to delete.
             Deleting a channel will also delete all its content,
             including videos, streams, and related resources.
+            The maximum string length in characters is 50.
           type: string
       required:
         - channelId
@@ -40,7 +41,9 @@ DELETE https://video.{{ api-host }}/video/v1/channels/{channelId}
 
 Required field. ID of the channel to delete.
 Deleting a channel will also delete all its content,
-including videos, streams, and related resources. ||
+including videos, streams, and related resources.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

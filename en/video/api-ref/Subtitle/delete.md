@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the subtitle to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - subtitleId
@@ -37,7 +38,9 @@ DELETE https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}
 ||Field | Description ||
 || subtitleId | **string**
 
-Required field. ID of the subtitle to delete. ||
+Required field. ID of the subtitle to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

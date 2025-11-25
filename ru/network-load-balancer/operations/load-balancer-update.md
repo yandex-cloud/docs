@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Выберите сетевой балансировщик и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. Задайте новые имя и описание балансировщика.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Выберите сетевой балансировщик и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. Измените метки балансировщика.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
@@ -185,7 +185,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Выберите сетевой балансировщик и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** выберите в выпадающем списке новую целевую группу или [создайте новую](target-group-create.md).
     1. Чтобы изменить настройки проверки состояния целевой группы:

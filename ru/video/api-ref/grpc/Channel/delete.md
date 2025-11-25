@@ -25,7 +25,9 @@ Deletes a specific channel by its ID.
 
 Required field. ID of the channel to delete.
 Deleting a channel will also delete all its content,
-including videos, streams, and related resources. ||
+including videos, streams, and related resources.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

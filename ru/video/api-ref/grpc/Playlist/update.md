@@ -37,7 +37,9 @@ Only fields specified in the field_mask will be updated.
 ||Field | Description ||
 || playlist_id | **string**
 
-Required field. ID of the playlist to update. ||
+Required field. ID of the playlist to update.
+
+The maximum string length in characters is 50. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask specifying which fields of the playlist should be updated.
@@ -46,19 +48,27 @@ all other fields will retain their current values.
 This allows for partial updates. ||
 || title | **string**
 
-New title for the playlist. ||
+New title for the playlist.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
 New description for the playlist.
-Optional field that can provide additional information about the playlist. ||
+Optional field that can provide additional information about the playlist.
+
+The maximum string length in characters is 4000. ||
 || items[] | **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
 
 New list of items to include in the playlist.
 This completely replaces the existing items if specified in the field mask.
-The order of items in this list determines the playback order. ||
+The order of items in this list determines the playback order.
+
+The maximum number of elements is 100. ||
 || style_preset_id | **string**
 
-New ID of the style preset to be applied to the playlist player. ||
+New ID of the style preset to be applied to the playlist player.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## PlaylistItem {#yandex.cloud.video.v1.PlaylistItem}
@@ -72,6 +82,8 @@ Each item references either a video or an episode and specifies its position in 
 
 Identifier of a video included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `video_id`, `episode_id`.
 
 Specifies the content identifier type for this playlist item. ||
@@ -79,13 +91,17 @@ Specifies the content identifier type for this playlist item. ||
 
 Identifier of an episode included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `video_id`, `episode_id`.
 
 Specifies the content identifier type for this playlist item. ||
 || position | **int64**
 
 Position of this item in the playlist sequence (zero-indexed).
-Determines the playback order of content in the playlist. ||
+Determines the playback order of content in the playlist.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -233,6 +249,8 @@ Each item references either a video or an episode and specifies its position in 
 
 Identifier of a video included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `video_id`, `episode_id`.
 
 Specifies the content identifier type for this playlist item. ||
@@ -240,11 +258,15 @@ Specifies the content identifier type for this playlist item. ||
 
 Identifier of an episode included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `video_id`, `episode_id`.
 
 Specifies the content identifier type for this playlist item. ||
 || position | **int64**
 
 Position of this item in the playlist sequence (zero-indexed).
-Determines the playback order of content in the playlist. ||
+Determines the playback order of content in the playlist.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

@@ -25,7 +25,9 @@ The URL is pre-signed and has a limited validity period.
 ||Field | Description ||
 || subtitle_id | **string**
 
-Required field. ID of the subtitle for which to generate an upload URL. ||
+Required field. ID of the subtitle for which to generate an upload URL.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GenerateSubtitleUploadURLResponse {#yandex.cloud.video.v1.GenerateSubtitleUploadURLResponse}

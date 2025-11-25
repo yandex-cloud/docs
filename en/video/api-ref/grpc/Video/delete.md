@@ -23,7 +23,9 @@ Deletes a specific video by its ID.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video to delete. ||
+Required field. ID of the video to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -28,7 +28,9 @@ Actions change the stream's state without modifying its content or metadata.
 ||Field | Description ||
 || stream_id | **string**
 
-Required field. ID of the stream on which to perform the action. ||
+Required field. ID of the stream on which to perform the action.
+
+The maximum string length in characters is 50. ||
 || publish | **[PublishAction](#yandex.cloud.video.v1.PublishAction)**
 
 Publish the stream, changing its status from READY to ONAIR.

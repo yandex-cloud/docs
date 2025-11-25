@@ -29,13 +29,11 @@ keywords:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
-
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-greenplum.svg)
+{% include [roles-managed-greenplum](../../_mermaid/roles/managed-greenplum.md) %}
 
 ### Сервисные роли {#service-roles}
 

@@ -31,7 +31,9 @@ For episodes with signed URL access, an expiration duration can be specified.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode for which to generate a player URL. ||
+Required field. ID of the episode for which to generate a player URL.
+
+The maximum string length in characters is 50. ||
 || params | **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)**
 
 Optional player parameters to customize the playback experience.

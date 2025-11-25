@@ -28,21 +28,29 @@ Results can be filtered and sorted using the provided parameters.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel containing the streams to list. ||
+Required field. ID of the channel containing the streams to list.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
-The maximum number of streams to return per page. ||
+The maximum number of streams to return per page.
+
+The maximum value is 100. ||
 || page_token | **string**
 
 Page token for retrieving the next page of results.
-This token is obtained from the next_page_token field in the previous ListStreamsResponse. ||
+This token is obtained from the next_page_token field in the previous ListStreamsResponse.
+
+The maximum string length in characters is 15000. ||
 || order_by | **string**
 
 Specifies the ordering of results.
 Format is "&lt;field&gt; &lt;order&gt;" (e.g., "startTime desc").
 Default: "id asc".
 Supported fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
-Both snake_case and camelCase field names are supported. ||
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 50. ||
 || filter | **string**
 
 Filter expression to narrow down the list of returned streams.
@@ -57,7 +65,9 @@ Parentheses can be used to group logical expressions.
 Example: `title:'live' AND (status='READY' OR status='ONAIR')`
 
 Filterable fields: ["id", "title", "lineId", "status"].
-Both snake_case and camelCase field names are supported. ||
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListStreamsResponse {#yandex.cloud.video.v1.ListStreamsResponse}

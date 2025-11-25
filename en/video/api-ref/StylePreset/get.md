@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the style preset to retrieve.
+            The maximum string length in characters is 50.
           type: string
       required:
         - stylePresetId
@@ -37,7 +38,9 @@ GET https://video.{{ api-host }}/video/v1/stylePresets/{stylePresetId}
 ||Field | Description ||
 || stylePresetId | **string**
 
-Required field. ID of the style preset to retrieve. ||
+Required field. ID of the style preset to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.StylePreset}

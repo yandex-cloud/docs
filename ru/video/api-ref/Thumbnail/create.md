@@ -12,17 +12,20 @@ apiPlayground:
           description: |-
             **string**
             [Deprecated] ID of the channel.
+            The maximum string length in characters is 50.
           type: string
         episodeId:
           description: |-
             **string**
             ID of the episode to associate the thumbnail with.
+            The maximum string length in characters is 50.
             Includes only one of the fields `episodeId`, `videoId`.
           type: string
         videoId:
           description: |-
             **string**
             ID of the video to associate the thumbnail with.
+            The maximum string length in characters is 50.
             Includes only one of the fields `episodeId`, `videoId`.
           type: string
       additionalProperties: false
@@ -63,15 +66,21 @@ POST https://video.{{ api-host }}/video/v1/thumbnails
 ||Field | Description ||
 || channelId | **string**
 
-[Deprecated] ID of the channel. ||
+[Deprecated] ID of the channel.
+
+The maximum string length in characters is 50. ||
 || episodeId | **string**
 
 ID of the episode to associate the thumbnail with.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `episodeId`, `videoId`. ||
 || videoId | **string**
 
 ID of the video to associate the thumbnail with.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `episodeId`, `videoId`. ||
 |#

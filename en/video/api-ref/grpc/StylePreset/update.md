@@ -54,7 +54,9 @@ Only fields specified in the field_mask will be updated.
 ||Field | Description ||
 || style_preset_id | **string**
 
-Required field. ID of the style preset. ||
+Required field. ID of the style preset.
+
+The maximum string length in characters is 50. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask specifying which fields of the style preset should be updated.
@@ -63,40 +65,64 @@ all other fields will retain their current values.
 This allows for partial updates. ||
 || title | **string**
 
-Style preset title. ||
+Style preset title.
+
+The maximum string length in characters is 50. ||
 || background_color | **string**
 
-Background color. ||
+Background color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widget_text_color_primary | **string**
 
-Widget primary text color. ||
+Widget primary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widget_text_color_secondary | **string**
 
-Widget secondary text color. ||
+Widget secondary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widget_accent_color | **string**
 
-Widget accent color. ||
+Widget accent color.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || widget_block_gap | **int64**
 
-Gap between widget blocks. ||
+Gap between widget blocks.
+
+Acceptable values are 0 to 50, inclusive. ||
 || widget_block_separator_color | **string**
 
-Line color between widget blocks. ||
+Line color between widget blocks.
+
+Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
 || player_border_radius | **int64**
 
-Player border radius. ||
+Player border radius.
+
+The minimum value is 0. ||
 || player_color | **string**
 
-Player color. ||
+Player color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50. ||
 || playlist_selected_item_background_color | **string**
 
-Background color of selected video in playlist. ||
+Background color of selected video in playlist.
+
+Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50. ||
 || playlist_item_border_radius | **int64**
 
-Playlist item border radius. ||
+Playlist item border radius.
+
+The minimum value is 0. ||
 || playlist_item_gap | **int64**
 
-Gap between videos in playlist. ||
+Gap between videos in playlist.
+
+Acceptable values are 0 to 50, inclusive. ||
 || playlist_location | enum **WidgetLocation**
 
 Playlist widget location.

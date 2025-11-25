@@ -23,7 +23,9 @@ Deletes a specific stream by its ID.
 ||Field | Description ||
 || stream_id | **string**
 
-Required field. ID of the stream to delete. ||
+Required field. ID of the stream to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

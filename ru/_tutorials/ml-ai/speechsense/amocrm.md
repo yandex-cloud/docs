@@ -4,7 +4,7 @@
 1. [Настройте выгрузку из {{ amocrm-name }} в {{ speechsense-name }}](#amocrm-export).
 1. [Проверьте результат](#check-result).
 
-{% include [prepare-cloud](../_tutorials_includes/speechsense-integration/prepare-cloud.md) %}
+{% include [prepare-cloud](../../_tutorials_includes/speechsense-integration/prepare-cloud.md) %}
 
 
 ### Создайте подключение {#create-connection}
@@ -16,7 +16,7 @@
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
   1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
 
-     {% include [metadata](../../_includes/speechsense/data/templates-connection.md) %}
+     {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
  
   1. Укажите название подключения.
   1. Выберите тип данных `{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}`.
@@ -39,14 +39,14 @@
       Чтобы указать дополнительные метаданные, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
   1. Нажмите **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
-  1. На странице подключения в левом верхнем углу нажмите **ID** ![image](../../_assets/console-icons/copy-transparent.svg), чтобы скопировать идентификатор подключения. Сохраните его — он понадобится позднее.
+  1. На странице подключения в левом верхнем углу нажмите **ID** ![image](../../../_assets/console-icons/copy-transparent.svg), чтобы скопировать идентификатор подключения. Сохраните его — он понадобится позднее.
 
 {% endlist %}
 
 
 ### Создайте проект {#create-project}
 
-{% include [speechsense-integration/create-project](../_tutorials_includes/speechsense-integration/create-project.md) %}
+{% include [speechsense-integration/create-project](../../_tutorials_includes/speechsense-integration/create-project.md) %}
 
 
 ## Настройте выгрузку из {{ amocrm-name }} в {{ speechsense-name }} {#amocrm-export}
@@ -78,7 +78,7 @@
 
   1. Перейдите в раздел **Настройки** в вашем личном кабинете {{ amocrm-name }}.
   1. Перейдите на вкладку **Настройки выгрузки {{ speechsense-name }}**.
-  1. {% include [config-external-connection](../_tutorials_includes/speechsense-integration/config-external-connection.md) %}
+  1. {% include [config-external-connection](../../_tutorials_includes/speechsense-integration/config-external-connection.md) %}
 
   1. Настройте остальные параметры:
 
@@ -105,7 +105,7 @@
           1. В столбце **{{ amocrm-name }}** выберите ключ поля в {{ amocrm-name }}.
           1. В столбце **{{ speechsense-name }}** введите ключ поля, доступного в подключении {{ speechsense-name }}, которое вы создали [ранее](#create-audio-connection).
 
-          Чтобы добавить новое соответствие, нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить**.
+          Чтобы добавить новое соответствие, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить**.
 
           {% note info %}
 
@@ -129,4 +129,4 @@
 
 ## Проверьте результат {#check-result}
 
-{% include [check-result](../_tutorials_includes/speechsense-integration/check-result.md) %}
+{% include [check-result](../../_tutorials_includes/speechsense-integration/check-result.md) %}

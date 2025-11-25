@@ -27,10 +27,14 @@ This is more efficient than making multiple Get requests when retrieving several
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel containing the videos to retrieve. ||
+Required field. ID of the channel containing the videos to retrieve.
+
+The maximum string length in characters is 50. ||
 || video_ids[] | **string**
 
-List of video IDs to retrieve. ||
+List of video IDs to retrieve.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## BatchGetVideosResponse {#yandex.cloud.video.v1.BatchGetVideosResponse}

@@ -14167,6 +14167,10 @@ default:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
+      assistants:
+        applying: Enable assistant
+        assistants: Assistants
+        prompt: Instructions
       common:
         add: Add
         add-filter: Add filter

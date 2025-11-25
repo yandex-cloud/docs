@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the thumbnail for which to generate an upload URL.
             The thumbnail record must already exist, typically created using the Create method.
+            The maximum string length in characters is 50.
           type: string
       required:
         - thumbnailId
@@ -40,7 +41,9 @@ POST https://video.{{ api-host }}/video/v1/thumbnails/{thumbnailId}:generateUplo
 || thumbnailId | **string**
 
 Required field. ID of the thumbnail for which to generate an upload URL.
-The thumbnail record must already exist, typically created using the Create method. ||
+The thumbnail record must already exist, typically created using the Create method.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.GenerateThumbnailUploadURLResponse}

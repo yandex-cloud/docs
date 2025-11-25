@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the style preset to delete.
             The style preset must not be in use by any videos, episodes, or playlists.
+            The maximum string length in characters is 50.
           type: string
       required:
         - stylePresetId
@@ -39,7 +40,9 @@ DELETE https://video.{{ api-host }}/video/v1/stylePresets/{stylePresetId}
 || stylePresetId | **string**
 
 Required field. ID of the style preset to delete.
-The style preset must not be in use by any videos, episodes, or playlists. ||
+The style preset must not be in use by any videos, episodes, or playlists.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

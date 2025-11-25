@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the episode.
+            The maximum string length in characters is 50.
           type: string
       required:
         - episodeId
@@ -34,16 +35,19 @@ apiPlayground:
           description: |-
             **string**
             Episode title.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             Episode description.
+            The maximum string length in characters is 4000.
           type: string
         thumbnailId:
           description: |-
             **string**
             ID of the thumbnail.
+            The maximum string length in characters is 50.
           type: string
         startTime:
           description: |-
@@ -81,6 +85,7 @@ apiPlayground:
           description: |-
             **string**
             New ID of the style preset to be applied to the episode player.
+            The maximum string length in characters is 50.
           type: string
         publicAccess:
           description: |-
@@ -131,7 +136,9 @@ PATCH https://video.{{ api-host }}/video/v1/episodes/{episodeId}
 ||Field | Description ||
 || episodeId | **string**
 
-Required field. ID of the episode. ||
+Required field. ID of the episode.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateEpisodeRequest}
@@ -167,13 +174,19 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-Episode title. ||
+Episode title.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Episode description. ||
+Episode description.
+
+The maximum string length in characters is 4000. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail.
+
+The maximum string length in characters is 50. ||
 || startTime | **string** (date-time)
 
 Episode start time.
@@ -204,7 +217,9 @@ Possible values:
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
 || stylePresetId | **string**
 
-New ID of the style preset to be applied to the episode player. ||
+New ID of the style preset to be applied to the episode player.
+
+The maximum string length in characters is 50. ||
 || publicAccess | **object**
 
 Episode is publicly available.

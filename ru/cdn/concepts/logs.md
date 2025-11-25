@@ -22,4 +22,5 @@
 
 #### См. также {#see-also}
 
-* [Инструкция по настройке выгрузки](../operations/resources/configure-logs.md).
+* [Справочник логов запросов](../logs-ref.md)
+* [Инструкция по настройке выгрузки](../operations/resources/configure-logs.md)

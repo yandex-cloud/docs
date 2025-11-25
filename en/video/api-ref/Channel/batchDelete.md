@@ -12,6 +12,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the organization containing the channels to delete.
+            The maximum string length in characters is 50.
           type: string
         channelIds:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             List of channel IDs to delete.
             Deleting channels will also delete all their content,
             including videos, streams, and related resources.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50.
           type: array
           items:
             type: string
@@ -55,12 +57,16 @@ POST https://video.{{ api-host }}/video/v1/channels:batchDelete
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization containing the channels to delete. ||
+Required field. ID of the organization containing the channels to delete.
+
+The maximum string length in characters is 50. ||
 || channelIds[] | **string**
 
 List of channel IDs to delete.
 Deleting channels will also delete all their content,
-including videos, streams, and related resources. ||
+including videos, streams, and related resources.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

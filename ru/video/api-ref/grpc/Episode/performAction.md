@@ -27,7 +27,9 @@ Performs a specific action on an episode, such as publishing or unpublishing.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode on which to perform the action. ||
+Required field. ID of the episode on which to perform the action.
+
+The maximum string length in characters is 50. ||
 || publish | **[PublishEpisodeAction](#yandex.cloud.video.v1.PublishEpisodeAction)**
 
 Publish the episode, making it available for watching.

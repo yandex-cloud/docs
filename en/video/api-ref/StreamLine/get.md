@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the stream line to retrieve.
+            The maximum string length in characters is 50.
           type: string
       required:
         - streamLineId
@@ -37,7 +38,9 @@ GET https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the stream line to retrieve. ||
+Required field. ID of the stream line to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.StreamLine}

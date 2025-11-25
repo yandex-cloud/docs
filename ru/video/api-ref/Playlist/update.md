@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the playlist to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - playlistId
@@ -34,12 +35,14 @@ apiPlayground:
           description: |-
             **string**
             New title for the playlist.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             New description for the playlist.
             Optional field that can provide additional information about the playlist.
+            The maximum string length in characters is 4000.
           type: string
         items:
           description: |-
@@ -47,6 +50,7 @@ apiPlayground:
             New list of items to include in the playlist.
             This completely replaces the existing items if specified in the field mask.
             The order of items in this list determines the playback order.
+            The maximum number of elements is 100.
           type: array
           items:
             $ref: '#/definitions/PlaylistItem'
@@ -54,6 +58,7 @@ apiPlayground:
           description: |-
             **string**
             New ID of the style preset to be applied to the playlist player.
+            The maximum string length in characters is 50.
           type: string
       required:
         - fieldMask
@@ -66,6 +71,7 @@ apiPlayground:
             description: |-
               **string**
               Identifier of a video included in the playlist.
+              The maximum string length in characters is 50.
               Includes only one of the fields `videoId`, `episodeId`.
               Specifies the content identifier type for this playlist item.
             type: string
@@ -73,6 +79,7 @@ apiPlayground:
             description: |-
               **string**
               Identifier of an episode included in the playlist.
+              The maximum string length in characters is 50.
               Includes only one of the fields `videoId`, `episodeId`.
               Specifies the content identifier type for this playlist item.
             type: string
@@ -81,6 +88,7 @@ apiPlayground:
               **string** (int64)
               Position of this item in the playlist sequence (zero-indexed).
               Determines the playback order of content in the playlist.
+              Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
         oneOf:
@@ -108,7 +116,9 @@ PATCH https://video.{{ api-host }}/video/v1/playlists/{playlistId}
 ||Field | Description ||
 || playlistId | **string**
 
-Required field. ID of the playlist to update. ||
+Required field. ID of the playlist to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdatePlaylistRequest}
@@ -145,19 +155,27 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-New title for the playlist. ||
+New title for the playlist.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
 New description for the playlist.
-Optional field that can provide additional information about the playlist. ||
+Optional field that can provide additional information about the playlist.
+
+The maximum string length in characters is 4000. ||
 || items[] | **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
 
 New list of items to include in the playlist.
 This completely replaces the existing items if specified in the field mask.
-The order of items in this list determines the playback order. ||
+The order of items in this list determines the playback order.
+
+The maximum number of elements is 100. ||
 || stylePresetId | **string**
 
-New ID of the style preset to be applied to the playlist player. ||
+New ID of the style preset to be applied to the playlist player.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## PlaylistItem {#yandex.cloud.video.v1.PlaylistItem}
@@ -171,6 +189,8 @@ Each item references either a video or an episode and specifies its position in 
 
 Identifier of a video included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `videoId`, `episodeId`.
 
 Specifies the content identifier type for this playlist item. ||
@@ -178,13 +198,17 @@ Specifies the content identifier type for this playlist item. ||
 
 Identifier of an episode included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `videoId`, `episodeId`.
 
 Specifies the content identifier type for this playlist item. ||
 || position | **string** (int64)
 
 Position of this item in the playlist sequence (zero-indexed).
-Determines the playback order of content in the playlist. ||
+Determines the playback order of content in the playlist.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -385,6 +409,8 @@ Each item references either a video or an episode and specifies its position in 
 
 Identifier of a video included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `videoId`, `episodeId`.
 
 Specifies the content identifier type for this playlist item. ||
@@ -392,11 +418,15 @@ Specifies the content identifier type for this playlist item. ||
 
 Identifier of an episode included in the playlist.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `videoId`, `episodeId`.
 
 Specifies the content identifier type for this playlist item. ||
 || position | **string** (int64)
 
 Position of this item in the playlist sequence (zero-indexed).
-Determines the playback order of content in the playlist. ||
+Determines the playback order of content in the playlist.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
