@@ -12,12 +12,14 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel containing the stream lines to delete.
+            The maximum string length in characters is 50.
           type: string
         streamLineIds:
           description: |-
             **string**
             List of stream line IDs to delete.
             All stream lines must exist in the specified channel.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50.
           type: array
           items:
             type: string
@@ -54,11 +56,15 @@ POST https://video.{{ api-host }}/video/v1/streamLines:batchDelete
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel containing the stream lines to delete. ||
+Required field. ID of the channel containing the stream lines to delete.
+
+The maximum string length in characters is 50. ||
 || streamLineIds[] | **string**
 
 List of stream line IDs to delete.
-All stream lines must exist in the specified channel. ||
+All stream lines must exist in the specified channel.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

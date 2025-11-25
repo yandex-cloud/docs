@@ -29,7 +29,9 @@ The URL can include player parameters such as autoplay, mute, and visibility of 
 ||Field | Description ||
 || playlist_id | **string**
 
-Required field. ID of the playlist for which to generate a player URL. ||
+Required field. ID of the playlist for which to generate a player URL.
+
+The maximum string length in characters is 50. ||
 || params | **[PlaylistPlayerParams](#yandex.cloud.video.v1.PlaylistPlayerParams)**
 
 Optional player parameters to customize the playback experience.

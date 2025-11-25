@@ -53,43 +53,69 @@ Style presets define the appearance of players, including colors, spacing, borde
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Required field. Style preset title. ||
+Required field. Style preset title.
+
+The maximum string length in characters is 50. ||
 || background_color | **string**
 
-Required field. Background color. ||
+Required field. Background color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widget_text_color_primary | **string**
 
-Required field. Widget primary text color. ||
+Required field. Widget primary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widget_text_color_secondary | **string**
 
-Required field. Widget secondary text color. ||
+Required field. Widget secondary text color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widget_accent_color | **string**
 
-Required field. Widget accent color. ||
+Required field. Widget accent color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || widget_block_gap | **int64**
 
-Gap between widget blocks. ||
+Gap between widget blocks.
+
+Acceptable values are 0 to 50, inclusive. ||
 || widget_block_separator_color | **string**
 
-Required field. Line color between widget blocks. ||
+Required field. Line color between widget blocks.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || player_border_radius | **int64**
 
-Player border radius. ||
+Player border radius.
+
+The minimum value is 0. ||
 || player_color | **string**
 
-Required field. Player color. ||
+Required field. Player color.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || playlist_selected_item_background_color | **string**
 
-Required field. Background color of selected video in playlist. ||
+Required field. Background color of selected video in playlist.
+
+Value must match the regular expression ` [#a-zA-Z0-9]+ `. The maximum string length in characters is 50. ||
 || playlist_item_border_radius | **int64**
 
-Playlist item border radius. ||
+Playlist item border radius.
+
+The minimum value is 0. ||
 || playlist_item_gap | **int64**
 
-Gap between videos in playlist. ||
+Gap between videos in playlist.
+
+Acceptable values are 0 to 50, inclusive. ||
 || playlist_location | enum **WidgetLocation**
 
 Required field. Playlist widget location.

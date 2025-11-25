@@ -25,7 +25,9 @@ Returns all thumbnail metadata and related information.
 || thumbnail_id | **string**
 
 Required field. ID of the thumbnail to retrieve.
-Must be a valid thumbnail identifier string. ||
+Must be a valid thumbnail identifier string.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Thumbnail {#yandex.cloud.video.v1.Thumbnail}

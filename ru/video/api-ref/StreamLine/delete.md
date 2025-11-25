@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the stream line to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - streamLineId
@@ -36,7 +37,9 @@ DELETE https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the stream line to delete. ||
+Required field. ID of the stream line to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

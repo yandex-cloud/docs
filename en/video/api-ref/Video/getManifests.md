@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the video for which to retrieve manifest URLs.
+            The maximum string length in characters is 50.
           type: string
       required:
         - videoId
@@ -38,7 +39,9 @@ GET https://video.{{ api-host }}/video/v1/videos/{videoId}:getManifests
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video for which to retrieve manifest URLs. ||
+Required field. ID of the video for which to retrieve manifest URLs.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.GetVideoManifestsResponse}

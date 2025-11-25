@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the thumbnail to retrieve.
             Must be a valid thumbnail identifier string.
+            The maximum string length in characters is 50.
           type: string
       required:
         - thumbnailId
@@ -39,7 +40,9 @@ GET https://video.{{ api-host }}/video/v1/thumbnails/{thumbnailId}
 || thumbnailId | **string**
 
 Required field. ID of the thumbnail to retrieve.
-Must be a valid thumbnail identifier string. ||
+Must be a valid thumbnail identifier string.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.Thumbnail}

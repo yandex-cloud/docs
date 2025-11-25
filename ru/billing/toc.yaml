@@ -112,7 +112,7 @@ items:
         items:
           - name: Цикл оплаты
             href: payment/billing-cycle-individual.md
-          - name: Оплата банковской картой
+          - name: Способы оплаты
             href: payment/payment-methods-individual.md
           - name: Чек об оплате
             href: concepts/individual-bill.md

@@ -1012,6 +1012,9 @@ items:
       - name: Backend app request timeout exceeded
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+      - name: Blocks have different column count
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md
       - name: Cannot join a concatenation of tables with another table
         hidden: true
         href: >-

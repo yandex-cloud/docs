@@ -27,7 +27,9 @@ Performs a specific action on a video, such as publishing or unpublishing.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video on which to perform the action. ||
+Required field. ID of the video on which to perform the action.
+
+The maximum string length in characters is 50. ||
 || publish | **[PublishVideoAction](#yandex.cloud.video.v1.PublishVideoAction)**
 
 Publish the video, making it available for watching.

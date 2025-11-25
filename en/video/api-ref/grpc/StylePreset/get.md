@@ -24,7 +24,9 @@ Returns all style preset properties, colors, layout settings, and widget configu
 ||Field | Description ||
 || style_preset_id | **string**
 
-Required field. ID of the style preset to retrieve. ||
+Required field. ID of the style preset to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## StylePreset {#yandex.cloud.video.v1.StylePreset}

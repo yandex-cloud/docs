@@ -25,7 +25,9 @@ Supports different manifest types (HLS, DASH) and configuration parameters.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video for which to retrieve manifest URLs. ||
+Required field. ID of the video for which to retrieve manifest URLs.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetVideoManifestsResponse {#yandex.cloud.video.v1.GetVideoManifestsResponse}

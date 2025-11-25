@@ -24,7 +24,9 @@ Returns all episode metadata, status, and related information.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode to retrieve. ||
+Required field. ID of the episode to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Episode {#yandex.cloud.video.v1.Episode}

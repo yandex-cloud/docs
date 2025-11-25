@@ -38,7 +38,9 @@ Only fields specified in the field_mask will be updated.
 ||Field | Description ||
 || stream_id | **string**
 
-Required field. ID of the stream. ||
+Required field. ID of the stream.
+
+The maximum string length in characters is 50. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask specifying which fields of the stream should be updated.
@@ -47,16 +49,24 @@ all other fields will retain their current values.
 This allows for partial updates. ||
 || line_id | **string**
 
-DEPRECATED. ||
+DEPRECATED.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Stream title. ||
+Stream title.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Stream description. ||
+Stream description.
+
+The maximum string length in characters is 4000. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail.
+
+The maximum string length in characters is 50. ||
 || auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Automatically publish stream when ready.
@@ -65,7 +75,9 @@ Switches status from READY to ONAIR. ||
 
 New custom labels for the stream as `key:value` pairs.
 Maximum 64 labels per stream.
-If provided, replaces all existing labels. ||
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || on_demand | **[OnDemandParams](#yandex.cloud.video.v1.OnDemandParams)**
 
 On demand stream.

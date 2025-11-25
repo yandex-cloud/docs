@@ -4,7 +4,7 @@
 1. [Настройте выгрузку из {{ bitrix24-name }} в {{ speechsense-name }}](#bitrix24-export).
 1. [Проверьте результат](#check-result).
 
-{% include [prepare-cloud](../_tutorials_includes/speechsense-integration/prepare-cloud.md) %}
+{% include [prepare-cloud](../../_tutorials_includes/speechsense-integration/prepare-cloud.md) %}
 
 
 ### Создайте подключение {#create-connection}
@@ -16,7 +16,7 @@
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
   1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
 
-     {% include [metadata](../../_includes/speechsense/data/templates-connection.md) %}
+     {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
 
   1. Укажите название подключения.
   1. Выберите тип данных `{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}`.
@@ -75,14 +75,14 @@
       Чтобы указать дополнительные метаданные, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
   1. Нажмите **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
-  1. На странице подключения в левом верхнем углу нажмите **ID** ![image](../../_assets/console-icons/copy-transparent.svg), чтобы скопировать идентификатор подключения. Сохраните его — он понадобится позднее.
+  1. На странице подключения в левом верхнем углу нажмите **ID** ![image](../../../_assets/console-icons/copy-transparent.svg), чтобы скопировать идентификатор подключения. Сохраните его — он понадобится позднее.
 
 {% endlist %}
 
 
 ### Создайте проект {#create-project}
 
-{% include [speechsense-integration/create-project](../_tutorials_includes/speechsense-integration/create-project.md) %}
+{% include [speechsense-integration/create-project](../../_tutorials_includes/speechsense-integration/create-project.md) %}
 
 
 ## Настройте выгрузку из {{ bitrix24-name }} в {{ speechsense-name }} {#bitrix24-export}
@@ -109,7 +109,7 @@
 
 - Интерфейс {{ bitrix24-name }} {#bitrix24}
 
-  1. {% include [config-external-connection](../_tutorials_includes/speechsense-integration/config-external-connection.md) %}
+  1. {% include [config-external-connection](../../_tutorials_includes/speechsense-integration/config-external-connection.md) %}
 
   1. Настройте остальные параметры:
 
@@ -149,4 +149,4 @@
 
 ## Проверьте результат {#check-result}
 
-{% include [check-result](../_tutorials_includes/speechsense-integration/check-result.md) %}
+{% include [check-result](../../_tutorials_includes/speechsense-integration/check-result.md) %}

@@ -197,6 +197,30 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Cloud Desktops
+            items:
+              - name: Data Sources
+                items:
+                  - name: cloud_desktops_desktop
+                    href: data-sources/cloud_desktops_desktop.md
+                    title: ''
+                  - name: cloud_desktops_desktop_group
+                    href: data-sources/cloud_desktops_desktop_group.md
+                    title: ''
+                  - name: cloud_desktops_image
+                    href: data-sources/cloud_desktops_image.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: cloud_desktops_desktop
+                    href: resources/cloud_desktops_desktop.md
+                    title: ''
+                  - name: cloud_desktops_desktop_group
+                    href: resources/cloud_desktops_desktop_group.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Cloud Domain Name System (DNS)
             items:
               - name: Data Sources

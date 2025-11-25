@@ -12,11 +12,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel containing the thumbnails.
+            The maximum string length in characters is 50.
           type: string
         thumbnailIds:
           description: |-
             **string**
             List of thumbnail IDs for which to generate download URLs.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50.
           type: array
           items:
             type: string
@@ -54,10 +56,14 @@ POST https://video.{{ api-host }}/video/v1/thumbnails:batchGenerateDownloadURLs
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel containing the thumbnails. ||
+Required field. ID of the channel containing the thumbnails.
+
+The maximum string length in characters is 50. ||
 || thumbnailIds[] | **string**
 
-List of thumbnail IDs for which to generate download URLs. ||
+List of thumbnail IDs for which to generate download URLs.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.BatchGenerateDownloadURLsResponse}

@@ -33,6 +33,8 @@ Results can be filtered and sorted using the provided parameters.
 
 ID of the stream containing the episodes to list.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `stream_id`, `line_id`.
 
 Specifies the parent resource to list episodes from (exactly one must be chosen). ||
@@ -40,23 +42,31 @@ Specifies the parent resource to list episodes from (exactly one must be chosen)
 
 ID of the stream line containing the episodes to list.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `stream_id`, `line_id`.
 
 Specifies the parent resource to list episodes from (exactly one must be chosen). ||
 || page_size | **int64**
 
-The maximum number of episodes to return per page. ||
+The maximum number of episodes to return per page.
+
+The maximum value is 100. ||
 || page_token | **string**
 
 Page token for retrieving the next page of results.
-This token is obtained from the next_page_token field in the previous ListEpisodesResponse. ||
+This token is obtained from the next_page_token field in the previous ListEpisodesResponse.
+
+The maximum string length in characters is 15000. ||
 || order_by | **string**
 
 Specifies the ordering of results.
 Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
 Default: "id asc".
 Supported fields: ["id", "createdAt", "updatedAt"].
-Both snake_case and camelCase field names are supported. ||
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 50. ||
 || filter | **string**
 
 Filter expression to narrow down the list of returned episodes.
@@ -71,7 +81,9 @@ Parentheses can be used to group logical expressions.
 Example: `title:'highlight' AND id='episode-1'`
 
 Filterable fields: ["id", "title"].
-Both snake_case and camelCase field names are supported. ||
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListEpisodesResponse {#yandex.cloud.video.v1.ListEpisodesResponse}

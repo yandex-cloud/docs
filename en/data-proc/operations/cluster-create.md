@@ -58,7 +58,8 @@ Before creating a {{ dataproc-name }} cluster, you need to create and configure 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
-         * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs, UI Proxy.
+         * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs.
+         * `158.160.167.170/32`: UI Proxy.
          * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster state, autoscaling.
          * `213.180.193.243/32`: Access to {{ objstorage-name }}.
          * `84.201.181.184/32`: {{ cloud-logging-name }} address.

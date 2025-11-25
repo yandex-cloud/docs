@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel to update.
+            The maximum string length in characters is 50.
           type: string
       required:
         - channelId
@@ -34,11 +35,13 @@ apiPlayground:
           description: |-
             **string**
             New title for the channel.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             New description for the channel.
+            The maximum string length in characters is 4000.
           type: string
         defaultStylePresetId:
           description: |-
@@ -52,6 +55,7 @@ apiPlayground:
             New custom labels for the channel as `key:value` pairs.
             Maximum 64 labels per channel.
             If provided, replaces all existing labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -127,6 +131,7 @@ apiPlayground:
               List of domains allowed to embed content from this channel.
               Only relevant when enable is set to true.
               Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+              Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100.
             pattern: ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$
             type: array
             items:
@@ -168,7 +173,9 @@ PATCH https://video.{{ api-host }}/video/v1/channels/{channelId}
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel to update. ||
+Required field. ID of the channel to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateChannelRequest}
@@ -214,10 +221,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-New title for the channel. ||
+New title for the channel.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-New description for the channel. ||
+New description for the channel.
+
+The maximum string length in characters is 4000. ||
 || defaultStylePresetId | **string**
 
 New default style preset ID for the channel.
@@ -226,7 +237,9 @@ This preset will be applied to new videos created in this channel unless explici
 
 New custom labels for the channel as `key:value` pairs.
 Maximum 64 labels per channel.
-If provided, replaces all existing labels. ||
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
 
 New configuration settings for the channel's behavior and features. ||
@@ -312,7 +325,9 @@ When set to false, content can be embedded on any domain. ||
 
 List of domains allowed to embed content from this channel.
 Only relevant when enable is set to true.
-Supports wildcard notation (e.g., "*.example.com") to allow all subdomains. ||
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$\|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -609,5 +624,7 @@ When set to false, content can be embedded on any domain. ||
 
 List of domains allowed to embed content from this channel.
 Only relevant when enable is set to true.
-Supports wildcard notation (e.g., "*.example.com") to allow all subdomains. ||
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$\|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#

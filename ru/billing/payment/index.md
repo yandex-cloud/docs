@@ -4,7 +4,7 @@
 
 Физическим лицам:
 * [Цикл оплаты](billing-cycle-individual.md)
-* [Оплата банковской картой](payment-methods-individual.md)
+* [Способы оплаты](payment-methods-individual.md)
 * [Чек об оплате](../concepts/individual-bill.md)
 * [Активация промокода](../operations/activate-promocode.md)
 

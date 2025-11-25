@@ -123,6 +123,8 @@ items:
         href: tutorials/amocrm.md
       - name: Интеграция с {{ bitrix24-name }}
         href: tutorials/bitrix24.md
+      - name: Работа с AI-ассистентом
+        href: tutorials/ai-assistant.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов

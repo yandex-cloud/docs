@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the line.
+            The maximum string length in characters is 50.
           type: string
       required:
         - streamLineId
@@ -34,6 +35,7 @@ apiPlayground:
           description: |-
             **string**
             Line title.
+            The maximum string length in characters is 300.
           type: string
         rtmpPush:
           description: |-
@@ -55,6 +57,7 @@ apiPlayground:
             New custom labels for the stream line as `key:value` pairs.
             Maximum 64 labels per stream line.
             If provided, replaces all existing labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -84,6 +87,7 @@ apiPlayground:
               **string**
               Required field. The RTMP URL from which to pull the video stream.
               Must be a valid RTMP URL starting with "rtmp://".
+              Value must match the regular expression ` rtmp://.* `.
             pattern: rtmp://.*
             type: string
         required:
@@ -108,7 +112,9 @@ PATCH https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the line.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateStreamLineRequest}
@@ -141,7 +147,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-Line title. ||
+Line title.
+
+The maximum string length in characters is 300. ||
 || rtmpPush | **object**
 
 RTMP push input type.
@@ -160,7 +168,9 @@ Video signal settings. ||
 
 New custom labels for the stream line as `key:value` pairs.
 Maximum 64 labels per stream line.
-If provided, replaces all existing labels. ||
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## RTMPPullParams {#yandex.cloud.video.v1.RTMPPullParams}
@@ -172,7 +182,9 @@ Parameters for creating an RTMP pull input type stream line.
 || url | **string**
 
 Required field. The RTMP URL from which to pull the video stream.
-Must be a valid RTMP URL starting with "rtmp://". ||
+Must be a valid RTMP URL starting with "rtmp://".
+
+Value must match the regular expression ` rtmp://.* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

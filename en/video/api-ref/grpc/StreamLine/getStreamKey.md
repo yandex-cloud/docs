@@ -25,7 +25,9 @@ This key is used to authenticate when pushing video streams to the platform.
 || stream_line_id | **string**
 
 Required field. ID of the stream line for which to retrieve the stream key.
-The stream line must be a push-type input (RTMP push or SRT push). ||
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}

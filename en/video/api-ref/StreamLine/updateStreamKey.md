@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the stream line for which to update the stream key.
             The stream line must be a push-type input (RTMP push or SRT push).
+            The maximum string length in characters is 50.
           type: string
       required:
         - streamLineId
@@ -39,7 +40,9 @@ PATCH https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:updateStr
 || streamLineId | **string**
 
 Required field. ID of the stream line for which to update the stream key.
-The stream line must be a push-type input (RTMP push or SRT push). ||
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

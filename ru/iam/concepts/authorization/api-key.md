@@ -81,7 +81,7 @@ API-ключи в качестве способа аутентификации �
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../../tutorials/serverless/auto-upload.md)
+* [{#T}](../../../tutorials/ml-ai/speechsense/auto-upload.md)
 
 #### См. также {#see-also}
 

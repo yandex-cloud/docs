@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the subtitle for which to generate an upload URL.
+            The maximum string length in characters is 50.
           type: string
       required:
         - subtitleId
@@ -38,7 +39,9 @@ GET https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}:generateUploadU
 ||Field | Description ||
 || subtitleId | **string**
 
-Required field. ID of the subtitle for which to generate an upload URL. ||
+Required field. ID of the subtitle for which to generate an upload URL.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.GenerateSubtitleUploadURLResponse}

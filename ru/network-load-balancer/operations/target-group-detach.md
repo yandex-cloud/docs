@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы отключить [целевую группу](../concepts/target-resources.md) от сетевого балансировщика:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется отключить целевую группу от балансировщика.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите балансировщик, от которого требуется отключить целевую группу.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_attached-target-groups }}** в строке с нужной целевой группой нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_detach-action }}**.

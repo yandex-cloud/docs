@@ -12,11 +12,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the channel containing the videos to retrieve.
+            The maximum string length in characters is 50.
           type: string
         videoIds:
           description: |-
             **string**
             List of video IDs to retrieve.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50.
           type: array
           items:
             type: string
@@ -53,10 +55,14 @@ POST https://video.{{ api-host }}/video/v1/videos:batchGet
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel containing the videos to retrieve. ||
+Required field. ID of the channel containing the videos to retrieve.
+
+The maximum string length in characters is 50. ||
 || videoIds[] | **string**
 
-List of video IDs to retrieve. ||
+List of video IDs to retrieve.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.BatchGetVideosResponse}

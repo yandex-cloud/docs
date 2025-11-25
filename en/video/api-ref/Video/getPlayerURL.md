@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the video for which to generate a player URL.
+            The maximum string length in characters is 50.
           type: string
       required:
         - videoId
@@ -75,7 +76,9 @@ GET https://video.{{ api-host }}/video/v1/videos/{videoId}:getPlayerURL
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video for which to generate a player URL. ||
+Required field. ID of the video for which to generate a player URL.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.video.v1.GetVideoPlayerURLRequest}

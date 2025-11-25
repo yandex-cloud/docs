@@ -25,7 +25,9 @@ This is useful for security purposes when the existing key may be compromised.
 || stream_line_id | **string**
 
 Required field. ID of the stream line for which to update the stream key.
-The stream line must be a push-type input (RTMP push or SRT push). ||
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

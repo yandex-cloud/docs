@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы добавить [обработчик](../concepts/listener.md) к сетевому балансировщику:
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется добавить обработчик к балансировщику.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. В строке балансировщика, к которому нужно добавить обработчик, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
   1. В открывшемся окне задайте параметры обработчика:
 

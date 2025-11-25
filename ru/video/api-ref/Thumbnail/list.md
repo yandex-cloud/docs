@@ -11,23 +11,27 @@ apiPlayground:
           description: |-
             **string**
             [Deprecated] ID of the channel.
+            The maximum string length in characters is 50.
           type: string
         episodeId:
           description: |-
             **string**
             ID of the episode containing the thumbnails to list.
+            The maximum string length in characters is 50.
             Includes only one of the fields `episodeId`, `videoId`.
           type: string
         videoId:
           description: |-
             **string**
             ID of the video containing the thumbnails to list.
+            The maximum string length in characters is 50.
             Includes only one of the fields `episodeId`, `videoId`.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             The maximum number of thumbnails to return per page.
+            The maximum value is 100.
           type: string
           format: int64
         pageToken:
@@ -35,6 +39,7 @@ apiPlayground:
             **string**
             Page token for retrieving the next page of results.
             This token is obtained from the next_page_token field in the previous ListThumbnailResponse.
+            The maximum string length in characters is 15000.
           type: string
       additionalProperties: false
       oneOf:
@@ -64,24 +69,34 @@ GET https://video.{{ api-host }}/video/v1/thumbnails
 ||Field | Description ||
 || channelId | **string**
 
-[Deprecated] ID of the channel. ||
+[Deprecated] ID of the channel.
+
+The maximum string length in characters is 50. ||
 || episodeId | **string**
 
 ID of the episode containing the thumbnails to list.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `episodeId`, `videoId`. ||
 || videoId | **string**
 
 ID of the video containing the thumbnails to list.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `episodeId`, `videoId`. ||
 || pageSize | **string** (int64)
 
-The maximum number of thumbnails to return per page. ||
+The maximum number of thumbnails to return per page.
+
+The maximum value is 100. ||
 || pageToken | **string**
 
 Page token for retrieving the next page of results.
-This token is obtained from the next_page_token field in the previous ListThumbnailResponse. ||
+This token is obtained from the next_page_token field in the previous ListThumbnailResponse.
+
+The maximum string length in characters is 15000. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.ListThumbnailResponse}

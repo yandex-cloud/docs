@@ -12,6 +12,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the stream.
+            The maximum string length in characters is 50.
             Includes only one of the fields `streamId`, `lineId`.
             Parent resource ID to link the episode to (exactly one must be chosen).
           type: string
@@ -19,6 +20,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the line.
+            The maximum string length in characters is 50.
             Includes only one of the fields `streamId`, `lineId`.
             Parent resource ID to link the episode to (exactly one must be chosen).
           type: string
@@ -26,16 +28,19 @@ apiPlayground:
           description: |-
             **string**
             Required field. Episode title.
+            The maximum string length in characters is 300.
           type: string
         description:
           description: |-
             **string**
             Episode description.
+            The maximum string length in characters is 4000.
           type: string
         thumbnailId:
           description: |-
             **string**
             ID of the thumbnail.
+            The maximum string length in characters is 50.
           type: string
         startTime:
           description: |-
@@ -73,6 +78,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the style preset.
+            The maximum string length in characters is 50.
           type: string
         publicAccess:
           description: |-
@@ -152,6 +158,8 @@ POST https://video.{{ api-host }}/video/v1/episodes
 
 ID of the stream.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `streamId`, `lineId`.
 
 Parent resource ID to link the episode to (exactly one must be chosen). ||
@@ -159,18 +167,26 @@ Parent resource ID to link the episode to (exactly one must be chosen). ||
 
 ID of the line.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `streamId`, `lineId`.
 
 Parent resource ID to link the episode to (exactly one must be chosen). ||
 || title | **string**
 
-Required field. Episode title. ||
+Required field. Episode title.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Episode description. ||
+Episode description.
+
+The maximum string length in characters is 4000. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail.
+
+The maximum string length in characters is 50. ||
 || startTime | **string** (date-time)
 
 Episode start time.
@@ -201,7 +217,9 @@ Possible values:
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
 || stylePresetId | **string**
 
-ID of the style preset. ||
+ID of the style preset.
+
+The maximum string length in characters is 50. ||
 || publicAccess | **object**
 
 Episode is publicly available.

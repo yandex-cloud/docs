@@ -24,7 +24,9 @@ Returns all stream metadata, status, and related information.
 ||Field | Description ||
 || stream_id | **string**
 
-Required field. ID of the stream to retrieve. ||
+Required field. ID of the stream to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Stream {#yandex.cloud.video.v1.Stream}
