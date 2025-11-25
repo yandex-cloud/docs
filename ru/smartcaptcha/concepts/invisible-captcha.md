@@ -34,7 +34,7 @@
       }
 
       window.smartCaptcha.render('captcha-container', {
-        sitekey: '<ключ_клиентской_части>',
+        sitekey: '<ключ_клиент>',
         invisible: true, // Сделать капчу невидимой
         callback: callback,
       });
@@ -63,7 +63,7 @@
       }
 
       window.smartCaptcha.render('captcha-container', {
-        sitekey: '<ключ_клиентской_части>',
+        sitekey: '<ключ_клиента>',
         invisible: true, // Сделать капчу невидимой
         callback: callback,
       });
@@ -93,7 +93,7 @@
 
 ```js
 window.smartCaptcha.render('captcha-container', {
-  sitekey: '<ключ_клиентской_части>',
+  sitekey: '<ключ_клиента>',
   invisible: true,
   shieldPosition: 'top-left',
   callback: callback,
@@ -129,7 +129,7 @@ window.smartCaptcha.render('captcha-container', {
         }
 
         widgetId = window.smartCaptcha.render('captcha-container', {
-          sitekey: '<ключ_клиентской_части>',
+          sitekey: '<ключ_клиента>',
           invisible: true, // Сделать капчу невидимой
           callback: callback,
         });

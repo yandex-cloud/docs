@@ -113,10 +113,17 @@ description: Следуя данной инструкции, вы сможете
 </div>
 ```
 
-Для проверки токена нужно отправить POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
+Отправьте одноразовый токен на ваш бэкенд и выполните его проверку в течение пяти минут.
 
-```
-secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
+Чтобы узнать результат проверки, отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate` с типом содержимого `x-www-form-urlencoded`:
+
+```text
+POST https://{{ captcha-domain }}/validate HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+secret=<ключ_сервера>&
+token=<токен>&
+ip=<IP-адрес_пользователя>
 ```
 
 Где:
