@@ -19,7 +19,7 @@
 
 | Type of limit                                                                                               | Minimum value                             | Maximum value                            |
 |:--------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-------------------------------------------------|
-| Host class                                                                                                   | s2.medium (8 vCPU Intel Cascade Lake, 32 GB RAM) | i3-c40-m320 (40 vCPU Intel Ice Lake, 320 GB RAM) |
+| Host class                                                                                                   | s2.medium (8 vCPU Intel Cascade Lake, 32 GB RAM) | m4a-c224-m1792 (224 vCPU AMD Zen 4, 1,792 GB RAM) |
 | Number of master hosts in the cluster                                                                         | 2                                                | 2                                                |
 | Number of segment hosts in the cluster                                                                        | 2                                                | 32                                               |
 | Number of segments per host                                                                                  | 1                                                | 16                                               |

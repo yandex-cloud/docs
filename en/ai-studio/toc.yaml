@@ -5,8 +5,6 @@ items:
     items:
       - name: Getting started with {{ yagpt-name }}
         href: quickstart/yandexgpt.md
-      - name: Getting started with {{ yandexart-name }}
-        href: quickstart/yandexart.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -150,6 +148,10 @@ items:
             href: concepts/agents/index.md
           - name: Voice agents
             href: concepts/agents/realtime.md
+          - name: Tools
+            items:
+              - name: Web search
+                href: concepts/agents/tools/websearch.md
           - name: '{{ assistant-api }}'
             items:
               - name: AI assistants
@@ -965,8 +967,8 @@ items:
         href: tutorials/models-fine-tuning.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
-      - name: Integrating the Qwen3 model into Visual Studio Code
-        href: tutorials/qwen-vsc-integration.md
+      - name: Integrating generative models into Visual Studio Code
+        href: tutorials/ai-model-ide-integration.md
       - name: Creating an AI assistant for Telegram
         href: tutorials/tg-bot-assistant.md
       - name: >-

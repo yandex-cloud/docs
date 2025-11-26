@@ -15,14 +15,16 @@ drsr:
 
 # LDAP client settings
 ldap:
-  host: "ldap://<domain_controller_IP_address>:389"
-  username: "ldap_username"
-  password: "ldap_password"
+  host: "ldaps://<domain_controller_IP_address>:636"
+  username: "<Active_Directory_username>"
+  password: "<Active_Directory_user_password>"
+  certificate_path: "<path_to_certificate>"
+  insecure_skip_verify: false|true
 
 # Logger configuration
 logger:
-  level: <logging_level>
-  format: <output_format>
+  level: "<logging_level>"
+  format: "plain|json"
   file:
     filename: "<log_file_path>"
     maxsize: 30
@@ -31,8 +33,8 @@ logger:
 # Sync settings
 sync_settings:
   interval: "600s"
-  allow_to_capture_users: true
-  allow_to_capture_groups: true
+  allow_to_capture_users: true|false
+  allow_to_capture_groups: true|false
   # Remove the following line if you don't need to replace domain
   replacement_domain: "<user_pool_domain>"
   filter:
@@ -40,4 +42,5 @@ sync_settings:
     organization_units:
       - OU=IdPUsersOU,DC=example,DC=com
       - OU=IdPGroupsOU,DC=example,DC=com
+  remove_user_behavior: "remove|block"
 ```

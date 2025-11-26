@@ -54,7 +54,7 @@
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../../operations/node-connect-ssh.md#creating-ssh-keys).
      1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-        * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите окно для [обновлений](../../concepts/release-channels-and-updates.md#updates):
+        * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите окно для [обновлений](../../concepts/release-channels-and-updates.md#updates):
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.

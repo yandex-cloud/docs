@@ -10,7 +10,9 @@ Number of requests per second, [asynchronous mode](../ai-studio/concepts/generat
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5,000
 Number of [tokenization](../ai-studio/text-generation/api-ref/grpc/Tokenizer/index.md) requests per second | 50
-**Model working mode: Batch**
+**[Dedicated instances](../ai-studio/concepts/generation/dedicated-instance.md)** |
+Number of concurrent dedicated instances | 1 
+**Model operating mode: Batch**
 Number of runs per hour | 10
 Number of runs per day | 100
 **[Text classification](../ai-studio/concepts/classifier/index.md)** |
@@ -26,7 +28,7 @@ Number of fine-tuning runs per hour | 3
 Number of uploaded datasets | 100 
 Maximum size of one dataset | 5 GB
 Total size of datasets | 300 GB
-**[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)**
+**[MCP servers](../ai-studio/concepts/mcp-hub/index.md#servers)** |
 Number of MCP servers per cloud | 30 
 Number of [tools](../ai-studio/concepts/assistant/tools/index.md) per server | 50
 **[Voice agents](../ai-studio/concepts/agents/realtime.md)** (`{{ realtime-model }}` [model](../ai-studio/concepts/agents/realtime.md#model)) |

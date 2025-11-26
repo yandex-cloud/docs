@@ -6,7 +6,7 @@ IAM token authentication is supported by all services except those with [AWS-com
 
 ## Using the token {#use}
 
-IAM tokens are used for authentication in {{ yandex-cloud }} services. IAM tokens are issued for [Yandex accounts](../../operations/iam-token/create.md), [service accounts](../../operations/iam-token/create-for-sa.md), and [federated accounts](../../operations/iam-token/create-for-federation.md).
+In {{ yandex-cloud }} services, IAM tokens are used for authentication. IAM tokens are issued for [Yandex accounts](../../operations/iam-token/create.md), [service accounts](../../operations/iam-token/create-for-sa.md), [federated accounts](../../operations/iam-token/create-for-federation.md), and [local accounts](../../operations/iam-token/create-for-local.md).
 
 IAM tokens also serve to authenticate [Docker](../../../container-registry/operations/authentication.md) and [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) clients in {{ container-registry-full-name }}.
 

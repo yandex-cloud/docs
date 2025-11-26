@@ -59,7 +59,7 @@ items:
             href: operations/manage-groups.md
           - name: Creating a group
             href: operations/create-group.md
-          - name: Getting group ID
+          - name: Getting the group ID
             href: operations/group-get-id.md
           - name: Adding members
             href: operations/add-member-group.md
@@ -217,7 +217,9 @@ items:
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: User group mapping in Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
-      - name: Service account with an OS Login profile for VM management via Ansible
+      - name: >-
+          Service account with an {{ oslogin }} profile for VM management via
+          Ansible
         href: tutorials/sa-oslogin-ansible.md
       - name: Setting up single sign-on (SSO) for apps
         items:
@@ -237,6 +239,8 @@ items:
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: SonarQube
+            href: tutorials/single-sign-on/saml-sonarqube.md
   - name: Concepts
     items:
       - name: Organization

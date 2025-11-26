@@ -3,25 +3,23 @@
 You can set up data transfer from {{ mmy-name }} to {{ mpg-name }} databases using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -31,7 +29,7 @@ Set up your infrastructure:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mmy_db`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy_user`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`
 
     1. [Grant](../../../managed-mysql/operations/grant.md#grant-privilege) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges to `mmy_user`.
 
@@ -41,12 +39,12 @@ Set up your infrastructure:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mpg_db`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`
 
     1. Make sure that the cluster security groups are set up correctly and allow connecting to them:
 
-        * [{{ mmy-name }}](../../../managed-mysql/operations/connect.md#configuring-security-groups).
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../../managed-mysql/operations/connect.md#configuring-security-groups)
+        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups)
 
 - {{ TF }} {#tf}
 
@@ -59,14 +57,14 @@ Set up your infrastructure:
 
         This file describes:
 
-        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) for hosting the clusters.
+        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
         * [Security groups](../../../vpc/concepts/security-groups.md) for making cluster connections.
         * {{ mmy-name }} source cluster.
         * {{ mpg-name }} target cluster.
         * Source and target endpoints.
         * Transfer.
 
-    1. Specify the following in the `mysql-postgresql.tf` file:
+    1. Specify the following in `mysql-postgresql.tf`:
 
         * {{ MY }} and {{ PG }} versions
         * {{ MY }} and {{ PG }} user passwords
@@ -77,7 +75,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -118,7 +116,7 @@ Set up your infrastructure:
     ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -132,7 +130,7 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `<user_password>`.
 
-    1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection settings in it:
+    1. Create a `{{ PG }}`-type [target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) and specify its cluster connection settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }}_target_cluster_name>` from the drop-down list.
@@ -140,12 +138,12 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `mpg_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
     1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 - {{ TF }} {#tf}
 
-    1. In the `mysql-postgresql.tf` file, set the `transfer_enabled` parameter to `1`.
+    1. In the `mysql-postgresql.tf` file, set the `transfer_enabled` variable to `1`.
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -153,24 +151,24 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+    1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
-Check the transfer performance by testing the copy and replication processes.
+To verify that the transfer is operational, test the copy and replication processes.
 
-### Test the copy process {#verify-copy}
+### Test the copy operation {#verify-copy}
 
 1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM mmy_db.measurements;
@@ -189,7 +187,7 @@ Check the transfer performance by testing the copy and replication processes.
 1. Make sure the new row has been added to the target database:
 
     1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM mmy_db.measurements;
@@ -199,7 +197,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 {% note info %}
 
-Before deleting the resources you created, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

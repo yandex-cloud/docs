@@ -9,6 +9,7 @@ You can grant access to a user group to:
 
 * [Yandex account users](../../iam/concepts/users/accounts.md#passport)
 * [Federated users](../../iam/concepts/users/accounts.md#saml-federation)
+* [Local users](../../iam/concepts/users/accounts.md#local)
 * [Service accounts](../../iam/concepts/users/service-accounts.md)
 * Other [user groups](../../organization/concepts/groups.md)
 
@@ -70,7 +71,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
    1. Using the `yc organization-manager group set-access-bindings` command, assign the following roles:
 
-      * To a Yandex account user:
+      * To a Yandex account user or local user:
 
          ```bash
          yc organization-manager group set-access-bindings \

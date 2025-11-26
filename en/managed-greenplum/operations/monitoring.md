@@ -1,26 +1,26 @@
 ---
-title: Monitoring the state of a {{ GP }} cluster and hosts
+title: Monitoring the state of a {{ GP }} cluster and its hosts
 description: Follow this guide to get detailed information about a {{ mgp-name }} cluster state.
 ---
 
-# Monitoring the state of a {{ GP }} cluster and hosts
+# Monitoring the state of a {{ GP }} cluster and its hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-New data for charts is received every {{ graph-update }}.
+Charts are updated every {{ graph-update }}.
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-## Monitoring cluster state {#monitoring-cluster}
+## Monitoring the cluster state {#monitoring-cluster}
 
-To view detailed info on the state of a {{ mgp-name }} cluster:
+To view detailed information on the state of a {{ mgp-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
+    1. Click the name of your cluster and open the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab.
     1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
     The page displays the following charts:
@@ -83,9 +83,9 @@ To view detailed info on the state of a {{ mgp-name }} cluster:
 
 {% endlist %}
 
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host status monitoring {#monitoring-hosts}
 
-To view detailed info on the state of individual {{ mgp-name }} hosts:
+To view detailed information on the state of individual {{ mgp-name }} hosts:
 
 {% list tabs group=instructions %}
 
@@ -93,17 +93,17 @@ To view detailed info on the state of individual {{ mgp-name }} hosts:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Click the name of the cluster you need and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
-    1. Select the host from the drop-down list.
+    1. Select the host you need from the drop-down list.
 
     This page displays charts showing the workload of an individual cluster host (master or segment):
 
-    * **CPU**: Load on processor cores. As the load goes up, the `Idle` value goes down.
+    * **CPU**: Processor core workload. As the load goes up, the `Idle` value goes down.
     * **Disk IOPS in progress**: Number of pending disk operations.
     * **Disk io time**: Duration of disk operations.
     * **Disk read and write**: Amount of data in disk operations (in bytes).
     * **Disk read and write time**: Duration of disk reads and writes.
     * **Disk usage**: Disk space usage (two charts are displayed, in bytes and %).
-    * **Memory usage**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
+    * **Memory usage**: RAM utilization (bytes). At high loads, the `Free` value descreases, while the others increase.
     * **Network**: Amount of network traffic (in bytes).
 
 {% endlist %}
@@ -130,7 +130,7 @@ To view detailed information about the {{ mgp-name }} cluster network state:
         * **Service Interface Drops and Errors**: Number of errors and drops on the service network interface when sending or transmitting packets.
 
     * **CPU**:
-        * **CPU Usage**: Usage of processor cores (percentage).
+        * **CPU Usage**: Use of processor cores (percentage).
 
     * **Ping and SSH response time**:
         * **Host Ping Average Response**: Average ping response time (in milliseconds).
@@ -233,7 +233,7 @@ To view a dashboard for a {{ mgp-name }} cluster, do the following:
         * **Reserved memory**: RAM usage (in bytes) by segment host. To avoid errors, remember to keep the value within the limit.
         * **IOPS**: Total size of disk operations (in bytes) across all segment hosts.
         * **Number of network packets**: Number of received and sent packets on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
-        * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
+        * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Approaching the limit may result in delays in processing queries.
         * **Network traffic**: Bandwidth utilization for incoming network traffic by segment host. Values close to the limit may cause delays in processing queries.
         * **Ping time**: Time of running a ping from the master host to the cluster's segment hosts.
         * **Query execution time per segment**: Total execution time for query slices on each of the cluster's segment hosts.
@@ -260,13 +260,13 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the target cluster for setting up alerts.
   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
   1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see this [{{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -274,17 +274,17 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state 
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-greenplum-ref.md).
+For a complete list of supported metrics, see this [{{ monitoring-name }} article](../../monitoring/metrics-ref/managed-greenplum-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view a cluster's state and status:
+To check the cluster’s health and status:
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
+1. Locate the cluster you need in the list, and hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster states {#cluster-health}
 

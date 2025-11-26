@@ -226,6 +226,8 @@ items:
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
       - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -885,7 +887,7 @@ items:
             href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
-      - name: Monitoring message loss in an {{ KF }} topic
+      - name: Monitoring message loss in a {{ KF }} topic
         href: dataplatform/retention-policy.md
       - name: Automating {{ yq-name }} tasks with {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
@@ -1627,7 +1629,9 @@ items:
               Implementing an AI assistant with search capabilities for PDF
               files with complex formatting
             href: ml-ai/pdf-searchindex-ai-assistant.md
-          - name: Integrating Qwen3 into Visual Studio Code as a coding assistant
-            href: ml-ai/qwen-vsc-integration.md
+          - name: >-
+              Integrating generative models into Visual Studio Code as a coding
+              assistant
+            href: ml-ai/ai-model-ide-integration.md
           - name: Creating an AI assistant for Telegram
             href: ml-ai/tg-bot-assistant.md

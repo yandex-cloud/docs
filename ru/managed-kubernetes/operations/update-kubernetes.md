@@ -58,7 +58,7 @@
 
   Настройки обновлений можно указать при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении его настроек](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
-  В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите политику обновления кластера {{ managed-k8s-name }}:
+  В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите политику обновления кластера {{ managed-k8s-name }}:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — выберите эту опцию, чтобы {{ managed-k8s-name }} управлял графиком установки обновлений.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите время начала и продолжительность обновления.
@@ -342,7 +342,7 @@
 
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — задайте максимальное количество недоступных узлов группы при ее обновлении.
 
-  В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите политику обновления группы узлов {{ managed-k8s-name }}:
+  В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите политику обновления группы узлов {{ managed-k8s-name }}:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — выберите эту опцию, чтобы {{ managed-k8s-name }} управлял графиком установки обновлений.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите время начала и продолжительность обновления.

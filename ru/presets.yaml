@@ -584,6 +584,7 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
+  roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-communities-admin: datasphere.communities.admin
   roles-datasphere-communities-developer: datasphere.communities.developer
@@ -1290,6 +1291,30 @@ default:
         12_month|string: "2\_023\_425,00\_₸"
         3_month|string: "2\_261\_475,00\_₸"
         6_month|string: "2\_213\_865,00\_₸"
+      bf25_i201_h:
+        1_day|string: "74\_490,00\_₸"
+        1_month|string: "74\_490,00\_₸"
+        12_month|string: "74\_490,00\_₸"
+        3_month|string: "74\_490,00\_₸"
+        6_month|string: "74\_490,00\_₸"
+      bf25_i202_s:
+        1_day|string: "78\_000,00\_₸"
+        1_month|string: "78\_000,00\_₸"
+        12_month|string: "78\_000,00\_₸"
+        3_month|string: "78\_000,00\_₸"
+        6_month|string: "78\_000,00\_₸"
+      bf25_i204_s:
+        1_day|string: "79\_875,00\_₸"
+        1_month|string: "79\_875,00\_₸"
+        12_month|string: "79\_875,00\_₸"
+        3_month|string: "79\_875,00\_₸"
+        6_month|string: "79\_875,00\_₸"
+      bf25_i205_s:
+        1_day|string: "92\_720,00\_₸"
+        1_month|string: "92\_720,00\_₸"
+        12_month|string: "92\_720,00\_₸"
+        3_month|string: "92\_720,00\_₸"
+        6_month|string: "92\_720,00\_₸"
       ha_i302_s_10g:
         1_day|string: "459\_000,00\_₸"
         1_month|string: "445\_230,00\_₸"
@@ -3542,6 +3567,30 @@ default:
         12_month|string: "404\_685,00\_₽"
         3_month|string: "452\_295,00\_₽"
         6_month|string: "442\_773,00\_₽"
+      bf25_i201_h:
+        1_day|string: "14\_898,00\_₽"
+        1_month|string: "14\_898,00\_₽"
+        12_month|string: "14\_898,00\_₽"
+        3_month|string: "14\_898,00\_₽"
+        6_month|string: "14\_898,00\_₽"
+      bf25_i202_s:
+        1_day|string: "15\_600,00\_₽"
+        1_month|string: "15\_600,00\_₽"
+        12_month|string: "15\_600,00\_₽"
+        3_month|string: "15\_600,00\_₽"
+        6_month|string: "15\_600,00\_₽"
+      bf25_i204_s:
+        1_day|string: "15\_975,00\_₽"
+        1_month|string: "15\_975,00\_₽"
+        12_month|string: "15\_975,00\_₽"
+        3_month|string: "15\_975,00\_₽"
+        6_month|string: "15\_975,00\_₽"
+      bf25_i205_s:
+        1_day|string: "18\_544,00\_₽"
+        1_month|string: "18\_544,00\_₽"
+        12_month|string: "18\_544,00\_₽"
+        3_month|string: "18\_544,00\_₽"
+        6_month|string: "18\_544,00\_₽"
       ha_i302_s_10g:
         1_day|string: "91\_800,00\_₽"
         1_month|string: "89\_046,00\_₽"
@@ -5789,6 +5838,30 @@ default:
         12_month|string: "3\_372,373651\_$"
         3_month|string: "3\_769,123492\_$"
         6_month|string: "3\_689,773524\_$"
+      bf25_i201_h:
+        1_day|string: "124,149950\_$"
+        1_month|string: "124,149950\_$"
+        12_month|string: "124,149950\_$"
+        3_month|string: "124,149950\_$"
+        6_month|string: "124,149950\_$"
+      bf25_i202_s:
+        1_day|string: "129,999948\_$"
+        1_month|string: "129,999948\_$"
+        12_month|string: "129,999948\_$"
+        3_month|string: "129,999948\_$"
+        6_month|string: "129,999948\_$"
+      bf25_i204_s:
+        1_day|string: "133,124947\_$"
+        1_month|string: "133,124947\_$"
+        12_month|string: "133,124947\_$"
+        3_month|string: "133,124947\_$"
+        6_month|string: "133,124947\_$"
+      bf25_i205_s:
+        1_day|string: "154,533272\_$"
+        1_month|string: "154,533272\_$"
+        12_month|string: "154,533272\_$"
+        3_month|string: "154,533272\_$"
+        6_month|string: "154,533272\_$"
       ha_i302_s_10g:
         1_day|string: "764,999694\_$"
         1_month|string: "742,049703\_$"
@@ -6128,7 +6201,6 @@ default:
       v1|string: "0,000083\_$"
     text_generation_alt:
       v1|number: 0.001667
-      v1|string: "0,001667\_$"
     text_generation:
       v1|number: 0.001667
       v1|string: "0,001667\_$"
@@ -8362,7 +8434,6 @@ default:
           upload-config: Загрузить файл конфигурации
         approved:
           tab:
-            explore: Метрики
             info: Общая информация
             recording-rules: Recording rules
         common:
@@ -8864,7 +8935,7 @@ default:
             table_controls_rJ32E: Топ правил с нарушениями
         settings:
           SettingsPageLayout:
-            alertSinkLabel_gvxBa: Приёмник алертов
+            alertSinkLabel_gvxBa: Приёмники алертов
             connectorsLabel_2NoP9: Коннекторы
             workspacesLabel_kZyU1: Окружения
         workspaces:
@@ -8908,8 +8979,8 @@ default:
           WorkspaceParticipantsForm:
             action_add-user: Добавить пользователей
             WorkspaceAclTable:
-              action_assign-roles: Назначить роли
-              action_remove-user: Удалить пользователя
+              action_assign-roles: Изменить роли
+              action_remove-user: Отозвать все роли
           WorkspaceResourcesForm:
             actionDelete: Удалить
             actionEditConnector: Редактировать коннектор
@@ -9373,7 +9444,7 @@ default:
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
         label_images: Загрузочные образы
-        label_kvm-console: KVM-консоль
+        label_kvm-console_37Kma: KVM-консоль
         label_load-image: Загрузить образ
         label_lockbox-key: Ключ
         label_lockbox-name: Имя
@@ -9387,7 +9458,7 @@ default:
         label_public-ip-no: Без адреса
         label_public-ip-via-dhcp: Назначить по DHCP
         label_public-subnets: Публичные адреса и подсети
-        label_subnetworks: Приватные подсети
+        label_subnetworks_uU4LH: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки
         servers:
@@ -9404,7 +9475,6 @@ default:
         title_section-accesses: Доступы
         title_section-backup: Резервное копирование
         title_section-disk: Диск
-        title_section-disk_9Txqx: Диск
         title_section-lease-conditions: Условия аренды
         title_section-lease-conditions_sQGNJ: Условия аренды
         title_section-location: Расположение
@@ -10092,8 +10162,6 @@ default:
           stop-dialog:
             button_stop: Остановить
           switch_console: Серийная консоль
-          switch_disks: Диски
-          switch_file-storages: Файловые хранилища
           switch_service-console: Последовательный порт
         instances_jsoza: Виртуальные машины
         instances:
@@ -10869,7 +10937,6 @@ default:
             field_cluster-cidr: CIDR кластера
             field_kms-key: Ключ шифрования
             field_maintenance-daily: Время (UTC) и продолжительность
-            field_maintenance-window: Частота обновлений / Отключение
             field_master-type: Тип мастера
             field_master-version: Версия Kubernetes
             field_network: Облачная сеть
@@ -10899,6 +10966,8 @@ default:
           popup-confirm_button_delete: Удалить
         custom-resources:
           label_tab-resources: Ресурсы
+        MaintenanceSection:
+          maintenance-window-field-with-none-option_tx5Wn: Частота обновлений / Отключение
         namespaces:
           button_create: Создать
           popup-add_field_name: Имя
@@ -12129,6 +12198,7 @@ default:
           context_phonemes-title: Фонемы
           context_word-stress-title: Ударение
           context_word-title: Акцент на слове
+        label_playground: SpeechKit Playground
         speech-synthesis:
           field_audio: Формат аудио
           field_language: Язык
@@ -12141,9 +12211,25 @@ default:
         speech-to-text-v2:
           label_button_copy-text: Скопировать
           label_button_start-recognition: Распознать
+          recognition-params-section_title_1EDuy: Параметры распознавания
         speech-to-text:
           field_language: Язык
+          field_literature-text: Литературный текст
+          field_profanity-filter: Фильтрация обсценной лексики
+          field_text-normalization: Нормализация текста
           label_language-auto: Автоматически
+        SpeechToTextFormV2:
+          ClassificationField:
+            classification-label_6C7VV: Классификаторы
+          InstructionField:
+            label_htJqL: Инструкция
+            type-select-label_cLWcs: Формат результата
+          SpeakerLabelingForm:
+            field_speaker-grouping_2eSt9: Группировка фраз дикторов
+            field_speaker-splitting_dqi2d: Определение дикторов
+          SummarizationField:
+            add-instruction-button_kdko4: Добавить инструкцию
+            summarization-label_rm8oc: Обработка результатов
       spqr:
         console_password: Пароль для консоли Sharded PostgreSQL
         field_coordinator: Координатор
@@ -12205,9 +12291,6 @@ default:
             value_days: Количество дней
             value_expired-object-delete-marker: Маркер удаления без нетекущих версий
           menu_version-history: История версий
-          object-lock:
-            title-mode-compliance: Временная строгая
-            title-mode-governance: Временная управляемая
           policy:
             button_add-resource: Добавить ресурс
             button_add-value: Добавить значение
@@ -12226,15 +12309,15 @@ default:
           popup-create-folder_button_create: Создать
           popup-create-folder_field_name: Имя папки
           settings:
-            access_value_private: Ограниченный
-            access_value_public: Публичный
+            access_value_private: С авторизацией
+            access_value_public: Для всех
             button_save: Сохранить
             class_value_cold: Холодное
             class_value_ice: Ледяное
             class_value_standard: Стандартное
-            field_access-config-read: Доступ на чтение настроек
-            field_access-list: Доступ к списку объектов
-            field_access-read: Доступ на чтение объектов
+            field_access-config-read: Чтение настроек
+            field_access-list: Чтение списка объектов
+            field_access-read: Чтение объектов
             field_class: Класс хранилища
             field_name: Имя
             field_size-limit: Макс. размер
@@ -12289,6 +12372,8 @@ default:
           action_file-restore: Восстановить
           button_generate: Получить ссылку
           label_lifetime: Время жизни
+          value_object-lock-mode-compliance: Временная строгая (compliance)
+          value_object-lock-mode-governance: Временная управляемая (governance)
         form:
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Блокировки по умолчанию для новых версий
@@ -12471,8 +12556,6 @@ default:
           playground:
             text-generation:
               title: Генерация текста
-          section_title:
-            playground: AI Playground
         instruction: Инструкция
         label_seed: Зерно
         label_temperature-text: Температура

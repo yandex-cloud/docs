@@ -7,7 +7,7 @@ description: Follow this guide to connect to a database in a {{ CH }} cluster us
 
 This section provides settings for connecting to {{ mch-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
+You can connect to public {{ CH }} cluster hosts only if using [SSL certificates](index.md#get-ssl-cert). The examples below assume that `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
 * Located in the `{{ crt-local-dir }}` directory (for Ubuntu).
 * Imported to the trusted root certificate store (for Windows).
@@ -35,7 +35,7 @@ The examples for Windows were tested in the following environment:
 
 **Before connecting**:
 
-1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) to your system:
 
     ```bash
     sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -50,7 +50,7 @@ The examples for Windows were tested in the following environment:
     sudo apt update && sudo apt install --yes clickhouse-client
     ```
 
-1. Download the configuration file for `clickhouse-client`:
+1. Download the `clickhouse-client` configuration file:
 
    {% include [ClickHouse client config](../../../_includes/mdb/mch/client-config.md) %}
 
@@ -74,11 +74,11 @@ The examples for Windows were tested in the following environment:
 
 {% endlist %}
 
-To learn how to get host FQDN, see [this guide](fqdn.md).
+For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
 After you run the command, enter the user password to complete the connection process.
 
-After connecting to the DBMS, run the `SELECT version();` command.
+Once connected to the DBMS, run the `SELECT version();` command.
 
 ### mysql-client {#mysql-client}
 
@@ -88,7 +88,7 @@ Use the {{ MY }} client connection interface only if using the standard {{ CH }}
 
 {% endnote %}
 
-Before connecting, install the `mysql` utility:
+Before connecting, install `mysql`:
 
 ```bash
 sudo apt update && sudo apt install --yes mysql-client
@@ -123,11 +123,11 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% endlist %}
 
-To learn how to get host FQDN, see [this guide](fqdn.md).
+For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
 After you run the command, enter the user password to complete the connection process.
 
-After connecting to the DBMS, run the `SELECT version();` command.
+Once connected to the DBMS, run the `SELECT version();` command.
 
 ### cURL {#curl}
 
@@ -156,7 +156,7 @@ After connecting to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-To learn how to get host FQDN, see [this guide](fqdn.md).
+For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
 #### Windows (PowerShell) {#curl-powershell}
 
@@ -184,7 +184,7 @@ To learn how to get host FQDN, see [this guide](fqdn.md).
 
 {% endlist %}
 
-To learn how to get host FQDN, see [this guide](fqdn.md).
+For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
 ## Connecting from graphical IDEs {#ide}
 
@@ -208,14 +208,14 @@ You can only use graphical IDEs to connect to public cluster hosts with an SSL c
     1. On the **SSH/SSL** tab:
         1. Enable **Use SSL**.
         1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](index.md#get-ssl-cert).
-1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
 
-1. Create a new DB connection:
+1. Create a new database connection:
     1. In the **Database** menu, select **New connection**.
-    1. Select **{{ CH }}** from the DB list.
+    1. Select **{{ CH }}** from the database list.
     1. Click **Next**.
     1. Specify the connection settings on the **Main** tab:
         * **Host**: [FQDN of any {{ CH }}](fqdn.md) host or a [special FQDN](fqdn.md#auto).
@@ -227,7 +227,7 @@ You can only use graphical IDEs to connect to public cluster hosts with an SSL c
         1. Specify the [SSL connection](index.md#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`
             * `sslrootcert:<path_to_saved_SSL_certificate_file>`.
-1. Click **Test connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Done** to save the database connection settings.
 
 {% endlist %}
@@ -253,7 +253,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
-You can only connect to public cluster hosts. To learn how to get host FQDN, see [this guide](fqdn.md).
+You can only connect to public cluster hosts. For instructions on retrieving a host’s FQDN, see [this guide](fqdn.md).
 
 To connect to a cluster with [automatic selection of an available host](fqdn.md#auto), use the following URL:
 

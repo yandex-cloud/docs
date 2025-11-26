@@ -20,7 +20,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
     This method allows you to migrate the entire database without interrupting user service.
 
-    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    Learn more in [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data using external replication](#binlog-replication).
 
@@ -48,17 +48,17 @@ Additionally, to migrate data using external {{ MY }} replication:
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
 
-{% include notitle [MMY moving data with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
-
-
 ### Required paid resources {#paid-resources-with-data-transfer}
 
-Cost of transferring data with {{ data-transfer-full-name }} includes:
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
-* {{ mmy-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
+### Migrate the database {#database-migration}
+
+
+{% include notitle [MMY moving data with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
 
 ## Transferring data using external replication {#binlog-replication}
 
@@ -71,10 +71,8 @@ Cost of transferring data with {{ data-transfer-full-name }} includes:
 
 ### Required paid resources {#paid-resources-binlog-replication}
 
-The cost of transferring data using external replication includes:
-
-* {{ mmy-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Transfer a logical dump of the database {#migrate-schema}

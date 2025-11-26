@@ -1,32 +1,32 @@
 ---
-title: Managing PostgreSQL backups
-description: You can create backups and restore clusters from existing PostgreSQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created.
+title: Managing {{ PG }} backups
+description: You can create {{ PG }} backups and use the existing backups to restore clusters. Point-in-time recovery, or PITR, enables you to restore your cluster to the state it was in at any point in time after the backup was created.
 ---
 
 # Managing backups in {{ mpg-name }}
 
 
-You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
+You can create [backups](../concepts/backup.md) and use the existing backups to restore clusters.
 
-{{ mpg-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](#set-backup-retain).
+Additionally, {{ mpg-name }} creates automatic daily backups. You can specify the [backup start time](#set-backup-window) and configure its [retention period](#set-backup-retain).
 
 ## Restoring a cluster from a backup {#restore}
 
-Point-in-Time Recovery (PITR) technology allows you to restore the cluster state to any point in time in the interval from the creation of the oldest full backup to the archiving of the most recent write ahead log (WAL). For more information, see [Backups](../concepts/backup.md).
+Point-in-Time Recovery (PITR) technology allows you to restore the cluster’s state to any point in time within the interval from the creation of the oldest full backup to the archiving of the most recent write ahead log (WAL). For more information, see [Backups](../concepts/backup.md).
 
-When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+When you restore a cluster from a backup, you create a new cluster with the backup data. Insufficient folder [resources](../concepts/limits.md) will prevent the restoration of the cluster from the backup. The average backup recovery speed is 10 MBps per database core.
 
-The backup recovers the whole cluster with all its databases. You cannot select specific databases.
+When restored from a backup, the cluster is recovered as a whole, with all its databases. You cannot select specific databases.
 
-When creating a new cluster, set all required parameters.
+For the new cluster, you must specify all the settings required for its creation.
 
-When restored to the current state, the new cluster will match the state of:
+When restored to the current point in time, the new cluster will reflect the state of:
 
 * Existing cluster at the time of recovery.
-* Deleted cluster at the time of archiving the most recent WAL.
+* Deleted cluster at the time of archiving its most recent WAL.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mpg.editor }}](../../iam/roles-reference.md#managed-postgresql-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the [managed-postgresql.restorer](../../iam/roles-reference.md#managed-postgresql-restorer) role or higher for the backup folder and the new cluster folder.
 
 
 {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}
@@ -38,12 +38,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   **To restore an existing cluster from a backup**:
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-  1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
+  1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either enter the date manually or select it from the drop-down calendar.
 
-     If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
+     If you leave this setting as is, the cluster will be restored to the state when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -51,32 +51,32 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
+  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-  1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
+  1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either enter the date manually or select it from the drop-down calendar.
 
-     If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
+     If you leave this setting as is, the cluster will be restored to the state when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   
-  {{ mpg-name }} will launch the operation to create a cluster from the backup.
+  {{ mpg-name }} will initiate the process of creating a new cluster from the backup.
   
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
-  By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `--folder-id` parameter.
+  By default, the cluster will be restored to the same folder where the backup is located. To restore the cluster to a different folder, specify its ID in the `--folder-id` parameter.
   
   To restore a cluster from a backup:
   
-  1. View the description of the CLI command to restore a {{ PG }} cluster:
+  1. See the description of the CLI command for restoring a {{ PG }} cluster:
   
       ```bash
       {{ yc-mdb-pg }} cluster restore --help
       ```
   
-  1. Getting a list of available {{ PG }} cluster backups:
+  1. Get a list of available {{ PG }} cluster backups:
   
       ```bash
       {{ yc-mdb-pg }} backup list
@@ -91,9 +91,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
       +--------------------------+---------------------+----------------------+---------------------+
       ```
 
-      The backup completion time is shown in the `CREATED AT` column of the list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
+      The `CREATED AT` column in the list of available backups shows the backup completion time in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore your cluster to the state it was in at any point in time after the backup was created.
 
-  1. Request creating a cluster from a backup:
+  1. Make the following request to create a cluster from a backup:
 
       
       ```bash
@@ -115,25 +115,25 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
       Where:
 
       * `--backup-id`: [Backup](../concepts/backup.md) ID.
-      * `--time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
+      * `--time`: Point in time to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
           * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
-      * `--host`: Host parameters:
+      * `--host`: Host settings:
 
           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
           
-          * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+          * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
           * `assign-public-ip`: Flag to add if [public access to the host](../concepts/network.md#public-access-to-a-host) is required (`true` or `false`).
 
 
       * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
-      * `--disk-size`: Storage size in GB.
+      * `--disk-size`: Storage size, in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
           
@@ -148,15 +148,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   Use {{ TF }} to restore:
 
    * Existing cluster from a backup.
-   * Cluster created and deleted via the management console, CLI, or API.
+   * Cluster created and then deleted via the management console, CLI, or API.
 
    {% note info %}
 
-   The cluster will be restored to the folder whose ID is specified in the `folder_id` parameter of [provider settings]({{ tf-provider-link }}).
+   The cluster will be restored to the folder specified by its `folder_id` in the [provider settings]({{ tf-provider-link }}).
 
    {% endnote %}
 
-   To restore a cluster, you will need the backup ID. Get a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
+   You will need the backup ID for the restoration. Get a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
 
    ```bash
    {{ yc-mdb-pg }} backup list
@@ -177,7 +177,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
    1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
 
-       Do not use the database (`yandex_mdb_postgresql_database`) and user (`yandex_mdb_postgresql_user`) resources: these will be restored from the backup.
+       Do not specify database (`yandex_mdb_postgresql_database`) and user (`yandex_mdb_postgresql_user`) resources as they will be restored from the backup.
 
    1. Add the `restore` section to the configuration file:
 
@@ -198,11 +198,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
        {% note info %}
 
-       If you omit the `time` parameter, the cluster will be restored to the backup completion time.
+       If you omit the `time` setting, the cluster will be restored to the backup’s completion time.
 
        {% endnote %}
 
-   1. Make sure the settings are correct.
+   1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -210,15 +210,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  {{ TF }} will create a copy of the existing cluster. The databases and users are deployed from the selected backup.
+  {{ TF }} will create a copy of the existing cluster. The databases and users will be deployed from the selected backup.
 
   **To restore a previously deleted cluster from a backup**:
 
    1. Create a [{{ TF }}](cluster-create.md#create-cluster) configuration file for the new cluster.
 
-       Do not use the database (`yandex_mdb_postgresql_database`) and user (`yandex_mdb_postgresql_user`) resources: these will be restored from the backup.
+       Do not specify database (`yandex_mdb_postgresql_database`) and user (`yandex_mdb_postgresql_user`) resources as they will be restored from the backup.
 
-   1. In this configuration file, add a `restore` section with the name of the backup to restore the cluster from:
+   1. In this configuration file, add the `restore` section with the name of the backup for restoration:
 
        ```hcl
        resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -239,15 +239,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  {{ TF }} will create the new cluster. The databases and users are deployed from the backup.
+  {{ TF }} will create the new cluster. The databases and users will be deployed from the backup.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
      ```json
      {
@@ -277,13 +277,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      Where:
 
-     * `backupId`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
-     * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
-     * `folderId`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `backupId`: [Backup](../concepts/backup.md) ID. You can get it from the [backup list](#list-backups).
+     * `time`: Point in time to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
+     * `folderId`: ID of the target folder to restore the cluster. You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Environment:
 
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
        * `PRODUCTION`: For stable versions of your apps.
 
      * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -293,16 +293,16 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
        * `resources`: Cluster resources:
 
          * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-         * `diskSize`: Disk size in bytes.
+         * `diskSize`: Disk size, in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-     * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+     * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
        * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
-  1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -313,16 +313,16 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
        --data "@body.json"
      ```
 
-  1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Create a file named `body.json` and add the following contents to it:
+  1. Create a file named `body.json` and paste the following code into it:
 
      ```json
      {
@@ -352,13 +352,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      Where:
 
-     * `backup_id`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
-     * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
-     * `folder_id`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with the [list of backups](#list-backups).
+     * `time`: Point in time to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
+     * `folder_id`: ID of the target folder to restore the cluster. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Environment:
 
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
        * `PRODUCTION`: For stable versions of your apps.
 
      * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -368,7 +368,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
        * `resources`: Cluster resources:
 
          * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-         * `disk_size`: Disk size in bytes.
+         * `disk_size`: Disk size, in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
@@ -392,7 +392,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
        < body.json
      ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -403,7 +403,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 - Management console {#console}
   
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -416,26 +416,26 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   
   To create a cluster backup:
   
-  1. View the description of the CLI command to create an {{ PG }} backup:
+  1. See the description of the CLI command for creating a {{ PG }} backup:
   
       ```
       {{ yc-mdb-pg }} cluster backup --help
       ```
-  1. Request the creation of a backup specifying the cluster name or ID:
+  1. Send a request to create a cluster backup, specifying the cluster name or ID:
   
       ```
       {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
   
-      The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster name and ID from the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Backup](../api-ref/Cluster/backup.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -447,11 +447,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -474,7 +474,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -488,7 +488,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
   To get a list of cluster backups:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
   To get a list of all backups in a folder:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
@@ -515,13 +515,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. To get a list of cluster backups:
 
-     1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+     1. Call the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -532,11 +532,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure the request was successful.
+     1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-  1. To get a list of backups for all the clusters in a folder:
+  1. To get a list of backups for all clusters in a folder:
 
-     1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+     1. Call the [Backup.List](../api-ref/Backup/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -547,14 +547,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
         ```
 
         
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
 
 
-     1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure the request was successful.
+     1. Check the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -579,9 +579,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure the request was successful.
+     1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-  1. To get a list of backups for all the clusters in a folder:
+  1. To get the list of backups for all clusters in the folder:
 
      1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -600,24 +600,24 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
         ```
 
         
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-     1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure the request was successful.
+     1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Getting information about backups {#get-backup}
+## Getting backup information {#get-backup}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To get information about the backup of an existing cluster:
+  To get information about an existing cluster’s backup:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
 
-  To get information about the backup of a previously deleted cluster:
+  To get information about a previously deleted cluster’s backup:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
   
@@ -633,15 +633,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   {{ yc-mdb-pg }} backup get <backup_ID>
   ```
   
-  You can get the backup ID together with the [list of backups](#list-backups).
+  You can get the backup ID with the [list of backups](#list-backups).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Backup.Get](../api-ref/Backup/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -650,13 +650,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<backup_ID>'
      ```
 
-     You can request the backup ID together with the [list of backups](#list-backups).
+     You can get the backup ID from the [backup list](#list-backups).
 
-  1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -677,9 +677,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
        yandex.cloud.mdb.postgresql.v1.BackupService.Get
      ```
 
-     You can request the backup ID together with the [list of backups](#list-backups).
+     You can get the backup ID with the [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure your request was successful.
 
 {% endlist %}
 
@@ -693,7 +693,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
 - CLI {#cli}
 
-  To set the backup start time, use the `--backup-window-start` parameter. Time is given in `HH:MM:SS` format.
+  To set the backup start time, use the `--backup-window-start` flag. You must specify the time in `HH:MM:SS` format.
 
   ```bash
   {{ yc-mdb-pg }} cluster create \
@@ -703,14 +703,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
      --host zone-id=<availability_zone>,subnet-id=<subnet_ID> \
      --resource-preset <host_class> \
      --user name=<username>,password=<user_password> \
-     --database name=<DB_name>,owner=<database_owner_name> \
+     --database name=<DB_name>,owner=<DB_owner_name> \
      --disk-size <storage_size_in_GB>
      --backup-window-start 10:00:00
   ```
 
-  Where `environment` is the environment: `prestable` or `production`.
+  Where `environment` is the environment, either `prestable` or `production`.
 
-  To change the backup start time in an existing cluster, use the `update` command:
+  To change the backup start time for an existing cluster, use the `update` command:
 
   ```bash
   {{ yc-mdb-pg }} cluster update \
@@ -720,13 +720,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
-        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+        For a complete list of editable {{ mpg-name }} cluster configuration fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
 
-    1. Add a `backup_window_start` block in the `config` section to the {{ mpg-name }} cluster description:
+    1. Add the `backup_window_start` block to the `config` section of the {{ mpg-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -759,11 +759,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -788,13 +788,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      Where:
 
-     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
-       In this case, only one parameter is provided.
+       Here, we provide only one setting.
 
      * `configSpec.backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
-       In this parameter, specify the backup start time. Possible values:
+       In this setting, specify the backup start time. Allowed values:
 
        * `hours`: Between `0` and `23` hours.
        * `minutes`: Between `0` and `59` minutes.
@@ -803,11 +803,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -845,13 +845,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
      * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
-       In this parameter, specify the backup start time. Possible values:
+       In this setting, specify the backup start time. Allowed values:
 
        * `hours`: Between `0` and `23` hours.
        * `minutes`: Between `0` and `59` minutes.
@@ -860,7 +860,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -870,7 +870,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [modifying a cluster](update.md).
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [updating the cluster](update.md).
 
 - CLI {#cli}
 
@@ -885,19 +885,19 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
        --backup-retain-period-days=<retention_period_in_days>
     ```
 
-  The possible values range from `7` to `60`. The default value is `7`.
+  The valid values range from `7` to `60`. The default value is `7`.
 
-  You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        Learn how to create this file in [Creating a cluster](cluster-create.md).
 
-        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+        For a complete list of {{ mpg-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mpg }}).
 
-    1. Add a `backup_retain_period_days` block in the `config` section to the {{ mpg-name }} cluster description:
+    1. Add the `backup_retain_period_days` block to the `config` section of the {{ mpg-name }} cluster description:
 
         ```hcl
           resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -913,7 +913,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
        Where `backup_retain_period_days` is the automatic backup retention period. 
        
-       The possible values range from `7` to `60`. The default value is `7`.
+       The valid values range from `7` to `60`. The default value is `7`.
 
   1. Make sure the settings are correct.
 
@@ -927,11 +927,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -951,21 +951,21 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
        Where:
 
-       * `updateMask`: List of parameters to update as a single string, separated by commas.
+       * `updateMask`: Comma-separated list of settings you want to update.
 
-         Only one parameter is provided in this case.
+         Here, we provide only one setting.
 
        * `configSpec.backupRetainPeriodDays`: Automatic backup retention period.
  
-         The values range from `7` to `60`. The default value is `7`.
+         The valid values range from `7` to `60`. The default value is `7`.
 
        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -999,17 +999,17 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-       Only one parameter is provided in this case.
+       Here, we provide only one setting.
 
      * `config_spec.backup_retain_period_days`: Automatic backup retention period.
 
-       The values range from `7` to `60`. The default value is `7`.
+       The valid values range from `7` to `60`. The default value is `7`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1024,7 +1024,7 @@ You can only delete backups that were created manually.
     1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Select the {{ mpg-name }} cluster whose backup you want to delete.
     1. In the left-hand panel, select **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the backup you want to delete.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the backup you want to delete.
     1. Select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
     1. Confirm deletion and click **{{ ui-key.yacloud.mdb.cluster.backups.action_delete-backup }}**.
 
@@ -1036,27 +1036,27 @@ You can only delete backups that were created manually.
 
     To delete a backup:
 
-    1. View the description of the CLI command to delete a {{ PG }} cluster backup:
+    1. See the description of the CLI command for deleting a {{ PG }} backup:
 
         ```bash
         {{ yc-mdb-pg }} backup delete --help
         ```
 
-    1. Request the deletion of a backup by specifying its ID:
+    1. Send a request to delete a backup, specifying the backup ID:
 
         ```bash
         {{ yc-mdb-pg }} backup delete <backup_ID>
         ```
 
-    You can get the backup ID together with the [list of backups](#list-backups).
+    You can get the backup ID with the [list of backups](#list-backups).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.Delete](../api-ref/Backup/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Backup.Delete](../api-ref/Backup/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -1067,16 +1067,16 @@ You can only delete backups that were created manually.
 
      You can request the backup ID with the [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) call to execute the following request via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1092,8 +1092,8 @@ You can only delete backups that were created manually.
        yandex.cloud.mdb.postgresql.v1.BackupService.Delete
      ```
 
-     You can request the backup ID together with the [list of backups](#list-backups).
+     You can get the backup ID with the [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/grpc/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Check the [server response](../api-ref/grpc/Backup/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

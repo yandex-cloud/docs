@@ -10,8 +10,8 @@
 
   На вкладке:
   * **{{ ui-key.yacloud.common.overview }}** приводится общая информация о ВМ, в том числе [IP-адреса](../../vpc/concepts/address.md), присвоенные ВМ.
-  * **{{ ui-key.yacloud.compute.instance.switch_disks }}** приводится информация о [дисках](../../compute/concepts/disk.md), подключенных к ВМ.
-  * **{{ ui-key.yacloud.compute.instance.switch_file-storages }}** приводится информация о подключенных [файловых хранилищах](../../compute/concepts/filesystem.md).
+  * **Диски** приводится информация о [дисках](../../compute/concepts/disk.md), подключенных к ВМ.
+  * **Файловые хранилища** приводится информация о подключенных [файловых хранилищах](../../compute/concepts/filesystem.md).
   * **{{ ui-key.yacloud.common.operations-key-value }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
   * **{{ ui-key.yacloud.common.monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
   * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../compute/operations/serial-console/index.md), если при [создании](../../compute/operations/index.md#vm-create) ВМ вы разрешили к ней доступ.

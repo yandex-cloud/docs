@@ -170,8 +170,8 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}** — блокировка бессрочно запрещает удаление или перезапись версии объекта, но при этом не запрещает загружать новые версии объекта. Пользователь с ролью `storage.uploader` может установить и снять блокировку. Обойти блокировку нельзя. В сочетании с временной блокировкой имеет приоритет.
      * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}** — блокировка запрещает удаление или перезапись версии объекта на определенный срок, но при этом не запрещает загружать новые версии объекта. Пользователь с ролью `storage.uploader` может установить блокировку. В сочетании с бессрочной блокировкой не имеет приоритета.
   1. Если вы выбрали вид **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, укажите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
   1. Установите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
   1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}** и обновите страницу.
 

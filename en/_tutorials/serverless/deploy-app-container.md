@@ -189,7 +189,7 @@ Create a [cloud network](../../vpc/concepts/network.md) and [subnet](../../vpc/c
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: `mongo-express-network` network ID.
-      * `--range`: List of IPv4 addresses the traffic will come to or from.
+      * `--range`: List of IPv4 addresses for incoming or outgoing traffic.
 
       Result:
 
@@ -333,7 +333,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mongo-vm`.

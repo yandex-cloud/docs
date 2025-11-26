@@ -2,7 +2,7 @@
 
 [User authentication](../concepts/user-authentication.md) rules determine which users and from which addresses are allowed to connect to a cluster, as well as which databases they can access.
 
-You can:
+You have the following options:
 
 * [Get a list of rules](#list-rules)
 * [Add a rule](#add-rules)
@@ -23,7 +23,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
 
 - CLI {#cli}
 
@@ -57,11 +57,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [HBARule.List](../api-ref/HBARule/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [HBARule.List](../api-ref/HBARule/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -73,11 +73,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/HBARule/list.md#yandex.cloud.mdb.greenplum.v1.ListHBARulesResponse) to make sure the request was successful.
+    1. Check the [server response](../api-ref/HBARule/list.md#yandex.cloud.mdb.greenplum.v1.ListHBARulesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -101,7 +101,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/HBARule/list.md#yandex.cloud.mdb.greenplum.v1.ListHBARulesResponse) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/HBARule/list.md#yandex.cloud.mdb.greenplum.v1.ListHBARulesResponse) to make sure your request was successful.
 
 {% endlist %}          
 
@@ -112,7 +112,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and specify its parameters:
 
@@ -163,11 +163,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [HBARule.Create](../api-ref/HBARule/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [HBARule.Create](../api-ref/HBARule/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -197,11 +197,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/HBARule/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/HBARule/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -239,7 +239,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/HBARule/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/grpc/HBARule/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -250,7 +250,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}** and update the rule parameters:
 
         {% include [auth-user-rule-settings](../../_includes/mdb/mgp/auth-user-rule-settings.md) %}
@@ -295,11 +295,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [HBARule.Update](../api-ref/HBARule/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [HBARule.Update](../api-ref/HBARule/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -331,11 +331,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can find out the rule priority by [requesting a list of all rules in the cluster](#list-rules).
 
-    1. View the [server response](../api-ref/HBARule/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/HBARule/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -375,7 +375,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can find out the rule priority by [requesting a list of all rules in the cluster](#list-rules).
 
-    1. View the [server response](../api-ref/grpc/HBARule/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.    
+    1. Check the [server response](../api-ref/grpc/HBARule/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.    
 
 {% endlist %}
 
@@ -386,7 +386,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/grip.svg) for the rule and move it up or down.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -400,7 +400,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the rule and select **{{ ui-key.yacloud.common.delete }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -430,11 +430,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
 - REST API {#api}   
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [HBARuleService.Update](../api-ref/grpc/HBARule/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [HBARule.Delete](../api-ref/HBARule/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -448,11 +448,11 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can find out the rule priority by [requesting a list of all rules in the cluster](#list-rules).
 
-    1. View the [server response](../api-ref/grpc/HBARule/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful. 
+    1. Check the [server response](../api-ref/grpc/HBARule/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful. 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -479,7 +479,7 @@ The rule priority matches the order of rows: rules are read from top to bottom, 
 
         You can find out the rule priority by [requesting a list of all rules in the cluster](#list-rules).
 
-    1. View the [server response](../api-ref/grpc/HBARule/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.      
+    1. Check the [server response](../api-ref/grpc/HBARule/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.      
 
 {% endlist %}
 

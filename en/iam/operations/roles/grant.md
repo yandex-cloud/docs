@@ -13,7 +13,7 @@ To grant access to a resource, assign a [role](../../concepts/access-control/rol
 * [Service accounts](../../concepts/users/service-accounts.md)
 * [User groups](../../../organization/concepts/groups.md)
 
-You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. For more information, see [{#T}](../../concepts/access-control/index.md).
+You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. Learn more in [{#T}](../../concepts/access-control/index.md).
 
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
@@ -253,7 +253,7 @@ To assign a role for an organization:
 
       For more information, see the [provider documentation]({{ tf-provider-link }}).
 
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

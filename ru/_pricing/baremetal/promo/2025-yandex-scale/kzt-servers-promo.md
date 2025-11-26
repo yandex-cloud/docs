@@ -1,7 +1,3 @@
-Стоимость зависит от [периода аренды](../../baremetal/concepts/servers.md#server-lease).
-
-Списание средств происходит **ежемесячно**, независимо от периода аренды.
-
 Тип сервера        | Цена за месяц<br/>при аренде<br/>на 1 день,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 1 месяц,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 3 месяца,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 6 месяцев,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 1 год,<br/>вкл. НДС
 ------------------ | ------------ | ------------ | ------------ | ------------ | ---
 **BA-i208-S-10G-P1**  | {{ sku|KZT|baremetal.server.ba-i208-s-10g-p1.1_day|string }} | {{ sku|KZT|baremetal.server.ba-i208-s-10g-p1.1_month|string }} | {{ sku|KZT|baremetal.server.ba-i208-s-10g-p1.3_month|string }} | {{ sku|KZT|baremetal.server.ba-i208-s-10g-p1.6_month|string }} | {{ sku|KZT|baremetal.server.ba-i208-s-10g-p1.12_month|string }}

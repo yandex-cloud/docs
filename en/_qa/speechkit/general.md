@@ -26,7 +26,7 @@ Depending on the API used, you should include the folder ID in the request heade
 
 #### How do I generate an IAM token? {#iam-token}
 
-Among other methods, you can generate an IAM token using the {{ yandex-cloud }} command line interface. You can find all the possible ways of obtaining an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), and [service account](../../iam/operations/iam-token/create-for-sa.md) in the {{ iam-full-name }} documentation.
+Among other methods, you can generate an IAM token using the {{ yandex-cloud }} command line interface. For all the options you can use to obtain an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), [local account](../../iam/operations/iam-token/create-for-federation.md), and [service account](../../iam/operations/iam-token/create-for-local.md), refer to the {{ iam-full-name }} guides.
 
 Even though IAM tokens are only valid for {{ iam-token-lifetime }}, we still recommend them as the most secure authentication method for {{ speechkit-name }}.
 

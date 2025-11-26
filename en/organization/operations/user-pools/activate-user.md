@@ -19,6 +19,55 @@ To activate a federated user account:
 
   {% include [activate-user-ui](../../../_includes/organization/activate-user-ui.md) %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for activating federated users:
+
+     ```bash
+     yc organization-manager federation saml reactivate-user-accounts --help
+     ```
+
+  1. Get a list of federations in the organization:
+
+     ```bash
+     yc organization-manager federation saml list \
+       --organization-id <organization_ID>
+     ```
+
+     Where `--organization-id` is the [ID of the organization](../organization-get-id.md) you need the list of federations for.
+
+  1. Get a list of deactivated federation users:
+
+     ```bash
+     yc organization-manager federation saml list-user-accounts <federation_ID> \
+       --organization-id <organization_ID> \
+       --filter active=false
+     ```
+
+     Where:
+
+     * `<federation_ID>`: ID of the federation you need the list of users for.
+     * `--organization-id`: ID of the organization the federation belongs to.
+     * `--filter active=false`: Filter to get only deactivated users.
+
+  1. To activate users, provide their IDs in this command:
+
+     ```bash
+     yc organization-manager federation saml reactivate-user-accounts <federation_ID> \
+       --subject-ids <user_1_ID>,<user_2_ID>,...,<user_N_ID> \
+       --organization-id <organization_ID>
+     ```
+
+     Where:
+     
+     * `<federation_ID>`: ID of the federation to activate users in.
+     * `--subject-ids`: List of user IDs to activate.
+     * `--organization-id`: ID of the organization the federation belongs to.
+
 {% endlist %}
 
 

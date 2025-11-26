@@ -10,9 +10,9 @@ In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [What roles this service has](#roles-list).
-* [What roles are required for specific actions](#required-roles).
+* [Roles required for specific actions](#required-roles).
 
-To use this service, log in to the management console with a [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation).
+To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

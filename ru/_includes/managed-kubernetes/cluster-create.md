@@ -72,7 +72,7 @@
      {% include [security-groups-alert](security-groups-alert.md) %}
 
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-   * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** настройте окно для обновлений:
+   * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** настройте окно для обновлений:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временном интервале, указанном в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.

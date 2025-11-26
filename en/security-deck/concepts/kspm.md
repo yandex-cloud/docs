@@ -17,7 +17,7 @@ The KSPM module allows you to flexibly select and customize security rules to me
 
 {% include [kspm-alerts](../../_includes/security-deck/kspm-alerts.md) %}
 
-For more information, see [{#T}](../operations/kspm.md).
+For more information, see [{#T}](../operations/kspm/enable-kspm.md).
 
 ### See also {#see-also}
 
@@ -25,5 +25,5 @@ For more information, see [{#T}](../operations/kspm.md).
 * [{#T}](cspm.md)
 * [{#T}](ai-assistant.md)
 * [{#T}](../quickstart-overview.md)
-* [{#T}](../operations/kspm.md).
+* [{#T}](../operations/kspm/enable-kspm.md).
 * [{#T}](../security/kspm-roles.md)

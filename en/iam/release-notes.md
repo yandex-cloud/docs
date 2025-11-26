@@ -8,6 +8,12 @@ description: This section contains {{ iam-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## Q3 2025 {#q3-2025}
+
+* [Added](../organization/operations/view-subject-access-bindings.md) the ability to view a list of subject’s accesses using the [CLI](../cli/cli-ref/iam/cli-ref/access-analyzer/) and [API](../iam/api-ref/AccessAnalyzer/). {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Implemented management of OAuth client secrets using the [CLI](../cli/cli-ref/iam/cli-ref/oauth-client-secret/) and [API](../iam/api-ref/OAuthClientSecret/). {{ tag-cli }} {{ tag-api }}
+* Added a group of commands for OAuth client management to the [CLI](../cli/cli-ref/iam/cli-ref/oauth-client/) and [API](../iam/api-ref/OAuthClient/). {{ tag-cli }} {{ tag-api }}
+
 ## Q2 2025 {#q2-2025}
 
 * Enabled creating and using [refresh tokens](concepts/authorization/refresh-token.md). {{ tag-cli }}

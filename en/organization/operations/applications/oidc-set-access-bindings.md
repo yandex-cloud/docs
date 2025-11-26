@@ -33,7 +33,7 @@ To grant access to an [OIDC app](../../concepts/applications.md#oidc), assign [r
 
    1. Using the `yc organization-manager idp application oauth application set-access-bindings` command, assign the following roles:
       
-      * To a Yandex account user:
+      * To a Yandex account user or local user:
 
          ```bash
          yc organization-manager idp application oauth application set-access-bindings \

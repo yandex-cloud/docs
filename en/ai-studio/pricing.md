@@ -16,38 +16,111 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
+## Prices for the Russia region {#prices}
 
-[In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for [generation](concepts/generation/index.md), [vectorization](./concepts/embeddings.md), and [dedicated instances](concepts/generation/dedicated-instance.md).
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Text generation {#rules-generating}
+### {{ model-gallery-name }} {#rules-generating}
 
-Text generation cost is based on the total number of [prompt](concepts/generation/index.md#working-mode) and response [tokens](concepts/generation/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
+The cost of using {{ model-gallery-name }} models depends on:
+* [Model's operating mode](concepts/generation/index.md#working-mode).
+* Number of incoming and outgoing [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count of the same text may vary from one model to the next.
 
-* [Model](concepts/generation/models.md) that gets the request.
-* The model's [operating mode](concepts/generation/index.md#working-mode).
+[{{ billing-name }} represents](../billing/operations/check-charges.md) the use of {{ model-gallery-name }} models in _billing units_. The total number of billing units is rounded up to an integer.
 
-The number of [prompt](concepts/index.md) and response [tokens](concepts/generation/tokens.md) for the same text may vary depending on the model.
+
+
+{% include [rub-generating-units.md](../_pricing/yandexgpt/usd-generating_units.md) %}
+
+
+#### Using common instance models {#text-sync-async}
+
+
+
+{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
+
+
+{#example-generating}
+
+{% cut "Cost calculation for a model in synchronous mode" %}
+
+> Request parameters:
+> * Number of prompt tokens: 225
+> * Number of response tokens: 525
+> * Model: {{ gpt-lite }}
+> * Model operating mode: Synchronous
+
+
+{% include [usd-generating-lite](../_pricing_examples/ai-studio/usd-generating-lite.md) %}
+
+{% endcut %}
+
+{% cut "Cost calculation for a model in asynchronous mode" %}
+
+> Request parameters:
+> * Number of prompt tokens: 115
+> * Number of response tokens: 1,500
+> * Model: {{ gpt-pro }}
+> * Model operating mode: Asynchronous
+
+
+
+{% include [usd-generating-pro](../_pricing_examples/ai-studio/usd-generating-pro.md) %}
+
+
+{% endcut %}
+
+#### Using models in batch mode {#batch}
 
 With models in batch mode, the minimum cost per run is 200,000 tokens.
 
-The total number of billing units is based on the overall number of prompt and response tokens and is rounded up to an integer.
 
-#### Tokenization {#rules-tokens}
 
-The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is free of charge.
+{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating-batch.md) %}
 
-#### Fine-tuned models {#rules-tuned-generating}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy: the use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} pricing policy.
+#### Operation of dedicated instances {#rules-dedicated}
 
-### Dedicated instances {#rules-dedicated}
-
-The cost of operation of a dedicated instance depends on the model and selected configuration. Dedicated instances are charged per second of operation, rounded up to the billing unit. At the same time, there is no charge for the period of hardware maintenance and model deployment.
+The cost of operation of a dedicated instance depends on the model and selected configuration. Dedicated instances are charged per second with rounding up to a billing unit. However, there is no charge for hardware maintenance and model deployment time.
 
 _{{ price-per-hour-count-per-second }}_
 
-### Text classification {#rules-text-classifier}
+
+
+{% include [usd-generating.md](../_pricing/yandexgpt/usd-dedicated.md) %}
+
+
+#### Fine-tuning {#rules-tuned-generating}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. A fine-tuned {{ gpt-lite }} model will cost the same as the basic {{ gpt-lite }} model.
+
+#### Text tokenization {#rules-tokens}
+
+The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is free of charge.
+
+#### Text vectorization {#rules-embedding}
+
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }} represents](../billing/operations/check-charges.md) the creation of embeddings in _vectorization units_. 
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
+
+
+{#price-example-embedding}
+
+{% cut "Cost calculation for text vectorization" %}
+
+> The cost of vectorizing a text of 2,000 tokens will be:
+
+
+
+{% include [usd-embedding-k1](../_pricing_examples/ai-studio/usd-embedding-k1.md) %}
+
+
+{% endcut %}
+
+#### Text classifications {#rules-text-classifier}
 
 The cost of text classification depends on the classification model you use and the number of [tokens](concepts/generation/tokens.md) you provide.
 
@@ -59,17 +132,63 @@ Requests with less than one billing unit are rounded up to the next integer. Lar
 > For example, classifying a text of 770 tokens with {{ gpt-lite }} will be billed as a single request, i.e., as one billing unit.
 > The same 770-token text classified with {{ gpt-pro }} or a fine-tuned classifier will be billed as four requests.
 
-### Text vectorization {#rules-embedding}
 
-The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
-### Using assistants and text agents {#rules-assistant}
+{% include [usd-classifier.md](../_pricing/yandexgpt/usd-classifier.md) %}
 
-You can use the {{ assistant-api }}, {{ responses-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
+
+#### Image generation {#rules-image-generation}
+
+You are charged for each generation request in {{ yandexart-name }}. Requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
+
+
+
+{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
+
+
+### {{ agents-atelier-name }} {#rules-agent}
+
+#### Using assistants and text agents {#rules-assistant}
+
+The {{ assistant-api }}, {{ responses-api }}, and the storage of files and search indexes are free of charge. For tokens you pay as per {{ model-gallery-name }} [model](#rules-generating) pricing plans. 
+
+#### Using voice agents {#rules-voice-agents}
+
+The cost of using voice agents consists of your fees for speech recognition (input audio), speech synthesis (output audio), and text generation using the speech-realtime-250923.
+
+
+
+{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
+
+
+{#price-example-voice-assistant}
+
+{% cut "Cost calculation for a voice agent" %}
+
+> Cost of using a voice agent per a 60-second session, where:
+> * Input audio: 60 seconds
+> * Output audio: 20 seconds
+> * Number of generated tokens: 2,000
+
+
+
+{% include [usd-voice-assistant-pro](../_pricing_examples/ai-studio/usd-voice-assistant-pro.md) %}
+
+
+
+{% endcut %}
+
+#### Using tools in agents {#rules-tools}
+
+The {{ assistant-api }} tools are free of charge. 
+
+The File Search tool in text and voice agents is free of charge.
+
+The Web Search tool in text and voice agents is free of charge until November 17, 2025. 
 
 {% note info %}
 
-Prices for using Web Search tool with text and voice agents will come into effect on November 20, 2025.
+The prices will apply starting November 20, 2025.
 
 {% endnote %}
 
@@ -77,14 +196,6 @@ Prices for using Web Search tool with text and voice agents will come into effec
 
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-tools.md) %}
 
-
-### Using voice agents {#rules-voice-assistant}
-
-The cost of using voice agents consists of your fees for speech recognition (input audio), speech synthesis (output audio), and text generation using the speech-realtime-250923.
-
-### Image generation {#rules-image-generation}
-
-You are charged for each generation request in {{ yandexart-name }}. Requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
 
 ### {{ mcp-hub-name }} {#mcp-hub}
 
@@ -97,137 +208,4 @@ When using external APIs, such as [Kontur.Focus](./concepts/mcp-hub/templates.md
 ### Internal server errors {#error-request}
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
-
-## Prices for the Russia region {#prices}
-
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-### Text generation {#pricing-generating}
-
-
-
-{% include [rub-generating-units.md](../_pricing/yandexgpt/usd-generating_units.md) %}
-
-
-#### Cost of using models in synchronous and asynchronous mode {#text-sync-async}
-
-
-
-{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
-
-
-#### Cost of using models in batch mode {#batch}
-
-With models in batch mode, the minimum cost per run is 200,000 tokens.
-
-
-
-{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating-batch.md) %}
-
-
-#### Dedicated instances {#dedicated}
-
-_{{ price-per-hour-count-per-second }}_
-
-
-
-{% include [usd-generating.md](../_pricing/yandexgpt/usd-dedicated.md) %}
-
-
-### Text classification {#pricing-classifier}
-
-
-
-{% include [usd-classifier.md](../_pricing/yandexgpt/usd-classifier.md) %}
-
-
-### Text vectorization {#pricing-embedding}
-
-
-
-{% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
-
-
-### Using voice agents {#voice-assistant}
-
-
-
-{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
-
-
-### Image generation {#pricing-image-generation}
-
-
-
-{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
-
-
-## Examples of the {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
-
-### Calculating the text generation cost {#price-example-generating}
-
-#### Example 1 {#example-generating-1}
-
-Cost of using {{ gpt-lite }} for text generation with the following properties:
-
-* Number of prompt tokens: 225
-* Number of response tokens: 525
-* Model: {{ gpt-lite }}
-* Model working mode: Synchronous
-
-
-{% include [usd-generating-lite](../_pricing_examples/ai-studio/usd-generating-lite.md) %}
-
-#### Example 2 {#example-generating-2}
-
-Cost of using {{ gpt-pro }} for text generation with the following properties:
-
-* Number of prompt tokens: 115
-* Number of response tokens: 1,500
-* Model: {{ gpt-pro }}
-* Model working mode: Asynchronous
-
-
-
-{% include [usd-generating-pro](../_pricing_examples/ai-studio/usd-generating-pro.md) %}
-
-
-#### Example 3 {#example-generating-3}
-
-Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with the following properties:
-
-* Number of prompt tokens: 1,020
-* Number of response tokens: 30
-* Model: {{ gpt-pro }} fine-tuned in {{ ml-platform-name }}
-* Model working mode: Synchronous
-
-
-
-{% include [usd-generating-pro-ml](../_pricing_examples/ai-studio/usd-generating-pro-ml.md) %}
-
-
-### Calculating the text vectorization cost {#price-example-embedding}
-
-Cost of using {{ foundation-models-full-name }} for text vectorization with the following property:
-
-* Number of tokens per request: 2,000
-
-
-
-{% include [usd-embedding-k1](../_pricing_examples/ai-studio/usd-embedding-k1.md) %}
-
-
-
-## Voice agent cost calculation example {#price-example-voice-assistant}
-
-Cost of using the speech-realtime-250923 voice agent within a 60-second session:
-
-* Input audio: 60 seconds
-* Output audio: 20 seconds
-* Number of tokens: 2,000
-
-
-
-{% include [usd-voice-assistant-pro](../_pricing_examples/ai-studio/usd-voice-assistant-pro.md) %}
-
 

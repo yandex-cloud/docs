@@ -73,7 +73,7 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания базы.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
      1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
@@ -107,7 +107,7 @@ description: Вы можете подключиться к {{ ydb-short-name }} 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите созданный сервисный аккаунт.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
@@ -221,8 +221,8 @@ LLM могут помогать не только в написании кода
 #### Исправление схемы базы данных {#fix-database-with-mcp}
 
 Чтобы смоделировать ошибку, переименуйте таблицу:
-1. Зайдите в [консоль управления]({{ link-console-main }}).
-1. Перейдите к сервису **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и откройте свою базу.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и откройте свою базу.
 1. Нажмите кнопку **{{ ui-key.yacloud.ydb.database.switch_browse }}**, а потом **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** и выполните запрос для [переименования таблицы](https://ydb.tech/docs/ru/yql/reference/syntax/alter_table/rename):
 
 ```

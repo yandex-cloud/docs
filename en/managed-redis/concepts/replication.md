@@ -98,7 +98,7 @@ By default, cluster persistence is enabled and uses the following {{ VLK }} sett
 
 * **aof-rewrite-incremental-fsync yes**{#setting-rewrite-incremental}
 
-  Enables AOF file synchronization every time 32 MB of data is generated.
+  AOF file synchronization is enabled for every 4 MB of generated data.
 
 * **aof-use-rdb-preamble yes**{#setting-rdb-preamble}
 

@@ -13,7 +13,7 @@ To set up secret syncing:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a [ready-made configuration file](#terraform).
+You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a ready-made configuration file. For more information, see [Create an infrastructure](#deploy-infrastructure) on the {{ TF }} tab.
 
 ## Getting started {#before-you-begin}
 
@@ -32,10 +32,10 @@ The cost of resources for syncing secrets includes:
 - Manually {#manual}
 
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where you will create your {{ managed-k8s-name }} cluster and node group.
-  1. [Create service accounts](../../iam/operations/sa/create.md):
+  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ managed-k8s-name }} cluster and node group will reside.
+  1. [Create these service accounts](../../iam/operations/sa/create.md):
      * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-     * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+     * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
 
      {% note tip %}
 
@@ -78,13 +78,13 @@ The cost of resources for syncing secrets includes:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
      ```
 
-     {{ TF }} will display any configuration errors detected in your files.
+     {{ TF }} will show any errors found in your configuration files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

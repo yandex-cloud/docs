@@ -32,7 +32,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
       * `<resource>`: Resource category. For an organization, it is always `organization`.
       * `<resource_name_or_ID>`: Resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
       * `--role`: Role ID.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
+      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, this command assigns a user the administrator role for a directory with the `b1gmit33ngp3********` ID:
 
@@ -67,7 +67,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
         * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
         * `federatedUser:<user_ID>`: Federated user ID.
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-link }}).
 
   1. Create the resources:
 

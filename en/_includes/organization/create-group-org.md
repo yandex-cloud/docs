@@ -1,4 +1,4 @@
-To create a [group](../../organization/concepts/groups.md), you need _at least_ the [`organization-manager.editor` role](../../organization/security/index.md#organization-manager-editor) for the [organization](../../organization/concepts/organization.md).
+To create a [group](../../organization/concepts/groups.md), you need _at least_ the `organization-manager.groups.editor` [role](../../organization/security/index.md#organization-manager-editor) for the [organization](../../organization/concepts/organization.md).
 
 {% list tabs group=instructions %}
 
@@ -65,12 +65,14 @@ To create a [group](../../organization/concepts/groups.md), you need _at least_ 
      ```
 
      Where:
+
      * `name`: Group name. The name must be unique within the organization and satisfy the relevant requirements:
 
         {% include [group-name-format](group-name-format.md) %}
 
      * `description`: Group description. This is an optional parameter.
      * `organization_id`: [ID](../../organization/operations/organization-get-id.md) of the organization to add the group to.
+
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

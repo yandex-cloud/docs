@@ -8,11 +8,11 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - Management console {#console}
 
-    To get a list of cluster backups:
+    To get the list of cluster backups:
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
-    To get a list of all backups in a folder:
+    To get the list of all backups in the folder:
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
@@ -22,7 +22,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of {{ GP }} cluster backups, run the command:
+    To get a list of {{ GP }} cluster backups, run this command:
 
     ```bash
     {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
@@ -49,7 +49,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of cluster backups:
 
-        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -60,11 +60,11 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
             You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-        1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-    1. To get a list of backups for all the clusters in a folder:
+    1. To get a list of backups for all clusters in a folder:
 
-        1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Backup.List](../api-ref/Backup/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -75,10 +75,10 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             ```
 
             
-            You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -108,9 +108,9 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
             You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-        1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-    1. To get a list of backups for all the clusters in a folder:
+    1. To get a list of backups for all clusters in a folder:
 
         1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -132,7 +132,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -144,7 +144,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     To get information about a backup of an existing cluster:
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
     To get information about a backup of a previously deleted cluster:
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
@@ -156,7 +156,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Backup.Get](../api-ref/Backup/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -167,7 +167,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         You can request the backup ID with the [list of backups](#list-backups).
 
-    1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -195,7 +195,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         You can request the backup ID with the [list of backups](#list-backups).
 
-    1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure your request was successful.
 
 {% endlist %}
 
@@ -206,7 +206,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console {#console}
 
     1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -217,7 +217,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Backup](../api-ref/Cluster/backup.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -228,7 +228,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -265,26 +265,26 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 ## Restoring a cluster from a backup {#restore}
 
 
-The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any recovery point created after saving a backup. For more information, see [Backups](../concepts/backup.md).
+The point-in-time recovery (PITR) technology enables you to revert a cluster's state to any restore point created after saving a backup. For more information, see [Backups](../concepts/backup.md).
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder lacks [resources](../concepts/limits.md) to create such a cluster, data will not be restored from the backup.
 
-For a new cluster, you should set all the parameters that are required at creation.
+For a new cluster, you need to configure all settings that are required when creating it.
 
-To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. During cluster recovery from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), after recovering it from a backup, create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and the [transfer](../../data-transfer/operations/transfer.md#create) again.
+To migrate the hosts of a {{ mgp-name }} cluster to a different availability zone, restore your cluster from a backup. When restoring a cluster from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and [transfer](../../data-transfer/operations/transfer.md#create) again after restoring the cluster from a backup.
 
 {% note warning %}
 
-Recovering from a backup imposes restrictions on parameters of the new cluster.
+When restoring a cluster from a backup, there will be restrictions on the new cluster's configuration:
 
 {% include [limits](../../_includes/mdb/mgp/restore-limits.md) %}
 
 {% endnote %}
 
-If you set the current time as the recovery time, the new cluster will match the state of the latest available recovery point.
+If you set the current time as the restore time, the new cluster will match the state of the latest available restore point.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mgp.editor }}](../../iam/roles-reference.md#managed-greenplum-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenplum.restorer](../../iam/roles-reference.md#managed-greenplum-restorer) role or higher for the backup folder and the new cluster folder.
 
 
 {% list tabs group=instructions %}
@@ -294,12 +294,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
     To restore an existing cluster from a backup:
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
-    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-    1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
+    1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+    1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
 
-       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
+       If you do not edit this setting, the cluster's state will be restored from the backup. No restore points will be used.
 
     1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
     1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
@@ -308,7 +308,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on the dedicated hosts. You can assign groups to one or both of the two types of {{ GP }} hosts.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -321,11 +321,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
-    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-    1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup at hand and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+    1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
+    1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
 
-       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
+       If you do not edit this setting, the cluster's state will be restored from the backup. No restore points will be used.
 
     1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
     1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
@@ -334,7 +334,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on the dedicated hosts. You can assign groups to one or both of the two types of {{ GP }} hosts.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -353,13 +353,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
 
     To restore a cluster from a backup:
 
-    1. View the description of the CLI command to restore a {{ GP }} cluster:
+    1. View the description of the CLI command for restoring a {{ GP }} cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster restore --help
         ```
 
-    1. Make a request to create a cluster from a backup:
+    1. Request the creation of a cluster from a backup:
 
         
         ```bash
@@ -390,30 +390,30 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         Where:
 
         * `--backup-id`: [Backup](../concepts/backup.md) ID.
-        * `--time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
+        * `--time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
         * `--name`: Cluster name.
         * `--environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--master-resource-preset`: [Master host class](../concepts/instance-types.md#available-flavors).
         * `--master-disk-size`: Size of master host storage in GB.
-        * `--master-disk-type`: Master host [disk type](../concepts/storage.md).
+        * `--master-disk-type`: [Disk type](../concepts/storage.md) for master hosts.
         * `--segment-resource-preset`: [Segment host class](../concepts/instance-types.md#available-flavors).
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
         * `--segment-disk-size`: Size of segment host storage in GB.
-        * `--segment-disk-type`: Segment host [disk type](../concepts/storage.md).
+        * `--segment-disk-type`: [Disk type](../concepts/storage.md) for segment hosts.
         * `--segment-host-count`: Number of segment hosts.
         * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
-        * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `--restore-only`: Comma-separated list of DBs and tables to restore from the backup. This is an optional setting. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this setting, the whole cluster will be restored.
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
         
-        * `--master-host-group-ids` and `--segment-host-group-ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional parameter.
+        * `--master-host-group-ids` and `--segment-host-group-ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional setting.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -426,7 +426,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -485,12 +485,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         Where:
 
         * `backupId`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
-        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
+        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
         * `folderId`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder the backup is in.
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -503,18 +503,18 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `masterResources`, `segmentResources`: Master and segment host configuration in the cluster:
 
             * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-            * `diskSize`: Disk size in bytes.
+            * `diskSize`: Disk size, in bytes.
             * `diskTypeId`: [Disk type](../concepts/storage.md).
 
         * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
-        * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * `restoreOnly`: (Optional) List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `restoreOnly`: List of DBs and tables to restore from the backup. This is an optional setting. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this setting, the whole cluster will be restored.
 
         
-        * `masterHostGroupIds` and `segmentHostGroupIds`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional parameter.
+        * `masterHostGroupIds` and `segmentHostGroupIds`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional setting.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -533,7 +533,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
                 Specify either `folderId` or `logGroupId`.
 
 
-    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -544,7 +544,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
             --data "@body.json"
         ```
 
-    1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -602,12 +602,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         Where:
 
         * `backup_id`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
-        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
+        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
         * `folder_id`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder the backup is in.
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -620,18 +620,18 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `master_resources`, `segment_resources`: Master and segment host configuration in the cluster:
 
             * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-            * `disk_size`: Disk size in bytes.
+            * `disk_size`: Disk size, in bytes.
             * `disk_type_id`: [Disk type](../concepts/storage.md).
 
         * `segment_host_count`: Number of segment hosts, from `2` to `32`.
-        * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * `restore_only`: (Optional) List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `restore_only`: List of DBs and tables to restore from the backup. This is an optional setting. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this setting, the whole cluster will be restored.
 
         
-        * `master_host_group_ids` and `segment_host_group_ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional parameter.
+        * `master_host_group_ids` and `segment_host_group_ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional setting.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 

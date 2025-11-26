@@ -1,11 +1,11 @@
 ---
-title: Step-by-step guides for {{ mrd-full-name }}®
-description: This page presents a list of step-by-step guides for {{ mrd-name }}®.
+title: Step-by-step guides for {{ mrd-full-name }}
+description: This page provides a list of step-by-step guides for {{ mrd-name }}.
 ---
 
-# Step-by-step guides for {{ mrd-name }}^®^
+# Step-by-step guides for {{ mrd-name }}
 
-## Clusters
+## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
@@ -17,25 +17,25 @@ description: This page presents a list of step-by-step guides for {{ mrd-name }}
 * [Managing backups](cluster-backups.md)
 * [Deleting a cluster](cluster-delete.md)
 
-## Databases
+## Databases {#databases}
 
 * [{#T}](connect/index.md)
 * [Connecting to a non-sharded cluster](connect/non-sharded.md)
 * [Connecting to a sharded cluster](connect/sharded.md)
 
-## Users
+## Users {#users}
 
 * [Getting user info](user-list.md)
 * [Creating a user](user-create.md)
 * [Updating user settings](user-update.md)
 * [Deleting a user](user-delete.md)
 
-## Sharding and fault tolerance
+## Sharding and fault tolerance {#sharding}
 
 * [Managing shards](shards.md)
 * [{#T}](failover.md)
 
-## Logs and monitoring
+## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Monitoring the state of clusters and hosts](monitoring.md)

@@ -580,6 +580,7 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
+  roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-communities-admin: datasphere.communities.admin
   roles-datasphere-communities-developer: datasphere.communities.developer
@@ -1285,6 +1286,30 @@ default:
         12_month|string: ₸2023425.00
         3_month|string: ₸2261475.00
         6_month|string: ₸2213865.00
+      bf25_i201_h:
+        1_day|string: ₸74490.00
+        1_month|string: ₸74490.00
+        12_month|string: ₸74490.00
+        3_month|string: ₸74490.00
+        6_month|string: ₸74490.00
+      bf25_i202_s:
+        1_day|string: ₸78000.00
+        1_month|string: ₸78000.00
+        12_month|string: ₸78000.00
+        3_month|string: ₸78000.00
+        6_month|string: ₸78000.00
+      bf25_i204_s:
+        1_day|string: ₸79875.00
+        1_month|string: ₸79875.00
+        12_month|string: ₸79875.00
+        3_month|string: ₸79875.00
+        6_month|string: ₸79875.00
+      bf25_i205_s:
+        1_day|string: ₸92720.00
+        1_month|string: ₸92720.00
+        12_month|string: ₸92720.00
+        3_month|string: ₸92720.00
+        6_month|string: ₸92720.00
       ha_i302_s_10g:
         1_day|string: ₸459000.00
         1_month|string: ₸445230.00
@@ -3537,6 +3562,30 @@ default:
         12_month|string: ₽404685.00
         3_month|string: ₽452295.00
         6_month|string: ₽442773.00
+      bf25_i201_h:
+        1_day|string: ₽14898.00
+        1_month|string: ₽14898.00
+        12_month|string: ₽14898.00
+        3_month|string: ₽14898.00
+        6_month|string: ₽14898.00
+      bf25_i202_s:
+        1_day|string: ₽15600.00
+        1_month|string: ₽15600.00
+        12_month|string: ₽15600.00
+        3_month|string: ₽15600.00
+        6_month|string: ₽15600.00
+      bf25_i204_s:
+        1_day|string: ₽15975.00
+        1_month|string: ₽15975.00
+        12_month|string: ₽15975.00
+        3_month|string: ₽15975.00
+        6_month|string: ₽15975.00
+      bf25_i205_s:
+        1_day|string: ₽18544.00
+        1_month|string: ₽18544.00
+        12_month|string: ₽18544.00
+        3_month|string: ₽18544.00
+        6_month|string: ₽18544.00
       ha_i302_s_10g:
         1_day|string: ₽91800.00
         1_month|string: ₽89046.00
@@ -5784,6 +5833,30 @@ default:
         12_month|string: $3372.373651
         3_month|string: $3769.123492
         6_month|string: $3689.773524
+      bf25_i201_h:
+        1_day|string: $124.149950
+        1_month|string: $124.149950
+        12_month|string: $124.149950
+        3_month|string: $124.149950
+        6_month|string: $124.149950
+      bf25_i202_s:
+        1_day|string: $129.999948
+        1_month|string: $129.999948
+        12_month|string: $129.999948
+        3_month|string: $129.999948
+        6_month|string: $129.999948
+      bf25_i204_s:
+        1_day|string: $133.124947
+        1_month|string: $133.124947
+        12_month|string: $133.124947
+        3_month|string: $133.124947
+        6_month|string: $133.124947
+      bf25_i205_s:
+        1_day|string: $154.533272
+        1_month|string: $154.533272
+        12_month|string: $154.533272
+        3_month|string: $154.533272
+        6_month|string: $154.533272
       ha_i302_s_10g:
         1_day|string: $764.999694
         1_month|string: $742.049703
@@ -6123,7 +6196,6 @@ default:
       v1|string: $0.000083
     text_generation_alt:
       v1|number: 0.001667
-      v1|string: $0.001667
     text_generation:
       v1|number: 0.001667
       v1|string: $0.001667
@@ -8357,7 +8429,6 @@ default:
           upload-config: Upload a configuration file
         approved:
           tab:
-            explore: Metrics
             info: General information
             recording-rules: Recording rules
         common:
@@ -8859,7 +8930,7 @@ default:
             table_controls_rJ32E: Top controls with warnings
         settings:
           SettingsPageLayout:
-            alertSinkLabel_gvxBa: Alert Sink
+            alertSinkLabel_gvxBa: Alert Sinks
             connectorsLabel_2NoP9: Connectors
             workspacesLabel_kZyU1: Workspaces
         workspaces:
@@ -8903,8 +8974,8 @@ default:
           WorkspaceParticipantsForm:
             action_add-user: Add participants
             WorkspaceAclTable:
-              action_assign-roles: Assign roles
-              action_remove-user: Remove user
+              action_assign-roles: Edit roles
+              action_remove-user: Revoke all roles
           WorkspaceResourcesForm:
             actionDelete: Delete
             actionEditConnector: Edit connector
@@ -9364,7 +9435,7 @@ default:
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
         label_images: Boot images
-        label_kvm-console: KVM console
+        label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
         label_lockbox-key: Key
         label_lockbox-name: Name
@@ -9378,7 +9449,7 @@ default:
         label_public-ip-no: No address
         label_public-ip-via-dhcp: Assign via DHCP
         label_public-subnets: Public addresses and subnets
-        label_subnetworks: Private subnets
+        label_subnetworks_uU4LH: Private subnets
         label_vrf-interconnect-direct-type: Connection ID
         label_vrf-interconnect-select-type: Setup method
         servers:
@@ -9395,7 +9466,6 @@ default:
         title_section-accesses: Accesses
         title_section-backup: Backup
         title_section-disk: Disk
-        title_section-disk_9Txqx: Disk
         title_section-lease-conditions: Lease conditions
         title_section-lease-conditions_sQGNJ: Lease conditions
         title_section-location: Location
@@ -10083,8 +10153,6 @@ default:
           stop-dialog:
             button_stop: Stop
           switch_console: Serial console
-          switch_disks: Disks
-          switch_file-storages: File storages
           switch_service-console: Serial port
         instances_jsoza: Virtual machines
         instances:
@@ -10858,7 +10926,6 @@ default:
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
             field_maintenance-daily: Time (UTC) and duration
-            field_maintenance-window: Maintenance frequency / Disable
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -10888,6 +10955,8 @@ default:
           popup-confirm_button_delete: Delete
         custom-resources:
           label_tab-resources: Resources
+        MaintenanceSection:
+          maintenance-window-field-with-none-option_tx5Wn: Maintenance frequency / Disable
         namespaces:
           button_create: Create
           popup-add_field_name: Name
@@ -12118,6 +12187,7 @@ default:
           context_phonemes-title: Phonemes
           context_word-stress-title: Stress
           context_word-title: Emphasize word
+        label_playground: SpeechKit Playground
         speech-synthesis:
           field_audio: Audio format
           field_language: Language
@@ -12130,9 +12200,25 @@ default:
         speech-to-text-v2:
           label_button_copy-text: Copy text
           label_button_start-recognition: Start recognition
+          recognition-params-section_title_1EDuy: Recognition parameters
         speech-to-text:
           field_language: Language
+          field_literature-text: Literature text
+          field_profanity-filter: Profanity filter
+          field_text-normalization: Text normalization
           label_language-auto: Automatic
+        SpeechToTextFormV2:
+          ClassificationField:
+            classification-label_6C7VV: Classifiers
+          InstructionField:
+            label_htJqL: Instructions
+            type-select-label_cLWcs: Result format
+          SpeakerLabelingForm:
+            field_speaker-grouping_2eSt9: Grouping speaker phrases
+            field_speaker-splitting_dqi2d: Speaker recognition
+          SummarizationField:
+            add-instruction-button_kdko4: Add instructions
+            summarization-label_rm8oc: Result processing
       spqr:
         console_password: Password from Sharded PostgreSQL console
         field_coordinator: Coordinator
@@ -12194,9 +12280,6 @@ default:
             value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
           menu_version-history: Version history
-          object-lock:
-            title-mode-compliance: Compliance
-            title-mode-governance: Governance
           policy:
             button_add-resource: Add resource
             button_add-value: Add value
@@ -12215,15 +12298,15 @@ default:
           popup-create-folder_button_create: Create
           popup-create-folder_field_name: Folder name
           settings:
-            access_value_private: Restricted
-            access_value_public: Public
+            access_value_private: With authorization
+            access_value_public: For all
             button_save: Save
             class_value_cold: Cold
             class_value_ice: Ice
             class_value_standard: Standard
-            field_access-config-read: Read access to settings
-            field_access-list: Object listing access
-            field_access-read: Object read access
+            field_access-config-read: Read settings
+            field_access-list: Read object list
+            field_access-read: Read objects
             field_class: Storage class
             field_name: ' Name'
             field_size-limit: Max size
@@ -12278,6 +12361,8 @@ default:
           action_file-restore: Restore
           button_generate: Get link
           label_lifetime: Lifetime
+          value_object-lock-mode-compliance: Compliance
+          value_object-lock-mode-governance: Governance
         form:
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Default locks for new versions
@@ -12460,8 +12545,6 @@ default:
           playground:
             text-generation:
               title: Text generation
-          section_title:
-            playground: AI Playground
         instruction: Instructions
         label_seed: Seed
         label_temperature-text: Temperature
