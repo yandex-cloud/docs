@@ -10,7 +10,7 @@ description: На странице представлены вопросы и о
 Перезагрузите BMC: 
 
 1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ baremetal-name }}** и нужный сервер.
-1. В меню слева выберите пункт **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+1. В меню слева выберите пункт **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
 1. В окне консоли нажмите **Reset BMC**.
 
 Если перезагрузка BMC не помогла, обратитесь в [техническую поддержку]({{ link-console-support }}).

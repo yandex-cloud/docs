@@ -43,6 +43,8 @@ items:
                 href: operations/connect/sharded.md
       - name: Databases
         items:
+          - name: SQL queries in {{ websql-full-name }}
+            href: operations/websql.md
           - name: Managing databases
             href: operations/databases.md
           - name: DB user management

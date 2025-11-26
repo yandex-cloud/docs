@@ -6,7 +6,7 @@ To start sending emails:
 1. [Create a VM for Postfix](#vm-postfix).
 1. [Install and configure Postfix](#install-postfix).
 1. [Send an email](#send-email).
-1. [Send a MIME email with an attachment](#send-email).
+1. [Send a MIME email with an attachment](#send-mime).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -69,7 +69,7 @@ The infrastructure support costs include:
           * The cloud network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-              * In the window that opens, specify the network name and select the folder to host the network.
+              * In the window that opens, specify the network name and select the folder where it will be created.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address from the {{ yandex-cloud }} pool to the VM. Alternatively, select a static address from the list if you reserved one.
@@ -231,7 +231,7 @@ The infrastructure support costs include:
 
 1. Check if a fallback relay is set and disable it if so:
 
-    1. Open the `terraform.tfvars` file and find the following line:
+    1. Open the `/etc/postfix/master.cf` file and find the following line:
 
         ```text
         -o smtp_fallback_relay=

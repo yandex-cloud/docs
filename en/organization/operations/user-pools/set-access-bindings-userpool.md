@@ -35,7 +35,7 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
    1. Get the [ID of the user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
    1. Using the `yc organization-manager idp userpool set-access-bindings` command, assign the following roles:
       
-      * To a Yandex account user:
+      * To a Yandex account user or local user:
 
          ```bash
          yc organization-manager idp userpool set-access-bindings \

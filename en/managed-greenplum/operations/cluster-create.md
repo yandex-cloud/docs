@@ -1,7 +1,7 @@
 # Creating a {{ GP }} cluster
 
 
-A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
+A {{ mgp-name }} cluster consists of master hosts that get client queries and segment hosts that process and store data.
 
 For more information, see [{#T}](../concepts/index.md).
 
@@ -9,7 +9,7 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mgp.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mgp.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see this [{{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -25,11 +25,11 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
     1. Optionally, enter a description for the cluster.
     1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
     1. Select the {{ GP }} version.
 
     
-    1. Optionally, to place master hosts or segment hosts on dedicated hosts, select [dedicated host](../../compute/concepts/dedicated-host.md) groups. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -38,11 +38,11 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
-        * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
+        * [Cloud network](../../vpc/concepts/network.md#network) to host the cluster.
 
-        * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able connect to the cluster.
+        * [Security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able connect to the cluster.
 
-        * [Availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) for the cluster. To create a new subnet, click **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** in the list of subnets.
+        * [Availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) to host the cluster. To create a new subnet, click **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** in the list of subnets.
 
            {% include [zone-cannot-be-changed](../../_includes/mdb/mgp/zone-cannot-be-changed.md) %}
 
@@ -68,7 +68,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
             {% include [reserved-usernames-note](../../_includes/mdb/mgp/reserved-usernames-note.md) %}
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
+        * The **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
     1. Specify additional cluster settings, if required:
 
@@ -105,37 +105,37 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    1. Optionally, configure the operating mode and [connection pooler](../concepts/pooling.md) parameters under **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
+    1. Optionally, configure the operating mode and [connection pooler](../concepts/pooling.md) settings under **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
 
         {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, edit the parameters of [routine maintenance operations](../concepts/maintenance.md#regular-ops):
+    1. Optionally, under **{{ ui-key.yacloud.greenplum.section_background-activities }}**, edit the settings for [routine maintenance operations](../concepts/maintenance.md#regular-ops):
 
         {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
 
-    1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#master).
+    1. Specify the master host properties on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#master).
 
-        * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster master hosts will be deployed.
+        * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines the technical properties of the VMs on which the cluster's master hosts will be deployed.
 
-        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the [disk type](../concepts/storage.md) and specify its size. Available disk types [depend](../concepts/storage.md) on the selected host class.
+        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the [disk type](../concepts/storage.md) and specify its size. The available disk types [depend](../concepts/storage.md) on the selected host class.
 
           {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
-    1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#segment).
+    1. Specify the properties of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#segment).
 
         * Number of segment hosts.
-        * [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
-        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the [disk type](../concepts/storage.md) and specify its size. Available disk types [depend](../concepts/storage.md) on the selected host class.
+        * [Host class](../concepts/instance-types.md): Defines the technical properties of the VMs on which the cluster's segment hosts will be deployed.
+        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the [disk type](../concepts/storage.md) and specify its size. The available disk types [depend](../concepts/storage.md) on the selected host class.
 
            {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
            * Select the storage size.
 
-    1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
+    1. If required, configure the [cluster-level DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -157,13 +157,13 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-    1. View the description of the CLI command to create a cluster:
+    1. View the description of the CLI command for creating a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster create --help
         ```
 
-    1. Specify cluster parameters in that command (our example does not use all available parameters):
+    1. In this command, specify the cluster properties (our example does not use all available parameters):
 
         
         ```bash
@@ -181,7 +181,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                           `disk-type=<network-ssd-nonreplicated|local-ssd> \
            --zone-id=<availability_zone> \
            --subnet-id=<subnet_ID> \
-           --assign-public-ip=<allow_public_access_to_cluster_hosts> \
+           --assign-public-ip=<enable_public_access_to_cluster_hosts> \
            --security-group-ids=<list_of_security_group_IDs> \
            --deletion-protection
         ```
@@ -197,7 +197,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
         * `--environment`: Environment:
             * `PRODUCTION`: For stable versions of your apps.
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
@@ -211,7 +211,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                 * `network-hdd` (for master hosts only)
                 * `network-ssd` (for master hosts only)
                 * `local-ssd`
-                * `network-ssd-nonreplicated`.
+                * `network-ssd-nonreplicated`
 
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You need to specify the ID if the selected availability zone has two or more subnets.
@@ -315,7 +315,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
   To create a {{ mgp-name }} cluster:
 
-  1. In the command line, navigate to the directory that contains the {{ TF }} configuration files with the infrastructure plan. If there is no such a directory, create one.
+  1. In the command line, navigate to the directory that contains the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
 
   
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -324,9 +324,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
       The cluster is hosted on a cloud network. If you already have a suitable network, you do not need to describe it again.
 
-      Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
+      Cluster hosts are located on the selected cloud network's subnets. If you already have suitable subnets, you do not need to describe them again.
 
-      Below is an example structure of a configuration file describing a single-subnet cloud network:
+      Below is a sample structure of a configuration file describing a single-subnet cloud network:
 
       ```hcl
       resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
@@ -351,7 +351,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
         zone                = "<availability_zone>"
         subnet_id           = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-        assign_public_ip    = <allow_public_access_to_cluster_hosts>
+        assign_public_ip    = <enable_public_access_to_cluster_hosts>
         deletion_protection = <protect_cluster_from_deletion>
         version             = "<Greenplum_version>"
         master_host_count   = <number_of_master_hosts>
@@ -397,7 +397,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
-      * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+      * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
 
           {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
@@ -471,7 +471,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -552,7 +552,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         Where:
 
-        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:
@@ -574,12 +574,12 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `masterConfig.resources`, `segmentConfig.resources`: Master and segment host configuration in the cluster:
 
             * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-            * `diskSize`: Disk size in bytes.
+            * `diskSize`: Disk size, in bytes.
             * `diskTypeId`: [Disk type](../concepts/storage.md).
 
         * `masterHostCount`: Number of master hosts, `1` or `2`.
         * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
-        * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
@@ -601,7 +601,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             * `size`: Maximum number of client connections.
             * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -629,7 +629,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                 Specify either `folderId` or `logGroupId`.
 
 
-    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -640,7 +640,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             --data "@body.json"
         ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -749,12 +749,12 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `master_config.resources`, `segment_config.resources`: Master and segment host configuration in the cluster:
 
             * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-            * `disk_size`: Disk size in bytes.
+            * `disk_size`: Disk size, in bytes.
             * `disk_type_id`: [Disk type](../concepts/storage.md).
 
         * `master_host_count`: Number of master hosts, `1` or `2`.
         * `segment_host_count`: Number of segment hosts, from `2` to `32`.
-        * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
@@ -776,7 +776,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             * `size`: Maximum number of client connections.
             * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -825,7 +825,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster using the settings of another one created earlier. To do so, import the {{ GP }} source cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when a {{ GP }} source cluster has a lot of settings and you need to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one created earlier. To do so, import the {{ GP }} source cluster's configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when a source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ GP }} cluster copy:
 
@@ -844,7 +844,7 @@ To create a {{ GP }} cluster copy:
         resource "yandex_mdb_greenplum_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ GP }} cluster to the environment variable:
+    1. Write the ID of the source {{ GP }} cluster to the environment variable:
 
         ```bash
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
@@ -852,7 +852,7 @@ To create a {{ GP }} cluster copy:
 
         You can request the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ GP }} cluster into the {{ TF }} configuration:
+    1. Import the settings of the source {{ GP }} cluster into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_greenplum_cluster.old ${GREENPLUM_CLUSTER_ID}
@@ -872,21 +872,21 @@ To create a {{ GP }} cluster copy:
         * Delete the `created_at`, `health`, `id`, `status`, `master_hosts`, and `segment_hosts` parameters.
         * Add the `user_password` parameter.
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * Optionally, make further changes if you need to customize the configuration.
+        * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with the provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Check that the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration files:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -908,20 +908,20 @@ To create a {{ GP }} cluster copy:
 
     
     * Name: `gp-cluster`
-    * Version: `{{ versions.cli.latest }}`.
-    * Environment: `PRODUCTION`.
+    * Version: `{{ versions.cli.latest }}`
+    * Environment: `PRODUCTION`
     * Network: `default`
-    * User: `user1`.
-    * Password: `user1user1`.
+    * User: `user1`
+    * Password: `user1user1`
     * Master and segment hosts:
 
-        * Class: `s2.medium`.
-        * With 100 GB local SSD (`local-ssd`) storage
+        * Class: `s2.medium`
+        * With 100 GB of local SSD (`local-ssd`) storage
 
-    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`.
-    * With public access to hosts.
-    * Security group: `{{ security-group }}`.
-    * Deletion protection: Enabled.
+    * Availability zone: `{{ region-id }}-a`, subnet: `{{ subnet-id }}`
+    * With public access to hosts
+    * Security group: `{{ security-group }}`
+    * Deletion protection: Enabled
 
 
     Run this command:

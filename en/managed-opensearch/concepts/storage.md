@@ -28,7 +28,7 @@ The number of hosts with the `DATA` role you can create together with an {{ OS }
 
    * Network HDDs (`network-hdd`)
    * Network SSDs (`network-ssd`)
-   * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+   * Ultra high-speed network SSDs with triple replication (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
@@ -41,7 +41,7 @@ When the storage is 95% full, cluster hosts automatically enter read-only mode. 
 
 ### Monitoring the transition to read-only mode {#read-only-monitor}
 
-To monitor the cluster storage utilization percentage, set up alerts in {{ monitoring-full-name }}:
+To monitor the cluster storage usage, set up alerts in {{ monitoring-full-name }}:
 
 1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).

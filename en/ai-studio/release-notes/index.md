@@ -5,6 +5,10 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 07/11/2025 {#071125}
+
+Added support for [{{ search-api-full-name }}](../../search-api/) in {{ ml-sdk-full-name}}.
+
 ## Release as of 02/10/2025
 
 The {{ llama }} 8B and {{ llama }} 70B models are no longer supported in the common instance.

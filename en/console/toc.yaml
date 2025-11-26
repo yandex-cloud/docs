@@ -9,6 +9,8 @@ items:
         href: quickstart/cloud-shell.md
   - name: Step-by-step guides
     items:
+      - name: Navigating to a service and creating {{ yandex-cloud }} resources
+        href: operations/select-service.md
       - name: Updating management console settings
         href: operations/update.md
       - name: Managing {{ cloud-shell-name }}

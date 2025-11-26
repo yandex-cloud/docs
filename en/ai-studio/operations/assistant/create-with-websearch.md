@@ -12,12 +12,6 @@ noIndex: true
 
 The WebSearch [tool](../../concepts/assistant/tools/web-search.md) enables AI assistants to retrieve information from internet sources.
 
-{% note info %}
-
-Using WebSearch is billed as a [generative response](../../../search-api/pricing.md) in {{ search-api-full-name }}.
-
-{% endnote %}
-
 ## Getting started {#before-begin}
 
 To use the examples:

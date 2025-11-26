@@ -74,11 +74,11 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -107,11 +107,11 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -150,7 +150,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

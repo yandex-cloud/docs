@@ -6,6 +6,7 @@ description: With {{ mpg-name }}, you cannot access predefined roles. Instead, t
 # Assigning roles {{ PG }}
 
 With {{ mpg-name }}, you cannot access [predefined roles](https://www.postgresql.org/docs/current/predefined-roles.html). Instead, this service provides the following special roles:
+* `mdb_superuser`: For users who are not database owners but need to manage privileges as owners.
 * `mdb_admin`: For users who are not database owners but need administrative privileges.
 * `mdb_monitor`: For users who need to be able to read various configuration parameters, statistics, and other system information.
 * `mdb_replication`: For users who need to be able to perform logical replication.
@@ -16,10 +17,14 @@ To assign a role to a user, use the [{{ yandex-cloud }} interfaces](../operation
 
 {% note info %}
 
-You cannot create custom roles in {{ mpg-name }}. User permissions depend on a set of privileges the user is granted.
+You cannot create custom roles in {{ mpg-name }}. A user’s permissions are determined by the combination of granted privileges.
 
 {% endnote %}
 
+
+## mdb_superuser {#mdb_superuser}
+
+The `mdb_superuser` role enables you to manage privileges for objects in a database.
 
 ## mdb_admin {#mdb-admin}
 

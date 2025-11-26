@@ -1,8 +1,8 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 Follow this tutorial to connect to a {{ mpg-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-name }}.
 
-1. [Set up your infrastructure](#infra).
+1. [Set up the infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Create a {{ mpg-name }} cluster](#create-cluster).
 1. [Connect to the {{ mpg-name }} data](#mch-connect).

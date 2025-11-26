@@ -194,7 +194,7 @@ To view metrics your agent transfers to {{ managed-prometheus-name }}:
   1. In the list of services, select **{{ monitoring-short-name }}**.
   1. Navigate to **{{ prometheus-name }}**.
   1. Select the workspace to which your VM metrics are written.
-  1. Open the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.explore }}** tab and enter a **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** to view:
+  1. Open the **Metrics** tab and enter a **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** to view:
      
      * Linux system metrics: `{job="linux_metrics", instance="<VM_name>", __name__="<metric_name>"}`.
 

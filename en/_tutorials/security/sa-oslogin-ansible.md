@@ -5,7 +5,7 @@ To manage [virtual machines](../../compute/concepts/vm.md) via [Ansible](https:/
 In addition, with this configuration you can temporarily elevate the privileges of this account by assigning additional [roles](../../iam/concepts/access-control/roles.md) to the service account. For example, to use the `become` directive in Ansible tasks, you will have to temporarily assign the `compute.osAdminLogin` [role](../../compute/security/index.md#compute-osadminlogin) to the service account.
 
 To configure a service account for VM management via Ansible:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account with an SSH key in the {{ oslogin }} profile](#create-ssh-key).
 1. [Configure Ansible to run on behalf of a service account](#configure-ansible).
 
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-### Prepare the environment {#prepare}
+### Set up your environment {#prepare}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -33,25 +33,19 @@ The cost of supporting the infrastructure created in the guide includes:
 
 ## Create a service account with an SSH key in the {{ oslogin }} profile {#create-ssh-key}
 
-1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) it the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin).
-
-    {% note info %}
-
-    A default [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) will be created automatically for the service account when you create one. By default, username (login) in the {{ oslogin }} profile is formed for the service account by adding the `yc-sa-` prefix to the service account name: `yc-sa-<service_account_name>`.
-
-    {% endnote %}
-
+1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin) to it.
+1. [Create](../../organization/operations/os-login-profile-create.md) an [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) with the `my-ansible-sa-profile` login for `my-ansible-sa`.
 1. Create an SSH key pair of the `ed25519` type the service account will use to connect to virtual machines:
 
     ```bash
     ssh-keygen \
       -t ed25519 \
-      -f <path>/id_yc-sa-my-ansible-sa
+      -f <path>/my-ansible-sa-profile
     ```
     
-    Where `-f` is the name of the SSH key being created and the path to the directory where the files with the private and public parts of the key will be saved. For example, `-f /home/user/ansible-key/id_yc-sa-my-ansible-sa`.
+    Where `-f` is the name of the SSH key being created and the path to the directory where the files with the private and public parts of the key will be saved, e.g., `-f /home/user/ansible-key/my-ansible-sa-profile`.
 
-    As a result, two SSH key files will be created in the specified directory: `id_yc-sa-my-ansible-sa` and `id_yc-sa-my-ansible-sa.pub`.
+    As a result, two SSH key files will be created in the specified directory: `my-ansible-sa-profile` and `my-ansible-sa-profile.pub`.
 
 1. Add the new SSH key to the {{ oslogin }} profile of the `my-ansible-sa` service account:
 
@@ -72,7 +66,7 @@ The cost of supporting the infrastructure created in the guide includes:
       * `--name`: Uploaded key name, e.g., `ssh-my-ansible-sa`.
       * `--organization-id`: ID of the [organization](../../organization/operations/organization-get-id.md) the `my-ansible-sa` service account belongs to.
       * `--subject-id`: [ID](../../iam/operations/sa/get-id.md) of the service account to whose profile you are adding the SSH key.
-      * `--data`: Contents of the file with the public part of the SSH key (`id_yc-sa-my-ansible-sa.pub`).
+      * `--data`: Contents of the file with the public part of the SSH key (`my-ansible-sa-profile.pub`).
       * `--expires-at`: Uploaded key expiration date. This is an optional parameter. If the parameter is not set, the key will have no expiration date.
 
           You can specify the value in two formats:
@@ -105,12 +99,12 @@ The cost of supporting the infrastructure created in the guide includes:
 1. Check if you can log in to the VM using the service account's {{ oslogin }} profile:
 
     ```bash
-    ssh yc-sa-my-ansible-sa@<VM_IP_address> -i <path_to_private_SSH_key>
+    ssh my-ansible-sa-profile@<VM_IP_address> -i <path_to_private_SSH_key>
     ```
  
     Where:
     * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the VM with enabled {{ oslogin }} access.
-    * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
+    * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/my-ansible-sa-profile`.
 
 ## Configure Ansible to run on behalf of a service account {#configure-ansible}
 
@@ -121,14 +115,14 @@ Make sure Ansible can connect to the virtual machine on behalf of the new servic
     ```ini
     [yc:vars]
     ansible_connection=ssh
-    ansible_user=yc-sa-my-ansible-sa
+    ansible_user=my-ansible-sa-profile
     ansible_ssh_private_key_file=<path_to_private_SSH_key>
 
     [yc]
     <VM_IP_address>
     ```
     Where:
-    * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
+    * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/my-ansible-sa-profile`.
     * `<VM_IP_address>`: Public IP address of the VM with enabled {{ oslogin }} access.
 
 1. Run Ansible with the `ansible.builtin.ping` module:

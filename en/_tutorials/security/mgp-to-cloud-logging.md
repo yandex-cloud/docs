@@ -72,7 +72,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs to work, e.g., `--log-greenplum-enabled`.
 
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
@@ -152,13 +152,13 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           * `folder_id`: Specify the ID of the folder whose log group you want to use.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will display any configuration errors detected in your files.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 
@@ -320,7 +320,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs to work, e.g., `--log-greenplum-enabled`.
 
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
@@ -400,13 +400,13 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           * `log_group_id`: ID of the log group to write logs to.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will display any configuration errors detected in your files.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 

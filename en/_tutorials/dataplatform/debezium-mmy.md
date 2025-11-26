@@ -7,12 +7,10 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee: using computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -23,7 +21,7 @@ The support cost includes:
     * Database: `db1`
     * User: `user1`
 
-1. [Create an {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) _target cluster_ in any suitable configuration with publicly available hosts.
+1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) _target cluster_ in any suitable configuration with publicly available hosts.
 
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
 
@@ -43,7 +41,7 @@ The support cost includes:
             sudo apt install kafkacat openjdk-17-jre mysql-client --yes
         ```
 
-        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     1. Create a folder for {{ KF }}:
 
@@ -181,7 +179,7 @@ The support cost includes:
     * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required for](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-interval-ms) Debezium.
     * `database.history.kafka.topic`: Name of the service topic the connector uses to send notifications about changes to the data schema in the source cluster.
 
-## Prepare the target cluster{#prepare-target}
+## Prepare the target cluster {#prepare-target}
 
 1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) to store data from the source cluster:
 

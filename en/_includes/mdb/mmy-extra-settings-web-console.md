@@ -16,7 +16,7 @@
 - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: Enables [SQL queries](../../managed-mysql/operations/web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
 
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**: Enables YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
+- **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**: Enables YQL queries against cluster databases from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is currently at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the [Performance diagnostics](../../managed-mysql/operations/performance-diagnostics.md) tool in the cluster.

@@ -5,11 +5,12 @@
 
 In {{ yandex-cloud }}, identification, authentication, and access control is performed by [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/) and [{{ org-full-name }}](../../../organization/).
 
-The platform works with three categories of accounts:
+{{ yandex-cloud }} supports four types of accounts:
 
 * [Yandex accounts](../../../iam/concepts/users/accounts.md#passport): Accounts in Yandex ID, including {{ yandex-360 }}.
-* [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
-* [Service accounts](../../../iam/concepts/#sa): Accounts that programs can use to manage resources.
+* [Federated accounts](../../../iam/concepts/users/accounts.md#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
+* [Local accounts](../../../iam/concepts/users/accounts.md#local): Accounts whose data is stored only in {{ yandex-cloud }}.
+* [Service accounts](../../../iam/concepts/users/accounts.md#sa): Accounts used by applications to manage resources.
 
 Yandex ID and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to the passwords of these account users and only authenticates service accounts using {{ iam-short-name }}. For Yandex ID and {{ yandex-360 }} accounts, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
@@ -1907,7 +1908,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
   The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
 
-  1. In the [management console]({{ link-console-main }}), select your folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Check it for labels.
 
@@ -1948,7 +1949,7 @@ To get notifications of security-related events, such as vulnerability detection
 
 {% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
 
-For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
+Learn more in [{#T}](../../../iam/concepts/users/service-accounts.md#sa-key).
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -2027,7 +2028,7 @@ To ensure data and cloud infrastructure security, you need to regularly audit th
 
 [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md), granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
 
-For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
+Learn more in [{#T}](../../../security-deck/concepts/ciem.md).
 
 | Requirement ID | Severity |
 | --- | --- |

@@ -10,11 +10,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Each transfer: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Start data transfer {#start-transfer}
@@ -26,11 +24,11 @@ The support cost includes:
 
     - Manually {#manual}
 
-        1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable configuration. In this case, the following applies:
+        1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
 
             * The {{ MY }} version must be the same or higher than in the source cluster.
 
-                Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+                Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see this [{{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
                 You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
 
@@ -43,21 +41,21 @@ The support cost includes:
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`
 
-                Specify the parameters for connecting to the source cluster.
+                Configure the source cluster connection settings.
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
-                Select a target cluster from the list and specify its connection settings.
+                Select your target cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-        1. [Activate](../../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. Create a _{{ dt-type-copy-repl }}_-type [transfer](../../../data-transfer/operations/transfer.md#create) and configure it to use the previously created endpoints.
+        1. [Activate](../../../data-transfer/operations/transfer.md#activate) the transfer.
 
             {% note warning %}
 
-            Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. To learn more, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. Learn more in [{#T}](../../../data-transfer/operations/db-actions.md).
 
             {% endnote %}
 
@@ -76,21 +74,21 @@ The support cost includes:
 
             * [Network](../../../vpc/concepts/network.md#network).
             * [Subnet](../../../vpc/concepts/network.md#subnet).
-            * [Security group](../../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+            * [Security group](../../../vpc/concepts/security-groups.md) and the rule permitting access to the cluster.
             * {{ mmy-name }} target cluster.
             * Source endpoint.
             * Target endpoint.
             * Transfer.
 
-        1. Specify the following in the `data-transfer-mysql-mmy.tf` file:
+        1. Specify the following in `data-transfer-mysql-mmy.tf`:
 
             * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
-            * Target cluster parameters also used as [target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+            * [Target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the cluster configuration:
 
                 * `target_mysql_version`: {{ MY }} version. Must be the same or higher than in the source cluster.
                 * `target_sql_mode`: [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode). It must be the same as in the source cluster.
                 * `target_db_name`: Database name.
-                * `target_user` and `target_password`: Name and user password of the database owner.
+                * `target_user` and `target_password`: Database owner username and password.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -98,7 +96,7 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -106,7 +104,7 @@ The support cost includes:
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will activate automatically upon creation.
 
     {% endlist %}
 
@@ -129,7 +127,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     * [Delete the {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md).
     * [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
-    * [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    * [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
 
 - {{ TF }} {#tf}
 

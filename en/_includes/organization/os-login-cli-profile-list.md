@@ -19,4 +19,8 @@ Result:
 
 Save the `LOGIN` field value for the required user or service account: you will need it later.
 
+{% note info %}
+
 {% include [os-login-profile-tab-access-notice](./os-login-profile-tab-access-notice.md) %}
+
+{% endnote %}

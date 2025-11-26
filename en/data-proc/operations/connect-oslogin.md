@@ -19,12 +19,12 @@ Before connecting:
 
 1. [Enable access via {{ oslogin }}](../../organization/operations/os-login-access.md) at the organization level.
 1. [Configure security groups](security-groups.md).
-1. Assign one of the following roles to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use for connection:
+1. Assign one of the following roles to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use for the connection:
     
     * `compute.osLogin`
     * `compute.osAdminLogin`
   
-    When connecting using the {{ yandex-cloud }} CLI, you additionally need the `compute.operator` role.
+    If connecting using the {{ yandex-cloud }} CLI, you will additionally need the `compute.operator` role.
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -86,13 +86,20 @@ Before connecting:
 1. Connect to the host:
 
     ```bash
-    ssh -i <certificate_file_path> <user_login>@<host_IP_address>
+    ssh -i <path_to_certificate_file> <user_login>@<host_IP_address>
     ```
 
     Where:
 
     * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<user_login>`: User login as set in their [{{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) profile. This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+    * `<user_login>`: Login set for the user in the [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+
+        {% note info %}
+
+        {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+        {% endnote %}
+
     * `<host_IP_address>`: Host IP address you got earlier.
 
     When connecting to the host for the first time, you will get an unknown host warning:
@@ -133,3 +140,9 @@ Before connecting:
     ```bash
     yc compute ssh --id <VM_ID>
     ```
+
+    {% note info %}
+
+    {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+    {% endnote %}

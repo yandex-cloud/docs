@@ -167,7 +167,7 @@ If users do not have the `login` attribute, add it:
 
 {% endlist %}
 
-If you have configured role mapping in Grafana Cloud, add the user group attribute. Proceed as follows:
+If you have configured role mapping in Grafana Cloud, add the user group attribute. To do this:
 
 {% list tabs group=instructions %}
 
@@ -229,7 +229,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. To do this:
 
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.
@@ -237,3 +237,4 @@ To make sure both your SAML app and Grafana Cloud integration work correctly, au
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
 1. Make sure you are logged in to Grafana Cloud.
 1. If you have configured role mapping, go to the user profile in Grafana Cloud and make sure the appropriate role is displayed under **Organization**.  
+

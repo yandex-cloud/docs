@@ -1,6 +1,3 @@
-The cost depends on the [rent period](../../baremetal/concepts/servers.md#server-lease). 
-
-The funds are debited **monthly**, irrespective of the rent period.
 Server type        | Price per month<br/>for one-day rent,<br/>without VAT | Price per month<br/>for one-month rent,<br/>without VAT | Price per month<br/>for three-month rent,<br/>without VAT | Price per month<br/>for six-month rent,<br/>without VAT | Price per month<br/>for 12-month rent,<br/>without VAT
 ------------------ | ----------- | ----------- | ----------- | ----------- | ---
 **BA-i208-S-10G-P1**  | {{ sku|USD|baremetal.server.ba-i208-s-10g-p1.1_day|string }} | {{ sku|USD|baremetal.server.ba-i208-s-10g-p1.1_month|string }} | {{ sku|USD|baremetal.server.ba-i208-s-10g-p1.3_month|string }} | {{ sku|USD|baremetal.server.ba-i208-s-10g-p1.6_month|string }} | {{ sku|USD|baremetal.server.ba-i208-s-10g-p1.12_month|string }}

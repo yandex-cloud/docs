@@ -6,14 +6,12 @@
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* {{ mmy-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../../managed-mysql/pricing.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for public IP addresses if public access is enabled for VMs or cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, size of storage and backups (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -42,7 +40,7 @@ You can create other resources manually or using {{ TF }}.
         * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner)
         * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer)
         * [storage.viewer](../../../storage/security/index.md#storage-viewer)
-        * [storage.uploader](../../../storage/security/index.md#storage-uploader).
+        * [storage.uploader](../../../storage/security/index.md#storage-uploader)
 
     1. [Grant this service account](../../../storage/operations/buckets/edit-acl.md) read and write permissions for this bucket.
 
@@ -97,7 +95,7 @@ You can create other resources manually or using {{ TF }}.
     terraform validate
     ```
 
-    {{ TF }} will display any configuration errors detected in your files.
+    {{ TF }} will show any errors found in your configuration files.
 
 1. Create the required infrastructure:
 
@@ -222,7 +220,7 @@ Let's assume that:
 
 ## Deleting the created resources {#clear-out}
 
-Some resources are not free of charge. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 
@@ -232,8 +230,8 @@ Some resources are not free of charge. To avoid unnecessary expenses, delete the
     1. If you reserved a public static IP address for the virtual machine, release and [delete it](../../../vpc/operations/address-delete.md).
     1. Delete the clusters:
 
-        * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
-        * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
+        * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md)
+        * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md)
 
     1. If you created an {{ objstorage-full-name }} bucket, [delete it](../../../storage/operations/buckets/delete.md).
     1. [Delete the subnet](../../../vpc/operations/subnet-delete.md).

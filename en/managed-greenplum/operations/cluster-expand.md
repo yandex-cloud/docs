@@ -2,7 +2,7 @@
 
 You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md).
 
-When a cluster is being expanded, its data is automatically redistributed evenly across all hosts in the cluster (including added hosts). To learn more, see [{#T}](../concepts/expand.md).
+When a cluster is being expanded, its data is automatically redistributed evenly across all hosts in the cluster (including added hosts). For more information, see [{#T}](../concepts/expand.md).
 
 ## Expanding a cluster {#add-hosts}
 
@@ -13,7 +13,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Select a cluster and open the ![hosts-edit](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
-    1. Specify cluster expansion settings:
+    1. Specify the cluster expansion settings:
 
         * **{{ ui-key.yacloud.greenplum.field_expand-segment-host-count }}**: Number of segment hosts to expand the cluster by.
 
@@ -33,7 +33,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
         * **{{ ui-key.yacloud.greenplum.field_expand-delay-redistribution }}**: [Using background data redistribution](../concepts/expand.md#setting-delay-redistribution).
 
-            * If background mode is disabled, the redistribution process will be run once as soon as the cluster expansion preparation is over.
+            * If background mode is disabled, the redistribution process will start once as soon as preparation for the cluster expansion is over.
 
                 {% include [updating-long](../../_includes/mdb/mgp/expand/updating-long.md) %}
 
@@ -47,7 +47,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
                 {% include [updating-short](../../_includes/mdb/mgp/expand/updating-short.md) %}
 
-        * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: [Timeout (in seconds), after which the data redistribution process will be interrupted](../concepts/expand.md#setting-duration).
+        * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: [Timeout (in seconds) after which the data redistribution process will be interrupted](../concepts/expand.md#setting-duration).
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -65,7 +65,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
     To expand a cluster:
 
-    1. View the description of the CLI cluster expand command:
+    1. View the description of the CLI command for expanding a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster expand --help
@@ -103,7 +103,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-delay-redistribution](../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
 
-        * `--duration-seconds`: [Timeout (in seconds), after which the data redistribution process will be interrupted](../concepts/expand.md#setting-duration).
+        * `--duration-seconds`: [Timeout (in seconds) after which the data redistribution process will be interrupted](../concepts/expand.md#setting-duration).
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -115,11 +115,11 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Expand](../api-ref/Cluster/expand.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Expand](../api-ref/Cluster/expand.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -151,7 +151,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * `duration`: [Timeout](../concepts/expand.md#setting-duration) (in seconds), after which the data redistribution process will be interrupted.
+        * `duration`: [Timeout](../concepts/expand.md#setting-duration) (in seconds) after which the data redistribution process will be interrupted.
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -167,11 +167,11 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-delay-redistribution](../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
 
-    1. View the [server response](../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -213,7 +213,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * `duration`: [Timeout](../concepts/expand.md#setting-duration) (in seconds), after which the data redistribution process will be interrupted.
+        * `duration`: [Timeout](../concepts/expand.md#setting-duration) (in seconds) after which the data redistribution process will be interrupted.
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -229,7 +229,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-delay-redistribution](../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
 
-    1. View the [server response](../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -239,40 +239,40 @@ There are several ways to monitor the [data redistribution process](../concepts/
 
 * If the cluster is [closed from load](../concepts/expand.md#setting-close-cluster) and [background data redistribution](../concepts/expand.md#setting-delay-redistribution) is disabled, you can only track progress using {{ yandex-cloud }} monitoring tools.
 
-    [Follow](monitoring.md#monitoring-cluster) the **Expansion progress** chart on the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab of the cluster management page or look up the `gp_expand.*` [metrics](../metrics.md#managed-greenplum-expand-metrics) using [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+    [Follow](monitoring.md#monitoring-cluster) the **Expansion progress** chart on the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab of the cluster management page or request the `gp_expand.*` [metrics](../metrics.md#managed-greenplum-expand-metrics) using [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
-* If the cluster is not closed from load, you can also run SQL queries to the `gpexpand` data schema objects.
+* If the cluster is not closed from load, you can also run SQL queries to the `gpexpand` data schema's objects.
 
     {% include [gpexpand-schema-availability](../../_includes/mdb/mgp/expand/gpexpand-schema-availability.md) %}
 
     To track the progress of the data redistribution process using SQL queries:
 
     1. [Connect](connect.md) to the `postgres` database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
-    1. Run a query to get the current status of the process:
+    1. Run a query to get the current process status:
 
         {% include [sql-redistribution-status](../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
 
-    The query result will contain [various information]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) about the progress of the data redistribution process. The `status` column will indicate the current processing status of specific tables:
+    The query result will contain [various details]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) on the data redistribution status. The `status` column will indicate the current processing status for specific tables:
 
-    * `NOT STARTED`: Table data redistribution is scheduled, the table is in the redistribution queue.
+    * `NOT STARTED`: Table data redistribution is scheduled, and the table is in the redistribution queue.
 
-        If the cluster is not [closed from load](../concepts/expand.md#setting-close-cluster), [you can influence the table priority](#table-priority) to change its position in the queue if needed.
+        If the cluster is not [closed from load](../concepts/expand.md#setting-close-cluster), [you can modify the table priority](#table-priority) to change its position in the queue if needed.
 
     * `IN PROGRESS`: Table data redistribution is in progress.
     * `COMPLETED`: Table data redistribution is completed.
-    * `NO LONGER EXISTS`: Table no longer exists.
+    * `NO LONGER EXISTS`: The table no longer exists.
 
 ## Additional actions {#additional-actions}
 
-### Changing table redistribution priority {#table-priority}
+### Changing the table redistribution priority {#table-priority}
 
-During the [cluster expansion preparation](../concepts/expand.md#preparation) phase, each table is assigned a rank that affects its redistribution queue priority. The higher its rank, the higher the table's queue priority and, therefore, the faster its data redistribution will be completed.
+During [preparation for cluster expansion](../concepts/expand.md#preparation), each table is assigned a rank that affects its redistribution queue priority. The higher its rank, the higher the table's queue priority and, therefore, the faster its data redistribution will be completed.
 
 If you need to, you can change the rank for one or more tables provided the cluster is [not closed from load](../concepts/expand.md#setting-close-cluster). To do this, you must modify the table in the `gpexpand` data schema.
 
 {% include [gpexpand-schema-availability](../../_includes/mdb/mgp/expand/gpexpand-schema-availability.md) %}
 
-To change the rank of redistributed tables:
+To edit the ranks of redistributed tables:
 
 1. [Connect](connect.md) to the `postgres` database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
 
@@ -290,11 +290,11 @@ To change the rank of redistributed tables:
     WHERE fq_name IN (<list_of_full_table_names>);
     ```
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    For more information, see this [{{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Running data redistribution manually {#start-redistribute}
 
-If [background data redistribution](../concepts/expand.md#setting-delay-redistribution) was not used during cluster expansion and the [data redistribution process timeout](../concepts/expand.md#setting-duration) setting was not long enough, the process may end before data redistribution is over for all tables.
+If [background data redistribution](../concepts/expand.md#setting-delay-redistribution) was not used during cluster expansion and the set [timeout for the data redistribution process](../concepts/expand.md#setting-duration) was not long enough, the process may end before data redistribution is over for all tables.
 
 This will leave some of the data distributed unevenly. As a result, the `Unknown error: Partially Distributed Data` error will occur in [cluster logs](cluster-logs.md). To fix the error, run data redistribution manually:
 
@@ -322,11 +322,11 @@ This will leave some of the data distributed unevenly. As a result, the `Unknown
     * `relname`: Table name.
     * `numsegment`: Number of segments storing the data.
 
-    For more information, see the {{ GP }} documentation on the [gp_distribution_policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html) table.
+    For more information, see the {{ GP }} guide on the [gp_distribution_policy table]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
 
 1. Run data redistribution using the information you got earlier.
 
-    To redistribute data of an individual table, run the following request:
+    To redistribute the data of an individual table, run the following request:
 
     * For an ordinary table:
 

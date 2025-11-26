@@ -6,7 +6,10 @@ In a policy, you define:
 
 * _States_ the index can be in. You can name states according to your preference. Each policy must have at least one state.
 * _Actions_ to perform when the index enters a particular state. Actions are performed in the order they are listed.
-* Conditions for the index to switch to a different state (_transitions_). Transitions are checked in the order they are listed.
+
+    In {{ mos-name }}, in addition to [standard {{ OS }} actions]({{ os.docs }}/im-plugin/ism/policies/#ism-supported-operations), you can also [modify the index codec](indexing.md#codec-change).
+
+* _Transitions_ are conditions for the index to switch to a different state. Transitions are checked in the order they are listed.
 
 For example, you can set up a policy that will make the index `read_only` in 30 days and delete it in 90 days. You can also configure a policy that notifies you when the index is deleted.
 

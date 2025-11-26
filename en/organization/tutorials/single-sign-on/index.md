@@ -11,3 +11,4 @@ description: Setting up integration between {{ org-full-name }} and third-party 
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [Zabbix](./saml-zabbix.md)
 * [{{ mos-name }}](./saml-opensearch.md)
+* [SonarQube](./saml-sonarqube.md)

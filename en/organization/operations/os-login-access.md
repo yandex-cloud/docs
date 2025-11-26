@@ -23,7 +23,7 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
@@ -43,6 +43,8 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
           Allows users themselves to upload public SSH keys to their {{ oslogin }} profiles for connection to VMs or {{ k8s }} cluster nodes.
 
           You can add a new SSH key to your profile in the management console when creating a VM or by following the guide titled [Adding an SSH key](./add-ssh.md).
+
+          {% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
 
 - CLI {#cli}
 
@@ -98,6 +100,12 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
           To disable this option, provide the `false` value in the `--allow-manage-own-keys=false` parameter.
 
+          {% note info %}
+
+          {% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
+          {% endnote %}
+
       Result:
 
       ```text
@@ -112,7 +120,7 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_os_login_settings" "my_os_login_settings" {
@@ -139,18 +147,24 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
           * `allow_manage_own_keys`: Allow users to upload their own SSH keys. This option allows users themselves to upload public SSH keys to their {{ oslogin }} profiles for connection to VMs and {{ k8s }} cluster nodes. To upload your own SSH keys, follow [this guide](./add-ssh.md). It may take either the `true` (option enabled) or `false` (option disabled) values.
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
+          {% note info %}
+
+          {% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
+
+          {% endnote %}
+
+      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -184,7 +198,11 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
 {% endlist %}
 
+{% note info %}
+
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+{% endnote %}
 
 #### See also {#see-also}
 

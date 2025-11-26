@@ -53,9 +53,9 @@ To assign a role for a resource:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```
      resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
@@ -74,14 +74,14 @@ To assign a role for a resource:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -113,7 +113,7 @@ To grant a service account permissions to access an organization, you need the `
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
@@ -215,9 +215,9 @@ To grant a service account permissions to access an organization, you need the `
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -238,7 +238,7 @@ To grant a service account permissions to access an organization, you need the `
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
  
         ```

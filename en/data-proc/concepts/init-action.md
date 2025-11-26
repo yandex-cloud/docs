@@ -10,14 +10,26 @@ You can specify the script URI as `https://`, `http://`, `hdfs://`, or `s3a://`.
 * The cluster's service account must have the `storage.viewer` [role](../../iam/operations/sa/assign-role-for-sa.md).
 * The access to the bucket must be [public](../../storage/operations/buckets/bucket-availability.md).
 
+{% note warning %}
+
+Initialization scripts run every time a node is created. If they depend on external resources, such as public repositories, this may have the following consequences:
+* Slower cluster creation or scaling.
+* Failure creating a cluster or adding a node should the external service be temporarily unavailable.
+* Disruption of automatic node recovery.
+
+{{ dataproc-name }} images contain links to public repositories that are not part of {{ dataproc-name }}. Their unavailability may disrupt cluster operation. Therefore, we recommend minimizing the number of operations in your initialization scripts.
+
+{% endnote %}
+
+
 ## Environment variables {#env-variables}
 
 You can use these environment variables in your initialization scripts:
 
 * `CLUSTER_ID`: Cluster ID.
 * `S3_BUCKET`: Name of the linked {{ objstorage-full-name }} bucket.
-* `ROLE`: Host role (`masternode`, `computenode`, or `datanode`).
-* `CLUSTER_SERVICES`: [List of components](../concepts/environment).
+* `ROLE`: Host role, `masternode`, `computenode` or `datanode`.
+* `CLUSTER_SERVICES`: [List of components](../concepts/environment.md).
 * `MAX_WORKER_COUNT`: Maximum number of hosts in data storage and processing subclusters.
 * `MIN_WORKER_COUNT`: Minimum number of hosts in data storage and processing subclusters.
 

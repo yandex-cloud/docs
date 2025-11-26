@@ -166,8 +166,8 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
      * **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**: Indefinitely prohibits deleting or overwriting the object version, while you still can upload new versions of the object. A user with the `storage.uploader` role can set and remove legal hold. There is no way to bypass this type of lock. When combined with retention, legal hold takes priority.
      * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**: Prohibits deleting or overwriting the object version for a specified period of time, while you still can upload new versions of the object. A user with the `storage.uploader` role can set a retention period. When combined with legal hold, retention takes no priority.
   1. If you selected **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
   1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment you upload the object version to the bucket.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}** and refresh the page.
 
