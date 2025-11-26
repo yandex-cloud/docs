@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
           {% endnote %}
       1. В поле **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** оставьте `1`.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` и образ с операционной системой `Ubuntu 24.04 LTS`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-disk_9Txqx }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**, чтобы задать конфигурацию разделов дисковых устройств, имеющихся на сервере.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**, чтобы задать конфигурацию разделов дисковых устройств, имеющихся на сервере.
 
           В открывшемся окне оставьте параметры разметки дисков по умолчанию или измените их, затем нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}

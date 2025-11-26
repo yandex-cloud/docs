@@ -149,7 +149,7 @@ The cost of an empty request to any type of speech recognition is equal to that 
 
 
 
-## Examples of cost calculation {#price-example}
+## Cost calculation examples {#price-example}
 
 
 ### Speech synthesis using API v1 {#price-example-tts-v1}

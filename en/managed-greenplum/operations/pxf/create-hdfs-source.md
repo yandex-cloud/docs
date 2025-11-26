@@ -8,7 +8,7 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex MPP Analytics for PostgreSQL**.
     1. Open the page of the {{ mgp-name }} cluster you need.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
@@ -19,11 +19,11 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -49,19 +49,19 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
         * `name`: External data source name.
         * `hdfs`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#hdfs-settings).
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -91,9 +91,9 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
         * `name`: External data source name.
         * `hdfs`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#hdfs-settings).
 
-        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

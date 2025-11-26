@@ -7,7 +7,9 @@ description: Из статьи вы узнаете, как создать под
 
 {% note info %}
 
-Создать подключение может только пользователь с [ролью](../../security/roles.md#service-roles) `{{ roles-datalens-instances-admin }}` или `{{ roles-datalens-admin }}`. Чтобы другие пользователи могли просматривать подключение и выполнять запросы к нему, администратор подключения может настроить [права доступа к объекту](../../security/manage-access.md).
+Создать подключение может только пользователь с [ролью](../../security/roles.md#service-roles) `{{ roles-datalens-instances-admin }}` или `{{ roles-datalens-admin }}` в [организации](../../concepts/organizations.md). Роли [администратора воркбука](../../security/roles.md#datalens-workbooks-admin) `{{ roles-datalens-workbooks-editor }}` недостаточно для создания подключения.
+
+Чтобы другие пользователи могли просматривать подключение и выполнять запросы к нему, администратор подключения может настроить [права доступа к объекту](../../security/manage-access.md).
 
 {% endnote %}
 

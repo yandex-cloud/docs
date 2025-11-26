@@ -10,7 +10,7 @@ description: This section contains {{ mmy-name }} release notes.
 * A new major version is out: {{ MY }} [8.4.6](https://docs.percona.com/percona-server/8.4/release-notes/8.4.6-6.html). Upgrade is not yet available, it will be supported later.
 * New {{ MY }} minor versions are out: [5.7.44-53](https://docs.percona.com/percona-server/5.7/release-notes/5.7.44-53.html) and [8.0.41](https://docs.percona.com/percona-server/8.0/release-notes/8.0.41-32.html).
 * Now you can configure incremental [auto increase of the cluster storage size](concepts/storage.md#disk-size-autoscaling). Users can set the disk storage usage threshold and the maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum.
-* Added a new [administrative privilege](./concepts/settings-list#setting-administrative-privileges): `mdb_admin`.
+* Added a new [administrative privilege](./concepts/settings-list.md#setting-administrative-privileges): `mdb_admin`.
 
 
 ## July 2025 {#jul-2025}

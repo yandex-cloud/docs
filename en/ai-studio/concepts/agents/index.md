@@ -25,9 +25,9 @@ Such architecture enables the creation of text and voice agents that behave more
 ### Tools {#tools}
 
 Agents can automatically invoke tools to get additional info for generation or perform the necessary actions. {{ ai-studio-name }} comes with these bundled tools:
-* _{{ retrieval-tool-name }} Tool_ implements the RAG scenario and allows the AI agent to search through your files (knowledge base) for the information for its response. You can upload your knowledge base documents in the management console, via the {{ vector-store-name }} API, or via the [Files API](../assistant/files.md) and create a search index. [Search indexes](../assistant/search-index.md) store information from your documents in vector form and allow agents to use it to respond.
-* _WebSearch Tool_ allows the agent to search for information on the internet via the Yandex search base to enrich its responses with up-to-date query-related information.
-* _MCP Connector_ is responsible for connections to MCP servers to work with third-party APIs.
+* _{{ retrieval-tool-name }} Tool_ implements the RAG scenario and allows the AI agent to search through your files (knowledge base) for the information for its response. You can upload your knowledge base documents in the management console, via the {{ vector-store-name }} API, or via the [Files API](../assistant/files.md) and create a search index. [Search indexes](../search/vectorstore.md) store information from your documents in vector form and allow agents to use it to respond.
+* _Web Search Tool_ allows the agent to search for information on the internet via the Yandex search base to enrich its responses with up-to-date relevant information. Learn more about using the [Web Search Tool](./tools/websearch.md).
+* _MCP Tool_ is responsible for connections to MCP servers to engage third-party APIs.
   In the {{ mcp-hub-name }} section, you can create and set up connections to new and existing MCP servers and monitor their status.
  
 ### Agent creation API {#api}

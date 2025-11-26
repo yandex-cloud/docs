@@ -72,7 +72,7 @@
      {% include [security-groups-alert](security-groups-alert.md) %}
 
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, configure the maintenance window:
+   * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, configure the maintenance window:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.

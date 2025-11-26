@@ -18,7 +18,7 @@ After creating a cluster, you can:
 * [Change service account settings](#change-service-account).
 * [Change logging settings](#change-logging).
 
-## Changing cluster name and description {#change-name-and-description}
+## Changing the cluster name and description {#change-name-and-description}
 
 {% list tabs group=instructions %}
 
@@ -67,11 +67,11 @@ After creating a cluster, you can:
 
     To update the cluster description:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of {{ mgp-name }} cluster configuration fields you can update, see [this {{ TF }} provider article]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, change the `description` attribute value:
 
@@ -99,7 +99,7 @@ After creating a cluster, you can:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -120,7 +120,7 @@ After creating a cluster, you can:
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -157,7 +157,7 @@ After creating a cluster, you can:
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -202,7 +202,7 @@ After creating a cluster, you can:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -215,22 +215,22 @@ After creating a cluster, you can:
             --data '{
                       "updateMask": "config.assignPublicIp",
                       "config": {
-                        "assignPublicIp": <allow_public_access_to_cluster_hosts>
+                        "assignPublicIp": <enable_public_access_to_cluster_hosts>
                       }
                     }'
         ```
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -257,7 +257,7 @@ After creating a cluster, you can:
                     "paths": [ "config.assign_public_ip" ]
                   },
                   "config": {
-                    "assign_public_ip": <allow_public_access_to_cluster_hosts> 
+                    "assign_public_ip": <enable_public_access_to_cluster_hosts> 
                   }
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -266,15 +266,15 @@ After creating a cluster, you can:
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -391,7 +391,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of {{ mgp-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, change the values of the required additional settings:
 
@@ -470,7 +470,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `pool_size`: Maximum number of client connections.
             * `pool_client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -482,7 +482,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -531,13 +531,13 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `config`: Cluster settings:
 
             * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
-                In this parameter, specify the backup start time:
+                Here, specify the backup start time:
 
                 * `hours`: Between `0` and `23` hours.
                 * `minutes`: Between `0` and `59` minutes.
@@ -552,7 +552,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two parameters:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. Provide one of the two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -570,7 +570,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `size`: Maximum number of client connections.
             * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in your cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -578,7 +578,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -591,7 +591,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -659,13 +659,13 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
         * `config`: Cluster settings:
 
             * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
-                In this parameter, specify the backup start time:
+                Here, specify the backup start time:
 
                 * `hours`: Between `0` and `23` hours.
                 * `minutes`: Between `0` and `59` minutes.
@@ -680,7 +680,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two parameters:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including those for disabled clusters. Provide one of the two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
@@ -698,7 +698,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `size`: Maximum number of client connections.
             * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -723,7 +723,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -749,7 +749,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -778,7 +778,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `configSpec.backgroundActivities.analyzeAndVacuum`: Background process management settings:
 
@@ -789,7 +789,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -837,7 +837,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
         * `config_spec.background_activities.analyze_and_vacuum`: Background process management settings:
 
@@ -848,7 +848,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -913,7 +913,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
          --set <parameter1_name>=<value1>,<parameter2_name>=<value2>,...
       ```
 
-      {{ mgp-short-name }} runs the update cluster settings operation.
+      {{ mgp-short-name }} will start updating the cluster settings.
 
 - {{ TF }} {#tf}
 
@@ -921,7 +921,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of {{ mgp-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mgp }}).
 
     1. In the cluster description, edit the [{{ GP }} settings](../concepts/settings-list.md) under `greenplum_config`:
 
@@ -952,7 +952,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -977,17 +977,17 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
             In this case, list all the {{ GP }} settings to update.
 
-        * `configSpec.greenplumConfig_<{{ GP }}>`_version: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
+        * `configSpec.greenplumConfig_<{{ GP }}_version>`: {{ GP }} settings. Specify each setting on a separate line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1033,23 +1033,23 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             In this case, list all the {{ GP }} settings to update.
 
-        * `config_spec.greenplum_config_<{{ GP }}>`_version: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
+        * `config_spec.greenplum_config_<{{ GP }}_version>`: {{ GP }} settings. Specify each setting on a separate line, separated by commas.
 
-            See the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+            See the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for this parameter. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Changing the host class {#change-resource-preset}
 
-You can change the host class for both master hosts and segment hosts. When changing the host class:
+You can change the host class for both master and segment hosts. When changing the host class:
 
 * The cluster's primary master host will change.
 * Using a [special FQDN](./connect.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
@@ -1064,7 +1064,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Navigate to the folder dashboard and select **Yandex MPP Analytics for PostgreSQL**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for {{ GP }} master hosts or segment hosts.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the relevant class for {{ GP }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -1106,7 +1106,7 @@ We recommend changing the host class only when your cluster has no active worklo
      ```
 
 
-  1. Specify the required classes in the cluster update command:
+  1. Specify the relevant classes in the cluster update command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
@@ -1122,9 +1122,9 @@ We recommend changing the host class only when your cluster has no active worklo
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-      For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+      For a complete list of configuration fields you can edit for a {{ mgp-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-  1. In the {{ mgp-name }} cluster description, change the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
+  1. In the {{ mgp-name }} cluster description, edit the value of the `resource_preset_id` attribute under `master_subcluster.resources` or `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1160,7 +1160,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1187,13 +1187,13 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: List of settings to update as a single string, separated by commas.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1239,17 +1239,17 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings to update as an array of `paths[]` strings.
 
         * `master_config.resources.resource_preset_id` and `segment_config.resources.resource_preset_id`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Change the disk type and increase the storage size {#change-disk-size}
+## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -1284,7 +1284,7 @@ We recommend changing the host class only when your cluster has no active worklo
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-  1. Specify the required storage size for the master hosts or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
+  1. Specify the required storage size for master or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -1298,9 +1298,9 @@ We recommend changing the host class only when your cluster has no active worklo
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of configuration fields you can edit for a {{ mgp-name }} cluster, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, change the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ mgp-name }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1338,7 +1338,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1367,16 +1367,16 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: List of settings to update as a single string, separated by commas.
 
-        * `masterConfig.resources`, `segmentConfig.resources`: Storage parameters for master hosts and segment hosts:
+        * `masterConfig.resources`, `segmentConfig.resources`: Storage properties for master hosts and segment hosts:
 
             * `diskTypeId`: [Disk type](../concepts/storage.md).
-            * `diskSize`: New storage size in bytes.
+            * `diskSize`: New storage size, in bytes.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1426,16 +1426,16 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings to update as an array of `paths[]` strings.
 
-        * `master_config.resources`, `segment_config.resources`: Storage parameters for master hosts and segment hosts:
+        * `master_config.resources`, `segment_config.resources`: Storage properties for master hosts and segment hosts:
 
             * `disk_type_id`: [Disk type](../concepts/storage.md).
-            * `disk_size`: New storage size in bytes.
+            * `disk_size`: New storage size, in bytes.
 
-        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1480,7 +1480,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of {{ mgp-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, change the `service_account_id` attribute value:
 
@@ -1507,7 +1507,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1525,15 +1525,15 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `serviceAccountId`: Service account ID.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1567,15 +1567,15 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
-            Only one parameter is provided in this case.
+            Here, we provide only one setting.
 
         * `service_account_id`: Service account ID.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1646,9 +1646,9 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+        For a complete list of {{ mgp-name }} cluster configuration fields you can update, see this [{{ TF }} provider article]({{ tf-provider-mgp }}).
 
-    1. In the {{ mpg-name }} cluster description, update the attribute values in the `logging` section:
+    1. In the {{ mgp-name }} cluster description, update the attribute values in the `logging` section:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1674,7 +1674,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
             Specify either `folder_id` or `log_group_id`.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1690,7 +1690,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1714,7 +1714,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `updateMask`: Comma-separated list of settings you want to update.
 
         * `logging`: Logging settings:
 
@@ -1727,9 +1727,9 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
                 Specify either `folderId` or `logGroupId`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1774,7 +1774,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
         * `logging`: Logging settings:
 
@@ -1787,9 +1787,9 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
                 Specify either `folder_id` or `log_group_id`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

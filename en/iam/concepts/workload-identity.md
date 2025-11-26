@@ -10,7 +10,7 @@ A workload identity federation is a {{ iam-full-name }} tool enabling you to con
 Popular use cases:
 
 * {{ k8s }} pod request to the {{ yandex-cloud }} API to get the {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) contents.
-* Request to the {{ yandex-cloud }} API from a [CI/CD](https://en.wikipedia.org/wiki/CI/CD) system, such as {{ GL }}, to deploy cloud services using [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* Request to the {{ yandex-cloud }} API from a [CI/CD](https://en.wikipedia.org/wiki/CI/CD) system, such as {{ GL }} or [{{ src-name }}]({{ link-src-docs }}/), to deploy cloud services using [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 Such a process does not involve creation of long-lived keys, thus improving both user convenience and security.
 
@@ -34,7 +34,7 @@ You can create multiple workload identity federations in a single folder.
 
 A workload identity federation consists of [_federated credentials_](#federated-credentials), each containing details about the link between a specific [service account](./users/service-accounts.md) and a specific _external subject_.
 
-An external subject is a subject authorized by a third-party OIDC provider and belonging to a service external to {{ yandex-cloud }} and therefore requiring a {{ yandex-cloud }} IAM token. For example, this could be a [{{ k8s }} service account](../../managed-kubernetes/concepts/index.md#service-accounts) or a [{{ GL }}](../../managed-gitlab/index.yaml) job.
+An external subject is a subject authorized by a third-party OIDC provider and belonging to a service external to {{ yandex-cloud }} and therefore requiring a {{ yandex-cloud }} IAM token. For example, this could be a [{{ k8s }} service account](../../managed-kubernetes/concepts/index.md#service-accounts), [{{ GL }}](../../managed-gitlab/index.yaml) job, or [cube]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cubes) in {{ src-name }}.
 
 Steps to obtain an IAM token using a service account linked to a federation:
 

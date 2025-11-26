@@ -4,9 +4,9 @@ To use the {{ foundation-models-full-name }} API, you need to get authenticated:
 
 {% list tabs group=authentication %}
 
-- Yandex or federated account {#yandex-account}
+- Yandex account, federated account, or local account {#yandex-account}
 
-  1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
+  1. Get an IAM token for a [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), or [local account](../../iam/operations/iam-token/create-for-local.md).
   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the minimum required role to work with the model:
      * `{{ roles-yagpt-user }}` or higher: For text generation models.
      * `{{ roles-yaart-user }}` or higher: For {{ yandexart-name }}.

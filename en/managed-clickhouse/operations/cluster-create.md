@@ -79,7 +79,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-        Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. When adding a new shard, the settings ​​are taken from the oldest shard.
+        Automatic storage size increase settings configured for a {{ CH }} subcluster apply to all existing shards within the subcluster. When adding a new shard, the settings ​are taken from the oldest one.
 
       
       * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
@@ -504,7 +504,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           {% endnote %}
 
 
-       1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add a section named `access` with the settings you need:
+       1. To enable access from other services and allow [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add a section named `access` configured as needed:
 
           
           ```hcl
@@ -573,11 +573,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         1. Create a file named `body.json` and paste the following code into it:
 
@@ -735,7 +735,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                       
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
-                * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+                * `access`: Settings enabling cluster access from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                     {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
@@ -809,7 +809,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -974,7 +974,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                       
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
-                * `access`: Settings enabling cluster access from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+                * `access`: Settings enabling cluster access from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                     {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
@@ -1103,9 +1103,9 @@ To create a {{ CH }} cluster copy:
 
     1. Copy it from the terminal and paste it into the `.tf` file.
     1. Place the file in the new `imported-cluster` directory.
-    1. Edit the configuration you copied so that you can create a new cluster from it:
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
-        * Specify the new cluster name in the `resource` string and the `name` parameter.
+        * Specify a name for the new cluster in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * In the `host` sections, delete `fqdn`.
         * Under `clickhouse.config.merge_tree`, if `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` are set to `0`, delete these parameters.
@@ -1117,7 +1117,7 @@ To create a {{ CH }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with the provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

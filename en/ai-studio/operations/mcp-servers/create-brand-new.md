@@ -20,11 +20,11 @@ To create a new MCP server:
   1. In the left-hand panel, select ![logo-mcp](../../../_assets/console-icons/logo-mcp.svg) **MCP servers** and click **Create MCP server**. In the window that opens, do the following:
 
       1. Under **Add Method**, select ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **Create**.
-      1. Under **Tools**, select the [type](../../concepts/mcp-hub/index.md#brand-new) of tool you want to add to the MCP server: `HTTPS requests`, `{{ sf-name }}`, or `{{ sw-name }}`:
+      1. Under **Tools**, select the [type](../../concepts/mcp-hub/index.md#brand-new) of tool you want to add to the MCP server: `HTTPS request`, `{{ sf-name }}`, or `{{ sw-name }}`:
 
           {% list tabs %}
 
-          - HTTPS requests
+          - HTTPS request
 
             1. In the **Tool name** field, specify a name for the tool you are creating. Follow these naming requirements:
 
@@ -44,8 +44,19 @@ To create a new MCP server:
                 ```
             1. In the **URL** field, specify the endpoint the HTTPS request will be sent to.
 
-                To specify query parameters in the URL, use the [OpenAPI](https://www.openapis.org/) syntax, e.g., `{{ link-console-main }}/folders/{folder-id}`.
-            1. In the **Method** field, select the request method: `GET`, `POST`, `DELETE`, `PATCH`, `OPTIONS`, or `HEAD`.
+                * You can use [jq templates](https://jqlang.github.io/jq/manual/) to add path parameters to the endpoint value. Here is an example:
+
+                    ```text
+                    {{ link-console-main }}/folders/\(.folder-id)
+                    ```
+
+                    In this example, the `folder-id` field must also be added to the **Tool parameters** section of the MCP server settings.
+
+                * To send query parameters of the endpoint request:
+                
+                    * Add relevantly named fields to the **Tool parameters** section of the new MCP server settings, e.g., `country`, `city`, and `name`.
+                    * Add relevant query parameters to the **Tool parameters** section of the new MCP server settings. Specify jq templates with the names of the fields mentioned above as values for the new query parameters, e.g., `\(.country)`, `\(.city)`, and `\(.name)`.
+            1. In the **Method** field, select the HTTP request method: `GET`, `POST`, `DELETE`, `PATCH`, `OPTIONS`, or `HEAD`.
             1. Expand the **Advanced** section and specify the authentication data to provide in HTTPS requests:
 
                 {% include [create-server-console-auth-params](../../../_includes/ai-studio/mcp-hub/create-server-console-auth-params.md) %}
@@ -59,9 +70,9 @@ To create a new MCP server:
 
                     {% include [empty-request-body](../../../_includes/ai-studio/mcp-hub/empty-request-body.md) %}
 
-                    These parameters support templating: their values ​​can be generated dynamically. The templating language is `jq`. For more information, see the [jq guide](https://jqlang.github.io/jq/manual/).
+                All HTTPS request parameters support templating: their values can be generated dynamically. The templating language is `jq`. For more information, see the [jq guide](https://jqlang.github.io/jq/manual/).
 
-                    For example, the `\(.city)` value of the HTTPS request parameter will be taken from the `city` tool parameter. Also, you can use `Bearer \(.token)` for the `Authorization` header to set up authorization with a token provided in the tool parameter.
+                For example, the `\(.city)` value of the HTTPS request parameter will be taken from the `city` tool parameter. In addition, you can use the syntax `Bearer \(.token)` for the `Authorization` header to set up authorization via a token provided in the tool parameter.
 
           - {{ sf-name }}
 

@@ -8,10 +8,14 @@ editable: false
 
 
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 
 {% include [vat](../_includes/vat.md) %}
 
 В сервисе {{ baremetal-name }} оплачивается срок аренды сервера [определенной конфигурации](concepts/server-configurations.md). Арендованный сервер тарифицируется в течение всего периода аренды, независимо от того, включен он или выключен.
+
+Доступное количество серверов определенной конфигурации указано в [калькуляторе](https://yandex.cloud/ru/prices) на сайте {{ yandex-cloud }} и в [консоли управления]({{ link-console-main }}) при выборе сервера.
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
@@ -21,8 +25,12 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+Стоимость может зависеть от [периода аренды](../baremetal/concepts/servers.md#server-lease).
+
+Списание средств происходит **ежемесячно**, независимо от периода аренды.
 
 Все цены указаны за 1 месяц.
+
 
 {% list tabs group=pricing %}
 
@@ -38,45 +46,64 @@ editable: false
 
 
 
+#### Конфигурации серверов по сниженным ценам {#promo}
 
-#### Цены на промо-конфигурации {#promo}
+##### Сниженные цены с 27.11.2025 до 19.12.2025 {#27-11-19-12-2025}
 
-{% note info %}
+Арендовать данные конфигурации можно до 19.12.2025 или пока они есть в наличии. Цена действительна с момента приобретения на весь срок использования. Вы можете использовать арендованные по сниженной цене серверы до тех пор, пока самостоятельно не отмените их аренду. Получить повторно сервер по сниженной цене нельзя.
 
-Цены на промо-конфигурации действуют с 00:00 19.09.2025 по 23:59 31.12.2025.
-
-{% endnote %}
-
-
-Все цены указаны за 1 месяц.
 
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
 
-  {% include [rub-servers.md](../_pricing/baremetal/rub-servers-promo.md) %}
+  {% include [rub-servers.md](../_pricing/baremetal/promo/2025-black-friday/rub-servers-promo.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include [kzt-servers.md](../_pricing/baremetal/kzt-servers-promo.md) %}
+  {% include [kzt-servers.md](../_pricing/baremetal/promo/2025-black-friday/kzt-servers-promo.md) %}
 
 {% endlist %}
 
 
 
-{% note info %}
+##### Сниженные цены с 24.09.2025 по 24.10.2025 по промокодам в рамках Yandex Scale 2025 {#scale2025}
 
-Серверы, находящиеся на [карантине](./concepts/servers.md#quarantine), не тарифицируются. При этом, если в течение срока карантина сервер будет восстановлен для дальнейшего использования, то период времени, в течение которого этот сервер находился на карантине, будет включен в оплачиваемый срок аренды.
+Цена действительна с момента приобретения до 23:59 31.12.2025.
 
-{% endnote %}
 
-### Выделенные публичные подсети {#public-subnets}
+{% list tabs group=pricing %}
 
-{% note info %}
+- Цены в рублях {#prices-rub}
 
-Цены на выделенные публичные подсети действуют с 15 мая 2025 года.
+  {% include [rub-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/rub-servers-promo.md) %}
 
-{% endnote %}
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/kzt-servers-promo.md) %}
+
+{% endlist %}
+
+
+
+##### Промокод Yandex Scale 2025 {#scale2025}
+
+Арендовать промо-конфигурации можно до 24.10.2025 или пока они есть в наличии. Промо-цена действует до 23:59 31.12.2025.
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/rub-servers-promo.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/kzt-servers-promo.md) %}
+
+{% endlist %}
+
+
 
 
 {% list tabs group=pricing %}

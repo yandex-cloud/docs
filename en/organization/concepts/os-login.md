@@ -33,13 +33,21 @@ The {{ oslogin }} agent is integrated into [a number of Linux images]({{ link-cl
 
 _{{ oslogin }} profile_ defines the parameters to apply when creating a user account within a VM.
 
-[Enabling](../operations/os-login-access.md) {{ oslogin }} access for an organization automatically creates _default {{ oslogin }} profiles_ for all user and service accounts in that organization.
-  
-The username (login) an account gets in the {{ oslogin }} profile by default depends on the account type:
-* A user account's login is derived from the user's name in the organization. Any characters except Latin letters, numbers, hyphens, and underscores, as well as a hyphen prepending the name are ignored. Uppercase Latin letters are converted to lowercase.
-* For a service account, the login will be its name prefixed by `yc-sa-`, e.g., `yc-sa-my-robot` will be the default login for `my-robot`.
+[Enabling](../operations/os-login-access.md) {{ oslogin }} access for an organization automatically creates _default {{ oslogin }} profiles_ for all user accounts in that organization.
+
+The username (login) assigned to a user account in the {{ oslogin }} profile by default is derived from the user's name in the organization. Any characters except Latin letters, numbers, hyphens, and underscores, as well as a hyphen prepending the name are ignored. Uppercase Latin letters are converted to lowercase.
+
+{% note info %}
+
+For service accounts, {{ oslogin }} profiles are not created automatically. To connect to a VM or {{ k8s }} node on behalf of a service account, you need to manually [create](../operations/os-login-profile-create.md) an {{ oslogin }} profile.
+
+{% endnote %}
 
 A single user or service account in a {{ org-name }} can have multiple {{ oslogin }} profiles: different profiles allow you to connect to VMs as different local users of those VMs. To learn more about creating additional {{ oslogin }} profiles, see [{#T}](../operations/os-login-profile-create.md).
+
+Each {{ oslogin }} profile is assigned a numeric UID, which matches the user's [UID](https://en.wikipedia.org/wiki/User_identifier) in the VM operating systems. The {{ oslogin }} profile UID must be unique within both the [organization](./organization.md) and the VM OS.
+
+{% include [user-defined-uid-range-notice](../../_includes/organization/user-defined-uid-range-notice.md) %}
 
 You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) as well as the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) and [API](../api-ref/OsLogin/index.md). {{ oslogin }} profiles of service accounts can be managed only via the {{ yandex-cloud }} CLI or API.
 
@@ -50,6 +58,8 @@ You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface
 The [organization administrator](../security/index.md#organization-manager-admin) can enable [Mode 2](#modes) to allow the use of public SSH keys for users and service accounts to connect to VMs via {{ oslogin }}. With this mode on, the administrator will have to load the public SSH keys of users and service accounts into their [{{ oslogin }} profiles](#os-login-profiles).
 
 An organization administrator can also allow users to manage their public SSH keys themselves by additionally [enabling](../operations/os-login-access.md) the **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}** option in the organization's security settings.
+
+{% include [adding-sa-ssh-keys-notice](../../_includes/organization/adding-sa-ssh-keys-notice.md) %}
 
 ### {{ oslogin }} prerequisites {#pre-conditions}
 

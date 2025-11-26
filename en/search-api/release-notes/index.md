@@ -1,5 +1,9 @@
 # {{ search-api-full-name }} release notes
 
+## November 2025 {#1125}
+
+The service is now available in [{{ ml-sdk-full-name}}](../../ai-studio/sdk/index.md).
+
 ## October 2025 {#1025}
 
 Added support for Kazakh and Uzbek languages in generative responses.

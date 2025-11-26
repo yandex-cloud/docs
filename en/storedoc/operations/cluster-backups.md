@@ -1,6 +1,6 @@
 ---
 title: Managing {{ SD }} backups
-description: You can create backups and restore clusters from existing {{ SD }} backups. The Point-in-Time Recovery (PITR) technology enables you to restore a cluster’s state to any point in time since the backup was created.
+description: You can create backups and restore clusters from existing {{ SD }} backups. Point-in-time recovery, or PITR, enables you to restore your cluster to the state it was in at any point in time after the backup was created.
 ---
 
 # Managing backups in {{ mmg-name }}
@@ -31,7 +31,7 @@ When restored to the current point in time, the new cluster will reflect the sta
 * Deleted cluster at the time of archiving the last oplog.
 
 
-Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mmg.editor }}](../../iam/roles-reference.md#managed-mongodb-editor) role or higher to your {{ yandex-cloud }} account for the backup folder and the new cluster folder.
+Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the [managed-mongodb.restorer](../../iam/roles-reference.md#managed-mongodb-restorer) role or higher for the backup folder and the new cluster folder.
 
 
 {% list tabs group=instructions %}
@@ -42,7 +42,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
 
-  1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -52,7 +52,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either enter the date manually or select it from the drop-down calendar.
 
-      If you leave this setting as is, the cluster will be restored to the state when the backup was completed.
+      If you leave this setting as is, the cluster will be restored to the state it had when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -72,11 +72,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   1. To restore the cluster state to a specific point in time after the backup was created, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can either enter the date manually or select it from the drop-down calendar.
 
-      If you leave this setting as is, the cluster will be restored to the state when the backup was completed.
+      If you leave this setting as is, the cluster will be restored to the state it had when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
-  {{ mmg-name }} will launch the operation to create a cluster from the backup.
+  {{ mmg-name }} will initiate the process of creating a new cluster from the backup.
 
 - CLI {#cli}
 
@@ -86,13 +86,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   To restore a cluster from a backup:
 
-  1. View the description of the CLI command for restoring a {{ SD }} cluster:
+  1. See the description of the CLI command for restoring a {{ SD }} cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster restore --help
       ```
 
-  1. Get a list of available {{ SD }} cluster backups:
+  1. Get the list of available {{ SD }} cluster backups:
 
      ```bash
      {{ yc-mdb-mg }} backup list
@@ -109,7 +109,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
      +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
      ```
 
-     The `CREATED AT` column in the list of available backups shows the backup completion time in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore the cluster state to any point in time starting from when the backup is created.
+     The `CREATED AT` column in the list of available backups shows the backup completion time in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore your cluster to the state it was in at any point in time after the backup was created.
 
   1. Run the command to create a new cluster from a backup. The examples below do not include all parameters.
 
@@ -180,7 +180,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -234,7 +234,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
         Where:
 
-        * `folderId`: Folder ID. You can get it from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `backupId`: Backup ID. To recover a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. To find out the ID, [get a list of folder backups](#list-backups).
         * `name`: Name of the new cluster.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
@@ -264,7 +264,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
 
-    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -275,7 +275,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
             --data "@body.json"
         ```
 
-    1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -334,7 +334,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
         Where:
 
-        * `folder_id`: Folder ID. You can get it from the [cloud’s folder list](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `backup_id`: Backup ID. To recover a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. To find out the ID, [get a list of folder backups](#list-backups).
         * `name`: Name of the new cluster.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
@@ -391,7 +391,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -410,7 +410,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
       {{ yc-mdb-mg }} cluster backup --help
       ```
 
-  1. Make a backup request specifying the cluster name or ID:
+  1. Send the following request to create a backup, specifying the cluster ID or name:
 
       ```bash
       {{ yc-mdb-mg }} cluster backup <cluster_name_or_ID>
@@ -424,7 +424,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Backup](../api-ref/Cluster/backup.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       ```bash
       curl \
@@ -461,7 +461,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
           yandex.cloud.mdb.mongodb.v1.ClusterService.Backup
       ```
 
-      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -475,12 +475,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
 - Management console {#console}
 
-  To get a list of cluster backups:
+  To get the list of cluster backups:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-  To get a list of all backups in a folder:
+  To get the list of all backups in the folder:
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
@@ -500,7 +500,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ SD }} cluster backups available in the default folder, run this command:
+  To get the list of {{ SD }} cluster backups available in the default folder, run this command:
 
   ```bash
   {{ yc-mdb-mg }} backup list
@@ -533,7 +533,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   1. To get a list of cluster backups:
 
-     1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+     1. Call the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -542,13 +542,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/backups'
         ```
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) to make sure your request was successful.
+     1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-  1. To get a list of backups for all clusters in a folder:
+  1. To get the list of backups for all clusters in the folder:
 
-     1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+     1. Call the [Backup.List](../api-ref/Backup/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -562,7 +562,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
         You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-     1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) to make sure your request was successful.
+     1. Check the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -589,11 +589,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
               yandex.cloud.mdb.mongodb.v1.ClusterService.ListBackups
           ```
 
-          You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) to make sure your request was successful.
+      1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-  1. To get a list of backups for all clusters in a folder:
+  1. To get the list of backups for all clusters in the folder:
 
       1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -615,7 +615,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
           You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-      1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) to make sure your request was successful.
+      1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) to make sure your request was successful.
 
 
 {% endlist %}
@@ -626,11 +626,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
 - Management console {#console}
 
-  To get information about an existing cluster's backup:
+  To get information about a backup of an existing cluster:
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
-  1. Click the cluster name and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-  To get information about a previously deleted cluster's backup:
+  To get information about a backup of a previously deleted cluster:
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **Yandex StoreDoc**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
@@ -646,7 +646,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
   {{ yc-mdb-mg }} backup get <backup_ID>
   ```
 
-  You can get the backup ID from the [backup list](#list-backups).
+  You can get the backup ID with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -654,7 +654,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Backup.Get](../api-ref/Backup/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -663,9 +663,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/backups/<backup_ID>'
      ```
 
-     You can request the backup ID with the [list of backups](#list-backups).
+     You can get the backup ID with the [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.mongodb.v1.Backup) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.mongodb.v1.Backup) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -690,7 +690,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
        yandex.cloud.mdb.mongodb.v1.BackupService.Get
      ```
 
-     You can request the backup ID with the [list of backups](#list-backups).
+     You can get the backup ID with the [list of backups](#list-backups).
 
   1. Check the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.mongodb.v1.Backup) to make sure your request was successful.
 
@@ -702,7 +702,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups during cluster [creation](cluster-create.md) or [modification](update.md).
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [updating the cluster](update.md).
 
 - CLI {#cli}
 
@@ -719,13 +719,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   The valid values range from `7` to `35`. The default value is `7`.
 
-  You can get the cluster name and ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable {{ SD }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mmg }}).
 
@@ -747,11 +747,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
        
        The valid values range from `7` to `35`. The default value is `7`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -759,11 +759,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method to execute the following request via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -789,7 +789,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
       * `configSpec.backupRetainPeriodDays`: Automatic backup retention period, in days.
 
-          Allowed values range from `7` to `35`. The default value is `7`.
+          The valid values range from `7` to `35`. The default value is `7`.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -803,7 +803,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   
-  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call to execute the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -831,15 +831,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
       Where:
 
-      * `update_mask`: List of settings you want to update as an array of `paths[]` strings.
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
           Here, we provide only one setting.
 
       * `config_spec.backup_retain_period_days`: Automatic backup retention period, in days.
 
-          Allowed values range from `7` to `35`. The default value is `7`.
+          The valid values range from `7` to `35`. The default value is `7`.
 
-      You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mongodb.v1.Cluster) to make sure your request was successful.
 

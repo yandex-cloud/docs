@@ -1,0 +1,1 @@
+For service accounts, [{{ oslogin }} profiles](../../organization/concepts/os-login.md#os-login-profiles) are not created automatically. To connect to a VM or {{ k8s }} node on behalf of a service account, you need to [manually create](../../organization/operations/os-login-profile-create.md) an {{ oslogin }} profile.

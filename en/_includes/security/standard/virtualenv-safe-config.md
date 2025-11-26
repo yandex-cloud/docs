@@ -145,7 +145,7 @@ When deploying virtual machines, we recommend:
 
 #### 3.4 {{ TF }} is used in accordance with best information security practices {#tf-using}
 
-With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
+With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. Learn more in [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
@@ -866,7 +866,7 @@ You can only specify a single network for functions, containers, and API gateway
 
 {% endlist %}
 
-**Guides and solutions to use:** 
+**Guides and solutions to use:**
 
 1. Select the cloud or folder to check the functions in.
 1. Select **{{ sf-name }}** in the list of services.
@@ -925,7 +925,7 @@ For more information about roles and resources you can assign roles for in {{ sf
 
 #### 3.23 Aspects of header management in {{ sf-name }} are addressed {#http-functions}
 
-If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
+If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Function calling in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
 You can run a function by specifying the `?integration=raw` string query parameter. When invoked this way, a function cannot parse or set HTTP headers:
 
@@ -1323,7 +1323,7 @@ Check the recommendations in [{#T}](../../../security/standard/kubernetes-securi
 
 #### 3.35 {{ oslogin }} is used for connection to a VM or {{ k8s }} node {#os-login-onto-hosts}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to [VMs](../../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to {{ managed-k8s-full-name }} [VMs](../../../compute/concepts/vm.md) and [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
 
 {{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level and then [activate](../../../compute/operations/vm-connect/enable-os-login.md) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
 
@@ -1425,7 +1425,7 @@ An API gateway is an interface for working with services in {{ yandex-cloud }} o
 
 #### 3.40 Access management in {{ api-gw-name }} is configured {#api-gateway-access-managment}
 
-{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. Without assigned roles, a user cannot perform most operations.
+{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. Without assigned roles, a user cannot perform most operations.
 
 [{{ iam-full-name }}](../../../iam/) checks all operations in {{ yandex-cloud }}. If an entity does not have required permissions, {{ iam-short-name }} returns an error.
 

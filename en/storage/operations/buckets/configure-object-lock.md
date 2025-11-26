@@ -112,8 +112,8 @@ To set up default object locks:
   1. To enable or disable using locks, use the **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}** option.
   1. Enable **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_default-rules-enabled_qtmC8 }}**.
   1. Select **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
   1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment you upload the object version to the bucket.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

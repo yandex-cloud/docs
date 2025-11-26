@@ -21,7 +21,7 @@ To view assigned roles:
 
 - Management console {#console}
 
-  To view the roles of a [user with a Yandex account,](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md) for a cloud:
+  To view the roles of a [Yandex account user](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), [local user](../../concepts/users/accounts.md#local), or [service account](../../concepts/users/service-accounts.md) for a cloud:
 
     {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
@@ -38,7 +38,7 @@ To view assigned roles:
 
   1. Get your account ID:
       1. [Guide](../sa/get-id.md) for service accounts.
-      1. [Guide](../../../organization/operations/users-get.md) for users with a Yandex account and federated users.
+      1. [Guide](../../../organization/operations/users-get.md) for Yandex account users, federated users, and local users.
   1. Get the resource ID or name.
   1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -49,7 +49,7 @@ To view assigned roles:
 
     1. Get your account ID:
         1. [Guide](../sa/get-id.md) for service accounts.
-        1. [Guide](../../../organization/operations/users-get.md) for users with a Yandex account and federated users.
+        1. [Guide](../../../organization/operations/users-get.md) for Yandex account users, federated users, and local users.
     1. Get the resource ID or name.
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

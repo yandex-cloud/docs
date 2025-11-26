@@ -1,8 +1,8 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 Follow this tutorial to connect to a {{ mch-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-name }}.
 
-1. [Set up your infrastructure](#infra).
+1. [Set up the infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Create a {{ mch-name }} cluster](#create-cluster).
 1. [Connect to the {{ mch-name }} data](#mch-connect).
@@ -79,7 +79,7 @@ To allow the service account to send queries using {{ yq-name }}, create an [aut
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select the `yq-sa` service account.
+  1. In the list that opens, select `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select the encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
@@ -131,7 +131,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       * Select the `yq-sa` service account.
-      * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console** options.
+      * Enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **Access from the management console**.
 
   1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.

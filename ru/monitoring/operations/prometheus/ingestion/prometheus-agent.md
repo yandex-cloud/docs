@@ -194,7 +194,7 @@ routes:
   1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ monitoring-short-name }}**.
   1. Перейдите в раздел **{{ prometheus-name }}**.
   1. Выберите воркспейс, в который записываются метрики виртуальной машины.
-  1. Откройте вкладку **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.explore }}** и введите **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** для просмотра:
+  1. Откройте вкладку **Метрики** и введите **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** для просмотра:
      
      * Системных метрик Linux — `{job="linux_metrics", instance="<имя_ВМ>", __name__="<имя_метрики>"}`.
 
