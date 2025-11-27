@@ -1,0 +1,1 @@
+If the CDN resource uses `Vary` headers (e.g., `Vary: Accept-Encoding`), you must add the `*` wildcard character to the end of the path when purging the cache to remove all possible cached versions of the files, e.g., `/image/foobar.png*`.

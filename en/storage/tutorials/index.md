@@ -77,5 +77,5 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bigquery-to-clickhouse.md)
 * [{#T}](integrate-nextcloud/index.md)
-* [{#T}](cdn-hosting.md)
+* [{#T}](cdn-hosting/index.md)
 * [{#T}](spark-objstorage-integration.md)

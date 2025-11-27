@@ -20,11 +20,7 @@ The available number of servers of a certain configuration is indicated in the [
 
 The monthly prices are based on 720 hours per month.
 
-{% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
-
 ## Prices for the Russia region {#prices}
-
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The cost depends on the [rent period](../baremetal/concepts/servers.md#server-lease). 
 
@@ -76,13 +72,15 @@ Promo configurations can be rented until October 24, 2025, or while supplies las
 
 ### Connecting a bandwidth package for a public network {#bandwidth-package}
 
+_Data size_ is a billing unit equal to the amount of traffic transmitted within a day. Per-day prices are calculated based on 24 hours.
+
+{% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
+
 {% note info %}
 
 To request a bandwidth package of 100 TB, contact [support]({{ link-console-support }}).
 
 {% endnote %}
-
-_Data size_ is a billing unit equal to the amount of traffic transmitted within a day. Per-day prices are calculated based on 24 hours.
 
 Available now:
 

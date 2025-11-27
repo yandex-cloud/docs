@@ -297,6 +297,8 @@ items:
             href: archive/integrate-nextcloud/coi-based.md
           - name: Manually deploying Nextcloud on a VM or VM group
             href: archive/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: archive/integrate-nextcloud/terraform.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -662,7 +664,13 @@ items:
           - name: >-
               Static website in {{ objstorage-name }} with access via {{
               cdn-name }}
-            href: applied/cdn-hosting.md
+            items:
+              - name: Overview
+                href: applied/cdn-hosting/index.md
+              - name: Management console, CLI, and API
+                href: applied/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: applied/cdn-hosting/terraform.md
           - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview

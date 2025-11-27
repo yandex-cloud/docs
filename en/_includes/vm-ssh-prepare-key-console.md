@@ -8,3 +8,15 @@
     {% include [where-generated-keys](./compute/create/where-generated-keys.md) %}
 
     {% include [ssh-add-to-org-profile](./compute/create/ssh-add-to-org-profile.md) %}
+
+{% cut "UNPROTECTED PRIVATE KEY FILE warning" %}
+    
+On Unix-like systems, after you unpack a private key to the `.ssh` directory, the key gets permissions that are too high. This prompts the `UNPROTECTED PRIVATE KEY FILE` warning when connecting to the VM. To reduce the permissions, run this command:
+
+```bash
+chmod 600 <path_to_private_key_file>
+```
+    
+{% endcut %}
+    
+    

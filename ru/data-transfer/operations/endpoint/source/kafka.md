@@ -32,7 +32,11 @@ description: Из статьи вы узнаете, как задать наст
     * [{{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md);
     * [{{ KF }} в {{ OS }}](../../../tutorials/mkf-to-mos.md);
     * [{{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md);
+
+    
     * [{{ KF }} в {{ DS }}](../../../tutorials/mkf-to-yds.md).
+
+
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -160,6 +164,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
@@ -189,17 +194,22 @@ description: Из статьи вы узнаете, как задать наст
 
         {% endnote %}
     
+
     * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
 
 - {{ TF }} {#tf}
 
+    
     * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/transformers.md) %}
+
 
     * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/parsers.md) %}
 
 - API {#api}
 
+    
     * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/transformers.md) %}
+
 
     * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/parsers.md) %}
 

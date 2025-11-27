@@ -72,3 +72,9 @@ To create a VM with {{ oslogin }}:
 {% endlist %}
 
 After the created VM changes its status to `Running`, you will be able to [connect](./os-login.md) to it via {{ oslogin }}.
+
+{% note info %}
+
+{% include [os-login-sa-default-profile-notice](../../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+{% endnote %}

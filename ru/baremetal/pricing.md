@@ -86,24 +86,7 @@ editable: false
 
 
 
-##### Промокод Yandex Scale 2025 {#scale2025}
-
-Арендовать промо-конфигурации можно до 24.10.2025 или пока они есть в наличии. Промо-цена действует до 23:59 31.12.2025.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/rub-servers-promo.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-servers.md](../_pricing/baremetal/promo/2025-yandex-scale/kzt-servers-promo.md) %}
-
-{% endlist %}
-
-
+### Выделенные публичные подсети {#public-subnets}
 
 
 {% list tabs group=pricing %}

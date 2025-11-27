@@ -30,6 +30,8 @@ description: Управление доступом в сервисе по соз
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе.
 
+{% include [roles-managed-spark](../_mermaid/roles/managed-spark.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### managed-spark.auditor {#managed-spark-auditor}

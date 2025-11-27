@@ -2,6 +2,8 @@
 
 If you want to suspend the instance group [update](../../concepts/instance-groups/deploy/), [automatic recovery](../../concepts/instance-groups/autohealing.md), and [scaling](../../concepts/instance-groups/policies/scale-policy.md) processes, pause them. This will not stop the VM instances.
 
+{% include [stop-in-deleting-ig](../../../_includes/compute/stop-in-deleting-ig.md) %}
+
 To pause instance group processes:
  
 {% list tabs group=instructions %}

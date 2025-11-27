@@ -27,17 +27,23 @@ Lists operations for the specified application load balancer.
 
 Required field. ID of the application load balancer to get operations for.
 
-To get the application load balancer ID, use a [LoadBalancerService.List](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/list#List) request. ||
+To get the application load balancer ID, use a [LoadBalancerService.List](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListLoadBalancerOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListLoadBalancerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListLoadBalancerOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListLoadBalancerOperationsResponse) returned by a previous list request. ||
+[ListLoadBalancerOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListLoadBalancerOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListLoadBalancerOperationsResponse {#yandex.cloud.apploadbalancer.v1.ListLoadBalancerOperationsResponse}
