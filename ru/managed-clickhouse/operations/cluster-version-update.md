@@ -85,7 +85,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) откройте страницу сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** в каталоге, где нужно обновить версию {{ CH }}.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно обновить версию {{ CH }}.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** 
     1. В списке кластеров выберите тот, который нужно изменить.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию.

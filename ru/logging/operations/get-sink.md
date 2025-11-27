@@ -11,7 +11,7 @@ sourcePath: ru/logging_includes/operations/get-sink.md
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится приемник логов.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-arrow-down.svg) **{{ ui-key.yacloud.logging.label_sinks }}**.
   1. Выберите приемник.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о приемнике.

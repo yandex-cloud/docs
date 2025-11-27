@@ -1302,13 +1302,14 @@ keywords:
 
         * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование. 
         
-            * Выберите место записи логов:
+          * Выберите место записи логов:
+            * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
                 
-              * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
-                
-              * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+            * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
             
-            * Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+          * Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+    
+    1. Измените параметры [TLS](../../glossary/tls.md). Можно изменить, добавить или удалить сертификаты.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -1337,7 +1338,8 @@ keywords:
           --log-enabled \
           --log-folder-id <идентификатор_каталога> \
           --log-group-id <идентификатор_лог-группы> \
-          --log-min-level <уровень_логирования>
+          --log-min-level <уровень_логирования> \
+          --trusted-certs-from-files <список_путей_к_файлам_с_сертификатами>
         ```
 
         Где:
@@ -1359,6 +1361,10 @@ keywords:
                 Вы можете указать только один из параметров: `--log-folder-id` или `--log-group-id`.
 
             * `--log-min-level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
+        
+        * `--trusted-certs-from-files` — список путей к файлам с доверенными сертификатами. 
+        
+          Если вы хотите удалить все сертификаты, передайте параметр `--remove-trusted-certs`.
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
@@ -1389,6 +1395,10 @@ keywords:
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
 
         {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
+
+    1. Чтобы изменить параметры [TLS](../../glossary/tls.md):
+
+       {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -1421,6 +1431,9 @@ keywords:
               "day": "<день_недели>",
               "hour": "<час_дня>"
             }
+          },
+          "tls": {
+            "trustedCertificates": [ <список_сертификатов> ]
           }
         }
         ```
@@ -1456,7 +1469,15 @@ keywords:
             
               * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
               * `hour` — час дня по UTC для типа `WEEKLY`: от `1` до `24`.
+        * `tls` — параметры [TLS](../../glossary/tls.md).
 
+           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+           * `trustedCertificates` — список сертификатов, разделенных запятой.
+
+              {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
@@ -1502,6 +1523,9 @@ keywords:
               "day": "<день_недели>",
               "hour": "<час_дня>"
             }
+          },
+          "tls": {
+            "trusted_certificates": [ <список_сертификатов> ]
           }
         }
         ```
@@ -1556,6 +1580,16 @@ keywords:
             
               * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
               * `hour` — час дня по UTC для типа `WEEKLY`: от `1` до `24`.
+        
+        * `tls` — параметры [TLS](../../glossary/tls.md).
+
+          {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
+
+          * `trusted_certificates` — список сертификатов, разделенных запятой.
+
+            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
+               
+          {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
     1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 

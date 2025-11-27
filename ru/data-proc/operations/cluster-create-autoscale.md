@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. Выдайте сервисному аккаунту кластера {{ dataproc-name }} [доступ к каталогу](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa) и роли:
-   
+
    * [resource-manager.viewer](../../resource-manager/security/index.md#resource-manager-viewer) — чтобы просматривать метаинформацию облаков и каталогов;
    * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network);
    * [dns.editor](../../dns/security/index.md#dns-editor) — чтобы работать с [DNS](../../dns/concepts/index.md).
@@ -238,7 +238,8 @@ description: Следуя данной инструкции, вы сможете
        --environment=<окружение> \
        --bucket=<имя_бакета> \
        --zone=<зона_доступности> \
-       --service-account-name=<имя_сервисного_аккаунта> \
+       --service-account-name=<имя_сервисного_аккаунта_кластера> \
+       --autoscaling-service-account-name=<имя_сервисного_аккаунта_автомасштабируемых_подкластеров> \
        --version=<версия_образа> \
        --services=<список_компонентов> \
        --ssh-public-keys-file=<путь_к_открытому_SSH-ключу> \
@@ -274,6 +275,7 @@ description: Следуя данной инструкции, вы сможете
      * `--bucket` — имя бакета в {{ objstorage-name }}, в котором будут храниться зависимости заданий и результаты их выполнения. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} должен иметь разрешение `READ и WRITE` для этого бакета.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой должны быть размещены хосты кластера {{ dataproc-name }}.
      * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}.
+     * (Опционально) `--autoscaling-service-account-name` — имя сервисного аккаунта для управления автомасштабируемыми подкластерами.
      * `--version` — [версия образа](../concepts/environment.md).
 
        {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
@@ -459,13 +461,19 @@ description: Следуя данной инструкции, вы сможете
 
 
   1. Создайте конфигурационный файл с описанием следующих ресурсов:
-      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }} и бакету {{ objstorage-name }}.
+      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }}, которому нужно разрешить доступ к бакету {{ objstorage-name }}.
+      * (Опционально) Сервисный аккаунт для управления автомасштабируемыми подкластерами.
       * Сервисный аккаунт для создания бакета {{ objstorage-name }}.
       * [Статический ключ](../../iam/concepts/authorization/access-key.md).
       * Бакет {{ objstorage-name }} для хранения результатов выполнения [заданий](../concepts/jobs.md).
 
       ```hcl
       resource "yandex_iam_service_account" "data_proc_sa" {
+        name        = "<имя_сервисного_аккаунта>"
+        description = "<описание_сервисного_аккаунта>"
+      }
+
+      resource "yandex_iam_service_account" "data_proc_sa_autoscaling" {
         name        = "<имя_сервисного_аккаунта>"
         description = "<описание_сервисного_аккаунта>"
       }
@@ -479,7 +487,7 @@ description: Следуя данной инструкции, вы сможете
       resource "yandex_resourcemanager_folder_iam_member" "dataproc-provisioner" {
         folder_id = "<идентификатор_каталога>"
         role      = "dataproc.provisioner"
-        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
+        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa_autoscaling.id}"
       }
 
       resource "yandex_iam_service_account" "bucket_sa" {
@@ -522,14 +530,16 @@ description: Следуя данной инструкции, вы сможете
 
      ```hcl
      resource "yandex_dataproc_cluster" "data_cluster" {
-       bucket              = "${yandex_storage_bucket.data_bucket.bucket}"
-       name                = "<имя_кластера>"
-       description         = "<описание_кластера>"
-       environment         = "<окружение_кластера>"
-       service_account_id  = yandex_iam_service_account.data_proc_sa.id
-       zone_id             = "<зона_доступности>"
-       security_group_ids  = [yandex_vpc_security_group.data-processing-sg.id]
-       deletion_protection = <защита_от_удаления_кластера>
+       bucket                         = "${yandex_storage_bucket.data_bucket.bucket}"
+       name                           = "<имя_кластера>"
+       description                    = "<описание_кластера>"
+       environment                    = "<окружение_кластера>"
+       service_account_id             = yandex_iam_service_account.data_proc_sa.id
+       autoscaling_service_account_id = yandex_iam_service_account.data_proc_sa_autoscaling.id
+       zone_id                        = "<зона_доступности>"
+       security_group_ids             = [yandex_vpc_security_group.data-processing-sg.id]
+       deletion_protection            = <защита_от_удаления_кластера>
+
        depends_on = [
          yandex_resourcemanager_folder_iam_member.dataproc-provisioner,
          yandex_resourcemanager_folder_iam_member.dataproc-agent
@@ -673,6 +683,7 @@ description: Следуя данной инструкции, вы сможете
     * Настройки подкластеров {{ dataproc-name }} в параметре `configSpec.subclustersSpec`.
   * Зону доступности кластера {{ dataproc-name }} в параметре `zoneId`.
   * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} в параметре `serviceAccountId`.
+  * (Опционально) Идентификатор сервисного аккаунта для управления автомасштабируемыми подкластерами в параметре `autoscalingServiceAccountId`.
   * Имя бакета в параметре `bucket`.
   * Идентификаторы групп безопасности кластера {{ dataproc-name }} в параметре `hostGroupIds`.
   * Настройки защиты от удаления кластера {{ dataproc-name }} в параметре `deletionProtection`.
@@ -690,4 +701,3 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 После того как кластер {{ dataproc-name }} перейдет в статус **Running**, вы можете [подключиться](./connect-ssh.md) к хостам подкластеров {{ dataproc-name }} с помощью указанного SSH-ключа.
-

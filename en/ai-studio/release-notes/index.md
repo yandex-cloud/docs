@@ -5,6 +5,10 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 10/11/2025 {#101125}
+
+You can no longer deploy the gpt-oss-20b and gpt-oss-120b models in dedicated instances. These models remain available in the [common instance](../concepts/generation/models.md#generation).
+
 ## Release as of 07/11/2025 {#071125}
 
 Added support for [{{ search-api-full-name }}](../../search-api/) in {{ ml-sdk-full-name}}.

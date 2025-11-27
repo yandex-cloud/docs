@@ -32,7 +32,7 @@ All deployed models are accessible via an API compatible with [{{ openai }}](../
 
 ## Dedicated instance configurations {#config}
 
-Each model may be available for deployment in several configurations: **S**, **M**, or **L**. Each configuration guarantees specific values ​of TTFT (_time to first token_), _Latency_ (time it takes to generate a response), and TPS (_tokens per second_) for requests with different context lengths.
+Each model may be available for deployment in several configurations: **S**, **M**, or **L**. Each configuration guarantees specific values ​​of TTFT (_time to first token_), _Latency_ (time it takes to generate a response), and TPS (_tokens per second_) for requests with different context lengths.
 
 The figure below shows the dependence of latency and the number of tokens processed by the model on the number of parallel generations (_Concurrency_ in the figure): up to a certain point, the more generations the model processes in parallel, the longer the generation will last, and the more tokens will be generated per second.
 

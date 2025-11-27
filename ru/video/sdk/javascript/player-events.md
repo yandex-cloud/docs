@@ -176,7 +176,7 @@ player.on('BufferedRangesChange', ({ bufferedRanges }) => {
 });
 ```
 
-### FullscreenStateChange {#fullscreenstatechange}
+#### FullscreenStateChange {#fullscreenstatechange}
 
 Изменение состояния полноэкранного режима. 
 

@@ -81,6 +81,8 @@ items:
             href: operations/agents/create-simple-text-agent.md
           - name: Creating a text agent with a function call
             href: operations/agents/create-function-text-agent.md
+          - name: Creating a text agent with file search
+            href: operations/agents/create-filesearch-text-agent.md
           - name: Managing {{ vector-store-name }} search index
             href: operations/agents/manage-searchindex.md
           - name: '{{ assistant-api }}'
@@ -152,6 +154,8 @@ items:
             items:
               - name: Web search
                 href: concepts/agents/tools/websearch.md
+              - name: Searching through files
+                href: concepts/agents/tools/filesearch.md
           - name: '{{ assistant-api }}'
             items:
               - name: AI assistants
@@ -967,7 +971,7 @@ items:
         href: tutorials/models-fine-tuning.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
-      - name: Integrating generative models into Visual Studio Code
+      - name: Integrating generative models in Visual Studio Code
         href: tutorials/ai-model-ide-integration.md
       - name: Creating an AI assistant for Telegram
         href: tutorials/tg-bot-assistant.md

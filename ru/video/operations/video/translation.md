@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете [добавлять](#add) и [удалять](#delete) нейроперевод во время загрузки или изменения видео.
 
+{% include [free-neuro](../../../_includes/video/free-neuro.md) %}
+
 ## Добавить нейроперевод {#add}
 
 {% list tabs group=instructions %}

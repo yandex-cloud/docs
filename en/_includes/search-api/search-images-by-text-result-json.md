@@ -1,0 +1,1 @@
+The search query result will be saved to a file named `result.json` with a Base64-encoded [XML response](../../search-api/concepts/image-search.md#xml-response-format) in the `rawData` field.

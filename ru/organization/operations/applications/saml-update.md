@@ -29,6 +29,51 @@ description: Следуя данной инструкции, вы сможете
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** добавьте новые [метки](../../../resource-manager/concepts/labels.md) с помощью кнопки **{{ ui-key.yacloud.component.label-set.button_add-label }}**. Чтобы удалить существующую метку, используйте значок ![xmark](../../../_assets/console-icons/xmark.svg).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения SAML-приложения:
+
+     ```bash
+     yc organization-manager idp application saml application update --help
+     ```
+  
+  1. Выполните команду:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <идентификатор_приложения> \
+       --new-name <имя_приложения> \
+       --description <описание_приложения> \
+       --labels <ключ>=<значение>[,<ключ>=<значение>]
+     ```
+
+     Где:
+
+     * `--id` — идентификатор SAML-приложения. Обязательный параметр.
+     * `--new-name` — новое имя SAML-приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description` — новое описание SAML-приложения.
+     * `--labels` — новый список [меток](../../../resource-manager/concepts/labels.md). Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
 {% endlist %}
 
 ## Измените конфигурацию поставщика услуг {#update-sp}
@@ -42,6 +87,56 @@ description: Следуя данной инструкции, вы сможете
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения конфигурации поставщика услуг:
+
+     ```bash
+     yc organization-manager idp application saml application update --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <идентификатор_приложения> \
+       --sp-entity-id <идентификатор_поставщика_услуг> \
+       --acs-urls <URL>[,<URL>] \
+       --signature-mode <режим_подписи>
+     ```
+
+     Где:
+
+     * `--id` — идентификатор SAML-приложения. Обязательный параметр.
+     * `--sp-entity-id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
+     * `--acs-urls` — URL-адрес или несколько адресов через запятую, на которые {{ org-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `--signature-mode` — элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
+       * `assertion_only` — только передаваемые атрибуты пользователя;
+       * `response_only` — весь SAML-ответ целиком;
+       * `response_and_assertion` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: saml-app
+     organization_id: bpf2c65rqcl8********
+     sp_entity_id: https://example.com/saml
+     acs_urls:
+       - url: https://example.com/saml/acs
+     signature_mode: RESPONSE_AND_ASSERTION
+     group_claims_settings:
+       group_distribution_type: NONE
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
 
 {% endlist %}
 
@@ -67,6 +162,61 @@ description: Следуя данной инструкции, вы сможете
       1. Чтобы скачать новый сертификат, в строке с этим сертификатом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.common.download }}**.
       1. Чтобы удалить сертификат, в строке с этим сертификатом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**, после чего подтвердите удаление. Удалить можно только неактивный сертификат.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.close }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания нового сертификата:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate create --help
+     ```
+
+  1. Создайте новый сертификат:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate create \
+       --application-id <идентификатор_приложения>
+     ```
+
+     Где:
+
+     * `--application-id` — идентификатор SAML-приложения.
+
+     Результат:
+
+     ```text
+     id: ajeq9jfrmc5t********
+     application_id: ek0o663g4rs2********
+     created_at: "2025-10-21T10:14:17.861652377Z"
+     ```
+
+     Сохраните идентификатор сертификата — он потребуется для активации сертификата.
+
+  1. Посмотрите список сертификатов приложения:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate list \
+       --application-id <идентификатор_приложения>
+     ```
+
+  1. Активируйте новый сертификат:
+
+     ```bash
+     yc organization-manager idp application saml signature-certificate update \
+       --id <идентификатор_сертификата> \
+       --active true
+     ```
+
+     Где:
+
+     * `--id` — идентификатор сертификата, полученный при создании.
+     * `--active` — установите `true` для активации сертификата.
+
+     {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
 
 {% endlist %}
 

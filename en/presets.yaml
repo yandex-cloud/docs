@@ -555,6 +555,7 @@ default:
   python-full-ver: Python 3.12
   quota-manager-full-name: Yandex Cloud Quota Manager
   quota-manager-name: Cloud Quota Manager
+  quota-manager-short-name: Quota Manager
   RD: Valkey™
   realtime-api: Realtime API
   realtime-model: speech-realtime-250923
@@ -8600,6 +8601,10 @@ default:
       center-layout:
         Layout:
           organization-description_kvoUz: Users & applications
+        MyAccountLayout:
+          groups_pqQRu: Groups
+          profile_8kyBA: Profile
+          security_7zQ3g: Login and security
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Generate new certificate
@@ -8762,6 +8767,29 @@ default:
         organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Add users
+      my-account:
+        GroupsPageLayout:
+          header: My groups
+        login:
+          entry-methods:
+            header: Login methods
+        ProfileEditPageLayout:
+          main_breadcrumb: Profile data
+        ProfilePage:
+          edit_action: Edit
+        refresh-tokens:
+          action_remove_all: Delete all tokens
+        security:
+          login-confirmation:
+            header: Login confirmation
+        SecurityPageLayout:
+          refresh_breadcrumb: Refresh tokens
+      myaccount:
+        security:
+          EntryMethodsTable:
+            change-action: Change
+          LoginConfirmationTable:
+            delete-action: Delete
       organization:
         apps:
           AppAssignmentsPage:
@@ -8802,6 +8830,9 @@ default:
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
+        idp:
+          PasswordDialog:
+            action_save-password_gaB2s: Save password
         security-settings:
           acr_any-mfa_j6PdY: Any
           acr_phr_7hMqk: Phishing-resistant
@@ -9073,6 +9104,7 @@ default:
         action_download: Download
         action_edit: Edit
         statistics: Statistics
+        upload: Upload
       dashboard:
         action_add-user: Add a participant
         action_go-to-org: Go to organization
@@ -9108,6 +9140,8 @@ default:
         label_thumbnail: Thumbnail
       videos:
         action_create-video: Upload video
+        action_generate-subtitles: Generate
+        action_subtitles_upload_again: Upload again
         field_summarization: Summary
         label_access_rights-public: All users
         label_access_rights-sign-url-access: By temporary link
