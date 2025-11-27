@@ -35,7 +35,7 @@ The support cost for this solution includes:
 
 - Manually {#manual}
 
-   1. [Create service accounts](../../iam/operations/sa/create.md):
+   1. [Create these service accounts](../../iam/operations/sa/create.md):
 
       * `resource-sa` with the `{{ roles.k8s.clusters.agent }}`, `{{ roles-logging-writer }}`, and `kms.keys.encrypterDecrypter` [roles](../../iam/concepts/access-control/roles.md) for the folder where you want to create a {{ k8s }} cluster. This account will be used to create the resources for the {{ k8s }} cluster.
       * `node-sa` with the `{{ roles-cr-puller }}` role. The nodes will use this account to pull the required Docker images from the registry.
@@ -263,7 +263,7 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
 
 1. Update the network settings in the cluster node group and on the VM using one of the following methods:
 
-   * Connect to each node in the group and to the VM [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
+   * Connect to each node in the group and to the VM [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
    * Reboot the group nodes and VM at any convenient time.
 
    {% note warning %}

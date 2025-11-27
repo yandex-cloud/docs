@@ -76,9 +76,10 @@ When creating a virtual machine, you need to select an [image](../../concepts/im
 - API {#api}
 
   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in these examples:
-     * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
+     * [Guide](../../../iam/operations/iam-token/create.md) for a Yandex account user.
      * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for service accounts.
-     * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for federated accounts.
+     * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+     * [Guide](../../../iam/operations/iam-token/create-for-local.md) for a local account.
   1. Get a list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call. In your request, specify the following parameters:
      * Specify `standard-images` as the folder ID.
      * The folder contains many images, so specify `pageSize=1000` or use the obtained value of `nextPageToken` to get the next page.

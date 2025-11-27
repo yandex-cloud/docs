@@ -45,14 +45,20 @@ items:
         href: tutorials/index.md
       - name: Creating a direct trunk and a private connection in it
         href: tutorials/trunk-priv-add.md
+      - name: Creating a direct trunk and a public connection in it
+        href: tutorials/trunk-pub-add.md
       - name: Adding a private connection to a trunk
         href: tutorials/priv-add.md
       - name: Changing VPC IP prefixes in a routing instance
         href: tutorials/ri-prefixes-upsert.md
+      - name: Adding a public connection to a trunk
+        href: tutorials/pub-add.md
       - name: Updating trunk capacity
         href: tutorials/trunk-capacity-change.md
       - name: Deleting a private connection
         href: tutorials/priv-del.md
+      - name: Deleting a public connection
+        href: tutorials/pub-del.md
       - name: Deleting a trunk
         href: tutorials/trunk-del.md
   - name: Concepts

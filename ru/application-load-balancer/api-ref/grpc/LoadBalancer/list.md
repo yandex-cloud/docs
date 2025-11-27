@@ -34,11 +34,15 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListLoadBalancersResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListLoadBalancersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListLoadBalancersResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListLoadBalancersResponse) returned by a previous list request. ||
+[ListLoadBalancersResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListLoadBalancersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters application load balancers listed in the response.
@@ -47,7 +51,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [LoadBalancer.name](#yandex.cloud.apploadbalancer.v1.LoadBalancer) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-load-balancer`. ||
+Example of a filter: `name=my-load-balancer`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListLoadBalancersResponse {#yandex.cloud.apploadbalancer.v1.ListLoadBalancersResponse}
@@ -253,7 +259,6 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 
 Status of the application load balancer.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The application load balancer is being created.
 - `STARTING`: The application load balancer is being started.
 - `ACTIVE`: The application load balancer is active and sends traffic to the targets.
@@ -360,10 +365,14 @@ An endpoint resource.
 ||Field | Description ||
 || addresses[] | **[Address](#yandex.cloud.apploadbalancer.v1.Address)**
 
-Endpoint public (external) and internal addresses. ||
+Endpoint public (external) and internal addresses.
+
+The number of elements must be greater than 0. ||
 || ports[] | **int64**
 
-Endpoint ports. ||
+Endpoint ports.
+
+The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive. ||
 |#
 
 ## Address {#yandex.cloud.apploadbalancer.v1.Address}
@@ -555,7 +564,9 @@ Settings for handling requests. ||
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
-RSA and ECDSA certificates are supported, and only the first certificate of each type is used. ||
+RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
@@ -589,7 +600,9 @@ A SNI handler resource.
 Required field. Name of the SNI handler. ||
 || server_names[] | **string**
 
-Server names that are matched by the SNI handler. ||
+Server names that are matched by the SNI handler.
+
+The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
@@ -614,7 +627,9 @@ A locality settings (allocation policy) resource.
 ||Field | Description ||
 || locations[] | **[Location](#yandex.cloud.apploadbalancer.v1.Location)**
 
-Availability zones and subnets that the application load balancer resides. ||
+Availability zones and subnets that the application load balancer resides.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Location {#yandex.cloud.apploadbalancer.v1.Location}
@@ -663,7 +678,9 @@ Lower limit for the number of resource units in each availability zone.
 If not specified previously (using other instruments such as management console), the default value is 2.
 To revert to it, specify it explicitly.
 
-The minimum value is 2. ||
+The minimum value is 2.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || max_size | **int64**
 
 Upper limit for the total number of resource units across all availability zones.
@@ -671,7 +688,9 @@ Upper limit for the total number of resource units across all availability zones
 If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of
 [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
 
-If the value is 0, there is no upper limit. ||
+If the value is 0, there is no upper limit.
+
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## LogOptions {#yandex.cloud.apploadbalancer.v1.LogOptions}
@@ -700,12 +719,13 @@ If neither codes or intervals are provided, rule applies to all logs.
 ||Field | Description ||
 || http_codes[] | **int64**
 
-HTTP codes that should be discarded. ||
+HTTP codes that should be discarded.
+
+Acceptable values are 100 to 599, inclusive. ||
 || http_code_intervals[] | enum **HttpCodeInterval**
 
 Groups of HTTP codes like 4xx that should be discarded.
 
-- `HTTP_CODE_INTERVAL_UNSPECIFIED`
 - `HTTP_1XX`
 - `HTTP_2XX`
 - `HTTP_3XX`
@@ -717,5 +737,7 @@ Groups of HTTP codes like 4xx that should be discarded.
 GRPC codes that should be discarded ||
 || discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
+Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

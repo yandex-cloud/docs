@@ -74,6 +74,15 @@ To create a token:
     1. In the **{{ ui-key.yacloud.gitlab.field_approval-rules-token }}** field, specify the [token you created earlier](#gitlab-token).
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
+{% note tip %}
+
+If you encounter problems when accessing the system hook, use the `127.0.0.1` IP address instead of `localhost`:
+
+1. In the system hook settings (**Admin area** → **System Hooks**), change the **URL** value to `http://127.0.0.1:24080/default`.
+1. In the {{ GL }} settings that allow sending messages to the local network (**Admin area** → **Settings** → **Network** → **Expand outbound requests**, CIDR input field), add `http://127.0.0.1:24080` to the list of IP addresses and domain names.
+
+{% endnote %}
+
 ## Set up the approval rules {#rules}
 
 The approval rules for the repository are stored in the `APPROVALRULES` file in the root directory. The configuration is read from the [default branch]({{ gl.docs }}/ee/user/project/repository/branches/default.html) when running the instance and is automatically loaded when you modify the file.

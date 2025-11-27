@@ -1,0 +1,11 @@
+items:
+  - name: CreateTrail
+    href: events-ref/CreateTrail.md
+  - name: DeleteTrail
+    href: events-ref/DeleteTrail.md
+  - name: SetTrailAccessBindings
+    href: events-ref/SetTrailAccessBindings.md
+  - name: UpdateTrail
+    href: events-ref/UpdateTrail.md
+  - name: UpdateTrailAccessBindings
+    href: events-ref/UpdateTrailAccessBindings.md

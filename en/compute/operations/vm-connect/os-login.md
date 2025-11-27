@@ -7,6 +7,11 @@ description: Follow this guide to connect to a VM via {{ oslogin }}.
 
 [{{ oslogin }}](../../../organization/concepts/os-login.md) provides users and [service accounts](../../../iam/concepts/users/service-accounts.md) access to [VMs](../../../compute/concepts/vm.md#project) relying solely on the [{{ iam-full-name }}](../../../iam/concepts/index.md) mechanisms, without requiring you to upload SSH keys to each new VM when creating it.
 
+{% note warning %}
+
+{% include [os-login-sa-default-profile-notice](../../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+{% endnote %}
 
 ## Getting started {#before-you-begin}
 

@@ -27,17 +27,23 @@ Lists operations for the specified target group.
 
 Required field. ID of the target group to get operations for.
 
-To get the target group ID, use a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
+To get the target group ID, use a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListTargetGroupOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTargetGroupOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request. ||
+[ListTargetGroupOperationsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListTargetGroupOperationsResponse {#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsResponse}

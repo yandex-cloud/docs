@@ -176,10 +176,14 @@ Field mask that specifies which attributes of the application load balancer shou
 || name | **string**
 
 New name for the application load balancer.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-New description of the application load balancer. ||
+New description of the application load balancer.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 New application load balancer labels as `key:value` pairs.
@@ -189,7 +193,9 @@ Existing set of labels is completely replaced by the provided set, so if you jus
 to add or remove a label:
 1. Get the current set of labels with a [LoadBalancerService.Get](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/get#Get) request.
 2. Add or remove a label in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || listener_specs[] | **[ListenerSpec](#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
 
 New listeners for the application load balancer.
@@ -248,12 +254,16 @@ Specifies whether application load balancer is available to zonal shift. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the listener. The name is unique within the application load balancer. ||
+Required field. Name of the listener. The name is unique within the application load balancer.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || endpoint_specs[] | **[EndpointSpec](#yandex.cloud.apploadbalancer.v1.EndpointSpec)**
 
 Endpoints of the listener.
 
-Endpoints are defined by their IP addresses and ports. ||
+Endpoints are defined by their IP addresses and ports.
+
+The number of elements must be greater than 0. ||
 || http | **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
 
 Unencrypted HTTP listener settings.
@@ -287,10 +297,14 @@ Listener type and settings. ||
 ||Field | Description ||
 || address_specs[] | **[AddressSpec](#yandex.cloud.apploadbalancer.v1.AddressSpec)**
 
-Endpoint public (external) and internal addresses. ||
+Endpoint public (external) and internal addresses.
+
+The number of elements must be greater than 0. ||
 || ports[] | **int64**
 
-Endpoint ports. ||
+Endpoint ports.
+
+The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive. ||
 |#
 
 ## AddressSpec {#yandex.cloud.apploadbalancer.v1.AddressSpec}
@@ -474,7 +488,9 @@ Settings for handling requests. ||
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
-RSA and ECDSA certificates are supported, and only the first certificate of each type is used. ||
+RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
@@ -508,7 +524,9 @@ A SNI handler resource.
 Required field. Name of the SNI handler. ||
 || server_names[] | **string**
 
-Server names that are matched by the SNI handler. ||
+Server names that are matched by the SNI handler.
+
+The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
@@ -533,7 +551,9 @@ A locality settings (allocation policy) resource.
 ||Field | Description ||
 || locations[] | **[Location](#yandex.cloud.apploadbalancer.v1.Location)**
 
-Availability zones and subnets that the application load balancer resides. ||
+Availability zones and subnets that the application load balancer resides.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Location {#yandex.cloud.apploadbalancer.v1.Location}
@@ -582,7 +602,9 @@ Lower limit for the number of resource units in each availability zone.
 If not specified previously (using other instruments such as management console), the default value is 2.
 To revert to it, specify it explicitly.
 
-The minimum value is 2. ||
+The minimum value is 2.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || max_size | **int64**
 
 Upper limit for the total number of resource units across all availability zones.
@@ -590,7 +612,9 @@ Upper limit for the total number of resource units across all availability zones
 If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of
 [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
 
-If the value is 0, there is no upper limit. ||
+If the value is 0, there is no upper limit.
+
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## LogOptions {#yandex.cloud.apploadbalancer.v1.LogOptions}
@@ -619,12 +643,13 @@ If neither codes or intervals are provided, rule applies to all logs.
 ||Field | Description ||
 || http_codes[] | **int64**
 
-HTTP codes that should be discarded. ||
+HTTP codes that should be discarded.
+
+Acceptable values are 100 to 599, inclusive. ||
 || http_code_intervals[] | enum **HttpCodeInterval**
 
 Groups of HTTP codes like 4xx that should be discarded.
 
-- `HTTP_CODE_INTERVAL_UNSPECIFIED`
 - `HTTP_1XX`
 - `HTTP_2XX`
 - `HTTP_3XX`
@@ -636,7 +661,9 @@ Groups of HTTP codes like 4xx that should be discarded.
 GRPC codes that should be discarded ||
 || discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
+Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -901,7 +928,6 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 
 Status of the application load balancer.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The application load balancer is being created.
 - `STARTING`: The application load balancer is being started.
 - `ACTIVE`: The application load balancer is active and sends traffic to the targets.
@@ -1008,10 +1034,14 @@ An endpoint resource.
 ||Field | Description ||
 || addresses[] | **[Address](#yandex.cloud.apploadbalancer.v1.Address)**
 
-Endpoint public (external) and internal addresses. ||
+Endpoint public (external) and internal addresses.
+
+The number of elements must be greater than 0. ||
 || ports[] | **int64**
 
-Endpoint ports. ||
+Endpoint ports.
+
+The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive. ||
 |#
 
 ## Address {#yandex.cloud.apploadbalancer.v1.Address}
@@ -1203,7 +1233,9 @@ Settings for handling requests. ||
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
-RSA and ECDSA certificates are supported, and only the first certificate of each type is used. ||
+RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler2}
@@ -1237,7 +1269,9 @@ A SNI handler resource.
 Required field. Name of the SNI handler. ||
 || server_names[] | **string**
 
-Server names that are matched by the SNI handler. ||
+Server names that are matched by the SNI handler.
+
+The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler2)**
 
 Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
@@ -1262,7 +1296,9 @@ A locality settings (allocation policy) resource.
 ||Field | Description ||
 || locations[] | **[Location](#yandex.cloud.apploadbalancer.v1.Location2)**
 
-Availability zones and subnets that the application load balancer resides. ||
+Availability zones and subnets that the application load balancer resides.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Location {#yandex.cloud.apploadbalancer.v1.Location2}
@@ -1311,7 +1347,9 @@ Lower limit for the number of resource units in each availability zone.
 If not specified previously (using other instruments such as management console), the default value is 2.
 To revert to it, specify it explicitly.
 
-The minimum value is 2. ||
+The minimum value is 2.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || max_size | **int64**
 
 Upper limit for the total number of resource units across all availability zones.
@@ -1319,7 +1357,9 @@ Upper limit for the total number of resource units across all availability zones
 If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of
 [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy2).
 
-If the value is 0, there is no upper limit. ||
+If the value is 0, there is no upper limit.
+
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## LogOptions {#yandex.cloud.apploadbalancer.v1.LogOptions2}
@@ -1348,12 +1388,13 @@ If neither codes or intervals are provided, rule applies to all logs.
 ||Field | Description ||
 || http_codes[] | **int64**
 
-HTTP codes that should be discarded. ||
+HTTP codes that should be discarded.
+
+Acceptable values are 100 to 599, inclusive. ||
 || http_code_intervals[] | enum **HttpCodeInterval**
 
 Groups of HTTP codes like 4xx that should be discarded.
 
-- `HTTP_CODE_INTERVAL_UNSPECIFIED`
 - `HTTP_1XX`
 - `HTTP_2XX`
 - `HTTP_3XX`
@@ -1365,5 +1406,7 @@ Groups of HTTP codes like 4xx that should be discarded.
 GRPC codes that should be discarded ||
 || discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
+Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

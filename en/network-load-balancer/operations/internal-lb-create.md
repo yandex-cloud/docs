@@ -125,7 +125,7 @@ The internal load balancer listener gets a random IP address within the selected
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -162,7 +162,7 @@ The internal load balancer listener gets a random IP address within the selected
        * `port`: Port number (ranging from `1` to `32767`) on which the load balancer will listen to incoming traffic.
        * `internal_address_spec`: Specification of the listener for the external load balancer settings:
          * `subnet_id`: Subnet ID.
-         * `ip_version`: External IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
+         * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
      * `attached_target_group`: Description of the network load balancer's target group settings:
         * `target_group_id`: Target group ID.
 
@@ -319,7 +319,7 @@ Create an internal network load balancer with a listener and attached target gro
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

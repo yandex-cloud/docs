@@ -1,14 +1,14 @@
-# Preparing a disk image
+# Setting up a custom disk image
 
 {% note info %}
 
-You can only use images prepared following this guide.
+You can only use images set up following this guide.
 
 You can also view out-of-the-box images in [{{ marketplace-full-name }}](/marketplace).
 
 {% endnote %}
 
-You can use your own file with a Linux [VM](../../concepts/vm.md) [disk](../../concepts/disk.md) [image](../../concepts/image.md). Once your image is prepared, [upload it](upload.md) to {{ compute-name }}.
+You can use your own file with a Linux [VM](../../concepts/vm.md) [disk](../../concepts/disk.md) [image](../../concepts/image.md). Once your image is set up, [upload it](upload.md) to {{ compute-name }}.
 
 If you have developed software that might be helpful to others, consider [listing](../../../marketplace/operations/create-product.md) it in {{ marketplace-full-name }}.
 
@@ -18,11 +18,11 @@ Images with an [UEFI/EFI](https://en.wikipedia.org/wiki/UEFI) bootloader are not
 
 {% endnote %}
 
-## Configuring the OS to meet the requirements {#requirements}
+## Configure the OS as per the requirements {#requirements}
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
 
-### Installing virtio drivers {#virtio}
+### Install virtio drivers {#virtio}
 
 To successfully upload your image, make sure to install the `virtio-blk`, `virtio-net`, and `virtio-pci` drivers. To use {{ compute-name }} [file storages](../../concepts/filesystem.md), install `virtiofs`.
 
@@ -97,7 +97,7 @@ Follow the steps below to check if the drivers are installed in your OS. If not,
 
    - Debian/Ubuntu {#ubuntu}
 
-     Run the following command:
+     Run this command:
 
      ```sh
      lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|_pci|fs)"
@@ -124,7 +124,7 @@ Follow the steps below to check if the drivers are installed in your OS. If not,
 
    {% endcut %}
 
-### Configuring the serial console {#serial-console}
+### Configure the serial console {#serial-console}
 
 A [serial console](../serial-console/index.md) enables accessing a VM regardless of the [network](../../../vpc/concepts/network.md#network) or OS state. Use the serial console to troubleshoot your VM or when you have SSH access issues. For more information, see [{#T}](../serial-console/index.md).
 
@@ -171,7 +171,7 @@ To enable serial console access to your VM, configure the image to use `ttyS0` (
 
 After [creating a VM from your image](upload.md#create-vm-from-user-image), you need to additionally [configure it for using the serial console](../serial-console/index.md). 
 
-## Disabling cloud platform verification when creating an image in Amazon EC2 {#ec2}
+## Disable cloud platform verification when creating an image in Amazon EC2 {#ec2}
 
 When using an AMI to create an image in Amazon EC2, `cloud-init` verifies that the VM is running within the Amazon EC2 environment. VMs launched in {{ compute-full-name }} will fail the verification and may run incorrectly.
 
@@ -179,17 +179,33 @@ To avoid this, disable metadata verification on your VMs: in the `/etc/cloud/clo
 
 ```yaml
 #cloud-config
+datasource_list: [Ec2]
 datasource:
   Ec2:
     strict_id: false
 ```
 
-## Installing drivers to enable GPU compatibility {#gpu-drivers}
+{% note alert %}
+
+The `cloud-init` package releases starting from version `25.1.4`, as well as `24.4.1-0ubuntu0~20.04.3+esm1`, and `23.1.2-0ubuntu0~18.04.1+esm1`, introduce [changes](https://cloudinit.readthedocs.io/en/latest/reference/breaking_changes.html#id3) that may affect existing virtual machines created from custom images.
+
+After the upgrade, such virtual machines may have issues when starting from a [snapshot](../../concepts/snapshot.md) or boot disk VM [image](../../concepts/image.md).
+
+To fix this issue, run this command on your existing VM:
+
+```bash
+echo "datasource_list: [Ec2]" | sudo tee /etc/cloud/cloud.cfg.d/99999_ds_list.cfg
+```
+
+{% endnote %}
+
+
+## Install drivers for GPU compatibility {#gpu-drivers}
 
 
 If you need to use a [GPU](../../concepts/gpus.md) with your VM, make sure to [install NVIDIA drivers](../vm-operate/install-nvidia-drivers.md) while preparing the image.
 
-## Creating an image file {#create-image-file}
+## Create an image file {#create-image-file}
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 

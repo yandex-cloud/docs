@@ -31,7 +31,9 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
 
 Required field. Name of the virtual host to delete.
 
-To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/grpc/VirtualHost/list#List) request. ||
+To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/grpc/VirtualHost/list#List) request.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

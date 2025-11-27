@@ -15,7 +15,7 @@ The infrastructure support cost includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../../managed-kubernetes/pricing.md)).
 * Fee for {{ managed-k8s-name }} cluster nodes: specifically using computing resources and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#prices-public-ip)).
+* Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#prices-public-ip)).
 * Fee for using the load balancer's computing resources (see [{{ alb-name }} pricing](../../../application-load-balancer/pricing.md)).
 
 ## Getting started {#before-you-begin}
@@ -30,7 +30,7 @@ The infrastructure support cost includes:
 
    {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
 
-1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating it, specify the preconfigured security groups.
+1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating, specify the preconfigured security groups.
 
 1. {% include [create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
@@ -38,15 +38,16 @@ The infrastructure support cost includes:
 
 1. [Create a service account](../../../iam/operations/sa/create.md) the controller will use to create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
 
-   * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create the {{ alb-name }} resources.
+   * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create {{ alb-name }} resources.
    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
    * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): If you use cloud certificates registered with [{{ certificate-manager-full-name }}](../../../certificate-manager/).
    * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager.editor): If you use {{ managed-k8s-name }} cluster certificates. In this case, the controller creates the relevant cloud certificates.
    * [compute.viewer](../../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../../application-load-balancer/concepts/target-group.md).
-   *  [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer): To enable the controller to determine the network for deploying the L7 load balancer.
+   * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer): To enable the controller to determine the network for deploying the L7 load balancer.
    * [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor): To connect a {{ sws-full-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) to an L7 load balancer's virtual host. This role is optional.
+   * [logging.writer](../../../logging/security/index.md#logging-writer): If the [Gateway](../../../managed-kubernetes/alb-ref/gateway.md) resource specifies a [log group](../../../logging/concepts/log-group.md) to write L7 load balancer logs to {{ cloud-logging-full-name }}. This role is optional.
 
-1. Create a service account [authorized access key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) in JSON format and save it to the `sa-key.json` file:
+1. [Create an authorized access key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account in JSON format and save it to the `sa-key.json` file:
 
     ```bash
     yc iam key create \
@@ -91,7 +92,7 @@ The infrastructure support cost includes:
 
       If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all existing namespaces, e.g., `gwin-space`.
 
-      You can get the folder ID from the [cloud’s folder list](../../../resource-manager/operations/folder/get-id.md).
+      You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
 
 ## Create a test app {#create-test-app}
 
@@ -218,6 +219,8 @@ To test the Gwin controller, create a test application named `example-app`:
       metadata:
         name: example-gateway
         namespace: example-ns
+        annotations:
+          gwin.yandex.cloud/securityGroups: <load_balancer_security_group_IDs>
       spec:
         gatewayClassName: gwin-default
         listeners:
@@ -306,6 +309,7 @@ To test the Gwin controller, create a test application named `example-app`:
           gwin.yandex.cloud/groupName: example
           gwin.yandex.cloud/externalIPv4Address: auto
           gwin.yandex.cloud/rules.allowedMethods: "GET"
+          gwin.yandex.cloud/securityGroups: <load_balancer_security_group_IDs>
       spec:
         ingressClassName: gwin-default
         rules:

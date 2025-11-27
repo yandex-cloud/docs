@@ -1,6 +1,6 @@
-Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure using {{ TF }}. It will help you flexibly configure access permissions to resources.
+Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure via {{ TF }}. It will help you flexibly configure access permissions to resources.
 
-You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/accounts.md#passport) or a [federated account](../../iam/concepts/users/accounts.md#saml-federation), but this method is less secure. For more information, see the end of this section.
+You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local user](../../iam/concepts/users/accounts.md#local) account, but this method is less secure. For more information, see the end of this section.
 1. If you do not have the {{ yandex-cloud }} CLI yet, [install it](../../cli/quickstart.md#install).
 1. If you do not have a service account, create one:
 

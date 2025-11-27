@@ -20,6 +20,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -28,6 +29,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -38,6 +40,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `name=my-target-group`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -71,11 +74,15 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request. ||
+[ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters target groups listed in the response.
@@ -84,7 +91,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [TargetGroup.name](#yandex.cloud.apploadbalancer.v1.TargetGroup) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-target-group`. ||
+Example of a filter: `name=my-target-group`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse}

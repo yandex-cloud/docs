@@ -45,10 +45,14 @@ Field mask that specifies which attributes of the target group should be updated
 || name | **string**
 
 New name for the target group.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-New description of the target group. ||
+New description of the target group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
@@ -58,7 +62,9 @@ Existing set of labels is completely replaced by the provided set, so if you jus
 to add or remove a label:
 1. Get the current set of labels with a [TargetGroupService.Get](/docs/application-load-balancer/api-ref/grpc/TargetGroup/get#Get) request.
 2. Add or remove a label in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
 New list of targets in the target group.

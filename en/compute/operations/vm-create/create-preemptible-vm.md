@@ -19,7 +19,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your preemptible VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **Advanced setup**.
@@ -122,7 +122,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the properties of resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -229,7 +229,7 @@ To change the type of a VM, such as making it non-preemptible:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the preemptible VM is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the VM you need and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
@@ -350,7 +350,7 @@ This will affect the cost of running this VM. Learn more about VM pricing [here]
 
 #### See also {#see-also}
 
-* [{#T}](../vm-connect/ssh.md).
-* [{#T}](../../tutorials/nodejs-cron-restart-vm.md).
-* [{#T}](../../tutorials/hpc-on-preemptible.md).
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).
+* [{#T}](../vm-connect/ssh.md)
+* [{#T}](../../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../../tutorials/hpc-on-preemptible.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

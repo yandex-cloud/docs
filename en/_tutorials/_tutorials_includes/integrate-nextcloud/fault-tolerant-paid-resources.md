@@ -1,0 +1,8 @@
+The cost of the proposed solution includes: 
+* Fee for [disks](../../../compute/concepts/disk.md), [disk snapshots](../../../compute/concepts/snapshot.md), and continuously running [VMs](../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* Fee for using [public IP addresses](../../../vpc/concepts/address.md#public-addresses) and [NAT gateways](../../../vpc/concepts/gateways.md#nat-gateway) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Fee for [data storage](../../../storage/concepts/bucket.md) in {{ objstorage-name }} and data [operations](../../../storage/operations/index.md) (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
+* Fee for using a {{ MY }} managed DB (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* If using {{ dns-full-name }}, fee for [DNS zones](../../../dns/concepts/dns-zone.md#public-zones) and public DNS queries (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
+* If using a load balancer, fee for the number of [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) resource units (see [{{ alb-full-name }} pricing](../../../application-load-balancer/pricing.md)).
+* If using a [log group](../../../logging/concepts/log-group.md) for load balancer logging, fee for data logging and storage (see [{{ cloud-logging-full-name }} pricing](../../../logging/pricing.md)).

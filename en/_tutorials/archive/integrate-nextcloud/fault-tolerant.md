@@ -1,23 +1,4 @@
-In this tutorial, you will connect an {{ objstorage-name }} [bucket](../../../storage/concepts/bucket.md) to a Nextcloud solution deployed on a {{ compute-name }} [VM instance](../../../compute/concepts/vm.md) with a database in a {{ mmy-full-name }} [cluster](../../../managed-mysql/concepts/index.md). To ensure fault tolerance and redundancy of your Nextcloud infrastructure, you will scale Nextcloud across an [instance group](../../../compute/concepts/instance-groups/index.md) and implement [L7 load balancing](../../../application-load-balancer/concepts/application-load-balancer.md) with {{ alb-full-name }}. In the fault-tolerant configuration, Nextcloud will be available via a domain name, for which a [TLS certificate](../../../certificate-manager/concepts/managed-certificate.md) will be issued in {{ certificate-manager-full-name }}.
-
-{% note info %}
-
-To implement a fault-tolerant Nextcloud configuration, you will need a domain for the L7 load balancer.
-
-{% endnote %}
-
-Fault-tolerant solution diagram:
-
-![integrate-nextcloud](../../../_assets/tutorials/integrate-nextcloud/integrate-nextcloud.svg)
-
-Where:
-* `example.com`: Your domain for which a [certificate](../../../certificate-manager/concepts/managed-certificate.md) is issued in {{ certificate-manager-full-name }}, connected to the [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md).
-* `nextcloud-alb`: L7 load balancer to evenly distribute incoming user traffic across instance group hosts.
-* `nextcloud-instance-group`: [Instance group](../../../compute/concepts/instance-groups/index.md) with hosts the Nextcloud solution is deployed on.
-* `nextcloud-db-cluster`: {{ mmy-full-name }} [cluster](../../../managed-mysql/concepts/index.md) with the Nextcloud service database.
-* `my-nextcloud-bucket`: {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) connected to the Nextcloud solution.
-
-To deploy Nextcloud in {{ yandex-cloud }} and connect an {{ objstorage-name }} bucket:
+{% include [fault-tolerant-intro](../../_tutorials_includes/integrate-nextcloud/fault-tolerant-intro.md) %}
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Deploy Nextcloud in a basic configuration](#the-basic-variant):
@@ -47,14 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the proposed solution includes: 
-* Fee for [disks](../../../compute/concepts/disk.md), [disk snapshots](../../../compute/concepts/snapshot.md), and continuously running [VMs](../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for using [public IP addresses](../../../vpc/concepts/address.md#public-addresses) and [NAT gateways](../../../vpc/concepts/gateways.md#nat-gateway) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
-* Fee for [data storage](../../../storage/concepts/bucket.md) in {{ objstorage-name }} and data [operations](../../../storage/operations/index.md) (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
-* Fee for using a {{ MY }} managed DB (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
-* If using {{ dns-full-name }}, fee for [DNS zones](../../../dns/concepts/dns-zone.md#public-zones) and public DNS queries (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
-* If using a load balancer, fee for the number of [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) resource units (see [{{ alb-full-name }} pricing](../../../application-load-balancer/pricing.md)).
-* If using a [log group](../../../logging/concepts/log-group.md) for load balancer logging, fee for data logging and storage (see [{{ cloud-logging-full-name }} pricing](../../../logging/pricing.md)).
+{% include [fault-tolerant-paid-resources](../../_tutorials_includes/integrate-nextcloud/fault-tolerant-paid-resources.md) %}
 
 ## Deploy Nextcloud in a basic configuration {#the-basic-variant}
 
@@ -191,7 +165,7 @@ Nextcloud uses a {{ MY }} database to store service information. In this tutoria
 
 {% note info %}
 
-You can create the {{ MY }} database on the same host as Nextcloud, but this is less reliable and does not provide fault tolerance. If you are not going to deploy a fault-tolerant configuration, you may skip the cluster creation step and create the database later on the Nextcloud host.
+You can create the {{ MY }} database on the same host as Nextcloud, but this is less reliable and does not provide fault tolerance. If you are not intending to deploy a fault-tolerant configuration, you may skip the cluster creation step and create the database later on the Nextcloud host.
 
 {% endnote %}
 
@@ -233,22 +207,12 @@ It may take a few minutes to create a cluster.
 
 1. Install Nextcloud on `nextcloud-vm`:
 
-    1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to `nextcloud-vm` over SSH. You will perform all further actions under this step in the VM terminal.
-    1. Upgrade the versions of the packages installed on the VM:
-
-        ```bash
-        sudo apt update && sudo apt upgrade
-        ```
-    1. Install the required software packages and dependencies:
-
-        ```bash
-        sudo apt install \
-          apache2 mariadb-server libapache2-mod-php php-gd php-mysql php-curl php-mbstring \
-          php-intl php-gmp php-bcmath php-xml php-imagick php-zip php-fpm unzip
-        ```
+    1. {% include [basic-nextcloud-vm-setup1-1](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-1.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-2](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-2.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-3](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-3.md) %}
     1. Optionally, if you want to create the database on the same host as Nextcloud:
 
-        {% cut "If you did not create a {{ MY }} cluster and are not going to deploy a fault-tolerant solution:" %}
+        {% cut "**If you did not create a {{ MY }} cluster and are not intending to deploy a fault-tolerant solution:**" %}
 
         1. Run MySQL:
 
@@ -269,90 +233,23 @@ It may take a few minutes to create a cluster.
 
         {% endcut %}
 
-    1. Download the archive with the latest Nextcloud version:
-
-        ```bash
-        wget https://download.nextcloud.com/server/releases/latest.zip
-        ```
-    1. Unpack the archive to the `/var/www` directory:
-
-        ```bash
-        sudo unzip latest.zip -d /var/www
-        ```
-    1. Edit access permissions for the Nextcloud directory:
-
-        ```bash
-        sudo chown -R www-data:www-data /var/www/nextcloud
-        sudo chmod -R 755 /var/www/nextcloud/
-        ```
-    1. Configure the default virtual host:
-
-        1. Open the configuration file of the default virtual host:
-
-            ```bash
-            sudo nano /etc/apache2/sites-available/000-default.conf
-            ```
-        1. Replace the contents of `000-default.conf` with the following:
-
-            ```text
-            <VirtualHost *:80>
-            DocumentRoot /var/www/nextcloud/
-
-            <Directory /var/www/nextcloud/>
-            Require all granted
-            AllowOverride All
-            Options FollowSymLinks MultiViews
-
-            <IfModule mod_dav.c>
-            Dav off
-            </IfModule>
-            </Directory>
-            </VirtualHost>
-            ```
-    1. Enable the required [Apache web server](https://en.wikipedia.org/wiki/Apache_HTTP_Server) modules:
-
-        ```bash
-        sudo a2enmod rewrite
-        sudo a2enmod headers
-        a2enmod env
-        a2enmod dir
-        a2enmod mime
-        ```
-    1. Increase the amount of RAM available to the PHP interpreter for processing requests to Nextcloud to `512 MB`.
-
-        1. Open the `.htaccess` file in the Nextcloud installation directory:
-
-            ```bash
-            sudo nano /var/www/nextcloud/.htaccess
-            ```
-        1. Add the following line to the end of the file:
-
-            ```bash
-            php_value memory_limit 512M
-            ```
-        
-            Make sure to save your changes.
-    1. Restart the web server:
-
-        ```bash
-        sudo systemctl restart apache2
-        ```
+    1. {% include [basic-nextcloud-vm-setup1-4](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-4.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-5](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-5.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-6](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-6.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-7](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-7.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-8](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-8.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-9](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-9.md) %}
+    1. {% include [basic-nextcloud-vm-setup1-10](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup1-10.md) %}
 1. Configure Nextcloud in the GUI:
 
-    1. Open your local computer browser and enter the following in the address bar:
+    1. {% include [basic-nextcloud-vm-setup2-1](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-1.md) %}
+    1. In the **Create an admin account** form that opens:
 
-        ```text
-        http://<VM_public_IP_address>
-        ```
-
-        You can look up the VM's public IP address in the [management console]({{ link-console-main }}) by checking the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section's **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field on the VM information page.
-    1. In the **Create an administrator account** form that opens:
-
-        1. In the **New administrator account name** and **New administrator password** fields, set the Nextcloud administrator credentials you will use to log in to the system.
+        1. In the **New admin account name** and **New admin password** fields, set the Nextcloud administrator credentials you will use to log in to the system.
         1. In the **Database account** field, enter `user`, i.e., the database user name you specified when creating the {{ MY }} cluster or local database.
         1. In the **Database password** field, enter the database user password you specified when creating the {{ MY }} cluster or local database.
         1. In the **Database name** field, enter `nextcloud`, i.e., the database name you specified when creating the {{ MY }} cluster or local database.
-        1. In the **Database host** field, specify the FQDN of the cluster’s [current master host](../../../managed-mysql/operations/connect.md#fqdn-master) and port in this format:
+        1. In the **Database host** field, specify the FQDN of the cluster's [current master host](../../../managed-mysql/operations/connect.md#fqdn-master) and port in this format:
 
             ```text
             c-<cluster_ID>.rw.{{ dns-zone }}:3306
@@ -362,60 +259,30 @@ It may take a few minutes to create a cluster.
 
             {% note info %}
 
-            If it is not your intention to deploy a fault-tolerant solution and you did not create a {{ MY }} cluster, but created a database on `nextcloud-vm` instead, leave `localhost` in the **Database host** field.
+            If it is not your intention to deploy a fault-tolerant solution and you did not create a {{ MY }} cluster but created a database on `nextcloud-vm` instead, leave `localhost` in the **Database host** field.
 
             {% endnote %}
 
         1. Click **Install**.
 
-            This will start the deployment of the Nextcloud database in the {{ MY }} cluster. Wait for this process to complete.
-    1. After the installation is over, click **Skip** in the window with recommended applications that opens. You can get back to installing the applications you need at a later time.
-    1. Close the window with information on updates in the current Nextcloud version.
-    1. Open the application management menu. Do it by clicking the user icon in the top-right corner and selecting ![plus](../../../_assets/console-icons/plus.svg) **Applications** in the context menu that pops open.
-    1. In the window that opens, select ![person](../../../_assets/console-icons/person.svg) **Your applications** in the left-hand panel.
-    1. In the list that opens, find the `External storage support` application and click **Enable** in the row with it.
-
-        If needed, enter your Nextcloud administrator password in the pop-up window to confirm the operation.
-    1. Open the main settings menu. Do it by clicking the user icon in the top-right corner and selecting ![admin-icon](../../../_assets/tutorials/integrate-nextcloud/admin-icon.svg) **Server parameters** in the context menu that pops open.
-    1. In the window that opens, select ![app-dark-icon](../../../_assets/tutorials/integrate-nextcloud/app-dark-icon.svg) **External storage** in the left-hand panel under **Server parameters** and specify {{ objstorage-name }} integration settings under **External storage** in the window that opens:
-
-        1. In the **External storage** section, select `Amazon S3`.
-        1. In the **Authorization method** section, select `Access key`.
-        1. Under **Configuration**:
-
-            * In the **Bucket** field, enter a name for the bucket you created earlier, e.g., `my-nextcloud-bucket`.
-            * In the **Hostname** field, specify `{{ s3-storage-host }}`.
-            * In the **Port** field, specify `443`.
-            * In the **Access key** field, paste the ID of the static access key you created earlier.
-            * In the **Secret key** field, paste the secret key of the static access key you created earlier.
-        1. Under **Available to**, enable **All**.
-        1. On the right side of the section you are editing, click the ![check](../../../_assets/console-icons/check.svg) icon to save your changes.
-
-            Enter your Nextcloud administrator password in the pop-up window to confirm the operation.
+            This will start the deployment of the Nextcloud database. Wait for this process to complete.
+    1. {% include [basic-nextcloud-vm-setup2-2](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-2.md) %}
+    1. {% include [basic-nextcloud-vm-setup2-3](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-3.md) %}
+    1. {% include [basic-nextcloud-vm-setup2-4](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-4.md) %}
+    1. {% include [basic-nextcloud-vm-setup2-5](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-5.md) %}
+    1. {% include [basic-nextcloud-vm-setup2-6](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-6.md) %}
+    1. {% include [basic-nextcloud-vm-setup2-7](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-7.md) %}
+    1. {% include [basic-nextcloud-vm-setup2-8](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-vm-setup2-8.md) %}
 
 ### Test the solution in the basic configuration {#test-simple}
 
-To test {{ objstorage-full-name }} integration with Nextcloud on a single host:
-
-1. Open your local computer browser and enter the public IPv4 address of the Nextcloud VM in the address bar:
-
-    ```text
-    http://<VM_public_IP_address>
-    ```
-1. Get authenticated in Nextcloud using the login and password created when configuring the solution in the previous step.
-1. In the left part of the top menu, select ![folder-fill](../../../_assets/console-icons/folder-fill.svg) **Files**.
-1. In the left-hand menu, select **External storage** and then **AmazonS3**.
-1. Click ![plus](../../../_assets/console-icons/plus.svg) **New** and select ![arrow-shape-up-from-line](../../../_assets/console-icons/arrow-shape-up-from-line.svg) **Upload files** to upload a file from your local computer to the storage.
-1. Select a file on your local computer and upload it to the storage.
-
-    The uploaded file will now appear in the Nextcloud storage named `AmazonS3`.
-1. In {{ objstorage-full-name }}, [make sure](../../../storage/operations/objects/list.md) the file was uploaded to the bucket.
+{% include [basic-nextcloud-test](../../_tutorials_includes/integrate-nextcloud/basic-nextcloud-test.md) %}
 
 The deployment of the Nextcloud basic configuration is now complete. If you used a {{ MY }} cluster in the basic configuration, you can now proceed to deploy a fault-tolerant configuration.
 
 ## Deploy Nextcloud in a fault-tolerant configuration {#the-redundant-variant}
 
-You will deploy a fault-tolerant Nextcloud configuration in a group of three VMs, the load on Nextcloud hosts distributed with the help of an L7 {{ alb-full-name }}. The service database will reside in a three-host {{ MY }} cluster. Hosts of the instance group, load balancer, and {{ MY }} cluster will be evenly distributed across three [availability zones](../../../overview/concepts/geo-scope.md). Nextcloud will be available via the domain name, for which a TLS certificate will be issued in {{ certificate-manager-name }}.
+{% include [failsafe-nextcloud-intro](../../_tutorials_includes/integrate-nextcloud/failsafe-nextcloud-intro.md) %}
 
 ### Scale the {{ mmy-name }} cluster {#expand-mysql-cluster}
 
@@ -444,56 +311,9 @@ To add more hosts to a {{ mmy-name }} cluster:
 
 Before you create a VM snapshot to proceed with the instance group deployment, add your domain to the list of trusted addresses and Nextcloud domains:
 
-1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to `nextcloud-vm` over SSH.
-1. Add your domain to the array of trusted addresses and Nextcloud domains:
-
-    1. In the VM terminal, open the Nextcloud configuration file:
-
-        ```bash
-        sudo nano /var/www/nextcloud/config/config.php
-        ```
-    1. In the `trusted_domains` array, replace the host IP address with your domain name.
-
-        Here is an example:
-
-        ```php
-        'trusted_domains' =>
-        array (
-          0 => 'example.com',
-        ),
-        ```
-
-        The `trusted_domains` array allows you to restrict the range of IP addresses and/or domains you can use to access Nextcloud and ensures additional protection from unauthorized access. You can specify multiple addresses and/or domains, and you can also reduce or remove this restriction using wildcard characters:
-
-        {% list tabs %}
-
-        - Example 1
-
-          ```php
-          'trusted_domains' =>
-          array (
-            0 => '*.example.com',
-            1 => '198.168.*.*',
-          ),
-          ```
-
-          In this example, access is allowed from any subdomains of the `example.com` domain and the IP addresses of the `192.168.0.0` - `192.168.255.255` range.
-
-        - Example 2
-
-          ```php
-          'trusted_domains' =>
-          array (
-            0 => '*',
-          ),
-          ```
-
-          In this example, access is allowed from any domains and IP addresses.
-
-        {% endlist %}
-    1. Delete the `'overwrite.cli.url' => 'http://<VM_IP_address>',` line.
-    1. Save the changes and close the `nano` editor.
-1. [Stop](../../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `nextcloud-vm` virtual machine.
+1. {% include [failsafe-nextcloud-vm-setup1](../../_tutorials_includes/integrate-nextcloud/failsafe-nextcloud-vm-setup1.md) %}
+1. {% include [failsafe-nextcloud-vm-setup2](../../_tutorials_includes/integrate-nextcloud/failsafe-nextcloud-vm-setup2.md) %}
+1. {% include [failsafe-nextcloud-vm-setup3](../../_tutorials_includes/integrate-nextcloud/failsafe-nextcloud-vm-setup3.md) %}
 1. After the VM stops, create a snapshot of its disk:
 
     {% list tabs group=instructions %}
@@ -650,7 +470,7 @@ Create an [application-level load balancer](../../../application-load-balancer/c
       1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` and then the `nextcloud-sg` security group from the list that opens.
       1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, make sure all availability zones are selected.
       1. If you do not want load balancer logs saved to a [log group](../../../logging/concepts/log-group.md), disable **{{ ui-key.yacloud.alb.label_log-requests }}**.
-      1. In the **{{ ui-key.yacloud.alb.label_listeners }}** section, click **{{ ui-key.yacloud.alb.button_add-listener }}** and in the form that opens:
+      1. In the **{{ ui-key.yacloud.alb.label_listeners }}** section, click **{{ ui-key.yacloud.alb.button_add-listener }}** and do the following in the form that opens:
 
           1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the listener: `nextcloud-listener`.
           1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `HTTPS`.
@@ -697,20 +517,7 @@ Add an A resource record with the following properties to your DNS provider or y
 
 ### Test the solution in the fault-tolerant configuration {#test-redundant}
 
-To test {{ objstorage-full-name }} integration with Nextcloud in a fault-tolerant configuration:
-
-1. Open your local computer browser and enter your domain name in the address bar, e.g.:
-
-    ```text
-    https://example.com
-    ```
-1. Get authenticated in Nextcloud using the login and password created when configuring the solution.
-1. In the left part of the top menu, select ![folder-fill](../../../_assets/console-icons/folder-fill.svg) **Files**.
-1. In the left-hand menu, select **External storage** and then **AmazonS3**.
-1. Make sure you see the file uploaded in the previous step.
-1. Download the file you uploaded earlier. Do this by clicking ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and selecting ![arrow-down](../../../_assets/console-icons/arrow-down.svg) **Download** in the line with the filename.
-1. Delete the file. Do this by clicking ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and selecting ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Delete file** in the line with the filename.
-1. In {{ objstorage-full-name }}, [make sure](../../../storage/operations/objects/list.md) the file was deleted from the bucket.
+{% include [failsafe-nextcloud-test](../../_tutorials_includes/integrate-nextcloud/failsafe-nextcloud-test.md) %}
 
 ## How to delete the resources you created {#clear-out}
 

@@ -1,0 +1,1 @@
+Close the window with information on updates in the current Nextcloud version.

@@ -37,7 +37,9 @@ Required field. ID of the target group to add targets to.
 To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
-List of targets to add to the target group. ||
+List of targets to add to the target group.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Target {#yandex.cloud.apploadbalancer.v1.Target}

@@ -48,10 +48,11 @@ The checks follow this algorithm:
 
 [{{ iam-name }}](./index.md) is a main method for managing access in {{ yandex-cloud }} using roles. It enables the basic access control policy. For more details, see [{#T}](./index.md#roles-list).
 
-Access grantees: 
+The access grantees include:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
-* [Federated user](../../iam/concepts/federations.md)
+* [Federated user](../../iam/concepts/users/accounts.md#saml-federation)
+* [Local user](../../iam/concepts/users/accounts.md#local)
 * [System group](../../iam/concepts/access-control/system-group.md)
 * [Public group](../../iam/concepts/access-control/public-group.md)
 
@@ -70,7 +71,8 @@ If you do not need to differentiate access to specific objects, we recommend usi
 Access grantees: 
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
-* [Federated user](../../iam/concepts/federations.md)
+* [Federated user](../../iam/concepts/users/accounts.md#saml-federation)
+* [Local user](../../iam/concepts/users/accounts.md#local)
 * [System group](../../iam/concepts/access-control/system-group.md)
 * [Public group](../../iam/concepts/access-control/public-group.md)
 
@@ -83,7 +85,8 @@ A [bucket policy](./policy.md) is a list of rules that prohibit or allow [action
 Access grantees: 
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
-* [Federated user](../../iam/concepts/federations.md)
+* [Federated user](../../iam/concepts/users/accounts.md#saml-federation)
+* [Local user](../../iam/concepts/users/accounts.md#local)
 * Anonymous user
 
 Access is granted for a [bucket](../concepts/bucket.md), [object](../concepts/object.md), or a group of objects.

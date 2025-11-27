@@ -5,9 +5,9 @@ description: Access management in {{ cr-name }}. To allow access to {{ cr-name }
 
 # Access management in {{ cr-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. With no roles assigned, a user cannot perform most operations.
+{{ yandex-cloud }} users can only perform operations on resources in accordance with the roles assigned to them. Without assigned roles, a user cannot perform most operations.
 
-To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ cr-name }} resources, assign them the roles from the list below. Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
+To allow access to {{ cr-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -17,7 +17,7 @@ Roles for a resource can be assigned by users who have one of the following role
 
 {% note info %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} guide.
 
 {% endnote %}
 
@@ -29,14 +29,14 @@ To assign a role for the cloud:
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 
 ## Roles this service has {#roles-list}
 
-The list below shows {{ interconnect-name }} roles.
+The list below shows all roles used for access control in {{ interconnect-name }}.
 
 ### Service roles {#service-roles}
 

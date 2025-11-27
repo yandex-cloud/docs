@@ -115,3 +115,11 @@ When a VM fails:
 1. Mount the disk (see [{#T}](../../compute/operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) for details).
 1. Run a check of the disk file system.
 1. Transfer the data you need to the boot disk of your new VM.
+
+#### What to do if I get the `UNPROTECTED PRIVATE KEY FILE` warning? {#unprotected-private-key-file}
+
+On Unix-like systems, after you unpack the [SSH keys](../../compute/operations/vm-connect/ssh.md) generated via the management console, the private key gets permissions that are too high. This prompts the `UNPROTECTED PRIVATE KEY FILE` warning when connecting to the VM. To reduce the permissions, run this command:
+
+```bash
+chmod 600 <path_to_private_key_file>
+```

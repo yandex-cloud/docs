@@ -4,7 +4,7 @@ The main advantage of {{ mgl-name }} is that it reduces the installation and adm
 
 #### How to migrate data from {{ GL }} to {{ mgl-name }}? {#migration}
 
-You can migrate data from a {{ GL }} custom installation to {{ mgl-name }} by following [this guide](../../managed-gitlab/operations/instance/migration.md). Before you begin, see [how to run migration](../../managed-gitlab/concepts/migration.md).
+You can migrate data from a {{ GL }} custom installation to {{ mgl-name }}. Learn how to do this in [this guide](../../managed-gitlab/operations/instance/migration.md). Before you begin, see [how to run migration](../../managed-gitlab/concepts/migration.md).
 
 You cannot migrate data from {{ GL }}.com to {{ mgl-name }}: migration is only available for {{ GL }} installed on a server or local computer (self-managed {{ GL }}).
 
@@ -69,3 +69,10 @@ If backup creation fails (`Failed` status), [configure a separate security group
 #### Can I change instance type or disk size after the instance has been created? {#change-type-size}
 
 Yes, you can upgrade your instance to a higher performance type and increase its disk size. However, you cannot reduce instance disk size or switch to a lower performance type. For more information, see [{#T}](../../managed-gitlab/operations/instance/instance-update.md).
+
+#### What should I do if I cannot connect to the system hook on `localhost`? {#system-hooks-localhost}
+
+If you cannot connect to the system hook, use the `127.0.0.1` IP address instead of `localhost`:
+
+1. In the system hook settings (**Admin area** → **System Hooks**), change the **URL** value to `http://127.0.0.1:24080/default`.
+1. In the {{ GL }} settings that allow sending messages to the local network (**Admin area** → **Settings** → **Network** → **Expand outbound requests**, CIDR input field), add `http://127.0.0.1:24080` to the list of IP addresses and domain names.

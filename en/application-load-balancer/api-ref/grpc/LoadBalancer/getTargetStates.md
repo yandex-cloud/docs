@@ -106,7 +106,6 @@ Required field. ID of the availability zone. ||
 
 Status of the target in the availability zone.
 
-- `STATUS_UNSPECIFIED`
 - `HEALTHY`: All of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) are passed
 (the number depends on the [HealthCheck.healthy_threshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting) and the target is ready to receive traffic.
 - `PARTIALLY_HEALTHY`: Some of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) failed

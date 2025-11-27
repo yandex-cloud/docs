@@ -45,7 +45,7 @@ To create an infrastructure using {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-baas-backup-policy-auto-binding
           ```
 
-      1. Navigate to the repository directory. Make sure it contains the following files:
+      1. Navigate to the repository directory. It should now contain the following files:
 
           * `backup-policy-auto-binding-config.tf`: New infrastructure configuration.
           * `cloud-init.yaml`: VM metadata file.
@@ -91,7 +91,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant Terraform guides:
+    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Assigning a [role](../../iam/concepts/access-control/roles.md) to a service account: [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).

@@ -33,7 +33,7 @@ To set up your OpenCart online store with {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-opencart-store.git
           ```
 
-      1. Navigate to the repository directory. Make sure it contains the following files:
+      1. Navigate to the repository directory. It should now contain the following files:
           * `opencart.tf`: New infrastructure configuration.
           * `opencart.auto.tfvars`: User data file.
 
@@ -43,7 +43,7 @@ To set up your OpenCart online store with {{ TF }}:
 
        1. In the folder, create:
 
-           1. `opencart.tf`: New infrastructure configuration file:
+           1. `opencart.tf` configuration file:
 
                {% cut "opencart.tf" %}
 
@@ -51,7 +51,7 @@ To set up your OpenCart online store with {{ TF }}:
 
                {% endcut %}
 
-           1. `opencart.auto.tfvars`: User data file:
+           1. `opencart.auto.tfvars` user data file:
 
                {% cut "opencart.auto.tfvars" %}
 
@@ -61,7 +61,7 @@ To set up your OpenCart online store with {{ TF }}:
 
     {% endlist %}
 
-    For more information about the properties of {{ TF }} resources, see these {{ TF }} guides:
+    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
@@ -75,8 +75,8 @@ To set up your OpenCart online store with {{ TF }}:
 1. In the `opencart.auto.tfvars` file, set the following user-defined properties:
 
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-    * `vm_user`: VM username.
-    * `ssh_key_path`: Path to the public SSH key that is required to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `vm_user`: VM user name.
+    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `db_user`: DB username, e.g., `user1`.
     * `db_password`: DB password (8 to 128 characters).
 

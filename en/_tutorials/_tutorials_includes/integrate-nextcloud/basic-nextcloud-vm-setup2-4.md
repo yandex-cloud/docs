@@ -1,0 +1,1 @@
+Open the application management menu. To do this, click the user icon in the top-right corner of the screen and select ![plus](../../../_assets/console-icons/plus.svg) **Apps** from the context menu.

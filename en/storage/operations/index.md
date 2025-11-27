@@ -47,5 +47,5 @@ description: In these guides, you will learn how to work with {{ objstorage-full
 
 * [{#T}](hosting/setup.md)
 * [{#T}](hosting/own-domain.md)
-* [{#T}](hosting/multiple-domains.md)
+* [{#T}](hosting/multiple-domains/index.md)
 * [{#T}](hosting/certificate.md)

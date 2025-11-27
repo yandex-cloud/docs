@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure for a static website in {{ objstorage-name }} using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
-1. Prepare your infrastructure description files:
+1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
@@ -30,7 +30,7 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
         git clone https://github.com/yandex-cloud-examples/yc-s3-static-website.git
         ```
 
-     1. Navigate to the repository directory. Make sure it contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
         * `static.tf`: New infrastructure configuration.
         * `index.html` and `error.html`: Website's main page and error page.
 
@@ -64,11 +64,15 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the provider documentation:
+   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-    * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+    * [Configuring](../../iam/concepts/access-control/roles.md) access permissions for a folder: [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
     * [Bucket](../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+    * [Configuring](../../storage/operations/buckets/iam-access.md) access permissions for a bucket using {{ iam-name }}: [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
+    * [Configuring](../../storage/operations/buckets/edit-acl.md) access permissions for a bucket using the [{{ objstorage-name }} ACL](../../storage/concepts/acl.md): [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).
+    * [TLS certificate](../../certificate-manager/concepts/imported-certificate.md) data source: [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate).
+    * Bucket [object](../../storage/concepts/object.md): [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
     * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
     * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
@@ -90,7 +94,7 @@ After creating the infrastructure, [test the website](#test-site).
 
 To stop paying for the resources you created:
 
-1. Open the `static.tf` configuration file and delete the description of the new infrastructure from it.
+1. Open the `static.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -49,19 +49,38 @@ There are technical [limits](limits.md) for preloading.
 
 You can delete cached file copies from CDN servers by _purging the cache_. This lets you quickly update in the CDN the content that has changed in the origins.
 
-You can purge cache completely or partially. Partial purge is recommended: if you delete copies of all files from the cache, CDN servers will significantly increase the load on the origins, having to access them at every file request.
+You can [purge](../operations/resources/purge-cache.md) cache either fully or partially. Partial purge is recommended: if you delete copies of all files from the cache, CDN servers will significantly increase the load on the origins, having to access them at every file request.
 
-For partial purging, you can specify the paths to specific files and folders or use the `*` character replacing any number of characters. Each path must start with the `/` or `*` character. Examples of paths:
+{% include [wildcard-paths-purging-specifics](../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
 
-* `/image/foo.png`: An individual file.
-* `/image/*.jpg`: All files in the `/image` folder with the `.jpg` extension.
-* `*.jpg`: All files with the `.jpg` extension.
-* `*/static/*`: All files that have the `/static/` substring in the path.
+Examples of paths:
+
+{% list tabs group=cdn_provider %}
+
+- {{ cdn-full-name }} {#yc}
+
+  * `/image/foobar.png`: An individual file.
+  * `/image/foo*`: All files in the `/image/` folder with names starting with `foo`.
+  * `/static/*`: All files in the `/static/` folder.
+
+- EdgeCDN {#edge}
+
+  * `/image/foobar.png`: An individual file.
+  * `/image/*.jpg`: All files in the `/image` folder with the `.jpg` extension.
+  * `*.jpg`: All files with the `.jpg` extension.
+  * `*/static/*`: All files that have the `/static/` substring in the path.
+
+{% endlist %}
 
 If the file is cached based on the [query parameters](#cookie-and-query) (that is, for each request with new parameters, a separate copy was saved), all copies of the file are deleted by default. To delete only specific copies, you need to explicitly specify their query parameters, e.g., `/image/foo.png?id=12345`.
 
-There are technical [limits](limits.md) for cache purging.
+{% note warning %}
 
+{% include [the-vary-headers-purge-warning](../../_includes/cdn/the-vary-headers-purge-warning.md) %}
+
+{% endnote %}
+
+There are technical [limits](limits.md) for cache purging.
 
 ## Use cases {#examples}
 
@@ -71,6 +90,6 @@ There are technical [limits](limits.md) for cache purging.
 
 #### See also {#see-also}
 
-* [Instructions for configuring caching](../operations/resources/configure-caching.md).
+* [Caching setup guide](../operations/resources/configure-caching.md).
 * [Instructions for preloading content](../operations/resources/prefetch-files.md).
 * [Instructions for purging the cache](../operations/resources/purge-cache.md).

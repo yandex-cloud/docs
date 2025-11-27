@@ -14,6 +14,8 @@
 
 Для управления правами доступа в {{ baremetal-name }} можно использовать как сервисные, так и примитивные роли.
 
+{% include [baremetal](../../_mermaid/roles/baremetal.md) %}
+
 ### Сервисные роли {#service-roles}
 
 #### baremetal.auditor {#baremetal-auditor}
